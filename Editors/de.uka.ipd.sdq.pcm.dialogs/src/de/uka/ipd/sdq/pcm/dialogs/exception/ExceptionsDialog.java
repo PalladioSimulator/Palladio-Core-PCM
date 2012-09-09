@@ -42,227 +42,222 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 public class ExceptionsDialog extends TitleAreaDialog {
-	
-	private Signature signature;
-	private ExceptionType selecedExceptionType;
-	private Text messageField;
-	private SelectionAdapter deleteActionAdapter;
-	
-	public static final int ICON_COLUMN_INDEX = 0;
-	public static final int CONTEXT_COLUMN_INDEX = 1;
-	public static final int NAME_COLUMN_INDEX = 2;
 
-	/**
-	 * Columns of a table, which is used into ParameterEditDialog
-	 */
-	public final static String ICON_COLUMN = "";
-	public final static String CONTEXT_COLUMN = "Context";
-	public final static String NAME_COLUMN = "Name";
-	
-	private final String TITLE_DIALOG = "Create/Edit a ExceptionType...";
+    private Signature signature;
+    private ExceptionType selecedExceptionType;
+    private Text messageField;
+    private SelectionAdapter deleteActionAdapter;
 
-	// Set column names of Table
-	private static String[] columnNames = new String[] { ICON_COLUMN,
-			CONTEXT_COLUMN, NAME_COLUMN };
+    public static final int ICON_COLUMN_INDEX = 0;
+    public static final int CONTEXT_COLUMN_INDEX = 1;
+    public static final int NAME_COLUMN_INDEX = 2;
 
-	private TableViewer viewer;
+    /**
+     * Columns of a table, which is used into ParameterEditDialog
+     */
+    public final static String ICON_COLUMN = "";
+    public final static String CONTEXT_COLUMN = "Context";
+    public final static String NAME_COLUMN = "Name";
 
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-	protected TransactionalEditingDomain editingDomain = null;
-	
-	
-	public ExceptionsDialog(Shell parentShell, Signature signature) {
-		super(parentShell);
-		this.signature = signature;
-		this.deleteActionAdapter = new DeleteExctentionAction(signature);
-		this.editingDomain = TransactionUtil.getEditingDomain(signature);
-		
-		/**
-		 * the result of combining the constants which are required
-		 * to produce a typical application top level shell
-		 */
-		setShellStyle(SWT.RESIZE|SWT.TITLE|SWT.CLOSE |SWT.MIN|SWT.MAX);
-	}
+    private final String TITLE_DIALOG = "Create/Edit a ExceptionType...";
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
-	 */
-	@Override
-	protected void configureShell(Shell newShell) {
-		super.configureShell(newShell);
-		newShell.setText("Exceptions");
-	}
-	
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
-	 */
-	@Override
-	protected Control createDialogArea(Composite parent) {
+    // Set column names of Table
+    private static String[] columnNames = new String[] { ICON_COLUMN, CONTEXT_COLUMN, NAME_COLUMN };
 
-		Composite area = (Composite) super.createDialogArea(parent);
+    private TableViewer viewer;
 
-		Composite container = new Composite(area, SWT.NONE);
-		container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
-		container.setLayout(new GridLayout());
-		
-		final Group exceptionsGroup = new Group(container, SWT.NONE);
-		final GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 2;
-		exceptionsGroup.setLayout(gridLayout);
-		final GridData gd_group = new GridData(SWT.FILL, SWT.FILL, true, true);
-		gd_group.widthHint = 476;
-		exceptionsGroup.setLayoutData(gd_group);
-		exceptionsGroup.setText("Exeptions");
+    /**
+     * The transactional editing domain which is used to get the commands and alter the model
+     */
+    protected TransactionalEditingDomain editingDomain = null;
 
-		final Table table = new Table(exceptionsGroup, SWT.BORDER|SWT.FULL_SELECTION);
-		table.setLinesVisible(true);
-		table.setHeaderVisible(true);
-		final GridData gd_table = new GridData(SWT.FILL, SWT.FILL, true, true);
-		gd_table.widthHint = 401;
-		table.setLayoutData(gd_table);
-		
-		// Definere the table columns
-		final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
-		zeroColumn.setResizable(false);
-		zeroColumn.setWidth(30);
+    public ExceptionsDialog(Shell parentShell, Signature signature) {
+        super(parentShell);
+        this.signature = signature;
+        this.deleteActionAdapter = new DeleteExctentionAction(signature);
+        this.editingDomain = TransactionUtil.getEditingDomain(signature);
 
-		final TableColumn contextColumn = new TableColumn(table, SWT.NONE);
-		contextColumn.setWidth(100);
-		contextColumn.setText(CONTEXT_COLUMN);
-		
-		final TableColumn nameColumn = new TableColumn(table, SWT.NONE);
-		nameColumn.setWidth(140);
-		nameColumn.setText(NAME_COLUMN);
+        /**
+         * the result of combining the constants which are required to produce a typical application
+         * top level shell
+         */
+        setShellStyle(SWT.RESIZE | SWT.TITLE | SWT.CLOSE | SWT.MIN | SWT.MAX);
+    }
 
-		/** set create TableViewer instance*/
-		createTableViewer(table);
-		
-		final ToolBar toolBar = new ToolBar(exceptionsGroup, SWT.VERTICAL);
-		final GridData gd_toolBar = new GridData(SWT.FILL, SWT.FILL, false, true);
-		toolBar.setLayoutData(gd_toolBar);
-		
-		
-		ToolItem addItem = new ToolItem(toolBar, SWT.PUSH);
-		addItem.setImage(DialogsImages.imageRegistry.get(DialogsImages.ADD));
-		addItem.addSelectionListener(new AddExceptionTypeAction(signature));
-		
-		ToolItem deleteItem = new ToolItem(toolBar, SWT.PUSH);
-		deleteItem.setImage(DialogsImages.imageRegistry
-				.get(DialogsImages.DELETE));
-		deleteItem.addSelectionListener(deleteActionAdapter);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.jface.window.Window#configureShell(org.eclipse.swt.widgets.Shell)
+     */
+    @Override
+    protected void configureShell(Shell newShell) {
+        super.configureShell(newShell);
+        newShell.setText("Exceptions");
+    }
 
-		final Group exceptionMessageGroup = new Group(container, SWT.NONE);
-		exceptionMessageGroup.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
-		exceptionMessageGroup.setText("Exception Message");
-		exceptionMessageGroup.setLayout(new GridLayout());
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
+     */
+    @Override
+    protected Control createDialogArea(Composite parent) {
 
-		messageField = new Text(exceptionMessageGroup, SWT.BORDER | SWT.MULTI);
-		final GridData gd_text = new GridData(SWT.FILL, SWT.CENTER, true, false);
-		gd_text.heightHint = 60;
-		messageField.setLayoutData(gd_text);
-		messageField.addModifyListener(new ModifyListener(){
+        Composite area = (Composite) super.createDialogArea(parent);
 
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
-			 */
-			public void modifyText(ModifyEvent e) {
-				setExceptionTypeMessage(messageField.getText());
-			}
-		});
-		
-		setTitle(TITLE_DIALOG);
-		
-		return container;
-	}
-	
-	/** Initialization of TableViewer */
-	private void createTableViewer(Table table) {
+        Composite container = new Composite(area, SWT.NONE);
+        container.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
+        container.setLayout(new GridLayout());
 
-		
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(ExceptionType.class);
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        final Group exceptionsGroup = new Group(container, SWT.NONE);
+        final GridLayout gridLayout = new GridLayout();
+        gridLayout.numColumns = 2;
+        exceptionsGroup.setLayout(gridLayout);
+        final GridData gd_group = new GridData(SWT.FILL, SWT.FILL, true, true);
+        gd_group.widthHint = 476;
+        exceptionsGroup.setLayoutData(gd_group);
+        exceptionsGroup.setText("Exeptions");
 
-		viewer = new TableViewer(table);
-		viewer.setColumnProperties(columnNames);
+        final Table table = new Table(exceptionsGroup, SWT.BORDER | SWT.FULL_SELECTION);
+        table.setLinesVisible(true);
+        table.setHeaderVisible(true);
+        final GridData gd_table = new GridData(SWT.FILL, SWT.FILL, true, true);
+        gd_table.widthHint = 401;
+        table.setLayoutData(gd_table);
 
-		/** Create the cell editors for Name column */
-		CellEditor[] editors = new CellEditor[columnNames.length];
+        // Definere the table columns
+        final TableColumn zeroColumn = new TableColumn(table, SWT.NONE);
+        zeroColumn.setResizable(false);
+        zeroColumn.setWidth(30);
 
-		editors[NAME_COLUMN_INDEX] = new TextCellEditor(table);
+        final TableColumn contextColumn = new TableColumn(table, SWT.NONE);
+        contextColumn.setWidth(100);
+        contextColumn.setText(CONTEXT_COLUMN);
 
-		/** Assign the cell editors to the viewer */
-		viewer.setCellEditors(editors);
-		viewer.setCellModifier(new ExceptionsCellModifier(viewer, TransactionUtil
-				.getEditingDomain(signature)));
-		viewer.addSelectionChangedListener((ISelectionChangedListener) deleteActionAdapter);
+        final TableColumn nameColumn = new TableColumn(table, SWT.NONE);
+        nameColumn.setWidth(140);
+        nameColumn.setText(NAME_COLUMN);
 
-		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
-		adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-		viewer.setContentProvider(new AdapterFactoryContentProvider(
-				new FilteredItemsAdapterFactory(adapterFactory, filterList,
-						additionalReferences)));
-		viewer
-				.setLabelProvider(new AdapterFactoryLabelProvider(
-						new ExceptionsItemProviderAdapterFactory(
-								new PalladioItemProviderAdapterFactory(
-										adapterFactory))));
-		viewer.addSelectionChangedListener(new ISelectionChangedListener() {
-			public void selectionChanged(SelectionChangedEvent event) {
-				IStructuredSelection sel = (IStructuredSelection) event
-						.getSelection();
-				Object selection = (Object) sel.getFirstElement();
-				selecedExceptionType = (ExceptionType) selection;
-				if (selecedExceptionType != null
-						&& selecedExceptionType.getExceptionMessage() != null)
-					messageField.setText(selecedExceptionType
-							.getExceptionMessage());
-				else
-					messageField.setText("");
-			}
-		});
-		viewer.setInput(signature);
-	}
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
-	 */
-	@Override
-	protected void createButtonsForButtonBar(Composite parent) {
-		createButton(parent, IDialogConstants.CANCEL_ID,
-				IDialogConstants.CANCEL_LABEL, false);
-		createButton(parent, IDialogConstants.OK_ID,
-				IDialogConstants.OK_LABEL, true);
-	}
+        /** set create TableViewer instance */
+        createTableViewer(table);
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.jface.dialogs.TitleAreaDialog#getInitialSize()
-	 */
-	@Override
-	protected Point getInitialSize() {
-		return new Point(500, 375);
-	}
+        final ToolBar toolBar = new ToolBar(exceptionsGroup, SWT.VERTICAL);
+        final GridData gd_toolBar = new GridData(SWT.FILL, SWT.FILL, false, true);
+        toolBar.setLayoutData(gd_toolBar);
 
-	public static String[] getColumnNames() {
-		return columnNames;
-	}
-	
-	/** Set a message of ExceptionType*/
-	private void setExceptionTypeMessage(final String msg){
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
-				selecedExceptionType.setExceptionMessage(msg);
-			}
-		};
+        ToolItem addItem = new ToolItem(toolBar, SWT.PUSH);
+        addItem.setImage(DialogsImages.imageRegistry.get(DialogsImages.ADD));
+        addItem.addSelectionListener(new AddExceptionTypeAction(signature));
 
-		recCommand.setDescription("Delete ...");
-		editingDomain.getCommandStack().execute(recCommand);
-	}
+        ToolItem deleteItem = new ToolItem(toolBar, SWT.PUSH);
+        deleteItem.setImage(DialogsImages.imageRegistry.get(DialogsImages.DELETE));
+        deleteItem.addSelectionListener(deleteActionAdapter);
+
+        final Group exceptionMessageGroup = new Group(container, SWT.NONE);
+        exceptionMessageGroup.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, false));
+        exceptionMessageGroup.setText("Exception Message");
+        exceptionMessageGroup.setLayout(new GridLayout());
+
+        messageField = new Text(exceptionMessageGroup, SWT.BORDER | SWT.MULTI);
+        final GridData gd_text = new GridData(SWT.FILL, SWT.CENTER, true, false);
+        gd_text.heightHint = 60;
+        messageField.setLayoutData(gd_text);
+        messageField.addModifyListener(new ModifyListener() {
+
+            /*
+             * (non-Javadoc)
+             * 
+             * @see
+             * org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
+             */
+            public void modifyText(ModifyEvent e) {
+                setExceptionTypeMessage(messageField.getText());
+            }
+        });
+
+        setTitle(TITLE_DIALOG);
+
+        return container;
+    }
+
+    /** Initialization of TableViewer */
+    private void createTableViewer(Table table) {
+
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(ExceptionType.class);
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+
+        viewer = new TableViewer(table);
+        viewer.setColumnProperties(columnNames);
+
+        /** Create the cell editors for Name column */
+        CellEditor[] editors = new CellEditor[columnNames.length];
+
+        editors[NAME_COLUMN_INDEX] = new TextCellEditor(table);
+
+        /** Assign the cell editors to the viewer */
+        viewer.setCellEditors(editors);
+        viewer.setCellModifier(new ExceptionsCellModifier(viewer, TransactionUtil.getEditingDomain(signature)));
+        viewer.addSelectionChangedListener((ISelectionChangedListener) deleteActionAdapter);
+
+        ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
+        adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+        viewer.setContentProvider(new AdapterFactoryContentProvider(new FilteredItemsAdapterFactory(adapterFactory,
+                filterList, additionalReferences)));
+        viewer.setLabelProvider(new AdapterFactoryLabelProvider(new ExceptionsItemProviderAdapterFactory(
+                new PalladioItemProviderAdapterFactory(adapterFactory))));
+        viewer.addSelectionChangedListener(new ISelectionChangedListener() {
+            public void selectionChanged(SelectionChangedEvent event) {
+                IStructuredSelection sel = (IStructuredSelection) event.getSelection();
+                Object selection = (Object) sel.getFirstElement();
+                selecedExceptionType = (ExceptionType) selection;
+                if (selecedExceptionType != null && selecedExceptionType.getExceptionMessage() != null)
+                    messageField.setText(selecedExceptionType.getExceptionMessage());
+                else
+                    messageField.setText("");
+            }
+        });
+        viewer.setInput(signature);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.jface.dialogs.Dialog#createButtonsForButtonBar(org.eclipse.swt.widgets.Composite)
+     */
+    @Override
+    protected void createButtonsForButtonBar(Composite parent) {
+        createButton(parent, IDialogConstants.CANCEL_ID, IDialogConstants.CANCEL_LABEL, false);
+        createButton(parent, IDialogConstants.OK_ID, IDialogConstants.OK_LABEL, true);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.jface.dialogs.TitleAreaDialog#getInitialSize()
+     */
+    @Override
+    protected Point getInitialSize() {
+        return new Point(500, 375);
+    }
+
+    public static String[] getColumnNames() {
+        return columnNames;
+    }
+
+    /** Set a message of ExceptionType */
+    private void setExceptionTypeMessage(final String msg) {
+        RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+            @Override
+            protected void doExecute() {
+                selecedExceptionType.setExceptionMessage(msg);
+            }
+        };
+
+        recCommand.setDescription("Delete ...");
+        editingDomain.getCommandStack().execute(recCommand);
+    }
 
 }

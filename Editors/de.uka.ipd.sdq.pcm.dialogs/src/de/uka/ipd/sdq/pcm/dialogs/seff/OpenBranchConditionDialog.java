@@ -11,17 +11,16 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 // called via a CustomBehaviour in the genmap
 public class OpenBranchConditionDialog extends OpenStoExDialog {
 
-	
-	@Override
-	protected RandomVariable getRandomVariable(EObject parent) {
-		GuardedBranchTransition transition = (GuardedBranchTransition) parent;
-		RandomVariable rv = transition.getBranchCondition_GuardedBranchTransition();
-		return rv;
-	}
-	
-	@Override
-	protected TypeEnum getExpectedType(RandomVariable rv) {
-		return TypeEnum.BOOL;
-	}
-	
+    @Override
+    protected RandomVariable getRandomVariable(EObject parent) {
+        GuardedBranchTransition transition = (GuardedBranchTransition) parent;
+        RandomVariable rv = transition.getBranchCondition_GuardedBranchTransition();
+        return rv;
+    }
+
+    @Override
+    protected TypeEnum getExpectedType(RandomVariable rv) {
+        return TypeEnum.BOOL;
+    }
+
 }

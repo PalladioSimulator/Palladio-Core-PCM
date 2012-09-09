@@ -28,292 +28,277 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
- * The class initialize the DataTypeDialog with the Palladio Component Model
- * specific characteristics.
+ * The class initialize the DataTypeDialog with the Palladio Component Model specific
+ * characteristics.
  * 
  * @author Roman Andrej
  */
 public class PalladioDataTypeDialog extends DataTypeDialog {
 
-	private final String UNNAMED_REPOSITORY = "<Unnamed Repository>";
+    private final String UNNAMED_REPOSITORY = "<Unnamed Repository>";
 
-	private ComposedAdapterFactory adapterFactory;
+    private ComposedAdapterFactory adapterFactory;
 
-	private DataType innerDataType;
-	private DataType editedDataType;
-	private CreateEditorContents editorContents;
+    private DataType innerDataType;
+    private DataType editedDataType;
+    private CreateEditorContents editorContents;
 
-	private Repository editedRepository;
-	private CompositeDataType compositeDataType;
+    private Repository editedRepository;
+    private CompositeDataType compositeDataType;
 
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-	private TransactionalEditingDomain editingDomain = null;
+    /**
+     * The transactional editing domain which is used to get the commands and alter the model
+     */
+    private TransactionalEditingDomain editingDomain = null;
 
-	public PalladioDataTypeDialog(Shell parentShell,
-			TransactionalEditingDomain editingDomain) {
-		super(parentShell);
-		this.editingDomain = editingDomain;
-	}
+    public PalladioDataTypeDialog(Shell parentShell, TransactionalEditingDomain editingDomain) {
+        super(parentShell);
+        this.editingDomain = editingDomain;
+    }
 
-	public PalladioDataTypeDialog(Shell parentShell, DataType editeDataType) {
-		super(parentShell);
-		this.editingDomain = TransactionUtil.getEditingDomain(editeDataType);
-		this.editedDataType = editeDataType;
-		initDialog(editeDataType);
-	}
+    public PalladioDataTypeDialog(Shell parentShell, DataType editeDataType) {
+        super(parentShell);
+        this.editingDomain = TransactionUtil.getEditingDomain(editeDataType);
+        this.editedDataType = editeDataType;
+        initDialog(editeDataType);
+    }
 
-	/** call if datatype set (edite button) */
-	private void initDialog(DataType editeDataType) {
+    /** call if datatype set (edite button) */
+    private void initDialog(DataType editeDataType) {
 
-		String entityName;
-		String entityInnerType;
-		String repository;
+        String entityName;
+        String entityInnerType;
+        String repository;
 
-		if (editeDataType instanceof CollectionDataType) {
-			CollectionDataType collectionDataType = (CollectionDataType) editeDataType;
+        if (editeDataType instanceof CollectionDataType) {
+            CollectionDataType collectionDataType = (CollectionDataType) editeDataType;
 
-			entityName = collectionDataType.getEntityName();
-			repository = collectionDataType.getRepository__DataType()
-					.getEntityName();
+            entityName = collectionDataType.getEntityName();
+            repository = collectionDataType.getRepository__DataType().getEntityName();
 
-			/**
-			 * PalladioLabelProvider - representation a inner DataType name whit
-			 * Palladio look
-			 */
-			entityInnerType = ParameterRepresentation
-					.dataTypeToString(collectionDataType
-							.getInnerType_CollectionDataType());
+            /**
+             * PalladioLabelProvider - representation a inner DataType name whit Palladio look
+             */
+            entityInnerType = ParameterRepresentation.dataTypeToString(collectionDataType
+                    .getInnerType_CollectionDataType());
 
-			// create DataTypeDialog
-			create();
-			// Call constructor of DataTypeDialog
-			super.init(DataTypeEnum.COLLECTION, repository, entityName,
-					entityInnerType);
-		}
+            // create DataTypeDialog
+            create();
+            // Call constructor of DataTypeDialog
+            super.init(DataTypeEnum.COLLECTION, repository, entityName, entityInnerType);
+        }
 
-		if (editeDataType instanceof CompositeDataType) {
-			compositeDataType = (CompositeDataType) editeDataType;
+        if (editeDataType instanceof CompositeDataType) {
+            compositeDataType = (CompositeDataType) editeDataType;
 
-			entityName = compositeDataType.getEntityName();
-			repository = compositeDataType.getRepository__DataType()
-					.getEntityName();
-			// create DataTypeDialog
-			create();
-			// Call constructor of DataTypeDialog
-			super.init(DataTypeEnum.COMPOSITE, repository, entityName, null);
-		}
-	}
+            entityName = compositeDataType.getEntityName();
+            repository = compositeDataType.getRepository__DataType().getEntityName();
+            // create DataTypeDialog
+            create();
+            // Call constructor of DataTypeDialog
+            super.init(DataTypeEnum.COMPOSITE, repository, entityName, null);
+        }
+    }
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#getLoadedReposetorys()
-	 */
-	@Override
-	public String[] getLoadedRepositories() {
-		EList<Resource> resources = editingDomain.getResourceSet()
-				.getResources();
-		
-		List<String> tList = new ArrayList<String>();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#getLoadedReposetorys()
+     */
+    @Override
+    public String[] getLoadedRepositories() {
+        EList<Resource> resources = editingDomain.getResourceSet().getResources();
 
-		for (Resource r : resources) {
-			URI uri = r.getURI();
-			if (hasRepositoryExtension(uri)
-					&& !isPrimitiveTypesRepository(uri)
-					&& (!r.getContents().isEmpty() && r.getContents().get(0) instanceof Repository)) {
-				Repository repository = (Repository) r.getContents().get(0);
-				String repositoryName = repository.getEntityName();
-				tList.add(repositoryName == null ? UNNAMED_REPOSITORY
-						: repositoryName);
-			}
-		}
-		// convert to String[]
-		return (String[]) tList.toArray(new String[tList.size()]);
-	}
+        List<String> tList = new ArrayList<String>();
 
-	private boolean hasRepositoryExtension(URI uri) {
-		if (uri.fileExtension().equals("repository"))
-			return true;
-		return false;
-	}
+        for (Resource r : resources) {
+            URI uri = r.getURI();
+            if (hasRepositoryExtension(uri) && !isPrimitiveTypesRepository(uri)
+                    && (!r.getContents().isEmpty() && r.getContents().get(0) instanceof Repository)) {
+                Repository repository = (Repository) r.getContents().get(0);
+                String repositoryName = repository.getEntityName();
+                tList.add(repositoryName == null ? UNNAMED_REPOSITORY : repositoryName);
+            }
+        }
+        // convert to String[]
+        return (String[]) tList.toArray(new String[tList.size()]);
+    }
 
-	private boolean isPrimitiveTypesRepository(URI uri) {
-		String exp = "/PrimitiveTypes.repository";
-		if (uri.path().endsWith(exp))
-			return true;
-		return false;
-	}
+    private boolean hasRepositoryExtension(URI uri) {
+        if (uri.fileExtension().equals("repository"))
+            return true;
+        return false;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#setEditedResource(java.lang.String)
-	 */
-	@Override
-	public void setEditedResource(String repositoryName) {
-		EList<Resource> resources = editingDomain.getResourceSet()
-				.getResources();
+    private boolean isPrimitiveTypesRepository(URI uri) {
+        String exp = "/PrimitiveTypes.repository";
+        if (uri.path().endsWith(exp))
+            return true;
+        return false;
+    }
 
-		// Provide a list with loaded resources without primitive DataType
-		for (Resource r : resources) {
-			if (!r.getContents().isEmpty()
-					&& r.getContents().get(0) instanceof Repository) {
-				Repository repository = (Repository) r.getContents().get(0);
-				String entityName = repository.getEntityName() == null ? UNNAMED_REPOSITORY
-						: repository.getEntityName();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#setEditedResource(java.lang.String)
+     */
+    @Override
+    public void setEditedResource(String repositoryName) {
+        EList<Resource> resources = editingDomain.getResourceSet().getResources();
 
-				if (entityName.contains(repositoryName))
-					editedRepository = repository;
-			}
-		}
-	}
+        // Provide a list with loaded resources without primitive DataType
+        for (Resource r : resources) {
+            if (!r.getContents().isEmpty() && r.getContents().get(0) instanceof Repository) {
+                Repository repository = (Repository) r.getContents().get(0);
+                String entityName = repository.getEntityName() == null ? UNNAMED_REPOSITORY : repository
+                        .getEntityName();
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#innerSectionCompositeDataType(org.eclipse.swt.widgets.Composite)
-	 */
-	@Override
-	public void createInnerSectionCompositeGroup(Composite group) {
+                if (entityName.contains(repositoryName))
+                    editedRepository = repository;
+            }
+        }
+    }
 
-		adapterFactory = new ComposedAdapterFactory();
-		adapterFactory
-				.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcmbench.tabs.dialog.CreateDataTypeDialog#innerSectionCompositeDataType(org
+     * .eclipse.swt.widgets.Composite)
+     */
+    @Override
+    public void createInnerSectionCompositeGroup(Composite group) {
 
-		editorContents = CreateEditorContents.create(group);
-		editorContents
-				.setViewerContentProvider(new AdapterFactoryContentProvider(
-						adapterFactory));
-		editorContents
-				.setViewerLabelProvider(new AdapterFactoryLabelProvider(
-						new InnerDeclarationItemProviderAdapterFactory(
-								new PalladioItemProviderAdapterFactory(
-										adapterFactory))));
-		editorContents.setViewerCellModifier(new InnerDeclarationCellModifier(
-				this, editingDomain));
-		editorContents.createNameColumnCellEditor();
-		editorContents.createTypeColumnCellEditor(editingDomain);
-		editorContents
-				.setAddButtonActionListener(new AddInnerDeclarationAction(this,
-						editingDomain));
+        adapterFactory = new ComposedAdapterFactory();
+        adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
 
-		DeleteInnerDeclarationAction deleteInnerDeclarationAction = new DeleteInnerDeclarationAction(
-				this, editingDomain);
-		UpInnerDeclarationAction upInnerDeclarationAction = new UpInnerDeclarationAction(
-				this, editingDomain);
-		DownInnerDeclarationAction downInnerDeclarationAction = new DownInnerDeclarationAction(
-				this, editingDomain);
+        editorContents = CreateEditorContents.create(group);
+        editorContents.setViewerContentProvider(new AdapterFactoryContentProvider(adapterFactory));
+        editorContents
+                .setViewerLabelProvider(new AdapterFactoryLabelProvider(new InnerDeclarationItemProviderAdapterFactory(
+                        new PalladioItemProviderAdapterFactory(adapterFactory))));
+        editorContents.setViewerCellModifier(new InnerDeclarationCellModifier(this, editingDomain));
+        editorContents.createNameColumnCellEditor();
+        editorContents.createTypeColumnCellEditor(editingDomain);
+        editorContents.setAddButtonActionListener(new AddInnerDeclarationAction(this, editingDomain));
 
-		editorContents
-				.setDeleteButtonActionListener(deleteInnerDeclarationAction);
-		editorContents.setUpButtonActionListener(upInnerDeclarationAction);
-		editorContents.setDownButtonActionListener(downInnerDeclarationAction);
-		/** set SelectionChangedListener for viewer on the EditorContents */
-		editorContents
-				.setViewerSelectionChangedListener(deleteInnerDeclarationAction);
-		editorContents
-				.setViewerSelectionChangedListener(upInnerDeclarationAction);
-		editorContents
-				.setViewerSelectionChangedListener(downInnerDeclarationAction);
-		editorContents.setViewerInput(editedDataType);
+        DeleteInnerDeclarationAction deleteInnerDeclarationAction = new DeleteInnerDeclarationAction(this,
+                editingDomain);
+        UpInnerDeclarationAction upInnerDeclarationAction = new UpInnerDeclarationAction(this, editingDomain);
+        DownInnerDeclarationAction downInnerDeclarationAction = new DownInnerDeclarationAction(this, editingDomain);
 
-	}
+        editorContents.setDeleteButtonActionListener(deleteInnerDeclarationAction);
+        editorContents.setUpButtonActionListener(upInnerDeclarationAction);
+        editorContents.setDownButtonActionListener(downInnerDeclarationAction);
+        /** set SelectionChangedListener for viewer on the EditorContents */
+        editorContents.setViewerSelectionChangedListener(deleteInnerDeclarationAction);
+        editorContents.setViewerSelectionChangedListener(upInnerDeclarationAction);
+        editorContents.setViewerSelectionChangedListener(downInnerDeclarationAction);
+        editorContents.setViewerInput(editedDataType);
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#defeniereActionTypeButton(org.eclipse.swt.events.SelectionEvent)
-	 */
-	@Override
-	public String getSelectedInnerType(SelectionEvent e) {
+    }
 
-		String selectedType = "null";
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#defeniereActionTypeButton(org.eclipse
+     * .swt.events.SelectionEvent)
+     */
+    @Override
+    public String getSelectedInnerType(SelectionEvent e) {
 
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(DataType.class);
-		filterList.add(Repository.class);
+        String selectedType = "null";
 
-		CallDataTypeDialog dialog = new CallDataTypeDialog(e.display
-				.getActiveShell(), filterList, new ArrayList<EReference>(),
-				editingDomain.getResourceSet());
-		dialog.setProvidedService(DataType.class);
-		dialog.open();
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(DataType.class);
+        filterList.add(Repository.class);
 
-		if (dialog.getResult() != null
-				&& dialog.getResult() instanceof DataType) {
-			innerDataType = (DataType) dialog.getResult();
+        CallDataTypeDialog dialog = new CallDataTypeDialog(e.display.getActiveShell(), filterList,
+                new ArrayList<EReference>(), editingDomain.getResourceSet());
+        dialog.setProvidedService(DataType.class);
+        dialog.open();
 
-			selectedType = ParameterRepresentation
-					.dataTypeToString(innerDataType);
-		}
-		return selectedType;
-	}
+        if (dialog.getResult() != null && dialog.getResult() instanceof DataType) {
+            innerDataType = (DataType) dialog.getResult();
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.dialogs.datatype.DataTypeDialog#validateCompositeDataType()
-	 */
-	@Override
-	public boolean validateCompositeDataType() {
-		boolean state = true;
+            selectedType = ParameterRepresentation.dataTypeToString(innerDataType);
+        }
+        return selectedType;
+    }
 
-		if (compositeDataType == null
-				|| compositeDataType.getInnerDeclaration_CompositeDataType()
-						.isEmpty()) {
-			setErrorMessage(Messages.DataTypeDialog_ErrorMsgInner);
-			return false;
-		} else {
-			EList<InnerDeclaration> declarations = compositeDataType
-					.getInnerDeclaration_CompositeDataType();
-			for (InnerDeclaration declaration : declarations) {
-				state &= UpDownButtonsValidator.getSingelton()
-						.validdateDeclarationInnerDataType(declaration, this);
-			}
-		}
-		return state;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.dialogs.datatype.DataTypeDialog#validateCompositeDataType()
+     */
+    @Override
+    public boolean validateCompositeDataType() {
+        boolean state = true;
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
-	 */
-	@Override
-	public void createCollectionDataType() {
-		new DataTypeCommand(editingDomain).createCollectionDataType(
-				editedRepository, editedDataType, innerDataType,
-				getEntityName());
-	}
+        if (compositeDataType == null || compositeDataType.getInnerDeclaration_CompositeDataType().isEmpty()) {
+            setErrorMessage(Messages.DataTypeDialog_ErrorMsgInner);
+            return false;
+        } else {
+            EList<InnerDeclaration> declarations = compositeDataType.getInnerDeclaration_CompositeDataType();
+            for (InnerDeclaration declaration : declarations) {
+                state &= UpDownButtonsValidator.getSingelton().validdateDeclarationInnerDataType(declaration, this);
+            }
+        }
+        return state;
+    }
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
-	 */
-	@Override
-	public void createCompositeDataType() {
-		new DataTypeCommand(editingDomain).createCompositeDataType(
-				editedRepository, compositeDataType, getEntityName());
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
+     */
+    @Override
+    public void createCollectionDataType() {
+        new DataTypeCommand(editingDomain).createCollectionDataType(editedRepository, editedDataType, innerDataType,
+                getEntityName());
+    }
 
-	public DataType getEditedDataType() {
-		return editedDataType;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
+     */
+    @Override
+    public void createCompositeDataType() {
+        new DataTypeCommand(editingDomain)
+                .createCompositeDataType(editedRepository, compositeDataType, getEntityName());
+    }
 
-	/**
-	 * @return the compositeDataType
-	 */
-	public CompositeDataType getCompositeDataType() {
-		return compositeDataType;
-	}
+    public DataType getEditedDataType() {
+        return editedDataType;
+    }
 
-	/**
-	 * @param compositeDataType
-	 *            the compositeDataType to set
-	 */
-	public void setCompositeDataType(CompositeDataType compositeDataType) {
-		this.compositeDataType = compositeDataType;
-	}
+    /**
+     * @return the compositeDataType
+     */
+    public CompositeDataType getCompositeDataType() {
+        return compositeDataType;
+    }
 
-	/**
-	 * @return the editorContents
-	 */
-	public CreateEditorContents getEditorContents() {
-		return editorContents;
-	}
+    /**
+     * @param compositeDataType
+     *            the compositeDataType to set
+     */
+    public void setCompositeDataType(CompositeDataType compositeDataType) {
+        this.compositeDataType = compositeDataType;
+    }
 
-	public void refresh() {
-		editorContents.getViewer().refresh();
-		validateInput();
-	}
+    /**
+     * @return the editorContents
+     */
+    public CreateEditorContents getEditorContents() {
+        return editorContents;
+    }
+
+    public void refresh() {
+        editorContents.getViewer().refresh();
+        validateInput();
+    }
 }

@@ -10,17 +10,16 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 // called via a CustomBehaviour in the genmap
 public class OpenThinkTimeDialog extends OpenStoExDialog {
 
-	
-	@Override
-	protected RandomVariable getRandomVariable(EObject parent) {
-		ClosedWorkload cw = (ClosedWorkload) parent;
-		RandomVariable rv = cw.getThinkTime_ClosedWorkload();
-		return rv;
-	}
-	
-	@Override
-	protected TypeEnum getExpectedType(RandomVariable rv) {
-		return TypeEnum.DOUBLE;
-	}
-	
+    @Override
+    protected RandomVariable getRandomVariable(EObject parent) {
+        ClosedWorkload cw = (ClosedWorkload) parent;
+        RandomVariable rv = cw.getThinkTime_ClosedWorkload();
+        return rv;
+    }
+
+    @Override
+    protected TypeEnum getExpectedType(RandomVariable rv) {
+        return TypeEnum.DOUBLE;
+    }
+
 }

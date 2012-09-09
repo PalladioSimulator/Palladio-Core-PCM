@@ -9,67 +9,63 @@ import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
 /**
- * This class is a decorator for the generated EMF.Edit item providers. It
- * provides item providers which are used in the operations tab of the tabbed
- * properties sheet when editing interfaces. It implements
- * ITableItemLabelProvider to display the given EObject in a tabular form.
- * Additionally it provided the labels by partcial delegation to the original
- * IItemLabelProvider.
+ * This class is a decorator for the generated EMF.Edit item providers. It provides item providers
+ * which are used in the operations tab of the tabbed properties sheet when editing interfaces. It
+ * implements ITableItemLabelProvider to display the given EObject in a tabular form. Additionally
+ * it provided the labels by partcial delegation to the original IItemLabelProvider.
  * 
  * @author Roman Andrej
  */
-public class InnerDeclarationItemProvider extends ItemProviderDecorator implements
-ITableItemLabelProvider, IItemLabelProvider {
+public class InnerDeclarationItemProvider extends ItemProviderDecorator implements ITableItemLabelProvider,
+        IItemLabelProvider {
 
-	/**
-	 * @param adapterFactory
-	 */
-	public InnerDeclarationItemProvider(AdapterFactory adapterFactory){
-		super(adapterFactory);
-	}
+    /**
+     * @param adapterFactory
+     */
+    public InnerDeclarationItemProvider(AdapterFactory adapterFactory) {
+        super(adapterFactory);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getColumnImage(java.lang.Object,
-	 *      int)
-	 */
-	@Override
-	public Object getColumnImage(Object object, int columnIndex) {
-		if (columnIndex == CreateEditorContents.ICON_COLUMN_INDEX)
-			return this.getImage(object);
-		return null;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getColumnImage(java.lang.Object,
+     * int)
+     */
+    @Override
+    public Object getColumnImage(Object object, int columnIndex) {
+        if (columnIndex == CreateEditorContents.ICON_COLUMN_INDEX)
+            return this.getImage(object);
+        return null;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getColumnText(java.lang.Object,
-	 *      int)
-	 */
-	@Override
-	public String getColumnText(Object element, int columnIndex) {
-		String result = "";
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getColumnText(java.lang.Object, int)
+     */
+    @Override
+    public String getColumnText(Object element, int columnIndex) {
+        String result = "";
 
-		InnerDeclaration declaration = (InnerDeclaration) element;
+        InnerDeclaration declaration = (InnerDeclaration) element;
 
-		switch (columnIndex) {
-		case CreateEditorContents.ICON_COLUMN_INDEX:
-			break;
-		case CreateEditorContents.CONTEXT_COLUMN_INDEX:
-			result = declaration.getClass().getSimpleName();
-			break;
-		case CreateEditorContents.NAME_COLUMN_INDEX:
-			if (declaration != null)
-				result = declaration.getEntityName();
-			break;
-		case CreateEditorContents.TYPE_COLUMN_INDEX:
-			result = ParameterRepresentation.dataTypeToString(declaration
-					.getDatatype_InnerDeclaration());
-			break;
-		default:
-			break;
-		}
-		return result;
-	}
+        switch (columnIndex) {
+        case CreateEditorContents.ICON_COLUMN_INDEX:
+            break;
+        case CreateEditorContents.CONTEXT_COLUMN_INDEX:
+            result = declaration.getClass().getSimpleName();
+            break;
+        case CreateEditorContents.NAME_COLUMN_INDEX:
+            if (declaration != null)
+                result = declaration.getEntityName();
+            break;
+        case CreateEditorContents.TYPE_COLUMN_INDEX:
+            result = ParameterRepresentation.dataTypeToString(declaration.getDatatype_InnerDeclaration());
+            break;
+        default:
+            break;
+        }
+        return result;
+    }
 }

@@ -10,54 +10,52 @@ import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 
 /**
- * This content provider collects the parameters of a parent object
- * to be used in a variable usage.
+ * This content provider collects the parameters of a parent object to be used in a variable usage.
  * 
  * @author Benjamin Klatt
  * @author groenda
  */
-public class VariableUsageInputParameterContentProvider extends
-		VariableUsageContentProvider {
+public class VariableUsageInputParameterContentProvider extends VariableUsageContentProvider {
 
-	@Override
-	public Object[] getChildren(Object parent) {
-		if (parent instanceof OperationSignature) {
-			/*
-			 * Operation Signature Parameter
-			 */
-			OperationSignature signature = (OperationSignature) parent;
-			ArrayList<Parameter> inputParameter = new ArrayList<Parameter>();
-			for (Parameter p : signature.getParameters__OperationSignature()) {
-				if (p.getModifier__Parameter() == ParameterModifier.NONE || 
-					p.getModifier__Parameter() == ParameterModifier.IN || 
-					p.getModifier__Parameter() == ParameterModifier.INOUT){
-					inputParameter.add(p);
-				}
-			}
-			return inputParameter.toArray();
-		} else	if (parent instanceof EventType) {
-			/*
-			 * Event Type Parameter
-			 */
-			EventType eventType = (EventType) parent;
-			return new Object[]{eventType.getParameter__EventType()};
-		} else if (parent instanceof InfrastructureSignature) {
-			/* 
-			 * Infrastructure Signature Parameters 
-			 */
-			InfrastructureSignature signature = (InfrastructureSignature) parent;
-			ArrayList<Parameter> inputParameter = new ArrayList<Parameter>();
-			for (Parameter p : signature.getParameters__InfrastructureSignature()) {
-				if (p.getModifier__Parameter() == ParameterModifier.NONE || 
-					p.getModifier__Parameter() == ParameterModifier.IN || 
-					p.getModifier__Parameter() == ParameterModifier.INOUT){
-					inputParameter.add(p);
-				}
-			}
-			return inputParameter.toArray();
-		} else {
-			return super.getChildren(parent);
-		}
-	}
+    @Override
+    public Object[] getChildren(Object parent) {
+        if (parent instanceof OperationSignature) {
+            /*
+             * Operation Signature Parameter
+             */
+            OperationSignature signature = (OperationSignature) parent;
+            ArrayList<Parameter> inputParameter = new ArrayList<Parameter>();
+            for (Parameter p : signature.getParameters__OperationSignature()) {
+                if (p.getModifier__Parameter() == ParameterModifier.NONE
+                        || p.getModifier__Parameter() == ParameterModifier.IN
+                        || p.getModifier__Parameter() == ParameterModifier.INOUT) {
+                    inputParameter.add(p);
+                }
+            }
+            return inputParameter.toArray();
+        } else if (parent instanceof EventType) {
+            /*
+             * Event Type Parameter
+             */
+            EventType eventType = (EventType) parent;
+            return new Object[] { eventType.getParameter__EventType() };
+        } else if (parent instanceof InfrastructureSignature) {
+            /*
+             * Infrastructure Signature Parameters
+             */
+            InfrastructureSignature signature = (InfrastructureSignature) parent;
+            ArrayList<Parameter> inputParameter = new ArrayList<Parameter>();
+            for (Parameter p : signature.getParameters__InfrastructureSignature()) {
+                if (p.getModifier__Parameter() == ParameterModifier.NONE
+                        || p.getModifier__Parameter() == ParameterModifier.IN
+                        || p.getModifier__Parameter() == ParameterModifier.INOUT) {
+                    inputParameter.add(p);
+                }
+            }
+            return inputParameter.toArray();
+        } else {
+            return super.getChildren(parent);
+        }
+    }
 
 }

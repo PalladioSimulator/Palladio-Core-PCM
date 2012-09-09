@@ -26,122 +26,124 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 
 /**
- * The class sets the actions (add, edit, delete), which
- * PalladioSelectEObjectDialog were defined in.
+ * The class sets the actions (add, edit, delete), which PalladioSelectEObjectDialog were defined
+ * in.
  * 
  * @author Roman Andrej
  */
 public class CallDataTypeDialog extends PalladioSelectEObjectDialog {
 
-	private DataType selectedDataType = null;
+    private DataType selectedDataType = null;
 
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-	private TransactionalEditingDomain editingDomain = null;
+    /**
+     * The transactional editing domain which is used to get the commands and alter the model
+     */
+    private TransactionalEditingDomain editingDomain = null;
 
-	public CallDataTypeDialog(Shell parent, Collection<Object> filterList,
-			Collection<EReference> additionalChildReferences,Object input) {
-		super(parent, filterList, additionalChildReferences, input);
-		this.editingDomain = TransactionUtil.getEditingDomain(input);
-	}
-	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#createDialogArea(Composite parent)
-	 */
-	@Override
-	protected Control createDialogArea(Composite parent) {
-		Composite area = (Composite) super.createDialogArea(parent);
+    public CallDataTypeDialog(Shell parent, Collection<Object> filterList,
+            Collection<EReference> additionalChildReferences, Object input) {
+        super(parent, filterList, additionalChildReferences, input);
+        this.editingDomain = TransactionUtil.getEditingDomain(input);
+    }
 
-		/**
-		 * Activire the ToolBar with items
-		 * 
-		 * @See de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#enableToolBar(Boolean
-		 *      addItemEnabled, boolean deleteItemEnabled, boolean
-		 *      editItemEnabled)
-		 */
-		enableToolBar(true, false, false);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#createDialogArea(Composite parent)
+     */
+    @Override
+    protected Control createDialogArea(Composite parent) {
+        Composite area = (Composite) super.createDialogArea(parent);
 
-		TreeViewer treeViewer = getTreeViewer();
-		treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
+        /**
+         * Activire the ToolBar with items
+         * 
+         * @See de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#enableToolBar(Boolean
+         *      addItemEnabled, boolean deleteItemEnabled, boolean editItemEnabled)
+         */
+        enableToolBar(true, false, false);
 
-			public void selectionChanged(SelectionChangedEvent event) {
-				IStructuredSelection sel = (IStructuredSelection) event
-						.getSelection();
-				EObject selection = (EObject) sel.getFirstElement();
+        TreeViewer treeViewer = getTreeViewer();
+        treeViewer.addSelectionChangedListener(new ISelectionChangedListener() {
 
-				enableToolBar(true, false, false);
-				if ((selection instanceof CollectionDataType)
-						|| (selection instanceof CompositeDataType)) {
-					selectedDataType = (DataType) selection;
-					enableToolBar(true, true, true);
-				}
-			}
-		});
+            public void selectionChanged(SelectionChangedEvent event) {
+                IStructuredSelection sel = (IStructuredSelection) event.getSelection();
+                EObject selection = (EObject) sel.getFirstElement();
 
-		setAddSelectionListener(new SelectionAdapter() {
-			
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			@Override
-			public void widgetSelected(SelectionEvent e) {
-				Shell shell = e.widget.getDisplay().getActiveShell();
-				PalladioDataTypeDialog dialog = new PalladioDataTypeDialog(
-						shell,editingDomain);
-				dialog.open();
-			}
+                enableToolBar(true, false, false);
+                if ((selection instanceof CollectionDataType) || (selection instanceof CompositeDataType)) {
+                    selectedDataType = (DataType) selection;
+                    enableToolBar(true, true, true);
+                }
+            }
+        });
 
-		});
+        setAddSelectionListener(new SelectionAdapter() {
 
-		setDeleteSelectionListener(new SelectionAdapter() {
-			
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			@Override
-			public void widgetSelected(SelectionEvent e) {
+            /*
+             * (non-Javadoc)
+             * 
+             * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.
+             * SelectionEvent)
+             */
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+                Shell shell = e.widget.getDisplay().getActiveShell();
+                PalladioDataTypeDialog dialog = new PalladioDataTypeDialog(shell, editingDomain);
+                dialog.open();
+            }
 
-				RecordingCommand recCommand = new RecordingCommand(
-						editingDomain) {
-					@Override
-					protected void doExecute() {
-						Assert.isNotNull(selectedDataType);
+        });
 
-						Repository repository = selectedDataType
-								.getRepository__DataType();
+        setDeleteSelectionListener(new SelectionAdapter() {
 
-						EList<DataType> datatypesRepository = repository
-								.getDataTypes__Repository();
-						datatypesRepository.remove(selectedDataType);
+            /*
+             * (non-Javadoc)
+             * 
+             * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.
+             * SelectionEvent)
+             */
+            @Override
+            public void widgetSelected(SelectionEvent e) {
 
-					}
-				};
+                RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+                    @Override
+                    protected void doExecute() {
+                        Assert.isNotNull(selectedDataType);
 
-				recCommand.setDescription("Delete the DataType");
-				editingDomain.getCommandStack().execute(recCommand);
-				enableToolBar(true, false, false);
-			}
-		});
+                        Repository repository = selectedDataType.getRepository__DataType();
 
-		setEditeSelectionListener(new SelectionAdapter() {
-			
-			/* (non-Javadoc)
-			 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-			 */
-			@Override
-			public void widgetSelected(SelectionEvent e) {
+                        EList<DataType> datatypesRepository = repository.getDataTypes__Repository();
+                        datatypesRepository.remove(selectedDataType);
 
-				Assert.isNotNull(selectedDataType);
-				Shell shell = e.widget.getDisplay().getActiveShell();
-				PalladioDataTypeDialog dialog = new PalladioDataTypeDialog(
-						shell, selectedDataType);
-				dialog.open();
+                    }
+                };
 
-			}
+                recCommand.setDescription("Delete the DataType");
+                editingDomain.getCommandStack().execute(recCommand);
+                enableToolBar(true, false, false);
+            }
+        });
 
-		});
-		return area;
-	}
+        setEditeSelectionListener(new SelectionAdapter() {
+
+            /*
+             * (non-Javadoc)
+             * 
+             * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.
+             * SelectionEvent)
+             */
+            @Override
+            public void widgetSelected(SelectionEvent e) {
+
+                Assert.isNotNull(selectedDataType);
+                Shell shell = e.widget.getDisplay().getActiveShell();
+                PalladioDataTypeDialog dialog = new PalladioDataTypeDialog(shell, selectedDataType);
+                dialog.open();
+
+            }
+
+        });
+        return area;
+    }
 }

@@ -5,48 +5,47 @@ import org.eclipse.jface.text.rules.IToken;
 
 public class ANTLRTokenWrapper implements IToken {
 
-	private Token token;
-	private boolean isUndefined;
-	private ITokenMapper mapper;
-	private boolean isWhitespace;
+    private Token token;
+    private boolean isUndefined;
+    private ITokenMapper mapper;
+    private boolean isWhitespace;
 
-	public ANTLRTokenWrapper(Token t, ITokenMapper myMapper)
-	{
-		this.token = t;
-		this.isUndefined = false;
-		this.isWhitespace = false;
-		this.mapper = myMapper;
-	}
-	
-	public Object getData() {
-		if (mapper == null)
-			return null;
-		return mapper.mapColor(token);
-	}
+    public ANTLRTokenWrapper(Token t, ITokenMapper myMapper) {
+        this.token = t;
+        this.isUndefined = false;
+        this.isWhitespace = false;
+        this.mapper = myMapper;
+    }
 
-	public boolean isEOF() {
-		if (token == null)
-			return false;
-		return token == Token.EOF_TOKEN;
-	}
+    public Object getData() {
+        if (mapper == null)
+            return null;
+        return mapper.mapColor(token);
+    }
 
-	public boolean isOther() {
-		return false;
-	}
+    public boolean isEOF() {
+        if (token == null)
+            return false;
+        return token == Token.EOF_TOKEN;
+    }
 
-	public boolean isUndefined() {
-		return isUndefined;
-	}
+    public boolean isOther() {
+        return false;
+    }
 
-	public boolean isWhitespace() {
-		return isWhitespace;
-	}
+    public boolean isUndefined() {
+        return isUndefined;
+    }
 
-	public void setIsWhitespace(boolean isWhitespace) {
-		this.isWhitespace = isWhitespace;
-	}
-	
-	public Token getToken() {
-		return token;
-	}
+    public boolean isWhitespace() {
+        return isWhitespace;
+    }
+
+    public void setIsWhitespace(boolean isWhitespace) {
+        this.isWhitespace = isWhitespace;
+    }
+
+    public Token getToken() {
+        return token;
+    }
 }

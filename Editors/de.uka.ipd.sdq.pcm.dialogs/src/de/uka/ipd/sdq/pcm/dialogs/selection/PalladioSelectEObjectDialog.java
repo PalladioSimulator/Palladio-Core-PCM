@@ -34,150 +34,140 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
 /**
  * @author Snowball
- *
+ * 
  */
 public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
-	
-	private Object input;
-	private AdapterFactoryContentProvider contentProvider;
-	
-	/**
-	 * Creates a selection dialog
-	 * @param parent Shell of active workbench window
-	 * @param filterList Objects to show (positive filter). Also include respective super types here
-	 * @param additionalChildReferences Usually this should be the EReference which should be set
-	 * @param input ResourceSet or object of which resource set should be taken
-	 */
-	public PalladioSelectEObjectDialog(Shell parent,
-			Collection<Object> filterList,
-			Collection<EReference> additionalChildReferences, Object input) {
-		super(parent);
-		this.input = input;
-		create();
-		ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
-		adapterFactory
-				.addAdapterFactory(new ResourceItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new SeffItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new SystemItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new AllocationItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new ParameterItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new CoreItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new CompositionItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
-		adapterFactory
-			.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 
-		contentProvider = new AdapterFactoryContentProvider(
-				new FilteredItemsAdapterFactory(adapterFactory, filterList,
-						additionalChildReferences));
-		setViewerContentProvider(contentProvider);
-		
-		setViewerLabelProvider(new AdapterFactoryLabelProvider(
-				new PalladioItemProviderAdapterFactory(adapterFactory)));
-		setViewerInput(input);
-		setInputDialogResourceName(filterList);
-	}
+    private Object input;
+    private AdapterFactoryContentProvider contentProvider;
 
-	public PalladioSelectEObjectDialog(Shell parent,
-			Collection<Object> filterList, Object input) {
-		this(parent,filterList,new ArrayList<EReference>(),input);
-	}
-	
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#setResourceName(java.util.Collection)
-	 */
-	@Override
-	protected void setInputDialogResourceName(Collection<Object> filterList) {
-		String system = "System";
-		String repository = "Repository";
-		String resourceRepository = "ResourceRepository";
+    /**
+     * Creates a selection dialog
+     * 
+     * @param parent
+     *            Shell of active workbench window
+     * @param filterList
+     *            Objects to show (positive filter). Also include respective super types here
+     * @param additionalChildReferences
+     *            Usually this should be the EReference which should be set
+     * @param input
+     *            ResourceSet or object of which resource set should be taken
+     */
+    public PalladioSelectEObjectDialog(Shell parent, Collection<Object> filterList,
+            Collection<EReference> additionalChildReferences, Object input) {
+        super(parent);
+        this.input = input;
+        create();
+        ComposedAdapterFactory adapterFactory = new ComposedAdapterFactory();
+        adapterFactory.addAdapterFactory(new ResourceItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new RepositoryItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new SeffItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new SystemItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new AllocationItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new UsagemodelItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new ResourceenvironmentItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new ParameterItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new ResourcetypeItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new CoreItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new CompositionItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
+        adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 
-		ArrayList<Object> list = new ArrayList<Object>();
-		list.addAll(filterList);
+        contentProvider = new AdapterFactoryContentProvider(new FilteredItemsAdapterFactory(adapterFactory, filterList,
+                additionalChildReferences));
+        setViewerContentProvider(contentProvider);
 
-		if (!list.isEmpty()) {
-			for (Object object : list) {
-				Class<?> clazz = (Class<?>) object;
-				String name = clazz.getSimpleName();
-				if (name.equals(system) || name.equals(repository)
-						|| name.equals(resourceRepository))
-					setResourceName(correctionResourceRepositoryName(name));
-			}
-		}
-	}
-	
-	/** Correction the ResourceRepository to ResourceType */
-	private String correctionResourceRepositoryName(String name){
-		if (name.equals("ResourceRepository"))
-			return "ResourceType";
-		return name;
-	}
-	
+        setViewerLabelProvider(new AdapterFactoryLabelProvider(new PalladioItemProviderAdapterFactory(adapterFactory)));
+        setViewerInput(input);
+        setInputDialogResourceName(filterList);
+    }
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#addResourceToEditingDomain(org.eclipse.swt.widgets.Shell, java.lang.String)
-	 */
-	@Override
-	protected void addModelToResourceSet(Shell shell, String uri) {
-		ResourceSet resourceSet = getResourceSet(input);
-		
-		if (resourceSet != null) {
-			URI model = URI.createURI(uri);
-			try {
-				resourceSet.getResource(model, true);
-			} catch (Throwable t) {
-				MessageDialog.openInformation(shell, "Resource Loader Error", t
-						.getMessage());
-			}
-		}
-	}
-	
-	/**
-	 * Get a resource set from dialog input object
-	 * 
-	 * @param object -
-	 *            dialog input object
-	 */
-	protected ResourceSet getResourceSet(Object object) {
-		/** ResourceSet */
-		if (object instanceof ResourceSet)
-			return (ResourceSet) object;
-		/** EObject */
-		if (object instanceof EObject) {
-			TransactionalEditingDomain editingDomain = TransactionUtil
-					.getEditingDomain((EObject) object);
-			if (editingDomain != null)
-				return editingDomain.getResourceSet();
-		}
-		return null;
-	}
-	
-	/**
-	 * The method supplies the main knots of, in this dialogue the represented,
-	 * tree
-	 */
-	public Object getViewerRootElement() {
-		Object object = null;
-		
-		if (contentProvider != null){
-			object = (contentProvider.getElements(input))[0];
-		}
-		
-		return object;
-	}
+    public PalladioSelectEObjectDialog(Shell parent, Collection<Object> filterList, Object input) {
+        this(parent, filterList, new ArrayList<EReference>(), input);
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#setResourceName(java.util.Collection)
+     */
+    @Override
+    protected void setInputDialogResourceName(Collection<Object> filterList) {
+        String system = "System";
+        String repository = "Repository";
+        String resourceRepository = "ResourceRepository";
+
+        ArrayList<Object> list = new ArrayList<Object>();
+        list.addAll(filterList);
+
+        if (!list.isEmpty()) {
+            for (Object object : list) {
+                Class<?> clazz = (Class<?>) object;
+                String name = clazz.getSimpleName();
+                if (name.equals(system) || name.equals(repository) || name.equals(resourceRepository))
+                    setResourceName(correctionResourceRepositoryName(name));
+            }
+        }
+    }
+
+    /** Correction the ResourceRepository to ResourceType */
+    private String correctionResourceRepositoryName(String name) {
+        if (name.equals("ResourceRepository"))
+            return "ResourceType";
+        return name;
+    }
+
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.dialogs.selection.SelectEObjectDialog#addResourceToEditingDomain(org.eclipse
+     * .swt.widgets.Shell, java.lang.String)
+     */
+    @Override
+    protected void addModelToResourceSet(Shell shell, String uri) {
+        ResourceSet resourceSet = getResourceSet(input);
+
+        if (resourceSet != null) {
+            URI model = URI.createURI(uri);
+            try {
+                resourceSet.getResource(model, true);
+            } catch (Throwable t) {
+                MessageDialog.openInformation(shell, "Resource Loader Error", t.getMessage());
+            }
+        }
+    }
+
+    /**
+     * Get a resource set from dialog input object
+     * 
+     * @param object
+     *            - dialog input object
+     */
+    protected ResourceSet getResourceSet(Object object) {
+        /** ResourceSet */
+        if (object instanceof ResourceSet)
+            return (ResourceSet) object;
+        /** EObject */
+        if (object instanceof EObject) {
+            TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain((EObject) object);
+            if (editingDomain != null)
+                return editingDomain.getResourceSet();
+        }
+        return null;
+    }
+
+    /**
+     * The method supplies the main knots of, in this dialogue the represented, tree
+     */
+    public Object getViewerRootElement() {
+        Object object = null;
+
+        if (contentProvider != null) {
+            object = (contentProvider.getElements(input))[0];
+        }
+
+        return object;
+    }
 }

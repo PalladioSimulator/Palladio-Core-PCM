@@ -7,29 +7,29 @@ import de.uka.ipd.sdq.pcm.repository.impl.InnerDeclarationImpl;
  * 
  * @author Roman Andrej
  */
-public class InnerDeclarationContainer extends InnerDeclarationImpl{
-	
-	private Object parent;
-	private Object object;
+public class InnerDeclarationContainer extends InnerDeclarationImpl {
 
-	public InnerDeclarationContainer(Object object, Object parent) {
-		this.parent = parent;
-		this.object = object;
-	}
+    private Object parent;
+    private Object object;
 
-	public Object getParent() {
-		return parent;
-	}
+    public InnerDeclarationContainer(Object object, Object parent) {
+        this.parent = parent;
+        this.object = object;
+    }
 
-	public void setParent(Object parent) {
-		this.parent = parent;
-	}
+    public Object getParent() {
+        return parent;
+    }
 
-	public Object getObject() {
-		return object;
-	}
+    public void setParent(Object parent) {
+        this.parent = parent;
+    }
 
-	public void setObject(Object object) {
-		this.object = object;
-	}
+    public Object getObject() {
+        return object;
+    }
+
+    public void setObject(Object object) {
+        this.object = object;
+    }
 }

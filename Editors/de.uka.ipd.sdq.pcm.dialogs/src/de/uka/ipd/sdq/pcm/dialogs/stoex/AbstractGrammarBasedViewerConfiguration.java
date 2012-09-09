@@ -30,96 +30,97 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
  */
 public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfiguration {
 
-	private IAnnotationModel annotationModel;
-	private Class myLexerClass;
-	private ITokenMapper myMapper;
-	private Parameter[] context = null;
-	private ContentAssistant myAssistant;
+    private IAnnotationModel annotationModel;
+    private Class myLexerClass;
+    private ITokenMapper myMapper;
+    private Parameter[] context = null;
+    private ContentAssistant myAssistant;
 
-	/**
+    /**
 	 * 
 	 */
-	public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Parameter[] context, Class lexerClass, ITokenMapper myMapper) {
-		this.annotationModel = annotationModel;
-		this.myLexerClass = lexerClass;
-		this.myMapper = myMapper;
-		this.context = context;
-	}
+    public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Parameter[] context,
+            Class lexerClass, ITokenMapper myMapper) {
+        this.annotationModel = annotationModel;
+        this.myLexerClass = lexerClass;
+        this.myMapper = myMapper;
+        this.context = context;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.jface.text.source.SourceViewerConfiguration#getPresentationReconciler(org.eclipse.jface.text.source.ISourceViewer)
-	 */
-	@Override
-	public IPresentationReconciler getPresentationReconciler(
-			ISourceViewer sourceViewer) {
-		PresentationReconciler reconciler = new PresentationReconciler();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.jface.text.source.SourceViewerConfiguration#getPresentationReconciler(org.eclipse
+     * .jface.text.source.ISourceViewer)
+     */
+    @Override
+    public IPresentationReconciler getPresentationReconciler(ISourceViewer sourceViewer) {
+        PresentationReconciler reconciler = new PresentationReconciler();
 
-		DefaultDamagerRepairer dr = new DefaultDamagerRepairer(
-				getKeywordScanner());
-		reconciler.setDamager(dr, IDocument.DEFAULT_CONTENT_TYPE);
-		reconciler.setRepairer(dr, IDocument.DEFAULT_CONTENT_TYPE);
+        DefaultDamagerRepairer dr = new DefaultDamagerRepairer(getKeywordScanner());
+        reconciler.setDamager(dr, IDocument.DEFAULT_CONTENT_TYPE);
+        reconciler.setRepairer(dr, IDocument.DEFAULT_CONTENT_TYPE);
 
-		return reconciler;
-	}
+        return reconciler;
+    }
 
-	@Override
-	public IAnnotationHover getAnnotationHover(ISourceViewer sourceViewer) {
-		return new AnnotationHover(annotationModel);
-	}
+    @Override
+    public IAnnotationHover getAnnotationHover(ISourceViewer sourceViewer) {
+        return new AnnotationHover(annotationModel);
+    }
 
-	private ITokenScanner getKeywordScanner() {
-		return new ANTLRTokenScannerAdapter(myLexerClass,myMapper);
-	}
+    private ITokenScanner getKeywordScanner() {
+        return new ANTLRTokenScannerAdapter(myLexerClass, myMapper);
+    }
 
-	@Override
-	public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
-		if (myAssistant == null){
-			myAssistant = new ContentAssistant();
-			myAssistant.setContentAssistProcessor(new StoExCompletionProcessor(context),
-					IDocument.DEFAULT_CONTENT_TYPE);
-			myAssistant.setAutoActivationDelay(1);
-			myAssistant.enableAutoActivation(true);
-		}
-		return myAssistant;
-	}
+    @Override
+    public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
+        if (myAssistant == null) {
+            myAssistant = new ContentAssistant();
+            myAssistant
+                    .setContentAssistProcessor(new StoExCompletionProcessor(context), IDocument.DEFAULT_CONTENT_TYPE);
+            myAssistant.setAutoActivationDelay(1);
+            myAssistant.enableAutoActivation(true);
+        }
+        return myAssistant;
+    }
 }
 
 // annotation hover manager
 class AnnotationHover implements IAnnotationHover, ITextHover {
-	private IAnnotationModel fAnnotationModel;
+    private IAnnotationModel fAnnotationModel;
 
-	public AnnotationHover(IAnnotationModel annotationModel) {
-		this.fAnnotationModel = annotationModel;
-	}
+    public AnnotationHover(IAnnotationModel annotationModel) {
+        this.fAnnotationModel = annotationModel;
+    }
 
-	public String getHoverInfo(ISourceViewer sourceViewer, int lineNumber) {
-		Iterator ite = fAnnotationModel.getAnnotationIterator();
+    public String getHoverInfo(ISourceViewer sourceViewer, int lineNumber) {
+        Iterator ite = fAnnotationModel.getAnnotationIterator();
 
-		ArrayList all = new ArrayList();
+        ArrayList all = new ArrayList();
 
-		while (ite.hasNext()) {
-			Annotation a = (Annotation) ite.next();
-			if (a instanceof Annotation) {
-				all.add(((Annotation) a).getText());
-			}
-		}
+        while (ite.hasNext()) {
+            Annotation a = (Annotation) ite.next();
+            if (a instanceof Annotation) {
+                all.add(((Annotation) a).getText());
+            }
+        }
 
-		StringBuffer total = new StringBuffer();
-		for (int x = 0; x < all.size(); x++) {
-			String str = (String) all.get(x);
-			total.append(" " + str + (x == (all.size() - 1) ? "" : "\n"));
-		}
+        StringBuffer total = new StringBuffer();
+        for (int x = 0; x < all.size(); x++) {
+            String str = (String) all.get(x);
+            total.append(" " + str + (x == (all.size() - 1) ? "" : "\n"));
+        }
 
-		return total.toString();
-	}
+        return total.toString();
+    }
 
-	public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
-		return null;
-	}
+    public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
+        return null;
+    }
 
-	public IRegion getHoverRegion(ITextViewer textViewer, int offset) {
-		return null;
-	}
+    public IRegion getHoverRegion(ITextViewer textViewer, int offset) {
+        return null;
+    }
 }

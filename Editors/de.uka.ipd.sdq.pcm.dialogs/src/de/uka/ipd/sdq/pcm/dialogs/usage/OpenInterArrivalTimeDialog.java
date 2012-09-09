@@ -10,17 +10,16 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 // called via a CustomBehaviour in the genmap
 public class OpenInterArrivalTimeDialog extends OpenStoExDialog {
 
-	
-	@Override
-	protected RandomVariable getRandomVariable(EObject parent) {
-		OpenWorkload ow = (OpenWorkload) parent;
-		RandomVariable rv = ow.getInterArrivalTime_OpenWorkload();
-		return rv;
-	}
-	
-	@Override
-	protected TypeEnum getExpectedType(RandomVariable rv) {
-		return TypeEnum.DOUBLE;
-	}
-	
+    @Override
+    protected RandomVariable getRandomVariable(EObject parent) {
+        OpenWorkload ow = (OpenWorkload) parent;
+        RandomVariable rv = ow.getInterArrivalTime_OpenWorkload();
+        return rv;
+    }
+
+    @Override
+    protected TypeEnum getExpectedType(RandomVariable rv) {
+        return TypeEnum.DOUBLE;
+    }
+
 }

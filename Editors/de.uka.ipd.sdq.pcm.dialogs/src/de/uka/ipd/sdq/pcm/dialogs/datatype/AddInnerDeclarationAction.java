@@ -16,63 +16,59 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  */
 public class AddInnerDeclarationAction extends SelectionAdapter {
 
-	private CompositeDataType compositeDataType;
-	private PalladioDataTypeDialog dialog;
-	
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-	private TransactionalEditingDomain editingDomain = null;
+    private CompositeDataType compositeDataType;
+    private PalladioDataTypeDialog dialog;
 
-	/**
-	 * @param compositeDataType
-	 */
-	public AddInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
-		this.dialog = dialog;
-		this.editingDomain = editingDomain;
-		this.compositeDataType = dialog.getCompositeDataType();
-	}
+    /**
+     * The transactional editing domain which is used to get the commands and alter the model
+     */
+    private TransactionalEditingDomain editingDomain = null;
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-	 */
-	@Override
-	public void widgetSelected(SelectionEvent e) {
+    /**
+     * @param compositeDataType
+     */
+    public AddInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
+        this.dialog = dialog;
+        this.editingDomain = editingDomain;
+        this.compositeDataType = dialog.getCompositeDataType();
+    }
 
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.swt.events.SelectionAdapter#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+     */
+    @Override
+    public void widgetSelected(SelectionEvent e) {
 
-				if (compositeDataType == null) {
-					// nur for own instance of the compositeDataType
-					compositeDataType = RepositoryFactory.eINSTANCE
-							.createCompositeDataType();
-				}
-				InnerDeclaration declaration = RepositoryFactory.eINSTANCE
-						.createInnerDeclaration();
-				// Build the name with count
-				String declaratonName = "DeclarationName"
-						+ (compositeDataType
-								.getInnerDeclaration_CompositeDataType().size() + 1);
+        RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+            @Override
+            protected void doExecute() {
 
-				declaration.setEntityName(declaratonName);
+                if (compositeDataType == null) {
+                    // nur for own instance of the compositeDataType
+                    compositeDataType = RepositoryFactory.eINSTANCE.createCompositeDataType();
+                }
+                InnerDeclaration declaration = RepositoryFactory.eINSTANCE.createInnerDeclaration();
+                // Build the name with count
+                String declaratonName = "DeclarationName"
+                        + (compositeDataType.getInnerDeclaration_CompositeDataType().size() + 1);
 
-				compositeDataType.getInnerDeclaration_CompositeDataType().add(
-						declaration);
-			}
-		};
+                declaration.setEntityName(declaratonName);
 
-		recCommand.setDescription("Add new CompositeDataTYpe");
-		editingDomain.getCommandStack().execute(recCommand);
+                compositeDataType.getInnerDeclaration_CompositeDataType().add(declaration);
+            }
+        };
 
-		/**
-		 * set and validate a new CompositeDataType 
-		 */
-		dialog.setCompositeDataType(compositeDataType);
-		dialog.getEditorContents().setViewerInput(compositeDataType);
-		dialog.validateInput();
-	}
+        recCommand.setDescription("Add new CompositeDataTYpe");
+        editingDomain.getCommandStack().execute(recCommand);
+
+        /**
+         * set and validate a new CompositeDataType
+         */
+        dialog.setCompositeDataType(compositeDataType);
+        dialog.getEditorContents().setViewerInput(compositeDataType);
+        dialog.validateInput();
+    }
 }

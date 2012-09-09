@@ -11,22 +11,21 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 // called via a CustomBehaviour in the genmap
 public class OpenCapacityDialog extends OpenStoExDialog {
 
-	
-	@Override
-	protected RandomVariable getRandomVariable(EObject parent) {
-		PassiveResource pr = (PassiveResource) parent;
-		RandomVariable rv = pr.getCapacity_PassiveResource();
-		return rv;
-	}
+    @Override
+    protected RandomVariable getRandomVariable(EObject parent) {
+        PassiveResource pr = (PassiveResource) parent;
+        RandomVariable rv = pr.getCapacity_PassiveResource();
+        return rv;
+    }
 
-	@Override
-	protected TypeEnum getExpectedType(RandomVariable rv) {
-		return TypeEnum.INT;
-	}
+    @Override
+    protected TypeEnum getExpectedType(RandomVariable rv) {
+        return TypeEnum.INT;
+    }
 
-	@Override
-	protected String getDialogMessage() {
-		return "Please enter the new capacity of the Passive Resource";
-	}
-	
+    @Override
+    protected String getDialogMessage() {
+        return "Please enter the new capacity of the Passive Resource";
+    }
+
 }

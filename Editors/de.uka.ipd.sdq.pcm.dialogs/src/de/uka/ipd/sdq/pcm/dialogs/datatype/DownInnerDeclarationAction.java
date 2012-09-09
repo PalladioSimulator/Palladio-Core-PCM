@@ -12,59 +12,58 @@ import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
 /**
- * This adapter class provides default implementations for the methods described
- * by the SelectionListener interface to downItem - Button in the
- * CompositeDataType edit area.
+ * This adapter class provides default implementations for the methods described by the
+ * SelectionListener interface to downItem - Button in the CompositeDataType edit area.
  * 
  * @author Roman Andrej
  */
-public class DownInnerDeclarationAction extends EditorContentsSelectionAction
-		implements SelectionListener {
-	
-	private PalladioDataTypeDialog dialog;
-	private TransactionalEditingDomain editingDomain;
-	
-	public DownInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
-		this.dialog = dialog;
-		this.editingDomain = editingDomain;
-	}
+public class DownInnerDeclarationAction extends EditorContentsSelectionAction implements SelectionListener {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-	 */
-	public void widgetSelected(SelectionEvent e) {
+    private PalladioDataTypeDialog dialog;
+    private TransactionalEditingDomain editingDomain;
 
-		final InnerDeclaration selectedDeclaration = (InnerDeclaration) getSelectedDeclaration();
-		CompositeDataType parentDataType = (CompositeDataType) selectedDeclaration
-				.eContainer();
-		final EList<InnerDeclaration> declarations = parentDataType
-				.getInnerDeclaration_CompositeDataType();
+    public DownInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
+        this.dialog = dialog;
+        this.editingDomain = editingDomain;
+    }
 
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
-				int index = declarations.indexOf(selectedDeclaration);
-				if (index >= 0 && index < declarations.size() - 1) {
-					declarations.move(index, index + 1);
-					try {
-						UpDownButtonsValidator.getSingelton().validate(
-								index + 1, declarations.size());
-					} catch (Exception e) {
-						e.printStackTrace();
-					}
-				}
-			}
-		};
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent
+     * )
+     */
+    public void widgetSelected(SelectionEvent e) {
 
-		recCommand.setDescription("Down ...");
-		editingDomain.getCommandStack().execute(recCommand);
+        final InnerDeclaration selectedDeclaration = (InnerDeclaration) getSelectedDeclaration();
+        CompositeDataType parentDataType = (CompositeDataType) selectedDeclaration.eContainer();
+        final EList<InnerDeclaration> declarations = parentDataType.getInnerDeclaration_CompositeDataType();
 
-		dialog.validateInput();
-	}
+        RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+            @Override
+            protected void doExecute() {
+                int index = declarations.indexOf(selectedDeclaration);
+                if (index >= 0 && index < declarations.size() - 1) {
+                    declarations.move(index, index + 1);
+                    try {
+                        UpDownButtonsValidator.getSingelton().validate(index + 1, declarations.size());
+                    } catch (Exception e) {
+                        e.printStackTrace();
+                    }
+                }
+            }
+        };
 
-	public void widgetDefaultSelected(SelectionEvent e) {
-		// TODO Auto-generated method stub
-		
-	}
+        recCommand.setDescription("Down ...");
+        editingDomain.getCommandStack().execute(recCommand);
+
+        dialog.validateInput();
+    }
+
+    public void widgetDefaultSelected(SelectionEvent e) {
+        // TODO Auto-generated method stub
+
+    }
 
 }

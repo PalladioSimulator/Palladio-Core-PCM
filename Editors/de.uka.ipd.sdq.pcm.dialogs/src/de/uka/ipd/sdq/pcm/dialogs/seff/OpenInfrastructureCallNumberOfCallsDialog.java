@@ -12,17 +12,16 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 // called via a CustomBehaviour in the genmap
 public class OpenInfrastructureCallNumberOfCallsDialog extends OpenStoExDialog {
 
-	
-	@Override
-	protected RandomVariable getRandomVariable(EObject parent) {
-		InfrastructureCall call = (InfrastructureCall) parent;
-		RandomVariable rv = call.getNumberOfCalls__InfrastructureCall();
-		return rv;
-	}
+    @Override
+    protected RandomVariable getRandomVariable(EObject parent) {
+        InfrastructureCall call = (InfrastructureCall) parent;
+        RandomVariable rv = call.getNumberOfCalls__InfrastructureCall();
+        return rv;
+    }
 
-	@Override
-	protected TypeEnum getExpectedType(RandomVariable rv) {
-		return TypeEnum.INT;
-	}
-	
+    @Override
+    protected TypeEnum getExpectedType(RandomVariable rv) {
+        return TypeEnum.INT;
+    }
+
 }

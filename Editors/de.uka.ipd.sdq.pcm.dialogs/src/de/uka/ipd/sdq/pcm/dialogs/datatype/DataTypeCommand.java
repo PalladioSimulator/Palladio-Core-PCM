@@ -16,82 +16,78 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  * @author Roman Andrej
  */
 public class DataTypeCommand {
-	
-	/** The transactional editing domain which is used to get the commands */
-	private TransactionalEditingDomain editingDomain;
-	
-	public DataTypeCommand(TransactionalEditingDomain editingDomain) {
-		this.editingDomain = editingDomain;
-	}
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
-	 */
-	public void createCollectionDataType(final Repository repository,
-			final DataType dataType, final DataType innerDataType,
-			final String entityName) {
+    /** The transactional editing domain which is used to get the commands */
+    private TransactionalEditingDomain editingDomain;
 
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
-				CollectionDataType collectionDataType;
+    public DataTypeCommand(TransactionalEditingDomain editingDomain) {
+        this.editingDomain = editingDomain;
+    }
 
-				if (dataType != null) {
-					// Edite existet DataType
-					collectionDataType = (CollectionDataType) dataType;
-					String typeName = collectionDataType.getEntityName();
-					DataType innerType = collectionDataType
-							.getInnerType_CollectionDataType();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
+     */
+    public void createCollectionDataType(final Repository repository, final DataType dataType,
+            final DataType innerDataType, final String entityName) {
 
-					if ((entityName != null) && (!typeName.equals(entityName)))
-						collectionDataType.setEntityName(entityName);
+        RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+            @Override
+            protected void doExecute() {
+                CollectionDataType collectionDataType;
 
-					if ((innerDataType != null)
-							&& (!innerType.equals(innerDataType)))
-						collectionDataType
-								.setInnerType_CollectionDataType(innerDataType);
-				} else {
-					// Create new DataType
-					collectionDataType = RepositoryFactory.eINSTANCE
-							.createCollectionDataType();
-					collectionDataType.setRepository__DataType(repository);
+                if (dataType != null) {
+                    // Edite existet DataType
+                    collectionDataType = (CollectionDataType) dataType;
+                    String typeName = collectionDataType.getEntityName();
+                    DataType innerType = collectionDataType.getInnerType_CollectionDataType();
 
-					Assert.isNotNull(collectionDataType);
-					Assert.isNotNull(innerDataType);
-					Assert.isNotNull(entityName);
+                    if ((entityName != null) && (!typeName.equals(entityName)))
+                        collectionDataType.setEntityName(entityName);
 
-					collectionDataType.setEntityName(entityName);
-					collectionDataType
-							.setInnerType_CollectionDataType(innerDataType);
-				}
-			}
-		};
-		recCommand.setDescription("Add new/Edite CollectionDataType");
-		editingDomain.getCommandStack().execute(recCommand);
-	}
+                    if ((innerDataType != null) && (!innerType.equals(innerDataType)))
+                        collectionDataType.setInnerType_CollectionDataType(innerDataType);
+                } else {
+                    // Create new DataType
+                    collectionDataType = RepositoryFactory.eINSTANCE.createCollectionDataType();
+                    collectionDataType.setRepository__DataType(repository);
 
-	/* (non-Javadoc)
-	 * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
-	 */
-	public void createCompositeDataType(final Repository repository,
-			final CompositeDataType compositeDataType, final String entityName) {
+                    Assert.isNotNull(collectionDataType);
+                    Assert.isNotNull(innerDataType);
+                    Assert.isNotNull(entityName);
 
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
-				Assert.isNotNull(compositeDataType);
+                    collectionDataType.setEntityName(entityName);
+                    collectionDataType.setInnerType_CollectionDataType(innerDataType);
+                }
+            }
+        };
+        recCommand.setDescription("Add new/Edite CollectionDataType");
+        editingDomain.getCommandStack().execute(recCommand);
+    }
 
-				if ((entityName != null)
-						&& (!compositeDataType.getEntityName().equals(
-								entityName)))
-					compositeDataType.setEntityName(entityName);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
+     */
+    public void createCompositeDataType(final Repository repository, final CompositeDataType compositeDataType,
+            final String entityName) {
 
-				if (repository != null)
-					compositeDataType.setRepository__DataType(repository);
-			}
-		};
+        RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+            @Override
+            protected void doExecute() {
+                Assert.isNotNull(compositeDataType);
 
-		recCommand.setDescription("Add new CompositeDataType");
-		editingDomain.getCommandStack().execute(recCommand);
-	}
+                if ((entityName != null) && (!compositeDataType.getEntityName().equals(entityName)))
+                    compositeDataType.setEntityName(entityName);
+
+                if (repository != null)
+                    compositeDataType.setRepository__DataType(repository);
+            }
+        };
+
+        recCommand.setDescription("Add new CompositeDataType");
+        editingDomain.getCommandStack().execute(recCommand);
+    }
 }

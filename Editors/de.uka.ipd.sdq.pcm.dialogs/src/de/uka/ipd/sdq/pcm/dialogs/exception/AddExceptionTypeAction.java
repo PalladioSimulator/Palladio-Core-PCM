@@ -15,44 +15,43 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 /**
  * @author roman
  */
-public class AddExceptionTypeAction extends SelectionAdapter{
+public class AddExceptionTypeAction extends SelectionAdapter {
 
-	private Signature parentSignature;
+    private Signature parentSignature;
 
-	/**
-	 * The transactional editing domain which is used to get the commands and
-	 * alter the model
-	 */
-	protected TransactionalEditingDomain editingDomain = null;
+    /**
+     * The transactional editing domain which is used to get the commands and alter the model
+     */
+    protected TransactionalEditingDomain editingDomain = null;
 
-	public AddExceptionTypeAction(Signature parentSignature) {
-		this.parentSignature = parentSignature;
-		this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);
-	}
+    public AddExceptionTypeAction(Signature parentSignature) {
+        this.parentSignature = parentSignature;
+        this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
-	 */
-	@Override
-	public void widgetSelected(SelectionEvent e) {
-		Assert.isNotNull(parentSignature);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent
+     * )
+     */
+    @Override
+    public void widgetSelected(SelectionEvent e) {
+        Assert.isNotNull(parentSignature);
 
-		final EList<ExceptionType> exceptions = parentSignature
-				.getExceptions__Signature();
+        final EList<ExceptionType> exceptions = parentSignature.getExceptions__Signature();
 
-		RecordingCommand recCommand = new RecordingCommand(editingDomain) {
-			@Override
-			protected void doExecute() {
-				ExceptionType exceptionType = RepositoryFactory.eINSTANCE
-						.createExceptionType();
-				exceptionType.setExceptionName("ExceptionName" + (exceptions.size() + 1));
-				exceptions.add(exceptionType);
-			}
-		};
+        RecordingCommand recCommand = new RecordingCommand(editingDomain) {
+            @Override
+            protected void doExecute() {
+                ExceptionType exceptionType = RepositoryFactory.eINSTANCE.createExceptionType();
+                exceptionType.setExceptionName("ExceptionName" + (exceptions.size() + 1));
+                exceptions.add(exceptionType);
+            }
+        };
 
-		recCommand.setDescription("Add new ExceptionType to the signature");
-		editingDomain.getCommandStack().execute(recCommand);
-	}
+        recCommand.setDescription("Add new ExceptionType to the signature");
+        editingDomain.getCommandStack().execute(recCommand);
+    }
 }

@@ -25,44 +25,41 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificati
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 
-public class OpenActiveResourceSpecificationDialog extends OpenEditPolicy{
-	
+public class OpenActiveResourceSpecificationDialog extends OpenEditPolicy {
 
-	@Override
-	protected Command getOpenCommand(Request request) {
-		ProcessingResourceSpecification specification = (ProcessingResourceSpecification)(((View) ((IGraphicalEditPart) getHost()).getModel()).getElement());
-		ResourceSet set = (specification.getResourceContainer_ProcessingResourceSpecification()).eResource().getResourceSet(); 
-		EObject resourceType = null;
-		ArrayList<Object> filterList = new ArrayList<Object>(); // positive filter
-		// Set types to show and their super types
-		filterList.add(ProcessingResourceType.class);
-		filterList.add(ResourceRepository.class);
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		// set EReference that should be set (in this case: active resource type)
-		additionalReferences.add(ResourceenvironmentPackage.eINSTANCE.getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification());
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, 
-				additionalReferences,
-				set);
-		dialog.setProvidedService(ProcessingResourceType.class);
-		dialog.open();
-		if (dialog.getResult() == null) {
-			return null;
-		}
+    @Override
+    protected Command getOpenCommand(Request request) {
+        ProcessingResourceSpecification specification = (ProcessingResourceSpecification) (((View) ((IGraphicalEditPart) getHost())
+                .getModel()).getElement());
+        ResourceSet set = (specification.getResourceContainer_ProcessingResourceSpecification()).eResource()
+                .getResourceSet();
+        EObject resourceType = null;
+        ArrayList<Object> filterList = new ArrayList<Object>(); // positive filter
+        // Set types to show and their super types
+        filterList.add(ProcessingResourceType.class);
+        filterList.add(ResourceRepository.class);
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        // set EReference that should be set (in this case: active resource type)
+        additionalReferences.add(ResourceenvironmentPackage.eINSTANCE
+                .getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification());
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, set);
+        dialog.setProvidedService(ProcessingResourceType.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
+            return null;
+        }
 
-		if (!(dialog.getResult() instanceof ProcessingResourceType)){
-			return null;
-		}
-		resourceType = (ProcessingResourceType) dialog.getResult();
-		
+        if (!(dialog.getResult() instanceof ProcessingResourceType)) {
+            return null;
+        }
+        resourceType = (ProcessingResourceType) dialog.getResult();
 
-		ICommand icmd = new SetValueCommand(
-				new SetRequest(
-						specification, 
-						ResourceenvironmentPackage.eINSTANCE.getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(),
-						resourceType));
-		return new ICommandProxy(icmd);
-	}
+        ICommand icmd = new SetValueCommand(new SetRequest(specification,
+                ResourceenvironmentPackage.eINSTANCE
+                        .getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification(),
+                resourceType));
+        return new ICommandProxy(icmd);
+    }
 
 }

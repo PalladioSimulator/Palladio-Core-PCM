@@ -12,17 +12,16 @@ import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 // called via a CustomBehaviour in the genmap
 public class OpenLoopIterationsDialog extends OpenStoExDialog {
 
-	
-	@Override
-	protected RandomVariable getRandomVariable(EObject parent) {
-		LoopAction loop = (LoopAction) parent;
-		RandomVariable rv = loop.getIterationCount_LoopAction();
-		return rv;
-	}
+    @Override
+    protected RandomVariable getRandomVariable(EObject parent) {
+        LoopAction loop = (LoopAction) parent;
+        RandomVariable rv = loop.getIterationCount_LoopAction();
+        return rv;
+    }
 
-	@Override
-	protected TypeEnum getExpectedType(RandomVariable rv) {
-		return TypeEnum.INT;
-	}
-	
+    @Override
+    protected TypeEnum getExpectedType(RandomVariable rv) {
+        return TypeEnum.INT;
+    }
+
 }
