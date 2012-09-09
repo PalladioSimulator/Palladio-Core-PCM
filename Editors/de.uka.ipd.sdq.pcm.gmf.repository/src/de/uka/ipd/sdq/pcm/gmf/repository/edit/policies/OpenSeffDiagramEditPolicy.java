@@ -88,6 +88,13 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
 
         /**
          * @generated not
+         * 
+         * @param monitor An IProgressMonitor
+         * @param info An IAdaptable
+         * 
+         * @throws ExecutionException an Exception
+         * 
+         * @return a CommandResult
          */
         protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
                 throws ExecutionException {

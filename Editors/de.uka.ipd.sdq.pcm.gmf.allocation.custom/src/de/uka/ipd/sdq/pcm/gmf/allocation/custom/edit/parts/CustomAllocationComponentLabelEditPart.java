@@ -11,10 +11,20 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationComponentLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
 
+/**
+ * a custom Allocation Component Label EditPart.
+ */
 public class CustomAllocationComponentLabelEditPart extends AllocationComponentLabelEditPart {
 
+    /**
+     * The default text.
+     */
     private String defaultText;
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomAllocationComponentLabelEditPart(View view) {
         super(view);
         // TODO Auto-generated constructor stub

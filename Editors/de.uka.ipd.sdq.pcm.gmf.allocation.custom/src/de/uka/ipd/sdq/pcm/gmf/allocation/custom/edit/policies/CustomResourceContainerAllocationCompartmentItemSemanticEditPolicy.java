@@ -10,9 +10,17 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCo
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies.ResourceContainerAllocationCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
 
+/**
+ * A custom resource container allocation compartment item semantic EditPolicy.
+ */
 public class CustomResourceContainerAllocationCompartmentItemSemanticEditPolicy extends
         ResourceContainerAllocationCompartmentItemSemanticEditPolicy {
 
+    /**
+     * Gets the CreateCommand.
+     * @param req a CreateElementRequest
+     * @return the CreateCommand
+     */
     protected Command getCreateCommand(CreateElementRequest req) {
         if (PalladioComponentModelElementTypes.AllocationContext_3001 == req.getElementType()) {
             if (req.getContainmentFeature() == null) {

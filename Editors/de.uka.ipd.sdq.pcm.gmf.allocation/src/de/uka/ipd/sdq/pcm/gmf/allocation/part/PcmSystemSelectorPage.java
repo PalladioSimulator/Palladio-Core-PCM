@@ -8,8 +8,15 @@ import de.uka.ipd.sdq.pcm.system.System;
  */
 class SystemSelectorPage extends ResourceSelectorPage {
 
+    /**
+     * A system.
+     */
     private System mySystem;
 
+    /**
+     * Creates the system selector page.
+     * @param selectedSystem the selected system
+     */
     protected SystemSelectorPage(System selectedSystem) {
         super("Select system", selectedSystem);
         setTitle("Diagram system");
@@ -17,6 +24,10 @@ class SystemSelectorPage extends ResourceSelectorPage {
         mySystem = selectedSystem;
     }
 
+    /**
+     * Gets the selected system.
+     * @return the system
+     */
     protected System getSelectedSystem() {
         return mySystem;
     }

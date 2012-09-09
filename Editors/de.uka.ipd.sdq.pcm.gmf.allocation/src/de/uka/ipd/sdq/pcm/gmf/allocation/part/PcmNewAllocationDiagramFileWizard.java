@@ -6,7 +6,6 @@ import java.util.Map;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
-import org.eclipse.core.resources.IFile;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
@@ -15,8 +14,6 @@ import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
-import org.eclipse.jface.viewers.IStructuredSelection;
-import org.eclipse.ui.IWorkbenchPage;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
@@ -31,11 +28,32 @@ import de.uka.ipd.sdq.pcm.system.System;
  */
 public class PcmNewAllocationDiagramFileWizard extends PalladioComponentModelNewDiagramFileWizard {
 
+    /**
+     * The diagram root.
+     */
     private Allocation myDiagramRoot;
+    
+    /**
+     * The EditingDomain.
+     */
     private TransactionalEditingDomain myEditingDomain;
+    
+    /**
+     * the resource environment selector page.
+     */
     private ResourceEnvironmentSelectorPage myResourceEnvironmentSelectorPage;
+    
+    /**
+     * a system selector page.
+     */
     private SystemSelectorPage mySystemSelectorPage;
 
+    /**
+     * The constructor.
+     * @param domainModelURI The domain model URI
+     * @param diagramRoot the diagram's root.
+     * @param editingDomain The editing domnain
+     */
     public PcmNewAllocationDiagramFileWizard(org.eclipse.emf.common.util.URI domainModelURI, EObject diagramRoot,
             TransactionalEditingDomain editingDomain) {
         super(domainModelURI, diagramRoot, editingDomain);

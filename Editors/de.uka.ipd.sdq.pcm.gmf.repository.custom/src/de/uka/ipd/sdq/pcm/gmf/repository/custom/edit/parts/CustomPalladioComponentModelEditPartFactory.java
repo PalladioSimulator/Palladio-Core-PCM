@@ -49,6 +49,9 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
+/**
+ * A custom Palladio component model EditPart factory.
+ */
 public class CustomPalladioComponentModelEditPartFactory extends PalladioComponentModelEditPartFactory {
 
     @Override

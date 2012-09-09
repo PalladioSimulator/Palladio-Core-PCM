@@ -5,7 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies;
 
 import java.util.Collections;
 import java.util.Iterator;
-import org.eclipse.emf.ecore.EClass;
+
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.EditPart;

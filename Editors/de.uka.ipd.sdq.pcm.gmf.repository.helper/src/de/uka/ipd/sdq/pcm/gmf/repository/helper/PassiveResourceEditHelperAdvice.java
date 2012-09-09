@@ -12,6 +12,9 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
+/**
+ * A passive resource EditHelperAdvice.
+ */
 public class PassiveResourceEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
     @Override

@@ -54,9 +54,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTex
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
@@ -212,6 +210,7 @@ public class InfrastructureSignatureEditPart extends CompartmentEditPart impleme
 
     /**
      * @generated not
+     * @return the label text
      */
     protected String getLabelText() {
         String text = "";
@@ -532,6 +531,8 @@ public class InfrastructureSignatureEditPart extends CompartmentEditPart impleme
 
     /**
      * @generated not
+     * 
+     * @param event A Notification
      */
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

@@ -13,7 +13,6 @@ import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerAllocationCompartmentEditPart;
@@ -40,6 +39,9 @@ public class PalladioComponentModelDiagramUpdater {
 
     /**
      * @generated not
+     * 
+     * @param view a View
+     * @return the result
      */
     public static List getResourceContainerAllocationCompartment_7002SemanticChildren(View view) {
         if (false == view.eContainer() instanceof View) {

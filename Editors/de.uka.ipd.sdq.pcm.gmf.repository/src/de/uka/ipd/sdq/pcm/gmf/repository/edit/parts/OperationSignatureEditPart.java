@@ -211,6 +211,8 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements I
 
     /**
      * @generated not
+     * 
+     * @return the label text
      */
     protected String getLabelText() {
         String text = "";
@@ -535,6 +537,8 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements I
 
     /**
      * @generated not
+     * 
+     * @param event a Notification
      */
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

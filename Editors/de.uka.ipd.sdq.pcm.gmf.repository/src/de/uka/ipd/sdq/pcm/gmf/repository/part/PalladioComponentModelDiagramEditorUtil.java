@@ -201,6 +201,8 @@ public class PalladioComponentModelDiagramEditorUtil {
      * end-user-doc -->
      * 
      * @generated not
+     * 
+     * @return a Repository
      */
     private static Repository createInitialModel() {
         Repository rep = RepositoryFactory.eINSTANCE.createRepository();

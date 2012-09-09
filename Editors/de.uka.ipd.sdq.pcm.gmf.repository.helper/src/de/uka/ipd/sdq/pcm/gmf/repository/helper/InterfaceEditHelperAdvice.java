@@ -41,11 +41,18 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
  */
 class CreateLinkedSeffCommand extends ConfigureElementCommand {
 
+    /**
+     * A service signature.
+     */
     private Signature service;
+    
+    /**
+     * A configuration request.
+     */
     private ConfigureRequest myRequest;
 
     /**
-     * Constructor to initialize the element creation command
+     * Constructor to initialize the element creation command.
      * 
      * @param request
      *            The request about the element configuration
@@ -60,12 +67,16 @@ class CreateLinkedSeffCommand extends ConfigureElementCommand {
 
     /**
      * Execute the command and create the seff including the minimum setup with a StartAction and a
-     * StopAction
+     * StopAction.
      * 
      * @param monitor
      *            The monitor to report the progress to
      * @param info
      *            Adaptable object for the environment
+     *            
+     * @throws ExecutionException An Exception
+     * 
+     * @return a CommandResult
      */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -122,7 +133,7 @@ class CreateLinkedSeffCommand extends ConfigureElementCommand {
      * @param monitor
      *            The monitor to report the progress.
      * @return The Seff creation result information.
-     * @throws ExecutionException
+     * @throws ExecutionException An Exception
      */
     private CommandResult createSEFF(IElementType typeId, IProgressMonitor monitor) throws ExecutionException {
         CreateElementRequest seffRequest = new CreateElementRequest(myRequest.getElementToConfigure(), typeId,
@@ -136,6 +147,9 @@ class CreateLinkedSeffCommand extends ConfigureElementCommand {
 
 }
 
+/**
+ * The interface EditHelper Advice.
+ */
 public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
     /**

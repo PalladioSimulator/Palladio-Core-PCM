@@ -4,18 +4,22 @@ import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
 /**
- * The activator class controls the plug-in life cycle
+ * The activator class controls the plug-in life cycle.
  */
 public class Activator extends Plugin {
 
-    // The plug-in ID
+    /**
+     * The plug-in ID.
+     */
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.allocation.custom";
 
-    // The shared instance
+    /**
+     * The shared instance.
+     */
     private static Activator plugin;
 
     /**
-     * The constructor
+     * The constructor.
      */
     public Activator() {
     }
@@ -24,6 +28,13 @@ public class Activator extends Plugin {
      * (non-Javadoc)
      * 
      * @see org.eclipse.core.runtime.Plugins#start(org.osgi.framework.BundleContext)
+     */
+    
+    /**
+     * @see org.eclipse.core.runtime.Plugins#start(org.osgi.framework.BundleContext)
+     * 
+     * @param context a BundleContext
+     * @throws Exception an Exception
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
@@ -35,13 +46,20 @@ public class Activator extends Plugin {
      * 
      * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
      */
+    
+    /**
+     * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
+     * 
+     * @param context a BundleContext
+     * @throws Exception an Exception
+     */
     public void stop(BundleContext context) throws Exception {
         plugin = null;
         super.stop(context);
     }
 
     /**
-     * Returns the shared instance
+     * Returns the shared instance.
      * 
      * @return the shared instance
      */

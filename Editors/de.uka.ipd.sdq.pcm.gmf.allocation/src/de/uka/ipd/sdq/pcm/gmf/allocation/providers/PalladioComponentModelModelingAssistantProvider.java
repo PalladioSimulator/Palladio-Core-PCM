@@ -36,6 +36,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
 
     /**
      * @generated not
+     * @param host an IAdaptable
+     * 
+     * @return a List
      */
     public List getTypesForPopupBar(IAdaptable host) {
         IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);

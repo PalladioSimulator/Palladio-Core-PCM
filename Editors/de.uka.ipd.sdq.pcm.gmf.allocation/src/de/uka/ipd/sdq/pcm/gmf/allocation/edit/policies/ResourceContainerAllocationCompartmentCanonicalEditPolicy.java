@@ -5,24 +5,20 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies;
 
 import java.util.Collection;
 import java.util.HashSet;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
-import org.eclipse.gmf.runtime.notation.View;
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
-
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelDiagramUpdater;
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelNodeDescriptor;
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
-
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-
 import java.util.Set;
+
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalEditPolicy;
+import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
+import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -36,6 +32,8 @@ public class ResourceContainerAllocationCompartmentCanonicalEditPolicy extends C
 
     /**
      * @generated not
+     * 
+     * @return a List
      */
     protected List getSemanticChildrenList() {
         List result = new LinkedList();

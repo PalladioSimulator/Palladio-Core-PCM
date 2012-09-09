@@ -15,7 +15,6 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentSEFFCompartmentCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentSEFFCompartmentItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenSeffDiagramEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 
 /**

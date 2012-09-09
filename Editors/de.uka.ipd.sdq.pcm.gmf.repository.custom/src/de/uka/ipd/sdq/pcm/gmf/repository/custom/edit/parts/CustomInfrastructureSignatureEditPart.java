@@ -10,10 +10,20 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureSignatureEditP
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
+/**
+ * A custom infrastructure signature EditPart.
+ */
 public class CustomInfrastructureSignatureEditPart extends InfrastructureSignatureEditPart {
 
+    /**
+     * the maximum signature display length
+     */
     private static final int MAX_SIGNATURE_DISPLAY_LENGTH = 50;
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomInfrastructureSignatureEditPart(View view) {
         super(view);
     }

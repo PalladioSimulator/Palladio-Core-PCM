@@ -4,12 +4,12 @@
 package de.uka.ipd.sdq.pcm.gmf.allocation.providers;
 
 import org.eclipse.core.runtime.IAdaptable;
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.core.providers.AbstractViewProvider;
-import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.IHintedType;
+import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationComponentLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEntityNameEditPart;
@@ -17,9 +17,7 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerAllocationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEntityNameEditPart;
-
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
-
 import de.uka.ipd.sdq.pcm.gmf.allocation.view.factories.AllocationComponentLabelViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.view.factories.AllocationContextEntityNameViewFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.view.factories.AllocationContextViewFactory;

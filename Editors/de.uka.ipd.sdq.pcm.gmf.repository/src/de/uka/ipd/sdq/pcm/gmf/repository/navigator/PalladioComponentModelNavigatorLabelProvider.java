@@ -58,7 +58,6 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
  * @generated

@@ -205,6 +205,8 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart implement
 
     /**
      * @generated not
+     * 
+     * @return the label's text
      */
     protected String getLabelText() {
         String text = "SEFF <";

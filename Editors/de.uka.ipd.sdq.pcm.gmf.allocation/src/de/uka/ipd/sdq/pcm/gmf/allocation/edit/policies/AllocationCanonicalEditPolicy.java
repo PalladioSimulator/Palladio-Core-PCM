@@ -3,63 +3,23 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies;
 
-import java.util.List;
 import java.util.Collection;
-import org.eclipse.gmf.runtime.notation.Edge;
-import org.eclipse.emf.ecore.EObject;
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
-import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelDiagramUpdater;
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelNodeDescriptor;
-import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
-
-import java.util.ArrayList;
 import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.LinkedList;
-import java.util.Map;
+import java.util.List;
 
-import org.eclipse.core.runtime.IAdaptable;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.resource.Resource;
-
-import org.eclipse.gef.EditPart;
-
-import org.eclipse.gef.commands.Command;
-
-import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
-import org.eclipse.gmf.runtime.common.core.command.ICommand;
-
-import org.eclipse.gmf.runtime.diagram.core.util.ViewUtil;
-
-import org.eclipse.gmf.runtime.diagram.ui.commands.CreateCommand;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.diagram.ui.commands.DeferredLayoutCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
-import org.eclipse.gmf.runtime.diagram.ui.commands.SetViewMutabilityCommand;
-
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
-
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalConnectionEditPolicy;
-
-import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramUIMessages;
-
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateConnectionViewRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewRequest;
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
-
-import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-
-import org.eclipse.gmf.runtime.emf.type.core.IElementType;
-
 import org.eclipse.gmf.runtime.notation.Diagram;
+import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEditPart;
+import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * @generated
@@ -68,6 +28,8 @@ public class AllocationCanonicalEditPolicy extends CanonicalConnectionEditPolicy
 
     /**
      * @generated not
+     * 
+     * @return a List
      */
     protected List getSemanticChildrenList() {
         List result = new LinkedList();
@@ -80,6 +42,10 @@ public class AllocationCanonicalEditPolicy extends CanonicalConnectionEditPolicy
 
     /**
      * @generated not
+     * 
+     * @param view a View
+     * 
+     * @return a boolean
      */
     protected boolean shouldDeleteView(View view) {
         if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$

@@ -5,6 +5,9 @@ import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
 import org.eclipse.swt.graphics.Image;
 
+/**
+ * A PCM wrap Label.
+ */
 public class PcmWrapLabel extends WrapLabel {
 
     /**
@@ -16,7 +19,7 @@ public class PcmWrapLabel extends WrapLabel {
     }
 
     /**
-     * @param i
+     * @param i an Image
      */
     public PcmWrapLabel(Image i) {
         super(i);
@@ -24,8 +27,8 @@ public class PcmWrapLabel extends WrapLabel {
     }
 
     /**
-     * @param s
-     * @param i
+     * @param s a String
+     * @param i an Image
      */
     public PcmWrapLabel(String s, Image i) {
         super(s, i);
@@ -33,7 +36,7 @@ public class PcmWrapLabel extends WrapLabel {
     }
 
     /**
-     * @param s
+     * @param s a String
      */
     public PcmWrapLabel(String s) {
         super(s);

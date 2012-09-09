@@ -33,6 +33,9 @@ public class AllocationContextCreateCommand extends CreateElementCommand {
 
     /**
      * @generated not
+     * 
+     * @param req a CreateElementRequest
+     * @param a an Allocation
      */
     public AllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
         super(req);
@@ -48,6 +51,8 @@ public class AllocationContextCreateCommand extends CreateElementCommand {
 
     /**
      * @generated not
+     * 
+     * @return the element to edit
      */
     protected EObject getElementToEdit() {
         EObject container = allocation;

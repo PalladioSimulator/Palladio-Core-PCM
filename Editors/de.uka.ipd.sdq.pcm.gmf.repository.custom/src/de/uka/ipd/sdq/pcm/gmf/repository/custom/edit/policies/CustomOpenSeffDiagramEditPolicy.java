@@ -42,8 +42,17 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDi
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
+/**
+ * A custom OpenSeffDiagram EditPolicy.
+ */
 public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
 
+    /**
+     * Gets an OpenCommand.
+     * 
+     * @param request a Request
+     * @return a Command
+     */
     protected Command getOpenCommand(Request request) {
         EditPart targetEditPart = getTargetEditPart(request);
         if (false == targetEditPart.getModel() instanceof View) {
@@ -85,6 +94,13 @@ public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
 
         /**
          * @generated not
+         * 
+         * @param monitor an IProgressMonitor
+         * @param info an IAdaptable
+         * 
+         * @throws ExecutionException an Exception
+         * 
+         * @return A CommandResult
          */
         protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
                 throws ExecutionException {
@@ -117,6 +133,10 @@ public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
 
         /**
          * @generated not
+         * 
+         * @throws ExecutionException An Exception
+         * 
+         * @return a new diagram
          */
         protected Diagram intializeNewDiagram() throws ExecutionException {
             Diagram d = ViewService.createDiagram(getDiagramDomainElement(), getDiagramKind(), getPreferencesHint());
@@ -147,7 +167,7 @@ public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
                             throw new InvocationTargetException(ex, "Save operation failed");
                         }
                     }
-                }.run(null);
+                } .run(null);
             } catch (InvocationTargetException e) {
                 throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
             } catch (InterruptedException e) {

@@ -8,8 +8,15 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  */
 class ResourceEnvironmentSelectorPage extends ResourceSelectorPage {
 
+    /**
+     * The resource environment.
+     */
     private ResourceEnvironment myResourceEnvironment;
 
+    /**
+     * Creates the resource environment selector page.
+     * @param selectedResourceEnvironment the resource environment
+     */
     protected ResourceEnvironmentSelectorPage(ResourceEnvironment selectedResourceEnvironment) {
         super("Select resource environment", selectedResourceEnvironment);
         setTitle("Diagram resource environment");
@@ -17,6 +24,10 @@ class ResourceEnvironmentSelectorPage extends ResourceSelectorPage {
         myResourceEnvironment = selectedResourceEnvironment;
     }
 
+    /**
+     * Gets the resource environment.
+     * @return the resource environment
+     */
     protected ResourceEnvironment getSelectedResourceEnvironment() {
         return myResourceEnvironment;
     }

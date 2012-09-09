@@ -24,12 +24,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
-import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
 import org.eclipse.emf.ecore.xmi.XMLResource;
-import org.eclipse.emf.edit.ui.util.EditUIUtil;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gef.EditPart;
@@ -51,9 +49,9 @@ import org.eclipse.jface.wizard.WizardDialog;
 import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.IWorkbenchPage;
 import org.eclipse.ui.PartInitException;
-
 import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
+
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
@@ -152,6 +150,13 @@ public class PalladioComponentModelDiagramEditorUtil {
      * This method should be called within a workspace modify operation since it creates resources.
      * 
      * @generated not
+     *
+     * @param diagramURI the diagram's URI
+     * @param modelURI the model's URI
+     * @param mySystem a pcm System
+     * @param myResourceEnv a ResourceEnvironment
+     * @param progressMonitor an IProgressMonitor
+     * @return a diagram resource
      */
     public static Resource createDiagram(org.eclipse.emf.common.util.URI diagramURI,
             org.eclipse.emf.common.util.URI modelURI, final de.uka.ipd.sdq.pcm.system.System mySystem,
@@ -208,6 +213,8 @@ public class PalladioComponentModelDiagramEditorUtil {
      * end-user-doc -->
      * 
      * @generated not
+     * 
+     * @return the initial model
      */
     private static Allocation createInitialModel() {
         Allocation alloc = AllocationFactory.eINSTANCE.createAllocation();

@@ -8,10 +8,21 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCommand;
 
+/**
+ * a custom AllocationContext CreateCommand.
+ */
 public class CumstomAllocationContextCreateCommand extends AllocationContextCreateCommand {
 
+    /**
+     * An Allocation.
+     */
     private Allocation allocation;
 
+    /**
+     * The constructor.
+     * @param req a CreateElementRequst
+     * @param a an Allocation
+     */
     public CumstomAllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
         super(req);
         this.allocation = a;

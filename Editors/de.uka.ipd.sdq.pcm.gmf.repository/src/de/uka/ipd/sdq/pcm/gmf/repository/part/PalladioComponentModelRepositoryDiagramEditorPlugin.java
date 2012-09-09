@@ -94,6 +94,8 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
 
     /**
      * @generated not
+     * @param context a BundleContext
+     * @throws Exception an Exception
      */
     public void stop(BundleContext context) throws Exception {
         ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
@@ -111,6 +113,8 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
 
     /**
      * @generated not
+     * 
+     * @return an AdapterFactory
      */
     protected AdapterFactory createAdapterFactory() {
         List factories = new ArrayList();

@@ -153,6 +153,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
 
     /**
      * @generated not
+     * 
+     * @return an editing domain
      */
     private TransactionalEditingDomain createEditingDomain() {
         TransactionalEditingDomain editingDomain = DiagramEditingDomainFactory.getInstance().createEditingDomain();

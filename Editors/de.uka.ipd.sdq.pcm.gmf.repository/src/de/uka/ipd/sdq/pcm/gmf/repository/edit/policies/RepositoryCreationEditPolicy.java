@@ -3,9 +3,9 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 
-/*
+/***
  * A creation policy which supports adding roles when dragging components or
- * interfaces on the diagramm
+ * interfaces on the diagram.
  */
 public class RepositoryCreationEditPolicy extends CreationEditPolicy implements EditPolicy {
 

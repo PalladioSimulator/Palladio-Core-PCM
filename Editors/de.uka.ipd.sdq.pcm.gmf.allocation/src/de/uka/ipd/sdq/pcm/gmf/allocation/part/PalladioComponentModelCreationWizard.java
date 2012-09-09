@@ -129,6 +129,8 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
 
     /**
      * @generated not
+     * 
+     * @return a boolean
      */
     public boolean performFinish() {
         IRunnableWithProgress op = new WorkspaceModifyOperation(null) {

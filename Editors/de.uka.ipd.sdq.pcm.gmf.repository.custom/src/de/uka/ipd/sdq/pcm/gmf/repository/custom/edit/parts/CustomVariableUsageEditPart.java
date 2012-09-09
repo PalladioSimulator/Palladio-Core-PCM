@@ -13,8 +13,15 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
+/**
+ * A custom variable usage EditPart.
+ */
 public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomVariableUsageEditPart(View view) {
         super(view);
         // TODO Auto-generated constructor stub
@@ -29,6 +36,9 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
     // I left the @generated tags in, so it is clear what part(s) of the class has been modified.
     // Somewhat dirty but the lesser evil imho.
 
+    /**
+     * A parametric parameter usage figure.
+     */
     public class ParametricParameterUsageFigure2 extends ParametricParameterUsageFigure {
 
         /**

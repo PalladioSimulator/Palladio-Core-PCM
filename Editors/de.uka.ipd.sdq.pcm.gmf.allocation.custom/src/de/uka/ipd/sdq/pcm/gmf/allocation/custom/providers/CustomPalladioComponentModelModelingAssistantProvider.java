@@ -12,6 +12,9 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerAllocationC
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelModelingAssistantProvider;
 
+/**
+ * A custom Palladio component model modeling assistant provider.
+ */
 public class CustomPalladioComponentModelModelingAssistantProvider extends
         PalladioComponentModelModelingAssistantProvider {
 

@@ -11,7 +11,9 @@ import org.eclipse.ui.PlatformUI;
 import de.uka.ipd.sdq.pcm.dialogs.variablenames.SetOutputVariableNameDialog;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
-
+/**
+ * A component parameter EditHelperAdvice.
+ */
 public class ComponentParameterEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
     @Override

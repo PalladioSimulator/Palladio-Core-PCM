@@ -19,34 +19,68 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.parts.CustomPalladioCompone
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
 
+/**
+ * A custom Palladio component model EditPart provider.
+ */
 public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPartProvider {
 
+    /**
+     * An EditPart factory.
+     */
     private EditPartFactory factory;
 
+    /**
+     * signals if caching is allowed.
+     */
     private boolean allowCaching;
 
+    /**
+     * A reference to an IGraphicalEditPart.
+     */
     private WeakReference<IGraphicalEditPart> cachedPart;
 
+    /**
+     * A reference to a View.
+     */
     private WeakReference<View> cachedView;
 
+    /**
+     * The constructor.
+     */
     public CustomPalladioComponentModelEditPartProvider() {
         // use our custom factory instead of the generated one
         setFactory(new CustomPalladioComponentModelEditPartFactory());
         setAllowCaching(true);
     }
 
+    /**
+     * gets the EditPart factory.
+     * @return the EditPart factory
+     */
     public final EditPartFactory getFactory() {
         return factory;
     }
 
+    /**
+     * Sets the EditPart factory.
+     * @param factory the factory
+     */
     protected void setFactory(EditPartFactory factory) {
         this.factory = factory;
     }
 
+    /**
+     * Returns if caching is allowed.
+     * @return a boolean value
+     */
     public final boolean isAllowCaching() {
         return allowCaching;
     }
 
+    /**
+     * Sets if caching is allowed.
+     * @param allowCaching a boolean value.
+     */
     protected synchronized void setAllowCaching(boolean allowCaching) {
         this.allowCaching = allowCaching;
         if (!allowCaching) {
@@ -55,6 +89,11 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
         }
     }
 
+    /**
+     * Creates an EditPart.
+     * @param view a View
+     * @return the created EditPart
+     */
     protected IGraphicalEditPart createEditPart(View view) {
         EditPart part = factory.createEditPart(null, view);
         if (part instanceof IGraphicalEditPart) {
@@ -63,6 +102,11 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
         return null;
     }
 
+    /**
+     * Gets the cached EditPart.
+     * @param view a View
+     * @return the EditPart
+     */
     protected IGraphicalEditPart getCachedPart(View view) {
         if (cachedView != null && cachedView.get() == view) {
             return cachedPart.get();
@@ -70,6 +114,11 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
         return null;
     }
 
+    /**
+     * Creates a graphic EditPart.
+     * @param view a View
+     * @return a EditPart
+     */
     public synchronized IGraphicalEditPart createGraphicEditPart(View view) {
         if (isAllowCaching()) {
             IGraphicalEditPart part = getCachedPart(view);
@@ -82,6 +131,11 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
         return createEditPart(view);
     }
 
+    /**
+     * Returns a boolean value.
+     * @param operation an IOperation
+     * @return a boolean value
+     */
     public synchronized boolean provides(IOperation operation) {
         if (operation instanceof CreateGraphicEditPartOperation) {
             View view = ((IEditPartOperation) operation).getView();

@@ -24,8 +24,18 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
 
+/**
+ * A custom Palladio Component model EditPart Factory.
+ */
 public class CustomPalladioComponentModelEditPartFactory implements EditPartFactory {
 
+    /**
+     * creates an EditPart.
+     * 
+     * @param context an EditPart
+     * @param model an Object
+     * @return an EditPart
+     */
     public EditPart createEditPart(EditPart context, Object model) {
         if (model instanceof View) {
             View view = (View) model;
@@ -57,31 +67,60 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
         return createUnrecognizedEditPart(context, model);
     }
 
+    /**
+     * Creates an unrecognized edit Part.
+     * @param context an EditPart
+     * @param model an Object
+     * @return an EditPart
+     */
     private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
         // Handle creation of unrecognized child node EditParts here
         return null;
     }
 
+    /**
+     * Gets the text CellEditorLocator.
+     * @param source an ITextAwareEditPart
+     * @return a CellEdotprLocator
+     */
     public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
-        if (source.getFigure() instanceof WrappingLabel)
+        if (source.getFigure() instanceof WrappingLabel) {
             return new TextCellEditorLocator((WrappingLabel) source.getFigure());
-        else {
+        } else {
             return new LabelCellEditorLocator((Label) source.getFigure());
         }
     }
 
-    static private class TextCellEditorLocator implements CellEditorLocator {
+    /**
+     * A text CellEditorLocator.
+     */
+    private static class TextCellEditorLocator implements CellEditorLocator {
 
+        /**
+         * A wrapping label.
+         */
         private WrappingLabel wrapLabel;
 
+        /**
+         * The constructor.
+         * @param wrapLabel a WrappingLabel.
+         */
         public TextCellEditorLocator(WrappingLabel wrapLabel) {
             this.wrapLabel = wrapLabel;
         }
 
+        /**
+         * Gets the wrap label.
+         * @return a WrappingLabel.
+         */
         public WrappingLabel getWrapLabel() {
             return wrapLabel;
         }
 
+        /**
+         * relocates the cell editor.
+         * @param celleditor the CellEditor
+         */
         public void relocate(CellEditor celleditor) {
             Text text = (Text) celleditor.getControl();
             Rectangle rect = getWrapLabel().getTextBounds().getCopy();
@@ -98,18 +137,37 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
         }
     }
 
+    /**
+     * A label cell Editor locator.
+     */
     private static class LabelCellEditorLocator implements CellEditorLocator {
 
+        /**
+         * a label.
+         */
         private Label label;
 
+        /**
+         * The constructor.
+         * @param label a Label.
+         */
         public LabelCellEditorLocator(Label label) {
             this.label = label;
         }
 
+        /**
+         * gets the label.
+         * @return the label
+         */
         public Label getLabel() {
             return label;
         }
 
+        /**
+         * Relocates the CellEditor.
+         * 
+         * @param celleditor a CellEditor
+         */
         public void relocate(CellEditor celleditor) {
             Text text = (Text) celleditor.getControl();
             Rectangle rect = getLabel().getTextBounds().getCopy();

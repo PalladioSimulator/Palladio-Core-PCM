@@ -27,9 +27,16 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.policies.CustomResourceCont
 import de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.policies.CustomResourceContainerAllocationCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.ResourceContainerAllocationCompartmentEditPart;
 
+/**
+ * A custom resource container allocation compartment EditPart.
+ */
 public class CustomResourceContainerAllocationCompartmentEditPart extends
         ResourceContainerAllocationCompartmentEditPart {
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomResourceContainerAllocationCompartmentEditPart(View view) {
         super(view);
         // TODO Auto-generated constructor stub

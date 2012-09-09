@@ -23,6 +23,9 @@ public class ResourceContainerAllocationCompartmentItemSemanticEditPolicy extend
 
     /**
      * @generated not
+     * 
+     * @param req a CreateElementRequest
+     * @return a CreateCommand
      */
     protected Command getCreateCommand(CreateElementRequest req) {
         if (PalladioComponentModelElementTypes.AllocationContext_3001 == req.getElementType()) {

@@ -17,8 +17,15 @@ import de.uka.ipd.sdq.pcm.gmf.repository.custom.edit.policies.CustomRepositoryCa
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.RepositoryEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.RepositoryItemSemanticEditPolicy;
 
+/**
+ * A custom repository EditPart.
+ */
 public class CustomRepositoryEditPart extends RepositoryEditPart {
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomRepositoryEditPart(View view) {
         super(view);
     }

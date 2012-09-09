@@ -16,8 +16,15 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ResourceDemandingSEFFItem
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
+/**
+ * A custom ResourceDemandingSEFF EditPart.
+ */
 public class CustomResourceDemandingSEFFEditPart extends ResourceDemandingSEFFEditPart {
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomResourceDemandingSEFFEditPart(View view) {
         super(view);
     }

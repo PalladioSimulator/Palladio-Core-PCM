@@ -9,12 +9,22 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationSignatureEditPart;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
+/**
+ * A custom operations signature EditPart.
+ */
 public class CustomOperationSignatureEditPart extends OperationSignatureEditPart {
 
+    /**
+     * A custom operation signature EditPart.
+     * @param view a View
+     */
     public CustomOperationSignatureEditPart(View view) {
         super(view);
     }
 
+    /**
+     * Maximum signature display length.
+     */
     private static final int MAX_SIGNATURE_DISPLAY_LENGTH = 50;
 
     @Override

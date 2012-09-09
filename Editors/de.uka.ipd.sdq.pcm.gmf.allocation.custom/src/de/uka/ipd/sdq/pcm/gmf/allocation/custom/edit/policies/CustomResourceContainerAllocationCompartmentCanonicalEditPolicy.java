@@ -13,6 +13,9 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.parts.AllocationContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies.ResourceContainerAllocationCompartmentCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegistry;
 
+/**
+ * A custom resource container allocation compartment canoncial EditPolicy.
+ */
 public class CustomResourceContainerAllocationCompartmentCanonicalEditPolicy extends
         ResourceContainerAllocationCompartmentCanonicalEditPolicy {
 

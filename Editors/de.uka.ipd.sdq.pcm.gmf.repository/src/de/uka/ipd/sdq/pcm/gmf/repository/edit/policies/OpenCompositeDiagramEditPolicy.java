@@ -39,9 +39,7 @@ import org.eclipse.ui.actions.WorkspaceModifyOperation;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramEditorUtil;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
  * @generated
@@ -89,6 +87,13 @@ public class OpenCompositeDiagramEditPolicy extends OpenEditPolicy {
 
         /**
          * @generated not
+         * 
+         * @param monitor An IProgressMonitor
+         * @param info An IAdaptable
+         * 
+         * @throws ExecutionException an Exception
+         * 
+         * @return a CommandResult
          */
         protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
                 throws ExecutionException {

@@ -12,11 +12,25 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.PassiveResourceEditPart;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
+/**
+ * A custom passive resource EditPart.
+ */
 public class CustomPassiveResourceEditPart extends PassiveResourceEditPart {
 
+    /**
+     * The changeListener.
+     */
     private EContentAdapter changeListener = null;
+    
+    /**
+     * An adaptedElement.
+     */
     private EObject adaptedElement = null;
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomPassiveResourceEditPart(View view) {
         super(view);
     }

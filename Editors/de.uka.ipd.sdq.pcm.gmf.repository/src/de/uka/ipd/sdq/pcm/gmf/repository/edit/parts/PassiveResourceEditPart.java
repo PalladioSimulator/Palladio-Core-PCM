@@ -206,6 +206,8 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements ITex
 
     /**
      * @generated not
+     * 
+     * @return the label's text
      */
     protected String getLabelText() {
         String stoex = null, text = null;

@@ -29,9 +29,20 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 
+/**
+ * Configure SEFF Command.
+ */
 class ConfigureSEFFCommand extends ConfigureElementCommand {
+    
+    /**
+     * A configure request.
+     */
     private ConfigureRequest myRequest;
 
+    /**
+     * The constructor.
+     * @param request a ConfigureRequest
+     */
     public ConfigureSEFFCommand(ConfigureRequest request) {
         super(request);
         myRequest = request;
@@ -71,6 +82,9 @@ class ConfigureSEFFCommand extends ConfigureElementCommand {
     }
 }
 
+/**
+ * The repository editor SEFF EditHelperAdvice.
+ */
 public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
     @Override

@@ -41,8 +41,16 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelDiagramEdito
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 
+/**
+ * A custom openCompositeDiagram EditPolicy.
+ */
 public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEditPolicy {
 
+    /**
+     * gets the OpenCommand.
+     * @param request a Request
+     * @return a Command
+     */
     protected Command getOpenCommand(Request request) {
         EditPart targetEditPart = getTargetEditPart(request);
         if (false == targetEditPart.getModel() instanceof View) {
@@ -83,6 +91,13 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
 
         /**
          * @generated not
+         * 
+         * @param monitor An IProgressMonitor
+         * @param info An IAdaptable
+         * 
+         * @throws ExecutionException an Exception
+         * 
+         * @return a CommandResult
          */
         protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
                 throws ExecutionException {
@@ -113,6 +128,10 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
 
         /**
          * @generated not
+         * 
+         * @throws ExecutionException An Exception
+         * 
+         * @return a new diagram
          */
         protected Diagram intializeNewDiagram() throws ExecutionException {
             Diagram d = ViewService.createDiagram(getDiagramDomainElement(), getDiagramKind(), getPreferencesHint());
@@ -143,7 +162,7 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
                             throw new InvocationTargetException(ex, "Save operation failed");
                         }
                     }
-                }.run(null);
+                } .run(null);
             } catch (InvocationTargetException e) {
                 throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
             } catch (InterruptedException e) {

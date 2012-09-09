@@ -13,8 +13,15 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
 
+/**
+ * The custom variable characterisation EditPart.
+ */
 public class CustomVariableCharacterisationEditPart extends VariableCharacterisationEditPart {
 
+    /**
+     * The constructor.
+     * @param view a View
+     */
     public CustomVariableCharacterisationEditPart(View view) {
         super(view);
     }

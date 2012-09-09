@@ -4,14 +4,18 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.BundleContext;
 
 /**
- * The activator class controls the plug-in life cycle
+ * The activator class controls the plug-in life cycle.
  */
 public class RepositoryHelperPlugin extends AbstractUIPlugin {
 
-    // The plug-in ID
+    /**
+     *  The plug-in ID.
+     */
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.repository.helper";
 
-    // The shared instance
+    /**
+     *  The shared instance.
+     */
     private static RepositoryHelperPlugin plugin;
 
     /**
@@ -24,25 +28,25 @@ public class RepositoryHelperPlugin extends AbstractUIPlugin {
     }
 
     /**
-     * The constructor
+     * The constructor.
      */
     public RepositoryHelperPlugin() {
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
+     * @param context a BundleContext
+     * @throws Exception an Exception
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
         plugin = this;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
+     * @param context a BundleContext
+     * @throws Exception an Exception
      */
     public void stop(BundleContext context) throws Exception {
         plugin = null;
@@ -50,7 +54,7 @@ public class RepositoryHelperPlugin extends AbstractUIPlugin {
     }
 
     /**
-     * Returns the shared instance
+     * Returns the shared instance.
      * 
      * @return the shared instance
      */

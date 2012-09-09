@@ -27,7 +27,15 @@ import org.eclipse.swt.widgets.Text;
  * The dialog will only succeed if a valid resource file has been selected.
  */
 class ResourceSelectorPage extends WizardPage {
+    
+    /**
+     * The selection text.
+     */
     private Text mySelectionText;
+    
+    /**
+     * The resolved object.
+     */
     private EObject myResolvedObject;
 
     /**
@@ -37,6 +45,11 @@ class ResourceSelectorPage extends WizardPage {
         return myResolvedObject;
     }
 
+    /**
+     * Creates the resource selector page.
+     * @param name a name
+     * @param selectedResource The selected resource
+     */
     protected ResourceSelectorPage(String name, EObject selectedResource) {
         super(name);
         setTitle("Diagram resource");
@@ -44,6 +57,10 @@ class ResourceSelectorPage extends WizardPage {
         myResolvedObject = selectedResource;
     }
 
+    /**
+     * Creates a control.
+     * @param parent a Composite
+     */
     public void createControl(Composite parent) {
         initializeDialogUnits(parent);
         Composite topLevel = new Composite(parent, SWT.NONE);
@@ -56,7 +73,8 @@ class ResourceSelectorPage extends WizardPage {
     }
 
     /**
-     * creates the SWT widgets used to select and display the resource and initializes them
+     * creates the SWT widgets used to select and display the resource and initializes them.
+     * @param parent a Composite
      */
     private void createPageContent(Composite parent) {
         Composite panel = new Composite(parent, SWT.NONE);
@@ -118,12 +136,16 @@ class ResourceSelectorPage extends WizardPage {
         return true;
     }
 
+    /**
+     * Validates a page.
+     * @return a boolean value
+     */
     protected boolean doValidatePage() {
         return (myResolvedObject != null);
     }
 
     /**
-     * checks if the selected file is a valid resource
+     * checks if the selected file is a valid resource.
      */
     private void resolveSelection() {
         myResolvedObject = null;

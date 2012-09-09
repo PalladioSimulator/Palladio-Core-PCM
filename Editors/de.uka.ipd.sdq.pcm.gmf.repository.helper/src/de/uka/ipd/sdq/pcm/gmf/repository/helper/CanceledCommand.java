@@ -6,8 +6,14 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.common.core.command.AbstractCommand;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 
+/**
+ * A canceled command.
+ */
 public class CanceledCommand extends AbstractCommand {
 
+    /**
+     * The constructor.
+     */
     public CanceledCommand() {
         super("Canceled Command");
     }
