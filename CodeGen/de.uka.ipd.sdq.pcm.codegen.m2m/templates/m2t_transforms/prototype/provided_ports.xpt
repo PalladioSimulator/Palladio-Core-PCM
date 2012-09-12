@@ -18,7 +18,7 @@
 				
 		  public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContext) throws java.rmi.RemoteException {
 		  		this.myComponent = myComponent;
-				de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»_" + assemblyContext);
+				de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRegistryPort(), this, "«this.portClassName()»_" + assemblyContext);
 		  }
 		    
 	      «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»
@@ -38,7 +38,7 @@
 
 	     public «this.portClassName()»(«this.providingEntity_ProvidedRole.fqnInterface()» myComponent, String assemblyContext) throws java.rmi.RemoteException {
 	        this.myComponent = myComponent;
-	       	de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»_" + assemblyContext);
+	       	de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRegistryPort(), this, "«this.portClassName()»_" + assemblyContext);
 	     }
 	    
 	     «EXPAND m2t_transforms::provided_ports::ComponentPortHelperMethodsTM FOR this»  
@@ -64,7 +64,7 @@
 			this.myInnerPort = myInnerPort;
 			this.myCompositeComponent = myCompositeComponent;
 		        	        
-			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), this, "«this.portClassName()»_" + assemblyContext);
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.registerPort(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRemoteAddress(), de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getRegistryPort(), this, "«this.portClassName()»_" + assemblyContext);
 			logger.info("Instantiation of port «this.portClassName()» completed");	        
 		}	     
 	     	 	

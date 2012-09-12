@@ -7,7 +7,7 @@
 
 
 «DEFINE ChildMemberStartMain FOR AssemblyContext»
-	«this.encapsulatedComponent__AssemblyContext.repository__RepositoryComponent.basePackageName()».impl.custom.«this.encapsulatedComponent__AssemblyContext.entityName».main(null);
+	«this.encapsulatedComponent__AssemblyContext.repository__RepositoryComponent.basePackageName()».impl.custom.«this.encapsulatedComponent__AssemblyContext.entityName».main(runProps.getOptionValue('R'), runProps.getOptionValue('O'));
 «ENDDEFINE»
 
 

@@ -61,7 +61,7 @@
 «ENDDEFINE»
 
 «DEFINE ChildMemberStartMain FOR AssemblyContext»
-	«this.encapsulatedComponent__AssemblyContext.fqn()».main("", "«this.id»");
+	«this.encapsulatedComponent__AssemblyContext.fqn()».main("", "", "«this.id»");
 «ENDDEFINE»
 
 «DEFINE ChildMemberVarInit FOR AssemblyContext»

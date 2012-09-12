@@ -117,9 +117,12 @@
 		logger.info("Main method of basic component «this.entityName» called");
 
 		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
+		
 		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
 		
 		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
 		
 		new «this.fqn()»(assemblyContext);
 	}
@@ -130,9 +133,12 @@
 		logger.info("Main method of composed structure «this.entityName» called");
 
 		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
+		
 		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
 		
 		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
 		
 		new «this.fqn()»(assemblyContext);
 	}

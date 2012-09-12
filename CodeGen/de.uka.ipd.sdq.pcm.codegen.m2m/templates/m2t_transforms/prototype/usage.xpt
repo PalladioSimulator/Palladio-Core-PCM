@@ -38,7 +38,7 @@
 			protected void initialiseSystems() 
 			{
 				«FOREACH this.usageScenario_UsageModel.querySystemCalls().getSystemsFromCalls() AS us»
-					«us.fqn()».main(null);
+					«us.fqn()».main(runProps.getOptionValue('R'), runProps.getOptionValue('O'));
 				«ENDFOREACH»			
 			}
 			
