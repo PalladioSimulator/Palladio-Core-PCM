@@ -21,6 +21,9 @@ import de.uka.ipd.sdq.prototype.framework.usage.AbstractScenarioThread;
  * Ports register themselves at this service using their name and assembly
  * context.
  * 
+ * TODO: Split this class into two parts: One for managing remote connection to 
+ * the registry and one for the registry service itself.
+ * 
  * @author zolynski
  * 
  */
@@ -32,7 +35,16 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 
 	private static RmiRegistry singleton;
 
+	/**
+	 * Remote address of RMI registry.
+	 */
 	private static String configuredRemoteAddr;
+	
+	/**
+	 * IP Port of RMI registry, default is 1099.
+	 */
+	private static int configuredRegistryPort = Registry.REGISTRY_PORT;
+
 
 	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RmiRegistry.class);
 
@@ -44,30 +56,30 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	private RmiRegistry() throws RemoteException {
 		// Locate java/sun's RMI registry or create one
 		try {
-			LocateRegistry.createRegistry(Registry.REGISTRY_PORT);
-			logger.info("Java RMI registry started");
+			LocateRegistry.createRegistry(configuredRegistryPort);
+			logger.info("Java RMI registry started at port " + configuredRegistryPort);
 
 		} catch (RemoteException e) {
-			LocateRegistry.getRegistry(Registry.REGISTRY_PORT);
-			logger.info("Java RMI registry already running");
+			LocateRegistry.getRegistry(configuredRegistryPort);
+			logger.info("Java RMI registry already running at port " + configuredRegistryPort);
 		}
 
 		// Create registry binding service if it doesn't exist yet
 		try {
-			Naming.lookup("//localhost/" + PCM_RMI_REGISTRY);
+			Naming.lookup("//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY);
 
 			logger.info("RMI binding service already running");
 
-		} catch (MalformedURLException e) {
+		} catch (MalformedURLException e) {			
 		} catch (NotBoundException e) {
 			logger.info("Starting RMI binding service");
 
 			try {
-				Naming.bind(PCM_RMI_REGISTRY, this);
+				String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY;
+				Naming.bind(bindingName, this);
+				logger.info("RMI binding service bound as " + bindingName);
 			} catch (MalformedURLException e2) {
-				logger.error("RMI registry failed", e2);
-			} catch (RemoteException e2) {
-				logger.error("RMI registry failed", e2);
+				logger.error("RMI registry failed: Malformed URL", e2);
 			} catch (AlreadyBoundException e2) {
 				logger.error("RMI registry failed: Registry already bound on this port", e2);
 			}
@@ -75,10 +87,11 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	}
 
 	@Override
-	public void bindPort(String name, Remote port) throws RemoteException {
-		logger.info("Binding " + name + " to RMI registry.");
+	public void bindPort(String name, Remote portClass) throws RemoteException {
+		String bindingName = "//" + getRemoteAddress() + ":" + getRegistryPort() + "/" + name;
+		logger.info("Binding " + name + " to RMI registry as " + bindingName);
 		try {
-			java.rmi.Naming.rebind(name, port);
+			java.rmi.Naming.rebind(bindingName, portClass);
 		} catch (MalformedURLException e) {
 			logger.error("RMI registry failed", e);
 		}
@@ -89,7 +102,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 			try {
 				singleton = new RmiRegistry();
 			} catch (RemoteException e) {
-				logger.error("RMI Registry failed", e);
+				logger.error("RMI registry failed", e);
 			}
 		}
 	}
@@ -104,10 +117,10 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	 * @param portName
 	 *            unique name of the port, using assembly context
 	 */
-	public static void registerPort(String registryIP, java.rmi.Remote component, String componentName) {
+	public static void registerPort(String registryIP, int registryPort, java.rmi.Remote component, String componentName) {
 
 		try {
-			Registry reg = LocateRegistry.getRegistry(registryIP);
+			Registry reg = LocateRegistry.getRegistry(registryIP, registryPort);
 
 			de.uka.ipd.sdq.prototype.framework.registry.IRmiRegistry pcmRegistry = null;
 
@@ -140,12 +153,25 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	 * @return
 	 */
 	public static String getIpFromArguments(String[] args) {
-		if (args != null && args.length > 0) {
+		if (args != null && args.length > 0 && args[0] != null && !args[0].equals("")) {
 			return args[0];
 		}
 		return LOCALHOST;
 	}
 
+	/**
+	 * Returns an port number from an argument string array or 1099 instead
+	 * 
+	 * @param args
+	 * @return
+	 */
+	public static int getPortFromArguments(String[] args) {
+		if (args != null && args.length > 1 && args[1] != null && !args[1].equals("")) {
+			return Integer.parseInt(args[1]);
+		}
+		return Registry.REGISTRY_PORT;
+	}
+	
 	/**
 	 * 
 	 * @param name
@@ -161,7 +187,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 			return null;
 		}
 
-		String addr = "//" + getRemoteAddress() + "/" + name;
+		String addr = "//" + getRemoteAddress() + ":" + getRegistryPort() + "/" + name;
 
 		while (true) {
 			try {
@@ -171,7 +197,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 			} catch (java.net.MalformedURLException e) {
 				logger.error("Remote URI malformed. This should never happen, strange model names used? (" + addr + ")");
 			} catch (java.rmi.RemoteException e) {
-				logger.error("Error while waiting for system. " + e);
+				logger.error("Error while waiting for system. (" + addr + ")" + e);
 			} catch (java.rmi.NotBoundException e) {
 				logger.info("System missing: " + e.getMessage());
 				try {
@@ -191,13 +217,22 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	}
 
 	public static void setRemoteAddress(String configuredRemoteAddr) {
+		assert(configuredRemoteAddr != null);
 		RmiRegistry.configuredRemoteAddr = configuredRemoteAddr;
+	}
+	
+	public static int getRegistryPort() {
+		return configuredRegistryPort;
+	}
+
+	public static void setRegistryPort(int configuredRegistryPort) {
+		RmiRegistry.configuredRegistryPort = configuredRegistryPort;
 	}
 
 	public static void main(String[] args) {
 		startRegistry();
 
-		logger.info("RMI registry started on port " + Registry.REGISTRY_PORT);
+		logger.info("RMI registry started on port " + configuredRegistryPort);
 
 		// Dirty fix to keep this java process alive...
 		new Thread() {

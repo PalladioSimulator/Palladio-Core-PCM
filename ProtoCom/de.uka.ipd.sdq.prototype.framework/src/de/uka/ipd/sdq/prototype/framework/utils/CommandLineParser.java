@@ -46,19 +46,22 @@ public class CommandLineParser {
 		o.addOption(OptionBuilder.hasArg().withArgName("propertyFile").withLongOpt("propFile")
 				.withDescription("Property file used to set default commandline parameters. Defaults can be overwritten by additional parameters.").create("f"));
 		o.addOption(OptionBuilder.hasArg().withArgName("dataDirectory").withLongOpt("dataDir")
-				.withDescription("Datadirectory used by the FileStorage Sensor DAO to store the measured times [mandatory]").create('d'));
+				.withDescription("Datadirectory used by the FileStorage Sensor DAO to store the measured times [mandatory].").create('d'));
 		o.addOption(OptionBuilder.hasArg().withArgName("user count").withLongOpt("threadcount")
-				.withDescription("Override usage scenario population (only for closed workloads)").create("c"));
+				.withDescription("Override usage scenario population (only for closed workloads).").create("c"));
 		o.addOption(OptionBuilder.hasArg().withArgName("max measurements").withLongOpt("maxmeasurement").withDescription("Maximum measurements to take [mandatory]")
 				.create("m"));
-		o.addOption(OptionBuilder.hasArg().withArgName("warmup runs").withLongOpt("warmup").withDescription("Warmup runs before measuring (default: 1000)")
+		o.addOption(OptionBuilder.hasArg().withArgName("warmup runs").withLongOpt("warmup").withDescription("Warmup runs before measuring (default: 1000).")
 				.create("u"));
 		o.addOption(OptionBuilder.hasArg().withArgName("calibrationPath").withLongOpt("storeCalPath")
 				.withDescription("Path to the directory where the calibration is stored [mandatory]").create("s"));
-		o.addOption(OptionBuilder.hasArg().withArgName("ip").withLongOpt("remoteAddr").withDescription("Remote address to the system component.").create("R"));
-		o.addOption(OptionBuilder.hasArg().withArgName("seed").withLongOpt("randomGenerator").withDescription("Seed for the StoEx random generator")
-				.create("E"));
-		o.addOption(OptionBuilder.hasArg().withLongOpt("name").withDescription("Name of the experiment for use in the stored data [mandatory]").create('n'));
+		o.addOption(OptionBuilder.hasArg().withArgName("ip").withLongOpt("remoteAddr").withDescription("Remote address of the RMI registry.").create('R'));
+
+		o.addOption(OptionBuilder.hasArg().withArgName("port").withLongOpt("remotePort").withDescription("IP port of the RMI registry (default: 1099).").create('O'));
+
+		o.addOption(OptionBuilder.hasArg().withArgName("seed").withLongOpt("randomGenerator").withDescription("Seed for the StoEx random generator.")
+				.create('E'));
+		o.addOption(OptionBuilder.hasArg().withLongOpt("name").withDescription("Name of the experiment for use in the stored data [mandatory].").create('n'));
 
 		o.addOption(OptionBuilder.hasArgs().withLongOpt("cpuStrategy").withArgName("CPU Strategy")
 				.withDescription("CPU calibration strategy: primes, count_numbers, fft, fibonacci, mandelbrot, sortarray, void, wait (default: Fibonacci).")

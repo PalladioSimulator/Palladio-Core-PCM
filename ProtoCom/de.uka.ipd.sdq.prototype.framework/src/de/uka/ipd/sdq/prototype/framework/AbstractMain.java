@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.prototype.framework;
 
 import java.io.File;
 import java.lang.reflect.Method;
+import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Date;
@@ -79,6 +80,9 @@ public abstract class AbstractMain {
 			randomGen.setSeed(Long.parseLong(runProps.getOptionValue('E')));
 		}
 
+		RmiRegistry.setRemoteAddress(getRMIRegistry());
+		RmiRegistry.setRegistryPort(getRMIPort());
+		
 		logger.info("Initialising StoEx Cache " + (runProps.hasOption('E') ? " - Seed: " + runProps.getOptionValue('E') : ""));
 
 		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
@@ -108,6 +112,7 @@ public abstract class AbstractMain {
 		if (itemId == 1) {
 			// Start everything in local mode
 			logger.debug("Start: Start everything in local mode");
+
 			RmiRegistry.startRegistry();
 			AbstractAllocationStorage.setLocalMode(true);
 			setupResources();
@@ -138,7 +143,7 @@ public abstract class AbstractMain {
 			for (String[] system : systems) {
 				if (itemId == i) {
 					logger.debug("Start: System " + system[0]);
-					invokeMethod(getMain(system[0]), getRMIRegistry());
+					invokeMethod(getMain(system[0]), getRMIRegistry(), "" + getRMIPort());
 				}
 				i++;
 			}
@@ -164,6 +169,13 @@ public abstract class AbstractMain {
 			return runProps.getOptionValue("R");
 		}
 		return RmiRegistry.LOCALHOST;
+	}
+	
+	private int getRMIPort() {
+		if (runProps.hasOption("O")) {
+			return Integer.parseInt(runProps.getOptionValue("O"));
+		}
+		return Registry.REGISTRY_PORT;
 	}
 
 	private Method getMain(Class<?> mainClass) {
@@ -238,7 +250,7 @@ public abstract class AbstractMain {
 
 		for (ComponentAllocation component : components) {			
 			logger.info("Start: Component " + component.getComponentClass().getName() + ", assembly context: " + component.getAssemblyContext());
-			invokeMethod(getMain(component.getComponentClass()), getRMIRegistry(), component.getAssemblyContext());
+			invokeMethod(getMain(component.getComponentClass()), getRMIRegistry(), "" + getRMIPort(), component.getAssemblyContext());
 		}
 	}
 
@@ -407,8 +419,8 @@ public abstract class AbstractMain {
 	 * @return
 	 */
 	public static String getAssemblyContextFromArguments(String[] args) {
-		if (args != null && args.length > 1) {
-			return args[1];
+		if (args != null && args.length > 2) {
+			return args[2];
 		}
 		return "";
 	}
