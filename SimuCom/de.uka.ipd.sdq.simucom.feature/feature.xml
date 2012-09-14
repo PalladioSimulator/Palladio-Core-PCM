@@ -232,7 +232,6 @@ litigation.
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="org.eclipse.ocl"/>
       <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtend.util.stdlib"/>
       <import plugin="org.eclipse.xtend.typesystem.emf"/>
       <import plugin="org.eclipse.xpand"/>
       <import plugin="org.eclipse.xtend"/>
@@ -240,6 +239,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.scheduler" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.fzi.se.quality" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.sensorframework"/>
+      <import plugin="org.apache.log4j" version="1.2.13" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.runtime"/>
       <import plugin="org.eclipse.emf.ecore.change"/>
       <import plugin="de.uka.ipd.sdq.statistics" version="1.0.0" match="greaterOrEqual"/>
@@ -296,10 +296,11 @@ litigation.
       <import plugin="de.uka.ipd.sdq.units.edit"/>
       <import plugin="org.eclipse.uml2.common.edit"/>
       <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.apache.log4j" version="1.2.13" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.simucomstatus" version="1.0.0" match="greaterOrEqual"/>
       <import feature="de.uka.ipd.sdq.simulation.abstractsimengine.feature" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtend.util.stdlib" version="1.0.1" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simulation.abstractsimengine" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -363,19 +364,6 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-   <plugin
-         id="org.apache.log4j"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="org.apache.commons.javaflow"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
 
    <plugin
          id="de.uka.ipd.sdq.reliability.core"
