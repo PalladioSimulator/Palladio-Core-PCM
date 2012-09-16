@@ -1,0 +1,11 @@
+<j:jelly xmlns:j="jelly:core" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form" xmlns:i="jelly:fmt" xmlns:u="/hudson/plugins/robot/util">
+  <t:summary icon="../../plugin/svncheck/disks.png">
+    <p>Projects not being checked out:</p>
+    
+    <ul>
+    <j:forEach var="element" items="${it.getSvnProjectsList()}">
+        <li>${element}</li>
+	</j:forEach>
+	</ul>
+  </t:summary>
+</j:jelly>
