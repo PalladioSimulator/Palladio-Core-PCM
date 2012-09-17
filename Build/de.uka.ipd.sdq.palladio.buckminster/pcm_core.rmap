@@ -8,6 +8,7 @@
   <rm:locator searchPathRef="SensorFramework" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="SensorFramework" failOnError="false" pattern="^org\.hibernate*" />
   <rm:locator searchPathRef="ProbeSpec" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
+  <rm:locator searchPathRef="ProbeSpec" failOnError="false" pattern="^org\.jscience*" />
   <rm:locator searchPathRef="FeatureModel" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="WorkflowEngine" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="m2m" failOnError="false" pattern="^org\.eclipse\.m2m\..*" />
