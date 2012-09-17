@@ -5,6 +5,7 @@
   <rm:locator searchPathRef="pcmsolver" failOnError="false" pattern="^de\.uka\.ipd\.sdq\.pcmsolver\.feature" />
   <rm:locator searchPathRef="SDQ_Commons" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="SDQ_Commons" failOnError="false" pattern="^edu\.kit\.ipd\.sdq\..*" />
+  <rm:locator searchPathRef="SDQ_Commons" failOnError="false" pattern="^uc\.ac\.ucl\.ee\..*" />
   <rm:locator searchPathRef="SensorFramework" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
   <rm:locator searchPathRef="SensorFramework" failOnError="false" pattern="^org\.hibernate*" />
   <rm:locator searchPathRef="ProbeSpec" failOnError="false" pattern="^de\.uka\.ipd\.sdq\..*" />
