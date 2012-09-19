@@ -43,7 +43,10 @@ public class EntryLevelSystemCallEditHelperAdvice extends AbstractEditHelperAdvi
         ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
         additionalReferences.add(RepositoryPackage.eINSTANCE
                 .getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
+        additionalReferences.add(RepositoryPackage.eINSTANCE
+                .getInterface_ParentInterfaces__Interface());
 
+        
         PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request.getEditingDomain()
                 .getResourceSet());
