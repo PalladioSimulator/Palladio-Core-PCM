@@ -3,10 +3,15 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.custom.edit.parts;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationSignatureEditPart;
+import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 
 /**
@@ -14,6 +19,11 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
  */
 public class CustomOperationSignatureEditPart extends OperationSignatureEditPart {
 
+	/**
+     * An adaptedElement.
+     */
+    private OperationSignature adaptedElement = null;
+    
     /**
      * A custom operation signature EditPart.
      * @param view a View
@@ -40,6 +50,29 @@ public class CustomOperationSignatureEditPart extends OperationSignatureEditPart
             text = getLabelTextHelper(figure);
         }
         return text;
+    }
+    
+    @Override
+    protected void addSemanticListeners() {
+    	adaptedElement = (OperationSignature) resolveSemanticElement();
+        super.addSemanticListeners();
+        
+    }
+
+    @Override
+    protected void removeSemanticListeners() {
+
+        OperationSignature element =  adaptedElement;
+        removeListenerFilter("SemanticModel"); //$NON-NLS-1$
+        DataType returnType = element.getReturnType__OperationSignature();
+        if (returnType != null)
+            removeListenerFilter("SemanticModel-RT"); //$NON-NLS-1$
+
+        EList<Parameter> params = element.getParameters__OperationSignature();
+        for (int i = 0; i < params.size(); i++) {
+            removeListenerFilter("SemanticModel-Param" + i); //$NON-NLS-1$
+        }
+
     }
 
 }
