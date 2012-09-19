@@ -50,6 +50,10 @@ public class ExternalCallActionEditHelperAdvice extends AbstractEditHelperAdvice
         additionalReferences.add(RepositoryPackage.eINSTANCE
                 .getOperationRequiredRole_RequiredInterface__OperationRequiredRole());
 
+        additionalReferences.add(RepositoryPackage.eINSTANCE
+                .getInterface_ParentInterfaces__Interface());
+
+        
         // create the dialog
         final PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, eObject);
