@@ -27,8 +27,8 @@ String fullIndex(NamedElement e) :
 String toString(uml::String s) :
 	s;
 	
-Integer toInt(uml::UnlimitedNatural i) :
-	i;	
+//Integer toInt(uml::UnlimitedNatural i) :
+//	i;	
 	
 Integer toInt(uml::Integer i) :
 	i;	
