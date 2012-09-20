@@ -27,7 +27,7 @@
 <stringAttribute key="maximumMeasurementCount" value="10000"/>
 <stringAttribute key="minimum" value=""/>
 <stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
-<stringAttribute key="outpath" value="de.uka.ipd.sdq.codegen.simucominstance"/>
+<stringAttribute key="outpath" value="de.uka.ipd.sdq.temporary"/>
 <stringAttribute key="persistenceFramework" value="SensorFramework"/>
 <stringAttribute key="simTime" value="15000"/>
 <booleanAttribute key="simulateAccuracy" value="false"/>
