@@ -81,7 +81,7 @@
       <layoutConstraint xsi:type="notation:Bounds"/>
     </children>
     <element href="default.system#_MafcUFBvEd6ActLj8Gdl_A"/>
-    <layoutConstraint xsi:type="notation:Bounds" x="30" y="30" width="921"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="30" y="30" width="866"/>
   </children>
   <styles xsi:type="notation:DiagramStyle"/>
   <element href="default.system#_MafcUFBvEd6ActLj8Gdl_A"/>

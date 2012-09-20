@@ -17,7 +17,7 @@
             <layoutConstraint xsi:type="notation:Location" y="5"/>
           </children>
           <element href="mediastore.repository#_-uB9oBpZEdyxqpPYxT_m3w"/>
-          <layoutConstraint xsi:type="notation:Bounds"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="79" y="27"/>
         </children>
         <element href="WithCache.system#_Wxhc0DrAEeCCbpF63PfiyA"/>
         <layoutConstraint xsi:type="notation:Bounds" x="63" y="163"/>
@@ -29,7 +29,7 @@
             <layoutConstraint xsi:type="notation:Location" y="5"/>
           </children>
           <element href="mediastore.repository#__EO3IBpZEdyxqpPYxT_m3w"/>
-          <layoutConstraint xsi:type="notation:Bounds"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="30"/>
         </children>
         <children xsi:type="notation:Shape" type="3008" fontName="Lucida Grande">
           <children xsi:type="notation:DecorationNode" type="5008">
@@ -43,10 +43,10 @@
             <layoutConstraint xsi:type="notation:Location" y="5"/>
           </children>
           <element href="mediastore.repository#_ACOwcBpaEdyxqpPYxT_m3w"/>
-          <layoutConstraint xsi:type="notation:Bounds" x="79" y="16"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="35" y="-29"/>
         </children>
         <element href="WithCache.system#_YV2WUDrAEeCCbpF63PfiyA"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="291" y="183"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="285" y="160"/>
       </children>
       <children xsi:type="notation:Shape" type="3006" fontName="Lucida Grande">
         <children xsi:type="notation:DecorationNode" type="5009"/>
@@ -55,10 +55,10 @@
             <layoutConstraint xsi:type="notation:Location" y="5"/>
           </children>
           <element href="mediastore.repository#_A1yUUBpaEdyxqpPYxT_m3w"/>
-          <layoutConstraint xsi:type="notation:Bounds"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="-29" y="20"/>
         </children>
         <element href="WithCache.system#_ecouYDrAEeCCbpF63PfiyA"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="467" y="91"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="450" y="40"/>
       </children>
       <children xsi:type="notation:Shape" type="3006" fontName="Lucida Grande">
         <children xsi:type="notation:DecorationNode" type="5009"/>
@@ -77,7 +77,7 @@
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="WithCache.system#_hAEUcDrAEeCCbpF63PfiyA"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="387" y="355"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="445" y="300"/>
       </children>
       <children xsi:type="notation:Shape" type="3006" fontName="Lucida Grande">
         <children xsi:type="notation:DecorationNode" type="5009"/>
@@ -89,7 +89,7 @@
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="WithCache.system#_h08G8DrAEeCCbpF63PfiyA"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="589" y="353"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="620" y="300"/>
       </children>
     </children>
     <children xsi:type="notation:Shape" type="3011" fontName="Lucida Grande">
