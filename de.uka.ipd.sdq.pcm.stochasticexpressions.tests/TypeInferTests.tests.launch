@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
-<listAttribute key="com.mountainminds.eclemma.core.SCOPE_IDS">
-<listEntry value="=de.uka.ipd.sdq.pcm.stochasticexpressions/src"/>
-</listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
-<listEntry value="/de.uka.ipd.sdq.pcm.stochasticexpressions.tests/src"/>
+<listEntry value="/de.uka.ipd.sdq.pcm.stochasticexpressions.tests"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_TYPES">
-<listEntry value="2"/>
+<listEntry value="4"/>
 </listAttribute>
-<stringAttribute key="org.eclipse.debug.ui.ATTR_CAPTURE_IN_FILE" value="TypeInferTests.tests.launch"/>
-<stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value="=de.uka.ipd.sdq.pcm.stochasticexpressions.tests/src"/>
+<stringAttribute key="org.eclipse.jdt.junit.CONTAINER" value="=de.uka.ipd.sdq.pcm.stochasticexpressions.tests"/>
 <booleanAttribute key="org.eclipse.jdt.junit.KEEPRUNNING_ATTR" value="false"/>
 <stringAttribute key="org.eclipse.jdt.junit.TESTNAME" value=""/>
 <stringAttribute key="org.eclipse.jdt.junit.TEST_KIND" value="org.eclipse.jdt.junit.loader.junit4"/>
