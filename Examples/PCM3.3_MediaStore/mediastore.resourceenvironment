@@ -8,24 +8,24 @@
     </communicationLinkResourceSpecifications_LinkingResource>
   </linkingResources__ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_5uTBUBpmEdyxqpPYxT_m3w" entityName="AppServer">
-    <activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer id="_afNFwQMaEeKkGv40lSkX_A">
       <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#FCFS"/>
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
       <processingRate_ProcessingResourceSpecification specification="24 * 1000000"/>
     </activeResourceSpecifications_ResourceContainer>
-    <activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer id="_afNs0AMaEeKkGv40lSkX_A">
       <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
       <processingRate_ProcessingResourceSpecification specification="1000"/>
     </activeResourceSpecifications_ResourceContainer>
   </resourceContainer_ResourceEnvironment>
   <resourceContainer_ResourceEnvironment id="_tVi40Dq_EeCCbpF63PfiyA" entityName="DBServer">
-    <activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer id="_afNs1AMaEeKkGv40lSkX_A">
       <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#ProcessorSharing"/>
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_oro4gG3fEdy4YaaT-RYrLQ"/>
       <processingRate_ProcessingResourceSpecification specification="1000"/>
     </activeResourceSpecifications_ResourceContainer>
-    <activeResourceSpecifications_ResourceContainer>
+    <activeResourceSpecifications_ResourceContainer id="_afOT4QMaEeKkGv40lSkX_A">
       <schedulingPolicy href="pathmap://PCM_MODELS/Palladio.resourcetype#FCFS"/>
       <activeResourceType_ActiveResourceSpecification href="pathmap://PCM_MODELS/Palladio.resourcetype#_BIjHoQ3KEdyouMqirZIhzQ"/>
       <processingRate_ProcessingResourceSpecification specification="24*1000000"/>

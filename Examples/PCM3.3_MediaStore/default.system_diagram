@@ -20,13 +20,13 @@
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="default.system#_Yp70sFBvEd6ActLj8Gdl_A"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="145" y="162"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="107" y="175"/>
       </children>
       <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
         <children xsi:type="notation:DecorationNode" type="5009"/>
         <children xsi:type="notation:Shape" type="3007" fontName="Segoe UI">
           <children xsi:type="notation:DecorationNode" type="5007">
-            <layoutConstraint xsi:type="notation:Location" x="-249" y="8"/>
+            <layoutConstraint xsi:type="notation:Location" x="-201" y="35"/>
           </children>
           <element href="mediastore.repository#__EO3IBpZEdyxqpPYxT_m3w"/>
           <layoutConstraint xsi:type="notation:Bounds"/>
@@ -46,7 +46,7 @@
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="default.system#_a3kJ4FBvEd6ActLj8Gdl_A"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="331" y="282"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="322" y="175"/>
       </children>
       <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
         <children xsi:type="notation:DecorationNode" type="5009"/>
@@ -58,7 +58,7 @@
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="default.system#_dbNyYFBvEd6ActLj8Gdl_A"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="553" y="18"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="552" y="35"/>
       </children>
       <children xsi:type="notation:Shape" type="3006" fontName="Segoe UI">
         <children xsi:type="notation:DecorationNode" type="5009"/>
@@ -70,7 +70,7 @@
           <layoutConstraint xsi:type="notation:Bounds"/>
         </children>
         <element href="default.system#_jeBpYFBvEd6ActLj8Gdl_A"/>
-        <layoutConstraint xsi:type="notation:Bounds" x="667" y="192"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="557" y="290"/>
       </children>
     </children>
     <children xsi:type="notation:Shape" type="3011" fontName="Segoe UI">
@@ -81,7 +81,7 @@
       <layoutConstraint xsi:type="notation:Bounds"/>
     </children>
     <element href="default.system#_MafcUFBvEd6ActLj8Gdl_A"/>
-    <layoutConstraint xsi:type="notation:Bounds" x="30" y="30" width="853"/>
+    <layoutConstraint xsi:type="notation:Bounds" x="30" y="30" width="921"/>
   </children>
   <styles xsi:type="notation:DiagramStyle"/>
   <element href="default.system#_MafcUFBvEd6ActLj8Gdl_A"/>
