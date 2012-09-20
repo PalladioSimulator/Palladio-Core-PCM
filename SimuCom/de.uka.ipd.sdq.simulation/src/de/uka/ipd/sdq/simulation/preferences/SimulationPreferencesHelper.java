@@ -42,8 +42,14 @@ public class SimulationPreferencesHelper {
         try {
             engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(preferredEngineId);
         } catch (CoreException e) {
-        	if(logger.isEnabledFor(Level.WARN))
-        		logger.warn("Could not retrieve simulation engine factory.", e);
+        	logger.warn("Could not load preferred simulation engine " + preferredEngineId + ".", e);
+        }
+        
+        // if no factory has been found for the preferred engine, use the default engine
+        try {
+            engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(getDefaultEngineId());
+        } catch (CoreException e) {
+        	logger.warn("Could not load default simulation engine " + getDefaultEngineId() + ".", e);
         }
         
         return engineFactory;
