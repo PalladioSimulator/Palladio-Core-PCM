@@ -203,6 +203,11 @@ public class DockStatusViewer extends Composite implements Observer {
 	}
 
 	public static void showSimuDockView() {
+		// if Eclipse is running headless, accessing the workbench would raise an exception
+        if (!PlatformUI.isWorkbenchRunning()) {
+            return;
+        }
+        
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 
 			public void run() {
