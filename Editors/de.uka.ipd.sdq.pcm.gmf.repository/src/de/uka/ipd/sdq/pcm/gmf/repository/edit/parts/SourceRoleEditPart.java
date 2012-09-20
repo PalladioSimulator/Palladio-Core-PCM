@@ -60,7 +60,7 @@ public class SourceRoleEditPart extends ConnectionNodeEditPart implements ITreeB
         if (addFixedChild(childEditPart)) {
             return;
         }
-        super.addChildVisual(childEditPart, -1);
+        super.addChildVisual(childEditPart, index);
     }
 
     /**

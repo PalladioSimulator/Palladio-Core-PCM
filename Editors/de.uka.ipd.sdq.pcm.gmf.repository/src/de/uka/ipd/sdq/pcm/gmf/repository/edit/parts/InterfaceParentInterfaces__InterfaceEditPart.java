@@ -15,23 +15,22 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.CompleteComponentTypeParentProvidesComponentTypesItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InterfaceParentInterfaces__InterfaceItemSemanticEditPolicy;
 
 /**
  * @generated
  */
-public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends ConnectionNodeEditPart implements
-        ITreeBranchEditPart {
+public class InterfaceParentInterfaces__InterfaceEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 4104;
+    public static final int VISUAL_ID = 4123;
 
     /**
      * @generated
      */
-    public CompleteComponentTypeParentProvidesComponentTypesEditPart(View view) {
+    public InterfaceParentInterfaces__InterfaceEditPart(View view) {
         super(view);
     }
 
@@ -41,16 +40,16 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends C
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-                new CompleteComponentTypeParentProvidesComponentTypesItemSemanticEditPolicy());
+                new InterfaceParentInterfaces__InterfaceItemSemanticEditPolicy());
     }
 
     /**
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof CompleteComponentTypeParentProvidesComponentTypesLabelEditPart) {
-            ((CompleteComponentTypeParentProvidesComponentTypesLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureProvidesParentStereotypeLabelFigure());
+        if (childEditPart instanceof WrappingLabel10EditPart) {
+            ((WrappingLabel10EditPart) childEditPart).setLabel(getPrimaryShape()
+                    .getFigureExtendsInterfaceStereotypeLabelFigure());
             return true;
         }
         return false;
@@ -70,7 +69,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends C
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof CompleteComponentTypeParentProvidesComponentTypesLabelEditPart) {
+        if (childEditPart instanceof WrappingLabel10EditPart) {
             return true;
         }
         return false;
@@ -89,37 +88,37 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends C
     /**
      * Creates figure for this edit part.
      * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
+     * Body of this method does not depend on settings in generation model
+     * so you may safely remove <i>generated</i> tag and modify it.
      * 
      * @generated
      */
+
     protected Connection createConnectionFigure() {
-        return new ParentProvidesTypeFigure();
+        return new InterfaceParentInterfaceFigure();
     }
 
     /**
      * @generated
      */
-    public ParentProvidesTypeFigure getPrimaryShape() {
-        return (ParentProvidesTypeFigure) getFigure();
+    public InterfaceParentInterfaceFigure getPrimaryShape() {
+        return (InterfaceParentInterfaceFigure) getFigure();
     }
 
     /**
      * @generated
      */
-    public class ParentProvidesTypeFigure extends PolylineConnectionEx {
+    public class InterfaceParentInterfaceFigure extends PolylineConnectionEx {
 
         /**
          * @generated
          */
-        private WrappingLabel fFigureProvidesParentStereotypeLabelFigure;
+        private WrappingLabel fFigureExtendsInterfaceStereotypeLabelFigure;
 
         /**
          * @generated
          */
-        public ParentProvidesTypeFigure() {
-            this.setLineWidth(1);
+        public InterfaceParentInterfaceFigure() {
 
             createContents();
             setTargetDecoration(createTargetDecoration());
@@ -130,10 +129,11 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends C
          */
         private void createContents() {
 
-            fFigureProvidesParentStereotypeLabelFigure = new WrappingLabel();
-            fFigureProvidesParentStereotypeLabelFigure.setText("<<conforms>>");
+            fFigureExtendsInterfaceStereotypeLabelFigure = new WrappingLabel();
 
-            this.add(fFigureProvidesParentStereotypeLabelFigure);
+            fFigureExtendsInterfaceStereotypeLabelFigure.setText("<<Extends>>");
+
+            this.add(fFigureExtendsInterfaceStereotypeLabelFigure);
 
         }
 
@@ -142,7 +142,6 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends C
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
             pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
@@ -155,8 +154,8 @@ public class CompleteComponentTypeParentProvidesComponentTypesEditPart extends C
         /**
          * @generated
          */
-        public WrappingLabel getFigureProvidesParentStereotypeLabelFigure() {
-            return fFigureProvidesParentStereotypeLabelFigure;
+        public WrappingLabel getFigureExtendsInterfaceStereotypeLabelFigure() {
+            return fFigureExtendsInterfaceStereotypeLabelFigure;
         }
 
     }

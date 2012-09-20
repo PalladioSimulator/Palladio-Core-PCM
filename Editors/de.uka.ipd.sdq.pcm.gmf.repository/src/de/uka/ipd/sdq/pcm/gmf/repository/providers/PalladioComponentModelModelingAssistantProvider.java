@@ -48,39 +48,8 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
      */
     public List getTypesForPopupBar(IAdaptable host) {
         IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
-        if (editPart instanceof OperationInterfaceEditPart) {
-            ArrayList types = new ArrayList(1);
-            types.add(PalladioComponentModelElementTypes.OperationSignature_3106);
-            return types;
-        }
-        if (editPart instanceof EventGroupEditPart) {
-            ArrayList types = new ArrayList(1);
-            types.add(PalladioComponentModelElementTypes.EventType_3107);
-            return types;
-        }
-        if (editPart instanceof BasicComponentEditPart) {
-            ArrayList types = new ArrayList(2);
-            types.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
-            types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
-            return types;
-        }
-        if (editPart instanceof InfrastructureInterfaceEditPart) {
-            ArrayList types = new ArrayList(1);
-            types.add(PalladioComponentModelElementTypes.InfrastructureSignature_3108);
-            return types;
-        }
-        if (editPart instanceof VariableUsageEditPart) {
-            ArrayList types = new ArrayList(1);
-            types.add(PalladioComponentModelElementTypes.VariableCharacterisation_3105);
-            return types;
-        }
-        if (editPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
-            ArrayList types = new ArrayList(1);
-            types.add(PalladioComponentModelElementTypes.VariableUsage_3104);
-            return types;
-        }
         if (editPart instanceof RepositoryEditPart) {
-            ArrayList types = new ArrayList(8);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(8);
             types.add(PalladioComponentModelElementTypes.OperationInterface_2107);
             types.add(PalladioComponentModelElementTypes.EventGroup_2108);
             types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
@@ -91,6 +60,37 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
             types.add(PalladioComponentModelElementTypes.InfrastructureInterface_2109);
             return types;
         }
+        if (editPart instanceof OperationInterfaceEditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.OperationSignature_3106);
+            return types;
+        }
+        if (editPart instanceof EventGroupEditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.EventType_3107);
+            return types;
+        }
+        if (editPart instanceof BasicComponentEditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+            types.add(PalladioComponentModelElementTypes.ResourceDemandingSEFF_3102);
+            types.add(PalladioComponentModelElementTypes.PassiveResource_3103);
+            return types;
+        }
+        if (editPart instanceof InfrastructureInterfaceEditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.InfrastructureSignature_3108);
+            return types;
+        }
+        if (editPart instanceof VariableUsageEditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.VariableCharacterisation_3105);
+            return types;
+        }
+        if (editPart instanceof BasicComponentComponentParameterCompartmentEditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.VariableUsage_3104);
+            return types;
+        }
         return Collections.EMPTY_LIST;
     }
 
@@ -99,6 +99,12 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
      */
     public List getRelTypesOnSource(IAdaptable source) {
         IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+        if (sourceEditPart instanceof OperationInterfaceEditPart) {
+            return ((OperationInterfaceEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        if (sourceEditPart instanceof EventGroupEditPart) {
+            return ((EventGroupEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
         if (sourceEditPart instanceof BasicComponentEditPart) {
             return ((BasicComponentEditPart) sourceEditPart).getMARelTypesOnSource();
         }
@@ -113,6 +119,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
         }
         if (sourceEditPart instanceof SubSystemEditPart) {
             return ((SubSystemEditPart) sourceEditPart).getMARelTypesOnSource();
+        }
+        if (sourceEditPart instanceof InfrastructureInterfaceEditPart) {
+            return ((InfrastructureInterfaceEditPart) sourceEditPart).getMARelTypesOnSource();
         }
         return Collections.EMPTY_LIST;
     }
@@ -146,6 +155,12 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
         IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
         IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
+        if (sourceEditPart instanceof OperationInterfaceEditPart) {
+            return ((OperationInterfaceEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        if (sourceEditPart instanceof EventGroupEditPart) {
+            return ((EventGroupEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
         if (sourceEditPart instanceof BasicComponentEditPart) {
             return ((BasicComponentEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
         }
@@ -160,6 +175,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
         }
         if (sourceEditPart instanceof SubSystemEditPart) {
             return ((SubSystemEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
+        }
+        if (sourceEditPart instanceof InfrastructureInterfaceEditPart) {
+            return ((InfrastructureInterfaceEditPart) sourceEditPart).getMARelTypesOnSourceAndTarget(targetEditPart);
         }
         return Collections.EMPTY_LIST;
     }
@@ -192,6 +210,12 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
      */
     public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
         IGraphicalEditPart sourceEditPart = (IGraphicalEditPart) source.getAdapter(IGraphicalEditPart.class);
+        if (sourceEditPart instanceof OperationInterfaceEditPart) {
+            return ((OperationInterfaceEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        if (sourceEditPart instanceof EventGroupEditPart) {
+            return ((EventGroupEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
         if (sourceEditPart instanceof BasicComponentEditPart) {
             return ((BasicComponentEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
         }
@@ -206,6 +230,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
         }
         if (sourceEditPart instanceof SubSystemEditPart) {
             return ((SubSystemEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
+        }
+        if (sourceEditPart instanceof InfrastructureInterfaceEditPart) {
+            return ((InfrastructureInterfaceEditPart) sourceEditPart).getMATypesForTarget(relationshipType);
         }
         return Collections.EMPTY_LIST;
     }
@@ -236,9 +263,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
             return null;
         }
         Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
-        Collection elements = new HashSet();
-        for (Iterator it = diagram.getElement().eAllContents(); it.hasNext();) {
-            EObject element = (EObject) it.next();
+        HashSet<EObject> elements = new HashSet<EObject>();
+        for (Iterator<EObject> it = diagram.getElement().eAllContents(); it.hasNext();) {
+            EObject element = it.next();
             if (isApplicableElement(element, types)) {
                 elements.add(element);
             }

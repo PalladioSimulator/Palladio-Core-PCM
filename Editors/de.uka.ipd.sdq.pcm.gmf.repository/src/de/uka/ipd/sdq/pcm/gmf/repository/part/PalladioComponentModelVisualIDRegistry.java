@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
@@ -32,6 +33,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureInterfaceInfra
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureSignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceParentInterfaces__InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceSignatureListEditPart;
@@ -55,6 +57,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel10EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
@@ -125,7 +128,7 @@ public class PalladioComponentModelVisualIDRegistry {
      * @generated
      */
     public static String getType(int visualID) {
-        return String.valueOf(visualID);
+        return Integer.toString(visualID);
     }
 
     /**
@@ -166,6 +169,32 @@ public class PalladioComponentModelVisualIDRegistry {
             }
         }
         switch (containerVisualID) {
+        case RepositoryEditPart.VISUAL_ID:
+            if (RepositoryPackage.eINSTANCE.getOperationInterface().isSuperTypeOf(domainElement.eClass())) {
+                return OperationInterfaceEditPart.VISUAL_ID;
+            }
+            if (RepositoryPackage.eINSTANCE.getEventGroup().isSuperTypeOf(domainElement.eClass())) {
+                return EventGroupEditPart.VISUAL_ID;
+            }
+            if (RepositoryPackage.eINSTANCE.getBasicComponent().isSuperTypeOf(domainElement.eClass())) {
+                return BasicComponentEditPart.VISUAL_ID;
+            }
+            if (RepositoryPackage.eINSTANCE.getCompositeComponent().isSuperTypeOf(domainElement.eClass())) {
+                return CompositeComponentEditPart.VISUAL_ID;
+            }
+            if (RepositoryPackage.eINSTANCE.getCompleteComponentType().isSuperTypeOf(domainElement.eClass())) {
+                return CompleteComponentTypeEditPart.VISUAL_ID;
+            }
+            if (RepositoryPackage.eINSTANCE.getProvidesComponentType().isSuperTypeOf(domainElement.eClass())) {
+                return ProvidesComponentTypeEditPart.VISUAL_ID;
+            }
+            if (SubsystemPackage.eINSTANCE.getSubSystem().isSuperTypeOf(domainElement.eClass())) {
+                return SubSystemEditPart.VISUAL_ID;
+            }
+            if (RepositoryPackage.eINSTANCE.getInfrastructureInterface().isSuperTypeOf(domainElement.eClass())) {
+                return InfrastructureInterfaceEditPart.VISUAL_ID;
+            }
+            break;
         case OperationInterfaceSignatureListEditPart.VISUAL_ID:
             if (RepositoryPackage.eINSTANCE.getOperationSignature().isSuperTypeOf(domainElement.eClass())) {
                 return OperationSignatureEditPart.VISUAL_ID;
@@ -201,32 +230,6 @@ public class PalladioComponentModelVisualIDRegistry {
                 return InfrastructureSignatureEditPart.VISUAL_ID;
             }
             break;
-        case RepositoryEditPart.VISUAL_ID:
-            if (RepositoryPackage.eINSTANCE.getOperationInterface().isSuperTypeOf(domainElement.eClass())) {
-                return OperationInterfaceEditPart.VISUAL_ID;
-            }
-            if (RepositoryPackage.eINSTANCE.getEventGroup().isSuperTypeOf(domainElement.eClass())) {
-                return EventGroupEditPart.VISUAL_ID;
-            }
-            if (RepositoryPackage.eINSTANCE.getBasicComponent().isSuperTypeOf(domainElement.eClass())) {
-                return BasicComponentEditPart.VISUAL_ID;
-            }
-            if (RepositoryPackage.eINSTANCE.getCompositeComponent().isSuperTypeOf(domainElement.eClass())) {
-                return CompositeComponentEditPart.VISUAL_ID;
-            }
-            if (RepositoryPackage.eINSTANCE.getCompleteComponentType().isSuperTypeOf(domainElement.eClass())) {
-                return CompleteComponentTypeEditPart.VISUAL_ID;
-            }
-            if (RepositoryPackage.eINSTANCE.getProvidesComponentType().isSuperTypeOf(domainElement.eClass())) {
-                return ProvidesComponentTypeEditPart.VISUAL_ID;
-            }
-            if (SubsystemPackage.eINSTANCE.getSubSystem().isSuperTypeOf(domainElement.eClass())) {
-                return SubSystemEditPart.VISUAL_ID;
-            }
-            if (RepositoryPackage.eINSTANCE.getInfrastructureInterface().isSuperTypeOf(domainElement.eClass())) {
-                return InfrastructureInterfaceEditPart.VISUAL_ID;
-            }
-            break;
         }
         return -1;
     }
@@ -252,6 +255,32 @@ public class PalladioComponentModelVisualIDRegistry {
             }
         }
         switch (containerVisualID) {
+        case RepositoryEditPart.VISUAL_ID:
+            if (OperationInterfaceEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (EventGroupEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (BasicComponentEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (CompositeComponentEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (CompleteComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (SubSystemEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (InfrastructureInterfaceEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
         case OperationInterfaceEditPart.VISUAL_ID:
             if (OperationInterfaceEntityNameEditPart.VISUAL_ID == nodeVisualID) {
                 return true;
@@ -353,32 +382,6 @@ public class PalladioComponentModelVisualIDRegistry {
                 return true;
             }
             break;
-        case RepositoryEditPart.VISUAL_ID:
-            if (OperationInterfaceEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (EventGroupEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (BasicComponentEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (CompositeComponentEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (CompleteComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (ProvidesComponentTypeEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (SubSystemEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (InfrastructureInterfaceEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            break;
         case OperationProvidedRoleEditPart.VISUAL_ID:
             if (OperationProvidedRoleLabelEditPart.VISUAL_ID == nodeVisualID) {
                 return true;
@@ -416,6 +419,11 @@ public class PalladioComponentModelVisualIDRegistry {
             break;
         case SourceRoleEditPart.VISUAL_ID:
             if (SourceRoleLabelEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
+        case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID:
+            if (WrappingLabel10EditPart.VISUAL_ID == nodeVisualID) {
                 return true;
             }
             break;
@@ -460,4 +468,116 @@ public class PalladioComponentModelVisualIDRegistry {
     private static boolean isDiagram(Repository element) {
         return true;
     }
+
+    /**
+     * @generated
+     */
+    public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+        if (candidate == -1) {
+            //unrecognized id is always bad
+            return false;
+        }
+        int basic = getNodeVisualID(containerView, domainElement);
+        return basic == candidate;
+    }
+
+    /**
+     * @generated
+     */
+    public static boolean isCompartmentVisualID(int visualID) {
+        switch (visualID) {
+        case OperationInterfaceSignatureListEditPart.VISUAL_ID:
+        case EventGroupEventTypeListEditPart.VISUAL_ID:
+        case BasicComponentSEFFCompartmentEditPart.VISUAL_ID:
+        case BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID:
+        case BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID:
+        case VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID:
+        case InfrastructureInterfaceInfrastructureSignatureListEditPart.VISUAL_ID:
+            return true;
+        default:
+            break;
+        }
+        return false;
+    }
+
+    /**
+     * @generated
+     */
+    public static boolean isSemanticLeafVisualID(int visualID) {
+        switch (visualID) {
+        case RepositoryEditPart.VISUAL_ID:
+            return false;
+        case CompositeComponentEditPart.VISUAL_ID:
+        case CompleteComponentTypeEditPart.VISUAL_ID:
+        case ProvidesComponentTypeEditPart.VISUAL_ID:
+        case SubSystemEditPart.VISUAL_ID:
+        case ResourceDemandingSEFFEditPart.VISUAL_ID:
+        case PassiveResourceEditPart.VISUAL_ID:
+        case VariableCharacterisationEditPart.VISUAL_ID:
+        case OperationSignatureEditPart.VISUAL_ID:
+        case EventTypeEditPart.VISUAL_ID:
+        case InfrastructureSignatureEditPart.VISUAL_ID:
+            return true;
+        default:
+            break;
+        }
+        return false;
+    }
+
+    /**
+     * @generated
+     */
+    public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
+        /**
+         * @generated
+         */
+        @Override
+        public int getVisualID(View view) {
+            return de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public String getModelID(View view) {
+            return de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry.getModelID(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public int getNodeVisualID(View containerView, EObject domainElement) {
+            return de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+                    containerView, domainElement);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+            return de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry.checkNodeVisualID(
+                    containerView, domainElement, candidate);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean isCompartmentVisualID(int visualID) {
+            return de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
+                    .isCompartmentVisualID(visualID);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean isSemanticLeafVisualID(int visualID) {
+            return de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry
+                    .isSemanticLeafVisualID(visualID);
+        }
+    };
 }

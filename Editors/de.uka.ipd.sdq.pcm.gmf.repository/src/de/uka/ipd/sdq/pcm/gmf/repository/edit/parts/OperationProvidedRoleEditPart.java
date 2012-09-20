@@ -61,7 +61,7 @@ public class OperationProvidedRoleEditPart extends ConnectionNodeEditPart implem
         if (addFixedChild(childEditPart)) {
             return;
         }
-        super.addChildVisual(childEditPart, -1);
+        super.addChildVisual(childEditPart, index);
     }
 
     /**

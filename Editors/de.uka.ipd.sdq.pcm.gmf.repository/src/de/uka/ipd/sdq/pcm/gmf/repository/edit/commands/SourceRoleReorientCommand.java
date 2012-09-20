@@ -70,8 +70,8 @@ public class SourceRoleReorientCommand extends EditElementCommand {
             return false;
         }
         EventGroup target = getLink().getEventGroup__SourceRole();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistSourceRole_4110(getNewSource(),
-                target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canExistSourceRole_4110(getLink(),
+                getNewSource(), target);
     }
 
     /**
@@ -85,8 +85,8 @@ public class SourceRoleReorientCommand extends EditElementCommand {
             return false;
         }
         InterfaceRequiringEntity source = (InterfaceRequiringEntity) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistSourceRole_4110(source,
-                getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canExistSourceRole_4110(getLink(),
+                source, getNewTarget());
     }
 
     /**

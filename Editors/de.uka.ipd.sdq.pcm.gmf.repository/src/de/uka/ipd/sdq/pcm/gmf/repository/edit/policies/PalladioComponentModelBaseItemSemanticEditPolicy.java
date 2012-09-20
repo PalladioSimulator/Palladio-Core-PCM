@@ -34,17 +34,26 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.PalladioComponentModelBaseEditHelper;
+import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
 import de.uka.ipd.sdq.pcm.repository.EventGroup;
 import de.uka.ipd.sdq.pcm.repository.ImplementationComponentType;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
+import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
  * @generated
@@ -127,13 +136,13 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         if (editPolicyCommand != null) {
             ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
                     .getICommand() : new CommandProxy(editPolicyCommand);
-            request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, command);
+            request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, command);
         }
         IElementType requestContextElementType = getContextElementType(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, requestContextElementType);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, requestContextElementType);
         ICommand command = requestContextElementType.getEditCommand(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, null);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, null);
+        request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, null);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, null);
         if (command != null) {
             if (!(command instanceof CompositeTransactionalCommand)) {
                 command = new CompositeTransactionalCommand(getEditingDomain(), command.getLabel()).compose(command);
@@ -294,51 +303,68 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
+    public static LinkConstraints getLinkConstraints() {
+        LinkConstraints cached = PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getLinkConstraints();
+        if (cached == null) {
+            PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().setLinkConstraints(
+                    cached = new LinkConstraints());
+        }
+        return cached;
+    }
+
+    /**
+     * @generated
+     */
     public static class LinkConstraints {
 
         /**
          * @generated
          */
-        public static boolean canCreateOperationProvidedRole_4105(InterfaceProvidingEntity source,
-                OperationInterface target) {
-            return canExistOperationProvidedRole_4105(source, target);
+        LinkConstraints() {
+            // use static method #getLinkConstraints() to access instance
         }
 
         /**
          * @generated
          */
-        public static boolean canCreateInfrastructureProvidedRole_4111(InterfaceProvidingEntity source,
+        public boolean canCreateOperationProvidedRole_4105(InterfaceProvidingEntity source, OperationInterface target) {
+            return canExistOperationProvidedRole_4105(null, source, target);
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canCreateInfrastructureProvidedRole_4111(InterfaceProvidingEntity source,
                 InfrastructureInterface target) {
-            return canExistInfrastructureProvidedRole_4111(source, target);
+            return canExistInfrastructureProvidedRole_4111(null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canCreateInfrastructureRequiredRole_4112(InterfaceRequiringEntity source,
+        public boolean canCreateInfrastructureRequiredRole_4112(InterfaceRequiringEntity source,
                 InfrastructureInterface target) {
-            return canExistInfrastructureRequiredRole_4112(source, target);
+            return canExistInfrastructureRequiredRole_4112(null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canCreateSinkRole_4109(InterfaceProvidingEntity source, EventGroup target) {
-            return canExistSinkRole_4109(source, target);
+        public boolean canCreateSinkRole_4109(InterfaceProvidingEntity source, EventGroup target) {
+            return canExistSinkRole_4109(null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canCreateOperationRequiredRole_4106(InterfaceRequiringEntity source,
-                OperationInterface target) {
-            return canExistOperationRequiredRole_4106(source, target);
+        public boolean canCreateOperationRequiredRole_4106(InterfaceRequiringEntity source, OperationInterface target) {
+            return canExistOperationRequiredRole_4106(null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canCreateImplementationComponentTypeParentCompleteComponentTypes_4103(
+        public boolean canCreateImplementationComponentTypeParentCompleteComponentTypes_4103(
                 ImplementationComponentType source, CompleteComponentType target) {
             if (source != null) {
                 if (source.getParentCompleteComponentTypes().contains(target)) {
@@ -352,8 +378,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public static boolean canCreateCompleteComponentTypeParentProvidesComponentTypes_4104(
-                CompleteComponentType source, ProvidesComponentType target) {
+        public boolean canCreateCompleteComponentTypeParentProvidesComponentTypes_4104(CompleteComponentType source,
+                ProvidesComponentType target) {
             if (source != null) {
                 if (source.getParentProvidesComponentTypes().contains(target)) {
                     return false;
@@ -366,53 +392,66 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public static boolean canCreateSourceRole_4110(InterfaceRequiringEntity source, EventGroup target) {
-            return canExistSourceRole_4110(source, target);
+        public boolean canCreateSourceRole_4110(InterfaceRequiringEntity source, EventGroup target) {
+            return canExistSourceRole_4110(null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canExistOperationProvidedRole_4105(InterfaceProvidingEntity source,
-                OperationInterface target) {
+        public boolean canCreateInterfaceParentInterfaces__Interface_4123(Interface source, Interface target) {
+            if (source != null) {
+                if (source.getParentInterfaces__Interface().contains(target)) {
+                    return false;
+                }
+            }
+
+            return canExistInterfaceParentInterfaces__Interface_4123(source, target);
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canExistOperationProvidedRole_4105(OperationProvidedRole linkInstance,
+                InterfaceProvidingEntity source, OperationInterface target) {
             return true;
         }
 
         /**
          * @generated
          */
-        public static boolean canExistInfrastructureProvidedRole_4111(InterfaceProvidingEntity source,
-                InfrastructureInterface target) {
+        public boolean canExistInfrastructureProvidedRole_4111(InfrastructureProvidedRole linkInstance,
+                InterfaceProvidingEntity source, InfrastructureInterface target) {
             return true;
         }
 
         /**
          * @generated
          */
-        public static boolean canExistInfrastructureRequiredRole_4112(InterfaceRequiringEntity source,
-                InfrastructureInterface target) {
+        public boolean canExistInfrastructureRequiredRole_4112(InfrastructureRequiredRole linkInstance,
+                InterfaceRequiringEntity source, InfrastructureInterface target) {
             return true;
         }
 
         /**
          * @generated
          */
-        public static boolean canExistSinkRole_4109(InterfaceProvidingEntity source, EventGroup target) {
+        public boolean canExistSinkRole_4109(SinkRole linkInstance, InterfaceProvidingEntity source, EventGroup target) {
             return true;
         }
 
         /**
          * @generated
          */
-        public static boolean canExistOperationRequiredRole_4106(InterfaceRequiringEntity source,
-                OperationInterface target) {
+        public boolean canExistOperationRequiredRole_4106(OperationRequiredRole linkInstance,
+                InterfaceRequiringEntity source, OperationInterface target) {
             return true;
         }
 
         /**
          * @generated
          */
-        public static boolean canExistImplementationComponentTypeParentCompleteComponentTypes_4103(
+        public boolean canExistImplementationComponentTypeParentCompleteComponentTypes_4103(
                 ImplementationComponentType source, CompleteComponentType target) {
             return true;
         }
@@ -420,15 +459,23 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public static boolean canExistCompleteComponentTypeParentProvidesComponentTypes_4104(
-                CompleteComponentType source, ProvidesComponentType target) {
+        public boolean canExistCompleteComponentTypeParentProvidesComponentTypes_4104(CompleteComponentType source,
+                ProvidesComponentType target) {
             return true;
         }
 
         /**
          * @generated
          */
-        public static boolean canExistSourceRole_4110(InterfaceRequiringEntity source, EventGroup target) {
+        public boolean canExistSourceRole_4110(SourceRole linkInstance, InterfaceRequiringEntity source,
+                EventGroup target) {
+            return true;
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canExistInterfaceParentInterfaces__Interface_4123(Interface source, Interface target) {
             return true;
         }
 

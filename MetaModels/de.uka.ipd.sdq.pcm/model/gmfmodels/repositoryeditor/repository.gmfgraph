@@ -7,7 +7,7 @@
       name="Default">
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
-        name="InterfaceParentInterface__InterfaceTargetDecoration"/>
+        name="InterfaceParentInterfaceTargetDecoration"/>
     <figures
         xsi:type="gmfgraph:PolylineDecoration"
         name="ArrowHead">
@@ -41,7 +41,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="EmitsStereotypeLabelFigure"
-            text="&lt;&lt;emits>>"/>
+            text="&lt;&lt;Emits>>"/>
         <targetDecoration
             xsi:type="gmfgraph:PolylineDecoration"
             href="../seffeditor/seffeditor.gmfgraph#//@figures.0/@figures.0"/>
@@ -133,11 +133,19 @@
           figure="//@figures.0/@descriptors.3/@actualFigure/@children.1"/>
     </descriptors>
     <descriptors
-        name="InterfaceParentInterface__InterfaceFigure">
+        name="InterfaceParentInterfaceFigure">
       <actualFigure
           xsi:type="gmfgraph:PolylineConnection"
-          name="InterfaceParentInterface__InterfaceFigure"
-          targetDecoration="//@figures.0/@figures.0"/>
+          name="InterfaceParentInterfaceFigure"
+          targetDecoration="//@figures.0/@figures.1">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ExtendsInterfaceStereotypeLabelFigure"
+            text="&lt;&lt;Extends>>"/>
+      </actualFigure>
+      <accessors
+          accessor="getFigureExtendsInterfaceStereotypeLabelFigure"
+          figure="//@figures.0/@descriptors.4/@actualFigure/@children.0"/>
     </descriptors>
     <descriptors
         name="RequiredDelegationConnectorFigure">
@@ -381,7 +389,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="CompleteParentStereotypeLabelFigure"
-            text="&lt;&lt;conforms>>"/>
+            text="&lt;&lt;Conforms>>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.18/@actualFigure/@children.0"/>
@@ -395,7 +403,7 @@
         <children
             xsi:type="gmfgraph:Label"
             name="ProvidesParentStereotypeLabelFigure"
-            text="&lt;&lt;conforms>>"/>
+            text="&lt;&lt;Conforms>>"/>
       </actualFigure>
       <accessors
           figure="//@figures.0/@descriptors.19/@actualFigure/@children.0"/>
@@ -555,8 +563,8 @@
       name="SourceRole"
       figure="SourceRoleFigure"/>
   <connections
-      name="InterfaceParentInterface__Interface"
-      figure="InterfaceParentInterface__InterfaceFigure"/>
+      name="InterfaceParentInterface"
+      figure="InterfaceParentInterfaceFigure"/>
   <connections
       name="RequiredDelegationConnector"
       figure="RequiredDelegationConnectorFigure"/>
@@ -666,6 +674,15 @@
       name="ProvidesComponentTypeLabel"
       figure="ProvidesComponentTypeFigure"
       accessor="//@figures.0/@descriptors.14/@accessors.0"/>
+  <labels
+      name="ExtendsInterfaceStereotypeLabel"
+      figure="InterfaceParentInterfaceFigure"
+      elementIcon="false"
+      accessor="//@figures.0/@descriptors.4/@accessors.0">
+    <facets
+        xsi:type="gmfgraph:AlignmentFacet"
+        alignment="CENTER"/>
+  </labels>
   <labels
       name="ProvidesStereotypeLabel"
       figure="ProvidedRoleFigure"

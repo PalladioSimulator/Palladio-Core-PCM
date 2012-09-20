@@ -9,22 +9,26 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.repository.EventGroup;
-import de.uka.ipd.sdq.pcm.repository.SinkRole;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 
 /**
  * @generated
  */
-public class SinkRoleReorientCommand extends EditElementCommand {
+public class InterfaceParentInterfaces__InterfaceReorientCommand extends EditElementCommand {
 
     /**
      * @generated
      */
     private final int reorientDirection;
+
+    /**
+     * @generated
+     */
+    private final EObject referenceOwner;
 
     /**
      * @generated
@@ -39,9 +43,10 @@ public class SinkRoleReorientCommand extends EditElementCommand {
     /**
      * @generated
      */
-    public SinkRoleReorientCommand(ReorientRelationshipRequest request) {
-        super(request.getLabel(), request.getRelationship(), request);
+    public InterfaceParentInterfaces__InterfaceReorientCommand(ReorientReferenceRelationshipRequest request) {
+        super(request.getLabel(), null, request);
         reorientDirection = request.getDirection();
+        referenceOwner = request.getReferenceOwner();
         oldEnd = request.getOldRelationshipEnd();
         newEnd = request.getNewRelationshipEnd();
     }
@@ -50,7 +55,7 @@ public class SinkRoleReorientCommand extends EditElementCommand {
      * @generated
      */
     public boolean canExecute() {
-        if (false == getElementToEdit() instanceof SinkRole) {
+        if (false == referenceOwner instanceof Interface) {
             return false;
         }
         if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
@@ -66,27 +71,22 @@ public class SinkRoleReorientCommand extends EditElementCommand {
      * @generated
      */
     protected boolean canReorientSource() {
-        if (!(oldEnd instanceof InterfaceProvidingEntity && newEnd instanceof InterfaceProvidingEntity)) {
+        if (!(oldEnd instanceof Interface && newEnd instanceof Interface)) {
             return false;
         }
-        EventGroup target = getLink().getEventGroup__SinkRole();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canExistSinkRole_4109(getLink(),
-                getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistInterfaceParentInterfaces__Interface_4123(getNewSource(), getOldTarget());
     }
 
     /**
      * @generated
      */
     protected boolean canReorientTarget() {
-        if (!(oldEnd instanceof EventGroup && newEnd instanceof EventGroup)) {
+        if (!(oldEnd instanceof Interface && newEnd instanceof Interface)) {
             return false;
         }
-        if (!(getLink().eContainer() instanceof InterfaceProvidingEntity)) {
-            return false;
-        }
-        InterfaceProvidingEntity source = (InterfaceProvidingEntity) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canExistSinkRole_4109(getLink(),
-                source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistInterfaceParentInterfaces__Interface_4123(getOldSource(), getNewTarget());
     }
 
     /**
@@ -109,51 +109,45 @@ public class SinkRoleReorientCommand extends EditElementCommand {
      * @generated
      */
     protected CommandResult reorientSource() throws ExecutionException {
-        getOldSource().getProvidedRoles_InterfaceProvidingEntity().remove(getLink());
-        getNewSource().getProvidedRoles_InterfaceProvidingEntity().add(getLink());
-        return CommandResult.newOKCommandResult(getLink());
+        getOldSource().getParentInterfaces__Interface().remove(getOldTarget());
+        getNewSource().getParentInterfaces__Interface().add(getOldTarget());
+        return CommandResult.newOKCommandResult(referenceOwner);
     }
 
     /**
      * @generated
      */
     protected CommandResult reorientTarget() throws ExecutionException {
-        getLink().setEventGroup__SinkRole(getNewTarget());
-        return CommandResult.newOKCommandResult(getLink());
+        getOldSource().getParentInterfaces__Interface().remove(getOldTarget());
+        getOldSource().getParentInterfaces__Interface().add(getNewTarget());
+        return CommandResult.newOKCommandResult(referenceOwner);
     }
 
     /**
      * @generated
      */
-    protected SinkRole getLink() {
-        return (SinkRole) getElementToEdit();
+    protected Interface getOldSource() {
+        return (Interface) referenceOwner;
     }
 
     /**
      * @generated
      */
-    protected InterfaceProvidingEntity getOldSource() {
-        return (InterfaceProvidingEntity) oldEnd;
+    protected Interface getNewSource() {
+        return (Interface) newEnd;
     }
 
     /**
      * @generated
      */
-    protected InterfaceProvidingEntity getNewSource() {
-        return (InterfaceProvidingEntity) newEnd;
+    protected Interface getOldTarget() {
+        return (Interface) oldEnd;
     }
 
     /**
      * @generated
      */
-    protected EventGroup getOldTarget() {
-        return (EventGroup) oldEnd;
-    }
-
-    /**
-     * @generated
-     */
-    protected EventGroup getNewTarget() {
-        return (EventGroup) newEnd;
+    protected Interface getNewTarget() {
+        return (Interface) newEnd;
     }
 }

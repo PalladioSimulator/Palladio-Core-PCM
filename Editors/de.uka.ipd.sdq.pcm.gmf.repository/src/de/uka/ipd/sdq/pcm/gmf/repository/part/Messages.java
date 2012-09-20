@@ -556,7 +556,17 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String NavigatorGroupName_OperationInterface_2107_outgoinglinks;
+
+    /**
+     * @generated
+     */
     public static String NavigatorGroupName_EventGroup_2108_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_EventGroup_2108_outgoinglinks;
 
     /**
      * @generated
@@ -581,6 +591,16 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String NavigatorGroupName_InterfaceParentInterfaces__Interface_4123_target;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_InterfaceParentInterfaces__Interface_4123_source;
+
+    /**
+     * @generated
+     */
     public static String NavigatorGroupName_ProvidesComponentType_2105_outgoinglinks;
 
     /**
@@ -597,6 +617,11 @@ public class Messages extends NLS {
      * @generated
      */
     public static String NavigatorGroupName_InfrastructureInterface_2109_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_InfrastructureInterface_2109_outgoinglinks;
 
     /**
      * @generated

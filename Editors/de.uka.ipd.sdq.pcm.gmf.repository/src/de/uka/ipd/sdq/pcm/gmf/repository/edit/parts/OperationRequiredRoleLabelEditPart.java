@@ -31,6 +31,8 @@ import org.eclipse.gmf.runtime.diagram.ui.editparts.LabelEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.NonResizableLabelEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
+import org.eclipse.gmf.runtime.diagram.ui.label.ILabelDelegate;
+import org.eclipse.gmf.runtime.diagram.ui.label.WrappingLabelDelegate;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
@@ -39,6 +41,9 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
+import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
+import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import org.eclipse.jface.viewers.ICellEditorValidator;
 import org.eclipse.swt.SWT;
@@ -75,12 +80,17 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     /**
      * @generated
      */
-    private List parserElements;
+    private List<?> parserElements;
 
     /**
      * @generated
      */
     private String defaultText;
+
+    /**
+     * @generated
+     */
+    private ILabelDelegate labelDelegate;
 
     /**
      * @generated
@@ -106,14 +116,7 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
         installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new PalladioComponentModelTextSelectionEditPolicy());
-        installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new NonResizableLabelEditPolicy() {
-
-            protected List createSelectionHandles() {
-                MoveHandle mh = new MoveHandle((GraphicalEditPart) getHost());
-                mh.setBorder(null);
-                return Collections.singletonList(mh);
-            }
-        });
+        installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new RepositoryEditPart.LinkLabelDragPolicy());
     }
 
     /**
@@ -129,8 +132,10 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     protected String getLabelTextHelper(IFigure figure) {
         if (figure instanceof WrappingLabel) {
             return ((WrappingLabel) figure).getText();
-        } else {
+        } else if (figure instanceof Label) {
             return ((Label) figure).getText();
+        } else {
+            return getLabelDelegate().getText();
         }
     }
 
@@ -140,8 +145,10 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     protected void setLabelTextHelper(IFigure figure, String text) {
         if (figure instanceof WrappingLabel) {
             ((WrappingLabel) figure).setText(text);
-        } else {
+        } else if (figure instanceof Label) {
             ((Label) figure).setText(text);
+        } else {
+            getLabelDelegate().setText(text);
         }
     }
 
@@ -151,8 +158,10 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     protected Image getLabelIconHelper(IFigure figure) {
         if (figure instanceof WrappingLabel) {
             return ((WrappingLabel) figure).getIcon();
-        } else {
+        } else if (figure instanceof Label) {
             return ((Label) figure).getIcon();
+        } else {
+            return getLabelDelegate().getIcon(0);
         }
     }
 
@@ -162,8 +171,12 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     protected void setLabelIconHelper(IFigure figure, Image icon) {
         if (figure instanceof WrappingLabel) {
             ((WrappingLabel) figure).setIcon(icon);
-        } else {
+            return;
+        } else if (figure instanceof Label) {
             ((Label) figure).setIcon(icon);
+            return;
+        } else {
+            getLabelDelegate().setIcon(icon, 0);
         }
     }
 
@@ -181,6 +194,7 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     /**
      * @generated
      */
+    @SuppressWarnings("rawtypes")
     protected List getModelChildren() {
         return Collections.EMPTY_LIST;
     }
@@ -226,14 +240,7 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
      */
     public void setLabelText(String text) {
         setLabelTextHelper(getFigure(), text);
-        Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-        if (pdEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
-            ((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy).refreshFeedback();
-        }
-        Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
-        if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
-            ((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy).refreshFeedback();
-        }
+        refreshSelectionFeedback();
     }
 
     /**
@@ -265,7 +272,7 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
                     final IParser parser = getParser();
                     try {
                         IParserEditStatus valid = (IParserEditStatus) getEditingDomain().runExclusive(
-                                new RunnableWithResult.Impl() {
+                                new RunnableWithResult.Impl<IParserEditStatus>() {
 
                                     public void run() {
                                         setResult(parser.isValidEditString(new EObjectAdapter(element), (String) value));
@@ -317,7 +324,7 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
      */
     protected DirectEditManager getManager() {
         if (manager == null) {
-            setManager(new TextDirectEditManager(this, TextDirectEditManager.getTextCellEditorClass(this),
+            setManager(new TextDirectEditManager2(this, null,
                     PalladioComponentModelEditPartFactory.getTextCellEditorLocator(this)));
         }
         return manager;
@@ -341,8 +348,8 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
-        if (getManager().getClass() == TextDirectEditManager.class) {
-            ((TextDirectEditManager) getManager()).show(eventLocation.getSWTPoint());
+        if (getManager().getClass() == TextDirectEditManager2.class) {
+            ((TextDirectEditManager2) getManager()).show(eventLocation.getSWTPoint());
         }
     }
 
@@ -352,7 +359,11 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     private void performDirectEdit(char initialCharacter) {
         if (getManager() instanceof TextDirectEditManager) {
             ((TextDirectEditManager) getManager()).show(initialCharacter);
-        } else {
+        } else // 
+        if (getManager() instanceof TextDirectEditManager2) {
+            ((TextDirectEditManager2) getManager()).show(initialCharacter);
+        } else //
+        {
             performDirectEdit();
         }
     }
@@ -403,14 +414,7 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
     protected void refreshLabel() {
         setLabelTextHelper(getFigure(), getLabelText());
         setLabelIconHelper(getFigure(), getLabelIcon());
-        Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-        if (pdEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
-            ((PalladioComponentModelTextSelectionEditPolicy) pdEditPolicy).refreshFeedback();
-        }
-        Object sfEditPolicy = getEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE);
-        if (sfEditPolicy instanceof PalladioComponentModelTextSelectionEditPolicy) {
-            ((PalladioComponentModelTextSelectionEditPolicy) sfEditPolicy).refreshFeedback();
-        }
+        refreshSelectionFeedback();
     }
 
     /**
@@ -442,6 +446,24 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
             FontData fontData = new FontData(style.getFontName(), style.getFontHeight(), (style.isBold() ? SWT.BOLD
                     : SWT.NORMAL) | (style.isItalic() ? SWT.ITALIC : SWT.NORMAL));
             setFont(fontData);
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private void refreshSelectionFeedback() {
+        requestEditPolicyFeedbackRefresh(EditPolicy.PRIMARY_DRAG_ROLE);
+        requestEditPolicyFeedbackRefresh(EditPolicy.SELECTION_FEEDBACK_ROLE);
+    }
+
+    /**
+     * @generated
+     */
+    private void requestEditPolicyFeedbackRefresh(String editPolicyKey) {
+        Object editPolicy = getEditPolicy(editPolicyKey);
+        if (editPolicy instanceof IRefreshableFeedbackEditPolicy) {
+            ((IRefreshableFeedbackEditPolicy) editPolicy).refreshFeedback();
         }
     }
 
@@ -500,6 +522,32 @@ public class OperationRequiredRoleLabelEditPart extends LabelEditPart implements
      */
     private View getFontStyleOwnerView() {
         return getPrimaryView();
+    }
+
+    /**
+     * @generated
+     */
+    private ILabelDelegate getLabelDelegate() {
+        if (labelDelegate == null) {
+            IFigure label = getFigure();
+            if (label instanceof WrappingLabel) {
+                labelDelegate = new WrappingLabelDelegate((WrappingLabel) label);
+            } else {
+                labelDelegate = new SimpleLabelDelegate((Label) label);
+            }
+        }
+        return labelDelegate;
+    }
+
+    /**
+     * @generated
+     */
+    @Override
+    public Object getAdapter(Class key) {
+        if (ILabelDelegate.class.equals(key)) {
+            return getLabelDelegate();
+        }
+        return super.getAdapter(key);
     }
 
     /**

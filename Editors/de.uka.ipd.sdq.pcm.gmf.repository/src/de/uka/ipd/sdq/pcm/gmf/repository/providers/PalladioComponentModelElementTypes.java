@@ -30,6 +30,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureInterfaceEditP
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureSignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceParentInterfaces__InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationRequiredRoleEditPart;
@@ -52,7 +53,7 @@ import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 /**
  * @generated
  */
-public class PalladioComponentModelElementTypes extends ElementInitializers {
+public class PalladioComponentModelElementTypes {
 
     /**
      * @generated
@@ -63,7 +64,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    private static Map elements;
+    private static Map<IElementType, ENamedElement> elements;
 
     /**
      * @generated
@@ -73,7 +74,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    private static Set KNOWN_ELEMENT_TYPES;
+    private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
     /**
      * @generated
@@ -198,6 +199,11 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
+    public static final IElementType InterfaceParentInterfaces__Interface_4123 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.InterfaceParentInterfaces__Interface_4123"); //$NON-NLS-1$
+
+    /**
+     * @generated
+     */
     private static ImageRegistry getImageRegistry() {
         if (imageRegistry == null) {
             imageRegistry = new ImageRegistry();
@@ -300,7 +306,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     public static ENamedElement getElement(IAdaptable hint) {
         Object type = hint.getAdapter(IElementType.class);
         if (elements == null) {
-            elements = new IdentityHashMap();
+            elements = new IdentityHashMap<IElementType, ENamedElement>();
 
             elements.put(Repository_1000, RepositoryPackage.eINSTANCE.getRepository());
 
@@ -351,6 +357,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
                     RepositoryPackage.eINSTANCE.getCompleteComponentType_ParentProvidesComponentTypes());
 
             elements.put(SourceRole_4110, RepositoryPackage.eINSTANCE.getSourceRole());
+
+            elements.put(InterfaceParentInterfaces__Interface_4123,
+                    RepositoryPackage.eINSTANCE.getInterface_ParentInterfaces__Interface());
         }
         return (ENamedElement) elements.get(type);
     }
@@ -367,7 +376,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
      */
     public static boolean isKnownElementType(IElementType elementType) {
         if (KNOWN_ELEMENT_TYPES == null) {
-            KNOWN_ELEMENT_TYPES = new HashSet();
+            KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
             KNOWN_ELEMENT_TYPES.add(Repository_1000);
             KNOWN_ELEMENT_TYPES.add(OperationInterface_2107);
             KNOWN_ELEMENT_TYPES.add(EventGroup_2108);
@@ -392,6 +401,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
             KNOWN_ELEMENT_TYPES.add(ImplementationComponentTypeParentCompleteComponentTypes_4103);
             KNOWN_ELEMENT_TYPES.add(CompleteComponentTypeParentProvidesComponentTypes_4104);
             KNOWN_ELEMENT_TYPES.add(SourceRole_4110);
+            KNOWN_ELEMENT_TYPES.add(InterfaceParentInterfaces__Interface_4123);
         }
         return KNOWN_ELEMENT_TYPES.contains(elementType);
     }
@@ -449,6 +459,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
             return CompleteComponentTypeParentProvidesComponentTypes_4104;
         case SourceRoleEditPart.VISUAL_ID:
             return SourceRole_4110;
+        case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID:
+            return InterfaceParentInterfaces__Interface_4123;
         }
         return null;
     }

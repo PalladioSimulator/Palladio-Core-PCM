@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
@@ -32,6 +33,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InfrastructureInterfaceItemSemanticEditPolicy;
@@ -69,12 +71,12 @@ public class InfrastructureInterfaceEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected void createDefaultEditPolicies() {
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+                PalladioComponentModelVisualIDRegistry.TYPED_INSTANCE));
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureInterfaceItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -82,7 +84,7 @@ public class InfrastructureInterfaceEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -107,8 +109,7 @@ public class InfrastructureInterfaceEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        InfrastructureInterfaceFigure figure = new InfrastructureInterfaceFigure();
-        return primaryShape = figure;
+        return primaryShape = new InfrastructureInterfaceFigure();
     }
 
     /**
@@ -129,8 +130,7 @@ public class InfrastructureInterfaceEditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof InfrastructureInterfaceInfrastructureSignatureListEditPart) {
             IFigure pane = getPrimaryShape().getFigureInfrastructureInterfaceCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((InfrastructureInterfaceInfrastructureSignatureListEditPart) childEditPart).getFigure());
             return true;
         }
@@ -146,8 +146,6 @@ public class InfrastructureInterfaceEditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof InfrastructureInterfaceInfrastructureSignatureListEditPart) {
             IFigure pane = getPrimaryShape().getFigureInfrastructureInterfaceCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((InfrastructureInterfaceInfrastructureSignatureListEditPart) childEditPart).getFigure());
             return true;
         }
@@ -283,68 +281,74 @@ public class InfrastructureInterfaceEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
-        types.add(PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111);
-        types.add(PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112);
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+        types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
         return types;
     }
 
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
+        if (targetEditPart instanceof OperationInterfaceEditPart) {
+            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+        }
+        if (targetEditPart instanceof EventGroupEditPart) {
+            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+        }
+        if (targetEditPart instanceof de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureInterfaceEditPart) {
+            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+        }
+        return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
+        if (relationshipType == PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123) {
+            types.add(PalladioComponentModelElementTypes.OperationInterface_2107);
+            types.add(PalladioComponentModelElementTypes.EventGroup_2108);
+            types.add(PalladioComponentModelElementTypes.InfrastructureInterface_2109);
+        }
+        return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(3);
+        types.add(PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111);
+        types.add(PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112);
+        types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+        return types;
+    }
+
+    /**
+     * @generated
+     */
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111) {
             types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111) {
             types.add(PalladioComponentModelElementTypes.CompositeComponent_2103);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111) {
             types.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111) {
             types.add(PalladioComponentModelElementTypes.ProvidesComponentType_2105);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111) {
             types.add(PalladioComponentModelElementTypes.SubSystem_2106);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
             types.add(PalladioComponentModelElementTypes.BasicComponent_2102);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
             types.add(PalladioComponentModelElementTypes.CompositeComponent_2103);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
             types.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
             types.add(PalladioComponentModelElementTypes.ProvidesComponentType_2105);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
             types.add(PalladioComponentModelElementTypes.SubSystem_2106);
+        } else if (relationshipType == PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123) {
+            types.add(PalladioComponentModelElementTypes.OperationInterface_2107);
+            types.add(PalladioComponentModelElementTypes.EventGroup_2108);
+            types.add(PalladioComponentModelElementTypes.InfrastructureInterface_2109);
         }
         return types;
     }

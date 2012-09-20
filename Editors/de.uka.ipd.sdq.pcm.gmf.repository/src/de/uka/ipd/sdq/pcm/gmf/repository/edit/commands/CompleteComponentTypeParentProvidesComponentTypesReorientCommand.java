@@ -75,7 +75,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesReorientCommand ex
         if (!(oldEnd instanceof ProvidesComponentType && newEnd instanceof CompleteComponentType)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistCompleteComponentTypeParentProvidesComponentTypes_4104(getNewSource(), getOldTarget());
     }
 
@@ -86,7 +86,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesReorientCommand ex
         if (!(oldEnd instanceof ProvidesComponentType && newEnd instanceof ProvidesComponentType)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistCompleteComponentTypeParentProvidesComponentTypes_4104(getOldSource(), getNewTarget());
     }
 

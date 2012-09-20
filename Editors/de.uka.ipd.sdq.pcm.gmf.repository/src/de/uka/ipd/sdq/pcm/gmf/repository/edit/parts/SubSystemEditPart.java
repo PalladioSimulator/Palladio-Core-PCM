@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.GridData;
@@ -70,8 +71,7 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new SubSystemItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -79,7 +79,7 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -104,8 +104,7 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        SubSystemFigure figure = new SubSystemFigure();
-        return primaryShape = figure;
+        return primaryShape = new SubSystemFigure();
     }
 
     /**
@@ -263,18 +262,8 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(6);
         types.add(PalladioComponentModelElementTypes.OperationProvidedRole_4105);
         types.add(PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111);
         types.add(PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112);
@@ -287,19 +276,8 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof OperationInterfaceEditPart) {
             types.add(PalladioComponentModelElementTypes.OperationProvidedRole_4105);
         }
@@ -324,35 +302,19 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.OperationProvidedRole_4105) {
             types.add(PalladioComponentModelElementTypes.OperationInterface_2107);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.InfrastructureProvidedRole_4111) {
             types.add(PalladioComponentModelElementTypes.InfrastructureInterface_2109);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.InfrastructureRequiredRole_4112) {
             types.add(PalladioComponentModelElementTypes.InfrastructureInterface_2109);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.SinkRole_4109) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.SinkRole_4109) {
             types.add(PalladioComponentModelElementTypes.EventGroup_2108);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.OperationRequiredRole_4106) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.OperationRequiredRole_4106) {
             types.add(PalladioComponentModelElementTypes.OperationInterface_2107);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.SourceRole_4110) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.SourceRole_4110) {
             types.add(PalladioComponentModelElementTypes.EventGroup_2108);
         }
         return types;

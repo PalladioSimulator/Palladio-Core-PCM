@@ -9,6 +9,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 
@@ -127,9 +128,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
      */
     private long computeModificationStamp(ResourceSetInfo info) {
         int result = 0;
-        for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                .hasNext();) {
-            Resource nextResource = (Resource) it.next();
+        for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+            Resource nextResource = it.next();
             IFile file = WorkspaceSynchronizer.getFile(nextResource);
             if (file != null) {
                 if (file.getLocation() != null) {
@@ -218,9 +218,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 if (!resource.isLoaded()) {
                     try {
                         Map options = new HashMap(GMFResourceFactory.getDefaultLoadOptions());
-                        // @see 171060
-                        // options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE,
-                        // Boolean.TRUE);
+                        // @see 171060 
+                        // options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
                         resource.load(options);
                     } catch (IOException e) {
                         resource.unload();
@@ -318,19 +317,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     protected void doValidateState(Object element, Object computationContext) throws CoreException {
         ResourceSetInfo info = getResourceSetInfo(element);
         if (info != null) {
-            Collection/* <org.eclipse.core.resources.IFile> */files2Validate = new ArrayList/*
-                                                                                             * <org.
-                                                                                             * eclipse
-                                                                                             * .
-                                                                                             * core.
-                                                                                             * resources
-                                                                                             * .
-                                                                                             * IFile
-                                                                                             * >
-                                                                                             */();
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                    .hasNext();) {
-                Resource nextResource = (Resource) it.next();
+            LinkedList<IFile> files2Validate = new LinkedList<IFile>();
+            for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                Resource nextResource = it.next();
                 IFile file = WorkspaceSynchronizer.getFile(nextResource);
                 if (file != null && file.isReadOnly()) {
                     files2Validate.add(file);
@@ -355,8 +344,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 } catch (CoreException ex) {
                     PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().logError(
                             Messages.PalladioComponentModelDocumentProvider_isModifiable, ex);
-                    // Error message to log was initially taken from
-                    // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+                    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
                 }
             }
             return info.isReadOnly();
@@ -381,8 +369,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 } catch (CoreException ex) {
                     PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().logError(
                             Messages.PalladioComponentModelDocumentProvider_isModifiable, ex);
-                    // Error message to log was initially taken from
-                    // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+                    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
                 }
             }
             return info.isModifiable();
@@ -396,9 +383,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     protected void updateCache(Object element) throws CoreException {
         ResourceSetInfo info = getResourceSetInfo(element);
         if (info != null) {
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                    .hasNext();) {
-                Resource nextResource = (Resource) it.next();
+            for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                Resource nextResource = it.next();
                 IFile file = WorkspaceSynchronizer.getFile(nextResource);
                 if (file != null && file.isReadOnly()) {
                     info.setReadOnly(true);
@@ -440,23 +426,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     protected ISchedulingRule getResetRule(Object element) {
         ResourceSetInfo info = getResourceSetInfo(element);
         if (info != null) {
-            Collection/* <org.eclipse.core.runtime.jobs.ISchedulingRule> */rules = new ArrayList/*
-                                                                                                 * <org
-                                                                                                 * .
-                                                                                                 * eclipse
-                                                                                                 * .
-                                                                                                 * core
-                                                                                                 * .
-                                                                                                 * runtime
-                                                                                                 * .
-                                                                                                 * jobs
-                                                                                                 * .
-                                                                                                 * ISchedulingRule
-                                                                                                 * >
-                                                                                                 */();
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                    .hasNext();) {
-                Resource nextResource = (Resource) it.next();
+            LinkedList<ISchedulingRule> rules = new LinkedList<ISchedulingRule>();
+            for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                Resource nextResource = it.next();
                 IFile file = WorkspaceSynchronizer.getFile(nextResource);
                 if (file != null) {
                     rules.add(ResourcesPlugin.getWorkspace().getRuleFactory().modifyRule(file));
@@ -473,23 +445,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     protected ISchedulingRule getSaveRule(Object element) {
         ResourceSetInfo info = getResourceSetInfo(element);
         if (info != null) {
-            Collection/* <org.eclipse.core.runtime.jobs.ISchedulingRule> */rules = new ArrayList/*
-                                                                                                 * <org
-                                                                                                 * .
-                                                                                                 * eclipse
-                                                                                                 * .
-                                                                                                 * core
-                                                                                                 * .
-                                                                                                 * runtime
-                                                                                                 * .
-                                                                                                 * jobs
-                                                                                                 * .
-                                                                                                 * ISchedulingRule
-                                                                                                 * >
-                                                                                                 */();
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                    .hasNext();) {
-                Resource nextResource = (Resource) it.next();
+            LinkedList<ISchedulingRule> rules = new LinkedList<ISchedulingRule>();
+            for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                Resource nextResource = it.next();
                 IFile file = WorkspaceSynchronizer.getFile(nextResource);
                 if (file != null) {
                     rules.add(computeSchedulingRule(file));
@@ -506,23 +464,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     protected ISchedulingRule getSynchronizeRule(Object element) {
         ResourceSetInfo info = getResourceSetInfo(element);
         if (info != null) {
-            Collection/* <org.eclipse.core.runtime.jobs.ISchedulingRule> */rules = new ArrayList/*
-                                                                                                 * <org
-                                                                                                 * .
-                                                                                                 * eclipse
-                                                                                                 * .
-                                                                                                 * core
-                                                                                                 * .
-                                                                                                 * runtime
-                                                                                                 * .
-                                                                                                 * jobs
-                                                                                                 * .
-                                                                                                 * ISchedulingRule
-                                                                                                 * >
-                                                                                                 */();
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                    .hasNext();) {
-                Resource nextResource = (Resource) it.next();
+            LinkedList<ISchedulingRule> rules = new LinkedList<ISchedulingRule>();
+            for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                Resource nextResource = it.next();
                 IFile file = WorkspaceSynchronizer.getFile(nextResource);
                 if (file != null) {
                     rules.add(ResourcesPlugin.getWorkspace().getRuleFactory().refreshRule(file));
@@ -539,23 +483,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     protected ISchedulingRule getValidateStateRule(Object element) {
         ResourceSetInfo info = getResourceSetInfo(element);
         if (info != null) {
-            Collection/* <org.eclipse.core.runtime.jobs.ISchedulingRule> */files = new ArrayList/*
-                                                                                                 * <org
-                                                                                                 * .
-                                                                                                 * eclipse
-                                                                                                 * .
-                                                                                                 * core
-                                                                                                 * .
-                                                                                                 * runtime
-                                                                                                 * .
-                                                                                                 * jobs
-                                                                                                 * .
-                                                                                                 * ISchedulingRule
-                                                                                                 * >
-                                                                                                 */();
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                    .hasNext();) {
-                Resource nextResource = (Resource) it.next();
+            LinkedList<ISchedulingRule> files = new LinkedList<ISchedulingRule>();
+            for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                Resource nextResource = it.next();
                 IFile file = WorkspaceSynchronizer.getFile(nextResource);
                 if (file != null) {
                     files.add(file);
@@ -577,8 +507,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         IResource parent = toCreateOrModify;
         do {
             /*
-             * XXX This is a workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=67601
-             * IResourceRuleFactory.createRule should iterate the hierarchy itself.
+             * XXX This is a workaround for
+             * https://bugs.eclipse.org/bugs/show_bug.cgi?id=67601
+             * IResourceRuleFactory.createRule should iterate the hierarchy
+             * itself.
              */
             toCreateOrModify = parent;
             parent = toCreateOrModify.getParent();
@@ -593,9 +525,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     protected void doSynchronize(Object element, IProgressMonitor monitor) throws CoreException {
         ResourceSetInfo info = getResourceSetInfo(element);
         if (info != null) {
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                    .hasNext();) {
-                Resource nextResource = (Resource) it.next();
+            for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                Resource nextResource = it.next();
                 handleElementChanged(info, nextResource, monitor);
             }
             return;
@@ -619,10 +550,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             fireElementStateChanging(element);
             try {
                 monitor.beginTask(Messages.PalladioComponentModelDocumentProvider_SaveDiagramTask, info
-                        .getResourceSet().getResources().size() + 1); // "Saving diagram"
-                for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = info.getLoadedResourcesIterator(); it
-                        .hasNext();) {
-                    Resource nextResource = (Resource) it.next();
+                        .getResourceSet().getResources().size() + 1); //"Saving diagram"
+                for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
+                    Resource nextResource = it.next();
                     monitor.setTaskName(NLS.bind(Messages.PalladioComponentModelDocumentProvider_SaveNextResourceTask,
                             nextResource.getURI()));
                     if (nextResource.isLoaded() && !info.getEditingDomain().isReadOnly(nextResource)) {
@@ -647,7 +577,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             }
         } else {
             URI newResoruceURI;
-            List affectedFiles = null;
+            List<IFile> affectedFiles = null;
             if (element instanceof FileEditorInput) {
                 IFile newFile = ((FileEditorInput) element).getFile();
                 affectedFiles = Collections.singletonList(newFile);
@@ -711,8 +641,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             } catch (CoreException ex) {
                 PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().logError(
                         Messages.PalladioComponentModelDocumentProvider_handleElementContentChanged, ex);
-                // Error message to log was initially taken from
-                // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
+                // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
             }
         }
         changedResource.unload();
@@ -789,7 +718,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         /**
          * @generated
          */
-        private Collection myUnSynchronizedResources = new ArrayList();
+        private LinkedList<Resource> myUnSynchronizedResources = new LinkedList<Resource>();
 
         /**
          * @generated
@@ -864,9 +793,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         /**
          * @generated
          */
-        public Iterator/* <org.eclipse.emf.ecore.resource.Resource> */getLoadedResourcesIterator() {
-            return new ArrayList/* <org.eclipse.emf.ecore.resource.Resource> */(getResourceSet().getResources())
-                    .iterator();
+        public Iterator<Resource> getLoadedResourcesIterator() {
+            return new ArrayList<Resource>(getResourceSet().getResources()).iterator();
         }
 
         /**
@@ -882,8 +810,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         public void dispose() {
             stopResourceListening();
             getResourceSet().eAdapters().remove(myResourceSetListener);
-            for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = getLoadedResourcesIterator(); it.hasNext();) {
-                Resource resource = (Resource) it.next();
+            for (Iterator<Resource> it = getLoadedResourcesIterator(); it.hasNext();) {
+                Resource resource = it.next();
                 resource.unload();
             }
             getEditingDomain().dispose();
@@ -1077,7 +1005,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                     Resource resource = (Resource) notification.getNotifier();
                     if (resource.isLoaded()) {
                         boolean modified = false;
-                        for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = myInfo
+                        for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/it = myInfo
                                 .getLoadedResourcesIterator(); it.hasNext() && !modified;) {
                             Resource nextResource = (Resource) it.next();
                             if (nextResource.isLoaded()) {

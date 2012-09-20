@@ -12,13 +12,12 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
-import de.uka.ipd.sdq.pcm.repository.ProvidesComponentType;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 
 /**
  * @generated
  */
-public class CompleteComponentTypeParentProvidesComponentTypesCreateCommand extends EditElementCommand {
+public class InterfaceParentInterfaces__InterfaceCreateCommand extends EditElementCommand {
 
     /**
      * @generated
@@ -33,8 +32,8 @@ public class CompleteComponentTypeParentProvidesComponentTypesCreateCommand exte
     /**
      * @generated
      */
-    public CompleteComponentTypeParentProvidesComponentTypesCreateCommand(CreateRelationshipRequest request,
-            EObject source, EObject target) {
+    public InterfaceParentInterfaces__InterfaceCreateCommand(CreateRelationshipRequest request, EObject source,
+            EObject target) {
         super(request.getLabel(), null, request);
         this.source = source;
         this.target = target;
@@ -47,10 +46,10 @@ public class CompleteComponentTypeParentProvidesComponentTypesCreateCommand exte
         if (source == null && target == null) {
             return false;
         }
-        if (source != null && false == source instanceof CompleteComponentType) {
+        if (source != null && false == source instanceof Interface) {
             return false;
         }
-        if (target != null && false == target instanceof ProvidesComponentType) {
+        if (target != null && false == target instanceof Interface) {
             return false;
         }
         if (getSource() == null) {
@@ -58,7 +57,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesCreateCommand exte
         }
         // target may be null here but it's possible to check constraint
         return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
-                .canCreateCompleteComponentTypeParentProvidesComponentTypes_4104(getSource(), getTarget());
+                .canCreateInterfaceParentInterfaces__Interface_4123(getSource(), getTarget());
     }
 
     /**
@@ -70,7 +69,7 @@ public class CompleteComponentTypeParentProvidesComponentTypesCreateCommand exte
         }
 
         if (getSource() != null && getTarget() != null) {
-            getSource().getParentProvidesComponentTypes().add(getTarget());
+            getSource().getParentInterfaces__Interface().add(getTarget());
         }
         return CommandResult.newOKCommandResult();
 
@@ -86,14 +85,14 @@ public class CompleteComponentTypeParentProvidesComponentTypesCreateCommand exte
     /**
      * @generated
      */
-    protected CompleteComponentType getSource() {
-        return (CompleteComponentType) source;
+    protected Interface getSource() {
+        return (Interface) source;
     }
 
     /**
      * @generated
      */
-    protected ProvidesComponentType getTarget() {
-        return (ProvidesComponentType) target;
+    protected Interface getTarget() {
+        return (Interface) target;
     }
 }

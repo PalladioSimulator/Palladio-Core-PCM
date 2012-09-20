@@ -62,8 +62,8 @@ public class SinkRoleCreateCommand extends EditElementCommand {
             return true; // link creation is in progress; source is not defined yet
         }
         // target may be null here but it's possible to check constraint
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateSinkRole_4109(getSource(),
-                getTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canCreateSinkRole_4109(
+                getSource(), getTarget());
     }
 
     /**

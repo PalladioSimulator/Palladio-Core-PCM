@@ -62,8 +62,8 @@ public class OperationProvidedRoleCreateCommand extends EditElementCommand {
             return true; // link creation is in progress; source is not defined yet
         }
         // target may be null here but it's possible to check constraint
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateOperationProvidedRole_4105(
-                getSource(), getTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canCreateOperationProvidedRole_4105(getSource(), getTarget());
     }
 
     /**

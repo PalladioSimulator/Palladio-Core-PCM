@@ -29,6 +29,8 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.repository.providers.ElementInitializers;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
@@ -75,6 +77,16 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
      * @generated
      */
     private PalladioComponentModelDocumentProvider documentProvider;
+
+    /**
+     * @generated
+     */
+    private PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints linkConstraints;
+
+    /**
+     * @generated
+     */
+    private ElementInitializers initializers;
 
     /**
      * @generated
@@ -133,7 +145,7 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
     /**
      * @generated
      */
-    protected void fillItemProviderFactories(List factories) {
+    protected void fillItemProviderFactories(List<AdapterFactory> factories) {
         factories.add(new PcmItemProviderAdapterFactory());
         factories.add(new CoreItemProviderAdapterFactory());
         factories.add(new EntityItemProviderAdapterFactory());
@@ -252,6 +264,34 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
             documentProvider = new PalladioComponentModelDocumentProvider();
         }
         return documentProvider;
+    }
+
+    /**
+     * @generated
+     */
+    public PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
+        return linkConstraints;
+    }
+
+    /**
+     * @generated
+     */
+    public void setLinkConstraints(PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints lc) {
+        this.linkConstraints = lc;
+    }
+
+    /**
+     * @generated
+     */
+    public ElementInitializers getElementInitializers() {
+        return initializers;
+    }
+
+    /**
+     * @generated
+     */
+    public void setElementInitializers(ElementInitializers i) {
+        this.initializers = i;
     }
 
     /**

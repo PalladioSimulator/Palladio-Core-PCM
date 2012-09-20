@@ -537,6 +537,19 @@
         xsi:type="ecore:EReference"
         href="../../pcm.ecore#//repository/SourceRole/eventGroup__SourceRole"/>
   </links>
+  <links>
+    <labelMappings
+        xsi:type="gmfmap:DesignLabelMapping"
+        readOnly="true">
+      <diagramLabel
+          href="repository.gmfgraph#ExtendsInterfaceStereotypeLabel"/>
+    </labelMappings>
+    <diagramLink
+        href="repository.gmfgraph#InterfaceParentInterface"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//repository/Interface/parentInterfaces__Interface"/>
+  </links>
   <diagram>
     <diagramCanvas
         href="repository.gmfgraph#PalladioComponentModel"/>

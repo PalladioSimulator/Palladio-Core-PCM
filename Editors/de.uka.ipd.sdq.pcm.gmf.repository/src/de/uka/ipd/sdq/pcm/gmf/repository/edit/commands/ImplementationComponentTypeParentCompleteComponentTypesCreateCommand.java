@@ -57,7 +57,7 @@ public class ImplementationComponentTypeParentCompleteComponentTypesCreateComman
             return true; // link creation is in progress; source is not defined yet
         }
         // target may be null here but it's possible to check constraint
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canCreateImplementationComponentTypeParentCompleteComponentTypes_4103(getSource(), getTarget());
     }
 

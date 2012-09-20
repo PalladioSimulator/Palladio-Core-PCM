@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.update.DiagramUpdater;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
@@ -33,6 +34,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureInterfaceInfra
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureSignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceParentInterfaces__InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceSignatureListEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationProvidedRoleEditPart;
@@ -91,8 +93,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getSemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getSemanticChildren(View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+        case RepositoryEditPart.VISUAL_ID:
+            return getRepository_1000SemanticChildren(view);
         case OperationInterfaceSignatureListEditPart.VISUAL_ID:
             return getOperationInterfaceSignatureList_7106SemanticChildren(view);
         case EventGroupEventTypeListEditPart.VISUAL_ID:
@@ -107,26 +111,25 @@ public class PalladioComponentModelDiagramUpdater {
             return getVariableUsageComponentParameterVariableCharacterisationCompartment_7105SemanticChildren(view);
         case InfrastructureInterfaceInfrastructureSignatureListEditPart.VISUAL_ID:
             return getInfrastructureInterfaceInfrastructureSignatureList_7108SemanticChildren(view);
-        case RepositoryEditPart.VISUAL_ID:
-            return getRepository_1000SemanticChildren(view);
         }
-        return Collections.EMPTY_LIST;
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationInterfaceSignatureList_7106SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getOperationInterfaceSignatureList_7106SemanticChildren(
+            View view) {
         if (false == view.eContainer() instanceof View) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         OperationInterface modelElement = (OperationInterface) containerView.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getSignatures__OperationInterface().iterator(); it.hasNext();) {
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getSignatures__OperationInterface().iterator(); it.hasNext();) {
             OperationSignature childElement = (OperationSignature) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == OperationSignatureEditPart.VISUAL_ID) {
@@ -140,17 +143,17 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getEventGroupEventTypeList_7107SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getEventGroupEventTypeList_7107SemanticChildren(View view) {
         if (false == view.eContainer() instanceof View) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         EventGroup modelElement = (EventGroup) containerView.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getEventTypes__EventGroup().iterator(); it.hasNext();) {
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getEventTypes__EventGroup().iterator(); it.hasNext();) {
             EventType childElement = (EventType) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == EventTypeEditPart.VISUAL_ID) {
@@ -164,17 +167,18 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getBasicComponentSEFFCompartment_7102SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getBasicComponentSEFFCompartment_7102SemanticChildren(
+            View view) {
         if (false == view.eContainer() instanceof View) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         BasicComponent modelElement = (BasicComponent) containerView.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getServiceEffectSpecifications__BasicComponent().iterator(); it.hasNext();) {
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getServiceEffectSpecifications__BasicComponent().iterator(); it.hasNext();) {
             ServiceEffectSpecification childElement = (ServiceEffectSpecification) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == ResourceDemandingSEFFEditPart.VISUAL_ID) {
@@ -188,17 +192,18 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getBasicComponentPassiveResourceCompartment_7103SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getBasicComponentPassiveResourceCompartment_7103SemanticChildren(
+            View view) {
         if (false == view.eContainer() instanceof View) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         BasicComponent modelElement = (BasicComponent) containerView.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getPassiveResource_BasicComponent().iterator(); it.hasNext();) {
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getPassiveResource_BasicComponent().iterator(); it.hasNext();) {
             PassiveResource childElement = (PassiveResource) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == PassiveResourceEditPart.VISUAL_ID) {
@@ -212,17 +217,18 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getBasicComponentComponentParameterCompartment_7104SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getBasicComponentComponentParameterCompartment_7104SemanticChildren(
+            View view) {
         if (false == view.eContainer() instanceof View) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         BasicComponent modelElement = (BasicComponent) containerView.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getComponentParameterUsage_ImplementationComponentType().iterator(); it
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getComponentParameterUsage_ImplementationComponentType().iterator(); it
                 .hasNext();) {
             VariableUsage childElement = (VariableUsage) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
@@ -237,18 +243,18 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getVariableUsageComponentParameterVariableCharacterisationCompartment_7105SemanticChildren(
+    public static List<PalladioComponentModelNodeDescriptor> getVariableUsageComponentParameterVariableCharacterisationCompartment_7105SemanticChildren(
             View view) {
         if (false == view.eContainer() instanceof View) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         VariableUsage modelElement = (VariableUsage) containerView.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it.hasNext();) {
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getVariableCharacterisation_VariableUsage().iterator(); it.hasNext();) {
             VariableCharacterisation childElement = (VariableCharacterisation) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == VariableCharacterisationEditPart.VISUAL_ID) {
@@ -262,17 +268,19 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getInfrastructureInterfaceInfrastructureSignatureList_7108SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getInfrastructureInterfaceInfrastructureSignatureList_7108SemanticChildren(
+            View view) {
         if (false == view.eContainer() instanceof View) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();
         if (!containerView.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         InfrastructureInterface modelElement = (InfrastructureInterface) containerView.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getInfrastructureSignatures__InfrastructureInterface().iterator(); it.hasNext();) {
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getInfrastructureSignatures__InfrastructureInterface().iterator(); it
+                .hasNext();) {
             InfrastructureSignature childElement = (InfrastructureSignature) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == InfrastructureSignatureEditPart.VISUAL_ID) {
@@ -286,13 +294,13 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getRepository_1000SemanticChildren(View view) {
+    public static List<PalladioComponentModelNodeDescriptor> getRepository_1000SemanticChildren(View view) {
         if (!view.isSetElement()) {
-            return Collections.EMPTY_LIST;
+            return Collections.emptyList();
         }
         Repository modelElement = (Repository) view.getElement();
-        List result = new LinkedList();
-        for (Iterator it = modelElement.getInterfaces__Repository().iterator(); it.hasNext();) {
+        LinkedList<PalladioComponentModelNodeDescriptor> result = new LinkedList<PalladioComponentModelNodeDescriptor>();
+        for (Iterator<?> it = modelElement.getInterfaces__Repository().iterator(); it.hasNext();) {
             Interface childElement = (Interface) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == OperationInterfaceEditPart.VISUAL_ID) {
@@ -308,7 +316,7 @@ public class PalladioComponentModelDiagramUpdater {
                 continue;
             }
         }
-        for (Iterator it = modelElement.getComponents__Repository().iterator(); it.hasNext();) {
+        for (Iterator<?> it = modelElement.getComponents__Repository().iterator(); it.hasNext();) {
             RepositoryComponent childElement = (RepositoryComponent) it.next();
             int visualID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(view, childElement);
             if (visualID == BasicComponentEditPart.VISUAL_ID) {
@@ -338,7 +346,7 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getContainedLinks(View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case RepositoryEditPart.VISUAL_ID:
             return getRepository_1000ContainedLinks(view);
@@ -385,13 +393,13 @@ public class PalladioComponentModelDiagramUpdater {
         case SourceRoleEditPart.VISUAL_ID:
             return getSourceRole_4110ContainedLinks(view);
         }
-        return Collections.EMPTY_LIST;
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getIncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getIncomingLinks(View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case OperationInterfaceEditPart.VISUAL_ID:
             return getOperationInterface_2107IncomingLinks(view);
@@ -436,13 +444,13 @@ public class PalladioComponentModelDiagramUpdater {
         case SourceRoleEditPart.VISUAL_ID:
             return getSourceRole_4110IncomingLinks(view);
         }
-        return Collections.EMPTY_LIST;
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getOutgoingLinks(View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
         case OperationInterfaceEditPart.VISUAL_ID:
             return getOperationInterface_2107OutgoingLinks(view);
@@ -487,36 +495,42 @@ public class PalladioComponentModelDiagramUpdater {
         case SourceRoleEditPart.VISUAL_ID:
             return getSourceRole_4110OutgoingLinks(view);
         }
-        return Collections.EMPTY_LIST;
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getRepository_1000ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getRepository_1000ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationInterface_2107ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationInterface_2107ContainedLinks(View view) {
+        OperationInterface modelElement = (OperationInterface) view.getElement();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        return result;
     }
 
     /**
      * @generated
      */
-    public static List getEventGroup_2108ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getEventGroup_2108ContainedLinks(View view) {
+        EventGroup modelElement = (EventGroup) view.getElement();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        return result;
     }
 
     /**
      * @generated
      */
-    public static List getBasicComponent_2102ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getBasicComponent_2102ContainedLinks(View view) {
         BasicComponent modelElement = (BasicComponent) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -530,9 +544,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getCompositeComponent_2103ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getCompositeComponent_2103ContainedLinks(View view) {
         CompositeComponent modelElement = (CompositeComponent) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -546,9 +560,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getCompleteComponentType_2104ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getCompleteComponentType_2104ContainedLinks(View view) {
         CompleteComponentType modelElement = (CompleteComponentType) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -562,9 +576,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getProvidesComponentType_2105ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getProvidesComponentType_2105ContainedLinks(View view) {
         ProvidesComponentType modelElement = (ProvidesComponentType) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -577,9 +591,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getSubSystem_2106ContainedLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getSubSystem_2106ContainedLinks(View view) {
         SubSystem modelElement = (SubSystem) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -592,146 +606,156 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getInfrastructureInterface_2109ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureInterface_2109ContainedLinks(View view) {
+        InfrastructureInterface modelElement = (InfrastructureInterface) view.getElement();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        return result;
     }
 
     /**
      * @generated
      */
-    public static List getOperationSignature_3106ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationSignature_3106ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getEventType_3107ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getEventType_3107ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getResourceDemandingSEFF_3102ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingSEFF_3102ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getPassiveResource_3103ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getPassiveResource_3103ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getVariableUsage_3104ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3104ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getVariableCharacterisation_3105ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3105ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureSignature_3108ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureSignature_3108ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationProvidedRole_4105ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationProvidedRole_4105ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureProvidedRole_4111ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureProvidedRole_4111ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureRequiredRole_4112ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureRequiredRole_4112ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getSinkRole_4109ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getSinkRole_4109ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationRequiredRole_4106ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationRequiredRole_4106ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getSourceRole_4110ContainedLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getSourceRole_4110ContainedLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationInterface_2107IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getOperationInterface_2107IncomingLinks(View view) {
         OperationInterface modelElement = (OperationInterface) view.getElement();
-        Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource().getResourceSet().getResources());
-        List result = new LinkedList();
+        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+                .eResource().getResourceSet().getResources());
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingTypeModelFacetLinks_OperationProvidedRole_4105(modelElement, crossReferences));
         result.addAll(getIncomingTypeModelFacetLinks_OperationRequiredRole_4106(modelElement, crossReferences));
+        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement,
+                crossReferences));
         return result;
     }
 
     /**
      * @generated
      */
-    public static List getEventGroup_2108IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getEventGroup_2108IncomingLinks(View view) {
         EventGroup modelElement = (EventGroup) view.getElement();
-        Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource().getResourceSet().getResources());
-        List result = new LinkedList();
+        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+                .eResource().getResourceSet().getResources());
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingTypeModelFacetLinks_SinkRole_4109(modelElement, crossReferences));
         result.addAll(getIncomingTypeModelFacetLinks_SourceRole_4110(modelElement, crossReferences));
+        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement,
+                crossReferences));
         return result;
     }
 
     /**
      * @generated
      */
-    public static List getBasicComponent_2102IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getBasicComponent_2102IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getCompositeComponent_2103IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getCompositeComponent_2103IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getCompleteComponentType_2104IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getCompleteComponentType_2104IncomingLinks(View view) {
         CompleteComponentType modelElement = (CompleteComponentType) view.getElement();
-        Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource().getResourceSet().getResources());
-        List result = new LinkedList();
+        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+                .eResource().getResourceSet().getResources());
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(
                 modelElement, crossReferences));
         return result;
@@ -740,10 +764,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getProvidesComponentType_2105IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getProvidesComponentType_2105IncomingLinks(View view) {
         ProvidesComponentType modelElement = (ProvidesComponentType) view.getElement();
-        Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource().getResourceSet().getResources());
-        List result = new LinkedList();
+        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+                .eResource().getResourceSet().getResources());
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingFeatureModelFacetLinks_CompleteComponentType_ParentProvidesComponentTypes_4104(
                 modelElement, crossReferences));
         return result;
@@ -752,133 +777,142 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getSubSystem_2106IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getSubSystem_2106IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureInterface_2109IncomingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureInterface_2109IncomingLinks(View view) {
         InfrastructureInterface modelElement = (InfrastructureInterface) view.getElement();
-        Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource().getResourceSet().getResources());
-        List result = new LinkedList();
+        Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences = EcoreUtil.CrossReferencer.find(view
+                .eResource().getResourceSet().getResources());
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement, crossReferences));
         result.addAll(getIncomingTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement, crossReferences));
+        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement,
+                crossReferences));
         return result;
     }
 
     /**
      * @generated
      */
-    public static List getOperationSignature_3106IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationSignature_3106IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getEventType_3107IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getEventType_3107IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getResourceDemandingSEFF_3102IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingSEFF_3102IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getPassiveResource_3103IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getPassiveResource_3103IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getVariableUsage_3104IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3104IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getVariableCharacterisation_3105IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3105IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureSignature_3108IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureSignature_3108IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationProvidedRole_4105IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationProvidedRole_4105IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureProvidedRole_4111IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureProvidedRole_4111IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureRequiredRole_4112IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureRequiredRole_4112IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getSinkRole_4109IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getSinkRole_4109IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationRequiredRole_4106IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationRequiredRole_4106IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getSourceRole_4110IncomingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getSourceRole_4110IncomingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationInterface_2107OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationInterface_2107OutgoingLinks(View view) {
+        OperationInterface modelElement = (OperationInterface) view.getElement();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        return result;
     }
 
     /**
      * @generated
      */
-    public static List getEventGroup_2108OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getEventGroup_2108OutgoingLinks(View view) {
+        EventGroup modelElement = (EventGroup) view.getElement();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        return result;
     }
 
     /**
      * @generated
      */
-    public static List getBasicComponent_2102OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getBasicComponent_2102OutgoingLinks(View view) {
         BasicComponent modelElement = (BasicComponent) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -892,9 +926,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getCompositeComponent_2103OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getCompositeComponent_2103OutgoingLinks(View view) {
         CompositeComponent modelElement = (CompositeComponent) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -908,9 +942,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getCompleteComponentType_2104OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getCompleteComponentType_2104OutgoingLinks(View view) {
         CompleteComponentType modelElement = (CompleteComponentType) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -924,9 +958,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getProvidesComponentType_2105OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getProvidesComponentType_2105OutgoingLinks(View view) {
         ProvidesComponentType modelElement = (ProvidesComponentType) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -939,9 +973,9 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getSubSystem_2106OutgoingLinks(View view) {
+    public static List<PalladioComponentModelLinkDescriptor> getSubSystem_2106OutgoingLinks(View view) {
         SubSystem modelElement = (SubSystem) view.getElement();
-        List result = new LinkedList();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getContainedTypeModelFacetLinks_OperationProvidedRole_4105(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement));
         result.addAll(getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement));
@@ -954,108 +988,111 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    public static List getInfrastructureInterface_2109OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureInterface_2109OutgoingLinks(View view) {
+        InfrastructureInterface modelElement = (InfrastructureInterface) view.getElement();
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        return result;
     }
 
     /**
      * @generated
      */
-    public static List getOperationSignature_3106OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationSignature_3106OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getEventType_3107OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getEventType_3107OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getResourceDemandingSEFF_3102OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getResourceDemandingSEFF_3102OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getPassiveResource_3103OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getPassiveResource_3103OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getVariableUsage_3104OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getVariableUsage_3104OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getVariableCharacterisation_3105OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getVariableCharacterisation_3105OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureSignature_3108OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureSignature_3108OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationProvidedRole_4105OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationProvidedRole_4105OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureProvidedRole_4111OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureProvidedRole_4111OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getInfrastructureRequiredRole_4112OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getInfrastructureRequiredRole_4112OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getSinkRole_4109OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getSinkRole_4109OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getOperationRequiredRole_4106OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getOperationRequiredRole_4106OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    public static List getSourceRole_4110OutgoingLinks(View view) {
-        return Collections.EMPTY_LIST;
+    public static List<PalladioComponentModelLinkDescriptor> getSourceRole_4110OutgoingLinks(View view) {
+        return Collections.emptyList();
     }
 
     /**
      * @generated
      */
-    private static Collection getContainedTypeModelFacetLinks_OperationProvidedRole_4105(
+    private static Collection<PalladioComponentModelLinkDescriptor> getContainedTypeModelFacetLinks_OperationProvidedRole_4105(
             InterfaceProvidingEntity container) {
-        Collection result = new LinkedList();
-        for (Iterator links = container.getProvidedRoles_InterfaceProvidingEntity().iterator(); links.hasNext();) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> links = container.getProvidedRoles_InterfaceProvidingEntity().iterator(); links.hasNext();) {
             EObject linkObject = (EObject) links.next();
             if (false == linkObject instanceof OperationProvidedRole) {
                 continue;
@@ -1076,10 +1113,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(
+    private static Collection<PalladioComponentModelLinkDescriptor> getContainedTypeModelFacetLinks_InfrastructureProvidedRole_4111(
             InterfaceProvidingEntity container) {
-        Collection result = new LinkedList();
-        for (Iterator links = container.getProvidedRoles_InterfaceProvidingEntity().iterator(); links.hasNext();) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> links = container.getProvidedRoles_InterfaceProvidingEntity().iterator(); links.hasNext();) {
             EObject linkObject = (EObject) links.next();
             if (false == linkObject instanceof InfrastructureProvidedRole) {
                 continue;
@@ -1100,10 +1137,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(
+    private static Collection<PalladioComponentModelLinkDescriptor> getContainedTypeModelFacetLinks_InfrastructureRequiredRole_4112(
             InterfaceRequiringEntity container) {
-        Collection result = new LinkedList();
-        for (Iterator links = container.getRequiredRoles_InterfaceRequiringEntity().iterator(); links.hasNext();) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> links = container.getRequiredRoles_InterfaceRequiringEntity().iterator(); links.hasNext();) {
             EObject linkObject = (EObject) links.next();
             if (false == linkObject instanceof InfrastructureRequiredRole) {
                 continue;
@@ -1124,9 +1161,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getContainedTypeModelFacetLinks_SinkRole_4109(InterfaceProvidingEntity container) {
-        Collection result = new LinkedList();
-        for (Iterator links = container.getProvidedRoles_InterfaceProvidingEntity().iterator(); links.hasNext();) {
+    private static Collection<PalladioComponentModelLinkDescriptor> getContainedTypeModelFacetLinks_SinkRole_4109(
+            InterfaceProvidingEntity container) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> links = container.getProvidedRoles_InterfaceProvidingEntity().iterator(); links.hasNext();) {
             EObject linkObject = (EObject) links.next();
             if (false == linkObject instanceof SinkRole) {
                 continue;
@@ -1145,10 +1183,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getContainedTypeModelFacetLinks_OperationRequiredRole_4106(
+    private static Collection<PalladioComponentModelLinkDescriptor> getContainedTypeModelFacetLinks_OperationRequiredRole_4106(
             InterfaceRequiringEntity container) {
-        Collection result = new LinkedList();
-        for (Iterator links = container.getRequiredRoles_InterfaceRequiringEntity().iterator(); links.hasNext();) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> links = container.getRequiredRoles_InterfaceRequiringEntity().iterator(); links.hasNext();) {
             EObject linkObject = (EObject) links.next();
             if (false == linkObject instanceof OperationRequiredRole) {
                 continue;
@@ -1169,9 +1207,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getContainedTypeModelFacetLinks_SourceRole_4110(InterfaceRequiringEntity container) {
-        Collection result = new LinkedList();
-        for (Iterator links = container.getRequiredRoles_InterfaceRequiringEntity().iterator(); links.hasNext();) {
+    private static Collection<PalladioComponentModelLinkDescriptor> getContainedTypeModelFacetLinks_SourceRole_4110(
+            InterfaceRequiringEntity container) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> links = container.getRequiredRoles_InterfaceRequiringEntity().iterator(); links.hasNext();) {
             EObject linkObject = (EObject) links.next();
             if (false == linkObject instanceof SourceRole) {
                 continue;
@@ -1190,12 +1229,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingTypeModelFacetLinks_OperationProvidedRole_4105(OperationInterface target,
-            Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingTypeModelFacetLinks_OperationProvidedRole_4105(
+            OperationInterface target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() != RepositoryPackage.eINSTANCE
                     .getOperationProvidedRole_ProvidedInterface__OperationProvidedRole()
                     || false == setting.getEObject() instanceof OperationProvidedRole) {
@@ -1221,12 +1259,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingTypeModelFacetLinks_InfrastructureProvidedRole_4111(
-            InfrastructureInterface target, Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingTypeModelFacetLinks_InfrastructureProvidedRole_4111(
+            InfrastructureInterface target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() != RepositoryPackage.eINSTANCE
                     .getInfrastructureProvidedRole_ProvidedInterface__InfrastructureProvidedRole()
                     || false == setting.getEObject() instanceof InfrastructureProvidedRole) {
@@ -1252,12 +1289,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingTypeModelFacetLinks_InfrastructureRequiredRole_4112(
-            InfrastructureInterface target, Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingTypeModelFacetLinks_InfrastructureRequiredRole_4112(
+            InfrastructureInterface target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() != RepositoryPackage.eINSTANCE
                     .getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole()
                     || false == setting.getEObject() instanceof InfrastructureRequiredRole) {
@@ -1283,11 +1319,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingTypeModelFacetLinks_SinkRole_4109(EventGroup target, Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingTypeModelFacetLinks_SinkRole_4109(
+            EventGroup target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() != RepositoryPackage.eINSTANCE.getSinkRole_EventGroup__SinkRole()
                     || false == setting.getEObject() instanceof SinkRole) {
                 continue;
@@ -1310,12 +1346,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingTypeModelFacetLinks_OperationRequiredRole_4106(OperationInterface target,
-            Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingTypeModelFacetLinks_OperationRequiredRole_4106(
+            OperationInterface target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() != RepositoryPackage.eINSTANCE
                     .getOperationRequiredRole_RequiredInterface__OperationRequiredRole()
                     || false == setting.getEObject() instanceof OperationRequiredRole) {
@@ -1341,12 +1376,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(
-            CompleteComponentType target, Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(
+            CompleteComponentType target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() == RepositoryPackage.eINSTANCE
                     .getImplementationComponentType_ParentCompleteComponentTypes()) {
                 result.add(new PalladioComponentModelLinkDescriptor(
@@ -1362,12 +1396,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingFeatureModelFacetLinks_CompleteComponentType_ParentProvidesComponentTypes_4104(
-            ProvidesComponentType target, Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingFeatureModelFacetLinks_CompleteComponentType_ParentProvidesComponentTypes_4104(
+            ProvidesComponentType target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() == RepositoryPackage.eINSTANCE
                     .getCompleteComponentType_ParentProvidesComponentTypes()) {
                 result.add(new PalladioComponentModelLinkDescriptor(setting.getEObject(), target,
@@ -1381,11 +1414,11 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getIncomingTypeModelFacetLinks_SourceRole_4110(EventGroup target, Map crossReferences) {
-        Collection result = new LinkedList();
-        Collection settings = (Collection) crossReferences.get(target);
-        for (Iterator it = settings.iterator(); it.hasNext();) {
-            EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it.next();
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingTypeModelFacetLinks_SourceRole_4110(
+            EventGroup target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
             if (setting.getEStructuralFeature() != RepositoryPackage.eINSTANCE.getSourceRole_EventGroup__SourceRole()
                     || false == setting.getEObject() instanceof SourceRole) {
                 continue;
@@ -1408,10 +1441,28 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(
+            Interface target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
+        for (EStructuralFeature.Setting setting : settings) {
+            if (setting.getEStructuralFeature() == RepositoryPackage.eINSTANCE
+                    .getInterface_ParentInterfaces__Interface()) {
+                result.add(new PalladioComponentModelLinkDescriptor(setting.getEObject(), target,
+                        PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123,
+                        InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
+            }
+        }
+        return result;
+    }
+
+    /**
+     * @generated
+     */
+    private static Collection<PalladioComponentModelLinkDescriptor> getOutgoingFeatureModelFacetLinks_ImplementationComponentType_ParentCompleteComponentTypes_4103(
             ImplementationComponentType source) {
-        Collection result = new LinkedList();
-        for (Iterator destinations = source.getParentCompleteComponentTypes().iterator(); destinations.hasNext();) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> destinations = source.getParentCompleteComponentTypes().iterator(); destinations.hasNext();) {
             CompleteComponentType destination = (CompleteComponentType) destinations.next();
             result.add(new PalladioComponentModelLinkDescriptor(source, destination,
                     PalladioComponentModelElementTypes.ImplementationComponentTypeParentCompleteComponentTypes_4103,
@@ -1423,10 +1474,10 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection getOutgoingFeatureModelFacetLinks_CompleteComponentType_ParentProvidesComponentTypes_4104(
+    private static Collection<PalladioComponentModelLinkDescriptor> getOutgoingFeatureModelFacetLinks_CompleteComponentType_ParentProvidesComponentTypes_4104(
             CompleteComponentType source) {
-        Collection result = new LinkedList();
-        for (Iterator destinations = source.getParentProvidesComponentTypes().iterator(); destinations.hasNext();) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> destinations = source.getParentProvidesComponentTypes().iterator(); destinations.hasNext();) {
             ProvidesComponentType destination = (ProvidesComponentType) destinations.next();
             result.add(new PalladioComponentModelLinkDescriptor(source, destination,
                     PalladioComponentModelElementTypes.CompleteComponentTypeParentProvidesComponentTypes_4104,
@@ -1434,5 +1485,57 @@ public class PalladioComponentModelDiagramUpdater {
         }
         return result;
     }
+
+    /**
+     * @generated
+     */
+    private static Collection<PalladioComponentModelLinkDescriptor> getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(
+            Interface source) {
+        LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
+        for (Iterator<?> destinations = source.getParentInterfaces__Interface().iterator(); destinations.hasNext();) {
+            Interface destination = (Interface) destinations.next();
+            result.add(new PalladioComponentModelLinkDescriptor(source, destination,
+                    PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123,
+                    InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
+        }
+        return result;
+    }
+
+    /**
+     * @generated
+     */
+    public static final DiagramUpdater TYPED_INSTANCE = new DiagramUpdater() {
+        /**
+         * @generated
+         */
+        @Override
+        public List<PalladioComponentModelNodeDescriptor> getSemanticChildren(View view) {
+            return PalladioComponentModelDiagramUpdater.getSemanticChildren(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public List<PalladioComponentModelLinkDescriptor> getContainedLinks(View view) {
+            return PalladioComponentModelDiagramUpdater.getContainedLinks(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public List<PalladioComponentModelLinkDescriptor> getIncomingLinks(View view) {
+            return PalladioComponentModelDiagramUpdater.getIncomingLinks(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public List<PalladioComponentModelLinkDescriptor> getOutgoingLinks(View view) {
+            return PalladioComponentModelDiagramUpdater.getOutgoingLinks(view);
+        }
+    };
 
 }

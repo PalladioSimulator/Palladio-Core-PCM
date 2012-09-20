@@ -70,6 +70,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureInterfaceInfra
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InfrastructureSignatureEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.InterfaceParentInterfaces__InterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceSignatureListEditPart;
@@ -93,6 +94,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel10EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
@@ -125,10 +127,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
      */
     protected boolean provides(CreateViewForKindOperation op) {
         /*
-         * if (op.getViewKind() == Node.class) return getNodeViewClass(op.getSemanticAdapter(),
-         * op.getContainerView(), op.getSemanticHint()) != null; if (op.getViewKind() == Edge.class)
-         * return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(),
-         * op.getSemanticHint()) != null;
+         if (op.getViewKind() == Node.class)
+         return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+         if (op.getViewKind() == Edge.class)
+         return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
          */
         return true;
     }
@@ -169,14 +171,12 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 }
                 String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
                 if (!op.getSemanticHint().equals(elementTypeHint)) {
-                    return false; // if semantic hint is specified it should be the same as in
-                                  // element type
+                    return false; // if semantic hint is specified it should be the same as in element type
                 }
                 if (domainElement != null
                         && visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID(op.getContainerView(),
                                 domainElement)) {
-                    return false; // visual id for node EClass should match visual id from element
-                                  // type
+                    return false; // visual id for node EClass should match visual id from element type
                 }
             } else {
                 if (!RepositoryEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry.getModelID(op
@@ -202,8 +202,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                     if (domainElement == null
                             || visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID(
                                     op.getContainerView(), domainElement)) {
-                        return false; // visual id in semantic hint should match visual id for
-                                      // domain element
+                        return false; // visual id in semantic hint should match visual id for domain element
                     }
                     break;
                 default:
@@ -234,8 +233,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         }
         String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
         if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
-            return false; // our hint is visual id and must be specified, and it should be the same
-                          // as in element type
+            return false; // our hint is visual id and must be specified, and it should be the same as in element type
         }
         int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(elementTypeHint);
         EObject domainElement = getSemanticElement(op.getSemanticAdapter());
@@ -338,6 +336,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         case SourceRoleEditPart.VISUAL_ID:
             return createSourceRole_4110(getSemanticElement(semanticAdapter), containerView, index, persisted,
                     preferencesHint);
+        case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID:
+            return createInterfaceParentInterfaces__Interface_4123(containerView, index, persisted, preferencesHint);
         }
         // can never happen, provided #provides(CreateEdgeViewOperation) is correct
         return null;
@@ -354,7 +354,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -395,7 +395,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -436,7 +436,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -489,7 +489,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -527,7 +527,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -565,7 +565,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -603,7 +603,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -641,7 +641,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -742,7 +742,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(VariableUsageEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -803,7 +803,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -851,7 +851,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -899,7 +899,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -947,7 +947,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -995,7 +995,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -1043,7 +1043,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -1093,7 +1093,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -1143,7 +1143,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -1186,6 +1186,55 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     /**
      * @generated
      */
+    public Edge createInterfaceParentInterfaces__Interface_4123(View containerView, int index, boolean persisted,
+            PreferencesHint preferencesHint) {
+        Connector edge = NotationFactory.eINSTANCE.createConnector();
+        edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+        RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
+        points.add(new RelativeBendpoint());
+        points.add(new RelativeBendpoint());
+        bendpoints.setPoints(points);
+        edge.setBendpoints(bendpoints);
+        ViewUtil.insertChildView(containerView, edge, index, persisted);
+        edge.setType(PalladioComponentModelVisualIDRegistry
+                .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
+        edge.setElement(null);
+        // initializePreferences
+        final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+        org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+                IPreferenceConstants.PREF_LINE_COLOR);
+        ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+                FigureUtilities.RGBToInteger(lineRGB));
+        FontStyle edgeFontStyle = (FontStyle) edge.getStyle(NotationPackage.Literals.FONT_STYLE);
+        if (edgeFontStyle != null) {
+            FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+            edgeFontStyle.setFontName(fontData.getName());
+            edgeFontStyle.setFontHeight(fontData.getHeight());
+            edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+            edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+            org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+                    IPreferenceConstants.PREF_FONT_COLOR);
+            edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+        }
+        Routing routing = Routing.get(prefStore.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+        if (routing != null) {
+            ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
+        }
+        Node label6123 = createLabel(edge,
+                PalladioComponentModelVisualIDRegistry.getType(WrappingLabel10EditPart.VISUAL_ID));
+        label6123.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+        label6123.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+        Location location6123 = (Location) label6123.getLayoutConstraint();
+        location6123.setX(0);
+        location6123.setY(40);
+        return edge;
+    }
+
+    /**
+     * @generated
+     */
     private void stampShortcut(View containerView, Node target) {
         if (!RepositoryEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry.getModelID(containerView))) {
             EAnnotation shortcutAnnotation = EcoreFactory.eINSTANCE.createEAnnotation();
@@ -1210,9 +1259,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
      */
     private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
             boolean canFilter) {
-        // SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
-        // rv.setShowTitle(showTitle);
-        // rv.setCollapsed(isCollapsed);
+        //SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
+        //rv.setShowTitle(showTitle);
+        //rv.setCollapsed(isCollapsed);
         Node rv;
         if (canCollapse) {
             rv = NotationFactory.eINSTANCE.createBasicCompartment();

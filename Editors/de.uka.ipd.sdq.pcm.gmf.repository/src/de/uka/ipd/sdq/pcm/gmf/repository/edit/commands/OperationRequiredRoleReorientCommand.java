@@ -70,8 +70,8 @@ public class OperationRequiredRoleReorientCommand extends EditElementCommand {
             return false;
         }
         OperationInterface target = getLink().getRequiredInterface__OperationRequiredRole();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistOperationRequiredRole_4106(
-                getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistOperationRequiredRole_4106(getLink(), getNewSource(), target);
     }
 
     /**
@@ -85,8 +85,8 @@ public class OperationRequiredRoleReorientCommand extends EditElementCommand {
             return false;
         }
         InterfaceRequiringEntity source = (InterfaceRequiringEntity) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistOperationRequiredRole_4106(
-                source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistOperationRequiredRole_4106(getLink(), source, getNewTarget());
     }
 
     /**

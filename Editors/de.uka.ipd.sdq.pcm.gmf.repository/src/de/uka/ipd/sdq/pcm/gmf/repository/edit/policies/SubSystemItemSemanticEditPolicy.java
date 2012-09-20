@@ -56,7 +56,7 @@ public class SubSystemItemSemanticEditPolicy extends PalladioComponentModelBaseI
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == OperationProvidedRoleEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);

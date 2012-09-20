@@ -70,8 +70,8 @@ public class InfrastructureRequiredRoleReorientCommand extends EditElementComman
             return false;
         }
         InfrastructureInterface target = getLink().getRequiredInterface__InfrastructureRequiredRole();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistInfrastructureRequiredRole_4112(getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistInfrastructureRequiredRole_4112(getLink(), getNewSource(), target);
     }
 
     /**
@@ -85,8 +85,8 @@ public class InfrastructureRequiredRoleReorientCommand extends EditElementComman
             return false;
         }
         InterfaceRequiringEntity source = (InterfaceRequiringEntity) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistInfrastructureRequiredRole_4112(source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistInfrastructureRequiredRole_4112(getLink(), source, getNewTarget());
     }
 
     /**

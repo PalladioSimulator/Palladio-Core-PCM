@@ -60,7 +60,7 @@ public class SinkRoleEditPart extends ConnectionNodeEditPart implements ITreeBra
         if (addFixedChild(childEditPart)) {
             return;
         }
-        super.addChildVisual(childEditPart, -1);
+        super.addChildVisual(childEditPart, index);
     }
 
     /**

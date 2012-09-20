@@ -65,7 +65,7 @@ public class CompleteComponentTypeItemSemanticEditPolicy extends PalladioCompone
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
@@ -75,7 +75,7 @@ public class CompleteComponentTypeItemSemanticEditPolicy extends PalladioCompone
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == OperationProvidedRoleEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);

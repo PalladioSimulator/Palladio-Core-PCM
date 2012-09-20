@@ -39,8 +39,7 @@ public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
      */
     private static IEditorInput getEditorInput(Diagram diagram) {
         Resource diagramResource = diagram.eResource();
-        for (Iterator it = diagramResource.getContents().iterator(); it.hasNext();) {
-            EObject nextEObject = (EObject) it.next();
+        for (EObject nextEObject : diagramResource.getContents()) {
             if (nextEObject == diagram) {
                 return new FileEditorInput(WorkspaceSynchronizer.getFile(diagramResource));
             }
@@ -49,7 +48,7 @@ public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
             }
         }
         URI uri = EcoreUtil.getURI(diagram);
-        String editorName = uri.lastSegment() + "#" + diagram.eResource().getContents().indexOf(diagram); //$NON-NLS-1$
+        String editorName = uri.lastSegment() + '#' + diagram.eResource().getContents().indexOf(diagram);
         IEditorInput editorInput = new URIEditorInput(uri, editorName);
         return editorInput;
     }
@@ -64,6 +63,9 @@ public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
             return StructuredSelection.EMPTY;
         }
         Diagram diagram = document.getDiagram();
+        if (diagram == null || diagram.eResource() == null) {
+            return StructuredSelection.EMPTY;
+        }
         IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
         if (file != null) {
             PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(diagram, file, false);

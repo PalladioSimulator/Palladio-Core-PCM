@@ -76,7 +76,7 @@ public class ImplementationComponentTypeParentCompleteComponentTypesReorientComm
         if (!(oldEnd instanceof CompleteComponentType && newEnd instanceof ImplementationComponentType)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistImplementationComponentTypeParentCompleteComponentTypes_4103(getNewSource(), getOldTarget());
     }
 
@@ -87,7 +87,7 @@ public class ImplementationComponentTypeParentCompleteComponentTypesReorientComm
         if (!(oldEnd instanceof CompleteComponentType && newEnd instanceof CompleteComponentType)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistImplementationComponentTypeParentCompleteComponentTypes_4103(getOldSource(), getNewTarget());
     }
 
