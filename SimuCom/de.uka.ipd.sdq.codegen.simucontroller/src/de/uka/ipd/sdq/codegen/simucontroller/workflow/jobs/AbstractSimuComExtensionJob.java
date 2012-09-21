@@ -10,7 +10,7 @@ public abstract class AbstractSimuComExtensionJob extends AbstractWorkflowExtens
 	
 	/**
 	 * The configuration of the workflow. Maybe we don't want this configuration
-	 * to be accessible. It is currently not set.
+	 * to be accessible.
 	 */
 	protected AbstractPCMWorkflowRunConfiguration configuration = null;
 

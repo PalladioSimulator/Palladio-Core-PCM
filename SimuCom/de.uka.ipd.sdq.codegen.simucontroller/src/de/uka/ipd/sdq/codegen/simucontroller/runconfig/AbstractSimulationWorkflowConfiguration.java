@@ -5,8 +5,9 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtendableJobConfiguration;
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
-public abstract class AbstractSimulationWorkflowConfiguration extends AbstractPCMCompletionWorkflowRunConfiguration
+public abstract class AbstractSimulationWorkflowConfiguration extends AbstractCodeGenerationWorkflowRunConfiguration
         implements Cloneable, ExtendableJobConfiguration {
 
     /** The configuration of the current launch to work with. */

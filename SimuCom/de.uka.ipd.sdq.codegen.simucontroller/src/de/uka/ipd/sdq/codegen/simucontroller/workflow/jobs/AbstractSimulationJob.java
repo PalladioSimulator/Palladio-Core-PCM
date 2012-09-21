@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 import org.eclipse.core.runtime.CoreException;
 
 import de.fzi.se.accuracy.jobs.TransformPCMForAccuracyInfluenceAnalysisJob;
-import de.uka.ipd.sdq.cip.workflow.jobs.CompletionJob;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
@@ -69,7 +68,7 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
         }
 
         // 4. Apply Completions
-        this.add(new CompletionJob(configuration));
+        //this.add(new CompletionJob(configuration));
 
         // 5. Transform Event Model Elements
         this.add(new EventsTransformationJob(configuration));

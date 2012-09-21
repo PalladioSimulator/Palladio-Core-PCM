@@ -50,7 +50,6 @@ extends AbstractWorkflowConfigurationBuilder {
 			config.setSensitivityAnalysisConfiguration(sensitivityConfig);
 		}
 		
-		config.setCompletionConfiguration(new PCMCompletionRunConfiguration(config, properties));
 	}
 
 	private boolean hasValidSensitvityVariableAttribute(String attribute) throws CoreException {

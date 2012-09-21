@@ -87,6 +87,7 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 				if (isSimuComSimulationRun() && extensionJob instanceof AbstractSimuComExtensionJob) {
 					((AbstractSimuComExtensionJob)extensionJob).setSimuComModel(((SimulationDockServiceImpl)simService).getSimuComModel());
 					((AbstractSimuComExtensionJob)extensionJob).initialize(myConfig);
+					((AbstractSimuComExtensionJob)extensionJob).setConfiguration(myConfig);
 				}
 			}
 			super.execute(monitor);

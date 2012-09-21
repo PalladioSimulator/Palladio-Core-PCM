@@ -28,6 +28,7 @@ Export-Package: de.uka.ipd.sdq.cip;uses:="org.eclipse.ui.plugin,org.osgi.framewo
    de.uka.ipd.sdq.workflow.mdsd.emf.qvtr.jobs,
    de.uka.ipd.sdq.cip.configuration,
    org.eclipse.core.resources,
-   de.uka.ipd.sdq.workflow"
+   de.uka.ipd.sdq.workflow",
+ de.uka.ipd.sdq.cip.workflow.jobs.builder
 Import-Package: de.uka.ipd.sdq.workflow.pcm.jobs
 Bundle-Vendor: sdq.ipd.uka.de

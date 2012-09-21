@@ -6,7 +6,6 @@ import java.util.List;
 import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
-import de.uka.ipd.sdq.cip.runtime.runconfig.tabs.CipCompletionTab;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.WorkflowHooks;
 import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtendableTabGroup;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
@@ -30,7 +29,7 @@ public class SimuTabGroup extends ExtendableTabGroup {
             tabs.addAll(createExtensionTabs(dialog, mode, workflowExtensionPointId));
         }
         tabs.add(new FeatureOptionsTab());
-        tabs.add(new CipCompletionTab());
+        //tabs.add(new CipCompletionTab());
 		tabs.add(commonTab);
         setTabs(tabs.toArray(new ILaunchConfigurationTab[] {}));
     }

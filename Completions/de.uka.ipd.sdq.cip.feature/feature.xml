@@ -232,31 +232,32 @@ litigation.
       <import plugin="de.uka.ipd.sdq.featureconfig" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xpand" version="0.7.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend" version="0.7.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.qvtrengine.medini" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.cip" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.ui" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="1.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.common" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.ide" version="3.5.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm" version="3.1.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.identifier"/>
-      <import plugin="de.uka.ipd.sdq.probfunction"/>
-      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.debug.ui" version="3.5.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="de.uka.ipd.sdq.featuremodel"/>
+      <import plugin="de.uka.ipd.sdq.identifier"/>
       <import plugin="de.uka.ipd.sdq.copyexception" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit"/>
       <import plugin="org.eclipse.emf.ecore.edit"/>
-      <import plugin="de.uka.ipd.sdq.featuremodel.edit"/>
       <import plugin="de.uka.ipd.sdq.identifier.edit"/>
       <import plugin="org.eclipse.uml2.common.edit"/>
       <import plugin="edu.kit.ipd.sdq.qvtmodels.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.copyexception.edit" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui"/>
-      <import plugin="de.uka.ipd.sdq.qvtrengine.medini" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.debug.core"/>
-      <import plugin="de.uka.ipd.sdq.errorhandling" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.debug.ui" version="3.5.1" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.codegen.simucontroller" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.simucomframework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.featuremodel.edit" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
@@ -281,13 +282,6 @@ litigation.
 
    <plugin
          id="de.uka.ipd.sdq.workflow.pcm"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"
-         unpack="false"/>
-
-   <plugin
-         id="de.uka.ipd.sdq.completions"
          download-size="0"
          install-size="0"
          version="0.0.0"

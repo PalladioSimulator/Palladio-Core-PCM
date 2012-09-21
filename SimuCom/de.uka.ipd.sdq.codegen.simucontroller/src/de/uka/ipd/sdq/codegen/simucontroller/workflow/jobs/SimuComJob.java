@@ -61,6 +61,7 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         for (IJob extensionJob : myJobs) {
 			if (extensionJob instanceof AbstractSimuComExtensionJob) {
 				((AbstractSimuComExtensionJob)extensionJob).initialize(configuration);
+				((AbstractSimuComExtensionJob)extensionJob).setConfiguration(configuration);
 			}
 		}
 
