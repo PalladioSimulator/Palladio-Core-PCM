@@ -102,6 +102,9 @@ public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvi
         // set EReference that should be set (in this case: provided role)
         additionalReferences.add(RepositoryPackage.eINSTANCE
                 .getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
+        additionalReferences.add(RepositoryPackage.eINSTANCE
+                .getInterface_ParentInterfaces__Interface());
+        
         PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request
                 .getElementToConfigure().eContainer());

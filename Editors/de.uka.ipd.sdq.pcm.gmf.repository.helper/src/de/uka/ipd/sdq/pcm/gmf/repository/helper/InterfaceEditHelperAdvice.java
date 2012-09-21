@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.pcm.gmf.repository.helper;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.repository.EventGroup;
 import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
+import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
@@ -167,16 +169,10 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
         if (request.getTarget() != null && request.getTarget() instanceof OperationInterface) {
             if (request.getElementType().getEClass() == RepositoryPackage.eINSTANCE.getOperationProvidedRole()) {
                 OperationInterface target = (OperationInterface) request.getTarget();
-                if (target.getSignatures__OperationInterface().size() > 0) {
+                if (extractSignatures(target).size() > 0) {
                     if (request.getSource() instanceof BasicComponent) {
                         BasicComponent source = (BasicComponent) request.getSource();
-                        CompositeCommand createSEFFs = new CompositeCommand("Create SEFFs");
-                        for (OperationSignature s : target.getSignatures__OperationInterface()) {
-                            ConfigureRequest ceRequest = new ConfigureRequest(source, ElementTypeRegistry.getInstance()
-                                    .getType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"));
-                            CreateLinkedSeffCommand cmd = new CreateLinkedSeffCommand(ceRequest, s);
-                            createSEFFs.add(cmd);
-                        }
+                        CompositeCommand createSEFFs = createOperationSEFFsForOperationInterface(target, source);
                         return createSEFFs;
                     }
                 }
@@ -221,6 +217,27 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
             }
         }
         return super.getAfterCreateRelationshipCommand(request);
+    }
+
+    private CompositeCommand createOperationSEFFsForOperationInterface(OperationInterface target, BasicComponent source) {
+        CompositeCommand createSEFFs = new CompositeCommand("Create SEFFs");
+        EList<OperationSignature> signatures = extractSignatures(target);
+        for (OperationSignature s : signatures) {
+            ConfigureRequest ceRequest = new ConfigureRequest(source, ElementTypeRegistry.getInstance()
+                    .getType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"));
+            CreateLinkedSeffCommand cmd = new CreateLinkedSeffCommand(ceRequest, s);
+            createSEFFs.add(cmd);
+        }
+        return createSEFFs;
+    }
+
+    private EList<OperationSignature> extractSignatures(OperationInterface target) {
+        EList<OperationSignature> signatures = target.getSignatures__OperationInterface();
+        for (Interface pi : target.getParentInterfaces__Interface()) {
+            if (pi instanceof OperationInterface)
+                signatures.addAll(extractSignatures((OperationInterface) pi));
+        }
+        return signatures;
     }
 
 }
