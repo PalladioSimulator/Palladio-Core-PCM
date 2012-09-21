@@ -75,7 +75,7 @@ public class InterfaceParentInterfaces__InterfaceReorientCommand extends EditEle
             return false;
         }
         return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
-                .canExistInterfaceParentInterfaces__Interface_4123(getNewSource(), getOldTarget());
+                .canExistInterfaceParentInterfaces__Interface_4113(getNewSource(), getOldTarget());
     }
 
     /**
@@ -86,7 +86,7 @@ public class InterfaceParentInterfaces__InterfaceReorientCommand extends EditEle
             return false;
         }
         return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
-                .canExistInterfaceParentInterfaces__Interface_4123(getOldSource(), getNewTarget());
+                .canExistInterfaceParentInterfaces__Interface_4113(getOldSource(), getNewTarget());
     }
 
     /**

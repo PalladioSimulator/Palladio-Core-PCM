@@ -19,7 +19,7 @@ public class InterfaceParentInterfaces__InterfaceItemSemanticEditPolicy extends
      * @generated
      */
     public InterfaceParentInterfaces__InterfaceItemSemanticEditPolicy() {
-        super(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+        super(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113);
     }
 
     /**

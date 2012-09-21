@@ -142,7 +142,7 @@ public class EventGroupItemSemanticEditPolicy extends PalladioComponentModelBase
         if (PalladioComponentModelElementTypes.SourceRole_4110 == req.getElementType()) {
             return null;
         }
-        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113 == req.getElementType()) {
             return getGEFWrapper(new InterfaceParentInterfaces__InterfaceCreateCommand(req, req.getSource(),
                     req.getTarget()));
         }
@@ -159,7 +159,7 @@ public class EventGroupItemSemanticEditPolicy extends PalladioComponentModelBase
         if (PalladioComponentModelElementTypes.SourceRole_4110 == req.getElementType()) {
             return getGEFWrapper(new SourceRoleCreateCommand(req, req.getSource(), req.getTarget()));
         }
-        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113 == req.getElementType()) {
             return getGEFWrapper(new InterfaceParentInterfaces__InterfaceCreateCommand(req, req.getSource(),
                     req.getTarget()));
         }

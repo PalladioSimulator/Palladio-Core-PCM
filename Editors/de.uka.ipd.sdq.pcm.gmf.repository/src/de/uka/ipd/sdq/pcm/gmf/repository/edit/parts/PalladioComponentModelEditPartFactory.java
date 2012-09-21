@@ -180,8 +180,8 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
             case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID:
                 return new InterfaceParentInterfaces__InterfaceEditPart(view);
 
-            case WrappingLabel10EditPart.VISUAL_ID:
-                return new WrappingLabel10EditPart(view);
+            case WrappingLabel3EditPart.VISUAL_ID:
+                return new WrappingLabel3EditPart(view);
 
             }
         }

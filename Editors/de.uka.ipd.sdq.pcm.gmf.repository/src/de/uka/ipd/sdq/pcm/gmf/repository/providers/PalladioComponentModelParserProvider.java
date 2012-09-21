@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.parsers.EnumParser;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompleteComponentTypeEntityNameEditPart;
@@ -255,8 +256,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
      */
     private IParser getVariableCharacterisation_3105Parser() {
         if (variableCharacterisation_3105Parser == null) {
-            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
-            MessageFormatParser parser = new MessageFormatParser(features);
+            EAttribute editableFeature = ParameterPackage.eINSTANCE.getVariableCharacterisation_Type();
+            EnumParser parser = new EnumParser(editableFeature);
             variableCharacterisation_3105Parser = parser;
         }
         return variableCharacterisation_3105Parser;
@@ -308,6 +309,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
             return getResourceDemandingSEFF_3102Parser();
         case PassiveResourceEditPart.VISUAL_ID:
             return getPassiveResource_3103Parser();
+
         case VariableCharacterisationEditPart.VISUAL_ID:
             return getVariableCharacterisation_3105Parser();
         case InfrastructureSignatureEditPart.VISUAL_ID:

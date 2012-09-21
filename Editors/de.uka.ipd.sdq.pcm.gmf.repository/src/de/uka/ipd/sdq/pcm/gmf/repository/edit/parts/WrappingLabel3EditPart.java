@@ -57,12 +57,12 @@ import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserP
 /**
  * @generated
  */
-public class WrappingLabel10EditPart extends LabelEditPart implements ITextAwareEditPart {
+public class WrappingLabel3EditPart extends LabelEditPart implements ITextAwareEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 6123;
+    public static final int VISUAL_ID = 6113;
 
     /**
      * @generated
@@ -95,14 +95,14 @@ public class WrappingLabel10EditPart extends LabelEditPart implements ITextAware
     static {
         registerSnapBackPosition(
                 PalladioComponentModelVisualIDRegistry
-                        .getType(de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel10EditPart.VISUAL_ID),
+                        .getType(de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel3EditPart.VISUAL_ID),
                 new Point(0, 40));
     }
 
     /**
      * @generated
      */
-    public WrappingLabel10EditPart(View view) {
+    public WrappingLabel3EditPart(View view) {
         super(view);
     }
 
@@ -310,7 +310,7 @@ public class WrappingLabel10EditPart extends LabelEditPart implements ITextAware
     public IParser getParser() {
         if (parser == null) {
             parser = PalladioComponentModelParserProvider.getParser(
-                    PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123, getParserElement(),
+                    PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113, getParserElement(),
                     CommonParserHint.DESCRIPTION);
         }
         return parser;

@@ -118,7 +118,6 @@ public class OperationRequiredRoleEditPart extends ConnectionNodeEditPart implem
          * @generated
          */
         public RequiredRoleFigure() {
-            this.setLineWidth(1);
 
             createContents();
             setTargetDecoration(createTargetDecoration());
@@ -130,6 +129,7 @@ public class OperationRequiredRoleEditPart extends ConnectionNodeEditPart implem
         private void createContents() {
 
             fFigureRequiresStereotypeLabelFigure = new WrappingLabel();
+
             fFigureRequiresStereotypeLabelFigure.setText("<<Requires>>");
 
             this.add(fFigureRequiresStereotypeLabelFigure);
@@ -141,7 +141,6 @@ public class OperationRequiredRoleEditPart extends ConnectionNodeEditPart implem
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
             pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

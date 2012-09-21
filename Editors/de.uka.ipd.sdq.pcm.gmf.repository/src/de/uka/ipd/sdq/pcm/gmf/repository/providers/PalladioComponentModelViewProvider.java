@@ -94,8 +94,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel10EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 
@@ -337,7 +337,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
             return createSourceRole_4110(getSemanticElement(semanticAdapter), containerView, index, persisted,
                     preferencesHint);
         case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID:
-            return createInterfaceParentInterfaces__Interface_4123(containerView, index, persisted, preferencesHint);
+            return createInterfaceParentInterfaces__Interface_4113(containerView, index, persisted, preferencesHint);
         }
         // can never happen, provided #provides(CreateEdgeViewOperation) is correct
         return null;
@@ -1186,7 +1186,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     /**
      * @generated
      */
-    public Edge createInterfaceParentInterfaces__Interface_4123(View containerView, int index, boolean persisted,
+    public Edge createInterfaceParentInterfaces__Interface_4113(View containerView, int index, boolean persisted,
             PreferencesHint preferencesHint) {
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
@@ -1222,13 +1222,13 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         if (routing != null) {
             ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE.getRoutingStyle_Routing(), routing);
         }
-        Node label6123 = createLabel(edge,
-                PalladioComponentModelVisualIDRegistry.getType(WrappingLabel10EditPart.VISUAL_ID));
-        label6123.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
-        label6123.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
-        Location location6123 = (Location) label6123.getLayoutConstraint();
-        location6123.setX(0);
-        location6123.setY(40);
+        Node label6113 = createLabel(edge,
+                PalladioComponentModelVisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
+        label6113.getStyles().add(NotationFactory.eINSTANCE.createDescriptionStyle());
+        label6113.setLayoutConstraint(NotationFactory.eINSTANCE.createLocation());
+        Location location6113 = (Location) label6113.getLayoutConstraint();
+        location6113.setX(0);
+        location6113.setY(40);
         return edge;
     }
 

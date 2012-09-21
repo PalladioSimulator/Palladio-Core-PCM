@@ -199,7 +199,7 @@ public class PalladioComponentModelElementTypes {
     /**
      * @generated
      */
-    public static final IElementType InterfaceParentInterfaces__Interface_4123 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.InterfaceParentInterfaces__Interface_4123"); //$NON-NLS-1$
+    public static final IElementType InterfaceParentInterfaces__Interface_4113 = getElementType("de.uka.ipd.sdq.pcm.gmf.repository.InterfaceParentInterfaces__Interface_4113"); //$NON-NLS-1$
 
     /**
      * @generated
@@ -358,7 +358,7 @@ public class PalladioComponentModelElementTypes {
 
             elements.put(SourceRole_4110, RepositoryPackage.eINSTANCE.getSourceRole());
 
-            elements.put(InterfaceParentInterfaces__Interface_4123,
+            elements.put(InterfaceParentInterfaces__Interface_4113,
                     RepositoryPackage.eINSTANCE.getInterface_ParentInterfaces__Interface());
         }
         return (ENamedElement) elements.get(type);
@@ -401,7 +401,7 @@ public class PalladioComponentModelElementTypes {
             KNOWN_ELEMENT_TYPES.add(ImplementationComponentTypeParentCompleteComponentTypes_4103);
             KNOWN_ELEMENT_TYPES.add(CompleteComponentTypeParentProvidesComponentTypes_4104);
             KNOWN_ELEMENT_TYPES.add(SourceRole_4110);
-            KNOWN_ELEMENT_TYPES.add(InterfaceParentInterfaces__Interface_4123);
+            KNOWN_ELEMENT_TYPES.add(InterfaceParentInterfaces__Interface_4113);
         }
         return KNOWN_ELEMENT_TYPES.contains(elementType);
     }
@@ -460,7 +460,7 @@ public class PalladioComponentModelElementTypes {
         case SourceRoleEditPart.VISUAL_ID:
             return SourceRole_4110;
         case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID:
-            return InterfaceParentInterfaces__Interface_4123;
+            return InterfaceParentInterfaces__Interface_4113;
         }
         return null;
     }

@@ -344,7 +344,6 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -355,6 +354,7 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureSubSystem_Name_LabelFigure = new WrappingLabel();
+
             fFigureSubSystem_Name_LabelFigure.setText("<...>");
             fFigureSubSystem_Name_LabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
                     getMapMode().DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -369,25 +369,6 @@ public class SubSystemEditPart extends ShapeNodeEditPart {
             constraintFFigureSubSystem_Name_LabelFigure.grabExcessVerticalSpace = true;
             this.add(fFigureSubSystem_Name_LabelFigure, constraintFFigureSubSystem_Name_LabelFigure);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

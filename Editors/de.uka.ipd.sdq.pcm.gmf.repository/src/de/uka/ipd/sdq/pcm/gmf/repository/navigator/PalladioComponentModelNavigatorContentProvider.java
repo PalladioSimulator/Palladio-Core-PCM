@@ -238,91 +238,39 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     private Object[] getViewChildren(View view, Object parentElement) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 
-        case SinkRoleEditPart.VISUAL_ID: {
+        case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID: {
             LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
             Edge sv = (Edge) view;
             PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_SinkRole_4109_target,
+                    Messages.NavigatorGroupName_InterfaceParentInterfaces__Interface_4113_target,
                     "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
             PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_SinkRole_4109_source,
+                    Messages.NavigatorGroupName_InterfaceParentInterfaces__Interface_4113_source,
                     "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
             Collection<View> connectedViews;
             connectedViews = getLinksTargetByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceEditPart.VISUAL_ID));
+            target.addChildren(createNavigatorItems(connectedViews, target, true));
+            connectedViews = getLinksTargetByType(Collections.singleton(sv),
                     PalladioComponentModelVisualIDRegistry.getType(EventGroupEditPart.VISUAL_ID));
             target.addChildren(createNavigatorItems(connectedViews, target, true));
+            connectedViews = getLinksTargetByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
+            target.addChildren(createNavigatorItems(connectedViews, target, true));
             connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
+                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceEditPart.VISUAL_ID));
             source.addChildren(createNavigatorItems(connectedViews, source, true));
             connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
+                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEditPart.VISUAL_ID));
             source.addChildren(createNavigatorItems(connectedViews, source, true));
             connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
             source.addChildren(createNavigatorItems(connectedViews, source, true));
             if (!target.isEmpty()) {
                 result.add(target);
             }
             if (!source.isEmpty()) {
                 result.add(source);
-            }
-            return result.toArray();
-        }
-
-        case BasicComponentEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Node sv = (Node) view;
-            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_BasicComponent_2102_outgoinglinks,
-                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getChildrenByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentSEFFCompartmentEditPart.VISUAL_ID));
-            connectedViews = getChildrenByType(connectedViews,
-                    PalladioComponentModelVisualIDRegistry.getType(ResourceDemandingSEFFEditPart.VISUAL_ID));
-            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-            connectedViews = getChildrenByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID));
-            connectedViews = getChildrenByType(connectedViews,
-                    PalladioComponentModelVisualIDRegistry.getType(PassiveResourceEditPart.VISUAL_ID));
-            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-            connectedViews = getChildrenByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID));
-            connectedViews = getChildrenByType(connectedViews,
-                    PalladioComponentModelVisualIDRegistry.getType(VariableUsageEditPart.VISUAL_ID));
-            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            if (!outgoinglinks.isEmpty()) {
-                result.add(outgoinglinks);
             }
             return result.toArray();
         }
@@ -360,153 +308,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
             }
             if (!source.isEmpty()) {
                 result.add(source);
-            }
-            return result.toArray();
-        }
-
-        case ProvidesComponentTypeEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Node sv = (Node) view;
-            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_ProvidesComponentType_2105_outgoinglinks,
-                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_ProvidesComponentType_2105_incominglinks,
-                    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID));
-            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            if (!outgoinglinks.isEmpty()) {
-                result.add(outgoinglinks);
-            }
-            if (!incominglinks.isEmpty()) {
-                result.add(incominglinks);
-            }
-            return result.toArray();
-        }
-
-        case InfrastructureProvidedRoleEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Edge sv = (Edge) view;
-            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_InfrastructureProvidedRole_4111_target,
-                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_InfrastructureProvidedRole_4111_source,
-                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
-            target.addChildren(createNavigatorItems(connectedViews, target, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            if (!target.isEmpty()) {
-                result.add(target);
-            }
-            if (!source.isEmpty()) {
-                result.add(source);
-            }
-            return result.toArray();
-        }
-
-        case EventGroupEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Node sv = (Node) view;
-            PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_EventGroup_2108_incominglinks,
-                    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_EventGroup_2108_outgoinglinks,
-                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getChildrenByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEventTypeListEditPart.VISUAL_ID));
-            connectedViews = getChildrenByType(connectedViews,
-                    PalladioComponentModelVisualIDRegistry.getType(EventTypeEditPart.VISUAL_ID));
-            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
-            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
-            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
-            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            if (!incominglinks.isEmpty()) {
-                result.add(incominglinks);
-            }
-            if (!outgoinglinks.isEmpty()) {
-                result.add(outgoinglinks);
-            }
-            return result.toArray();
-        }
-
-        case SubSystemEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Node sv = (Node) view;
-            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_SubSystem_2106_outgoinglinks,
-                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            if (!outgoinglinks.isEmpty()) {
-                result.add(outgoinglinks);
             }
             return result.toArray();
         }
@@ -556,33 +357,24 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
             return result.toArray();
         }
 
-        case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID: {
+        case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID: {
             LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
             Edge sv = (Edge) view;
             PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_InterfaceParentInterfaces__Interface_4123_target,
+                    Messages.NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_target,
                     "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
             PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_InterfaceParentInterfaces__Interface_4123_source,
+                    Messages.NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_source,
                     "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
             Collection<View> connectedViews;
             connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceEditPart.VISUAL_ID));
-            target.addChildren(createNavigatorItems(connectedViews, target, true));
-            connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEditPart.VISUAL_ID));
-            target.addChildren(createNavigatorItems(connectedViews, target, true));
-            connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
+                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
             target.addChildren(createNavigatorItems(connectedViews, target, true));
             connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceEditPart.VISUAL_ID));
+                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
             source.addChildren(createNavigatorItems(connectedViews, source, true));
             connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
+                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
             source.addChildren(createNavigatorItems(connectedViews, source, true));
             if (!target.isEmpty()) {
                 result.add(target);
@@ -590,6 +382,20 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
             if (!source.isEmpty()) {
                 result.add(source);
             }
+            return result.toArray();
+        }
+
+        case VariableUsageEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Node sv = (Node) view;
+            Collection<View> connectedViews;
+            connectedViews = getChildrenByType(
+                    Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID));
+            connectedViews = getChildrenByType(connectedViews,
+                    PalladioComponentModelVisualIDRegistry.getType(VariableCharacterisationEditPart.VISUAL_ID));
+            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
             return result.toArray();
         }
 
@@ -626,204 +432,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
             if (!incominglinks.isEmpty()) {
                 result.add(incominglinks);
             }
-            if (!outgoinglinks.isEmpty()) {
-                result.add(outgoinglinks);
-            }
-            return result.toArray();
-        }
-
-        case OperationInterfaceEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Node sv = (Node) view;
-            PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_OperationInterface_2107_incominglinks,
-                    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_OperationInterface_2107_outgoinglinks,
-                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getChildrenByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceSignatureListEditPart.VISUAL_ID));
-            connectedViews = getChildrenByType(connectedViews,
-                    PalladioComponentModelVisualIDRegistry.getType(OperationSignatureEditPart.VISUAL_ID));
-            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
-            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
-            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
-            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            if (!incominglinks.isEmpty()) {
-                result.add(incominglinks);
-            }
-            if (!outgoinglinks.isEmpty()) {
-                result.add(outgoinglinks);
-            }
-            return result.toArray();
-        }
-
-        case InfrastructureRequiredRoleEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Edge sv = (Edge) view;
-            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_InfrastructureRequiredRole_4112_target,
-                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_InfrastructureRequiredRole_4112_source,
-                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
-            target.addChildren(createNavigatorItems(connectedViews, target, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            if (!target.isEmpty()) {
-                result.add(target);
-            }
-            if (!source.isEmpty()) {
-                result.add(source);
-            }
-            return result.toArray();
-        }
-
-        case SourceRoleEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Edge sv = (Edge) view;
-            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_SourceRole_4110_target,
-                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_SourceRole_4110_source,
-                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEditPart.VISUAL_ID));
-            target.addChildren(createNavigatorItems(connectedViews, target, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            if (!target.isEmpty()) {
-                result.add(target);
-            }
-            if (!source.isEmpty()) {
-                result.add(source);
-            }
-            return result.toArray();
-        }
-
-        case OperationProvidedRoleEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Edge sv = (Edge) view;
-            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_OperationProvidedRole_4105_target,
-                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_OperationProvidedRole_4105_source,
-                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceEditPart.VISUAL_ID));
-            target.addChildren(createNavigatorItems(connectedViews, target, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            connectedViews = getLinksSourceByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
-            source.addChildren(createNavigatorItems(connectedViews, source, true));
-            if (!target.isEmpty()) {
-                result.add(target);
-            }
-            if (!source.isEmpty()) {
-                result.add(source);
-            }
-            return result.toArray();
-        }
-
-        case VariableUsageEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Node sv = (Node) view;
-            Collection<View> connectedViews;
-            connectedViews = getChildrenByType(
-                    Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart.VISUAL_ID));
-            connectedViews = getChildrenByType(connectedViews,
-                    PalladioComponentModelVisualIDRegistry.getType(VariableCharacterisationEditPart.VISUAL_ID));
-            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
-            return result.toArray();
-        }
-
-        case CompositeComponentEditPart.VISUAL_ID: {
-            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
-            Node sv = (Node) view;
-            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_CompositeComponent_2103_outgoinglinks,
-                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-            Collection<View> connectedViews;
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry
-                            .getType(ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
-            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
-            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
             if (!outgoinglinks.isEmpty()) {
                 result.add(outgoinglinks);
             }
@@ -897,24 +505,262 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
             return result.toArray();
         }
 
-        case ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID: {
+        case SinkRoleEditPart.VISUAL_ID: {
             LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
             Edge sv = (Edge) view;
             PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_target,
+                    Messages.NavigatorGroupName_SinkRole_4109_target,
                     "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
             PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
-                    Messages.NavigatorGroupName_ImplementationComponentTypeParentCompleteComponentTypes_4103_source,
+                    Messages.NavigatorGroupName_SinkRole_4109_source,
                     "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
             Collection<View> connectedViews;
             connectedViews = getLinksTargetByType(Collections.singleton(sv),
-                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
+                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEditPart.VISUAL_ID));
             target.addChildren(createNavigatorItems(connectedViews, target, true));
             connectedViews = getLinksSourceByType(Collections.singleton(sv),
                     PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
             source.addChildren(createNavigatorItems(connectedViews, source, true));
             connectedViews = getLinksSourceByType(Collections.singleton(sv),
                     PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            if (!target.isEmpty()) {
+                result.add(target);
+            }
+            if (!source.isEmpty()) {
+                result.add(source);
+            }
+            return result.toArray();
+        }
+
+        case SubSystemEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Node sv = (Node) view;
+            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_SubSystem_2106_outgoinglinks,
+                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            if (!outgoinglinks.isEmpty()) {
+                result.add(outgoinglinks);
+            }
+            return result.toArray();
+        }
+
+        case InfrastructureRequiredRoleEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Edge sv = (Edge) view;
+            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_InfrastructureRequiredRole_4112_target,
+                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_InfrastructureRequiredRole_4112_source,
+                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getLinksTargetByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
+            target.addChildren(createNavigatorItems(connectedViews, target, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            if (!target.isEmpty()) {
+                result.add(target);
+            }
+            if (!source.isEmpty()) {
+                result.add(source);
+            }
+            return result.toArray();
+        }
+
+        case OperationProvidedRoleEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Edge sv = (Edge) view;
+            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_OperationProvidedRole_4105_target,
+                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_OperationProvidedRole_4105_source,
+                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getLinksTargetByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceEditPart.VISUAL_ID));
+            target.addChildren(createNavigatorItems(connectedViews, target, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            if (!target.isEmpty()) {
+                result.add(target);
+            }
+            if (!source.isEmpty()) {
+                result.add(source);
+            }
+            return result.toArray();
+        }
+
+        case CompositeComponentEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Node sv = (Node) view;
+            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_CompositeComponent_2103_outgoinglinks,
+                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            if (!outgoinglinks.isEmpty()) {
+                result.add(outgoinglinks);
+            }
+            return result.toArray();
+        }
+
+        case BasicComponentEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Node sv = (Node) view;
+            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_BasicComponent_2102_outgoinglinks,
+                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getChildrenByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentSEFFCompartmentEditPart.VISUAL_ID));
+            connectedViews = getChildrenByType(connectedViews,
+                    PalladioComponentModelVisualIDRegistry.getType(ResourceDemandingSEFFEditPart.VISUAL_ID));
+            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+            connectedViews = getChildrenByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(BasicComponentPassiveResourceCompartmentEditPart.VISUAL_ID));
+            connectedViews = getChildrenByType(connectedViews,
+                    PalladioComponentModelVisualIDRegistry.getType(PassiveResourceEditPart.VISUAL_ID));
+            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+            connectedViews = getChildrenByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(BasicComponentComponentParameterCompartmentEditPart.VISUAL_ID));
+            connectedViews = getChildrenByType(connectedViews,
+                    PalladioComponentModelVisualIDRegistry.getType(VariableUsageEditPart.VISUAL_ID));
+            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(ImplementationComponentTypeParentCompleteComponentTypesEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            if (!outgoinglinks.isEmpty()) {
+                result.add(outgoinglinks);
+            }
+            return result.toArray();
+        }
+
+        case InfrastructureProvidedRoleEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Edge sv = (Edge) view;
+            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_InfrastructureProvidedRole_4111_target,
+                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_InfrastructureProvidedRole_4111_source,
+                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getLinksTargetByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureInterfaceEditPart.VISUAL_ID));
+            target.addChildren(createNavigatorItems(connectedViews, target, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
             source.addChildren(createNavigatorItems(connectedViews, source, true));
             if (!target.isEmpty()) {
                 result.add(target);
@@ -946,6 +792,160 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
             }
             if (!source.isEmpty()) {
                 result.add(source);
+            }
+            return result.toArray();
+        }
+
+        case OperationInterfaceEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Node sv = (Node) view;
+            PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_OperationInterface_2107_incominglinks,
+                    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_OperationInterface_2107_outgoinglinks,
+                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getChildrenByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationInterfaceSignatureListEditPart.VISUAL_ID));
+            connectedViews = getChildrenByType(connectedViews,
+                    PalladioComponentModelVisualIDRegistry.getType(OperationSignatureEditPart.VISUAL_ID));
+            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
+            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
+            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
+            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            if (!incominglinks.isEmpty()) {
+                result.add(incominglinks);
+            }
+            if (!outgoinglinks.isEmpty()) {
+                result.add(outgoinglinks);
+            }
+            return result.toArray();
+        }
+
+        case ProvidesComponentTypeEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Node sv = (Node) view;
+            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_ProvidesComponentType_2105_outgoinglinks,
+                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_ProvidesComponentType_2105_incominglinks,
+                    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(CompleteComponentTypeParentProvidesComponentTypesEditPart.VISUAL_ID));
+            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            if (!outgoinglinks.isEmpty()) {
+                result.add(outgoinglinks);
+            }
+            if (!incominglinks.isEmpty()) {
+                result.add(incominglinks);
+            }
+            return result.toArray();
+        }
+
+        case SourceRoleEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Edge sv = (Edge) view;
+            PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_SourceRole_4110_target,
+                    "icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_SourceRole_4110_source,
+                    "icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getLinksTargetByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEditPart.VISUAL_ID));
+            target.addChildren(createNavigatorItems(connectedViews, target, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(BasicComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompositeComponentEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(CompleteComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(ProvidesComponentTypeEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            connectedViews = getLinksSourceByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SubSystemEditPart.VISUAL_ID));
+            source.addChildren(createNavigatorItems(connectedViews, source, true));
+            if (!target.isEmpty()) {
+                result.add(target);
+            }
+            if (!source.isEmpty()) {
+                result.add(source);
+            }
+            return result.toArray();
+        }
+
+        case EventGroupEditPart.VISUAL_ID: {
+            LinkedList<PalladioComponentModelAbstractNavigatorItem> result = new LinkedList<PalladioComponentModelAbstractNavigatorItem>();
+            Node sv = (Node) view;
+            PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_EventGroup_2108_incominglinks,
+                    "icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+                    Messages.NavigatorGroupName_EventGroup_2108_outgoinglinks,
+                    "icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+            Collection<View> connectedViews;
+            connectedViews = getChildrenByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(EventGroupEventTypeListEditPart.VISUAL_ID));
+            connectedViews = getChildrenByType(connectedViews,
+                    PalladioComponentModelVisualIDRegistry.getType(EventTypeEditPart.VISUAL_ID));
+            result.addAll(createNavigatorItems(connectedViews, parentElement, false));
+            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SinkRoleEditPart.VISUAL_ID));
+            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry.getType(SourceRoleEditPart.VISUAL_ID));
+            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+            connectedViews = getIncomingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
+            incominglinks.addChildren(createNavigatorItems(connectedViews, incominglinks, true));
+            connectedViews = getOutgoingLinksByType(Collections.singleton(sv),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
+            outgoinglinks.addChildren(createNavigatorItems(connectedViews, outgoinglinks, true));
+            if (!incominglinks.isEmpty()) {
+                result.add(incominglinks);
+            }
+            if (!outgoinglinks.isEmpty()) {
+                result.add(outgoinglinks);
             }
             return result.toArray();
         }

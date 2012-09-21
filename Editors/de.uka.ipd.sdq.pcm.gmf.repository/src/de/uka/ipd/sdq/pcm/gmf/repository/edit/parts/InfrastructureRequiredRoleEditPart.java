@@ -118,7 +118,6 @@ public class InfrastructureRequiredRoleEditPart extends ConnectionNodeEditPart i
          * @generated
          */
         public InfrastructureRequiredRoleFigure() {
-            this.setLineWidth(1);
 
             createContents();
             setTargetDecoration(createTargetDecoration());
@@ -130,6 +129,7 @@ public class InfrastructureRequiredRoleEditPart extends ConnectionNodeEditPart i
         private void createContents() {
 
             fFigureInfrastructureRequiresStereotypeLabelFigure = new WrappingLabel();
+
             fFigureInfrastructureRequiresStereotypeLabelFigure.setText("<<Requires>>");
 
             this.add(fFigureInfrastructureRequiresStereotypeLabelFigure);
@@ -141,7 +141,6 @@ public class InfrastructureRequiredRoleEditPart extends ConnectionNodeEditPart i
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
             pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

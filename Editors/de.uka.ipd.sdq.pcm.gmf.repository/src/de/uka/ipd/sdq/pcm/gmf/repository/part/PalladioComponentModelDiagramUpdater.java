@@ -511,7 +511,7 @@ public class PalladioComponentModelDiagramUpdater {
     public static List<PalladioComponentModelLinkDescriptor> getOperationInterface_2107ContainedLinks(View view) {
         OperationInterface modelElement = (OperationInterface) view.getElement();
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement));
         return result;
     }
 
@@ -521,7 +521,7 @@ public class PalladioComponentModelDiagramUpdater {
     public static List<PalladioComponentModelLinkDescriptor> getEventGroup_2108ContainedLinks(View view) {
         EventGroup modelElement = (EventGroup) view.getElement();
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement));
         return result;
     }
 
@@ -609,7 +609,7 @@ public class PalladioComponentModelDiagramUpdater {
     public static List<PalladioComponentModelLinkDescriptor> getInfrastructureInterface_2109ContainedLinks(View view) {
         InfrastructureInterface modelElement = (InfrastructureInterface) view.getElement();
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement));
         return result;
     }
 
@@ -714,7 +714,7 @@ public class PalladioComponentModelDiagramUpdater {
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingTypeModelFacetLinks_OperationProvidedRole_4105(modelElement, crossReferences));
         result.addAll(getIncomingTypeModelFacetLinks_OperationRequiredRole_4106(modelElement, crossReferences));
-        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement,
+        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement,
                 crossReferences));
         return result;
     }
@@ -729,7 +729,7 @@ public class PalladioComponentModelDiagramUpdater {
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingTypeModelFacetLinks_SinkRole_4109(modelElement, crossReferences));
         result.addAll(getIncomingTypeModelFacetLinks_SourceRole_4110(modelElement, crossReferences));
-        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement,
+        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement,
                 crossReferences));
         return result;
     }
@@ -791,7 +791,7 @@ public class PalladioComponentModelDiagramUpdater {
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         result.addAll(getIncomingTypeModelFacetLinks_InfrastructureProvidedRole_4111(modelElement, crossReferences));
         result.addAll(getIncomingTypeModelFacetLinks_InfrastructureRequiredRole_4112(modelElement, crossReferences));
-        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement,
+        result.addAll(getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement,
                 crossReferences));
         return result;
     }
@@ -893,7 +893,7 @@ public class PalladioComponentModelDiagramUpdater {
     public static List<PalladioComponentModelLinkDescriptor> getOperationInterface_2107OutgoingLinks(View view) {
         OperationInterface modelElement = (OperationInterface) view.getElement();
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement));
         return result;
     }
 
@@ -903,7 +903,7 @@ public class PalladioComponentModelDiagramUpdater {
     public static List<PalladioComponentModelLinkDescriptor> getEventGroup_2108OutgoingLinks(View view) {
         EventGroup modelElement = (EventGroup) view.getElement();
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement));
         return result;
     }
 
@@ -991,7 +991,7 @@ public class PalladioComponentModelDiagramUpdater {
     public static List<PalladioComponentModelLinkDescriptor> getInfrastructureInterface_2109OutgoingLinks(View view) {
         InfrastructureInterface modelElement = (InfrastructureInterface) view.getElement();
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
-        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(modelElement));
+        result.addAll(getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(modelElement));
         return result;
     }
 
@@ -1441,7 +1441,7 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(
+    private static Collection<PalladioComponentModelLinkDescriptor> getIncomingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(
             Interface target, Map<EObject, Collection<EStructuralFeature.Setting>> crossReferences) {
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         Collection<EStructuralFeature.Setting> settings = crossReferences.get(target);
@@ -1449,7 +1449,7 @@ public class PalladioComponentModelDiagramUpdater {
             if (setting.getEStructuralFeature() == RepositoryPackage.eINSTANCE
                     .getInterface_ParentInterfaces__Interface()) {
                 result.add(new PalladioComponentModelLinkDescriptor(setting.getEObject(), target,
-                        PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123,
+                        PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113,
                         InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
             }
         }
@@ -1489,13 +1489,13 @@ public class PalladioComponentModelDiagramUpdater {
     /**
      * @generated
      */
-    private static Collection<PalladioComponentModelLinkDescriptor> getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4123(
+    private static Collection<PalladioComponentModelLinkDescriptor> getOutgoingFeatureModelFacetLinks_Interface_ParentInterfaces__Interface_4113(
             Interface source) {
         LinkedList<PalladioComponentModelLinkDescriptor> result = new LinkedList<PalladioComponentModelLinkDescriptor>();
         for (Iterator<?> destinations = source.getParentInterfaces__Interface().iterator(); destinations.hasNext();) {
             Interface destination = (Interface) destinations.next();
             result.add(new PalladioComponentModelLinkDescriptor(source, destination,
-                    PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123,
+                    PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113,
                     InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID));
         }
         return result;

@@ -117,7 +117,6 @@ public class SourceRoleEditPart extends ConnectionNodeEditPart implements ITreeB
          * @generated
          */
         public SourceRoleFigure() {
-            this.setLineWidth(1);
 
             createContents();
             setTargetDecoration(createTargetDecoration());
@@ -129,7 +128,8 @@ public class SourceRoleEditPart extends ConnectionNodeEditPart implements ITreeB
         private void createContents() {
 
             fFigureEmitsStereotypeLabelFigure = new WrappingLabel();
-            fFigureEmitsStereotypeLabelFigure.setText("<<emits>>");
+
+            fFigureEmitsStereotypeLabelFigure.setText("<<Emits>>");
 
             this.add(fFigureEmitsStereotypeLabelFigure);
 
@@ -140,7 +140,6 @@ public class SourceRoleEditPart extends ConnectionNodeEditPart implements ITreeB
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
             pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

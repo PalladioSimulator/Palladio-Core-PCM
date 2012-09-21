@@ -284,7 +284,7 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMARelTypesOnSource() {
         ArrayList<IElementType> types = new ArrayList<IElementType>(1);
-        types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+        types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113);
         return types;
     }
 
@@ -294,13 +294,13 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
     public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
         LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationInterfaceEditPart) {
-            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113);
         }
         if (targetEditPart instanceof EventGroupEditPart) {
-            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113);
         }
         if (targetEditPart instanceof InfrastructureInterfaceEditPart) {
-            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+            types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113);
         }
         return types;
     }
@@ -310,7 +310,7 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
      */
     public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
         LinkedList<IElementType> types = new LinkedList<IElementType>();
-        if (relationshipType == PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123) {
+        if (relationshipType == PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113) {
             types.add(PalladioComponentModelElementTypes.OperationInterface_2107);
             types.add(PalladioComponentModelElementTypes.EventGroup_2108);
             types.add(PalladioComponentModelElementTypes.InfrastructureInterface_2109);
@@ -325,7 +325,7 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
         ArrayList<IElementType> types = new ArrayList<IElementType>(3);
         types.add(PalladioComponentModelElementTypes.OperationProvidedRole_4105);
         types.add(PalladioComponentModelElementTypes.OperationRequiredRole_4106);
-        types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123);
+        types.add(PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113);
         return types;
     }
 
@@ -346,7 +346,7 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
             types.add(PalladioComponentModelElementTypes.CompleteComponentType_2104);
             types.add(PalladioComponentModelElementTypes.ProvidesComponentType_2105);
             types.add(PalladioComponentModelElementTypes.SubSystem_2106);
-        } else if (relationshipType == PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113) {
             types.add(PalladioComponentModelElementTypes.OperationInterface_2107);
             types.add(PalladioComponentModelElementTypes.EventGroup_2108);
             types.add(PalladioComponentModelElementTypes.InfrastructureInterface_2109);
@@ -398,7 +398,6 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -409,6 +408,7 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureInterface_Name_LabelFigure = new WrappingLabel();
+
             fFigureInterface_Name_LabelFigure.setText("<...>");
             fFigureInterface_Name_LabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2),
                     getMapMode().DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -424,9 +424,9 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
             this.add(fFigureInterface_Name_LabelFigure, constraintFFigureInterface_Name_LabelFigure);
 
             fFigureInterfaceCompartment = new RectangleFigure();
+
             fFigureInterfaceCompartment.setFill(false);
             fFigureInterfaceCompartment.setOutline(false);
-            fFigureInterfaceCompartment.setLineWidth(1);
             fFigureInterfaceCompartment.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
             GridData constraintFFigureInterfaceCompartment = new GridData();
@@ -439,25 +439,6 @@ public class OperationInterfaceEditPart extends ShapeNodeEditPart {
             constraintFFigureInterfaceCompartment.grabExcessVerticalSpace = true;
             this.add(fFigureInterfaceCompartment, constraintFFigureInterfaceCompartment);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

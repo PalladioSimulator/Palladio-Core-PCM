@@ -117,7 +117,6 @@ public class SinkRoleEditPart extends ConnectionNodeEditPart implements ITreeBra
          * @generated
          */
         public SinkRoleFigure() {
-            this.setLineWidth(1);
 
             createContents();
             setTargetDecoration(createTargetDecoration());
@@ -129,6 +128,7 @@ public class SinkRoleEditPart extends ConnectionNodeEditPart implements ITreeBra
         private void createContents() {
 
             fFigureHandlesStereotypeLabelFigure = new WrappingLabel();
+
             fFigureHandlesStereotypeLabelFigure.setText("<<Handles>>");
 
             this.add(fFigureHandlesStereotypeLabelFigure);
@@ -140,7 +140,6 @@ public class SinkRoleEditPart extends ConnectionNodeEditPart implements ITreeBra
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
             pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

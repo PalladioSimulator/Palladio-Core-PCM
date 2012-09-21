@@ -399,14 +399,14 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public boolean canCreateInterfaceParentInterfaces__Interface_4123(Interface source, Interface target) {
+        public boolean canCreateInterfaceParentInterfaces__Interface_4113(Interface source, Interface target) {
             if (source != null) {
                 if (source.getParentInterfaces__Interface().contains(target)) {
                     return false;
                 }
             }
 
-            return canExistInterfaceParentInterfaces__Interface_4123(source, target);
+            return canExistInterfaceParentInterfaces__Interface_4113(source, target);
         }
 
         /**
@@ -475,7 +475,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public boolean canExistInterfaceParentInterfaces__Interface_4123(Interface source, Interface target) {
+        public boolean canExistInterfaceParentInterfaces__Interface_4113(Interface source, Interface target) {
             return true;
         }
 

@@ -119,7 +119,6 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart ext
          * @generated
          */
         public ParentCompleteTypeFigure() {
-            this.setLineWidth(1);
 
             createContents();
             setTargetDecoration(createTargetDecoration());
@@ -131,7 +130,8 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart ext
         private void createContents() {
 
             fFigureCompleteParentStereotypeLabelFigure = new WrappingLabel();
-            fFigureCompleteParentStereotypeLabelFigure.setText("<<conforms>>");
+
+            fFigureCompleteParentStereotypeLabelFigure.setText("<<Conforms>>");
 
             this.add(fFigureCompleteParentStereotypeLabelFigure);
 
@@ -142,7 +142,6 @@ public class ImplementationComponentTypeParentCompleteComponentTypesEditPart ext
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
             pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

@@ -363,7 +363,6 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -374,6 +373,7 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureProvidesComponentTypeLabelFigure = new WrappingLabel();
+
             fFigureProvidesComponentTypeLabelFigure.setText("<...>");
             fFigureProvidesComponentTypeLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -395,25 +395,6 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
          */
         public WrappingLabel getFigureProvidesComponentTypeLabelFigure() {
             return fFigureProvidesComponentTypeLabelFigure;
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
     }

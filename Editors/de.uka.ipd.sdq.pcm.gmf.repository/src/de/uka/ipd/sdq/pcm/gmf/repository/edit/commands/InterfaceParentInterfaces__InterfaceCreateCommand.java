@@ -57,7 +57,7 @@ public class InterfaceParentInterfaces__InterfaceCreateCommand extends EditEleme
         }
         // target may be null here but it's possible to check constraint
         return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
-                .canCreateInterfaceParentInterfaces__Interface_4123(getSource(), getTarget());
+                .canCreateInterfaceParentInterfaces__Interface_4113(getSource(), getTarget());
     }
 
     /**

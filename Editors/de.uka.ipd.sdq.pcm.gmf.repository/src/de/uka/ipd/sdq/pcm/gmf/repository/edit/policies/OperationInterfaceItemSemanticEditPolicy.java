@@ -143,7 +143,7 @@ public class OperationInterfaceItemSemanticEditPolicy extends PalladioComponentM
         if (PalladioComponentModelElementTypes.OperationRequiredRole_4106 == req.getElementType()) {
             return null;
         }
-        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113 == req.getElementType()) {
             return getGEFWrapper(new InterfaceParentInterfaces__InterfaceCreateCommand(req, req.getSource(),
                     req.getTarget()));
         }
@@ -160,7 +160,7 @@ public class OperationInterfaceItemSemanticEditPolicy extends PalladioComponentM
         if (PalladioComponentModelElementTypes.OperationRequiredRole_4106 == req.getElementType()) {
             return getGEFWrapper(new OperationRequiredRoleCreateCommand(req, req.getSource(), req.getTarget()));
         }
-        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4123 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.InterfaceParentInterfaces__Interface_4113 == req.getElementType()) {
             return getGEFWrapper(new InterfaceParentInterfaces__InterfaceCreateCommand(req, req.getSource(),
                     req.getTarget()));
         }

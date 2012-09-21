@@ -274,7 +274,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <method name="getType()" value="2107,2108,2102,2103,2104,2105,2106,2109,3106,3107,3102,3103,3104,3105,3108"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4105,4111,4112,4109,4106,4103,4104,4110,4123"/>
+            <method name="getType()" value="4105,4111,4112,4109,4106,4103,4104,4110,4113"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
             <method name="getType()" value="5108,5109,5102,5103,5104,5105,5107,5110,5106"/>
@@ -566,11 +566,11 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.repository.InterfaceParentInterfaces__Interface_4123"
-               name="%metatype.name.InterfaceParentInterfaces__Interface_4123"
+               id="de.uka.ipd.sdq.pcm.gmf.repository.InterfaceParentInterfaces__Interface_4113"
+               name="%metatype.name.InterfaceParentInterfaces__Interface_4113"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
             <specializes id="org.eclipse.gmf.runtime.emf.type.core.null"/>
-            <param name="semanticHint" value="4123"/>
+            <param name="semanticHint" value="4113"/>
          </specializationType>
       </metamodel>
    </extension>
@@ -609,7 +609,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.ImplementationComponentTypeParentCompleteComponentTypes_4103"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.CompleteComponentTypeParentProvidesComponentTypes_4104"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.SourceRole_4110"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.InterfaceParentInterfaces__Interface_4123"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.repository.InterfaceParentInterfaces__Interface_4113"/>
          <advice ref="org.eclipse.gmf.runtime.diagram.core.advice.notationDepdendents"/>
       </binding>
    </extension>

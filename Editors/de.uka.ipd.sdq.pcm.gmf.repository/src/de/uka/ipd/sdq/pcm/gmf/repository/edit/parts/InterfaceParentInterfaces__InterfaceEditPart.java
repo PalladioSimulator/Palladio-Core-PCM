@@ -25,7 +25,7 @@ public class InterfaceParentInterfaces__InterfaceEditPart extends ConnectionNode
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 4123;
+    public static final int VISUAL_ID = 4113;
 
     /**
      * @generated
@@ -47,8 +47,8 @@ public class InterfaceParentInterfaces__InterfaceEditPart extends ConnectionNode
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof WrappingLabel10EditPart) {
-            ((WrappingLabel10EditPart) childEditPart).setLabel(getPrimaryShape()
+        if (childEditPart instanceof WrappingLabel3EditPart) {
+            ((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
                     .getFigureExtendsInterfaceStereotypeLabelFigure());
             return true;
         }
@@ -69,7 +69,7 @@ public class InterfaceParentInterfaces__InterfaceEditPart extends ConnectionNode
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof WrappingLabel10EditPart) {
+        if (childEditPart instanceof WrappingLabel3EditPart) {
             return true;
         }
         return false;

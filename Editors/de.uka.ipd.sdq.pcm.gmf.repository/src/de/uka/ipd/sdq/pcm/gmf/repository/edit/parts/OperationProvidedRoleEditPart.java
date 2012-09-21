@@ -118,7 +118,6 @@ public class OperationProvidedRoleEditPart extends ConnectionNodeEditPart implem
          * @generated
          */
         public ProvidedRoleFigure() {
-            this.setLineWidth(1);
 
             createContents();
             setTargetDecoration(createTargetDecoration());
@@ -130,6 +129,7 @@ public class OperationProvidedRoleEditPart extends ConnectionNodeEditPart implem
         private void createContents() {
 
             fFigureProvidesStereotypeLabelFigure = new WrappingLabel();
+
             fFigureProvidesStereotypeLabelFigure.setText("<<Provides>>");
 
             this.add(fFigureProvidesStereotypeLabelFigure);
@@ -141,7 +141,6 @@ public class OperationProvidedRoleEditPart extends ConnectionNodeEditPart implem
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
             pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));

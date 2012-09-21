@@ -57,8 +57,8 @@ import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableCharacterisationEdit
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageComponentParameterVariableCharacterisationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageLabelEditPart;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel10EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabel3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
@@ -423,7 +423,7 @@ public class PalladioComponentModelVisualIDRegistry {
             }
             break;
         case InterfaceParentInterfaces__InterfaceEditPart.VISUAL_ID:
-            if (WrappingLabel10EditPart.VISUAL_ID == nodeVisualID) {
+            if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
                 return true;
             }
             break;
