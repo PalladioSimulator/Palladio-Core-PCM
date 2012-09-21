@@ -51,10 +51,6 @@
          version="0.0.0"/>
 
    <includes
-         id="de.uka.ipd.sdq.cip.feature"
-         version="0.0.0"/>
-
-   <includes
          id="de.uka.ipd.sdq.simucom.feature"
          version="0.0.0"/>
 
