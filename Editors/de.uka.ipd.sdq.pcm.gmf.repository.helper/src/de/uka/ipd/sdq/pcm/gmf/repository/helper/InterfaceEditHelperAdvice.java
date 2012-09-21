@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.helper;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
@@ -221,7 +224,8 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
 
     private CompositeCommand createOperationSEFFsForOperationInterface(OperationInterface target, BasicComponent source) {
         CompositeCommand createSEFFs = new CompositeCommand("Create SEFFs");
-        EList<OperationSignature> signatures = extractSignatures(target);
+        List<OperationSignature> signatures = new ArrayList<OperationSignature>();
+        signatures.addAll(extractSignatures(target));
         for (OperationSignature s : signatures) {
             ConfigureRequest ceRequest = new ConfigureRequest(source, ElementTypeRegistry.getInstance()
                     .getType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"));
@@ -231,8 +235,9 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
         return createSEFFs;
     }
 
-    private EList<OperationSignature> extractSignatures(OperationInterface target) {
-        EList<OperationSignature> signatures = target.getSignatures__OperationInterface();
+    private List<OperationSignature> extractSignatures(OperationInterface target) {
+        List<OperationSignature> signatures = new ArrayList<OperationSignature>();
+        signatures.addAll(target.getSignatures__OperationInterface());
         for (Interface pi : target.getParentInterfaces__Interface()) {
             if (pi instanceof OperationInterface)
                 signatures.addAll(extractSignatures((OperationInterface) pi));
