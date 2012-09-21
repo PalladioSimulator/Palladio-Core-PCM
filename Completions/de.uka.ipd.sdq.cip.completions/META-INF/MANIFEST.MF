@@ -1,7 +1,0 @@
-Manifest-Version: 1.0
-Bundle-ManifestVersion: 2
-Bundle-Name: Completions Repository
-Bundle-SymbolicName: de.uka.ipd.sdq.cip.completions;singleton:=true
-Bundle-Version: 1.0.0.qualifier
-Require-Bundle: de.uka.ipd.sdq.cip;bundle-version="2.0.0"
-Bundle-Vendor: sdq.ipd.uka.de

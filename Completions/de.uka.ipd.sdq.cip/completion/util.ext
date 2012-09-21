@@ -1,9 +1,0 @@
-import ecore;
-
-String fullName(ecore::ENamedElement e) :
-	if e.eContainer != null then 
-		fullName((ecore::ENamedElement)e.eContainer) + "::" + toString(e.name)
-	else e.name;
-
-String toString(ecore::EString s) :
-	s;
