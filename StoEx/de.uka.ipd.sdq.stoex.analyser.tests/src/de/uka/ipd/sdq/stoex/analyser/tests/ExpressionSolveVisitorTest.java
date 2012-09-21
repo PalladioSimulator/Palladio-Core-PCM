@@ -54,11 +54,8 @@ public class ExpressionSolveVisitorTest extends TestCase {
 		IProbabilityMassFunction ipmf = IProbabilityFunctionFactory.eINSTANCE.transformToPMF(pmf);
 		
 		String computedResult = ipmf.getSamples().toString();
-		System.out.println("Result: "+computedResult);
 		
 		double sum = MathTools.sumOfSamples(ipmf.getSamples());
-		
-		System.out.println(sum);
 		
 		assertFalse(sum > 1.0 + MathTools.EPSILON_ERROR);
 		assertFalse(sum < 1.0 - MathTools.EPSILON_ERROR);
