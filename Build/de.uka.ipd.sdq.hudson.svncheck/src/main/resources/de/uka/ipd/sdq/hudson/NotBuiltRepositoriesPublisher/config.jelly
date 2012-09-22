@@ -1,3 +1,5 @@
+<!-- Look and feel of the config page in every job configuration
+     The field names are needed as they exist in the Java class with the same name as fields -->
 <j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler" xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" xmlns:f="/lib/form">
   <f:entry title="Subversion repositories" field="repositories">
     <f:expandableTextbox name="textbox.repositories" />

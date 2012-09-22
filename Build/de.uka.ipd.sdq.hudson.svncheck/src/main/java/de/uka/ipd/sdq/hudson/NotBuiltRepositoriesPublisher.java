@@ -19,7 +19,11 @@ import java.util.StringTokenizer;
 
 import org.kohsuke.stapler.DataBoundConstructor;
 
+//This is the main publisher class for this plugin.
+//Its perform method is called by a jenkins job, if the respective post-build action is added.
 public class NotBuiltRepositoriesPublisher extends Recorder {
+    
+  //Fields accessed directly through the config.jelly site. The values are provided by jenkins through the constructor
   public String repositories;
   public String exclusions;
   public String username;
@@ -59,6 +63,8 @@ public class NotBuiltRepositoriesPublisher extends Recorder {
       this.optionalCredentials = optionalCredentials;
   }
   
+  //This method creates the final list of projects. It reads out the first level of every
+  //provided repository and subtracts projects which are used within in the job
   @Override
   public boolean perform(AbstractBuild<?, ?> build, Launcher launcher, BuildListener listener) {        
       //Tokenise repository paths
@@ -86,15 +92,15 @@ public class NotBuiltRepositoriesPublisher extends Recorder {
       }
       
       //Get all projects in all repository paths
-      RepositoryFileParser parser = new RepositoryFileParser();
+      RepositoryParser parser = new RepositoryParser();
       
       List<String> resultingProjects = new LinkedList<String>();
       for (String currentRepository : repositoryList) {
           if (optionalCredentials) {
               listener.getLogger().println("Using svn credentials...");
-              resultingProjects.addAll(parser.parseFile(listener, currentRepository, username, password));
+              resultingProjects.addAll(parser.parseSVN(listener, currentRepository, username, password));
           } else {
-              resultingProjects.addAll(parser.parseFile(listener, currentRepository, null, null));
+              resultingProjects.addAll(parser.parseSVN(listener, currentRepository, null, null));
           }
       }
       
@@ -126,6 +132,7 @@ public class NotBuiltRepositoriesPublisher extends Recorder {
           }
       }
 
+      //Create new action, so that repositories are being published
       NotBuiltRepositoriesAction action = new NotBuiltRepositoriesAction(resultingProjects);
       build.getActions().add(action);
       

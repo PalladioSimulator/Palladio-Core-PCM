@@ -5,6 +5,7 @@ import hudson.model.Action;
 import java.util.Collections;
 import java.util.List;
 
+//Used for publishing of a list of projects (strings). Connects to summary.jelly
 public class NotBuiltRepositoriesAction implements Action {
     private final List<String> svnProjects;
     

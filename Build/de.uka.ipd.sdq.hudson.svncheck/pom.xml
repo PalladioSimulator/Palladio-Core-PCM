@@ -6,11 +6,13 @@
     <version>1.424</version><!-- which version of Jenkins is this plugin built against? -->
   </parent>
 
+  <!-- Package name, version -->
   <groupId>de.uka.ipd.sdq.hudson</groupId>
   <artifactId>svncheck</artifactId>
-  <version>0.9</version>
+  <version>1.0</version>
   <packaging>hpi</packaging>
   
+  <!-- Name and description of the plugin -->
   <name>SVN Checkout plugin</name>
   <description>Compares supplied svn repositories with projects being checked out and publishes projects which are not being used.</description>
 
@@ -29,6 +31,8 @@
     </pluginRepository>
   </pluginRepositories>
   
+  <!-- Depends on both svnkit and the jenkins plugins. SvnKit for checking provided SVN repositories,
+   jenkins plugins to access the svn information from the svn plugin -->
   <dependencies>
     <dependency>
       <groupId>org.jenkins-ci.svnkit</groupId>

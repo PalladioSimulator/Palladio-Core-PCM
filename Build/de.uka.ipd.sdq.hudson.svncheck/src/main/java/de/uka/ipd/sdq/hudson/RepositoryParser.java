@@ -16,8 +16,9 @@ import org.tmatesoft.svn.core.wc.SVNLogClient;
 import org.tmatesoft.svn.core.wc.SVNRevision;
 import org.tmatesoft.svn.core.wc.SVNWCUtil;
 
-public class RepositoryFileParser {
-    public List<String> parseFile(BuildListener listener, String rootPath, String username, String password) {
+//Used by NotBuiltRepositoriesPublisher to read out SVN repositores
+public class RepositoryParser {
+    public List<String> parseSVN(BuildListener listener, String rootPath, String username, String password) {
         final LinkedList<String> entries = new LinkedList<String>();
         
         SVNClientManager ourClientManager;
