@@ -2,7 +2,7 @@ grammar PCMStoEx;
 
 
 /*options { output=AST; defaultErrorHandler=false; k=2; }*/
-
+ 
 @header {  
 	package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 	import de.uka.ipd.sdq.stoex.*;
@@ -489,7 +489,7 @@ GREATER : '>' ;
 LESS : '<' ;
 GREATEREQUAL : '>=' ;
 LESSEQUAL : '<=' ;
-STRING_LITERAL : '\"' (ALPHA|'_')+ '\"' ;
+STRING_LITERAL : '\"' (ALPHA|'_'|' '|DIGIT)+ '\"' ;
 DOT: '.';
 
 /* Inspired by Java grammar */

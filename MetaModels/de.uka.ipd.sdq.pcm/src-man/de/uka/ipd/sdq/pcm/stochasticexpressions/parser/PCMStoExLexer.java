@@ -1,16 +1,12 @@
-// $ANTLR 3.1.3 Mar 17, 2009 19:23:44 /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g 2011-12-13 13:31:45
+// $ANTLR 3.2 Sep 23, 2009 12:02:23 /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g 2012-09-27 09:54:49
 
   package de.uka.ipd.sdq.pcm.stochasticexpressions.parser;
 
 
-import org.antlr.runtime.BaseRecognizer;
-import org.antlr.runtime.CharStream;
-import org.antlr.runtime.DFA;
-import org.antlr.runtime.EarlyExitException;
-import org.antlr.runtime.Lexer;
-import org.antlr.runtime.MismatchedSetException;
-import org.antlr.runtime.RecognitionException;
-import org.antlr.runtime.RecognizerSharedState;
+import org.antlr.runtime.*;
+import java.util.Stack;
+import java.util.List;
+import java.util.ArrayList;
 
 public class PCMStoExLexer extends Lexer {
     public static final int INNER=43;
@@ -1165,18 +1161,18 @@ public class PCMStoExLexer extends Lexer {
         try {
             int _type = STRING_LITERAL;
             int _channel = DEFAULT_TOKEN_CHANNEL;
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:16: ( '\\\"' ( ALPHA | '_' )+ '\\\"' )
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:18: '\\\"' ( ALPHA | '_' )+ '\\\"'
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:16: ( '\\\"' ( ALPHA | '_' | ' ' | DIGIT )+ '\\\"' )
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:18: '\\\"' ( ALPHA | '_' | ' ' | DIGIT )+ '\\\"'
             {
             match('\"'); 
-            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:23: ( ALPHA | '_' )+
+            // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:492:23: ( ALPHA | '_' | ' ' | DIGIT )+
             int cnt7=0;
             loop7:
             do {
                 int alt7=2;
                 int LA7_0 = input.LA(1);
 
-                if ( ((LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
+                if ( (LA7_0==' '||(LA7_0>='0' && LA7_0<='9')||(LA7_0>='A' && LA7_0<='Z')||LA7_0=='_'||(LA7_0>='a' && LA7_0<='z')) ) {
                     alt7=1;
                 }
 
@@ -1185,7 +1181,7 @@ public class PCMStoExLexer extends Lexer {
             	case 1 :
             	    // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:
             	    {
-            	    if ( (input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
+            	    if ( input.LA(1)==' '||(input.LA(1)>='0' && input.LA(1)<='9')||(input.LA(1)>='A' && input.LA(1)<='Z')||input.LA(1)=='_'||(input.LA(1)>='a' && input.LA(1)<='z') ) {
             	        input.consume();
 
             	    }
@@ -1883,18 +1879,18 @@ public class PCMStoExLexer extends Lexer {
         "\u00a7\uffff";
     static final String DFA13_minS =
         "\1\11\2\uffff\1\122\1\117\1\116\1\117\1\116\1\157\1\156\1\131\1"+
-        "\156\1\101\1\141\1\162\1\124\1\131\1\101\3\uffff\1\52\6\uffff\1"+
-        "\75\1\162\3\uffff\2\75\3\uffff\1\60\1\122\1\104\1\124\1\115\1\164"+
-        "\1\116\2\165\1\157\1\124\1\151\1\42\1\uffff\1\154\1\165\1\122\1"+
-        "\120\1\114\5\uffff\1\144\6\uffff\3\60\1\102\1\120\1\105\1\142\1"+
-        "\155\1\154\1\105\1\164\1\42\1\163\1\145\1\125\1\105\1\125\1\145"+
-        "\3\uffff\1\105\1\115\1\122\1\154\2\120\1\123\1\60\1\42\1\145\1\60"+
-        "\1\103\1\60\1\105\1\162\1\122\1\106\1\60\1\145\2\115\1\111\1\uffff"+
-        "\1\42\1\60\1\uffff\1\124\1\uffff\1\60\1\145\1\137\1\60\1\uffff\1"+
-        "\120\2\106\1\132\2\uffff\1\125\1\uffff\1\144\1\117\1\uffff\1\104"+
-        "\2\60\1\105\1\uffff\1\122\1\60\3\106\2\uffff\1\60\1\105\1\uffff"+
-        "\1\137\2\60\1\uffff\1\60\1\105\3\uffff\1\114\1\105\1\115\1\105\1"+
-        "\116\1\124\1\123\1\60\1\uffff";
+        "\156\1\40\1\141\1\162\1\124\1\131\1\101\3\uffff\1\52\6\uffff\1\75"+
+        "\1\162\3\uffff\2\75\3\uffff\1\60\1\122\1\104\1\124\1\115\1\164\1"+
+        "\116\2\165\1\157\1\124\1\151\1\40\1\uffff\1\154\1\165\1\122\1\120"+
+        "\1\114\5\uffff\1\144\6\uffff\3\60\1\102\1\120\1\105\1\142\1\155"+
+        "\1\154\1\105\1\164\1\40\1\163\1\145\1\125\1\105\1\125\1\145\3\uffff"+
+        "\1\105\1\115\1\122\1\154\2\120\1\123\1\60\1\40\1\145\1\60\1\103"+
+        "\1\60\1\105\1\162\1\122\1\106\1\60\1\145\2\115\1\111\1\uffff\1\40"+
+        "\1\60\1\uffff\1\124\1\uffff\1\60\1\145\1\137\1\60\1\uffff\1\120"+
+        "\2\106\1\132\2\uffff\1\125\1\uffff\1\144\1\117\1\uffff\1\104\2\60"+
+        "\1\105\1\uffff\1\122\1\60\3\106\2\uffff\1\60\1\105\1\uffff\1\137"+
+        "\2\60\1\uffff\1\60\1\105\3\uffff\1\114\1\105\1\115\1\105\1\116\1"+
+        "\124\1\123\1\60\1\uffff";
     static final String DFA13_maxS =
         "\1\172\2\uffff\1\122\1\117\1\116\1\125\1\156\1\157\1\156\1\157\1"+
         "\156\1\172\1\141\1\162\1\124\1\131\1\101\3\uffff\1\57\6\uffff\1"+
@@ -1937,7 +1933,8 @@ public class PCMStoExLexer extends Lexer {
             "\1\56",
             "\1\60\25\uffff\1\57",
             "\1\61",
-            "\32\63\4\uffff\1\63\1\uffff\1\63\1\62\30\63",
+            "\1\63\17\uffff\12\63\7\uffff\32\63\4\uffff\1\63\1\uffff\1\63"+
+            "\1\62\30\63",
             "\1\64",
             "\1\65",
             "\1\66",
@@ -1975,7 +1972,8 @@ public class PCMStoExLexer extends Lexer {
             "\1\115",
             "\1\116",
             "\1\117",
-            "\1\63\36\uffff\32\63\4\uffff\1\63\1\uffff\16\63\1\120\13\63",
+            "\1\63\1\uffff\1\63\15\uffff\12\63\7\uffff\32\63\4\uffff\1\63"+
+            "\1\uffff\16\63\1\120\13\63",
             "",
             "\1\121",
             "\1\122",
@@ -2005,7 +2003,8 @@ public class PCMStoExLexer extends Lexer {
             "\1\137",
             "\1\140",
             "\1\141",
-            "\1\63\36\uffff\32\63\4\uffff\1\63\1\uffff\16\63\1\142\13\63",
+            "\1\63\1\uffff\1\63\15\uffff\12\63\7\uffff\32\63\4\uffff\1\63"+
+            "\1\uffff\16\63\1\142\13\63",
             "\1\143",
             "\1\144",
             "\1\145",
@@ -2023,7 +2022,8 @@ public class PCMStoExLexer extends Lexer {
             "\1\156",
             "\1\157",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
-            "\1\63\36\uffff\32\63\4\uffff\1\63\1\uffff\13\63\1\161\16\63",
+            "\1\63\1\uffff\1\63\15\uffff\12\63\7\uffff\32\63\4\uffff\1\63"+
+            "\1\uffff\13\63\1\161\16\63",
             "\1\162",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "\1\164",
@@ -2038,7 +2038,8 @@ public class PCMStoExLexer extends Lexer {
             "\1\175",
             "\1\176",
             "",
-            "\1\177\36\uffff\32\63\4\uffff\1\63\1\uffff\32\63",
+            "\1\63\1\uffff\1\177\15\uffff\12\63\7\uffff\32\63\4\uffff\1"+
+            "\63\1\uffff\32\63",
             "\12\44\7\uffff\32\44\4\uffff\1\44\1\uffff\32\44",
             "",
             "\1\u0081",
