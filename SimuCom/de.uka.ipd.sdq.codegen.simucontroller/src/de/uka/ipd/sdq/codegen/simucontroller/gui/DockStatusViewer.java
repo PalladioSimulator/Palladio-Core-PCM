@@ -65,9 +65,7 @@ public class DockStatusViewer extends Composite implements Observer {
 		composite.setLayout(new FillLayout());
 
 		final Group statusGroup = new Group(composite, SWT.NONE);
-		final GridLayout gridLayout = new GridLayout();
-		gridLayout.numColumns = 5;
-		statusGroup.setLayout(gridLayout);
+		statusGroup.setLayout(new GridLayout(5, false));
 		statusGroup.setText("Status");
 
 		final Label idLabel = new Label(statusGroup, SWT.NONE);
@@ -75,12 +73,10 @@ public class DockStatusViewer extends Composite implements Observer {
 
 		dockIdLabel = new Label(statusGroup, SWT.NONE);
 		dockIdLabel.setText("Label");
-		new Label(statusGroup, SWT.NONE);
-		new Label(statusGroup, SWT.NONE);
+		dockIdLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
 
 		iconCanvas = new Canvas(statusGroup, SWT.NONE);
-		iconCanvas.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false,
-				false, 1, 3));
+		iconCanvas.setLayoutData(new GridData(SWT.RIGHT, SWT.CENTER, false, false, 1, 4));
 		iconCanvas.addPaintListener(new PaintListener() {
 
 			public void paintControl(PaintEvent e) {
@@ -102,25 +98,21 @@ public class DockStatusViewer extends Composite implements Observer {
 		locationLabel.setText("Location:");
 
 		remoteLocationLabel = new Label(statusGroup, SWT.NONE);
+		remoteLocationLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 3, 1));
 		remoteLocationLabel.setText("Label");
-		new Label(statusGroup, SWT.NONE);
-		new Label(statusGroup, SWT.NONE);
 
 		final Label simulationTimeLabel = new Label(statusGroup, SWT.NONE);
 		simulationTimeLabel.setText("Simulation Time:");
 
 		simTimeLabel = new Label(statusGroup, SWT.NONE);
-		simTimeLabel.setLayoutData(new GridData(83, SWT.DEFAULT));
+		simTimeLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
 		simTimeLabel.setText("Label");
 
 		final Label measurementsLabelLabel = new Label(statusGroup, SWT.NONE);
 		measurementsLabelLabel.setText("Measurements:");
 
 		measurementsLabel = new Label(statusGroup, SWT.NONE);
-		final GridData gd_measurementsLabel = new GridData(SWT.LEFT, SWT.CENTER, true, false);
-		gd_measurementsLabel.minimumWidth = 30;
-		gd_measurementsLabel.widthHint = 60;
-		measurementsLabel.setLayoutData(gd_measurementsLabel);
+		measurementsLabel.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, false, false, 3, 1));
 		measurementsLabel.setText("Label");
 
 		Composite compositeProgress = new Composite(statusGroup, SWT.NONE);
@@ -132,8 +124,7 @@ public class DockStatusViewer extends Composite implements Observer {
 		compositeProgress.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 5, 1));
 
 		progressBar = new ProgressBar(compositeProgress, SWT.NONE);
-		progressBar.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
-				false, 1, 1));
+		progressBar.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 1, 1));
 
 		ToolBar toolBar = new ToolBar(compositeProgress, SWT.FLAT | SWT.RIGHT);
 
