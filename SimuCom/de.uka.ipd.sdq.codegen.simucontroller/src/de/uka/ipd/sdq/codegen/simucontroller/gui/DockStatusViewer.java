@@ -31,18 +31,17 @@ import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 
 public class DockStatusViewer extends Composite implements Observer {
 	/** Logger for this class. */
-	private static final Logger logger = Logger
-			.getLogger(DockStatusViewer.class);
+	private static final Logger logger = Logger.getLogger(DockStatusViewer.class);
 
-	private Image idle_image;
+	private Image idleImage;
 	private DockModel model;
 	private Label simTimeLabel;
 	private Label measurementsLabel;
 	private ProgressBar progressBar;
 	private Label remoteLocationLabel;
 	private Label dockIdLabel;
-	private Image running_image;
-	private Image pause_image;
+	private Image runningImage;
+	private Image pauseImage;
 	private Canvas iconCanvas;
 	private int lastUIUpdate = -1;
 
@@ -88,12 +87,11 @@ public class DockStatusViewer extends Composite implements Observer {
 				Image image = null;
 
 				if (DockStatusViewer.this.model.isIdle())
-					image = idle_image;
-				else if (DockStatusViewer.this.model.isSuspended()
-						&& !DockStatusViewer.this.model.isStepping())
-					image = pause_image;
+					image = idleImage;
+				else if (DockStatusViewer.this.model.isSuspended() && !DockStatusViewer.this.model.isStepping())
+					image = pauseImage;
 				else
-					image = running_image;
+					image = runningImage;
 				if (!image.isDisposed())
 					e.gc.drawImage(image, 0, 0);
 			}
@@ -119,8 +117,7 @@ public class DockStatusViewer extends Composite implements Observer {
 		measurementsLabelLabel.setText("Measurements:");
 
 		measurementsLabel = new Label(statusGroup, SWT.NONE);
-		final GridData gd_measurementsLabel = new GridData(SWT.LEFT,
-				SWT.CENTER, true, false);
+		final GridData gd_measurementsLabel = new GridData(SWT.LEFT, SWT.CENTER, true, false);
 		gd_measurementsLabel.minimumWidth = 30;
 		gd_measurementsLabel.widthHint = 60;
 		measurementsLabel.setLayoutData(gd_measurementsLabel);
@@ -132,8 +129,7 @@ public class DockStatusViewer extends Composite implements Observer {
 		gl_compositeProgress.marginHeight = 0;
 		gl_compositeProgress.marginWidth = 0;
 		compositeProgress.setLayout(gl_compositeProgress);
-		compositeProgress.setLayoutData(new GridData(SWT.FILL, SWT.CENTER,
-				true, false, 5, 1));
+		compositeProgress.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false, 5, 1));
 
 		progressBar = new ProgressBar(compositeProgress, SWT.NONE);
 		progressBar.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
@@ -151,15 +147,11 @@ public class DockStatusViewer extends Composite implements Observer {
 				model.getService().stopSimulation();
 			}
 		});
-		stop.setImage(SimuControllerImages.imageRegistry
-				.get(SimuControllerImages.SIMU_STOP));
+		stop.setImage(SimuControllerImages.imageRegistry.get(SimuControllerImages.SIMU_STOP));
 
-		idle_image = SimuControllerImages.imageRegistry
-				.get(SimuControllerImages.MASCHINE);
-		running_image = SimuControllerImages.imageRegistry
-				.get(SimuControllerImages.MASCHINE_BUSY);
-		pause_image = SimuControllerImages.imageRegistry
-				.get(SimuControllerImages.MASCHINE_PAUSE);
+		idleImage = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE);
+		runningImage = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE_BUSY);
+		pauseImage = SimuControllerImages.imageRegistry.get(SimuControllerImages.MASCHINE_PAUSE);
 
 		update(model, null);
 	}
@@ -170,8 +162,7 @@ public class DockStatusViewer extends Composite implements Observer {
 	}
 
 	public void update(Observable o, Object arg) {
-		if (model.getPercentDone() != lastUIUpdate || model.isStepping()
-				|| model.isSuspended() || model.isIdle()) {
+        if (model.getPercentDone() != lastUIUpdate || model.isStepping() || model.isSuspended() || model.isIdle()) {
 			PlatformUI.getWorkbench().getDisplay().syncExec(new Runnable() {
 
 				public void run() {
@@ -179,22 +170,18 @@ public class DockStatusViewer extends Composite implements Observer {
 					if (!dockIdLabel.isDisposed())
 						dockIdLabel.setText(model.getID());
 					if (!remoteLocationLabel.isDisposed())
-						remoteLocationLabel.setText(model
-								.getRemoteMaschineURI() == null ? "<local>"
-								: model.getRemoteMaschineURI());
+                        remoteLocationLabel.setText(model.getRemoteMaschineURI() == null ? "<local>" : model
+                                .getRemoteMaschineURI());
 					if (!measurementsLabel.isDisposed())
-						measurementsLabel.setText(model.getMeasurementCount()
-								+ "");
+                        measurementsLabel.setText(model.getMeasurementCount() + "");
 					if (!simTimeLabel.isDisposed())
-						simTimeLabel.setText(new DecimalFormat("0.#")
-								.format(model.getSimTime()));
+                        simTimeLabel.setText(new DecimalFormat("0.#").format(model.getSimTime()));
 					if (!progressBar.isDisposed())
 						progressBar.setSelection(model.getPercentDone());
 					if (!iconCanvas.isDisposed())
 						iconCanvas.redraw();
-					stop.setEnabled(!model.isIdle()); // change stop-button
-														// state, depending on
-														// the model state
+					// change stop-button state, depending on the model state
+					stop.setEnabled(!model.isIdle()); 
 				}
 
 			});
@@ -210,21 +197,17 @@ public class DockStatusViewer extends Composite implements Observer {
         
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 
-			public void run() {
-				IViewPart viewer;
-				try {
-					viewer = PlatformUI.getWorkbench()
-							.getActiveWorkbenchWindow().getActivePage()
-							.showView(DockStatusViewPart.ID);
-					PlatformUI.getWorkbench().getActiveWorkbenchWindow()
-							.getActivePage().bringToTop(viewer);
-					viewer.setFocus();
-				} catch (PartInitException e) {
-					logger.warn(
-							"Could not show SimuDockView and set focus to it.",
-							e);
-				}
-			}
+            public void run() {
+                IViewPart viewer;
+                try {
+                    viewer = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
+                            .showView(DockStatusViewPart.ID);
+                    PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage().bringToTop(viewer);
+                    viewer.setFocus();
+                } catch (PartInitException e) {
+                    logger.warn("Could not show SimuDockView and set focus to it.", e);
+                }
+            }
 
 		});
 	}
