@@ -875,6 +875,16 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xld0Ueq3EeG2iLp1vAsnsw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xld0UOq3EeG2iLp1vAsnsw"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_IbPwgAxvEeK8E4ionb-Bzg" name="final" visibility="public">
+          <ownedComment xmi:id="_5rXmQAxvEeK8E4ionb-Bzg" annotatedElement="_IbPwgAxvEeK8E4ionb-Bzg">
+            <body>When true, the result is complete and all field have their final value.
+When false, the result exists to allow for the correct result structure. The values of fields and references however are not all determined yet. In particular, counts for opcodes, method calls or array creations are subject to change.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_THFoIAxvEeK8E4ionb-Bzg">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          </defaultValue>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_XlbYEOq3EeG2iLp1vAsnsw" name="" memberEnd="_Xlb_IOq3EeG2iLp1vAsnsw _XldNQOq3EeG2iLp1vAsnsw"/>
       <packagedElement xmi:type="uml:Enumeration" xmi:id="_AQ8NYPKYEeGXcrz1WV8dqw" name="ArrayType">
@@ -1182,7 +1192,7 @@
           </children>
           <styles xmi:type="umlnotation:UMLDiagramStyle" xmi:id="_Su7ZsTveEd-PZ70lu-zpYg"/>
           <element xsi:nil="true"/>
-          <edges xmi:id="_wnQ7YDveEd-PZ70lu-zpYg" element="_wmYKkDveEd-PZ70lu-zpYg" source="_X46yUDveEd-PZ70lu-zpYg" target="_2Kz_EEZIEd-sOu4vtdvMEA">
+          <edges xmi:id="_wnQ7YDveEd-PZ70lu-zpYg" element="_wmYKkDveEd-PZ70lu-zpYg" source="_cKFqMPXoEeGJyMxspERnIw" target="_2Kz_EEZIEd-sOu4vtdvMEA">
             <children xmi:id="_wnRicDveEd-PZ70lu-zpYg" type="NameLabel">
               <children xmi:id="_wnRicjveEd-PZ70lu-zpYg" type="Stereotype"/>
               <children xmi:id="_wnRiczveEd-PZ70lu-zpYg" type="Name"/>
@@ -1230,7 +1240,7 @@
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_wnQ7YTveEd-PZ70lu-zpYg" fontName="Segoe UI" routing="Rectilinear" lineWidth="1" showStereotype="Text"/>
             <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wnQ7YjveEd-PZ70lu-zpYg" points="[446, 465, -5819, -2752]$[446, 1903, -5819, -1314]$[6357, 1903, 92, -1314]$[6357, 2597, 92, -620]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RQ2SUDwDEd-Dc9Rw_97E5Q" id="(0.77857834,0.89285713)"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RQ2SUDwDEd-Dc9Rw_97E5Q" id="(0.80700535,0.18113466)"/>
           </edges>
           <edges xmi:id="_MyX74DwDEd-Dc9Rw_97E5Q" source="_MyU4kDwDEd-Dc9Rw_97E5Q" target="_MyU4kDwDEd-Dc9Rw_97E5Q">
             <children xmi:id="_MyX74zwDEd-Dc9Rw_97E5Q" type="NameLabel">
@@ -2200,10 +2210,6 @@
         <generalization xmi:id="_EAdnEDwTEd-Dc9Rw_97E5Q">
           <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
         </generalization>
-        <ownedAttribute xmi:id="_wmZ_wDveEd-PZ70lu-zpYg" name="definedLogicalSets" visibility="public" type="_2KvtoEZIEd-sOu4vtdvMEA" aggregation="composite" association="_wmYKkDveEd-PZ70lu-zpYg">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wmbN4DveEd-PZ70lu-zpYg" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wmam0DveEd-PZ70lu-zpYg"/>
-        </ownedAttribute>
         <ownedAttribute xmi:id="_G6-mEEZIEd-sOu4vtdvMEA" name="instrumentRecursively" visibility="public">
           <ownedComment xmi:id="_7FadcPXpEeGJyMxspERnIw" annotatedElement="_G6-mEEZIEd-sOu4vtdvMEA">
             <body>When set, instruments methods called from the methods specified in 
@@ -2211,12 +2217,6 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
           </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
           <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="__DWBwEcTEd-sOu4vtdvMEA" value="true">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
-          </defaultValue>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_MAZAsEZIEd-sOu4vtdvMEA" name="aggregateInternalCallsTransparently" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
-          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="__2EfMEcTEd-sOu4vtdvMEA" value="true">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
           </defaultValue>
         </ownedAttribute>
@@ -2321,7 +2321,7 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_-v3wYEZIEd-sOu4vtdvMEA" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_-v3JUEZIEd-sOu4vtdvMEA"/>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_wmb08DveEd-PZ70lu-zpYg" name="instrumentationProfile" visibility="public" type="_X45kMDveEd-PZ70lu-zpYg" association="_wmYKkDveEd-PZ70lu-zpYg">
+        <ownedAttribute xmi:id="_wmb08DveEd-PZ70lu-zpYg" name="executionProfile" visibility="public" type="_cJTAAPXoEeGJyMxspERnIw" association="_wmYKkDveEd-PZ70lu-zpYg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wmdDEDveEd-PZ70lu-zpYg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wmccADveEd-PZ70lu-zpYg" value="1"/>
         </ownedAttribute>
@@ -2442,6 +2442,10 @@ When false, only the counts for operations done in the method itself - not those
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hkbL8fXoEeGJyMxspERnIw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hkbL8PXoEeGJyMxspERnIw"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_wmZ_wDveEd-PZ70lu-zpYg" name="definedLogicalSets" visibility="public" type="_2KvtoEZIEd-sOu4vtdvMEA" aggregation="composite" association="_wmYKkDveEd-PZ70lu-zpYg">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wmbN4DveEd-PZ70lu-zpYg" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wmam0DveEd-PZ70lu-zpYg"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_hkXhkPXoEeGJyMxspERnIw" memberEnd="_hkYvsPXoEeGJyMxspERnIw _hkak4PXoEeGJyMxspERnIw"/>
     </packagedElement>
@@ -2496,4 +2500,5 @@ When false, only the counts for operations done in the method itself - not those
   <Default:Documentation xmi:id="_VlHPYPXqEeGJyMxspERnIw" base_Comment="_VlDlAPXqEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_c2PToPXqEeGJyMxspERnIw" base_Comment="_c2NecPXqEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_kzNxQPXqEeGJyMxspERnIw" base_Comment="_kzLVAPXqEeGJyMxspERnIw"/>
+  <Default:Documentation xmi:id="_5rcewAxvEeK8E4ionb-Bzg" base_Comment="_5rXmQAxvEeK8E4ionb-Bzg"/>
 </xmi:XMI>
