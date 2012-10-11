@@ -208,8 +208,8 @@ public class CodeGenerationConfigurationTab extends AbstractConfigurationTab {
 
 		comboModelToTextTarget = new Combo(modelTarget, SWT.READ_ONLY);
 		comboModelToTextTarget.setItems(new String[] {
-				ConstantsContainer.MODEL_TO_TEXT_TARGET_STUBS,
-				ConstantsContainer.MODEL_TO_TEXT_TARGET_PROTO });
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_PROTO,
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_STUBS });
 		comboModelToTextTarget.setSize(350, 50);
 		comboModelToTextTarget.addModifyListener(modifyListener);
 	}

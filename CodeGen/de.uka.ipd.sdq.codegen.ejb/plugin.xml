@@ -7,7 +7,7 @@
             delegate="de.uka.ipd.sdq.codegen.ejb.EJBCodegenWorkflowLauncher"
             id="de.uka.ipd.sdq.codegen.ejb.launchConfigurationType"
             modes="run, debug"
-            name="EJB Stubs / Protocom Generator"
+            name="Protocom Generator"
             public="true">
       </launchConfigurationType>
    </extension>
