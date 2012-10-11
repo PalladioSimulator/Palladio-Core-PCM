@@ -124,6 +124,12 @@ public class CodeGenerationConfigurationTab extends AbstractConfigurationTab {
 				comboModelToTextTarget.getText());
 	}
 
+	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
+		super.setDefaults(configuration);
+		configuration.setAttribute(
+				ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS, false);
+	}
+
 	@Override
 	protected void createFurtherSections(Composite container) {
 		final Group sensitivityAnalysisParametersGroup = new Group(container,
@@ -192,7 +198,6 @@ public class CodeGenerationConfigurationTab extends AbstractConfigurationTab {
 		stepWidthText.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true,
 				false));
 		stepWidthText.addModifyListener(modifyListener);
-
 
 		final Group modelTarget = new Group(container, SWT.NONE);
 		modelTarget.setText("Transformation Target");
