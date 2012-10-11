@@ -5,7 +5,7 @@ import org.eclipse.debug.ui.ILaunchConfigurationDialog;
 import org.eclipse.debug.ui.ILaunchConfigurationTab;
 
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
-import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
+import de.uka.ipd.sdq.workflow.pcm.runconfig.ProtocomFileNamesInputTab;
 
 /**
  * The class defines tabs for the SimuBench Launch configuration menu.
@@ -20,7 +20,7 @@ public class EjbGeneratorTabGroup extends AbstractLaunchConfigurationTabGroup {
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
         ILaunchConfigurationTab commonTab = new DebugEnabledCommonTab();
 		ILaunchConfigurationTab[] tabs = new ILaunchConfigurationTab[] {
-				new FileNamesInputTab(), // Default tab
+				new ProtocomFileNamesInputTab(),
 				new CodeGenerationConfigurationTab(),
 				commonTab
 		};
