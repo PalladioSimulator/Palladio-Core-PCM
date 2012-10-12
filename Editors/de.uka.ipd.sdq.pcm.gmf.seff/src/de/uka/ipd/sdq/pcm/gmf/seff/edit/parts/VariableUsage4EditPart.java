@@ -336,8 +336,13 @@ public class VariableUsage4EditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
-            fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
-                    .prettyPrint(((VariableUsage) resolveSemanticElement()).getNamedReference__VariableUsage()));
+            VariableUsage variableUsage = (VariableUsage) resolveSemanticElement();
+            if (variableUsage == null) {
+            	fFigureVariableUsageReferenceLabelFigure.setText("<not set>");
+            } else {
+                fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
+                .prettyPrint(variableUsage.getNamedReference__VariableUsage()));
+            }
             fFigureVariableUsageReferenceLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 

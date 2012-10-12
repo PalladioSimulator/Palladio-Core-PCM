@@ -68,9 +68,13 @@ public class CustomVariableUsage4EditPart extends VariableUsage4EditPart {
 
             final WrappingLabel fFigureVariableUsageReferenceLabelFigure = this
                     .getFigureVariableUsageReferenceLabelFigure();
-            fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
-                    .prettyPrint(((VariableUsage) CustomVariableUsage4EditPart.this.resolveSemanticElement())
-                            .getNamedReference__VariableUsage()));
+            VariableUsage variableUsage = (VariableUsage) resolveSemanticElement();
+            if (variableUsage == null) {
+            	fFigureVariableUsageReferenceLabelFigure.setText("<not set>");
+            } else {
+                fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
+                .prettyPrint(variableUsage.getNamedReference__VariableUsage()));
+            }
             fFigureVariableUsageReferenceLabelFigure.setBorder(new MarginBorder(CustomVariableUsage4EditPart.this
                     .getMapMode().DPtoLP(2), CustomVariableUsage4EditPart.this.getMapMode().DPtoLP(0),
                     CustomVariableUsage4EditPart.this.getMapMode().DPtoLP(2), CustomVariableUsage4EditPart.this
