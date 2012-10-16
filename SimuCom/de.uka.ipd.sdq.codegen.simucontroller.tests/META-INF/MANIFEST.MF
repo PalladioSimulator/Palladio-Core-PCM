@@ -12,5 +12,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.debug.core,
  de.uka.ipd.sdq.simucomframework,
  org.eclipse.core.filesystem,
- de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework;bundle-version="1.0.0"
+ de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"
 Eclipse-LazyStart: true
