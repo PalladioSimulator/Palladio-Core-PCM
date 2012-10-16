@@ -53,6 +53,7 @@ class ConfigureSEFFCommand extends ConfigureElementCommand {
 
         ResourceDemandingSEFF seff = (ResourceDemandingSEFF) myRequest.getElementToConfigure();
         StartAction start = SeffFactory.eINSTANCE.createStartAction();
+        start.setEntityName("start");
         SetRequest setter2 = new SetRequest(seff,
                 SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour(), start);
         SetValueCommand setCommand2 = new SetValueCommand(setter2);
@@ -62,6 +63,7 @@ class ConfigureSEFFCommand extends ConfigureElementCommand {
             return CommandResult.newErrorCommandResult("Create SEFF failed!");
         }
         StopAction stop = SeffFactory.eINSTANCE.createStopAction();
+        stop.setEntityName("stop");
         SetRequest setter3 = new SetRequest(seff,
                 SeffPackage.eINSTANCE.getResourceDemandingBehaviour_Steps_Behaviour(), stop);
         SetValueCommand setCommand3 = new SetValueCommand(setter3);
