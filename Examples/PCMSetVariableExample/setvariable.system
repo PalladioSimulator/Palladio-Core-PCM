@@ -12,9 +12,6 @@
   <connectors__ComposedStructure xsi:type="composition:ProvidedDelegationConnector" id="_gQweQP__Edu5_5tCZjPAAA" entityName="ProvDel" outerProvidedRole_ProvidedDelegationConnector="_fW7TQP__Edu5_5tCZjPAAA" assemblyContext_ProvidedDelegationConnector="_YRik8P__Edu5_5tCZjPAAA">
     <innerProvidedRole_ProvidedDelegationConnector href="default.repository#_XfHUYP_9Edu5_5tCZjPAAA"/>
   </connectors__ComposedStructure>
-  <connectors__ComposedStructure xsi:type="composition:RequiredDelegationConnector" id="_9NOnIAauEdywPIi5Iy_UsA" entityName="ReqDelegation Required_IProvidedServer_Client -> Required_IProvidedServer" assemblyContext_RequiredDelegationConnector="_cT2oQAasEdyQormb4HpLeA">
-    <innerRequiredRole_RequiredDelegationConnector href="default.repository#_X8oW0P_9Edu5_5tCZjPAAA"/>
-  </connectors__ComposedStructure>
   <connectors__ComposedStructure xsi:type="composition:AssemblyConnector" id="_eLjsUP__Edu5_5tCZjPAAA" entityName="AssemblyCon" requiringAssemblyContext_AssemblyConnector="_YRik8P__Edu5_5tCZjPAAA" providingAssemblyContext_AssemblyConnector="_Y-P58P__Edu5_5tCZjPAAA">
     <providedRole_AssemblyConnector href="default.repository#_ZJr_0P_9Edu5_5tCZjPAAA"/>
     <requiredRole_AssemblyConnector href="default.repository#_X8oW0P_9Edu5_5tCZjPAAA"/>
