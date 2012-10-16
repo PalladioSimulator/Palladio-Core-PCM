@@ -77,28 +77,6 @@
             <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_9X8-keq2EeG2iLp1vAsnsw" fontName="Sans Serif" showStereotype="Label"/>
             <layoutConstraint xmi:type="notation:Bounds" xmi:id="_9X8-kuq2EeG2iLp1vAsnsw" x="528" y="2376"/>
           </children>
-          <children xmi:id="_RyizcOq3EeG2iLp1vAsnsw" element="_RyfwIOq3EeG2iLp1vAsnsw">
-            <children xmi:id="_RyjagOq3EeG2iLp1vAsnsw" type="ImageCompartment">
-              <layoutConstraint xmi:type="notation:Size" xmi:id="_Ryjageq3EeG2iLp1vAsnsw" width="1320" height="1320"/>
-            </children>
-            <children xmi:id="_Ryjaguq3EeG2iLp1vAsnsw" type="Stereotype"/>
-            <children xmi:id="_Ryjag-q3EeG2iLp1vAsnsw" type="Name"/>
-            <children xmi:id="_RykBkOq3EeG2iLp1vAsnsw" type="Parent"/>
-            <children xmi:id="_RykBkeq3EeG2iLp1vAsnsw" type="AttributeCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_RykBkuq3EeG2iLp1vAsnsw"/>
-            </children>
-            <children xmi:id="_RykBk-q3EeG2iLp1vAsnsw" type="OperationCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_RykBlOq3EeG2iLp1vAsnsw"/>
-            </children>
-            <children xmi:id="_RykooOq3EeG2iLp1vAsnsw" visible="false" type="SignalCompartment">
-              <styles xmi:type="umlnotation:UMLListCompartmentStyle" xmi:id="_Rykooeq3EeG2iLp1vAsnsw"/>
-            </children>
-            <children xmi:id="_Rykoouq3EeG2iLp1vAsnsw" visible="false" type="StructureCompartment">
-              <styles xmi:type="umlnotation:UMLShapeCompartmentStyle" xmi:id="_Rykoo-q3EeG2iLp1vAsnsw"/>
-            </children>
-            <styles xmi:type="umlnotation:UMLShapeStyle" xmi:id="_Ryizceq3EeG2iLp1vAsnsw" fontName="Sans Serif" showStereotype="Label"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_Ryizcuq3EeG2iLp1vAsnsw" x="1188" y="10560"/>
-          </children>
           <children xmi:id="_ARJowPKYEeGXcrz1WV8dqw" element="_AQ8NYPKYEeGXcrz1WV8dqw">
             <children xmi:id="_ARJow_KYEeGXcrz1WV8dqw" type="ImageCompartment">
               <layoutConstraint xmi:type="notation:Size" xmi:id="_ARJoxPKYEeGXcrz1WV8dqw" width="1320" height="1320"/>
@@ -408,18 +386,7 @@
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kcB3EOq3EeG2iLp1vAsnsw" id="(0.67831635,0.0)"/>
             <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_k3frEOq3EeG2iLp1vAsnsw" id="(0.4999097,1.0)"/>
           </edges>
-          <edges xmi:id="_U2uWIOq3EeG2iLp1vAsnsw" element="_U2XJwOq3EeG2iLp1vAsnsw" source="_RyizcOq3EeG2iLp1vAsnsw" target="_8eaugOq2EeG2iLp1vAsnsw">
-            <children xmi:id="_U2uWI-q3EeG2iLp1vAsnsw" type="NameLabel">
-              <children xmi:id="_U2u9MOq3EeG2iLp1vAsnsw" type="Stereotype"/>
-              <children xmi:id="_U2u9Meq3EeG2iLp1vAsnsw" type="Name"/>
-              <layoutConstraint xmi:type="notation:Bounds" xmi:id="_U2uWJOq3EeG2iLp1vAsnsw" y="-147"/>
-            </children>
-            <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_U2uWIeq3EeG2iLp1vAsnsw" fontName="Sans Serif" routing="Rectilinear" lineWidth="1" showStereotype="Text"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_U2uWIuq3EeG2iLp1vAsnsw" points="[-48, 0, 1412, 2555]$[-48, -2555, 1412, 0]"/>
-            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rbH2cOuDEeGevsjrMEizwA" id="(0.4998921,0.0)"/>
-            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_rbIdgOuDEeGevsjrMEizwA" id="(0.24995485,1.0)"/>
-          </edges>
-          <edges xmi:id="_Xlj68Oq3EeG2iLp1vAsnsw" element="_XlbYEOq3EeG2iLp1vAsnsw" source="_RyizcOq3EeG2iLp1vAsnsw" target="_RyizcOq3EeG2iLp1vAsnsw">
+          <edges xmi:id="_Xlj68Oq3EeG2iLp1vAsnsw" element="_XlbYEOq3EeG2iLp1vAsnsw" source="_8eaugOq2EeG2iLp1vAsnsw" target="_8eaugOq2EeG2iLp1vAsnsw">
             <children xmi:id="_Xlj68-q3EeG2iLp1vAsnsw" type="NameLabel">
               <children xmi:id="_XlkiAOq3EeG2iLp1vAsnsw" type="Stereotype"/>
               <children xmi:id="_XlkiAeq3EeG2iLp1vAsnsw" type="Name"/>
@@ -466,7 +433,9 @@
               <layoutConstraint xmi:type="notation:Location" xmi:id="_XlmXNeq3EeG2iLp1vAsnsw" y="839"/>
             </children>
             <styles xmi:type="umlnotation:UMLConnectorStyle" xmi:id="_Xlj68eq3EeG2iLp1vAsnsw" fontName="Sans Serif" routing="Rectilinear" lineWidth="1" showStereotype="Text"/>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xlj68uq3EeG2iLp1vAsnsw" points="[2380, 0, 2380, 0]$[4165, 0, 4165, 0]$[4165, 2477, 4165, 2477]$[1935, 2477, 1935, 2477]$[1935, 688, 1935, 688]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_Xlj68uq3EeG2iLp1vAsnsw" points="[61, 355, 605, -84]$[1805, 355, 2349, -84]$[1805, 1866, 2349, 1427]$[-466, 1866, 78, 1427]$[-466, 529, 78, 90]"/>
+            <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_FCft4BelEeKA98dVuttaQg" id="(0.98957443,0.86678374)"/>
+            <targetAnchor xmi:type="notation:IdentityAnchor" xmi:id="_F332sBelEeKA98dVuttaQg" id="(0.89625704,0.977421)"/>
           </edges>
           <edges xmi:id="_4fKdsPKYEeGXcrz1WV8dqw" element="_4fDI8PKYEeGXcrz1WV8dqw" source="_8eaugOq2EeG2iLp1vAsnsw" target="_eJM2kPKYEeGXcrz1WV8dqw">
             <children xmi:id="_4fLEwPKYEeGXcrz1WV8dqw" type="NameLabel">
@@ -845,6 +814,28 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ma8i8PKbEeGXcrz1WV8dqw" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ma774PKbEeGXcrz1WV8dqw"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_8OV1sOq3EeG2iLp1vAsnsw" name="threadId" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#ELong"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_IbPwgAxvEeK8E4ionb-Bzg" name="final" visibility="public">
+          <ownedComment xmi:id="_5rXmQAxvEeK8E4ionb-Bzg" annotatedElement="_IbPwgAxvEeK8E4ionb-Bzg">
+            <body>When true, the result is complete and all field have their final value.
+When false, the result exists to allow for the correct result structure. The values of fields and references however are not all determined yet. In particular, counts for opcodes, method calls or array creations are subject to change.
+An instance in which final is used is a result for code which spawns threads. In order to correctly create a parent->child thread result relationship, an incomplete result (i.e. final=false) is created that correctly references the spawned result but is incomplete until the entirety of the instrumented element is executed.</body>
+          </ownedComment>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_THFoIAxvEeK8E4ionb-Bzg">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
+          </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_Xlb_IOq3EeG2iLp1vAsnsw" name="spawnedThreadedCountingResults" visibility="public" type="_8eXEIOq2EeG2iLp1vAsnsw" aggregation="composite" association="_XlbYEOq3EeG2iLp1vAsnsw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XlcmMeq3EeG2iLp1vAsnsw" value="*"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XlcmMOq3EeG2iLp1vAsnsw"/>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_XldNQOq3EeG2iLp1vAsnsw" name="threadedCountingResult" visibility="public" type="_8eXEIOq2EeG2iLp1vAsnsw" association="_XlbYEOq3EeG2iLp1vAsnsw">
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xld0Ueq3EeG2iLp1vAsnsw" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xld0UOq3EeG2iLp1vAsnsw"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_9X4tIOq2EeG2iLp1vAsnsw" name="RequestResult">
         <generalization xmi:id="_APhOMPYTEeGCw7rrCTZ13A">
@@ -862,30 +853,6 @@
       <packagedElement xmi:type="uml:Association" xmi:id="_G5K2IOq3EeG2iLp1vAsnsw" memberEnd="_G5MEQOq3EeG2iLp1vAsnsw _G5NSYOq3EeG2iLp1vAsnsw"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_Hr1CIOq3EeG2iLp1vAsnsw" memberEnd="_Hr23UOq3EeG2iLp1vAsnsw _Hr56oOq3EeG2iLp1vAsnsw"/>
       <packagedElement xmi:type="uml:Association" xmi:id="_QvW4IOq3EeG2iLp1vAsnsw" memberEnd="_QvYGQOq3EeG2iLp1vAsnsw _QvZUYeq3EeG2iLp1vAsnsw"/>
-      <packagedElement xmi:type="uml:Class" xmi:id="_RyfwIOq3EeG2iLp1vAsnsw" name="ThreadedCountingResult">
-        <generalization xmi:id="_U2XJwOq3EeG2iLp1vAsnsw" general="_8eXEIOq2EeG2iLp1vAsnsw"/>
-        <ownedAttribute xmi:id="_Xlb_IOq3EeG2iLp1vAsnsw" name="spawnedThreadedCountingResults" visibility="public" type="_RyfwIOq3EeG2iLp1vAsnsw" aggregation="composite" association="_XlbYEOq3EeG2iLp1vAsnsw">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_XlcmMeq3EeG2iLp1vAsnsw" value="*"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_XlcmMOq3EeG2iLp1vAsnsw"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_8OV1sOq3EeG2iLp1vAsnsw" name="threadId" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#ELong"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_XldNQOq3EeG2iLp1vAsnsw" name="threadedCountingResult" visibility="public" type="_RyfwIOq3EeG2iLp1vAsnsw" association="_XlbYEOq3EeG2iLp1vAsnsw">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_Xld0Ueq3EeG2iLp1vAsnsw" value="1"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_Xld0UOq3EeG2iLp1vAsnsw"/>
-        </ownedAttribute>
-        <ownedAttribute xmi:id="_IbPwgAxvEeK8E4ionb-Bzg" name="final" visibility="public">
-          <ownedComment xmi:id="_5rXmQAxvEeK8E4ionb-Bzg" annotatedElement="_IbPwgAxvEeK8E4ionb-Bzg">
-            <body>When true, the result is complete and all field have their final value.
-When false, the result exists to allow for the correct result structure. The values of fields and references however are not all determined yet. In particular, counts for opcodes, method calls or array creations are subject to change.</body>
-          </ownedComment>
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
-          <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_THFoIAxvEeK8E4ionb-Bzg">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
-          </defaultValue>
-        </ownedAttribute>
-      </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_XlbYEOq3EeG2iLp1vAsnsw" name="" memberEnd="_Xlb_IOq3EeG2iLp1vAsnsw _XldNQOq3EeG2iLp1vAsnsw"/>
       <packagedElement xmi:type="uml:Enumeration" xmi:id="_AQ8NYPKYEeGXcrz1WV8dqw" name="ArrayType">
         <ownedLiteral xmi:id="_KeoJYPKYEeGXcrz1WV8dqw" name="INVALID" classifier="_AQ8NYPKYEeGXcrz1WV8dqw">
