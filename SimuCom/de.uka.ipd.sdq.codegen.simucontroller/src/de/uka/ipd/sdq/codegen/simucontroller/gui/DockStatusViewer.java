@@ -189,6 +189,11 @@ public class DockStatusViewer extends Composite implements Observer {
 		PlatformUI.getWorkbench().getDisplay().asyncExec(new Runnable() {
 
             public void run() {
+            	// the code is performed asynchronously, so the workbench state needs
+            	// to be check right before the execution
+                if (PlatformUI.getWorkbench().getActiveWorkbenchWindow() == null) {
+                    return;
+                }
                 IViewPart viewer;
                 try {
                     viewer = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage()
