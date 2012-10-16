@@ -114,6 +114,11 @@ public class EventsTransformationJob
 		
 	}
 
+	/**
+	 * Search for an EventGroup in the repository
+	 * @param modelLocations the model locations 
+	 * @return true when no EventGroup is found
+	 */
 	private boolean checkEventGroups(ModelLocation[] modelLocations) {
 		boolean skipQVTO = true;
 		for(ModelLocation loc : modelLocations)
