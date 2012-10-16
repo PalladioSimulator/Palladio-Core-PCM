@@ -32,7 +32,17 @@
             <steps_Behaviour xsi:type="seff:StartAction" id="_q8SuQXtPEd6J8YwisObTKw" successor_AbstractAction="_rhshZHtPEd6J8YwisObTKw"/>
             <steps_Behaviour xsi:type="seff:InternalAction" id="_rhshZHtPEd6J8YwisObTKw" entityName="wait" predecessor_AbstractAction="_q8SuQXtPEd6J8YwisObTKw" successor_AbstractAction="_pmKo0HtPEd6J8YwisObTKw">
               <resourceDemand_Action>
-                <specification_ParametericResourceDemand specification="1.1"/>
+                <specification_ParametericResourceDemand specification="DoublePMF[(1.2;0.5)(0.95;0.5)]"/>
+                <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_nvHX4KkREdyEA_b89s7q9w"/>
+              </resourceDemand_Action>
+            </steps_Behaviour>
+          </synchronousForkedBehaviours_SynchronisationPoint>
+          <synchronousForkedBehaviours_SynchronisationPoint id="_NMOkMBecEeKPEYCkJN99mA">
+            <steps_Behaviour xsi:type="seff:StartAction" id="_NMTcsBecEeKPEYCkJN99mA" successor_AbstractAction="_O374EBecEeKPEYCkJN99mA"/>
+            <steps_Behaviour xsi:type="seff:StopAction" id="_NMUDwBecEeKPEYCkJN99mA" predecessor_AbstractAction="_O374EBecEeKPEYCkJN99mA"/>
+            <steps_Behaviour xsi:type="seff:InternalAction" id="_O374EBecEeKPEYCkJN99mA" entityName="waitToo" predecessor_AbstractAction="_NMTcsBecEeKPEYCkJN99mA" successor_AbstractAction="_NMUDwBecEeKPEYCkJN99mA">
+              <resourceDemand_Action>
+                <specification_ParametericResourceDemand specification="DoublePMF[(1.2;0.5)(0.95;0.5)]"/>
                 <requiredResource_ParametricResourceDemand href="pathmap://PCM_MODELS/Palladio.resourcetype#_nvHX4KkREdyEA_b89s7q9w"/>
               </resourceDemand_Action>
             </steps_Behaviour>
