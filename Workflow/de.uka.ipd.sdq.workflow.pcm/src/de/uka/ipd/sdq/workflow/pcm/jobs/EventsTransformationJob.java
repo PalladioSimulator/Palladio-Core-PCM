@@ -2,6 +2,7 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -9,8 +10,14 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import de.uka.ipd.sdq.pcm.repository.EventGroup;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
+import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
 import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
@@ -62,6 +69,12 @@ public class EventsTransformationJob
 		// get the models to work with
 		ModelLocation[] modelLocations = getRequiredModels(blackboard);
 		
+		if(checkEventGroups(modelLocations))
+		{
+			logger.info("Skipping Event Transformation: No EventGroup was found");
+			return;
+		}
+		
 		configuration.getEventMiddlewareFile();
 		
 		// build file paths
@@ -99,6 +112,29 @@ public class EventsTransformationJob
 		savePartitionJob.setBlackboard(blackboard);
 		savePartitionJob.execute(monitor);
 		
+	}
+
+	private boolean checkEventGroups(ModelLocation[] modelLocations) {
+		boolean skipQVTO = true;
+		for(ModelLocation loc : modelLocations)
+		{
+			URI modelId = loc.getModelID();
+			String fileExtension = modelId.fileExtension();
+			if(fileExtension.equals("repository") )
+			{
+				ResourceSetPartition partition = blackboard.getPartition(loc.getPartitionID());
+				List<EObject> contents = partition.getContents(modelId);
+				Repository repo = (Repository) EcoreUtil.getObjectByType(contents, RepositoryPackage.eINSTANCE.getRepository());
+				if(repo == null)
+					continue;
+				
+				Object eventgroup = EcoreUtil.getObjectByType(repo.getInterfaces__Repository(), RepositoryPackage.eINSTANCE.getEventGroup());
+				if(eventgroup != null)
+					skipQVTO = false;
+			}
+			
+		}
+		return skipQVTO;
 	}
 
 	/**
