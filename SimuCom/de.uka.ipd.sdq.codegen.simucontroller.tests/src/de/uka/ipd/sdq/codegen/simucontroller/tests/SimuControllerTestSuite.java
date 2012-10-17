@@ -149,7 +149,8 @@ public class SimuControllerTestSuite {
 			copy.setAttribute(ConstantsContainer.FEATURE_CONFIG,
 					ConstantsContainer.DEFAULT_FEATURE_CONFIGURATION_FILE);
 
-			copy.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME, SensorFrameworkConfig.PERSISTENCE_RECORDER_ID);
+			// TODO: should be optimized by using the constant SensorFrameworkConfig.PERSISTENCE_RECORDER_ID which is not available in the sensor framework version the pcm relies on
+			copy.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME, "SensorFramework");
 			copy.setAttribute(SensorFrameworkConfig.DATASOURCE_ID, 0);
 			copy.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,"100");
 			copy.setAttribute(SimuComConfig.USE_FIXED_SEED,Boolean.FALSE);
