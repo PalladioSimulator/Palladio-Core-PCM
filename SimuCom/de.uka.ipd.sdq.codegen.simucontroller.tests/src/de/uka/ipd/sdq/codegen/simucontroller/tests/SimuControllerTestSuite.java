@@ -160,7 +160,7 @@ public class SimuControllerTestSuite {
 			copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
 			copy.setAttribute(SimuComConfig.VERBOSE_LOGGING, false);
 			copy.setAttribute(SimuComConfig.SIMULATOR_ID, SimuComConfig.DEFAULT_SIMULATOR_ID);
-			copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
+			//copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
 		} catch (Exception ex) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
