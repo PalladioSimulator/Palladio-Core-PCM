@@ -157,7 +157,7 @@ public class SimuControllerTestSuite {
 			copy.setAttribute(SimuComConfig.USE_FIXED_SEED,Boolean.FALSE);
 			copy.setAttribute(SimuComConfig.SIMULATION_TIME, "1500");
 			copy.setAttribute(SimuComConfig.EXPERIMENT_RUN, "MyRun");
-			copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, true);
+			copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
 			copy.setAttribute(SimuComConfig.VERBOSE_LOGGING, false);
 			copy.setAttribute(SimuComConfig.SIMULATOR_ID, SimuComConfig.DEFAULT_SIMULATOR_ID);
 			copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
