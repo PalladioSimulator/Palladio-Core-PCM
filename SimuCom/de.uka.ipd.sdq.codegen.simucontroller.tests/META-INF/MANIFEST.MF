@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Simucontroller Test Plug-in
+Bundle-Name: de.uka.ipd.sdq.codegen.simucontroller.tests
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller.tests
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: de.uka.ipd.sdq.codegen.simucontroller
