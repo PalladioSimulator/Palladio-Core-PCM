@@ -106,70 +106,69 @@ public class SimuControllerTestSuite {
 	 */
 	private void runSimuComLaunch(String modelName) {
 
-		String myString = "123";
 		
-//		ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
-//		ILaunchConfigurationType type = manager
-//				.getLaunchConfigurationType(SimuControllerTestSuite.ID_SIMUCOM_LAUNCH);
-//
-//		IContainer container = ResourcesPlugin.getWorkspace().getRoot();
-//
-//		try {
-//			ILaunchConfigurationWorkingCopy copy = type.newInstance(container,
-//					modelName);
-//
-//			copy.setAttribute(ConstantsContainer.ALLOCATION_FILE,
-//					getModelsFilePath(modelName,
-//							ConstantsContainer.ALLOCATION_EXTENSION[0]));
-//
-//			copy.setAttribute(ConstantsContainer.REPOSITORY_FILE,
-//					getModelsFilePath(modelName,
-//							ConstantsContainer.REPOSITORY_EXTENSION[0]));
-//
-//			copy.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
-//					getModelsFilePath(modelName,
-//							ConstantsContainer.RESOURCETYPE_EXTENSION[0]));
-//
-//			copy.setAttribute(ConstantsContainer.USAGE_FILE, getModelsFilePath(
-//					modelName, ConstantsContainer.USAGEMODEL_EXTENSION[0]));
-//
-//			copy.setAttribute(ConstantsContainer.SYSTEM_FILE,
-//					getModelsFilePath(modelName,
-//							ConstantsContainer.SYSTEM_EXTENSION[0]));
-//			
-//			copy.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
-//					ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE);
-//			
-//			copy.setAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE,
-//					ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
-//			
-//			copy.setAttribute(ConstantsContainer.TEMPORARY_DATA_LOCATION,
-//					ConstantsContainer.DEFAULT_TEMPORARY_DATA_LOCATION);
-//			
-//			copy.setAttribute(ConstantsContainer.ACCURACY_QUALITY_ANNOTATION_FILE,
-//					ConstantsContainer.DEFAULT_ACCURACY_QUALITY_ANNOTATION_FILE);
-//			
-//			copy.setAttribute(ConstantsContainer.FEATURE_CONFIG,
-//					ConstantsContainer.DEFAULT_FEATURE_CONFIGURATION_FILE);
-//
-//			// TODO: should be optimized by using the constant SensorFrameworkConfig.PERSISTENCE_RECORDER_ID which is not available in the sensor framework version the pcm relies on
-//			copy.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME, "SensorFramework");
-//			copy.setAttribute(SensorFrameworkConfig.DATASOURCE_ID, 0);
-//			copy.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,"100");
-//			copy.setAttribute(SimuComConfig.USE_FIXED_SEED,Boolean.FALSE);
-//			copy.setAttribute(SimuComConfig.SIMULATION_TIME, "1500");
-//			copy.setAttribute(SimuComConfig.EXPERIMENT_RUN, "MyRun");
-//			copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
-//			copy.setAttribute(SimuComConfig.VERBOSE_LOGGING, false);
-//			copy.setAttribute(SimuComConfig.SIMULATOR_ID, SimuComConfig.DEFAULT_SIMULATOR_ID);
-//			//copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
-//		} catch (Exception ex) {
-//			StringWriter sw = new StringWriter();
-//			PrintWriter pw = new PrintWriter(sw);
-//			ex.printStackTrace(pw);
-//			Assert.fail("Created config failed: " + ex.getMessage() + "\n"
-//					+ sw.toString());
-//		}
+		ILaunchManager manager = DebugPlugin.getDefault().getLaunchManager();
+		ILaunchConfigurationType type = manager
+				.getLaunchConfigurationType(SimuControllerTestSuite.ID_SIMUCOM_LAUNCH);
+
+		IContainer container = ResourcesPlugin.getWorkspace().getRoot();
+
+		try {
+			ILaunchConfigurationWorkingCopy copy = type.newInstance(container,
+					modelName);
+
+			copy.setAttribute(ConstantsContainer.ALLOCATION_FILE,
+					getModelsFilePath(modelName,
+							ConstantsContainer.ALLOCATION_EXTENSION[0]));
+
+			copy.setAttribute(ConstantsContainer.REPOSITORY_FILE,
+					getModelsFilePath(modelName,
+							ConstantsContainer.REPOSITORY_EXTENSION[0]));
+
+			copy.setAttribute(ConstantsContainer.RESOURCETYPEREPOSITORY_FILE,
+					getModelsFilePath(modelName,
+							ConstantsContainer.RESOURCETYPE_EXTENSION[0]));
+
+			copy.setAttribute(ConstantsContainer.USAGE_FILE, getModelsFilePath(
+					modelName, ConstantsContainer.USAGEMODEL_EXTENSION[0]));
+
+			copy.setAttribute(ConstantsContainer.SYSTEM_FILE,
+					getModelsFilePath(modelName,
+							ConstantsContainer.SYSTEM_EXTENSION[0]));
+			
+			copy.setAttribute(ConstantsContainer.MWREPOSITORY_FILE,
+					ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE);
+			
+			copy.setAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE,
+					ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
+			
+			copy.setAttribute(ConstantsContainer.TEMPORARY_DATA_LOCATION,
+					ConstantsContainer.DEFAULT_TEMPORARY_DATA_LOCATION);
+			
+			copy.setAttribute(ConstantsContainer.ACCURACY_QUALITY_ANNOTATION_FILE,
+					ConstantsContainer.DEFAULT_ACCURACY_QUALITY_ANNOTATION_FILE);
+			
+			copy.setAttribute(ConstantsContainer.FEATURE_CONFIG,
+					ConstantsContainer.DEFAULT_FEATURE_CONFIGURATION_FILE);
+
+			// TODO: should be optimized by using the constant SensorFrameworkConfig.PERSISTENCE_RECORDER_ID which is not available in the sensor framework version the pcm relies on
+			copy.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME, "SensorFramework");
+			copy.setAttribute(SensorFrameworkConfig.DATASOURCE_ID, 0);
+			copy.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,"100");
+			copy.setAttribute(SimuComConfig.USE_FIXED_SEED,Boolean.FALSE);
+			copy.setAttribute(SimuComConfig.SIMULATION_TIME, "1500");
+			copy.setAttribute(SimuComConfig.EXPERIMENT_RUN, "MyRun");
+			copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
+			copy.setAttribute(SimuComConfig.VERBOSE_LOGGING, false);
+			copy.setAttribute(SimuComConfig.SIMULATOR_ID, SimuComConfig.DEFAULT_SIMULATOR_ID);
+			//copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
+		} catch (Exception ex) {
+			StringWriter sw = new StringWriter();
+			PrintWriter pw = new PrintWriter(sw);
+			ex.printStackTrace(pw);
+			Assert.fail("Created config failed: " + ex.getMessage() + "\n"
+					+ sw.toString());
+		}
 	}
 	
 	private String getModelsFilePath(String dirName, String extension) {
