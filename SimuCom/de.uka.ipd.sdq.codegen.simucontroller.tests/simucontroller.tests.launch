@@ -11,6 +11,7 @@
 <booleanAttribute key="clearwslog" value="false"/>
 <listAttribute key="com.mountainminds.eclemma.core.SCOPE_IDS">
 <listEntry value="=de.uka.ipd.sdq.codegen.simucontroller/src"/>
+<listEntry value="=de.uka.ipd.sdq.codegen.simucontroller.tests/src"/>
 </listAttribute>
 <stringAttribute key="configLocation" value="${workspace_loc}/.metadata/.plugins/org.eclipse.pde.core/pde-junit"/>
 <booleanAttribute key="default" value="true"/>
