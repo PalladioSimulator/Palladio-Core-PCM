@@ -63,7 +63,7 @@ public class SimuControllerTestSuite {
 	
 	/** A test of example MediaStore */ 
 	@Test
-	public void RunSimuComLaunch_MediaStore() throws CoreException {
+	public void RunSimuComLaunch_MediaStore() {
 		runSimuComLaunch("MediaStore");
 	}
 	
@@ -104,7 +104,7 @@ public class SimuControllerTestSuite {
 	 * 
 	 * @param dir/model name
 	 */
-	private void runSimuComLaunch(String modelName) throws CoreException {
+	private void runSimuComLaunch(String modelName) {
 
 		String myString = "123";
 		
