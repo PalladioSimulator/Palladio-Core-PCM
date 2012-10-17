@@ -3,10 +3,11 @@ Bundle-ManifestVersion: 2
 Bundle-Name: Simucontroller Test Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller.tests
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: de.uka.ipd.sdq.codegen.simucontroller.tests.Activator
+Fragment-Host: de.uka.ipd.sdq.codegen.simucontroller
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.junit4,
  de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
