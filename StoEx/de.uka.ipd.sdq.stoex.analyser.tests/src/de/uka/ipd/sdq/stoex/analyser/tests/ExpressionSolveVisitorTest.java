@@ -2,18 +2,18 @@ package de.uka.ipd.sdq.stoex.analyser.tests;
 
 import java.util.HashMap;
 
+import junit.framework.TestCase;
+
 import org.antlr.runtime.ANTLRStringStream;
 import org.antlr.runtime.CommonTokenStream;
 import org.antlr.runtime.RecognitionException;
 
-import junit.framework.TestCase;
 import de.uka.ipd.sdq.probfunction.ProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityMassFunction;
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
 import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
-import de.uka.ipd.sdq.stoex.analyser.operations.TermProductOperation;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionInferTypeVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.ExpressionSolveVisitor;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
