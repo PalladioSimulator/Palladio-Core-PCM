@@ -5,12 +5,11 @@ import junit.framework.TestCase;
 
 import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.ConsoleAppender;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
-import org.apache.log4j.Priority;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
-import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
@@ -32,7 +31,7 @@ public class StoExVisitorTests extends TestCase {
 
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
 		ConsoleAppender ca = new ConsoleAppender(myLayout);
-		ca.setThreshold(Priority.INFO);
+		ca.setThreshold(Level.INFO);
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(ca);
 	}

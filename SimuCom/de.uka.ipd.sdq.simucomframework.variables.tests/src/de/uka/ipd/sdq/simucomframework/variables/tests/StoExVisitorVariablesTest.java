@@ -24,10 +24,11 @@ public class StoExVisitorVariablesTest extends TestCase {
 	private static Logger logger = 
 		Logger.getLogger(StoExVisitorTests.class.getName());
 	private SimulatedStackframe<Object> stackFrame;
+	private ConsoleAppender ca;
 
 	public void setUp() {
 		PatternLayout myLayout = new PatternLayout("%d{HH:mm:ss,SSS} [%t] %-5p %m [%c]%n");
-		ConsoleAppender ca = new ConsoleAppender(myLayout);
+		ca = new ConsoleAppender(myLayout);
 		ca.setThreshold(Level.INFO);
 		BasicConfigurator.resetConfiguration();
 		BasicConfigurator.configure(ca);
@@ -125,11 +126,19 @@ public class StoExVisitorVariablesTest extends TestCase {
 				StackContext.evaluateStatic(FLOAT_VALUE, Double.class, stackFrame));
 	}
 	
+	/**
+	 * Test the detection of a wrong variable access. 
+	 * That means the expression tries to access a variable which has never placed on the stack.
+	 * This test method temporarly turns of the logging, because a logging of the exception
+	 * is expected and should not mess up the test environment console.
+	 */
 	public void testInvalidAccess() {
 		try {
+			ca.setThreshold(Level.OFF);
 			StackContext.evaluateStatic("sssdffg.VALUE", stackFrame);
+			ca.setThreshold(Level.INFO);
 		} catch (Exception ex){
-			Assert.assertEquals(StochasticExpressionEvaluationFailedException.class, ex.getClass());
+			Assert.assertEquals("An unexpected type of exception has been thrown",StochasticExpressionEvaluationFailedException.class, ex.getClass());
 			return;
 		}
 		Assert.fail("Parser error expected, but did not occur");
