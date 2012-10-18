@@ -52,5 +52,5 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
  org.eclipse.emf.validation;visibility:=reexport
-Eclipse-LazyStart: true
-Bundle-RequiredExecutionEnvironment: J2SE-1.4
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

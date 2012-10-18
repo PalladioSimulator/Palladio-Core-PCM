@@ -49,6 +49,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.draw2d;visibility:=reexport,
  de.uka.ipd.sdq.stoex.analyser,
  de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0"
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
 Import-Package: de.uka.ipd.sdq.pcm.dialogs.stoex,
  de.uka.ipd.sdq.pcmbench.ui.provider
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

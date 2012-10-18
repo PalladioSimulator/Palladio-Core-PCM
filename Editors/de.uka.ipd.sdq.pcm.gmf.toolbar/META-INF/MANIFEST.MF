@@ -15,5 +15,5 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm.gmf.composite,
  de.uka.ipd.sdq.pcm.editor
 Bundle-Vendor: sdq.ipd.uka.de
-Eclipse-LazyStart: false
 Import-Package: de.uka.ipd.sdq.pcm.gmf.resource.part
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

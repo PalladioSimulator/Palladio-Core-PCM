@@ -14,3 +14,4 @@ Require-Bundle: org.eclipse.ui,
 Export-Package: de.uka.ipd.sdq.pcmbench.ui,
  de.uka.ipd.sdq.pcmbench.ui.provider,
  de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

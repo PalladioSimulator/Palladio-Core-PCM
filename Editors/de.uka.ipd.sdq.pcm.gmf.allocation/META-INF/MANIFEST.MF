@@ -46,4 +46,5 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.draw2d;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
