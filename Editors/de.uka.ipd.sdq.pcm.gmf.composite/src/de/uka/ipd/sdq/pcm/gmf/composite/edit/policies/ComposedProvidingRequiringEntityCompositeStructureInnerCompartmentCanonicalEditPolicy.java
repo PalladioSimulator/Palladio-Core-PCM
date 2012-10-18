@@ -25,67 +25,68 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 /**
  * @generated
  */
-public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy extends
-        CanonicalEditPolicy {
+public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy
+		extends CanonicalEditPolicy {
 
-    /**
-     * @generated
-     */
-    Set myFeaturesToSynchronize;
+	/**
+	 * @generated
+	 */
+	Set myFeaturesToSynchronize;
 
-    /**
-     * @generated not
-     */
-    protected List getSemanticChildrenList() {
-        View viewObject = (View) getHost().getModel();
-        EObject modelObject = viewObject.getElement();
-        List result = new LinkedList();
+	/**
+	 * @generated not
+	 */
+	protected List getSemanticChildrenList() {
+		View viewObject = (View) getHost().getModel();
+		EObject modelObject = viewObject.getElement();
+		List result = new LinkedList();
 
-        if (modelObject != null && modelObject instanceof ComposedStructure) {
-            for (AssemblyContext assemblyContext : ((ComposedStructure) modelObject)
-                    .getAssemblyContexts__ComposedStructure()) {
+		if (modelObject != null && modelObject instanceof ComposedStructure) {
+			for (AssemblyContext assemblyContext : ((ComposedStructure) modelObject)
+					.getAssemblyContexts__ComposedStructure()) {
 
-                int assemblyNodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(viewObject,
-                        assemblyContext);
-                if (AssemblyContextEditPart.VISUAL_ID == assemblyNodeVID) {
-                    result.add(assemblyContext);
-                }
-            }
-        }
-        return result;
-    }
+				int assemblyNodeVID = PalladioComponentModelVisualIDRegistry
+						.getNodeVisualID(viewObject, assemblyContext);
+				if (AssemblyContextEditPart.VISUAL_ID == assemblyNodeVID) {
+					result.add(assemblyContext);
+				}
+			}
+		}
+		return result;
+	}
 
-    /**
-     * @generated
-     */
-    protected boolean isOrphaned(Collection semanticChildren, final View view) {
-        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-        switch (visualID) {
-        case AssemblyContextEditPart.VISUAL_ID:
-            if (!semanticChildren.contains(view.getElement())) {
-                return true;
-            }
-        }
-        return false;
-    }
+	/**
+	 * @generated
+	 */
+	protected boolean isOrphaned(Collection semanticChildren, final View view) {
+		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+		switch (visualID) {
+		case AssemblyContextEditPart.VISUAL_ID:
+			if (!semanticChildren.contains(view.getElement())) {
+				return true;
+			}
+		}
+		return false;
+	}
 
-    /**
-     * @generated
-     */
-    protected String getDefaultFactoryHint() {
-        return null;
-    }
+	/**
+	 * @generated
+	 */
+	protected String getDefaultFactoryHint() {
+		return null;
+	}
 
-    /**
-     * @generated
-     */
-    protected Set getFeaturesToSynchronize() {
-        if (myFeaturesToSynchronize == null) {
-            myFeaturesToSynchronize = new HashSet();
-            myFeaturesToSynchronize.add(EntityPackage.eINSTANCE
-                    .getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
-        }
-        return myFeaturesToSynchronize;
-    }
+	/**
+	 * @generated
+	 */
+	protected Set getFeaturesToSynchronize() {
+		if (myFeaturesToSynchronize == null) {
+			myFeaturesToSynchronize = new HashSet();
+			myFeaturesToSynchronize
+					.add(EntityPackage.eINSTANCE
+							.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
+		}
+		return myFeaturesToSynchronize;
+	}
 
 }

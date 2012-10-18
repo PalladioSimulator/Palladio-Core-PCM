@@ -12,11 +12,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
  */
 public class DiagramConnectionsPreferencePage extends ConnectionsPreferencePage {
 
-    /**
-     * @generated
-     */
-    public DiagramConnectionsPreferencePage() {
-        setPreferenceStore(PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance()
-                .getPreferenceStore());
-    }
+	/**
+	 * @generated
+	 */
+	public DiagramConnectionsPreferencePage() {
+		setPreferenceStore(PalladioComponentModelComposedStructureDiagramEditorPlugin
+				.getInstance().getPreferenceStore());
+	}
 }

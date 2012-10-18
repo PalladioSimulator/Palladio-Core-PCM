@@ -50,6 +50,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcmbench.tabs,
  org.eclipse.ui.navigator.resources,
  de.uka.ipd.sdq.units;visibility:=reexport,
- de.uka.ipd.sdq.units.edit;visibility:=reexport
+ de.uka.ipd.sdq.units.edit;visibility:=reexport,
+ org.eclipse.emf.validation;visibility:=reexport
 Eclipse-LazyStart: true
 Bundle-RequiredExecutionEnvironment: J2SE-1.4

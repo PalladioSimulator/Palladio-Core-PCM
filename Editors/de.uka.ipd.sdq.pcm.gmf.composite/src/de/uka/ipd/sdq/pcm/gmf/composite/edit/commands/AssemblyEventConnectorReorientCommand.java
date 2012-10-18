@@ -22,143 +22,150 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  */
 public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
 
-    /**
-     * @generated
-     */
-    private final int reorientDirection;
+	/**
+	 * @generated
+	 */
+	private final int reorientDirection;
 
-    /**
-     * @generated
-     */
-    private final EObject oldEnd;
+	/**
+	 * @generated
+	 */
+	private final EObject oldEnd;
 
-    /**
-     * @generated
-     */
-    private final EObject newEnd;
+	/**
+	 * @generated
+	 */
+	private final EObject newEnd;
 
-    /**
-     * @generated
-     */
-    public AssemblyEventConnectorReorientCommand(ReorientRelationshipRequest request) {
-        super(request.getLabel(), request.getRelationship(), request);
-        reorientDirection = request.getDirection();
-        oldEnd = request.getOldRelationshipEnd();
-        newEnd = request.getNewRelationshipEnd();
-    }
+	/**
+	 * @generated
+	 */
+	public AssemblyEventConnectorReorientCommand(
+			ReorientRelationshipRequest request) {
+		super(request.getLabel(), request.getRelationship(), request);
+		reorientDirection = request.getDirection();
+		oldEnd = request.getOldRelationshipEnd();
+		newEnd = request.getNewRelationshipEnd();
+	}
 
-    /**
-     * @generated
-     */
-    public boolean canExecute() {
-        if (false == getElementToEdit() instanceof AssemblyEventConnector) {
-            return false;
-        }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-            return canReorientSource();
-        }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-            return canReorientTarget();
-        }
-        return false;
-    }
+	/**
+	 * @generated
+	 */
+	public boolean canExecute() {
+		if (false == getElementToEdit() instanceof AssemblyEventConnector) {
+			return false;
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+			return canReorientSource();
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+			return canReorientTarget();
+		}
+		return false;
+	}
 
-    /**
-     * @generated
-     */
-    protected boolean canReorientSource() {
-        if (!(oldEnd instanceof SourceRole && newEnd instanceof SourceRole)) {
-            return false;
-        }
-        SinkRole target = getLink().getSinkRole__AssemblyEventConnector();
-        if (!(getLink().eContainer() instanceof ComposedStructure)) {
-            return false;
-        }
-        ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistAssemblyEventConnector_4007(
-                container, getNewSource(), target);
-    }
+	/**
+	 * @generated
+	 */
+	protected boolean canReorientSource() {
+		if (!(oldEnd instanceof SourceRole && newEnd instanceof SourceRole)) {
+			return false;
+		}
+		SinkRole target = getLink().getSinkRole__AssemblyEventConnector();
+		if (!(getLink().eContainer() instanceof ComposedStructure)) {
+			return false;
+		}
+		ComposedStructure container = (ComposedStructure) getLink()
+				.eContainer();
+		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+				.canExistAssemblyEventConnector_4007(container, getNewSource(),
+						target);
+	}
 
-    /**
-     * @generated
-     */
-    protected boolean canReorientTarget() {
-        if (!(oldEnd instanceof SinkRole && newEnd instanceof SinkRole)) {
-            return false;
-        }
-        SourceRole source = getLink().getSourceRole__AssemblyEventConnector();
-        if (!(getLink().eContainer() instanceof ComposedStructure)) {
-            return false;
-        }
-        ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistAssemblyEventConnector_4007(
-                container, source, getNewTarget());
-    }
+	/**
+	 * @generated
+	 */
+	protected boolean canReorientTarget() {
+		if (!(oldEnd instanceof SinkRole && newEnd instanceof SinkRole)) {
+			return false;
+		}
+		SourceRole source = getLink().getSourceRole__AssemblyEventConnector();
+		if (!(getLink().eContainer() instanceof ComposedStructure)) {
+			return false;
+		}
+		ComposedStructure container = (ComposedStructure) getLink()
+				.eContainer();
+		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+				.canExistAssemblyEventConnector_4007(container, source,
+						getNewTarget());
+	}
 
-    /**
-     * @generated
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        if (!canExecute()) {
-            throw new ExecutionException("Invalid arguments in reorient link command"); //$NON-NLS-1$
-        }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
-            return reorientSource();
-        }
-        if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
-            return reorientTarget();
-        }
-        throw new IllegalStateException();
-    }
+	/**
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		if (!canExecute()) {
+			throw new ExecutionException(
+					"Invalid arguments in reorient link command"); //$NON-NLS-1$
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_SOURCE) {
+			return reorientSource();
+		}
+		if (reorientDirection == ReorientRelationshipRequest.REORIENT_TARGET) {
+			return reorientTarget();
+		}
+		throw new IllegalStateException();
+	}
 
-    /**
-     * @generated
-     */
-    protected CommandResult reorientSource() throws ExecutionException {
-        getLink().setSourceRole__AssemblyEventConnector(getNewSource());
-        return CommandResult.newOKCommandResult(getLink());
-    }
+	/**
+	 * @generated
+	 */
+	protected CommandResult reorientSource() throws ExecutionException {
+		getLink().setSourceRole__AssemblyEventConnector(getNewSource());
+		return CommandResult.newOKCommandResult(getLink());
+	}
 
-    /**
-     * @generated
-     */
-    protected CommandResult reorientTarget() throws ExecutionException {
-        getLink().setSinkRole__AssemblyEventConnector(getNewTarget());
-        return CommandResult.newOKCommandResult(getLink());
-    }
+	/**
+	 * @generated
+	 */
+	protected CommandResult reorientTarget() throws ExecutionException {
+		getLink().setSinkRole__AssemblyEventConnector(getNewTarget());
+		return CommandResult.newOKCommandResult(getLink());
+	}
 
-    /**
-     * @generated
-     */
-    protected AssemblyEventConnector getLink() {
-        return (AssemblyEventConnector) getElementToEdit();
-    }
+	/**
+	 * @generated
+	 */
+	protected AssemblyEventConnector getLink() {
+		return (AssemblyEventConnector) getElementToEdit();
+	}
 
-    /**
-     * @generated
-     */
-    protected SourceRole getOldSource() {
-        return (SourceRole) oldEnd;
-    }
+	/**
+	 * @generated
+	 */
+	protected SourceRole getOldSource() {
+		return (SourceRole) oldEnd;
+	}
 
-    /**
-     * @generated
-     */
-    protected SourceRole getNewSource() {
-        return (SourceRole) newEnd;
-    }
+	/**
+	 * @generated
+	 */
+	protected SourceRole getNewSource() {
+		return (SourceRole) newEnd;
+	}
 
-    /**
-     * @generated
-     */
-    protected SinkRole getOldTarget() {
-        return (SinkRole) oldEnd;
-    }
+	/**
+	 * @generated
+	 */
+	protected SinkRole getOldTarget() {
+		return (SinkRole) oldEnd;
+	}
 
-    /**
-     * @generated
-     */
-    protected SinkRole getNewTarget() {
-        return (SinkRole) newEnd;
-    }
+	/**
+	 * @generated
+	 */
+	protected SinkRole getNewTarget() {
+		return (SinkRole) newEnd;
+	}
 }

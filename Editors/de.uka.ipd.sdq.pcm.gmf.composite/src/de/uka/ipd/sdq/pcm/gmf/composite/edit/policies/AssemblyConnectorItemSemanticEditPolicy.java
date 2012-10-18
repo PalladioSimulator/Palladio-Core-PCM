@@ -11,20 +11,21 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 /**
  * @generated
  */
-public class AssemblyConnectorItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
+public class AssemblyConnectorItemSemanticEditPolicy extends
+		PalladioComponentModelBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public AssemblyConnectorItemSemanticEditPolicy() {
-        super(PalladioComponentModelElementTypes.AssemblyConnector_4004);
-    }
+	/**
+	 * @generated
+	 */
+	public AssemblyConnectorItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.AssemblyConnector_4004);
+	}
 
-    /**
-     * @generated
-     */
-    protected Command getDestroyElementCommand(DestroyElementRequest req) {
-        return getGEFWrapper(new DestroyElementCommand(req));
-    }
+	/**
+	 * @generated
+	 */
+	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+		return getGEFWrapper(new DestroyElementCommand(req));
+	}
 
 }

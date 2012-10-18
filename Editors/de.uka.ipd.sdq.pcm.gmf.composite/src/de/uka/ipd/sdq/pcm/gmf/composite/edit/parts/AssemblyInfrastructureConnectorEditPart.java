@@ -18,77 +18,80 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.AssemblyInfrastructureConn
 /**
  * @generated
  */
-public class AssemblyInfrastructureConnectorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class AssemblyInfrastructureConnectorEditPart extends
+		ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-    /**
-     * @generated
-     */
-    public static final int VISUAL_ID = 4008;
+	/**
+	 * @generated
+	 */
+	public static final int VISUAL_ID = 4008;
 
-    /**
-     * @generated
-     */
-    public AssemblyInfrastructureConnectorEditPart(View view) {
-        super(view);
-    }
+	/**
+	 * @generated
+	 */
+	public AssemblyInfrastructureConnectorEditPart(View view) {
+		super(view);
+	}
 
-    /**
-     * @generated
-     */
-    protected void createDefaultEditPolicies() {
-        super.createDefaultEditPolicies();
-        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new AssemblyInfrastructureConnectorItemSemanticEditPolicy());
-    }
+	/**
+	 * @generated
+	 */
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new AssemblyInfrastructureConnectorItemSemanticEditPolicy());
+	}
 
-    /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * @generated
-     */
+	/**
+	 * Creates figure for this edit part.
+	 * 
+	 * Body of this method does not depend on settings in generation model so you may safely remove
+	 * <i>generated</i> tag and modify it.
+	 * 
+	 * @generated
+	 */
 
-    protected Connection createConnectionFigure() {
-        return new AssemblyInfrastructureConnectorFigure();
-    }
+	protected Connection createConnectionFigure() {
+		return new AssemblyInfrastructureConnectorFigure();
+	}
 
-    /**
-     * @generated
-     */
-    public AssemblyInfrastructureConnectorFigure getPrimaryShape() {
-        return (AssemblyInfrastructureConnectorFigure) getFigure();
-    }
+	/**
+	 * @generated
+	 */
+	public AssemblyInfrastructureConnectorFigure getPrimaryShape() {
+		return (AssemblyInfrastructureConnectorFigure) getFigure();
+	}
 
-    /**
-     * @generated
-     */
-    public class AssemblyInfrastructureConnectorFigure extends PolylineConnectionEx {
+	/**
+	 * @generated
+	 */
+	public class AssemblyInfrastructureConnectorFigure extends
+			PolylineConnectionEx {
 
-        /**
-         * @generated
-         */
-        public AssemblyInfrastructureConnectorFigure() {
-            this.setLineWidth(1);
+		/**
+		 * @generated
+		 */
+		public AssemblyInfrastructureConnectorFigure() {
+			this.setLineWidth(1);
 
-            setTargetDecoration(createTargetDecoration());
-        }
+			setTargetDecoration(createTargetDecoration());
+		}
 
-        /**
-         * @generated
-         */
-        private RotatableDecoration createTargetDecoration() {
-            PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
-            PointList pl = new PointList();
-            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
-            pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
-            df.setTemplate(pl);
-            df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
-            return df;
-        }
+		/**
+		 * @generated
+		 */
+		private RotatableDecoration createTargetDecoration() {
+			PolylineDecoration df = new PolylineDecoration();
+			df.setLineWidth(1);
+			PointList pl = new PointList();
+			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+			df.setTemplate(pl);
+			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
+			return df;
+		}
 
-    }
+	}
 
 }
