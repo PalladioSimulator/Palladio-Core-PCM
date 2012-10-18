@@ -8,3 +8,4 @@ Require-Bundle: de.desmoj,
  de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0"
 Bundle-Vendor: sdq.ipd.uka.de
 Export-Package: de.uka.ipd.sdq.simulation.abstractsimengine.desmoj
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

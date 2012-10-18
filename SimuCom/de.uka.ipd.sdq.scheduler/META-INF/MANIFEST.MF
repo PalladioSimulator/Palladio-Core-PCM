@@ -19,3 +19,4 @@ Export-Package: de.uka.ipd.sdq.scheduler,
  de.uka.ipd.sdq.scheduler.resources.active.special,
  de.uka.ipd.sdq.scheduler.resources.passive,
  de.uka.ipd.sdq.scheduler.sensors
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
