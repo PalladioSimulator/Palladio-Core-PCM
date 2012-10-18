@@ -16,17 +16,20 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.AbstractActionSuccessor_AbstractActionItemSemanticEditPolicy;
 
 /**
+ * The Class AbstractActionSuccessor_AbstractActionEditPart.
+ *
  * @generated
  */
 public class AbstractActionSuccessor_AbstractActionEditPart extends ConnectionNodeEditPart implements
         ITreeBranchEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 4001;
 
     /**
+     * Instantiates a new abstract action successor_ abstract action edit part.
+     *
+     * @param view the view
      * @generated
      */
     public AbstractActionSuccessor_AbstractActionEditPart(View view) {
@@ -34,6 +37,8 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends ConnectionNo
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -47,7 +52,8 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends ConnectionNo
      * 
      * Body of this method does not depend on settings in generation model so you may safely remove
      * <i>generated</i> tag and modify it.
-     * 
+     *
+     * @return the connection
      * @generated
      */
     protected Connection createConnectionFigure() {
@@ -55,6 +61,9 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends ConnectionNo
     }
 
     /**
+     * Gets the primary shape.
+     *
+     * @return the primary shape
      * @generated
      */
     public ControlFlowConnectionFigure getPrimaryShape() {
@@ -62,11 +71,15 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends ConnectionNo
     }
 
     /**
+     * The Class ControlFlowConnectionFigure.
+     *
      * @generated
      */
     public class ControlFlowConnectionFigure extends PolylineConnectionEx {
 
         /**
+         * Instantiates a new control flow connection figure.
+         *
          * @generated
          */
         public ControlFlowConnectionFigure() {
@@ -76,6 +89,9 @@ public class AbstractActionSuccessor_AbstractActionEditPart extends ConnectionNo
         }
 
         /**
+         * Creates the target decoration.
+         *
+         * @return the rotatable decoration
          * @generated
          */
         private RotatableDecoration createTargetDecoration() {

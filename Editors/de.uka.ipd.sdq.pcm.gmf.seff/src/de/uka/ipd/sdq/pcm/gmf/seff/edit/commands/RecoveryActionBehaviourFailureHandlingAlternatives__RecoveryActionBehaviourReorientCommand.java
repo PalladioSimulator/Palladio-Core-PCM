@@ -15,32 +15,29 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
 
 /**
+ * The Class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand.
+ *
  * @generated
  */
 public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand extends
         EditElementCommand {
 
-    /**
-     * @generated
-     */
+    /** The reorient direction. @generated */
     private final int reorientDirection;
 
-    /**
-     * @generated
-     */
+    /** The reference owner. @generated */
     private final EObject referenceOwner;
 
-    /**
-     * @generated
-     */
+    /** The old end. @generated */
     private final EObject oldEnd;
 
-    /**
-     * @generated
-     */
+    /** The new end. @generated */
     private final EObject newEnd;
 
     /**
+     * Instantiates a new recovery action behaviour failure handling alternatives__ recovery action behaviour reorient command.
+     *
+     * @param request the request
      * @generated
      */
     public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourReorientCommand(
@@ -53,6 +50,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -69,6 +69,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Can reorient source.
+     *
+     * @return true, if successful
      * @generated
      */
     protected boolean canReorientSource() {
@@ -81,6 +84,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Can reorient target.
+     *
+     * @return true, if successful
      * @generated
      */
     protected boolean canReorientTarget() {
@@ -93,6 +99,12 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -109,6 +121,10 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Reorient source.
+     *
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult reorientSource() throws ExecutionException {
@@ -118,6 +134,10 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Reorient target.
+     *
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult reorientTarget() throws ExecutionException {
@@ -127,6 +147,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Gets the old source.
+     *
+     * @return the old source
      * @generated
      */
     protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getOldSource() {
@@ -134,6 +157,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Gets the new source.
+     *
+     * @return the new source
      * @generated
      */
     protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getNewSource() {
@@ -141,6 +167,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Gets the old target.
+     *
+     * @return the old target
      * @generated
      */
     protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getOldTarget() {
@@ -148,6 +177,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Gets the new target.
+     *
+     * @return the new target
      * @generated
      */
     protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getNewTarget() {

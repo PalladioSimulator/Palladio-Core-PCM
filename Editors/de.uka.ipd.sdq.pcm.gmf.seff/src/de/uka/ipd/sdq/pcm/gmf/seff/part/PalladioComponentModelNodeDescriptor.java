@@ -6,21 +6,23 @@ package de.uka.ipd.sdq.pcm.gmf.seff.part;
 import org.eclipse.emf.ecore.EObject;
 
 /**
+ * The Class PalladioComponentModelNodeDescriptor.
+ *
  * @generated
  */
 public class PalladioComponentModelNodeDescriptor {
 
-    /**
-     * @generated
-     */
+    /** The my model element. @generated */
     private final EObject myModelElement;
 
-    /**
-     * @generated
-     */
+    /** The my visual id. @generated */
     private final int myVisualID;
 
     /**
+     * Instantiates a new palladio component model node descriptor.
+     *
+     * @param modelElement the model element
+     * @param visualID the visual id
      * @generated
      */
     public PalladioComponentModelNodeDescriptor(EObject modelElement, int visualID) {
@@ -29,6 +31,9 @@ public class PalladioComponentModelNodeDescriptor {
     }
 
     /**
+     * Gets the model element.
+     *
+     * @return the model element
      * @generated
      */
     public EObject getModelElement() {
@@ -36,6 +41,9 @@ public class PalladioComponentModelNodeDescriptor {
     }
 
     /**
+     * Gets the visual id.
+     *
+     * @return the visual id
      * @generated
      */
     public int getVisualID() {

@@ -44,6 +44,11 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#
      * createDefaultEditPolicies()
      */
+    /**
+     * Creates the default edit policies.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#createDefaultEditPolicies()
+     */
     @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
@@ -75,6 +80,12 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#getLabelText()
      */
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = "Cond: ";
@@ -96,6 +107,11 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#addSemanticListeners
      * ()
      */
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         final GuardedBranchTransition transition = (GuardedBranchTransition) this.resolveSemanticElement();
@@ -109,6 +125,11 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#removeSemanticListeners
      * ()
      */
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         this.removeListenerFilter("SemanticModel"); //$NON-NLS-1$
@@ -120,6 +141,12 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      * @see
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#handleNotificationEvent
      * (org.eclipse.emf.common.notify.Notification)
+     */
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override
     protected void handleNotificationEvent(final Notification event) {

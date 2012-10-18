@@ -4,6 +4,8 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers;
 
 /**
+ * The Class RecoveryBlockActionEditHelper.
+ *
  * @generated
  */
 public class RecoveryBlockActionEditHelper extends PalladioComponentModelBaseEditHelper {

@@ -32,6 +32,13 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      * 
      * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
      */
+    /**
+     * Gets the children.
+     *
+     * @param parent the parent
+     * @return the children
+     * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
+     */
     @Override
     public Object[] getChildren(final Object parent) {
 
@@ -60,6 +67,13 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      * 
      * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
      */
+    /**
+     * Gets the parent.
+     *
+     * @param element the element
+     * @return the parent
+     * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
+     */
     @Override
     public Object getParent(final Object element) {
         // TODO Auto-generated method stub
@@ -69,6 +83,13 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
     /*
      * (non-Javadoc)
      * 
+     * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
+     */
+    /**
+     * Checks for children.
+     *
+     * @param element the element
+     * @return true, if successful
      * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
      */
     @Override
@@ -87,6 +108,13 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      * 
      * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
      */
+    /**
+     * Gets the elements.
+     *
+     * @param inputElement the input element
+     * @return the elements
+     * @see org.eclipse.jface.viewers.ITreeContentProvider#getElements(java.lang.Object)
+     */
     @Override
     public Object[] getElements(final Object inputElement) {
         if (inputElement instanceof Interface) {
@@ -98,6 +126,11 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
     /*
      * (non-Javadoc)
      * 
+     * @see org.eclipse.jface.viewers.IContentProvider#dispose()
+     */
+    /**
+     * Dispose.
+     *
      * @see org.eclipse.jface.viewers.IContentProvider#dispose()
      */
     @Override
@@ -112,6 +145,14 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      * @see
      * org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer,
      * java.lang.Object, java.lang.Object)
+     */
+    /**
+     * Input changed.
+     *
+     * @param viewer the viewer
+     * @param oldInput the old input
+     * @param newInput the new input
+     * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
      */
     @Override
     public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {

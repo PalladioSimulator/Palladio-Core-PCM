@@ -48,6 +48,11 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#createDefaultEditPolicies
      * ()
      */
+    /**
+     * Creates the default edit policies.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#createDefaultEditPolicies()
+     */
     @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
@@ -64,6 +69,12 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
     /*
      * (non-Javadoc)
      * 
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#getLabelText()
+     */
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#getLabelText()
      */
     @Override
@@ -95,6 +106,11 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#addSemanticListeners
      * ()
      */
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         final ParametricResourceDemand element = (ParametricResourceDemand) this.resolveSemanticElement();
@@ -117,6 +133,11 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
      * @see
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#removeSemanticListeners
      * ()
+     */
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#removeSemanticListeners()
      */
     @Override
     protected void removeSemanticListeners() {

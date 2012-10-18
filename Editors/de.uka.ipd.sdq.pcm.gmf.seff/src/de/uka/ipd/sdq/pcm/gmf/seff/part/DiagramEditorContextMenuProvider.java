@@ -13,21 +13,23 @@ import org.eclipse.jface.action.IMenuManager;
 import org.eclipse.ui.IWorkbenchPart;
 
 /**
+ * The Class DiagramEditorContextMenuProvider.
+ *
  * @generated
  */
 public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider {
 
-    /**
-     * @generated
-     */
+    /** The part. @generated */
     private IWorkbenchPart part;
 
-    /**
-     * @generated
-     */
+    /** The delete action. @generated */
     private DeleteElementAction deleteAction;
 
     /**
+     * Instantiates a new diagram editor context menu provider.
+     *
+     * @param part the part
+     * @param viewer the viewer
      * @generated
      */
     public DiagramEditorContextMenuProvider(IWorkbenchPart part, EditPartViewer viewer) {
@@ -38,6 +40,8 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
     }
 
     /**
+     * Dispose.
+     *
      * @generated
      */
     public void dispose() {
@@ -49,6 +53,9 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
     }
 
     /**
+     * Builds the context menu.
+     *
+     * @param menu the menu
      * @generated
      */
     public void buildContextMenu(final IMenuManager menu) {

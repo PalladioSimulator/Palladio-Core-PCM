@@ -23,9 +23,12 @@ public class CollectionIteratorItemProviderAdapterFactory extends DecoratorAdapt
         super(decoratedAdapterFactory);
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
+     * Creates a new CollectionIteratorItemProviderAdapter object.
+     *
+     * @param target the target
+     * @param type the type
+     * @return the i item provider decorator
      * @see
      * org.eclipse.emf.edit.provider.DecoratorAdapterFactory#createItemProviderDecorator(java.lang
      * .Object, java.lang.Object)

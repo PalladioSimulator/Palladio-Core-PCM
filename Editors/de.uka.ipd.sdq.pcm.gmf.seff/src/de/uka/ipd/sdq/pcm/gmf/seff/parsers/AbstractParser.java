@@ -30,36 +30,31 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 
 /**
+ * The Class AbstractParser.
+ *
  * @generated
  */
 public abstract class AbstractParser implements IParser {
 
-    /**
-     * @generated
-     */
+    /** The features. @generated */
     protected final EAttribute[] features;
 
-    /**
-     * @generated
-     */
+    /** The editable features. @generated */
     protected final EAttribute[] editableFeatures;
 
-    /**
-     * @generated
-     */
+    /** The view pattern. @generated */
     private String viewPattern;
 
-    /**
-     * @generated
-     */
+    /** The editor pattern. @generated */
     private String editorPattern;
 
-    /**
-     * @generated
-     */
+    /** The edit pattern. @generated */
     private String editPattern;
 
     /**
+     * Instantiates a new abstract parser.
+     *
+     * @param features the features
      * @generated
      */
     public AbstractParser(EAttribute[] features) {
@@ -70,6 +65,10 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Instantiates a new abstract parser.
+     *
+     * @param features the features
+     * @param editableFeatures the editable features
      * @generated
      */
     public AbstractParser(EAttribute[] features, EAttribute[] editableFeatures) {
@@ -84,6 +83,9 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the view pattern.
+     *
+     * @return the view pattern
      * @generated
      */
     public String getViewPattern() {
@@ -91,6 +93,9 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Sets the view pattern.
+     *
+     * @param viewPattern the new view pattern
      * @generated
      */
     public void setViewPattern(String viewPattern) {
@@ -98,6 +103,9 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the editor pattern.
+     *
+     * @return the editor pattern
      * @generated
      */
     public String getEditorPattern() {
@@ -105,6 +113,9 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Sets the editor pattern.
+     *
+     * @param editorPattern the new editor pattern
      * @generated
      */
     public void setEditorPattern(String editorPattern) {
@@ -112,6 +123,9 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the edits the pattern.
+     *
+     * @return the edits the pattern
      * @generated
      */
     public String getEditPattern() {
@@ -119,6 +133,9 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Sets the edits the pattern.
+     *
+     * @param editPattern the new edits the pattern
      * @generated
      */
     public void setEditPattern(String editPattern) {
@@ -126,6 +143,11 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Checks if is affecting event.
+     *
+     * @param event the event
+     * @param flags the flags
+     * @return true, if is affecting event
      * @generated
      */
     public boolean isAffectingEvent(Object event, int flags) {
@@ -136,6 +158,10 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Checks if is affecting feature.
+     *
+     * @param feature the feature
+     * @return true, if is affecting feature
      * @generated
      */
     protected boolean isAffectingFeature(Object feature) {
@@ -148,6 +174,10 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the completion processor.
+     *
+     * @param element the element
+     * @return the completion processor
      * @generated
      */
     public IContentAssistProcessor getCompletionProcessor(IAdaptable element) {
@@ -155,6 +185,10 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the values.
+     *
+     * @param element the element
+     * @return the values
      * @generated
      */
     protected Object[] getValues(EObject element) {
@@ -166,6 +200,10 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the editable values.
+     *
+     * @param element the element
+     * @return the editable values
      * @generated
      */
     protected Object[] getEditableValues(EObject element) {
@@ -177,6 +215,11 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the value.
+     *
+     * @param element the element
+     * @param feature the feature
+     * @return the value
      * @generated
      */
     protected Object getValue(EObject element, EAttribute feature) {
@@ -191,6 +234,12 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the parses the command.
+     *
+     * @param adapter the adapter
+     * @param values the values
+     * @param flags the flags
+     * @return the parses the command
      * @generated
      */
     protected ICommand getParseCommand(IAdaptable adapter, Object[] values, int flags) {
@@ -210,6 +259,12 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the modification command.
+     *
+     * @param element the element
+     * @param feature the feature
+     * @param value the value
+     * @return the modification command
      * @generated
      */
     protected ICommand getModificationCommand(EObject element, EAttribute feature, Object value) {
@@ -222,6 +277,10 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Validate new values.
+     *
+     * @param values the values
+     * @return the i parser edit status
      * @generated
      */
     protected IParserEditStatus validateNewValues(Object[] values) {
@@ -239,6 +298,11 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * Gets the valid new value.
+     *
+     * @param feature the feature
+     * @param value the value
+     * @return the valid new value
      * @generated
      */
     protected Object getValidNewValue(EAttribute feature, Object value) {
@@ -404,16 +468,19 @@ public abstract class AbstractParser implements IParser {
     }
 
     /**
+     * The Class InvalidValue.
+     *
      * @generated
      */
     protected class InvalidValue {
 
-        /**
-         * @generated
-         */
+        /** The description. @generated */
         private String description;
 
         /**
+         * Instantiates a new invalid value.
+         *
+         * @param description the description
          * @generated
          */
         public InvalidValue(String description) {
@@ -421,6 +488,9 @@ public abstract class AbstractParser implements IParser {
         }
 
         /**
+         * To string.
+         *
+         * @return the string
          * @generated
          */
         public String toString() {

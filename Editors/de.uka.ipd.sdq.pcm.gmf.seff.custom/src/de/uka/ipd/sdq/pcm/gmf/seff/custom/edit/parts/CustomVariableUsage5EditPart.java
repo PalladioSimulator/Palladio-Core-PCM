@@ -39,6 +39,12 @@ public class CustomVariableUsage5EditPart extends VariableUsage5EditPart {
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage5EditPart#createNodeShape()
      */
+    /**
+     * Creates the node shape.
+     *
+     * @return the i figure
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage5EditPart#createNodeShape()
+     */
     @Override
     protected IFigure createNodeShape() {
         final ParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();

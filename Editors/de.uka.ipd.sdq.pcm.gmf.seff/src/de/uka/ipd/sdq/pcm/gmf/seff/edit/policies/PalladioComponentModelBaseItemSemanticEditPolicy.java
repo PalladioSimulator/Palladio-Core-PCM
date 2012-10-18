@@ -46,6 +46,8 @@ import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
+ * The Class PalladioComponentModelBaseItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
@@ -57,12 +59,13 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
      */
     public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
 
-    /**
-     * @generated
-     */
+    /** The my element type. @generated */
     private final IElementType myElementType;
 
     /**
+     * Instantiates a new palladio component model base item semantic edit policy.
+     *
+     * @param elementType the element type
      * @generated
      */
     protected PalladioComponentModelBaseItemSemanticEditPolicy(IElementType elementType) {
@@ -73,7 +76,9 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
      * Add visual id of edited editpart to extended data of the request so command switch can decide
      * what kind of diagram element is being edited. It is done in those cases when it's not
      * possible to deduce diagram element kind from domain element.
-     * 
+     *
+     * @param request the request
+     * @return the command
      * @generated
      */
     public Command getCommand(Request request) {
@@ -89,7 +94,9 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
 
     /**
      * Returns visual id from request parameters.
-     * 
+     *
+     * @param request the request
+     * @return the visual id
      * @generated
      */
     protected int getVisualID(IEditCommandRequest request) {
@@ -98,6 +105,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the semantic command.
+     *
+     * @param request the request
+     * @return the semantic command
      * @generated
      */
     protected Command getSemanticCommand(IEditCommandRequest request) {
@@ -112,6 +123,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Adds the delete view command.
+     *
+     * @param mainCommand the main command
+     * @param completedRequest the completed request
+     * @return the command
      * @generated
      */
     protected Command addDeleteViewCommand(Command mainCommand, DestroyRequest completedRequest) {
@@ -120,6 +136,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the edits the helper command.
+     *
+     * @param request the request
+     * @param editPolicyCommand the edit policy command
+     * @return the edits the helper command
      * @generated
      */
     private Command getEditHelperCommand(IEditCommandRequest request, Command editPolicyCommand) {
@@ -143,6 +164,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the context element type.
+     *
+     * @param request the request
+     * @return the context element type
      * @generated
      */
     private IElementType getContextElementType(IEditCommandRequest request) {
@@ -152,6 +177,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the semantic command switch.
+     *
+     * @param req the req
+     * @return the semantic command switch
      * @generated
      */
     protected Command getSemanticCommandSwitch(IEditCommandRequest req) {
@@ -182,6 +211,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the configure command.
+     *
+     * @param req the req
+     * @return the configure command
      * @generated
      */
     protected Command getConfigureCommand(ConfigureRequest req) {
@@ -189,6 +222,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the creates the relationship command.
+     *
+     * @param req the req
+     * @return the creates the relationship command
      * @generated
      */
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -196,6 +233,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the creates the command.
+     *
+     * @param req the req
+     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
@@ -203,6 +244,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the sets the command.
+     *
+     * @param req the req
+     * @return the sets the command
      * @generated
      */
     protected Command getSetCommand(SetRequest req) {
@@ -210,6 +255,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the edits the context command.
+     *
+     * @param req the req
+     * @return the edits the context command
      * @generated
      */
     protected Command getEditContextCommand(GetEditContextRequest req) {
@@ -217,6 +266,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the destroy element command.
+     *
+     * @param req the req
+     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -224,6 +277,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the destroy reference command.
+     *
+     * @param req the req
+     * @return the destroy reference command
      * @generated
      */
     protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
@@ -231,6 +288,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the duplicate command.
+     *
+     * @param req the req
+     * @return the duplicate command
      * @generated
      */
     protected Command getDuplicateCommand(DuplicateElementsRequest req) {
@@ -238,6 +299,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the move command.
+     *
+     * @param req the req
+     * @return the move command
      * @generated
      */
     protected Command getMoveCommand(MoveRequest req) {
@@ -245,6 +310,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the reorient reference relationship command.
+     *
+     * @param req the req
+     * @return the reorient reference relationship command
      * @generated
      */
     protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {
@@ -252,6 +321,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the reorient relationship command.
+     *
+     * @param req the req
+     * @return the reorient relationship command
      * @generated
      */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
@@ -259,6 +332,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Gets the gEF wrapper.
+     *
+     * @param cmd the cmd
+     * @return the gEF wrapper
      * @generated
      */
     protected final Command getGEFWrapper(ICommand cmd) {
@@ -267,7 +344,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
 
     /**
      * Returns editing domain from the host edit part.
-     * 
+     *
+     * @return the editing domain
      * @generated
      */
     protected TransactionalEditingDomain getEditingDomain() {
@@ -275,8 +353,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
-     * Clean all shortcuts to the host element from the same diagram
-     * 
+     * Clean all shortcuts to the host element from the same diagram.
+     *
+     * @param cmd the cmd
+     * @param view the view
      * @generated
      */
     protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {
@@ -291,33 +371,33 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * The Class LinkConstraints.
+     *
      * @generated
      */
     public static class LinkConstraints {
 
-        /**
-         * @generated
-         */
+        /** The Constant OPPOSITE_END_VAR. @generated */
         private static final String OPPOSITE_END_VAR = "oppositeEnd"; //$NON-NLS-1$
-        /**
-         * @generated
-         */
+        
+        /** The Abstract action successor_ abstract action_4001_ source expression. @generated */
         private static PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_SourceExpression;
-        /**
-         * @generated
-         */
+        
+        /** The Abstract action successor_ abstract action_4001_ target expression. @generated */
         private static PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_TargetExpression;
 
-        /**
-         * @generated
-         */
+        /** The Recovery action behaviour failure handling alternatives__ recovery action behaviour_4004_ source expression. @generated */
         private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression;
-        /**
-         * @generated
-         */
+        
+        /** The Recovery action behaviour failure handling alternatives__ recovery action behaviour_4004_ target expression. @generated */
         private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression;
 
         /**
+         * Can create abstract action successor_ abstract action_4001.
+         *
+         * @param source the source
+         * @param target the target
+         * @return true, if successful
          * @generated
          */
         public static boolean canCreateAbstractActionSuccessor_AbstractAction_4001(AbstractAction source,
@@ -335,6 +415,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         }
 
         /**
+         * Can create recovery action behaviour failure handling alternatives__ recovery action behaviour_4004.
+         *
+         * @param source the source
+         * @param target the target
+         * @return true, if successful
          * @generated
          */
         public static boolean canCreateRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
@@ -351,6 +436,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         }
 
         /**
+         * Can exist abstract action successor_ abstract action_4001.
+         *
+         * @param source the source
+         * @param target the target
+         * @return true, if successful
          * @generated
          */
         public static boolean canExistAbstractActionSuccessor_AbstractAction_4001(AbstractAction source,
@@ -393,6 +483,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         }
 
         /**
+         * Can exist recovery action behaviour failure handling alternatives__ recovery action behaviour_4004.
+         *
+         * @param source the source
+         * @param target the target
+         * @return true, if successful
          * @generated
          */
         public static boolean canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(

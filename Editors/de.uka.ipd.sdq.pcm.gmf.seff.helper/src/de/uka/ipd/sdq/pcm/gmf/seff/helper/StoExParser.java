@@ -35,6 +35,13 @@ public class StoExParser implements IParser {
      * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getCompletionProcessor(org.eclipse
      * .core.runtime.IAdaptable)
      */
+    /**
+     * Gets the completion processor.
+     *
+     * @param element the element
+     * @return the completion processor
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getCompletionProcessor(org.eclipse.core.runtime.IAdaptable)
+     */
     @Override
     public IContentAssistProcessor getCompletionProcessor(final IAdaptable element) {
         return new StoExCompletionProcessor(new Parameter[] {});
@@ -46,6 +53,14 @@ public class StoExParser implements IParser {
      * @see
      * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getEditString(org.eclipse.core.
      * runtime.IAdaptable, int)
+     */
+    /**
+     * Gets the edits the string.
+     *
+     * @param element the element
+     * @param flags the flags
+     * @return the edits the string
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getEditString(org.eclipse.core.runtime.IAdaptable, int)
      */
     @Override
     public String getEditString(final IAdaptable element, final int flags) {
@@ -59,6 +74,15 @@ public class StoExParser implements IParser {
      * @see
      * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getParseCommand(org.eclipse.core
      * .runtime.IAdaptable, java.lang.String, int)
+     */
+    /**
+     * Gets the parses the command.
+     *
+     * @param element the element
+     * @param newString the new string
+     * @param flags the flags
+     * @return the parses the command
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getParseCommand(org.eclipse.core.runtime.IAdaptable, java.lang.String, int)
      */
     @Override
     public ICommand getParseCommand(final IAdaptable element, final String newString, final int flags) {
@@ -74,6 +98,14 @@ public class StoExParser implements IParser {
      * @see
      * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getPrintString(org.eclipse.core
      * .runtime.IAdaptable, int)
+     */
+    /**
+     * Gets the prints the string.
+     *
+     * @param element the element
+     * @param flags the flags
+     * @return the prints the string
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getPrintString(org.eclipse.core.runtime.IAdaptable, int)
      */
     @Override
     public String getPrintString(final IAdaptable element, final int flags) {
@@ -98,6 +130,14 @@ public class StoExParser implements IParser {
      * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isAffectingEvent(java.lang.Object,
      * int)
      */
+    /**
+     * Checks if is affecting event.
+     *
+     * @param event the event
+     * @param flags the flags
+     * @return true, if is affecting event
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isAffectingEvent(java.lang.Object, int)
+     */
     @Override
     public boolean isAffectingEvent(final Object event, final int flags) {
         return true;
@@ -110,6 +150,14 @@ public class StoExParser implements IParser {
      * @see
      * org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core
      * .runtime.IAdaptable, java.lang.String)
+     */
+    /**
+     * Checks if is valid edit string.
+     *
+     * @param element the element
+     * @param editString the edit string
+     * @return the i parser edit status
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core.runtime.IAdaptable, java.lang.String)
      */
     @Override
     public IParserEditStatus isValidEditString(final IAdaptable element, final String editString) {

@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 
 /**
+ * The Class ResourceDemandingBehaviourCreateCommand.
+ *
  * @generated
  */
 public class ResourceDemandingBehaviourCreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new resource demanding behaviour create command.
+     *
+     * @param req the req
      * @generated
      */
     public ResourceDemandingBehaviourCreateCommand(CreateElementRequest req) {
@@ -32,6 +37,9 @@ public class ResourceDemandingBehaviourCreateCommand extends EditElementCommand 
     }
 
     /**
+     * Gets the element to edit.
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -43,6 +51,9 @@ public class ResourceDemandingBehaviourCreateCommand extends EditElementCommand 
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -55,6 +66,12 @@ public class ResourceDemandingBehaviourCreateCommand extends EditElementCommand 
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -70,6 +87,12 @@ public class ResourceDemandingBehaviourCreateCommand extends EditElementCommand 
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(ResourceDemandingBehaviour newElement, IProgressMonitor monitor, IAdaptable info)

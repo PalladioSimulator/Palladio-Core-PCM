@@ -3,16 +3,13 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
-import org.eclipse.draw2d.IFigure;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ListCompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
@@ -21,16 +18,19 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionInfrastructureCal
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
+ * The Class InternalActionInfrastructureCallsCompartment2EditPart.
+ *
  * @generated
  */
 public class InternalActionInfrastructureCallsCompartment2EditPart extends ListCompartmentEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 7051;
 
     /**
+     * Instantiates a new internal action infrastructure calls compartment2 edit part.
+     *
+     * @param view the view
      * @generated
      */
     public InternalActionInfrastructureCallsCompartment2EditPart(View view) {
@@ -38,6 +38,10 @@ public class InternalActionInfrastructureCallsCompartment2EditPart extends ListC
     }
 
     /**
+     * Checks for model children changed.
+     *
+     * @param evt the evt
+     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -45,6 +49,9 @@ public class InternalActionInfrastructureCallsCompartment2EditPart extends ListC
     }
 
     /**
+     * Gets the compartment name.
+     *
+     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -52,6 +59,8 @@ public class InternalActionInfrastructureCallsCompartment2EditPart extends ListC
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -66,6 +75,9 @@ public class InternalActionInfrastructureCallsCompartment2EditPart extends ListC
     }
 
     /**
+     * Sets the ratio.
+     *
+     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

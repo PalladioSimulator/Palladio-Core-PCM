@@ -18,16 +18,19 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SetVariableActionVariableSetter
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
+ * The Class SetVariableActionVariableSetter2EditPart.
+ *
  * @generated
  */
 public class SetVariableActionVariableSetter2EditPart extends ListCompartmentEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 7016;
 
     /**
+     * Instantiates a new sets the variable action variable setter2 edit part.
+     *
+     * @param view the view
      * @generated
      */
     public SetVariableActionVariableSetter2EditPart(View view) {
@@ -35,6 +38,10 @@ public class SetVariableActionVariableSetter2EditPart extends ListCompartmentEdi
     }
 
     /**
+     * Checks for model children changed.
+     *
+     * @param evt the evt
+     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -42,6 +49,9 @@ public class SetVariableActionVariableSetter2EditPart extends ListCompartmentEdi
     }
 
     /**
+     * Gets the compartment name.
+     *
+     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -49,6 +59,8 @@ public class SetVariableActionVariableSetter2EditPart extends ListCompartmentEdi
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -61,6 +73,9 @@ public class SetVariableActionVariableSetter2EditPart extends ListCompartmentEdi
     }
 
     /**
+     * Sets the ratio.
+     *
+     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

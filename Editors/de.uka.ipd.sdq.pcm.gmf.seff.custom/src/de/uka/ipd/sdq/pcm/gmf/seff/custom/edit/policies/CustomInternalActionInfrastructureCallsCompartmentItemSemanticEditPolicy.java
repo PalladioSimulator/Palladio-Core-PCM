@@ -31,6 +31,13 @@ public class CustomInternalActionInfrastructureCallsCompartmentItemSemanticEditP
      * InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy
      * #getCreateCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest)
      */
+    /**
+     * Gets the creates the command.
+     *
+     * @param req the req
+     * @return the creates the command
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy#getCreateCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest)
+     */
     @Override
     protected Command getCreateCommand(final CreateElementRequest req) {
         if (PalladioComponentModelElementTypes.InfrastructureCall_3053 == req.getElementType()) {

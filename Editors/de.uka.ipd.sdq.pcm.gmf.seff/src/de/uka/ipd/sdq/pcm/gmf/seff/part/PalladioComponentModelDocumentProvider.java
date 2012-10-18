@@ -58,12 +58,19 @@ import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.part.FileEditorInput;
 
 /**
+ * The Class PalladioComponentModelDocumentProvider.
+ *
  * @generated
  */
 public class PalladioComponentModelDocumentProvider extends AbstractDocumentProvider implements
         IDiagramDocumentProvider {
 
     /**
+     * Creates the element info.
+     *
+     * @param element the element
+     * @return the element info
+     * @throws CoreException the core exception
      * @generated
      */
     protected ElementInfo createElementInfo(Object element) throws CoreException {
@@ -88,6 +95,11 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Creates the document.
+     *
+     * @param element the element
+     * @return the i document
+     * @throws CoreException the core exception
      * @generated
      */
     protected IDocument createDocument(Object element) throws CoreException {
@@ -123,6 +135,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Compute modification stamp.
+     *
+     * @param info the info
+     * @return the long
      * @generated
      */
     private long computeModificationStamp(ResourceSetInfo info) {
@@ -143,6 +159,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Creates the empty document.
+     *
+     * @return the i document
      * @generated
      */
     protected IDocument createEmptyDocument() {
@@ -152,6 +171,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Creates the editing domain.
+     *
+     * @return the transactional editing domain
      * @generated not
      */
     // FIXME: Duplicated code, see
@@ -198,6 +220,11 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Sets the document content.
+     *
+     * @param document the document
+     * @param element the element
+     * @throws CoreException the core exception
      * @generated
      */
     protected void setDocumentContent(IDocument document, IEditorInput element) throws CoreException {
@@ -269,6 +296,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the modification stamp.
+     *
+     * @param element the element
+     * @return the modification stamp
      * @generated
      */
     public long getModificationStamp(Object element) {
@@ -280,6 +311,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Checks if is deleted.
+     *
+     * @param element the element
+     * @return true, if is deleted
      * @generated
      */
     public boolean isDeleted(Object element) {
@@ -295,6 +330,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the resource set info.
+     *
+     * @param editorInput the editor input
+     * @return the resource set info
      * @generated
      */
     public ResourceSetInfo getResourceSetInfo(Object editorInput) {
@@ -302,6 +341,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Dispose element info.
+     *
+     * @param element the element
+     * @param info the info
      * @generated
      */
     protected void disposeElementInfo(Object element, ElementInfo info) {
@@ -313,6 +356,11 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Do validate state.
+     *
+     * @param element the element
+     * @param computationContext the computation context
+     * @throws CoreException the core exception
      * @generated
      */
     protected void doValidateState(Object element, Object computationContext) throws CoreException {
@@ -344,6 +392,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Checks if is read only.
+     *
+     * @param element the element
+     * @return true, if is read only
      * @generated
      */
     public boolean isReadOnly(Object element) {
@@ -365,6 +417,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Checks if is modifiable.
+     *
+     * @param element the element
+     * @return true, if is modifiable
      * @generated
      */
     public boolean isModifiable(Object element) {
@@ -391,6 +447,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Update cache.
+     *
+     * @param element the element
+     * @throws CoreException the core exception
      * @generated
      */
     protected void updateCache(Object element) throws CoreException {
@@ -413,6 +473,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Do update state cache.
+     *
+     * @param element the element
+     * @throws CoreException the core exception
      * @generated
      */
     protected void doUpdateStateCache(Object element) throws CoreException {
@@ -424,6 +488,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Checks if is synchronized.
+     *
+     * @param element the element
+     * @return true, if is synchronized
      * @generated
      */
     public boolean isSynchronized(Object element) {
@@ -435,6 +503,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the reset rule.
+     *
+     * @param element the element
+     * @return the reset rule
      * @generated
      */
     protected ISchedulingRule getResetRule(Object element) {
@@ -468,6 +540,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the save rule.
+     *
+     * @param element the element
+     * @return the save rule
      * @generated
      */
     protected ISchedulingRule getSaveRule(Object element) {
@@ -501,6 +577,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the synchronize rule.
+     *
+     * @param element the element
+     * @return the synchronize rule
      * @generated
      */
     protected ISchedulingRule getSynchronizeRule(Object element) {
@@ -534,6 +614,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the validate state rule.
+     *
+     * @param element the element
+     * @return the validate state rule
      * @generated
      */
     protected ISchedulingRule getValidateStateRule(Object element) {
@@ -568,6 +652,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Compute scheduling rule.
+     *
+     * @param toCreateOrModify the to create or modify
+     * @return the i scheduling rule
      * @generated
      */
     private ISchedulingRule computeSchedulingRule(IResource toCreateOrModify) {
@@ -588,6 +676,11 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Do synchronize.
+     *
+     * @param element the element
+     * @param monitor the monitor
+     * @throws CoreException the core exception
      * @generated
      */
     protected void doSynchronize(Object element, IProgressMonitor monitor) throws CoreException {
@@ -604,6 +697,13 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Do save document.
+     *
+     * @param monitor the monitor
+     * @param element the element
+     * @param document the document
+     * @param overwrite the overwrite
+     * @throws CoreException the core exception
      * @generated
      */
     protected void doSaveDocument(IProgressMonitor monitor, Object element, IDocument document, boolean overwrite)
@@ -700,6 +800,11 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Handle element changed.
+     *
+     * @param info the info
+     * @param changedResource the changed resource
+     * @param monitor the monitor
      * @generated
      */
     protected void handleElementChanged(ResourceSetInfo info, Resource changedResource, IProgressMonitor monitor) {
@@ -732,6 +837,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Handle element moved.
+     *
+     * @param input the input
+     * @param uri the uri
      * @generated
      */
     protected void handleElementMoved(IEditorInput input, URI uri) {
@@ -746,6 +855,11 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Creates the input with editing domain.
+     *
+     * @param editorInput the editor input
+     * @param domain the domain
+     * @return the i editor input
      * @generated
      */
     public IEditorInput createInputWithEditingDomain(IEditorInput editorInput, TransactionalEditingDomain domain) {
@@ -753,6 +867,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the diagram document.
+     *
+     * @param element the element
+     * @return the diagram document
      * @generated
      */
     public IDiagramDocument getDiagramDocument(Object element) {
@@ -764,6 +882,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * Gets the operation runner.
+     *
+     * @param monitor the monitor
+     * @return the operation runner
      * @generated
      */
     protected IRunnableContext getOperationRunner(IProgressMonitor monitor) {
@@ -771,56 +893,44 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * The Class ResourceSetInfo.
+     *
      * @generated
      */
     protected class ResourceSetInfo extends ElementInfo {
 
-        /**
-         * @generated
-         */
+        /** The my modification stamp. @generated */
         private long myModificationStamp = IResource.NULL_STAMP;
 
-        /**
-         * @generated
-         */
+        /** The my synchronizer. @generated */
         private WorkspaceSynchronizer mySynchronizer;
 
-        /**
-         * @generated
-         */
+        /** The my un synchronized resources. @generated */
         private Collection myUnSynchronizedResources = new ArrayList();
 
-        /**
-         * @generated
-         */
+        /** The my document. @generated */
         private IDiagramDocument myDocument;
 
-        /**
-         * @generated
-         */
+        /** The my editor input. @generated */
         private IEditorInput myEditorInput;
 
-        /**
-         * @generated
-         */
+        /** The my update cache. @generated */
         private boolean myUpdateCache = true;
 
-        /**
-         * @generated
-         */
+        /** The my modifiable. @generated */
         private boolean myModifiable = false;
 
-        /**
-         * @generated
-         */
+        /** The my read only. @generated */
         private boolean myReadOnly = true;
 
-        /**
-         * @generated
-         */
+        /** The my resource set listener. @generated */
         private ResourceSetModificationListener myResourceSetListener;
 
         /**
+         * Instantiates a new resource set info.
+         *
+         * @param document the document
+         * @param editorInput the editor input
          * @generated
          */
         public ResourceSetInfo(IDiagramDocument document, IEditorInput editorInput) {
@@ -833,6 +943,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Gets the modification stamp.
+         *
+         * @return the modification stamp
          * @generated
          */
         public long getModificationStamp() {
@@ -840,6 +953,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Sets the modification stamp.
+         *
+         * @param modificationStamp the new modification stamp
          * @generated
          */
         public void setModificationStamp(long modificationStamp) {
@@ -847,6 +963,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Gets the editing domain.
+         *
+         * @return the editing domain
          * @generated
          */
         public TransactionalEditingDomain getEditingDomain() {
@@ -854,6 +973,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Gets the resource set.
+         *
+         * @return the resource set
          * @generated
          */
         public ResourceSet getResourceSet() {
@@ -861,6 +983,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Gets the loaded resources iterator.
+         *
+         * @return the loaded resources iterator
          * @generated
          */
         public Iterator/* <org.eclipse.emf.ecore.resource.Resource> */getLoadedResourcesIterator() {
@@ -869,6 +994,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Gets the editor input.
+         *
+         * @return the editor input
          * @generated
          */
         public IEditorInput getEditorInput() {
@@ -876,6 +1004,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Dispose.
+         *
          * @generated
          */
         public void dispose() {
@@ -889,6 +1019,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Checks if is synchronized.
+         *
+         * @return true, if is synchronized
          * @generated
          */
         public boolean isSynchronized() {
@@ -896,6 +1029,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Sets the un synchronized.
+         *
+         * @param resource the new un synchronized
          * @generated
          */
         public void setUnSynchronized(Resource resource) {
@@ -903,6 +1039,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Sets the synchronized.
+         *
+         * @param resource the new synchronized
          * @generated
          */
         public void setSynchronized(Resource resource) {
@@ -910,6 +1049,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Stop resource listening.
+         *
          * @generated
          */
         public final void stopResourceListening() {
@@ -918,6 +1059,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Start resource listening.
+         *
          * @generated
          */
         public final void startResourceListening() {
@@ -925,6 +1068,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Checks if is update cache.
+         *
+         * @return true, if is update cache
          * @generated
          */
         public boolean isUpdateCache() {
@@ -932,6 +1078,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Sets the update cache.
+         *
+         * @param update the new update cache
          * @generated
          */
         public void setUpdateCache(boolean update) {
@@ -939,6 +1088,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Checks if is modifiable.
+         *
+         * @return true, if is modifiable
          * @generated
          */
         public boolean isModifiable() {
@@ -946,6 +1098,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Sets the modifiable.
+         *
+         * @param modifiable the new modifiable
          * @generated
          */
         public void setModifiable(boolean modifiable) {
@@ -953,6 +1108,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Checks if is read only.
+         *
+         * @return true, if is read only
          * @generated
          */
         public boolean isReadOnly() {
@@ -960,6 +1118,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Sets the read only.
+         *
+         * @param readOnly the new read only
          * @generated
          */
         public void setReadOnly(boolean readOnly) {
@@ -967,17 +1128,25 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * The Class SynchronizerDelegate.
+         *
          * @generated
          */
         private class SynchronizerDelegate implements WorkspaceSynchronizer.Delegate {
 
             /**
+             * Dispose.
+             *
              * @generated
              */
             public void dispose() {
             }
 
             /**
+             * Handle resource changed.
+             *
+             * @param resource the resource
+             * @return true, if successful
              * @generated
              */
             public boolean handleResourceChanged(final Resource resource) {
@@ -996,6 +1165,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             }
 
             /**
+             * Handle resource deleted.
+             *
+             * @param resource the resource
+             * @return true, if successful
              * @generated
              */
             public boolean handleResourceDeleted(Resource resource) {
@@ -1014,6 +1187,11 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             }
 
             /**
+             * Handle resource moved.
+             *
+             * @param resource the resource
+             * @param newURI the new uri
+             * @return true, if successful
              * @generated
              */
             public boolean handleResourceMoved(Resource resource, final URI newURI) {
@@ -1040,21 +1218,28 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
     }
 
     /**
+     * The listener interface for receiving resourceSetModification events.
+     * The class that is interested in processing a resourceSetModification
+     * event implements this interface, and the object created
+     * with that class is registered with a component using the
+     * component's <code>addResourceSetModificationListener<code> method. When
+     * the resourceSetModification event occurs, that object's appropriate
+     * method is invoked.
+     *
      * @generated
      */
     private class ResourceSetModificationListener extends EContentAdapter {
 
-        /**
-         * @generated
-         */
+        /** The my modified filter. @generated */
         private NotificationFilter myModifiedFilter;
 
-        /**
-         * @generated
-         */
+        /** The my info. @generated */
         private ResourceSetInfo myInfo;
 
         /**
+         * Instantiates a new resource set modification listener.
+         *
+         * @param info the info
          * @generated
          */
         public ResourceSetModificationListener(ResourceSetInfo info) {
@@ -1065,6 +1250,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         }
 
         /**
+         * Notify changed.
+         *
+         * @param notification the notification
          * @generated
          */
         public void notifyChanged(Notification notification) {

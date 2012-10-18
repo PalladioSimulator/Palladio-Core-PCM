@@ -33,6 +33,12 @@ public class CustomCollectionIteratorParameterLabel2EditPart extends CollectionI
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#getLabelText
      * ()
      */
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = "Param: ";
@@ -53,6 +59,11 @@ public class CustomCollectionIteratorParameterLabel2EditPart extends CollectionI
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#
      * addSemanticListeners()
      */
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         final CollectionIteratorAction action = (CollectionIteratorAction) this.resolveSemanticElement();
@@ -65,6 +76,11 @@ public class CustomCollectionIteratorParameterLabel2EditPart extends CollectionI
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#
      * removeSemanticListeners()
      */
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         this.removeListenerFilter("SemanticModel"); //$NON-NLS-1$
@@ -75,6 +91,12 @@ public class CustomCollectionIteratorParameterLabel2EditPart extends CollectionI
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#
      * handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabel2EditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override
     protected void handleNotificationEvent(final Notification event) {

@@ -11,6 +11,13 @@ import org.eclipse.ui.IObjectActionDelegate;
  */
 public abstract class BaseInitializeDiagramAction extends BaseDiagramAction {
 
+    /**
+     * Run.
+     *
+     * @param action the action
+     * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
+     */
+    @Override
     public void run(final IAction action) {
 
         IObjectActionDelegate initAction = getInitAction();

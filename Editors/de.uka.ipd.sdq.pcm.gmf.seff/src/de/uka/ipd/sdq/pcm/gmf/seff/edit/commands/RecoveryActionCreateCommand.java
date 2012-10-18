@@ -18,11 +18,16 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 
 /**
+ * The Class RecoveryActionCreateCommand.
+ *
  * @generated
  */
 public class RecoveryActionCreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new recovery action create command.
+     *
+     * @param req the req
      * @generated
      */
     public RecoveryActionCreateCommand(CreateElementRequest req) {
@@ -30,8 +35,9 @@ public class RecoveryActionCreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit()
-     * 
+     * FIXME: replace with setElementToEdit().
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -43,6 +49,9 @@ public class RecoveryActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -51,6 +60,12 @@ public class RecoveryActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -67,6 +82,12 @@ public class RecoveryActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction newElement,

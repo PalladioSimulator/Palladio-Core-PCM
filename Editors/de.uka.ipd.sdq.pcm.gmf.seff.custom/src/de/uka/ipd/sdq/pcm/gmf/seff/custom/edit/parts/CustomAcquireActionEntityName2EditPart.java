@@ -30,6 +30,12 @@ public class CustomAcquireActionEntityName2EditPart extends AcquireActionEntityN
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart#getLabelText()
      */
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;

@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 /**
+ * The Class VariableCharacterisation3CreateCommand.
+ *
  * @generated
  */
 public class VariableCharacterisation3CreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new variable characterisation3 create command.
+     *
+     * @param req the req
      * @generated
      */
     public VariableCharacterisation3CreateCommand(CreateElementRequest req) {
@@ -32,6 +37,9 @@ public class VariableCharacterisation3CreateCommand extends EditElementCommand {
     }
 
     /**
+     * Gets the element to edit.
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -43,6 +51,9 @@ public class VariableCharacterisation3CreateCommand extends EditElementCommand {
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -51,6 +62,12 @@ public class VariableCharacterisation3CreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -66,6 +83,12 @@ public class VariableCharacterisation3CreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(VariableCharacterisation newElement, IProgressMonitor monitor, IAdaptable info)

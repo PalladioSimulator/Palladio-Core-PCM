@@ -31,6 +31,12 @@ public class CustomStopActionEditPart extends StopActionEditPart {
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart#createNodePlate()
      */
+    /**
+     * Creates the node plate.
+     *
+     * @return the node figure
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart#createNodePlate()
+     */
     @Override
     protected NodeFigure createNodePlate() {
         final DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(this.getMapMode().DPtoLP(30), this.getMapMode()

@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 
 /**
+ * The Class ExternalCallActionCreateCommand.
+ *
  * @generated
  */
 public class ExternalCallActionCreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new external call action create command.
+     *
+     * @param req the req
      * @generated
      */
     public ExternalCallActionCreateCommand(CreateElementRequest req) {
@@ -32,6 +37,9 @@ public class ExternalCallActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Gets the element to edit.
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -43,6 +51,9 @@ public class ExternalCallActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -51,6 +62,12 @@ public class ExternalCallActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -66,6 +83,12 @@ public class ExternalCallActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(ExternalCallAction newElement, IProgressMonitor monitor, IAdaptable info)

@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.StopAction;
 
 /**
+ * The Class StopActionCreateCommand.
+ *
  * @generated
  */
 public class StopActionCreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new stop action create command.
+     *
+     * @param req the req
      * @generated
      */
     public StopActionCreateCommand(CreateElementRequest req) {
@@ -32,6 +37,9 @@ public class StopActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Gets the element to edit.
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -43,6 +51,9 @@ public class StopActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -51,6 +62,12 @@ public class StopActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -66,6 +83,12 @@ public class StopActionCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(StopAction newElement, IProgressMonitor monitor, IAdaptable info)

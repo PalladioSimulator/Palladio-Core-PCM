@@ -45,6 +45,11 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#createDefaultEditPolicies
      * ()
      */
+    /**
+     * Creates the default edit policies.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#createDefaultEditPolicies()
+     */
     @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
@@ -77,6 +82,12 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#getLabelText()
      */
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -96,6 +107,11 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
      * @see
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#addSemanticListeners()
      */
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         final LoopAction loop = (LoopAction) this.resolveSemanticElement();
@@ -108,6 +124,11 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
      * @see
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#removeSemanticListeners()
      */
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         this.removeListenerFilter("SemanticModel"); //$NON-NLS-1$
@@ -119,6 +140,12 @@ public class CustomLoop2IterationsLabelEditPart extends Loop2IterationsLabelEdit
      * @see
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#handleNotificationEvent
      * (org.eclipse.emf.common.notify.Notification)
+     */
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.Loop2IterationsLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override
     protected void handleNotificationEvent(final Notification event) {

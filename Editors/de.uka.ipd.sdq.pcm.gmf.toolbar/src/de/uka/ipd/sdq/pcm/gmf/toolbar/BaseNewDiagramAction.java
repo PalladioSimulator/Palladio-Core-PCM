@@ -13,6 +13,13 @@ import org.eclipse.ui.INewWizard;
  */
 public abstract class BaseNewDiagramAction extends BaseDiagramAction {
 
+    /**
+     * Run.
+     *
+     * @param action the action
+     * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
+     */
+    @Override
     public void run(final IAction action) {
         INewWizard wizard = getNewWizard();
         assert (wizard != null);

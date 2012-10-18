@@ -18,16 +18,19 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionResourceDemandIte
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
+ * The Class InternalActionResourceDemandEditPart.
+ *
  * @generated
  */
 public class InternalActionResourceDemandEditPart extends ListCompartmentEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 7006;
 
     /**
+     * Instantiates a new internal action resource demand edit part.
+     *
+     * @param view the view
      * @generated
      */
     public InternalActionResourceDemandEditPart(View view) {
@@ -35,6 +38,10 @@ public class InternalActionResourceDemandEditPart extends ListCompartmentEditPar
     }
 
     /**
+     * Checks for model children changed.
+     *
+     * @param evt the evt
+     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -42,6 +49,9 @@ public class InternalActionResourceDemandEditPart extends ListCompartmentEditPar
     }
 
     /**
+     * Gets the compartment name.
+     *
+     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -49,6 +59,8 @@ public class InternalActionResourceDemandEditPart extends ListCompartmentEditPar
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -61,6 +73,9 @@ public class InternalActionResourceDemandEditPart extends ListCompartmentEditPar
     }
 
     /**
+     * Sets the ratio.
+     *
+     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

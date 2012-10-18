@@ -36,11 +36,15 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class ForkedBehaviour2ItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ForkedBehaviour2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new forked behaviour2 item semantic edit policy.
+     *
      * @generated
      */
     public ForkedBehaviour2ItemSemanticEditPolicy() {
@@ -48,6 +52,10 @@ public class ForkedBehaviour2ItemSemanticEditPolicy extends PalladioComponentMod
     }
 
     /**
+     * Gets the destroy element command.
+     *
+     * @param req the req
+     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -68,6 +76,9 @@ public class ForkedBehaviour2ItemSemanticEditPolicy extends PalladioComponentMod
     }
 
     /**
+     * Adds the destroy child nodes command.
+     *
+     * @param cmd the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

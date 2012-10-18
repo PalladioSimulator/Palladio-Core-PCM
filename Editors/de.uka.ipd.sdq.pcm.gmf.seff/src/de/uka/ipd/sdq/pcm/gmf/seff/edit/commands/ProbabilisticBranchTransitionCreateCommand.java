@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 
 /**
+ * The Class ProbabilisticBranchTransitionCreateCommand.
+ *
  * @generated
  */
 public class ProbabilisticBranchTransitionCreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new probabilistic branch transition create command.
+     *
+     * @param req the req
      * @generated
      */
     public ProbabilisticBranchTransitionCreateCommand(CreateElementRequest req) {
@@ -32,6 +37,9 @@ public class ProbabilisticBranchTransitionCreateCommand extends EditElementComma
     }
 
     /**
+     * Gets the element to edit.
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -43,6 +51,9 @@ public class ProbabilisticBranchTransitionCreateCommand extends EditElementComma
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -51,6 +62,12 @@ public class ProbabilisticBranchTransitionCreateCommand extends EditElementComma
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -66,6 +83,12 @@ public class ProbabilisticBranchTransitionCreateCommand extends EditElementComma
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(ProbabilisticBranchTransition newElement, IProgressMonitor monitor, IAdaptable info)

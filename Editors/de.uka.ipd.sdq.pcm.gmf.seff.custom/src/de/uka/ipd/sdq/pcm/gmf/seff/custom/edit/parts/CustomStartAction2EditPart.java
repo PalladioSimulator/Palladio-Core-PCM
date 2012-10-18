@@ -31,6 +31,12 @@ public class CustomStartAction2EditPart extends StartAction2EditPart {
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart#createNodePlate()
      */
+    /**
+     * Creates the node plate.
+     *
+     * @return the node figure
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart#createNodePlate()
+     */
     @Override
     protected NodeFigure createNodePlate() {
         final DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(this.getMapMode().DPtoLP(20), this.getMapMode()

@@ -37,26 +37,25 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.StopAction2ItemSemanticEditPoli
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class StopAction2EditPart.
+ *
  * @generated
  */
 public class StopAction2EditPart extends ShapeNodeEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 3005;
 
-    /**
-     * @generated
-     */
+    /** The content pane. @generated */
     protected IFigure contentPane;
 
-    /**
-     * @generated
-     */
+    /** The primary shape. @generated */
     protected IFigure primaryShape;
 
     /**
+     * Instantiates a new stop action2 edit part.
+     *
+     * @param view the view
      * @generated
      */
     public StopAction2EditPart(View view) {
@@ -64,6 +63,8 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -76,6 +77,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the layout edit policy.
+     *
+     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -101,6 +105,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the node shape.
+     *
+     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -109,6 +116,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the primary shape.
+     *
+     * @return the primary shape
      * @generated
      */
     public StopFigure getPrimaryShape() {
@@ -116,6 +126,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the node plate.
+     *
+     * @return the node figure
      * @generated not
      */
     protected NodeFigure createNodePlate() {
@@ -131,6 +144,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the primary drag edit policy.
+     *
+     * @return the primary drag edit policy
      * @generated
      */
     public EditPolicy getPrimaryDragEditPolicy() {
@@ -147,7 +163,8 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
      * 
      * Body of this method does not depend on settings in generation model so you may safely remove
      * <i>generated</i> tag and modify it.
-     * 
+     *
+     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -162,9 +179,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     /**
      * Default implementation treats passed figure as content pane. Respects layout one may have set
      * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
+     *
+     * @param nodeShape instance of generated figure class
+     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -172,6 +189,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the content pane.
+     *
+     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -182,6 +202,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the foreground color.
+     *
+     * @param color the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -191,6 +214,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the background color.
+     *
+     * @param color the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -200,6 +226,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the line width.
+     *
+     * @param width the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -209,6 +238,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the line type.
+     *
+     * @param style the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -218,6 +250,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the mA rel types on source.
+     *
+     * @return the mA rel types on source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
@@ -237,6 +272,10 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the mA rel types on source and target.
+     *
+     * @param targetEditPart the target edit part
+     * @return the mA rel types on source and target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
@@ -334,6 +373,10 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the mA types for target.
+     *
+     * @param relationshipType the relationship type
+     * @return the mA types for target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
@@ -431,6 +474,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the mA rel types on target.
+     *
+     * @return the mA rel types on target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
@@ -450,6 +496,10 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the mA types for source.
+     *
+     * @param relationshipType the relationship type
+     * @return the mA types for source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
@@ -547,10 +597,15 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * The Class StopFigure.
+     *
      * @generated
      */
     public class StopFigure extends Ellipse {
+        
         /**
+         * Instantiates a new stop figure.
+         *
          * @generated
          */
         public StopFigure() {
@@ -565,6 +620,8 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
         }
 
         /**
+         * Creates the contents.
+         *
          * @generated
          */
         private void createContents() {
@@ -577,12 +634,13 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
 
         }
 
-        /**
-         * @generated
-         */
+        /** The my use local coordinates. @generated */
         private boolean myUseLocalCoordinates = false;
 
         /**
+         * Use local coordinates.
+         *
+         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -590,6 +648,9 @@ public class StopAction2EditPart extends ShapeNodeEditPart {
         }
 
         /**
+         * Sets the use local coordinates.
+         *
+         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

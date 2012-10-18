@@ -16,11 +16,16 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
+ * The Class RecoveryActionBehaviourCreateCommand.
+ *
  * @generated
  */
 public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new recovery action behaviour create command.
+     *
+     * @param req the req
      * @generated
      */
     public RecoveryActionBehaviourCreateCommand(CreateElementRequest req) {
@@ -28,8 +33,9 @@ public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit()
-     * 
+     * FIXME: replace with setElementToEdit().
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -41,6 +47,9 @@ public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -49,6 +58,12 @@ public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -65,6 +80,12 @@ public class RecoveryActionBehaviourCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour newElement,

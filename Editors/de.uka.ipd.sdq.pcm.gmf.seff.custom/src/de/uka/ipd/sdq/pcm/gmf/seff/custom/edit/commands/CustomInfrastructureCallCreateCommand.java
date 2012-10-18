@@ -39,6 +39,15 @@ public class CustomInfrastructureCallCreateCommand extends InfrastructureCallCre
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InfrastructureCallCreateCommand#doExecuteWithResult
      * (org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
      */
+    /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InfrastructureCallCreateCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     */
     @Override
     protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)
             throws ExecutionException {

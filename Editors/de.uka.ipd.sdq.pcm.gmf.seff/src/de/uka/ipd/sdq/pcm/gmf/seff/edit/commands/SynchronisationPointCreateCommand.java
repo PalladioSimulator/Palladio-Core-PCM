@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 /**
+ * The Class SynchronisationPointCreateCommand.
+ *
  * @generated
  */
 public class SynchronisationPointCreateCommand extends EditElementCommand {
 
     /**
+     * Instantiates a new synchronisation point create command.
+     *
+     * @param req the req
      * @generated
      */
     public SynchronisationPointCreateCommand(CreateElementRequest req) {
@@ -32,8 +37,9 @@ public class SynchronisationPointCreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit()
-     * 
+     * FIXME: replace with setElementToEdit().
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -45,6 +51,9 @@ public class SynchronisationPointCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -57,6 +66,12 @@ public class SynchronisationPointCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -72,6 +87,12 @@ public class SynchronisationPointCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Do configure.
+     *
+     * @param newElement the new element
+     * @param monitor the monitor
+     * @param info the info
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(SynchronisationPoint newElement, IProgressMonitor monitor, IAdaptable info)

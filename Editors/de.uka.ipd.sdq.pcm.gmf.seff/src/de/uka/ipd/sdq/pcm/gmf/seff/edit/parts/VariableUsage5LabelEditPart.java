@@ -56,36 +56,31 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
+ * The Class VariableUsage5LabelEditPart.
+ *
  * @generated
  */
 public class VariableUsage5LabelEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 5050;
 
-    /**
-     * @generated
-     */
+    /** The manager. @generated */
     private DirectEditManager manager;
 
-    /**
-     * @generated
-     */
+    /** The parser. @generated */
     private IParser parser;
 
-    /**
-     * @generated
-     */
+    /** The parser elements. @generated */
     private List parserElements;
 
-    /**
-     * @generated
-     */
+    /** The default text. @generated */
     private String defaultText;
 
     /**
+     * Instantiates a new variable usage5 label edit part.
+     *
+     * @param view the view
      * @generated
      */
     public VariableUsage5LabelEditPart(View view) {
@@ -93,6 +88,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -119,6 +116,10 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the label text helper.
+     *
+     * @param figure the figure
+     * @return the label text helper
      * @generated
      */
     protected String getLabelTextHelper(IFigure figure) {
@@ -130,6 +131,10 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Sets the label text helper.
+     *
+     * @param figure the figure
+     * @param text the text
      * @generated
      */
     protected void setLabelTextHelper(IFigure figure, String text) {
@@ -141,6 +146,10 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the label icon helper.
+     *
+     * @param figure the figure
+     * @return the label icon helper
      * @generated
      */
     protected Image getLabelIconHelper(IFigure figure) {
@@ -152,6 +161,10 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Sets the label icon helper.
+     *
+     * @param figure the figure
+     * @param icon the icon
      * @generated
      */
     protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -163,6 +176,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Sets the label.
+     *
+     * @param figure the new label
      * @generated
      */
     public void setLabel(WrappingLabel figure) {
@@ -174,6 +190,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the model children.
+     *
+     * @return the model children
      * @generated
      */
     protected List getModelChildren() {
@@ -181,6 +200,10 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the child by semantic hint.
+     *
+     * @param semanticHint the semantic hint
+     * @return the child by semantic hint
      * @generated
      */
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
@@ -188,6 +211,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the parser element.
+     *
+     * @return the parser element
      * @generated
      */
     protected EObject getParserElement() {
@@ -195,6 +221,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the label icon.
+     *
+     * @return the label icon
      * @generated
      */
     protected Image getLabelIcon() {
@@ -207,7 +236,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
 
     /**
      * Displays the name of the referenced variable.
-     * 
+     *
+     * @return the label text
      * @generated not
      */
     protected String getLabelText() {
@@ -233,6 +263,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Sets the label text.
+     *
+     * @param text the new label text
      * @generated
      */
     public void setLabelText(String text) {
@@ -248,6 +281,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the edits the text.
+     *
+     * @return the edits the text
      * @generated
      */
     public String getEditText() {
@@ -258,6 +294,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Checks if is editable.
+     *
+     * @return true, if is editable
      * @generated
      */
     protected boolean isEditable() {
@@ -265,6 +304,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the edits the text validator.
+     *
+     * @return the edits the text validator
      * @generated
      */
     public ICellEditorValidator getEditTextValidator() {
@@ -295,6 +337,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the completion processor.
+     *
+     * @return the completion processor
      * @generated
      */
     public IContentAssistProcessor getCompletionProcessor() {
@@ -305,6 +350,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the parser options.
+     *
+     * @return the parser options
      * @generated
      */
     public ParserOptions getParserOptions() {
@@ -312,6 +360,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the parser.
+     *
+     * @return the parser
      * @generated
      */
     public IParser getParser() {
@@ -325,6 +376,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the manager.
+     *
+     * @return the manager
      * @generated
      */
     protected DirectEditManager getManager() {
@@ -336,6 +390,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Sets the manager.
+     *
+     * @param manager the new manager
      * @generated
      */
     protected void setManager(DirectEditManager manager) {
@@ -343,6 +400,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Perform direct edit.
+     *
      * @generated
      */
     protected void performDirectEdit() {
@@ -350,6 +409,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Perform direct edit.
+     *
+     * @param eventLocation the event location
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
@@ -359,6 +421,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Perform direct edit.
+     *
+     * @param initialCharacter the initial character
      * @generated
      */
     private void performDirectEdit(char initialCharacter) {
@@ -370,6 +435,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Perform direct edit request.
+     *
+     * @param request the request
      * @generated
      */
     protected void performDirectEditRequest(Request request) {
@@ -398,6 +466,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Refresh visuals.
+     *
      * @generated
      */
     protected void refreshVisuals() {
@@ -410,6 +480,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Refresh label.
+     *
      * @generated
      */
     protected void refreshLabel() {
@@ -426,6 +498,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Refresh underline.
+     *
      * @generated
      */
     protected void refreshUnderline() {
@@ -436,6 +510,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Refresh strike through.
+     *
      * @generated
      */
     protected void refreshStrikeThrough() {
@@ -446,6 +522,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Refresh font.
+     *
      * @generated
      */
     protected void refreshFont() {
@@ -458,6 +536,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Sets the font color.
+     *
+     * @param color the new font color
      * @generated
      */
     protected void setFontColor(Color color) {
@@ -465,6 +546,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Adds the semantic listeners.
+     *
      * @generated
      */
     protected void addSemanticListeners() {
@@ -480,6 +563,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Removes the semantic listeners.
+     *
      * @generated
      */
     protected void removeSemanticListeners() {
@@ -493,6 +578,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the accessible edit part.
+     *
+     * @return the accessible edit part
      * @generated
      */
     protected AccessibleEditPart getAccessibleEditPart() {
@@ -508,6 +596,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Gets the font style owner view.
+     *
+     * @return the font style owner view
      * @generated
      */
     private View getFontStyleOwnerView() {
@@ -515,6 +606,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Adds the notational listeners.
+     *
      * @generated
      */
     protected void addNotationalListeners() {
@@ -523,6 +616,8 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Removes the notational listeners.
+     *
      * @generated
      */
     protected void removeNotationalListeners() {
@@ -531,6 +626,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Handle notification event.
+     *
+     * @param event the event
      * @generated
      */
     protected void handleNotificationEvent(Notification event) {
@@ -566,6 +664,9 @@ public class VariableUsage5LabelEditPart extends CompartmentEditPart implements 
     }
 
     /**
+     * Creates the figure.
+     *
+     * @return the i figure
      * @generated
      */
     protected IFigure createFigure() {

@@ -31,16 +31,19 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
+ * The Class ForkedBehaviourSynchronisationPointForkedBehavioursCanonicalEditPolicy.
+ *
  * @generated
  */
 public class ForkedBehaviourSynchronisationPointForkedBehavioursCanonicalEditPolicy extends CanonicalEditPolicy {
 
-    /**
-     * @generated
-     */
+    /** The my features to synchronize. @generated */
     Set myFeaturesToSynchronize;
 
     /**
+     * Gets the semantic children list.
+     *
+     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -54,6 +57,11 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursCanonicalEditPol
     }
 
     /**
+     * Checks if is orphaned.
+     *
+     * @param semanticChildren the semantic children
+     * @param view the view
+     * @return true, if is orphaned
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -79,6 +87,9 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursCanonicalEditPol
     }
 
     /**
+     * Gets the default factory hint.
+     *
+     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {
@@ -86,6 +97,9 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursCanonicalEditPol
     }
 
     /**
+     * Gets the features to synchronize.
+     *
+     * @return the features to synchronize
      * @generated
      */
     protected Set getFeaturesToSynchronize() {

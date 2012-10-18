@@ -57,46 +57,37 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvide
 import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 
 /**
+ * The Class InternalFailureOccurrenceDescriptionEditPart.
+ *
  * @generated
  */
 public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
-    /**
-     * @generated not
-     */
+    /** The change listener. @generated not */
     private EContentAdapter changeListener = null;
 
-    /**
-     * generated not
-     */
+    /** generated not. */
     private EObject adaptedElement = null;
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 3050;
 
-    /**
-     * @generated
-     */
+    /** The manager. @generated */
     private DirectEditManager manager;
 
-    /**
-     * @generated
-     */
+    /** The parser. @generated */
     private IParser parser;
 
-    /**
-     * @generated
-     */
+    /** The parser elements. @generated */
     private List parserElements;
 
-    /**
-     * @generated
-     */
+    /** The default text. @generated */
     private String defaultText;
 
     /**
+     * Instantiates a new internal failure occurrence description edit part.
+     *
+     * @param view the view
      * @generated
      */
     public InternalFailureOccurrenceDescriptionEditPart(View view) {
@@ -104,6 +95,10 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the drag tracker.
+     *
+     * @param request the request
+     * @return the drag tracker
      * @generated
      */
     public DragTracker getDragTracker(Request request) {
@@ -114,6 +109,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -126,6 +123,10 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the label text helper.
+     *
+     * @param figure the figure
+     * @return the label text helper
      * @generated
      */
     protected String getLabelTextHelper(IFigure figure) {
@@ -137,6 +138,10 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Sets the label text helper.
+     *
+     * @param figure the figure
+     * @param text the text
      * @generated
      */
     protected void setLabelTextHelper(IFigure figure, String text) {
@@ -148,6 +153,10 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the label icon helper.
+     *
+     * @param figure the figure
+     * @return the label icon helper
      * @generated
      */
     protected Image getLabelIconHelper(IFigure figure) {
@@ -159,6 +168,10 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Sets the label icon helper.
+     *
+     * @param figure the figure
+     * @param icon the icon
      * @generated
      */
     protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -170,6 +183,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Sets the label.
+     *
+     * @param figure the new label
      * @generated
      */
     public void setLabel(IFigure figure) {
@@ -181,6 +197,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the model children.
+     *
+     * @return the model children
      * @generated
      */
     protected List getModelChildren() {
@@ -188,6 +207,10 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the child by semantic hint.
+     *
+     * @param semanticHint the semantic hint
+     * @return the child by semantic hint
      * @generated
      */
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
@@ -195,6 +218,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the parser element.
+     *
+     * @return the parser element
      * @generated
      */
     protected EObject getParserElement() {
@@ -202,6 +228,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the label icon.
+     *
+     * @return the label icon
      * @generated
      */
     protected Image getLabelIcon() {
@@ -213,6 +242,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the label text.
+     *
+     * @return the label text
      * @generated not
      */
     protected String getLabelText() {
@@ -234,6 +266,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Sets the label text.
+     *
+     * @param text the new label text
      * @generated
      */
     public void setLabelText(String text) {
@@ -249,6 +284,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the edits the text.
+     *
+     * @return the edits the text
      * @generated
      */
     public String getEditText() {
@@ -259,6 +297,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Checks if is editable.
+     *
+     * @return true, if is editable
      * @generated
      */
     protected boolean isEditable() {
@@ -266,6 +307,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the edits the text validator.
+     *
+     * @return the edits the text validator
      * @generated
      */
     public ICellEditorValidator getEditTextValidator() {
@@ -296,6 +340,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the completion processor.
+     *
+     * @return the completion processor
      * @generated
      */
     public IContentAssistProcessor getCompletionProcessor() {
@@ -306,6 +353,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the parser options.
+     *
+     * @return the parser options
      * @generated
      */
     public ParserOptions getParserOptions() {
@@ -313,6 +363,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the parser.
+     *
+     * @return the parser
      * @generated
      */
     public IParser getParser() {
@@ -328,6 +381,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the manager.
+     *
+     * @return the manager
      * @generated
      */
     protected DirectEditManager getManager() {
@@ -339,6 +395,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Sets the manager.
+     *
+     * @param manager the new manager
      * @generated
      */
     protected void setManager(DirectEditManager manager) {
@@ -346,6 +405,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Perform direct edit.
+     *
      * @generated
      */
     protected void performDirectEdit() {
@@ -353,6 +414,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Perform direct edit.
+     *
+     * @param eventLocation the event location
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
@@ -362,6 +426,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Perform direct edit.
+     *
+     * @param initialCharacter the initial character
      * @generated
      */
     private void performDirectEdit(char initialCharacter) {
@@ -373,6 +440,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Perform direct edit request.
+     *
+     * @param request the request
      * @generated
      */
     protected void performDirectEditRequest(Request request) {
@@ -401,6 +471,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Refresh visuals.
+     *
      * @generated
      */
     protected void refreshVisuals() {
@@ -413,6 +485,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Refresh label.
+     *
      * @generated
      */
     protected void refreshLabel() {
@@ -429,6 +503,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Refresh underline.
+     *
      * @generated
      */
     protected void refreshUnderline() {
@@ -439,6 +515,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Refresh strike through.
+     *
      * @generated
      */
     protected void refreshStrikeThrough() {
@@ -449,6 +527,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Refresh font.
+     *
      * @generated
      */
     protected void refreshFont() {
@@ -461,6 +541,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Sets the font color.
+     *
+     * @param color the new font color
      * @generated
      */
     protected void setFontColor(Color color) {
@@ -468,6 +551,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Adds the semantic listeners.
+     *
      * @generated not
      */
     protected void addSemanticListeners() {
@@ -486,6 +571,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Removes the semantic listeners.
+     *
      * @generated not
      */
     protected void removeSemanticListeners() {
@@ -493,6 +580,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the accessible edit part.
+     *
+     * @return the accessible edit part
      * @generated
      */
     protected AccessibleEditPart getAccessibleEditPart() {
@@ -508,6 +598,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Gets the font style owner view.
+     *
+     * @return the font style owner view
      * @generated
      */
     private View getFontStyleOwnerView() {
@@ -515,6 +608,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Adds the notational listeners.
+     *
      * @generated
      */
     protected void addNotationalListeners() {
@@ -523,6 +618,8 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Removes the notational listeners.
+     *
      * @generated
      */
     protected void removeNotationalListeners() {
@@ -531,6 +628,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Handle notification event.
+     *
+     * @param event the event
      * @generated
      */
     protected void handleNotificationEvent(Notification event) {
@@ -566,6 +666,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Creates the figure.
+     *
+     * @return the i figure
      * @generated
      */
     protected IFigure createFigure() {
@@ -575,6 +678,9 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * Creates the figure prim.
+     *
+     * @return the i figure
      * @generated
      */
     protected IFigure createFigurePrim() {
@@ -582,11 +688,15 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     }
 
     /**
+     * The Class FailureOccurrenceDescriptionFigure.
+     *
      * @generated
      */
     public class FailureOccurrenceDescriptionFigure extends WrappingLabel {
 
         /**
+         * Instantiates a new failure occurrence description figure.
+         *
          * @generated
          */
         public FailureOccurrenceDescriptionFigure() {

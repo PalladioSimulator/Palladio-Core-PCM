@@ -9,26 +9,28 @@ import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 
 /**
+ * The Class PalladioComponentModelLinkDescriptor.
+ *
  * @generated
  */
 public class PalladioComponentModelLinkDescriptor extends PalladioComponentModelNodeDescriptor {
 
-    /**
-     * @generated
-     */
+    /** The my source. @generated */
     private EObject mySource;
 
-    /**
-     * @generated
-     */
+    /** The my destination. @generated */
     private EObject myDestination;
 
-    /**
-     * @generated
-     */
+    /** The my semantic adapter. @generated */
     private IAdaptable mySemanticAdapter;
 
     /**
+     * Instantiates a new palladio component model link descriptor.
+     *
+     * @param source the source
+     * @param destination the destination
+     * @param linkElement the link element
+     * @param linkVID the link vid
      * @generated
      */
     private PalladioComponentModelLinkDescriptor(EObject source, EObject destination, EObject linkElement, int linkVID) {
@@ -38,6 +40,12 @@ public class PalladioComponentModelLinkDescriptor extends PalladioComponentModel
     }
 
     /**
+     * Instantiates a new palladio component model link descriptor.
+     *
+     * @param source the source
+     * @param destination the destination
+     * @param elementType the element type
+     * @param linkVID the link vid
      * @generated
      */
     public PalladioComponentModelLinkDescriptor(EObject source, EObject destination, IElementType elementType,
@@ -55,6 +63,13 @@ public class PalladioComponentModelLinkDescriptor extends PalladioComponentModel
     }
 
     /**
+     * Instantiates a new palladio component model link descriptor.
+     *
+     * @param source the source
+     * @param destination the destination
+     * @param linkElement the link element
+     * @param elementType the element type
+     * @param linkVID the link vid
      * @generated
      */
     public PalladioComponentModelLinkDescriptor(EObject source, EObject destination, EObject linkElement,
@@ -72,6 +87,9 @@ public class PalladioComponentModelLinkDescriptor extends PalladioComponentModel
     }
 
     /**
+     * Gets the source.
+     *
+     * @return the source
      * @generated
      */
     public EObject getSource() {
@@ -79,6 +97,9 @@ public class PalladioComponentModelLinkDescriptor extends PalladioComponentModel
     }
 
     /**
+     * Gets the destination.
+     *
+     * @return the destination
      * @generated
      */
     public EObject getDestination() {
@@ -86,6 +107,9 @@ public class PalladioComponentModelLinkDescriptor extends PalladioComponentModel
     }
 
     /**
+     * Gets the semantic adapter.
+     *
+     * @return the semantic adapter
      * @generated
      */
     public IAdaptable getSemanticAdapter() {

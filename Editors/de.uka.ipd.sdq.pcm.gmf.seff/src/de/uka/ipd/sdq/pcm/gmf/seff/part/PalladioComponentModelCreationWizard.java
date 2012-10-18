@@ -18,41 +18,34 @@ import org.eclipse.ui.PartInitException;
 import org.eclipse.ui.actions.WorkspaceModifyOperation;
 
 /**
+ * The Class PalladioComponentModelCreationWizard.
+ *
  * @generated
  */
 public class PalladioComponentModelCreationWizard extends Wizard implements INewWizard {
 
-    /**
-     * @generated
-     */
+    /** The workbench. @generated */
     private IWorkbench workbench;
 
-    /**
-     * @generated
-     */
+    /** The selection. @generated */
     protected IStructuredSelection selection;
 
-    /**
-     * @generated
-     */
+    /** The diagram model file page. @generated */
     protected PalladioComponentModelCreationWizardPage diagramModelFilePage;
 
-    /**
-     * @generated
-     */
+    /** The domain model file page. @generated */
     protected PalladioComponentModelCreationWizardPage domainModelFilePage;
 
-    /**
-     * @generated
-     */
+    /** The diagram. @generated */
     protected Resource diagram;
 
-    /**
-     * @generated
-     */
+    /** The open newly created diagram editor. @generated */
     private boolean openNewlyCreatedDiagramEditor = true;
 
     /**
+     * Gets the workbench.
+     *
+     * @return the workbench
      * @generated
      */
     public IWorkbench getWorkbench() {
@@ -60,6 +53,9 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
     }
 
     /**
+     * Gets the selection.
+     *
+     * @return the selection
      * @generated
      */
     public IStructuredSelection getSelection() {
@@ -67,6 +63,9 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
     }
 
     /**
+     * Gets the diagram.
+     *
+     * @return the diagram
      * @generated
      */
     public final Resource getDiagram() {
@@ -74,6 +73,9 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
     }
 
     /**
+     * Checks if is open newly created diagram editor.
+     *
+     * @return true, if is open newly created diagram editor
      * @generated
      */
     public final boolean isOpenNewlyCreatedDiagramEditor() {
@@ -81,6 +83,9 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
     }
 
     /**
+     * Sets the open newly created diagram editor.
+     *
+     * @param openNewlyCreatedDiagramEditor the new open newly created diagram editor
      * @generated
      */
     public void setOpenNewlyCreatedDiagramEditor(boolean openNewlyCreatedDiagramEditor) {
@@ -88,6 +93,10 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
     }
 
     /**
+     * Inits the.
+     *
+     * @param workbench the workbench
+     * @param selection the selection
      * @generated
      */
     public void init(IWorkbench workbench, IStructuredSelection selection) {
@@ -100,6 +109,8 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
     }
 
     /**
+     * Adds the pages.
+     *
      * @generated
      */
     public void addPages() {
@@ -130,6 +141,9 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
     }
 
     /**
+     * Perform finish.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean performFinish() {

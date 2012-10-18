@@ -47,21 +47,21 @@ import org.eclipse.ui.part.ShowInContext;
 import de.uka.ipd.sdq.pcm.gmf.seff.navigator.PalladioComponentModelNavigatorItem;
 
 /**
+ * The Class SeffDiagramEditor.
+ *
  * @generated
  */
 public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMarker {
 
-    /**
-     * @generated
-     */
+    /** The Constant ID. @generated */
     public static final String ID = "de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditorID"; //$NON-NLS-1$
 
-    /**
-     * @generated
-     */
+    /** The Constant CONTEXT_ID. @generated */
     public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.seff.ui.diagramContext"; //$NON-NLS-1$
 
     /**
+     * Instantiates a new seff diagram editor.
+     *
      * @generated
      */
     public SeffDiagramEditor() {
@@ -69,6 +69,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the context id.
+     *
+     * @return the context id
      * @generated
      */
     protected String getContextID() {
@@ -76,6 +79,10 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Creates the palette root.
+     *
+     * @param existingPaletteRoot the existing palette root
+     * @return the palette root
      * @generated
      */
     protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
@@ -85,6 +92,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the preferences hint.
+     *
+     * @return the preferences hint
      * @generated
      */
     protected PreferencesHint getPreferencesHint() {
@@ -92,6 +102,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the contributor id.
+     *
+     * @return the contributor id
      * @generated
      */
     public String getContributorId() {
@@ -99,6 +112,10 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the adapter.
+     *
+     * @param type the type
+     * @return the adapter
      * @generated
      */
     public Object getAdapter(Class type) {
@@ -113,6 +130,10 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the document provider.
+     *
+     * @param input the input
+     * @return the document provider
      * @generated
      */
     protected IDocumentProvider getDocumentProvider(IEditorInput input) {
@@ -123,6 +144,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the editing domain.
+     *
+     * @return the editing domain
      * @generated
      */
     public TransactionalEditingDomain getEditingDomain() {
@@ -134,6 +158,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Sets the document provider.
+     *
+     * @param input the new document provider
      * @generated
      */
     protected void setDocumentProvider(IEditorInput input) {
@@ -145,6 +172,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Goto marker.
+     *
+     * @param marker the marker
      * @generated
      */
     public void gotoMarker(IMarker marker) {
@@ -152,6 +182,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Checks if is save as allowed.
+     *
+     * @return true, if is save as allowed
      * @generated
      */
     public boolean isSaveAsAllowed() {
@@ -159,6 +192,8 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Do save as.
+     *
      * @generated
      */
     public void doSaveAs() {
@@ -166,6 +201,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Perform save as.
+     *
+     * @param progressMonitor the progress monitor
      * @generated
      */
     protected void performSaveAs(IProgressMonitor progressMonitor) {
@@ -238,6 +276,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the show in context.
+     *
+     * @return the show in context
      * @generated
      */
     public ShowInContext getShowInContext() {
@@ -245,6 +286,9 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Gets the navigator selection.
+     *
+     * @return the navigator selection
      * @generated
      */
     private ISelection getNavigatorSelection() {
@@ -262,6 +306,8 @@ public class SeffDiagramEditor extends DiagramDocumentEditor implements IGotoMar
     }
 
     /**
+     * Configure graphical viewer.
+     *
      * @generated
      */
     protected void configureGraphicalViewer() {

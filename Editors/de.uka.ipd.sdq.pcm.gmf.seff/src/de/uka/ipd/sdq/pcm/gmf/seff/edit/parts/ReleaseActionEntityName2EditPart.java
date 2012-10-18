@@ -55,36 +55,31 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvide
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 
 /**
+ * The Class ReleaseActionEntityName2EditPart.
+ *
  * @generated
  */
 public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 5020;
 
-    /**
-     * @generated
-     */
+    /** The manager. @generated */
     private DirectEditManager manager;
 
-    /**
-     * @generated
-     */
+    /** The parser. @generated */
     private IParser parser;
 
-    /**
-     * @generated
-     */
+    /** The parser elements. @generated */
     private List parserElements;
 
-    /**
-     * @generated
-     */
+    /** The default text. @generated */
     private String defaultText;
 
     /**
+     * Instantiates a new release action entity name2 edit part.
+     *
+     * @param view the view
      * @generated
      */
     public ReleaseActionEntityName2EditPart(View view) {
@@ -92,14 +87,18 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
+    @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new PalladioComponentModelTextSelectionEditPolicy());
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new NonResizableEditPolicy() {
 
+            @Override
             protected List createSelectionHandles() {
                 List handles = new ArrayList();
                 NonResizableHandleKit.addMoveHandle((GraphicalEditPart) getHost(), handles);
@@ -107,10 +106,12 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
                 return handles;
             }
 
+            @Override
             public Command getCommand(Request request) {
                 return null;
             }
 
+            @Override
             public boolean understandsRequest(Request request) {
                 return false;
             }
@@ -118,6 +119,10 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the label text helper.
+     *
+     * @param figure the figure
+     * @return the label text helper
      * @generated
      */
     protected String getLabelTextHelper(IFigure figure) {
@@ -129,6 +134,10 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Sets the label text helper.
+     *
+     * @param figure the figure
+     * @param text the text
      * @generated
      */
     protected void setLabelTextHelper(IFigure figure, String text) {
@@ -140,6 +149,10 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the label icon helper.
+     *
+     * @param figure the figure
+     * @return the label icon helper
      * @generated
      */
     protected Image getLabelIconHelper(IFigure figure) {
@@ -151,6 +164,10 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Sets the label icon helper.
+     *
+     * @param figure the figure
+     * @param icon the icon
      * @generated
      */
     protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -162,6 +179,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Sets the label.
+     *
+     * @param figure the new label
      * @generated
      */
     public void setLabel(WrappingLabel figure) {
@@ -173,20 +193,32 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the model children.
+     *
+     * @return the model children
      * @generated
      */
+    @Override
     protected List getModelChildren() {
         return Collections.EMPTY_LIST;
     }
 
     /**
+     * Gets the child by semantic hint.
+     *
+     * @param semanticHint the semantic hint
+     * @return the child by semantic hint
      * @generated
      */
+    @Override
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
         return null;
     }
 
     /**
+     * Gets the parser element.
+     *
+     * @return the parser element
      * @generated
      */
     protected EObject getParserElement() {
@@ -194,6 +226,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the label icon.
+     *
+     * @return the label icon
      * @generated
      */
     protected Image getLabelIcon() {
@@ -204,7 +239,11 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
         return PalladioComponentModelElementTypes.getImage(parserElement.eClass());
     }
 
+    
     /**
+     * Gets the label text.
+     *
+     * @return the label text
      * @generated not
      */
     protected String getLabelText() {
@@ -215,9 +254,10 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
         }
         EObject releaseAction = resolveSemanticElement();
         if (releaseAction != null && releaseAction instanceof ReleaseAction) {
-            if (((ReleaseAction) releaseAction).getPassiveResource_ReleaseAction() != null)
+            if (((ReleaseAction) releaseAction).getPassiveResource_ReleaseAction() != null) {
                 text += " <Resource: "
                         + ((ReleaseAction) releaseAction).getPassiveResource_ReleaseAction().getEntityName() + ">";
+            }
         }
         if (text == null || text.length() == 0) {
             text = defaultText;
@@ -226,8 +266,12 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Sets the label text.
+     *
+     * @param text the new label text
      * @generated
      */
+    @Override
     public void setLabelText(String text) {
         setLabelTextHelper(getFigure(), text);
         Object pdEditPolicy = getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -241,8 +285,12 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the edits the text.
+     *
+     * @return the edits the text
      * @generated
      */
+    @Override
     public String getEditText() {
         if (getParserElement() == null || getParser() == null) {
             return ""; //$NON-NLS-1$
@@ -251,6 +299,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Checks if is editable.
+     *
+     * @return true, if is editable
      * @generated
      */
     protected boolean isEditable() {
@@ -258,11 +309,16 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the edits the text validator.
+     *
+     * @return the edits the text validator
      * @generated
      */
+    @Override
     public ICellEditorValidator getEditTextValidator() {
         return new ICellEditorValidator() {
 
+            @Override
             public String isValid(final Object value) {
                 if (value instanceof String) {
                     final EObject element = getParserElement();
@@ -271,6 +327,7 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
                         IParserEditStatus valid = (IParserEditStatus) getEditingDomain().runExclusive(
                                 new RunnableWithResult.Impl() {
 
+                                    @Override
                                     public void run() {
                                         setResult(parser.isValidEditString(new EObjectAdapter(element), (String) value));
                                     }
@@ -288,8 +345,12 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the completion processor.
+     *
+     * @return the completion processor
      * @generated
      */
+    @Override
     public IContentAssistProcessor getCompletionProcessor() {
         if (getParserElement() == null || getParser() == null) {
             return null;
@@ -298,15 +359,23 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the parser options.
+     *
+     * @return the parser options
      * @generated
      */
+    @Override
     public ParserOptions getParserOptions() {
         return ParserOptions.NONE;
     }
 
     /**
+     * Gets the parser.
+     *
+     * @return the parser
      * @generated
      */
+    @Override
     public IParser getParser() {
         if (parser == null) {
             parser = PalladioComponentModelParserProvider
@@ -320,6 +389,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the manager.
+     *
+     * @return the manager
      * @generated
      */
     protected DirectEditManager getManager() {
@@ -331,6 +403,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Sets the manager.
+     *
+     * @param manager the new manager
      * @generated
      */
     protected void setManager(DirectEditManager manager) {
@@ -338,6 +413,8 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Perform direct edit.
+     *
      * @generated
      */
     protected void performDirectEdit() {
@@ -345,6 +422,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Perform direct edit.
+     *
+     * @param eventLocation the event location
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
@@ -354,6 +434,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Perform direct edit.
+     *
+     * @param initialCharacter the initial character
      * @generated
      */
     private void performDirectEdit(char initialCharacter) {
@@ -365,13 +448,18 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Perform direct edit request.
+     *
+     * @param request the request
      * @generated
      */
+    @Override
     protected void performDirectEditRequest(Request request) {
         final Request theRequest = request;
         try {
             getEditingDomain().runExclusive(new Runnable() {
 
+                @Override
                 public void run() {
                     if (isActive() && isEditable()) {
                         if (theRequest.getExtendedData().get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
@@ -393,8 +481,11 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Refresh visuals.
+     *
      * @generated
      */
+    @Override
     protected void refreshVisuals() {
         super.refreshVisuals();
         refreshLabel();
@@ -405,6 +496,8 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Refresh label.
+     *
      * @generated
      */
     protected void refreshLabel() {
@@ -421,6 +514,8 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Refresh underline.
+     *
      * @generated
      */
     protected void refreshUnderline() {
@@ -431,6 +526,8 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Refresh strike through.
+     *
      * @generated
      */
     protected void refreshStrikeThrough() {
@@ -441,8 +538,11 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Refresh font.
+     *
      * @generated
      */
+    @Override
     protected void refreshFont() {
         FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
         if (style != null) {
@@ -453,15 +553,22 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Sets the font color.
+     *
+     * @param color the new font color
      * @generated
      */
+    @Override
     protected void setFontColor(Color color) {
         getFigure().setForegroundColor(color);
     }
 
     /**
+     * Adds the semantic listeners.
+     *
      * @generated
      */
+    @Override
     protected void addSemanticListeners() {
         if (getParser() instanceof ISemanticParser) {
             EObject element = resolveSemanticElement();
@@ -475,8 +582,11 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Removes the semantic listeners.
+     *
      * @generated
      */
+    @Override
     protected void removeSemanticListeners() {
         if (parserElements != null) {
             for (int i = 0; i < parserElements.size(); i++) {
@@ -488,12 +598,17 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the accessible edit part.
+     *
+     * @return the accessible edit part
      * @generated
      */
+    @Override
     protected AccessibleEditPart getAccessibleEditPart() {
         if (accessibleEP == null) {
             accessibleEP = new AccessibleGraphicalEditPart() {
 
+                @Override
                 public void getName(AccessibleEvent e) {
                     e.result = getLabelTextHelper(getFigure());
                 }
@@ -503,6 +618,9 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Gets the font style owner view.
+     *
+     * @return the font style owner view
      * @generated
      */
     private View getFontStyleOwnerView() {
@@ -510,24 +628,34 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Adds the notational listeners.
+     *
      * @generated
      */
+    @Override
     protected void addNotationalListeners() {
         super.addNotationalListeners();
         addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
     }
 
     /**
+     * Removes the notational listeners.
+     *
      * @generated
      */
+    @Override
     protected void removeNotationalListeners() {
         super.removeNotationalListeners();
         removeListenerFilter("PrimaryView"); //$NON-NLS-1$
     }
 
     /**
+     * Handle notification event.
+     *
+     * @param event the event
      * @generated
      */
+    @Override
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();
         if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -561,8 +689,12 @@ public class ReleaseActionEntityName2EditPart extends CompartmentEditPart implem
     }
 
     /**
+     * Creates the figure.
+     *
+     * @return the i figure
      * @generated
      */
+    @Override
     protected IFigure createFigure() {
         // Parent should assign one using setLabel() method
         return null;

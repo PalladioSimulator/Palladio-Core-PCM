@@ -25,6 +25,13 @@ public class StoExParserProvider extends AbstractProvider implements IParserProv
      * org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider#getParser(org.eclipse.core
      * .runtime.IAdaptable)
      */
+    /**
+     * Gets the parser.
+     *
+     * @param hint the hint
+     * @return the parser
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider#getParser(org.eclipse.core.runtime.IAdaptable)
+     */
     @Override
     public IParser getParser(final IAdaptable hint) {
         final String vid = (String) hint.getAdapter(String.class);
@@ -71,6 +78,13 @@ public class StoExParserProvider extends AbstractProvider implements IParserProv
      * @see
      * org.eclipse.gmf.runtime.common.core.service.IProvider#provides(org.eclipse.gmf.runtime.common
      * .core.service.IOperation)
+     */
+    /**
+     * Provides.
+     *
+     * @param operation the operation
+     * @return true, if successful
+     * @see org.eclipse.gmf.runtime.common.core.service.IProvider#provides(org.eclipse.gmf.runtime.common.core.service.IOperation)
      */
     @Override
     public boolean provides(final IOperation operation) {

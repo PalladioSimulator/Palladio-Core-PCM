@@ -33,6 +33,12 @@ public class CustomVariableCharacterisation3EditPart extends VariableCharacteris
      * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#getLabelText()
      */
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -61,6 +67,11 @@ public class CustomVariableCharacterisation3EditPart extends VariableCharacteris
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#addSemanticListeners
      * ()
      */
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         final VariableCharacterisation characterisation = (VariableCharacterisation) this.resolveSemanticElement();
@@ -75,6 +86,11 @@ public class CustomVariableCharacterisation3EditPart extends VariableCharacteris
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#removeSemanticListeners
      * ()
      */
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         this.removeListenerFilter("SemanticModel");
@@ -87,6 +103,12 @@ public class CustomVariableCharacterisation3EditPart extends VariableCharacteris
      * @see
      * de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#handleNotificationEvent
      * (org.eclipse.emf.common.notify.Notification)
+     */
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override
     protected void handleNotificationEvent(final Notification event) {

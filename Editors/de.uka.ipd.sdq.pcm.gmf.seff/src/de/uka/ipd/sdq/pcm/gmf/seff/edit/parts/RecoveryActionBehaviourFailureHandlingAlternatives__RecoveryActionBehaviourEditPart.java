@@ -17,17 +17,20 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy;
 
 /**
+ * The Class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart.
+ *
  * @generated
  */
 public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart extends
         ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 4004;
 
     /**
+     * Instantiates a new recovery action behaviour failure handling alternatives__ recovery action behaviour edit part.
+     *
+     * @param view the view
      * @generated
      */
     public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourEditPart(View view) {
@@ -35,6 +38,8 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -48,7 +53,8 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
      * 
      * Body of this method does not depend on settings in generation model so you may safely remove
      * <i>generated</i> tag and modify it.
-     * 
+     *
+     * @return the connection
      * @generated
      */
 
@@ -57,6 +63,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * Gets the primary shape.
+     *
+     * @return the primary shape
      * @generated
      */
     public RecoveryFlowConnectionFigure getPrimaryShape() {
@@ -64,11 +73,15 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
+     * The Class RecoveryFlowConnectionFigure.
+     *
      * @generated
      */
     public class RecoveryFlowConnectionFigure extends PolylineConnectionEx {
 
         /**
+         * Instantiates a new recovery flow connection figure.
+         *
          * @generated
          */
         public RecoveryFlowConnectionFigure() {
@@ -79,6 +92,9 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
         }
 
         /**
+         * Creates the target decoration.
+         *
+         * @return the rotatable decoration
          * @generated
          */
         private RotatableDecoration createTargetDecoration() {

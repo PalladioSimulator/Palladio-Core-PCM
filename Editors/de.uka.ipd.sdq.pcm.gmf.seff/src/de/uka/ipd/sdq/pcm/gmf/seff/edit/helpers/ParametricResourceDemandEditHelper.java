@@ -4,6 +4,8 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers;
 
 /**
+ * The Class ParametricResourceDemandEditHelper.
+ *
  * @generated
  */
 public class ParametricResourceDemandEditHelper extends PalladioComponentModelBaseEditHelper {

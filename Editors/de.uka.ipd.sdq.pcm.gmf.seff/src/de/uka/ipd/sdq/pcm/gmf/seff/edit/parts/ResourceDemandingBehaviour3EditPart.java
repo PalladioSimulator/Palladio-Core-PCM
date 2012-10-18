@@ -26,26 +26,25 @@ import org.eclipse.swt.graphics.Color;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingBehaviour3ItemSemanticEditPolicy;
 
 /**
+ * The Class ResourceDemandingBehaviour3EditPart.
+ *
  * @generated
  */
 public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 3014;
 
-    /**
-     * @generated
-     */
+    /** The content pane. @generated */
     protected IFigure contentPane;
 
-    /**
-     * @generated
-     */
+    /** The primary shape. @generated */
     protected IFigure primaryShape;
 
     /**
+     * Instantiates a new resource demanding behaviour3 edit part.
+     *
+     * @param view the view
      * @generated
      */
     public ResourceDemandingBehaviour3EditPart(View view) {
@@ -53,6 +52,8 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -65,6 +66,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the layout edit policy.
+     *
+     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -90,6 +94,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the node shape.
+     *
+     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -98,6 +105,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the primary shape.
+     *
+     * @return the primary shape
      * @generated
      */
     public BehaviourFigure getPrimaryShape() {
@@ -105,6 +115,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Creates the node plate.
+     *
+     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -117,7 +130,8 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
      * 
      * Body of this method does not depend on settings in generation model so you may safely remove
      * <i>generated</i> tag and modify it.
-     * 
+     *
+     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -132,9 +146,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     /**
      * Default implementation treats passed figure as content pane. Respects layout one may have set
      * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
+     *
+     * @param nodeShape instance of generated figure class
+     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -147,6 +161,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Gets the content pane.
+     *
+     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -157,6 +174,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the foreground color.
+     *
+     * @param color the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -166,6 +186,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the background color.
+     *
+     * @param color the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -175,6 +198,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the line width.
+     *
+     * @param width the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -184,6 +210,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * Sets the line type.
+     *
+     * @param style the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -193,11 +222,15 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
     }
 
     /**
+     * The Class BehaviourFigure.
+     *
      * @generated
      */
     public class BehaviourFigure extends RoundedRectangle {
 
         /**
+         * Instantiates a new behaviour figure.
+         *
          * @generated
          */
         public BehaviourFigure() {
@@ -206,12 +239,13 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
         }
 
-        /**
-         * @generated
-         */
+        /** The my use local coordinates. @generated */
         private boolean myUseLocalCoordinates = false;
 
         /**
+         * Use local coordinates.
+         *
+         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -219,6 +253,9 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
         }
 
         /**
+         * Sets the use local coordinates.
+         *
+         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
@@ -227,6 +264,14 @@ public class ResourceDemandingBehaviour3EditPart extends ShapeNodeEditPart {
 
     }
 
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart#refreshBounds()
+     */
+    /**
+     * Refresh bounds.
+     *
+     * @see org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeEditPart#refreshBounds()
+     */
     @Override
     protected void refreshBounds() {
     }

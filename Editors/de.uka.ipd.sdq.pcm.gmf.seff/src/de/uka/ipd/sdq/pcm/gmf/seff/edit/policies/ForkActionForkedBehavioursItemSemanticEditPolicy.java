@@ -11,11 +11,15 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.SynchronisationPointCreateComma
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class ForkActionForkedBehavioursItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ForkActionForkedBehavioursItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new fork action forked behaviours item semantic edit policy.
+     *
      * @generated
      */
     public ForkActionForkedBehavioursItemSemanticEditPolicy() {
@@ -23,6 +27,10 @@ public class ForkActionForkedBehavioursItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
+     * Gets the creates the command.
+     *
+     * @param req the req
+     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

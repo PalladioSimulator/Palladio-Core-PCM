@@ -36,11 +36,15 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class ResourceDemandingBehaviour3ItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ResourceDemandingBehaviour3ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new resource demanding behaviour3 item semantic edit policy.
+     *
      * @generated
      */
     public ResourceDemandingBehaviour3ItemSemanticEditPolicy() {
@@ -48,6 +52,10 @@ public class ResourceDemandingBehaviour3ItemSemanticEditPolicy extends PalladioC
     }
 
     /**
+     * Gets the destroy element command.
+     *
+     * @param req the req
+     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -68,6 +76,9 @@ public class ResourceDemandingBehaviour3ItemSemanticEditPolicy extends PalladioC
     }
 
     /**
+     * Adds the destroy child nodes command.
+     *
+     * @param cmd the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

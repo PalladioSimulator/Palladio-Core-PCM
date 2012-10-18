@@ -21,12 +21,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class ResourceDemandingBehaviourBehaviourCompartment3ItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ResourceDemandingBehaviourBehaviourCompartment3ItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new resource demanding behaviour behaviour compartment3 item semantic edit policy.
+     *
      * @generated
      */
     public ResourceDemandingBehaviourBehaviourCompartment3ItemSemanticEditPolicy() {
@@ -34,6 +38,10 @@ public class ResourceDemandingBehaviourBehaviourCompartment3ItemSemanticEditPoli
     }
 
     /**
+     * Gets the creates the command.
+     *
+     * @param req the req
+     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

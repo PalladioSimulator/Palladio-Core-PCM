@@ -18,16 +18,19 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.EmitEventActionInputVariableUsa
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
+ * The Class EmitEventActionInputVariableUsageEvent2EditPart.
+ *
  * @generated
  */
 public class EmitEventActionInputVariableUsageEvent2EditPart extends ListCompartmentEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 7041;
 
     /**
+     * Instantiates a new emit event action input variable usage event2 edit part.
+     *
+     * @param view the view
      * @generated
      */
     public EmitEventActionInputVariableUsageEvent2EditPart(View view) {
@@ -35,6 +38,10 @@ public class EmitEventActionInputVariableUsageEvent2EditPart extends ListCompart
     }
 
     /**
+     * Checks for model children changed.
+     *
+     * @param evt the evt
+     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -42,6 +49,9 @@ public class EmitEventActionInputVariableUsageEvent2EditPart extends ListCompart
     }
 
     /**
+     * Gets the compartment name.
+     *
+     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -49,6 +59,8 @@ public class EmitEventActionInputVariableUsageEvent2EditPart extends ListCompart
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -63,6 +75,9 @@ public class EmitEventActionInputVariableUsageEvent2EditPart extends ListCompart
     }
 
     /**
+     * Sets the ratio.
+     *
+     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {
