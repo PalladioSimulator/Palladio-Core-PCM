@@ -6,15 +6,13 @@
  */
 package de.uka.ipd.sdq.sensitivity;
 
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
-
-import de.uka.ipd.sdq.pcm.repository.BasicComponent;
-
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 
 /**
  * <!-- begin-user-doc -->

@@ -6,17 +6,14 @@
  */
 package de.uka.ipd.sdq.sensitivity.impl;
 
-import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
-import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EDataTypeEList;
-import org.eclipse.emf.ecore.util.EDataTypeUniqueEList;
+
+import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
+import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
 
 /**
  * <!-- begin-user-doc -->

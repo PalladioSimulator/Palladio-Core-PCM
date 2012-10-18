@@ -6,13 +6,12 @@
  */
 package de.uka.ipd.sdq.sensitivity;
 
-import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
-
-import de.uka.ipd.sdq.pcm.seff.InternalAction;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
+import de.uka.ipd.sdq.pcm.seff.InternalAction;
 
 /**
  * <!-- begin-user-doc -->

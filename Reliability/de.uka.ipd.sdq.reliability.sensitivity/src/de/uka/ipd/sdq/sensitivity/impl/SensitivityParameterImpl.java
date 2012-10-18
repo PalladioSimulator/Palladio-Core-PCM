@@ -6,22 +6,18 @@
  */
 package de.uka.ipd.sdq.sensitivity.impl;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter;
 import de.uka.ipd.sdq.sensitivity.SensitivityConfiguration;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 import de.uka.ipd.sdq.sensitivity.SensitivityParameter;
-
-import org.eclipse.emf.common.notify.Notification;
-import org.eclipse.emf.common.notify.NotificationChain;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
-
-import org.eclipse.emf.ecore.util.EcoreUtil;
 
 /**
  * <!-- begin-user-doc -->

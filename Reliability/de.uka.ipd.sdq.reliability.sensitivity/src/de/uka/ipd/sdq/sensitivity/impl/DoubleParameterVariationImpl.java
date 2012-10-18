@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.sensitivity.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

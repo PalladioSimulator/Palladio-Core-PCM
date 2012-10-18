@@ -6,6 +6,13 @@
  */
 package de.uka.ipd.sdq.markov.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.markov.Entity;
 import de.uka.ipd.sdq.markov.Label;
 import de.uka.ipd.sdq.markov.MarkovChain;
@@ -14,14 +21,6 @@ import de.uka.ipd.sdq.markov.MarkovPackage;
 import de.uka.ipd.sdq.markov.State;
 import de.uka.ipd.sdq.markov.StateType;
 import de.uka.ipd.sdq.markov.Transition;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

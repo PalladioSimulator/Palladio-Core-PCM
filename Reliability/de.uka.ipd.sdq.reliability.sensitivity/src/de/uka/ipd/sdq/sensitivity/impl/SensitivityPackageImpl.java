@@ -6,24 +6,25 @@
  */
 package de.uka.ipd.sdq.sensitivity.impl;
 
+import org.eclipse.emf.ecore.EAttribute;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EEnum;
+import org.eclipse.emf.ecore.EGenericType;
+import org.eclipse.emf.ecore.EOperation;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.EValidator;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+
 import de.uka.ipd.sdq.pcm.PcmPackage;
-
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
-
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter;
 import de.uka.ipd.sdq.sensitivity.CommunicationLinkReliabilityParameter;
 import de.uka.ipd.sdq.sensitivity.ComponentReliabilityParameter;
@@ -56,19 +57,7 @@ import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
 import de.uka.ipd.sdq.sensitivity.UsageBranchParameter;
 import de.uka.ipd.sdq.sensitivity.VariableUsageParameter;
 import de.uka.ipd.sdq.sensitivity.VariableUsageType;
-
 import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
-
-import org.eclipse.emf.ecore.EAttribute;
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EEnum;
-import org.eclipse.emf.ecore.EGenericType;
-import org.eclipse.emf.ecore.EOperation;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-import org.eclipse.emf.ecore.EValidator;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

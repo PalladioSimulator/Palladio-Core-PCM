@@ -6,12 +6,17 @@
  */
 package de.uka.ipd.sdq.markov.util;
 
-import de.uka.ipd.sdq.markov.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.markov.Entity;
+import de.uka.ipd.sdq.markov.Label;
+import de.uka.ipd.sdq.markov.MarkovChain;
+import de.uka.ipd.sdq.markov.MarkovPackage;
+import de.uka.ipd.sdq.markov.State;
+import de.uka.ipd.sdq.markov.Transition;
 
 /**
  * <!-- begin-user-doc -->

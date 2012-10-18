@@ -6,22 +6,18 @@
  */
 package de.uka.ipd.sdq.sensitivity.impl;
 
-import de.uka.ipd.sdq.sensitivity.NetworkReliabilityParameter;
-import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
-
-import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.sensitivity.NetworkReliabilityParameter;
+import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
+import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
 
 /**
  * <!-- begin-user-doc -->

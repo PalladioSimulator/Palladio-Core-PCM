@@ -6,18 +6,15 @@
  */
 package de.uka.ipd.sdq.sensitivity.impl;
 
-import de.uka.ipd.sdq.pcm.reliability.FailureType;
-
-import de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification;
-import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import de.uka.ipd.sdq.pcm.reliability.FailureType;
+import de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification;
+import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 
 /**
  * <!-- begin-user-doc -->

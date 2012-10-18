@@ -6,12 +6,11 @@
  */
 package de.uka.ipd.sdq.sensitivity.impl;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
+import org.eclipse.emf.ecore.EClass;
 
+import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 import de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->

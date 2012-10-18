@@ -6,19 +6,42 @@
  */
 package de.uka.ipd.sdq.sensitivity.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.sensitivity.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter;
+import de.uka.ipd.sdq.sensitivity.CommunicationLinkReliabilityParameter;
+import de.uka.ipd.sdq.sensitivity.ComponentReliabilityParameter;
+import de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterFunction;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterRange;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterSequence;
+import de.uka.ipd.sdq.sensitivity.DoubleParameterVariation;
+import de.uka.ipd.sdq.sensitivity.FailureDimensionResultSpecification;
+import de.uka.ipd.sdq.sensitivity.FailureTypeResultSpecification;
+import de.uka.ipd.sdq.sensitivity.HardwareMTTFParameter;
+import de.uka.ipd.sdq.sensitivity.HardwareMTTRParameter;
+import de.uka.ipd.sdq.sensitivity.InternalActionReliabilityParameter;
+import de.uka.ipd.sdq.sensitivity.NetworkReliabilityParameter;
+import de.uka.ipd.sdq.sensitivity.ProbabilisticBranchParameter;
+import de.uka.ipd.sdq.sensitivity.ResourceMTTFParameter;
+import de.uka.ipd.sdq.sensitivity.ResourceMTTRParameter;
+import de.uka.ipd.sdq.sensitivity.SensitivityConfiguration;
+import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
+import de.uka.ipd.sdq.sensitivity.SensitivityParameter;
+import de.uka.ipd.sdq.sensitivity.SensitivityParameterVariation;
+import de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification;
+import de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter;
+import de.uka.ipd.sdq.sensitivity.SoftwareFailureTypesParameter;
+import de.uka.ipd.sdq.sensitivity.SoftwareReliabilityParameter;
+import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
+import de.uka.ipd.sdq.sensitivity.UsageBranchParameter;
+import de.uka.ipd.sdq.sensitivity.VariableUsageParameter;
 
 /**
  * <!-- begin-user-doc -->

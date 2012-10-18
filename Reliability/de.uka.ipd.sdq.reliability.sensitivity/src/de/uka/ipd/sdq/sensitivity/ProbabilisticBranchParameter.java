@@ -6,11 +6,11 @@
  */
 package de.uka.ipd.sdq.sensitivity;
 
-import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
 
 /**
  * <!-- begin-user-doc -->

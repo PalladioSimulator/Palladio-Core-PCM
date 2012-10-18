@@ -6,12 +6,12 @@
  */
 package de.uka.ipd.sdq.sensitivity;
 
-import de.uka.ipd.sdq.pcm.usagemodel.Branch;
-import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
+
+import de.uka.ipd.sdq.pcm.usagemodel.Branch;
+import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 
 /**
  * <!-- begin-user-doc -->
