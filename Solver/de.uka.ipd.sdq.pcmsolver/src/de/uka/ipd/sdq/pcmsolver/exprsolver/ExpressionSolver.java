@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
-import flanagan.complex.Complex;
+import org.apache.commons.math.complex.Complex;
 
 public class ExpressionSolver {
 

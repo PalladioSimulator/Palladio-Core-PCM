@@ -232,6 +232,33 @@ litigation.
       <import plugin="org.eclipse.emf.edit.ui"/>
       <import plugin="org.eclipse.ui.ide"/>
       <import plugin="org.apache.log4j"/>
+      <import plugin="de.uka.ipd.sdq.probfunction"/>
+      <import plugin="de.uka.ipd.sdq.units"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.edit"/>
+      <import plugin="de.uka.ipd.sdq.stoex"/>
+      <import plugin="de.uka.ipd.sdq.stoex.edit"/>
+      <import plugin="de.uka.ipd.sdq.units.edit"/>
+      <import plugin="de.uka.ipd.sdq.units.editor"/>
+      <import plugin="org.eclipse.ui"/>
+      <import plugin="org.eclipse.emf"/>
+      <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
+      <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
+      <import plugin="org.junit4"/>
+      <import plugin="org.eclipse.debug.core"/>
+      <import plugin="org.eclipse.debug.ui"/>
+      <import plugin="org.eclipse.ui.console"/>
+      <import plugin="org.eclipse.emf.transaction"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math"/>
+      <import plugin="org.jfree.jfreechart"/>
+      <import plugin="de.uka.ipd.sdq.workflow.launchconfig"/>
+      <import plugin="org.eclipse.emf.query"/>
+      <import plugin="de.uka.ipd.sdq.pcm.dialogs"/>
+      <import plugin="de.uka.ipd.sdq.dialogs"/>
+      <import plugin="de.uka.ipd.sdq.workflow.mdsd"/>
+      <import plugin="de.uka.ipd.sdq.workflow.pcm"/>
+      <import plugin="de.fzi.se.accuracy" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.apache.commons.math" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common"/>
    </requires>
 
    <plugin
