@@ -19,4 +19,5 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.pcm,
  org.eclipse.emf.ecore.xmi,
  de.uka.ipd.sdq.stoex
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

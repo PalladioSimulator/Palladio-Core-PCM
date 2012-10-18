@@ -4,7 +4,7 @@ Bundle-Name: %pluginName
 Bundle-SymbolicName: de.uka.ipd.sdq.context.editor;singleton:=true
 Bundle-Version: 2.0.0.qualifier
 Bundle-ClassPath: .
-Bundle-Activator: de.uka.ipd.sdq.context.usage.presentation.ContextEditorPlugin$Implementation
+Bundle-Activator: de.uka.ipd.sdq.context.computed_usage.presentation.ContextEditorPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.context.computed_allocation.presentation,
@@ -20,4 +20,5 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.probfunction.edit;visibility:=reexport,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units.editor
-Eclipse-LazyStart: true
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

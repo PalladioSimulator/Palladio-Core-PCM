@@ -18,3 +18,4 @@ Export-Package: de.uka.ipd.sdq.spa.basicsolver,
  de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler,
  de.uka.ipd.sdq.spa.basicsolver.visitor.perfhandler.exception
 Bundle-Vendor: sdq.ipd.uka.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
