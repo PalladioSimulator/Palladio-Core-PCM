@@ -7,6 +7,7 @@ Fragment-Host: de.uka.ipd.sdq.stoex.analyser
 Bundle-Vendor: %providerName
 Require-Bundle: de.uka.ipd.sdq.stoex;visibility:=reexport,
  org.junit4;visibility:=reexport,
- de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0"
+ de.uka.ipd.sdq.probfunction.math,
+ org.apache.commons.math
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
