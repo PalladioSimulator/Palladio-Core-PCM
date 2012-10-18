@@ -117,7 +117,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 		} catch (ValueNotInFrameException e) {
 			if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
 				logger.error("Value should be in stackframe, but it is not!",e);
-				e.printStackTrace();
 			}
 		}
 		if (mode == VariableMode.EXCEPTION_ON_NOT_FOUND) {
