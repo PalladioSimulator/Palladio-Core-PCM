@@ -6,7 +6,6 @@ import java.util.List;
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.CompositeCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
@@ -49,12 +48,12 @@ class CreateLinkedSeffCommand extends ConfigureElementCommand {
     /**
      * A service signature.
      */
-    private Signature service;
+    private final Signature service;
     
     /**
      * A configuration request.
      */
-    private ConfigureRequest myRequest;
+    private final ConfigureRequest myRequest;
 
     /**
      * Constructor to initialize the element creation command.
@@ -223,7 +222,13 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
         }
         return super.getAfterCreateRelationshipCommand(request);
     }
-
+    
+    /**
+     * creates an operation SEFF.
+     * @param target an Operation Interface
+     * @param source a Basic Component
+     * @return a Composite Command
+     */
     private CompositeCommand createOperationSEFFsForOperationInterface(OperationInterface target, BasicComponent source) {
         CompositeCommand createSEFFs = new CompositeCommand("Create SEFFs");
         List<OperationSignature> signatures = new ArrayList<OperationSignature>();
@@ -237,12 +242,18 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
         return createSEFFs;
     }
 
+    /**
+     * Extracts signatures.
+     * @param target an Operation Interface
+     * @return a List of Operation Interfaces
+     */
     private List<OperationSignature> extractSignatures(OperationInterface target) {
         List<OperationSignature> signatures = new ArrayList<OperationSignature>();
         signatures.addAll(target.getSignatures__OperationInterface());
         for (Interface pi : target.getParentInterfaces__Interface()) {
-            if (pi instanceof OperationInterface)
+            if (pi instanceof OperationInterface) {
                 signatures.addAll(extractSignatures((OperationInterface) pi));
+            }
         }
         return signatures;
     }

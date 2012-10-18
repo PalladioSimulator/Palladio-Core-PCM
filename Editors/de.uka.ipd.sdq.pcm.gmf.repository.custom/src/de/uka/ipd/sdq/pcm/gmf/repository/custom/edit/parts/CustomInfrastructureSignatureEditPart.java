@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
 public class CustomInfrastructureSignatureEditPart extends InfrastructureSignatureEditPart {
 
     /**
-     * the maximum signature display length
+     * the maximum signature display length.
      */
     private static final int MAX_SIGNATURE_DISPLAY_LENGTH = 50;
 
@@ -28,14 +28,16 @@ public class CustomInfrastructureSignatureEditPart extends InfrastructureSignatu
         super(view);
     }
 
+    
     @Override
     protected String getLabelText() {
         String text = "";
         if (resolveSemanticElement() instanceof InfrastructureSignature) {
             InfrastructureSignature sig = (InfrastructureSignature) resolveSemanticElement();
             text = new SignaturePrinter().doSwitch(sig);
-            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
+            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH) {
                 text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH - 1) + "...";
+            }
         } else if (getParserElement() != null && getParser() != null) {
             text = getParser().getPrintString(new EObjectAdapter(getParserElement()), getParserOptions().intValue());
         }

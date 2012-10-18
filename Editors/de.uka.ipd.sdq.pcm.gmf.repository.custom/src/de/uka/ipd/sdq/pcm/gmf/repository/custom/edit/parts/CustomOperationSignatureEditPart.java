@@ -4,8 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.custom.edit.parts;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.emf.ecore.util.EContentAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.OperationSignatureEditPart;
@@ -43,8 +41,9 @@ public class CustomOperationSignatureEditPart extends OperationSignatureEditPart
         if (resolveSemanticElement() instanceof OperationSignature) {
             OperationSignature sig = (OperationSignature) resolveSemanticElement();
             text = new SignaturePrinter().doSwitch(sig);
-            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
+            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH) {
                 text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH - 1) + "...";
+            }
         }
         if (text == null || text.length() == 0) {
             text = getLabelTextHelper(figure);
@@ -65,8 +64,9 @@ public class CustomOperationSignatureEditPart extends OperationSignatureEditPart
         OperationSignature element =  adaptedElement;
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
         DataType returnType = element.getReturnType__OperationSignature();
-        if (returnType != null)
+        if (returnType != null) {
             removeListenerFilter("SemanticModel-RT"); //$NON-NLS-1$
+        }
 
         EList<Parameter> params = element.getParameters__OperationSignature();
         for (int i = 0; i < params.size(); i++) {

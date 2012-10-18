@@ -37,7 +37,7 @@ class ConfigureSEFFCommand extends ConfigureElementCommand {
     /**
      * A configure request.
      */
-    private ConfigureRequest myRequest;
+    private final ConfigureRequest myRequest;
 
     /**
      * The constructor.
@@ -89,6 +89,8 @@ class ConfigureSEFFCommand extends ConfigureElementCommand {
  */
 public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
+    
+    
     @Override
     /**
      * Sets signature of a provided role
@@ -112,11 +114,13 @@ public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvi
                 .getElementToConfigure().eContainer());
         dialog.setProvidedService(Signature.class);
         dialog.open();
-        if (dialog.getResult() == null)
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
-        if (!(dialog.getResult() instanceof Signature))
+        }
+        if (!(dialog.getResult() instanceof Signature)) {
             return new CanceledCommand();
-        signature = (Signature) dialog.getResult();
+        }
+        signature = dialog.getResult();
 
         ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
                 SeffPackage.eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF(), signature));

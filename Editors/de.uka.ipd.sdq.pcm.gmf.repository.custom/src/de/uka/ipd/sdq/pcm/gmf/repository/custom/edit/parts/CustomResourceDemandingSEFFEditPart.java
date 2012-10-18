@@ -39,13 +39,15 @@ public class CustomResourceDemandingSEFFEditPart extends ResourceDemandingSEFFEd
         installEditPolicy(EditPolicyRoles.OPEN_ROLE, new CustomOpenSeffDiagramEditPolicy());
     }
 
+    
     @Override
     protected String getLabelText() {
         String text = "SEFF <";
         Signature describedService = ((ResourceDemandingSEFF) ((View) this.getModel()).getElement())
                 .getDescribedService__SEFF();
-        if (describedService != null)
+        if (describedService != null) {
             text += describedService.getEntityName();
+        }
         return text + ">";
     }
 

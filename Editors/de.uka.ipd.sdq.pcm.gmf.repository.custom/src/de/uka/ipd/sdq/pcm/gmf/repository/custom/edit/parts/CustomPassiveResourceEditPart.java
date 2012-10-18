@@ -35,6 +35,7 @@ public class CustomPassiveResourceEditPart extends PassiveResourceEditPart {
         super(view);
     }
 
+    
     @Override
     protected String getLabelText() {
         String stoex = null, text = null;
@@ -44,8 +45,9 @@ public class CustomPassiveResourceEditPart extends PassiveResourceEditPart {
                 stoex = new PCMStoExPrettyPrintVisitor().prettyPrint(pr.getCapacity_PassiveResource().getExpression());
             }
             text = pr.getEntityName();
-            if (stoex == null)
+            if (stoex == null) {
                 stoex = "not set";
+            }
             text += " <Capacity: " + stoex + ">";
         }
         if (text == null || text.length() == 0) {

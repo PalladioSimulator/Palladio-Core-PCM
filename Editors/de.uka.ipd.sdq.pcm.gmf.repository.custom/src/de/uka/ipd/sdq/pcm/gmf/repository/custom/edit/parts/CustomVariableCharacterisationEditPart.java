@@ -33,8 +33,9 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
         if (vc != null && vc.getSpecification_VariableCharacterisation() != null) {
             text = vc.getType().getLiteral() + " = ";
             Expression expression = vc.getSpecification_VariableCharacterisation().getExpression();
-            if (expression != null)
+            if (expression != null) {
                 text += new PCMStoExPrettyPrintVisitor().prettyPrint(expression);
+            }
         }
         if (text == null || text.length() == 0) {
             text = getLabelTextHelper(figure);
@@ -42,6 +43,7 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
         return text;
     }
 
+    
     @Override
     protected void addSemanticListeners() {
         VariableCharacterisation characterisation = (VariableCharacterisation) resolveSemanticElement();

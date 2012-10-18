@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
+
 /**
  * A variable character EditHelperAdvice.
  */
@@ -29,8 +30,9 @@ public class VariableCharacterisationEditHelperAdvice extends AbstractEditHelper
                 .getActiveWorkbenchWindow().getShell(), TypeEnum.ANY, rv);
         dialog.open();
 
-        if (dialog.getReturnCode() == Dialog.CANCEL)
+        if (dialog.getReturnCode() == Dialog.CANCEL) {
             return new CanceledCommand();
+        }
 
         rv.setSpecification(dialog.getResultText());
 
