@@ -19,17 +19,16 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiring
  */
 public class ComposedProvidingRequiringEntityEditPart extends DiagramEditPart {
 
-	/**
-	 * @generated
-	 */
+	/** The Constant MODEL_ID. @generated */
 	public final static String MODEL_ID = "CompositeModel"; //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant VISUAL_ID. @generated */
 	public static final int VISUAL_ID = 1000;
 
 	/**
+	 * Instantiates a new composed providing requiring entity edit part.
+	 *
+	 * @param view the view
 	 * @generated
 	 */
 	public ComposedProvidingRequiringEntityEditPart(View view) {
@@ -37,6 +36,8 @@ public class ComposedProvidingRequiringEntityEditPart extends DiagramEditPart {
 	}
 
 	/**
+	 * Creates the default edit policies.
+	 *
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {

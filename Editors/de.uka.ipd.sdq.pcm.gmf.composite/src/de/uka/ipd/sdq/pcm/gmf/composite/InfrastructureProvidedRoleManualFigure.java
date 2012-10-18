@@ -16,15 +16,18 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure {
 
     /**
-     * @param size
-     *            width and height of the figure in logical units (LP)
-     * @param posType
-     *            position type of the figure
+     * Instantiates a new infrastructure provided role manual figure.
+     *
+     * @param logicalSize the logical size
+     * @param posType position type of the figure
      */
     public InfrastructureProvidedRoleManualFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+     */
     @Override
     protected void paintFigure(final Graphics graphics) {
         super.paintFigure(graphics);
@@ -71,8 +74,10 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
     }
 
     /**
+     * Gets the target connection figure bounds.
+     *
      * @return the rectangle surrounding the [] part of the figure relative to the position of the
-     *         figure
+     * figure
      */
     private Rectangle getTargetConnectionFigureBounds() {
         final int side = (this.getBorderItemLocator() == null ? PositionConstants.WEST : this.getBorderItemLocator()
@@ -103,28 +108,42 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
     }
 
     /**
-     * Anchor providing a connection point to the rectangular connection part of
+     * Anchor providing a connection point to the rectangular connection part of.
+     *
      * {@link InfrastructureProvidedRoleManualFigure}.
-     * 
      * @author groenda
-     * 
      */
     private class RectangleAnchor extends ChopboxAnchor {
+        
+        /**
+         * Instantiates a new rectangle anchor.
+         *
+         * @param owner the owner
+         */
         public RectangleAnchor(final IFigure owner) {
             super(owner);
         }
 
+        /* (non-Javadoc)
+         * @see org.eclipse.draw2d.ChopboxAnchor#getBox()
+         */
         @Override
         protected Rectangle getBox() {
             return InfrastructureProvidedRoleManualFigure.this.getTargetConnectionFigureBounds();
         }
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorInternal() {
         return new RectangleAnchor(this);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorExternal() {
         return new StemAnchor(this);

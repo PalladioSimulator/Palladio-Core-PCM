@@ -17,16 +17,20 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 
 /**
+ * The Class ComposedProvidingRequiringEntityCreateCommand.
+ *
  * @generated
  */
 public class ComposedProvidingRequiringEntityCreateCommand extends
 		EditElementCommand {
 
 	/**
+	 * Instantiates a new composed providing requiring entity create command.
+	 *
+	 * @param req the req
 	 * @generated
 	 */
 	public ComposedProvidingRequiringEntityCreateCommand(
@@ -35,11 +39,13 @@ public class ComposedProvidingRequiringEntityCreateCommand extends
 	}
 
 	/**
-	 * FIXME: replace with setElementToEdit()
-	 * 
+	 * FIXME: replace with setElementToEdit().
+	 *
+	 * @return the element to edit
 	 * @generated
 	 */
-	protected EObject getElementToEdit() {
+	@Override
+    protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest())
 				.getContainer();
 		if (container instanceof View) {
@@ -49,16 +55,27 @@ public class ComposedProvidingRequiringEntityCreateCommand extends
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
-	public boolean canExecute() {
+	@Override
+    public boolean canExecute() {
 		return true;
 	}
 
 	/**
+	 * Do execute with result.
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated NOT
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+	@Override
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		// Uncomment to put "phantom" objects into the diagram file.
 		// org.eclipse.emf.ecore.resource.Resource resource =
@@ -80,6 +97,12 @@ public class ComposedProvidingRequiringEntityCreateCommand extends
 	}
 
 	/**
+	 * Do configure.
+	 *
+	 * @param newElement the new element
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected void doConfigure(ComposedProvidingRequiringEntity newElement,

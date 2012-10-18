@@ -12,6 +12,8 @@ import org.eclipse.ui.views.properties.IPropertySource;
 import org.eclipse.ui.views.properties.IPropertySourceProvider;
 
 /**
+ * The Class PalladioComponentModelDomainNavigatorItem.
+ *
  * @generated
  */
 public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
@@ -50,22 +52,21 @@ public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
 				de.uka.ipd.sdq.pcm.gmf.composite.navigator.PalladioComponentModelDomainNavigatorItem.class);
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The my parent. @generated */
 	private Object myParent;
 
-	/**
-	 * @generated
-	 */
+	/** The my e object. @generated */
 	private EObject myEObject;
 
-	/**
-	 * @generated
-	 */
+	/** The my property source provider. @generated */
 	private IPropertySourceProvider myPropertySourceProvider;
 
 	/**
+	 * Instantiates a new palladio component model domain navigator item.
+	 *
+	 * @param eObject the e object
+	 * @param parent the parent
+	 * @param propertySourceProvider the property source provider
 	 * @generated
 	 */
 	public PalladioComponentModelDomainNavigatorItem(EObject eObject,
@@ -76,6 +77,9 @@ public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
 	}
 
 	/**
+	 * Gets the parent.
+	 *
+	 * @return the parent
 	 * @generated
 	 */
 	public Object getParent() {
@@ -83,6 +87,9 @@ public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
 	}
 
 	/**
+	 * Gets the e object.
+	 *
+	 * @return the e object
 	 * @generated
 	 */
 	public EObject getEObject() {
@@ -90,6 +97,9 @@ public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
 	}
 
 	/**
+	 * Gets the property source provider.
+	 *
+	 * @return the property source provider
 	 * @generated
 	 */
 	public IPropertySourceProvider getPropertySourceProvider() {
@@ -97,6 +107,10 @@ public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
 	}
 
 	/**
+	 * Equals.
+	 *
+	 * @param obj the obj
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean equals(Object obj) {
@@ -112,6 +126,9 @@ public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
 	}
 
 	/**
+	 * Hash code.
+	 *
+	 * @return the int
 	 * @generated
 	 */
 	public int hashCode() {

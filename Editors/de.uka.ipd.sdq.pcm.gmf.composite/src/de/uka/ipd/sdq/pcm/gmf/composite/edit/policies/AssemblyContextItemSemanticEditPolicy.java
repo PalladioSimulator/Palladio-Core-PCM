@@ -8,7 +8,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.Iterator;
 
-import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.CompoundCommand;
@@ -16,7 +15,6 @@ import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
-import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
@@ -46,12 +44,16 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class AssemblyContextItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class AssemblyContextItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new assembly context item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public AssemblyContextItemSemanticEditPolicy() {
@@ -59,6 +61,10 @@ public class AssemblyContextItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the creates the command.
+	 *
+	 * @param req the req
+	 * @return the creates the command
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
@@ -93,6 +99,10 @@ public class AssemblyContextItemSemanticEditPolicy extends
 
 	// TODO: write javadoc and annotations
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated not
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -128,6 +138,9 @@ public class AssemblyContextItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Adds the destroy child nodes command.
+	 *
+	 * @param cmd the cmd
 	 * @generated
 	 */
 	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

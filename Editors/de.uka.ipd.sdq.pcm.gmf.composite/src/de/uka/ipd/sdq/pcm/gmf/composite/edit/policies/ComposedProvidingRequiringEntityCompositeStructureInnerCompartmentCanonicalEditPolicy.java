@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 
 import java.util.Collection;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
@@ -18,22 +17,23 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
-import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramUpdater;
-import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
+ * The Class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy.
+ *
  * @generated
  */
 public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy
 		extends CanonicalEditPolicy {
 
-	/**
-	 * @generated
-	 */
+	/** The my features to synchronize. @generated */
 	Set myFeaturesToSynchronize;
 
 	/**
+	 * Gets the semantic children list.
+	 *
+	 * @return the semantic children list
 	 * @generated not
 	 */
 	protected List getSemanticChildrenList() {
@@ -56,6 +56,11 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
 	}
 
 	/**
+	 * Checks if is orphaned.
+	 *
+	 * @param semanticChildren the semantic children
+	 * @param view the view
+	 * @return true, if is orphaned
 	 * @generated
 	 */
 	protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -70,6 +75,9 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
 	}
 
 	/**
+	 * Gets the default factory hint.
+	 *
+	 * @return the default factory hint
 	 * @generated
 	 */
 	protected String getDefaultFactoryHint() {
@@ -77,6 +85,9 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
 	}
 
 	/**
+	 * Gets the features to synchronize.
+	 *
+	 * @return the features to synchronize
 	 * @generated
 	 */
 	protected Set getFeaturesToSynchronize() {

@@ -4,8 +4,8 @@
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 
 import java.util.Iterator;
+
 import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
@@ -17,27 +17,25 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorTypeLinkCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
-import de.uka.ipd.sdq.pcm.repository.SinkRole;
-import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
+ * The Class SinkRoleItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class SinkRoleItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new sink role item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public SinkRoleItemSemanticEditPolicy() {
@@ -45,9 +43,14 @@ public class SinkRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+	@Override
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
@@ -80,10 +83,13 @@ public class SinkRoleItemSemanticEditPolicy extends
 	 * valid end for the connector creation.
 	 * 
 	 * This has been manually adopted to fix this connection for AssemblyEventConnectors
-	 * 
+	 *
+	 * @param req the req
+	 * @return the creates the relationship command
 	 * @generated
 	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+	@Override
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
 		return command != null ? command : super
@@ -91,6 +97,10 @@ public class SinkRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the start create relationship command.
+	 *
+	 * @param req the req
+	 * @return the start create relationship command
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(
@@ -106,7 +116,9 @@ public class SinkRoleItemSemanticEditPolicy extends
 	 * Create the command to complete the relationship.
 	 * 
 	 * This has manually be adopted to set the container and contexts in the request.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the complete create relationship command
 	 * @generated not
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
@@ -153,10 +165,13 @@ public class SinkRoleItemSemanticEditPolicy extends
 	/**
 	 * Returns command to reorient EClass based link. New link target or source should be the domain
 	 * model element associated with this node.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the reorient relationship command
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
+	@Override
+    protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AssemblyEventConnectorEditPart.VISUAL_ID:

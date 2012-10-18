@@ -12,15 +12,20 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
+ * The Class AssemblyInfrastructureConnectorEditHelper.
+ *
  * @generated
  */
 public class AssemblyInfrastructureConnectorEditHelper extends
 		PalladioComponentModelBaseEditHelper {
+	
 	/**
 	 * Get the configuration command for an AssemblyConnector.
 	 * 
 	 * This is modified manually to create the assumed name for the new connector.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the configure command
 	 * @generated not
 	 */
 	@Override

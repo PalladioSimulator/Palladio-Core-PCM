@@ -34,12 +34,16 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
+ * The Class OperationProvidedRoleItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class OperationProvidedRoleItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new operation provided role item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public OperationProvidedRoleItemSemanticEditPolicy() {
@@ -47,6 +51,10 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -99,7 +107,9 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	/**
 	 * Get the create relationship command or null / UnexecutableCommand instance if this is not an
 	 * valid end for the connector creation.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the creates the relationship command
 	 * @generated not
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -198,6 +208,10 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the start create relationship command.
+	 *
+	 * @param req the req
+	 * @return the start create relationship command
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(
@@ -215,6 +229,10 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the complete create relationship command.
+	 *
+	 * @param req the req
+	 * @return the complete create relationship command
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
@@ -235,7 +253,9 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	/**
 	 * Returns command to reorient EClass based link. New link target or source should be the domain
 	 * model element associated with this node.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the reorient relationship command
 	 * @generated
 	 */
 	protected Command getReorientRelationshipCommand(

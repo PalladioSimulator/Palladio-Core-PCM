@@ -23,11 +23,15 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
+ * The Class ProvidedRoleItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new provided role item semantic edit policy.
+     *
      * @generated
      */
     public ProvidedRoleItemSemanticEditPolicy() {
@@ -37,6 +41,10 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     }
 
     /**
+     * Gets the destroy element command.
+     *
+     * @param req the req
+     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -57,6 +65,10 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
 
     // TODO: write javadoc and annotations
     /**
+     * Gets the creates the relationship command.
+     *
+     * @param req the req
+     * @return the creates the relationship command
      * @generated not
      */
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -72,6 +84,10 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
 
     // TODO: write javadoc and annotations
     /**
+     * Gets the creates the complete incoming assembly connector_4001 command.
+     *
+     * @param req the req
+     * @return the creates the complete incoming assembly connector_4001 command
      * @generated not
      */
     protected Command getCreateCompleteIncomingAssemblyConnector_4001Command(CreateRelationshipRequest req) {
@@ -101,6 +117,10 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
 
     // TODO: write javadoc and annotations
     /**
+     * Gets the creates the complete incoming provided delegation connector_4003 command.
+     *
+     * @param req the req
+     * @return the creates the complete incoming provided delegation connector_4003 command
      * @generated not
      */
     protected Command getCreateCompleteIncomingProvidedDelegationConnector_4003Command(CreateRelationshipRequest req) {

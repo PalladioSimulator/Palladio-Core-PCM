@@ -30,11 +30,17 @@ import org.eclipse.ui.part.FileEditorInput;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
+ * The Class PalladioComponentModelNavigatorLinkHelper.
+ *
  * @generated
  */
 public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
 
 	/**
+	 * Gets the editor input.
+	 *
+	 * @param diagram the diagram
+	 * @return the editor input
 	 * @generated
 	 */
 	private static IEditorInput getEditorInput(Diagram diagram) {
@@ -58,6 +64,10 @@ public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
 	}
 
 	/**
+	 * Find selection.
+	 *
+	 * @param anInput the an input
+	 * @return the i structured selection
 	 * @generated
 	 */
 	public IStructuredSelection findSelection(IEditorInput anInput) {
@@ -78,6 +88,10 @@ public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
 	}
 
 	/**
+	 * Activate editor.
+	 *
+	 * @param aPage the a page
+	 * @param aSelection the a selection
 	 * @generated
 	 */
 	public void activateEditor(IWorkbenchPage aPage,

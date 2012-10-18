@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 /**
+ * The Class AssemblyContextEditHelper.
+ *
  * @generated not
  */
 public class AssemblyContextEditHelper extends
 		PalladioComponentModelBaseEditHelper {
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+	 */
 	@Override
 	protected ICommand getConfigureCommand(ConfigureRequest request) {
 		RepositoryComponent resource = null;
@@ -41,10 +46,12 @@ public class AssemblyContextEditHelper extends
 						.getElementToConfigure().eResource().getResourceSet());
 		dialog.setProvidedService(RepositoryComponent.class);
 		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof RepositoryComponent))
-			return new CanceledCommand();
+		if (dialog.getResult() == null) {
+            return new CanceledCommand();
+        }
+		if (!(dialog.getResult() instanceof RepositoryComponent)) {
+            return new CanceledCommand();
+        }
 		resource = (RepositoryComponent) dialog.getResult();
 
 		ICommand cmd = new SetValueCommand(new SetRequest(request

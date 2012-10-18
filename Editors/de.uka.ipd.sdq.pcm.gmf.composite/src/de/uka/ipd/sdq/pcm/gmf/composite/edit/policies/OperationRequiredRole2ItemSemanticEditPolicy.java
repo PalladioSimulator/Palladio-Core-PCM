@@ -16,7 +16,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredDelegationConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredDelegationConnectorReorientCommand;
@@ -35,6 +34,8 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new operation required role2 item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public OperationRequiredRole2ItemSemanticEditPolicy() {
@@ -42,6 +43,10 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -92,6 +97,10 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the creates the relationship command.
+	 *
+	 * @param req the req
+	 * @return the creates the relationship command
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -107,7 +116,9 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends
 	 * This method has manually adopted to disallow any connectors to be started at the system
 	 * required role. AssemblyConnectors are not allowed anyway and delegation connectors should be
 	 * started at the inner operation required role.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the start create relationship command
 	 * @generated not
 	 */
 	protected Command getStartCreateRelationshipCommand(
@@ -116,6 +127,10 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the complete create relationship command.
+	 *
+	 * @param req the req
+	 * @return the complete create relationship command
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
@@ -135,7 +150,9 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends
 	/**
 	 * Returns command to reorient EClass based link. New link target or source should be the domain
 	 * model element associated with this node.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the reorient relationship command
 	 * @generated
 	 */
 	protected Command getReorientRelationshipCommand(

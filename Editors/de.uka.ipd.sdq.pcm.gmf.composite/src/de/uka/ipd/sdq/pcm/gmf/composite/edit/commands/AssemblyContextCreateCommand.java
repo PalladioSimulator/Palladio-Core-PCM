@@ -18,14 +18,18 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 
 /**
+ * The Class AssemblyContextCreateCommand.
+ *
  * @generated
  */
 public class AssemblyContextCreateCommand extends EditElementCommand {
 
 	/**
+	 * Instantiates a new assembly context create command.
+	 *
+	 * @param req the req
 	 * @generated
 	 */
 	public AssemblyContextCreateCommand(CreateElementRequest req) {
@@ -33,9 +37,13 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the element to edit.
+	 *
+	 * @return the element to edit
 	 * @generated
 	 */
-	protected EObject getElementToEdit() {
+	@Override
+    protected EObject getElementToEdit() {
 		EObject container = ((CreateElementRequest) getRequest())
 				.getContainer();
 		if (container instanceof View) {
@@ -45,17 +53,28 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
-	public boolean canExecute() {
+	@Override
+    public boolean canExecute() {
 		return true;
 
 	}
 
 	/**
+	 * Do execute with result.
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated not
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+	@Override
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		AssemblyContext newElement = CompositionFactory.eINSTANCE
 				.createAssemblyContext();
@@ -70,6 +89,12 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Do configure.
+	 *
+	 * @param newElement the new element
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected void doConfigure(AssemblyContext newElement,

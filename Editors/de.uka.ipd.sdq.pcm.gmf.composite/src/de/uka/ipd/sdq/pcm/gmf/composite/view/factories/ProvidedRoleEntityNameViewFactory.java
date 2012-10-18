@@ -5,23 +5,33 @@ package de.uka.ipd.sdq.pcm.gmf.composite.view.factories;
 
 import java.util.ArrayList;
 import java.util.List;
+
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
+import org.eclipse.gmf.runtime.diagram.ui.util.MeasurementUnitHelper;
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.AbstractLabelViewFactory;
+import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
+import org.eclipse.gmf.runtime.notation.Location;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.runtime.diagram.ui.util.MeasurementUnitHelper;
-
-import org.eclipse.gmf.runtime.draw2d.ui.mapmode.IMapMode;
-
-import org.eclipse.gmf.runtime.notation.Location;
 
 /**
+ * A factory for creating ProvidedRoleEntityNameView objects.
+ *
  * @generated
  */
 public class ProvidedRoleEntityNameViewFactory extends AbstractLabelViewFactory {
 
     /**
+     * Creates a new ProvidedRoleEntityNameView object.
+     *
+     * @param semanticAdapter the semantic adapter
+     * @param containerView the container view
+     * @param semanticHint the semantic hint
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the view
      * @generated
      */
     public View createView(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -36,6 +46,10 @@ public class ProvidedRoleEntityNameViewFactory extends AbstractLabelViewFactory 
     }
 
     /**
+     * Creates a new ProvidedRoleEntityNameView object.
+     *
+     * @param view the view
+     * @return the list
      * @generated
      */
     protected List createStyles(View view) {

@@ -17,15 +17,18 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class SinkFigure extends AbstractBorderFigure {
 
     /**
-     * @param size
-     *            width and height of the figure in logical units (LP)
-     * @param posType
-     *            position type of the figure
+     * Instantiates a new sink figure.
+     *
+     * @param logicalSize the logical size
+     * @param posType position type of the figure
      */
     public SinkFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+     */
     @Override
     protected void paintFigure(final Graphics graphics) {
         super.paintFigure(graphics);
@@ -155,6 +158,8 @@ public class SinkFigure extends AbstractBorderFigure {
     }
 
     /**
+     * Gets the sink center.
+     *
      * @return the center between the ( part of the figure relative to the position of the figure
      */
     private Point getSinkCenter() {
@@ -182,14 +187,22 @@ public class SinkFigure extends AbstractBorderFigure {
     }
 
     /**
-     * places the anchor point at the center of the ( part of the figure
+     * places the anchor point at the center of the ( part of the figure.
      */
     private class SinkAnchor extends AbstractConnectionAnchor {
 
+        /**
+         * Instantiates a new sink anchor.
+         *
+         * @param owner the owner
+         */
         public SinkAnchor(final IFigure owner) {
             super(owner);
         }
 
+        /* (non-Javadoc)
+         * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
+         */
         @Override
         public Point getLocation(final Point reference) {
             final Point p = SinkFigure.this.getSinkCenter();

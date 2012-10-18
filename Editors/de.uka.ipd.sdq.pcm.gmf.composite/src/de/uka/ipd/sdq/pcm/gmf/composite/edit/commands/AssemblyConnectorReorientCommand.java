@@ -22,28 +22,26 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
- * 
+ * The Class AssemblyConnectorReorientCommand.
+ *
  * @author Christian Busch
  * @generated
  */
 public class AssemblyConnectorReorientCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
+	/** The reorient direction. @generated */
 	private final int reorientDirection;
 
-	/**
-	 * @generated
-	 */
+	/** The old end. @generated */
 	private final EObject oldEnd;
 
-	/**
-	 * @generated
-	 */
+	/** The new end. @generated */
 	private final EObject newEnd;
 
 	/**
+	 * Instantiates a new assembly connector reorient command.
+	 *
+	 * @param request the request
 	 * @generated
 	 */
 	public AssemblyConnectorReorientCommand(ReorientRelationshipRequest request) {
@@ -54,6 +52,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean canExecute() {
@@ -70,6 +71,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Can reorient source.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
 	protected boolean canReorientSource() {
@@ -89,6 +93,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Can reorient target.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
 	protected boolean canReorientTarget() {
@@ -108,6 +115,12 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Do execute with result.
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
@@ -126,6 +139,10 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Reorient source.
+	 *
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated NOT
 	 */
 	protected CommandResult reorientSource() throws ExecutionException {
@@ -140,6 +157,10 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Reorient target.
+	 *
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated NOT
 	 */
 	protected CommandResult reorientTarget() throws ExecutionException {
@@ -154,6 +175,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the link.
+	 *
+	 * @return the link
 	 * @generated
 	 */
 	protected AssemblyConnector getLink() {
@@ -161,6 +185,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the old source.
+	 *
+	 * @return the old source
 	 * @generated
 	 */
 	protected OperationRequiredRole getOldSource() {
@@ -168,6 +195,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the new source.
+	 *
+	 * @return the new source
 	 * @generated
 	 */
 	protected OperationRequiredRole getNewSource() {
@@ -175,6 +205,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the old target.
+	 *
+	 * @return the old target
 	 * @generated
 	 */
 	protected OperationProvidedRole getOldTarget() {
@@ -182,6 +215,9 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the new target.
+	 *
+	 * @return the new target
 	 * @generated
 	 */
 	protected OperationProvidedRole getNewTarget() {

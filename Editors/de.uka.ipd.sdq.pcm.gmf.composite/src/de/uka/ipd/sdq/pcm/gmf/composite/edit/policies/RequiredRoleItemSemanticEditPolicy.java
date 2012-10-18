@@ -20,11 +20,15 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
+ * The Class RequiredRoleItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new required role item semantic edit policy.
+     *
      * @generated
      */
     public RequiredRoleItemSemanticEditPolicy() {
@@ -35,6 +39,10 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     }
 
     /**
+     * Gets the destroy element command.
+     *
+     * @param req the req
+     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -55,6 +63,10 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
 
     // TODO: write javadoc and annotations
     /**
+     * Gets the creates the relationship command.
+     *
+     * @param req the req
+     * @return the creates the relationship command
      * @generated not
      */
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -69,6 +81,10 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
 
     // TODO: write javadoc and annotations
     /**
+     * Gets the creates the start outgoing assembly connector_4001 command.
+     *
+     * @param req the req
+     * @return the creates the start outgoing assembly connector_4001 command
      * @generated not
      */
     protected Command getCreateStartOutgoingAssemblyConnector_4001Command(CreateRelationshipRequest req) {
@@ -93,6 +109,10 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
 
     // TODO: write javadoc and annotations
     /**
+     * Gets the creates the start outgoing required delegation connector_4002 command.
+     *
+     * @param req the req
+     * @return the creates the start outgoing required delegation connector_4002 command
      * @generated not
      */
     protected Command getCreateStartOutgoingRequiredDelegationConnector_4002Command(CreateRelationshipRequest req) {

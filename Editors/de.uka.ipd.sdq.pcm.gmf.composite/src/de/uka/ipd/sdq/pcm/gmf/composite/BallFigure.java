@@ -17,15 +17,18 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class BallFigure extends AbstractBorderFigure {
 
     /**
-     * @param size
-     *            width and hight of the figure in logical units (LP)
-     * @param posType
-     *            position type of the figure
+     * Instantiates a new ball figure.
+     *
+     * @param logicalSize the logical size
+     * @param posType position type of the figure
      */
     public BallFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+     */
     @Override
     protected void paintFigure(final Graphics graphics) {
         super.paintFigure(graphics);
@@ -73,8 +76,10 @@ public class BallFigure extends AbstractBorderFigure {
     }
 
     /**
+     * Gets the ball bounds.
+     *
      * @return the rectangle surrounding the ( ) part of the figure relative to the position of the
-     *         figure
+     * figure
      */
     private Rectangle getBallBounds() {
         final int side = (this.getBorderItemLocator() == null ? PositionConstants.WEST : this.getBorderItemLocator()
@@ -106,20 +111,34 @@ public class BallFigure extends AbstractBorderFigure {
 
     /**
      * places the anchor point around the ( ) part of the figure which is closest to the reference
-     * point
+     * point.
      */
     private class BallAnchor extends AbstractConnectionAnchor {
 
+        /**
+         * Instantiates a new ball anchor.
+         *
+         * @param owner the owner
+         */
         public BallAnchor(final IFigure owner) {
             super(owner);
         }
 
+        /* (non-Javadoc)
+         * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
+         */
         @Override
         public Point getLocation(final Point reference) {
             final Point p = this.getAnchorPoint(reference);
             return p;
         }
 
+        /**
+         * Gets the anchor point.
+         *
+         * @param reference the reference
+         * @return the anchor point
+         */
         private Point getAnchorPoint(final Point reference) {
             final Rectangle r = Rectangle.SINGLETON;
             r.setBounds(BallFigure.this.getBallBounds());
@@ -150,11 +169,17 @@ public class BallFigure extends AbstractBorderFigure {
 
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorInternal() {
         return new BallAnchor(this);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorExternal() {
         return new StemAnchor(this);

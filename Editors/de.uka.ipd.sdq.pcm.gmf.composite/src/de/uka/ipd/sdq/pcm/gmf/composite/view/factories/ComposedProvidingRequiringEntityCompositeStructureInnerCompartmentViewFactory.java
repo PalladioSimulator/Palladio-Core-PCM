@@ -3,34 +3,36 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
-
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.ListCompartmentViewFactory;
-
 import org.eclipse.gmf.runtime.notation.DrawerStyle;
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.TitleStyle;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
+
 /**
+ * A factory for creating ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentView objects.
+ *
  * @generated
  */
 public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentViewFactory extends
         ListCompartmentViewFactory {
 
     /**
+     * Creates a new ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentView object.
+     *
+     * @param view the view
+     * @return the list
      * @generated
      */
     protected List createStyles(View view) {
@@ -41,6 +43,14 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentV
     }
 
     /**
+     * Decorate view.
+     *
+     * @param containerView the container view
+     * @param view the view
+     * @param semanticAdapter the semantic adapter
+     * @param semanticHint the semantic hint
+     * @param index the index
+     * @param persisted the persisted
      * @generated
      */
     protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,
@@ -63,6 +73,9 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentV
     }
 
     /**
+     * Sets the up compartment title.
+     *
+     * @param view the new up compartment title
      * @generated
      */
     protected void setupCompartmentTitle(View view) {
@@ -73,6 +86,9 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentV
     }
 
     /**
+     * Sets the up compartment collapsed.
+     *
+     * @param view the new up compartment collapsed
      * @generated
      */
     protected void setupCompartmentCollapsed(View view) {

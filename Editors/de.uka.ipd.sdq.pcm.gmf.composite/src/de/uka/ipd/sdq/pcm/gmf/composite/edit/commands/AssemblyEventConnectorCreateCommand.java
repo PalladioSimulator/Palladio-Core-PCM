@@ -24,23 +24,19 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
+ * The Class AssemblyEventConnectorCreateCommand.
+ *
  * @generated
  */
 public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
+	/** The source. @generated */
 	private final EObject source;
 
-	/**
-	 * @generated
-	 */
+	/** The target. @generated */
 	private final EObject target;
 
-	/**
-	 * @generated
-	 */
+	/** The container. @generated */
 	private final ComposedStructure container;
 
 	/**
@@ -49,7 +45,10 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	 * This has been modified to deduce the container from the request, while the assembly connector
 	 * is not accessible from source or target. Note: The request object is not accessible by the
 	 * deduceContainer() method. For this, the container is deduced directly in the contructor.
-	 * 
+	 *
+	 * @param request the request
+	 * @param source the source
+	 * @param target the target
 	 * @generated not
 	 */
 	public AssemblyEventConnectorCreateCommand(
@@ -63,6 +62,9 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean canExecute() {
@@ -91,7 +93,11 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	 * Execute the command to build up the new assembly event connector.
 	 * 
 	 * This has been manually modified to set the additional assembly context references
-	 * 
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated not
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
@@ -125,6 +131,12 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Do configure.
+	 *
+	 * @param newElement the new element
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected void doConfigure(AssemblyEventConnector newElement,
@@ -149,6 +161,9 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Sets the element to edit.
+	 *
+	 * @param element the new element to edit
 	 * @generated
 	 */
 	protected void setElementToEdit(EObject element) {
@@ -156,6 +171,9 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the source.
+	 *
+	 * @return the source
 	 * @generated
 	 */
 	protected SourceRole getSource() {
@@ -163,6 +181,9 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the target.
+	 *
+	 * @return the target
 	 * @generated
 	 */
 	protected SinkRole getTarget() {
@@ -170,6 +191,9 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the container.
+	 *
+	 * @return the container
 	 * @generated
 	 */
 	public ComposedStructure getContainer() {
@@ -179,7 +203,10 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 	/**
 	 * Default approach is to traverse ancestors of the source to find instance of container. Modify
 	 * with appropriate logic.
-	 * 
+	 *
+	 * @param source the source
+	 * @param target the target
+	 * @return the composed structure
 	 * @generated
 	 */
 	private static ComposedStructure deduceContainer(EObject source,

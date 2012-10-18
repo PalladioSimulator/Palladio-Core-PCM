@@ -17,15 +17,18 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class SocketFigure extends AbstractBorderFigure {
 
     /**
-     * @param size
-     *            width and hight of the figure in logical units (LP)
-     * @param posType
-     *            position type of the figure
+     * Instantiates a new socket figure.
+     *
+     * @param logicalSize the logical size
+     * @param posType position type of the figure
      */
     public SocketFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+     */
     @Override
     protected void paintFigure(final Graphics graphics) {
         super.paintFigure(graphics);
@@ -71,6 +74,8 @@ public class SocketFigure extends AbstractBorderFigure {
     }
 
     /**
+     * Gets the arc center.
+     *
      * @return the center between the ( part of the figure relative to the position of the figure
      */
     private Point getArcCenter() {
@@ -98,14 +103,22 @@ public class SocketFigure extends AbstractBorderFigure {
     }
 
     /**
-     * places the anchor point at the center of the ( part of the figure
+     * places the anchor point at the center of the ( part of the figure.
      */
     private class SocketAnchor extends AbstractConnectionAnchor {
 
+        /**
+         * Instantiates a new socket anchor.
+         *
+         * @param owner the owner
+         */
         public SocketAnchor(final IFigure owner) {
             super(owner);
         }
 
+        /* (non-Javadoc)
+         * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
+         */
         @Override
         public Point getLocation(final Point reference) {
             final Point p = SocketFigure.this.getArcCenter();
@@ -114,11 +127,17 @@ public class SocketFigure extends AbstractBorderFigure {
         }
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorInternal() {
         return new SocketAnchor(this);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorExternal() {
         return new StemAnchor(this);

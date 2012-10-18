@@ -15,27 +15,25 @@ import org.eclipse.gef.editpolicies.SelectionEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
 /**
+ * The Class PalladioComponentModelTextSelectionEditPolicy.
+ *
  * @generated
  */
 public class PalladioComponentModelTextSelectionEditPolicy extends
 		SelectionEditPolicy {
 
-	/**
-	 * @generated
-	 */
+	/** The selection feedback figure. @generated */
 	private IFigure selectionFeedbackFigure;
 
-	/**
-	 * @generated
-	 */
+	/** The focus feedback figure. @generated */
 	private IFigure focusFeedbackFigure;
 
-	/**
-	 * @generated
-	 */
+	/** The host position listener. @generated */
 	private FigureListener hostPositionListener;
 
 	/**
+	 * Show primary selection.
+	 *
 	 * @generated
 	 */
 	protected void showPrimarySelection() {
@@ -49,6 +47,8 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Show selection.
+	 *
 	 * @generated
 	 */
 	protected void showSelection() {
@@ -65,6 +65,8 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Hide selection.
+	 *
 	 * @generated
 	 */
 	protected void hideSelection() {
@@ -82,6 +84,8 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Show focus.
+	 *
 	 * @generated
 	 */
 	protected void showFocus() {
@@ -95,6 +99,8 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Hide focus.
+	 *
 	 * @generated
 	 */
 	protected void hideFocus() {
@@ -109,6 +115,9 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Gets the feedback bounds.
+	 *
+	 * @return the feedback bounds
 	 * @generated
 	 */
 	protected Rectangle getFeedbackBounds() {
@@ -125,6 +134,9 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Creates the selection feedback figure.
+	 *
+	 * @return the i figure
 	 * @generated
 	 */
 	protected IFigure createSelectionFeedbackFigure() {
@@ -144,6 +156,9 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Creates the focus feedback figure.
+	 *
+	 * @return the i figure
 	 * @generated
 	 */
 	protected IFigure createFocusFeedbackFigure() {
@@ -156,6 +171,9 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Update label.
+	 *
+	 * @param target the target
 	 * @generated
 	 */
 	protected void updateLabel(Label target) {
@@ -166,6 +184,8 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Refresh selection feedback.
+	 *
 	 * @generated
 	 */
 	protected void refreshSelectionFeedback() {
@@ -181,6 +201,8 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Refresh focus feedback.
+	 *
 	 * @generated
 	 */
 	protected void refreshFocusFeedback() {
@@ -190,6 +212,8 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Refresh feedback.
+	 *
 	 * @generated
 	 */
 	public void refreshFeedback() {
@@ -198,6 +222,9 @@ public class PalladioComponentModelTextSelectionEditPolicy extends
 	}
 
 	/**
+	 * Gets the host position listener.
+	 *
+	 * @return the host position listener
 	 * @generated
 	 */
 	private FigureListener getHostPositionListener() {

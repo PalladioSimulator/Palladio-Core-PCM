@@ -51,34 +51,26 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelParserProvider;
 
 /**
+ * The Class OperationRequiredRoleEntityNameEditPart.
+ *
  * @generated
  */
 public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 		implements ITextAwareEditPart, IBorderItemEditPart {
 
-	/**
-	 * @generated
-	 */
+	/** The Constant VISUAL_ID. @generated */
 	public static final int VISUAL_ID = 5008;
 
-	/**
-	 * @generated
-	 */
+	/** The manager. @generated */
 	private DirectEditManager manager;
 
-	/**
-	 * @generated
-	 */
+	/** The parser. @generated */
 	private IParser parser;
 
-	/**
-	 * @generated
-	 */
+	/** The parser elements. @generated */
 	private List parserElements;
 
-	/**
-	 * @generated
-	 */
+	/** The default text. @generated */
 	private String defaultText;
 
 	/**
@@ -92,6 +84,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Instantiates a new operation required role entity name edit part.
+	 *
+	 * @param view the view
 	 * @generated
 	 */
 	public OperationRequiredRoleEntityNameEditPart(View view) {
@@ -99,6 +94,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Creates the default edit policies.
+	 *
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
@@ -110,6 +107,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the border item locator.
+	 *
+	 * @return the border item locator
 	 * @generated
 	 */
 	public IBorderItemLocator getBorderItemLocator() {
@@ -123,6 +123,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Refresh bounds.
+	 *
 	 * @generated
 	 */
 	public void refreshBounds() {
@@ -139,6 +141,10 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the label text helper.
+	 *
+	 * @param figure the figure
+	 * @return the label text helper
 	 * @generated
 	 */
 	protected String getLabelTextHelper(IFigure figure) {
@@ -150,6 +156,10 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Sets the label text helper.
+	 *
+	 * @param figure the figure
+	 * @param text the text
 	 * @generated
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
@@ -161,6 +171,10 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the label icon helper.
+	 *
+	 * @param figure the figure
+	 * @return the label icon helper
 	 * @generated
 	 */
 	protected Image getLabelIconHelper(IFigure figure) {
@@ -172,6 +186,10 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Sets the label icon helper.
+	 *
+	 * @param figure the figure
+	 * @param icon the icon
 	 * @generated
 	 */
 	protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -183,6 +201,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Sets the label.
+	 *
+	 * @param figure the new label
 	 * @generated
 	 */
 	public void setLabel(IFigure figure) {
@@ -194,6 +215,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the model children.
+	 *
+	 * @return the model children
 	 * @generated
 	 */
 	protected List getModelChildren() {
@@ -201,6 +225,10 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the child by semantic hint.
+	 *
+	 * @param semanticHint the semantic hint
+	 * @return the child by semantic hint
 	 * @generated
 	 */
 	public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
@@ -208,6 +236,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the parser element.
+	 *
+	 * @return the parser element
 	 * @generated
 	 */
 	protected EObject getParserElement() {
@@ -215,6 +246,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the label icon.
+	 *
+	 * @return the label icon
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
@@ -222,6 +256,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the label text.
+	 *
+	 * @return the label text
 	 * @generated
 	 */
 	protected String getLabelText() {
@@ -239,6 +276,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Sets the label text.
+	 *
+	 * @param text the new label text
 	 * @generated
 	 */
 	public void setLabelText(String text) {
@@ -256,6 +296,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the edits the text.
+	 *
+	 * @return the edits the text
 	 * @generated
 	 */
 	public String getEditText() {
@@ -268,6 +311,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Checks if is editable.
+	 *
+	 * @return true, if is editable
 	 * @generated
 	 */
 	protected boolean isEditable() {
@@ -275,6 +321,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the edits the text validator.
+	 *
+	 * @return the edits the text validator
 	 * @generated
 	 */
 	public ICellEditorValidator getEditTextValidator() {
@@ -308,6 +357,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the completion processor.
+	 *
+	 * @return the completion processor
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
@@ -319,6 +371,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the parser options.
+	 *
+	 * @return the parser options
 	 * @generated
 	 */
 	public ParserOptions getParserOptions() {
@@ -326,6 +381,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the parser.
+	 *
+	 * @return the parser
 	 * @generated
 	 */
 	public IParser getParser() {
@@ -341,6 +399,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the manager.
+	 *
+	 * @return the manager
 	 * @generated
 	 */
 	protected DirectEditManager getManager() {
@@ -354,6 +415,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Sets the manager.
+	 *
+	 * @param manager the new manager
 	 * @generated
 	 */
 	protected void setManager(DirectEditManager manager) {
@@ -361,6 +425,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Perform direct edit.
+	 *
 	 * @generated
 	 */
 	protected void performDirectEdit() {
@@ -368,6 +434,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Perform direct edit.
+	 *
+	 * @param eventLocation the event location
 	 * @generated
 	 */
 	protected void performDirectEdit(Point eventLocation) {
@@ -378,6 +447,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Perform direct edit.
+	 *
+	 * @param initialCharacter the initial character
 	 * @generated
 	 */
 	private void performDirectEdit(char initialCharacter) {
@@ -389,6 +461,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Perform direct edit request.
+	 *
+	 * @param request the request
 	 * @generated
 	 */
 	protected void performDirectEditRequest(Request request) {
@@ -423,6 +498,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Refresh visuals.
+	 *
 	 * @generated
 	 */
 	protected void refreshVisuals() {
@@ -435,6 +512,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Refresh label.
+	 *
 	 * @generated
 	 */
 	protected void refreshLabel() {
@@ -453,6 +532,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Refresh underline.
+	 *
 	 * @generated
 	 */
 	protected void refreshUnderline() {
@@ -464,6 +545,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Refresh strike through.
+	 *
 	 * @generated
 	 */
 	protected void refreshStrikeThrough() {
@@ -476,6 +559,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Refresh font.
+	 *
 	 * @generated
 	 */
 	protected void refreshFont() {
@@ -490,6 +575,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Sets the font color.
+	 *
+	 * @param color the new font color
 	 * @generated
 	 */
 	protected void setFontColor(Color color) {
@@ -497,6 +585,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Adds the semantic listeners.
+	 *
 	 * @generated
 	 */
 	protected void addSemanticListeners() {
@@ -514,6 +604,8 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Removes the semantic listeners.
+	 *
 	 * @generated
 	 */
 	protected void removeSemanticListeners() {
@@ -527,6 +619,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the accessible edit part.
+	 *
+	 * @return the accessible edit part
 	 * @generated
 	 */
 	protected AccessibleEditPart getAccessibleEditPart() {
@@ -542,6 +637,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Gets the font style owner view.
+	 *
+	 * @return the font style owner view
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
@@ -549,6 +647,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Handle notification event.
+	 *
+	 * @param event the event
 	 * @generated
 	 */
 	protected void handleNotificationEvent(Notification event) {
@@ -592,6 +693,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Creates the figure.
+	 *
+	 * @return the i figure
 	 * @generated
 	 */
 	protected IFigure createFigure() {
@@ -601,6 +705,9 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * Creates the figure prim.
+	 *
+	 * @return the i figure
 	 * @generated
 	 */
 	protected IFigure createFigurePrim() {
@@ -608,11 +715,15 @@ public class OperationRequiredRoleEntityNameEditPart extends LabelEditPart
 	}
 
 	/**
+	 * The Class RoleLabelFigure.
+	 *
 	 * @generated
 	 */
 	public class RoleLabelFigure extends WrappingLabel {
 
 		/**
+		 * Instantiates a new role label figure.
+		 *
 		 * @generated
 		 */
 		public RoleLabelFigure() {

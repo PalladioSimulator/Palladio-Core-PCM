@@ -31,17 +31,20 @@ import de.uka.ipd.sdq.pcm.gmf.composite.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
+ * The Class PalladioComponentModelParserProvider.
+ *
  * @generated
  */
 public class PalladioComponentModelParserProvider extends AbstractProvider
 		implements IParserProvider {
 
-	/**
-	 * @generated
-	 */
+	/** The composed providing requiring entity entity name_5012 parser. @generated */
 	private IParser composedProvidingRequiringEntityEntityName_5012Parser;
 
 	/**
+	 * Gets the composed providing requiring entity entity name_5012 parser.
+	 *
+	 * @return the composed providing requiring entity entity name_5012 parser
 	 * @generated
 	 */
 	private IParser getComposedProvidingRequiringEntityEntityName_5012Parser() {
@@ -54,12 +57,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return composedProvidingRequiringEntityEntityName_5012Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The assembly context entity name_5009 parser. @generated */
 	private IParser assemblyContextEntityName_5009Parser;
 
 	/**
+	 * Gets the assembly context entity name_5009 parser.
+	 *
+	 * @return the assembly context entity name_5009 parser
 	 * @generated
 	 */
 	private IParser getAssemblyContextEntityName_5009Parser() {
@@ -72,12 +76,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return assemblyContextEntityName_5009Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The operation provided role entity name_5007 parser. @generated */
 	private IParser operationProvidedRoleEntityName_5007Parser;
 
 	/**
+	 * Gets the operation provided role entity name_5007 parser.
+	 *
+	 * @return the operation provided role entity name_5007 parser
 	 * @generated
 	 */
 	private IParser getOperationProvidedRoleEntityName_5007Parser() {
@@ -90,12 +95,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return operationProvidedRoleEntityName_5007Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The operation required role entity name_5008 parser. @generated */
 	private IParser operationRequiredRoleEntityName_5008Parser;
 
 	/**
+	 * Gets the operation required role entity name_5008 parser.
+	 *
+	 * @return the operation required role entity name_5008 parser
 	 * @generated
 	 */
 	private IParser getOperationRequiredRoleEntityName_5008Parser() {
@@ -108,12 +114,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return operationRequiredRoleEntityName_5008Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The source role entity name_5015 parser. @generated */
 	private IParser sourceRoleEntityName_5015Parser;
 
 	/**
+	 * Gets the source role entity name_5015 parser.
+	 *
+	 * @return the source role entity name_5015 parser
 	 * @generated
 	 */
 	private IParser getSourceRoleEntityName_5015Parser() {
@@ -126,12 +133,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return sourceRoleEntityName_5015Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The sink role entity name_5016 parser. @generated */
 	private IParser sinkRoleEntityName_5016Parser;
 
 	/**
+	 * Gets the sink role entity name_5016 parser.
+	 *
+	 * @return the sink role entity name_5016 parser
 	 * @generated
 	 */
 	private IParser getSinkRoleEntityName_5016Parser() {
@@ -144,12 +152,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return sinkRoleEntityName_5016Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The infrastructure provided role entity name_5017 parser. @generated */
 	private IParser infrastructureProvidedRoleEntityName_5017Parser;
 
 	/**
+	 * Gets the infrastructure provided role entity name_5017 parser.
+	 *
+	 * @return the infrastructure provided role entity name_5017 parser
 	 * @generated
 	 */
 	private IParser getInfrastructureProvidedRoleEntityName_5017Parser() {
@@ -162,12 +171,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return infrastructureProvidedRoleEntityName_5017Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The infrastructure required role entity name_5018 parser. @generated */
 	private IParser infrastructureRequiredRoleEntityName_5018Parser;
 
 	/**
+	 * Gets the infrastructure required role entity name_5018 parser.
+	 *
+	 * @return the infrastructure required role entity name_5018 parser
 	 * @generated
 	 */
 	private IParser getInfrastructureRequiredRoleEntityName_5018Parser() {
@@ -180,12 +190,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return infrastructureRequiredRoleEntityName_5018Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The operation provided role entity name_5013 parser. @generated */
 	private IParser operationProvidedRoleEntityName_5013Parser;
 
 	/**
+	 * Gets the operation provided role entity name_5013 parser.
+	 *
+	 * @return the operation provided role entity name_5013 parser
 	 * @generated
 	 */
 	private IParser getOperationProvidedRoleEntityName_5013Parser() {
@@ -198,12 +209,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		return operationProvidedRoleEntityName_5013Parser;
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The operation required role entity name_5014 parser. @generated */
 	private IParser operationRequiredRoleEntityName_5014Parser;
 
 	/**
+	 * Gets the operation required role entity name_5014 parser.
+	 *
+	 * @return the operation required role entity name_5014 parser
 	 * @generated
 	 */
 	private IParser getOperationRequiredRoleEntityName_5014Parser() {
@@ -217,6 +229,10 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	}
 
 	/**
+	 * Gets the parser.
+	 *
+	 * @param visualID the visual id
+	 * @return the parser
 	 * @generated
 	 */
 	protected IParser getParser(int visualID) {
@@ -246,8 +262,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	}
 
 	/**
-	 * Utility method that consults ParserService
-	 * 
+	 * Utility method that consults ParserService.
+	 *
+	 * @param type the type
+	 * @param object the object
+	 * @param parserHint the parser hint
+	 * @return the parser
 	 * @generated
 	 */
 	public static IParser getParser(IElementType type, EObject object,
@@ -257,6 +277,10 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	}
 
 	/**
+	 * Gets the parser.
+	 *
+	 * @param hint the hint
+	 * @return the parser
 	 * @generated
 	 */
 	public IParser getParser(IAdaptable hint) {
@@ -274,6 +298,10 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	}
 
 	/**
+	 * Provides.
+	 *
+	 * @param operation the operation
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean provides(IOperation operation) {
@@ -288,16 +316,21 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	}
 
 	/**
+	 * The Class HintAdapter.
+	 *
 	 * @generated
 	 */
 	private static class HintAdapter extends ParserHintAdapter {
 
-		/**
-		 * @generated
-		 */
+		/** The element type. @generated */
 		private final IElementType elementType;
 
 		/**
+		 * Instantiates a new hint adapter.
+		 *
+		 * @param type the type
+		 * @param object the object
+		 * @param parserHint the parser hint
 		 * @generated
 		 */
 		public HintAdapter(IElementType type, EObject object, String parserHint) {
@@ -307,6 +340,10 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 		}
 
 		/**
+		 * Gets the adapter.
+		 *
+		 * @param adapter the adapter
+		 * @return the adapter
 		 * @generated
 		 */
 		public Object getAdapter(Class adapter) {

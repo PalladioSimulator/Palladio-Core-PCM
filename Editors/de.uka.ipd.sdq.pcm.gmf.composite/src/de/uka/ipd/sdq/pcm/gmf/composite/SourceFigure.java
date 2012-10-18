@@ -17,15 +17,18 @@ import org.eclipse.draw2d.geometry.Rectangle;
 public class SourceFigure extends AbstractBorderFigure {
 
     /**
-     * @param size
-     *            width and height of the figure in logical units (LP)
-     * @param posType
-     *            position type of the figure
+     * Instantiates a new source figure.
+     *
+     * @param logicalSize the logical size
+     * @param posType position type of the figure
      */
     public SourceFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+     */
     @Override
     protected void paintFigure(final Graphics graphics) {
         super.paintFigure(graphics);
@@ -126,14 +129,22 @@ public class SourceFigure extends AbstractBorderFigure {
     }
 
     /**
-     * places the anchor point at the center of the ( part of the figure
+     * places the anchor point at the center of the ( part of the figure.
      */
     private class SourceAnchor extends AbstractConnectionAnchor {
 
+        /**
+         * Instantiates a new source anchor.
+         *
+         * @param owner the owner
+         */
         public SourceAnchor(final IFigure owner) {
             super(owner);
         }
 
+        /* (non-Javadoc)
+         * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
+         */
         @Override
         public Point getLocation(final Point reference) {
             final Point p = SourceFigure.this.getSourceCenter();
@@ -142,11 +153,17 @@ public class SourceFigure extends AbstractBorderFigure {
         }
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorInternal() {
         return new SourceAnchor(this);
     }
 
+    /* (non-Javadoc)
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
+     */
     @Override
     protected ConnectionAnchor createAnchorExternal() {
         return new StemAnchor(this);

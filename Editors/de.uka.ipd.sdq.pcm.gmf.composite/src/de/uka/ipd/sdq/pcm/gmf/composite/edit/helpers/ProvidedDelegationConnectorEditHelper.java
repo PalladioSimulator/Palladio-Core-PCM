@@ -12,11 +12,16 @@ import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
+ * The Class ProvidedDelegationConnectorEditHelper.
+ *
  * @generated not
  */
 public class ProvidedDelegationConnectorEditHelper extends
 		PalladioComponentModelBaseEditHelper {
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+	 */
 	@Override
 	protected ICommand getConfigureCommand(ConfigureRequest req) {
 		ProvidedDelegationConnector con = (ProvidedDelegationConnector) req

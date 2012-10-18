@@ -16,7 +16,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ProvidedDelegationConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ProvidedDelegationConnectorReorientCommand;
@@ -37,6 +36,8 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new operation provided role2 item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public OperationProvidedRole2ItemSemanticEditPolicy() {
@@ -44,9 +45,14 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+	@Override
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
@@ -94,9 +100,14 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the creates the relationship command.
+	 *
+	 * @param req the req
+	 * @return the creates the relationship command
 	 * @generated
 	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+	@Override
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
 		return command != null ? command : super
@@ -104,6 +115,10 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the start create relationship command.
+	 *
+	 * @param req the req
+	 * @return the start create relationship command
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(
@@ -121,6 +136,10 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the complete create relationship command.
+	 *
+	 * @param req the req
+	 * @return the complete create relationship command
 	 * @generated not
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
@@ -142,10 +161,13 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends
 	/**
 	 * Returns command to reorient EClass based link. New link target or source should be the domain
 	 * model element associated with this node.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the reorient relationship command
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
+	@Override
+    protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AssemblyConnectorEditPart.VISUAL_ID:

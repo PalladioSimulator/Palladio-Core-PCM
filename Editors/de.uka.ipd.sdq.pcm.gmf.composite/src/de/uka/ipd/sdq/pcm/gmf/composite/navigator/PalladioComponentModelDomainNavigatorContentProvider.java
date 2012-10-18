@@ -25,42 +25,34 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
+ * The Class PalladioComponentModelDomainNavigatorContentProvider.
+ *
  * @generated
  */
 public class PalladioComponentModelDomainNavigatorContentProvider implements
 		ICommonContentProvider {
 
-	/**
-	 * @generated
-	 */
+	/** The my adapter fctory content provier. @generated */
 	private AdapterFactoryContentProvider myAdapterFctoryContentProvier;
 
-	/**
-	 * @generated
-	 */
+	/** The Constant EMPTY_ARRAY. @generated */
 	private static final Object[] EMPTY_ARRAY = new Object[0];
 
-	/**
-	 * @generated
-	 */
+	/** The my viewer. @generated */
 	private Viewer myViewer;
 
-	/**
-	 * @generated
-	 */
+	/** The my editing domain. @generated */
 	private AdapterFactoryEditingDomain myEditingDomain;
 
-	/**
-	 * @generated
-	 */
+	/** The my workspace synchronizer. @generated */
 	private WorkspaceSynchronizer myWorkspaceSynchronizer;
 
-	/**
-	 * @generated
-	 */
+	/** The my viewer refresh runnable. @generated */
 	private Runnable myViewerRefreshRunnable;
 
 	/**
+	 * Instantiates a new palladio component model domain navigator content provider.
+	 *
 	 * @generated
 	 */
 	public PalladioComponentModelDomainNavigatorContentProvider() {
@@ -133,6 +125,8 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	}
 
 	/**
+	 * Dispose.
+	 *
 	 * @generated
 	 */
 	public void dispose() {
@@ -149,6 +143,11 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	}
 
 	/**
+	 * Input changed.
+	 *
+	 * @param viewer the viewer
+	 * @param oldInput the old input
+	 * @param newInput the new input
 	 * @generated
 	 */
 	public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
@@ -156,6 +155,10 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	}
 
 	/**
+	 * Gets the elements.
+	 *
+	 * @param inputElement the input element
+	 * @return the elements
 	 * @generated
 	 */
 	public Object[] getElements(Object inputElement) {
@@ -163,24 +166,37 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	}
 
 	/**
+	 * Restore state.
+	 *
+	 * @param aMemento the a memento
 	 * @generated
 	 */
 	public void restoreState(IMemento aMemento) {
 	}
 
 	/**
+	 * Save state.
+	 *
+	 * @param aMemento the a memento
 	 * @generated
 	 */
 	public void saveState(IMemento aMemento) {
 	}
 
 	/**
+	 * Inits the.
+	 *
+	 * @param aConfig the a config
 	 * @generated
 	 */
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
+	 * Gets the children.
+	 *
+	 * @param parentElement the parent element
+	 * @return the children
 	 * @generated
 	 */
 	public Object[] getChildren(Object parentElement) {
@@ -204,6 +220,11 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	}
 
 	/**
+	 * Wrap e objects.
+	 *
+	 * @param objects the objects
+	 * @param parentElement the parent element
+	 * @return the object[]
 	 * @generated
 	 */
 	public Object[] wrapEObjects(Object[] objects, Object parentElement) {
@@ -219,6 +240,10 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	}
 
 	/**
+	 * Gets the parent.
+	 *
+	 * @param element the element
+	 * @return the parent
 	 * @generated
 	 */
 	public Object getParent(Object element) {
@@ -230,6 +255,10 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements
 	}
 
 	/**
+	 * Checks for children.
+	 *
+	 * @param element the element
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean hasChildren(Object element) {

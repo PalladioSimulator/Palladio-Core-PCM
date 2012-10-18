@@ -22,10 +22,15 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 // TODO: decide whether this file is obsolete
 
 /**
+ * The Class RequiredRoleEditHelper.
+ *
  * @generated not
  */
 public class RequiredRoleEditHelper extends PalladioComponentModelBaseEditHelper {
 
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
     @Override
     protected ICommand getConfigureCommand(ConfigureRequest request) {
         Interface resource = null;
@@ -40,10 +45,12 @@ public class RequiredRoleEditHelper extends PalladioComponentModelBaseEditHelper
                 .getElementToConfigure().eResource().getResourceSet());
         dialog.setProvidedService(Interface.class);
         dialog.open();
-        if (dialog.getResult() == null)
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
-        if (!(dialog.getResult() instanceof Interface))
+        }
+        if (!(dialog.getResult() instanceof Interface)) {
             return new CanceledCommand();
+        }
         resource = (Interface) dialog.getResult();
 
         ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),

@@ -20,21 +20,23 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
-import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
+ * The Class InfrastructureRequiredRoleItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new infrastructure required role item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public InfrastructureRequiredRoleItemSemanticEditPolicy() {
@@ -43,9 +45,14 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+	@Override
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
@@ -74,9 +81,14 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the creates the relationship command.
+	 *
+	 * @param req the req
+	 * @return the creates the relationship command
 	 * @generated
 	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+	@Override
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
 		return command != null ? command : super
@@ -84,6 +96,10 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the start create relationship command.
+	 *
+	 * @param req the req
+	 * @return the start create relationship command
 	 * @generated not
 	 */
 	protected Command getStartCreateRelationshipCommand(
@@ -118,6 +134,10 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the complete create relationship command.
+	 *
+	 * @param req the req
+	 * @return the complete create relationship command
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
@@ -132,10 +152,13 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
 	/**
 	 * Returns command to reorient EClass based link. New link target or source should be the domain
 	 * model element associated with this node.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the reorient relationship command
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
+	@Override
+    protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:

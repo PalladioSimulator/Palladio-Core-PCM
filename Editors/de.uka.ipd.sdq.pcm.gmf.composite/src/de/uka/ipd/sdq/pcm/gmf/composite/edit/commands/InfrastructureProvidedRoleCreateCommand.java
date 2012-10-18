@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 /**
+ * The Class InfrastructureProvidedRoleCreateCommand.
+ *
  * @generated
  */
 public class InfrastructureProvidedRoleCreateCommand extends EditElementCommand {
 
 	/**
+	 * Instantiates a new infrastructure provided role create command.
+	 *
+	 * @param req the req
 	 * @generated
 	 */
 	public InfrastructureProvidedRoleCreateCommand(CreateElementRequest req) {
@@ -32,8 +37,9 @@ public class InfrastructureProvidedRoleCreateCommand extends EditElementCommand 
 	}
 
 	/**
-	 * FIXME: replace with setElementToEdit()
-	 * 
+	 * FIXME: replace with setElementToEdit().
+	 *
+	 * @return the element to edit
 	 * @generated
 	 */
 	protected EObject getElementToEdit() {
@@ -46,6 +52,9 @@ public class InfrastructureProvidedRoleCreateCommand extends EditElementCommand 
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean canExecute() {
@@ -54,6 +63,12 @@ public class InfrastructureProvidedRoleCreateCommand extends EditElementCommand 
 	}
 
 	/**
+	 * Do execute with result.
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
@@ -71,6 +86,12 @@ public class InfrastructureProvidedRoleCreateCommand extends EditElementCommand 
 	}
 
 	/**
+	 * Do configure.
+	 *
+	 * @param newElement the new element
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected void doConfigure(InfrastructureProvidedRole newElement,

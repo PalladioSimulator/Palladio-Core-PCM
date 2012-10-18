@@ -23,26 +23,27 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
+ * The Class AssemblyConnectorCreateCommand.
+ *
  * @generated
  */
 public class AssemblyConnectorCreateCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
+	/** The source. @generated */
 	private final EObject source;
 
-	/**
-	 * @generated
-	 */
+	/** The target. @generated */
 	private final EObject target;
 
-	/**
-	 * @generated
-	 */
+	/** The container. @generated */
 	private final ComposedStructure container;
 
 	/**
+	 * Instantiates a new assembly connector create command.
+	 *
+	 * @param request the request
+	 * @param source the source
+	 * @param target the target
 	 * @generated
 	 */
 	public AssemblyConnectorCreateCommand(CreateRelationshipRequest request,
@@ -54,6 +55,9 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean canExecute() {
@@ -79,6 +83,12 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Do execute with result.
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
@@ -100,6 +110,12 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Do configure.
+	 *
+	 * @param newElement the new element
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected void doConfigure(AssemblyConnector newElement,
@@ -124,6 +140,9 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Sets the element to edit.
+	 *
+	 * @param element the new element to edit
 	 * @generated
 	 */
 	protected void setElementToEdit(EObject element) {
@@ -131,6 +150,9 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the source.
+	 *
+	 * @return the source
 	 * @generated
 	 */
 	protected OperationRequiredRole getSource() {
@@ -138,6 +160,9 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the target.
+	 *
+	 * @return the target
 	 * @generated
 	 */
 	protected OperationProvidedRole getTarget() {
@@ -145,6 +170,9 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	}
 
 	/**
+	 * Gets the container.
+	 *
+	 * @return the container
 	 * @generated
 	 */
 	public ComposedStructure getContainer() {
@@ -154,7 +182,10 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
 	/**
 	 * Default approach is to traverse ancestors of the source to find instance of container. Modify
 	 * with appropriate logic.
-	 * 
+	 *
+	 * @param source the source
+	 * @param target the target
+	 * @return the composed structure
 	 * @generated
 	 */
 	private static ComposedStructure deduceContainer(EObject source,

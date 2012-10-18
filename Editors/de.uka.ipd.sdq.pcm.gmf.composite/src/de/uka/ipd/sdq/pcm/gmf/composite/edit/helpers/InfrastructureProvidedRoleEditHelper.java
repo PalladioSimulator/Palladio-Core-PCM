@@ -20,11 +20,16 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
+ * The Class InfrastructureProvidedRoleEditHelper.
+ *
  * @generated not
  */
 public class InfrastructureProvidedRoleEditHelper extends
 		PalladioComponentModelBaseEditHelper {
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+	 */
 	@Override
 	protected ICommand getConfigureCommand(ConfigureRequest request) {
 		InfrastructureInterface resource = null;
@@ -40,10 +45,12 @@ public class InfrastructureProvidedRoleEditHelper extends
 						.getElementToConfigure().eResource().getResourceSet());
 		dialog.setProvidedService(InfrastructureInterface.class);
 		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof InfrastructureInterface))
-			return new CanceledCommand();
+		if (dialog.getResult() == null) {
+            return new CanceledCommand();
+        }
+		if (!(dialog.getResult() instanceof InfrastructureInterface)) {
+            return new CanceledCommand();
+        }
 		resource = (InfrastructureInterface) dialog.getResult();
 
 		ICommand cmd = new SetValueCommand(

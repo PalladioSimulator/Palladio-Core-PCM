@@ -3,30 +3,32 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.view.factories;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
-
-import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
-
 import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.core.runtime.IAdaptable;
-
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EcoreFactory;
-
 import org.eclipse.gmf.runtime.diagram.ui.view.factories.ConnectionViewFactory;
-
 import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
+
 /**
+ * A factory for creating AssemblyConnectorView objects.
+ *
  * @generated
  */
 public class AssemblyConnectorViewFactory extends ConnectionViewFactory {
 
     /**
+     * Creates a new AssemblyConnectorView object.
+     *
+     * @param view the view
+     * @return the list
      * @generated
      */
     protected List createStyles(View view) {
@@ -38,6 +40,14 @@ public class AssemblyConnectorViewFactory extends ConnectionViewFactory {
     }
 
     /**
+     * Decorate view.
+     *
+     * @param containerView the container view
+     * @param view the view
+     * @param semanticAdapter the semantic adapter
+     * @param semanticHint the semantic hint
+     * @param index the index
+     * @param persisted the persisted
      * @generated
      */
     protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,

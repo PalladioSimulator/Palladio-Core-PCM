@@ -24,27 +24,28 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 
 /**
+ * The Class AssemblyInfrastructureConnectorCreateCommand.
+ *
  * @generated
  */
 public class AssemblyInfrastructureConnectorCreateCommand extends
 		EditElementCommand {
 
-	/**
-	 * @generated
-	 */
+	/** The source. @generated */
 	private final EObject source;
 
-	/**
-	 * @generated
-	 */
+	/** The target. @generated */
 	private final EObject target;
 
-	/**
-	 * @generated
-	 */
+	/** The container. @generated */
 	private final ComposedStructure container;
 
 	/**
+	 * Instantiates a new assembly infrastructure connector create command.
+	 *
+	 * @param request the request
+	 * @param source the source
+	 * @param target the target
 	 * @generated
 	 */
 	public AssemblyInfrastructureConnectorCreateCommand(
@@ -56,6 +57,9 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
 	public boolean canExecute() {
@@ -84,7 +88,11 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 
 	/**
 	 * Adapted to use correct assembly contexts.
-	 * 
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated not
 	 */
 	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
@@ -119,6 +127,12 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 	}
 
 	/**
+	 * Do configure.
+	 *
+	 * @param newElement the new element
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected void doConfigure(AssemblyInfrastructureConnector newElement,
@@ -143,6 +157,9 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 	}
 
 	/**
+	 * Sets the element to edit.
+	 *
+	 * @param element the new element to edit
 	 * @generated
 	 */
 	protected void setElementToEdit(EObject element) {
@@ -150,6 +167,9 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 	}
 
 	/**
+	 * Gets the source.
+	 *
+	 * @return the source
 	 * @generated
 	 */
 	protected InfrastructureRequiredRole getSource() {
@@ -157,6 +177,9 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 	}
 
 	/**
+	 * Gets the target.
+	 *
+	 * @return the target
 	 * @generated
 	 */
 	protected InfrastructureProvidedRole getTarget() {
@@ -164,6 +187,9 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 	}
 
 	/**
+	 * Gets the container.
+	 *
+	 * @return the container
 	 * @generated
 	 */
 	public ComposedStructure getContainer() {
@@ -173,7 +199,10 @@ public class AssemblyInfrastructureConnectorCreateCommand extends
 	/**
 	 * Default approach is to traverse ancestors of the source to find instance of container. Modify
 	 * with appropriate logic.
-	 * 
+	 *
+	 * @param source the source
+	 * @param target the target
+	 * @return the composed structure
 	 * @generated
 	 */
 	private static ComposedStructure deduceContainer(EObject source,

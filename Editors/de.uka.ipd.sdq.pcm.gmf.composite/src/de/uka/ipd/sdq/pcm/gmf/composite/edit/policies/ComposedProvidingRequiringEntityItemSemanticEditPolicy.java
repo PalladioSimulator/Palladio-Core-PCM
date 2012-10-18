@@ -7,20 +7,23 @@ import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.emf.commands.core.commands.DuplicateEObjectsCommand;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.DuplicateElementsRequest;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ComposedProvidingRequiringEntityCreateCommand;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ComposedProvidingRequiringEntityCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
-import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-
 /**
+ * The Class ComposedProvidingRequiringEntityItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ComposedProvidingRequiringEntityItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new composed providing requiring entity item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public ComposedProvidingRequiringEntityItemSemanticEditPolicy() {
@@ -29,6 +32,10 @@ public class ComposedProvidingRequiringEntityItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the creates the command.
+	 *
+	 * @param req the req
+	 * @return the creates the command
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
@@ -41,6 +48,10 @@ public class ComposedProvidingRequiringEntityItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the duplicate command.
+	 *
+	 * @param req the req
+	 * @return the duplicate command
 	 * @generated
 	 */
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
@@ -50,12 +61,18 @@ public class ComposedProvidingRequiringEntityItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * The Class DuplicateAnythingCommand.
+	 *
 	 * @generated
 	 */
 	private static class DuplicateAnythingCommand extends
 			DuplicateEObjectsCommand {
 
 		/**
+		 * Instantiates a new duplicate anything command.
+		 *
+		 * @param editingDomain the editing domain
+		 * @param req the req
 		 * @generated
 		 */
 		public DuplicateAnythingCommand(

@@ -54,37 +54,32 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelParserProvider;
 
 /**
+ * The Class AssemblyContextEntityNameEditPart.
+ *
  * @generated
  */
 public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 		implements ITextAwareEditPart {
 
-	/**
-	 * @generated
-	 */
+	/** The Constant VISUAL_ID. @generated */
 	public static final int VISUAL_ID = 5009;
 
-	/**
-	 * @generated
-	 */
+	/** The manager. @generated */
 	private DirectEditManager manager;
 
-	/**
-	 * @generated
-	 */
+	/** The parser. @generated */
 	private IParser parser;
 
-	/**
-	 * @generated
-	 */
+	/** The parser elements. @generated */
 	private List parserElements;
 
-	/**
-	 * @generated
-	 */
+	/** The default text. @generated */
 	private String defaultText;
 
 	/**
+	 * Instantiates a new assembly context entity name edit part.
+	 *
+	 * @param view the view
 	 * @generated
 	 */
 	public AssemblyContextEntityNameEditPart(View view) {
@@ -92,6 +87,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Creates the default edit policies.
+	 *
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
@@ -122,6 +119,10 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the label text helper.
+	 *
+	 * @param figure the figure
+	 * @return the label text helper
 	 * @generated
 	 */
 	protected String getLabelTextHelper(IFigure figure) {
@@ -133,6 +134,10 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Sets the label text helper.
+	 *
+	 * @param figure the figure
+	 * @param text the text
 	 * @generated
 	 */
 	protected void setLabelTextHelper(IFigure figure, String text) {
@@ -144,6 +149,10 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the label icon helper.
+	 *
+	 * @param figure the figure
+	 * @return the label icon helper
 	 * @generated
 	 */
 	protected Image getLabelIconHelper(IFigure figure) {
@@ -155,6 +164,10 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Sets the label icon helper.
+	 *
+	 * @param figure the figure
+	 * @param icon the icon
 	 * @generated
 	 */
 	protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -166,6 +179,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Sets the label.
+	 *
+	 * @param figure the new label
 	 * @generated
 	 */
 	public void setLabel(WrappingLabel figure) {
@@ -177,6 +193,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the model children.
+	 *
+	 * @return the model children
 	 * @generated
 	 */
 	protected List getModelChildren() {
@@ -184,6 +203,10 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the child by semantic hint.
+	 *
+	 * @param semanticHint the semantic hint
+	 * @return the child by semantic hint
 	 * @generated
 	 */
 	public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
@@ -191,6 +214,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the parser element.
+	 *
+	 * @return the parser element
 	 * @generated
 	 */
 	protected EObject getParserElement() {
@@ -198,6 +224,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the label icon.
+	 *
+	 * @return the label icon
 	 * @generated
 	 */
 	protected Image getLabelIcon() {
@@ -210,6 +239,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the label text.
+	 *
+	 * @return the label text
 	 * @generated
 	 */
 	protected String getLabelText() {
@@ -227,6 +259,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Sets the label text.
+	 *
+	 * @param text the new label text
 	 * @generated
 	 */
 	public void setLabelText(String text) {
@@ -244,6 +279,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the edits the text.
+	 *
+	 * @return the edits the text
 	 * @generated
 	 */
 	public String getEditText() {
@@ -256,6 +294,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Checks if is editable.
+	 *
+	 * @return true, if is editable
 	 * @generated
 	 */
 	protected boolean isEditable() {
@@ -263,6 +304,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the edits the text validator.
+	 *
+	 * @return the edits the text validator
 	 * @generated
 	 */
 	public ICellEditorValidator getEditTextValidator() {
@@ -296,6 +340,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the completion processor.
+	 *
+	 * @return the completion processor
 	 * @generated
 	 */
 	public IContentAssistProcessor getCompletionProcessor() {
@@ -307,6 +354,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the parser options.
+	 *
+	 * @return the parser options
 	 * @generated
 	 */
 	public ParserOptions getParserOptions() {
@@ -314,6 +364,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the parser.
+	 *
+	 * @return the parser
 	 * @generated
 	 */
 	public IParser getParser() {
@@ -329,6 +382,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the manager.
+	 *
+	 * @return the manager
 	 * @generated
 	 */
 	protected DirectEditManager getManager() {
@@ -342,6 +398,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Sets the manager.
+	 *
+	 * @param manager the new manager
 	 * @generated
 	 */
 	protected void setManager(DirectEditManager manager) {
@@ -349,6 +408,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Perform direct edit.
+	 *
 	 * @generated
 	 */
 	protected void performDirectEdit() {
@@ -356,6 +417,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Perform direct edit.
+	 *
+	 * @param eventLocation the event location
 	 * @generated
 	 */
 	protected void performDirectEdit(Point eventLocation) {
@@ -366,6 +430,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Perform direct edit.
+	 *
+	 * @param initialCharacter the initial character
 	 * @generated
 	 */
 	private void performDirectEdit(char initialCharacter) {
@@ -377,6 +444,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Perform direct edit request.
+	 *
+	 * @param request the request
 	 * @generated
 	 */
 	protected void performDirectEditRequest(Request request) {
@@ -411,6 +481,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Refresh visuals.
+	 *
 	 * @generated
 	 */
 	protected void refreshVisuals() {
@@ -423,6 +495,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Refresh label.
+	 *
 	 * @generated
 	 */
 	protected void refreshLabel() {
@@ -441,6 +515,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Refresh underline.
+	 *
 	 * @generated
 	 */
 	protected void refreshUnderline() {
@@ -452,6 +528,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Refresh strike through.
+	 *
 	 * @generated
 	 */
 	protected void refreshStrikeThrough() {
@@ -464,6 +542,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Refresh font.
+	 *
 	 * @generated
 	 */
 	protected void refreshFont() {
@@ -478,6 +558,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Sets the font color.
+	 *
+	 * @param color the new font color
 	 * @generated
 	 */
 	protected void setFontColor(Color color) {
@@ -485,6 +568,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Adds the semantic listeners.
+	 *
 	 * @generated
 	 */
 	protected void addSemanticListeners() {
@@ -502,6 +587,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Removes the semantic listeners.
+	 *
 	 * @generated
 	 */
 	protected void removeSemanticListeners() {
@@ -515,6 +602,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the accessible edit part.
+	 *
+	 * @return the accessible edit part
 	 * @generated
 	 */
 	protected AccessibleEditPart getAccessibleEditPart() {
@@ -530,6 +620,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Gets the font style owner view.
+	 *
+	 * @return the font style owner view
 	 * @generated
 	 */
 	private View getFontStyleOwnerView() {
@@ -537,6 +630,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Adds the notational listeners.
+	 *
 	 * @generated
 	 */
 	protected void addNotationalListeners() {
@@ -545,6 +640,8 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Removes the notational listeners.
+	 *
 	 * @generated
 	 */
 	protected void removeNotationalListeners() {
@@ -553,6 +650,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Handle notification event.
+	 *
+	 * @param event the event
 	 * @generated
 	 */
 	protected void handleNotificationEvent(Notification event) {
@@ -596,6 +696,9 @@ public class AssemblyContextEntityNameEditPart extends CompartmentEditPart
 	}
 
 	/**
+	 * Creates the figure.
+	 *
+	 * @return the i figure
 	 * @generated
 	 */
 	protected IFigure createFigure() {

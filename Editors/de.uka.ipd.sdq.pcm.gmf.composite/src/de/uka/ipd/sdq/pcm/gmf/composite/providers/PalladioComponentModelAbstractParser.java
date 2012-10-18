@@ -25,31 +25,28 @@ import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
+ * The Class PalladioComponentModelAbstractParser.
+ *
  * @generated
  */
 public abstract class PalladioComponentModelAbstractParser implements IParser {
 
-    /**
-     * @generated
-     */
+    /** The view pattern. @generated */
     private String viewPattern;
 
-    /**
-     * @generated
-     */
+    /** The view processor. @generated */
     private MessageFormat viewProcessor;
 
-    /**
-     * @generated
-     */
+    /** The edit pattern. @generated */
     private String editPattern;
 
-    /**
-     * @generated
-     */
+    /** The edit processor. @generated */
     private MessageFormat editProcessor;
 
     /**
+     * Gets the view pattern.
+     *
+     * @return the view pattern
      * @generated
      */
     public String getViewPattern() {
@@ -57,6 +54,9 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the view processor.
+     *
+     * @return the view processor
      * @generated
      */
     protected MessageFormat getViewProcessor() {
@@ -64,6 +64,9 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Sets the view pattern.
+     *
+     * @param viewPattern the new view pattern
      * @generated
      */
     public void setViewPattern(String viewPattern) {
@@ -72,6 +75,10 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Creates the view processor.
+     *
+     * @param viewPattern the view pattern
+     * @return the message format
      * @generated
      */
     protected MessageFormat createViewProcessor(String viewPattern) {
@@ -79,6 +86,9 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the edits the pattern.
+     *
+     * @return the edits the pattern
      * @generated
      */
     public String getEditPattern() {
@@ -86,6 +96,9 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the edits the processor.
+     *
+     * @return the edits the processor
      * @generated
      */
     protected MessageFormat getEditProcessor() {
@@ -93,6 +106,9 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Sets the edits the pattern.
+     *
+     * @param editPattern the new edits the pattern
      * @generated
      */
     public void setEditPattern(String editPattern) {
@@ -101,6 +117,10 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Creates the edit processor.
+     *
+     * @param editPattern the edit pattern
+     * @return the message format
      * @generated
      */
     protected MessageFormat createEditProcessor(String editPattern) {
@@ -108,6 +128,11 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the prints the string.
+     *
+     * @param adapter the adapter
+     * @param flags the flags
+     * @return the prints the string
      * @generated
      */
     public String getPrintString(IAdaptable adapter, int flags) {
@@ -115,6 +140,11 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the edits the string.
+     *
+     * @param adapter the adapter
+     * @param flags the flags
+     * @return the edits the string
      * @generated
      */
     public String getEditString(IAdaptable adapter, int flags) {
@@ -122,11 +152,23 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the string by pattern.
+     *
+     * @param adapter the adapter
+     * @param flags the flags
+     * @param pattern the pattern
+     * @param processor the processor
+     * @return the string by pattern
      * @generated
      */
     protected abstract String getStringByPattern(IAdaptable adapter, int flags, String pattern, MessageFormat processor);
 
     /**
+     * Checks if is valid edit string.
+     *
+     * @param element the element
+     * @param editString the edit string
+     * @return the i parser edit status
      * @generated
      */
     public IParserEditStatus isValidEditString(IAdaptable element, String editString) {
@@ -140,6 +182,10 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Validate new values.
+     *
+     * @param values the values
+     * @return the i parser edit status
      * @generated
      */
     protected IParserEditStatus validateNewValues(Object[] values) {
@@ -147,6 +193,12 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the parses the command.
+     *
+     * @param adapter the adapter
+     * @param newString the new string
+     * @param flags the flags
+     * @return the parses the command
      * @generated
      */
     public ICommand getParseCommand(IAdaptable adapter, String newString, int flags) {
@@ -158,11 +210,20 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the parses the command.
+     *
+     * @param adapter the adapter
+     * @param values the values
+     * @return the parses the command
      * @generated
      */
     protected abstract ICommand getParseCommand(IAdaptable adapter, Object[] values);
 
     /**
+     * Gets the completion processor.
+     *
+     * @param element the element
+     * @return the completion processor
      * @generated
      */
     public IContentAssistProcessor getCompletionProcessor(IAdaptable element) {
@@ -170,6 +231,12 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the modification command.
+     *
+     * @param element the element
+     * @param feature the feature
+     * @param value the value
+     * @return the modification command
      * @generated
      */
     protected ICommand getModificationCommand(EObject element, EStructuralFeature feature, Object value) {
@@ -182,6 +249,11 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the valid value.
+     *
+     * @param feature the feature
+     * @param value the value
+     * @return the valid value
      * @generated
      */
     protected Object getValidValue(EStructuralFeature feature, Object value) {
@@ -198,6 +270,11 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * Gets the valid new value.
+     *
+     * @param feature the feature
+     * @param value the value
+     * @return the valid new value
      * @generated
      */
     protected Object getValidNewValue(EStructuralFeature feature, Object value) {
@@ -356,16 +433,19 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
     }
 
     /**
+     * The Class InvalidValue.
+     *
      * @generated
      */
     protected class InvalidValue {
 
-        /**
-         * @generated
-         */
+        /** The description. @generated */
         private String description;
 
         /**
+         * Instantiates a new invalid value.
+         *
+         * @param description the description
          * @generated
          */
         public InvalidValue(String description) {
@@ -373,6 +453,9 @@ public abstract class PalladioComponentModelAbstractParser implements IParser {
         }
 
         /**
+         * To string.
+         *
+         * @return the string
          * @generated
          */
         public String toString() {

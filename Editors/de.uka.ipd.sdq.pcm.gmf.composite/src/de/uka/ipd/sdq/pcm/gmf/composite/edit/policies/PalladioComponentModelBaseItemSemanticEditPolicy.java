@@ -48,6 +48,8 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
+ * The Class PalladioComponentModelBaseItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class PalladioComponentModelBaseItemSemanticEditPolicy extends
@@ -60,12 +62,13 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	 */
 	public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The my element type. @generated */
 	private final IElementType myElementType;
 
 	/**
+	 * Instantiates a new palladio component model base item semantic edit policy.
+	 *
+	 * @param elementType the element type
 	 * @generated
 	 */
 	protected PalladioComponentModelBaseItemSemanticEditPolicy(
@@ -77,7 +80,9 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	 * Add visual id of edited editpart to extended data of the request so command switch can decide
 	 * what kind of diagram element is being edited. It is done in those cases when it's not
 	 * possible to deduce diagram element kind from domain element.
-	 * 
+	 *
+	 * @param request the request
+	 * @return the command
 	 * @generated
 	 */
 	public Command getCommand(Request request) {
@@ -95,7 +100,9 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 
 	/**
 	 * Returns visual id from request parameters.
-	 * 
+	 *
+	 * @param request the request
+	 * @return the visual id
 	 * @generated
 	 */
 	protected int getVisualID(IEditCommandRequest request) {
@@ -104,6 +111,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the semantic command.
+	 *
+	 * @param request the request
+	 * @return the semantic command
 	 * @generated
 	 */
 	protected Command getSemanticCommand(IEditCommandRequest request) {
@@ -120,6 +131,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Adds the delete view command.
+	 *
+	 * @param mainCommand the main command
+	 * @param completedRequest the completed request
+	 * @return the command
 	 * @generated
 	 */
 	protected Command addDeleteViewCommand(Command mainCommand,
@@ -131,6 +147,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the edits the helper command.
+	 *
+	 * @param request the request
+	 * @param editPolicyCommand the edit policy command
+	 * @return the edits the helper command
 	 * @generated
 	 */
 	private Command getEditHelperCommand(IEditCommandRequest request,
@@ -165,6 +186,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the context element type.
+	 *
+	 * @param request the request
+	 * @return the context element type
 	 * @generated
 	 */
 	private IElementType getContextElementType(IEditCommandRequest request) {
@@ -175,6 +200,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the semantic command switch.
+	 *
+	 * @param req the req
+	 * @return the semantic command switch
 	 * @generated
 	 */
 	protected Command getSemanticCommandSwitch(IEditCommandRequest req) {
@@ -205,6 +234,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the configure command.
+	 *
+	 * @param req the req
+	 * @return the configure command
 	 * @generated
 	 */
 	protected Command getConfigureCommand(ConfigureRequest req) {
@@ -212,6 +245,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the creates the relationship command.
+	 *
+	 * @param req the req
+	 * @return the creates the relationship command
 	 * @generated
 	 */
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -219,6 +256,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the creates the command.
+	 *
+	 * @param req the req
+	 * @return the creates the command
 	 * @generated
 	 */
 	protected Command getCreateCommand(CreateElementRequest req) {
@@ -226,6 +267,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the sets the command.
+	 *
+	 * @param req the req
+	 * @return the sets the command
 	 * @generated
 	 */
 	protected Command getSetCommand(SetRequest req) {
@@ -233,6 +278,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the edits the context command.
+	 *
+	 * @param req the req
+	 * @return the edits the context command
 	 * @generated
 	 */
 	protected Command getEditContextCommand(GetEditContextRequest req) {
@@ -240,6 +289,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -247,6 +300,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy reference command.
+	 *
+	 * @param req the req
+	 * @return the destroy reference command
 	 * @generated
 	 */
 	protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {
@@ -254,6 +311,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the duplicate command.
+	 *
+	 * @param req the req
+	 * @return the duplicate command
 	 * @generated
 	 */
 	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
@@ -261,6 +322,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the move command.
+	 *
+	 * @param req the req
+	 * @return the move command
 	 * @generated
 	 */
 	protected Command getMoveCommand(MoveRequest req) {
@@ -268,6 +333,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the reorient reference relationship command.
+	 *
+	 * @param req the req
+	 * @return the reorient reference relationship command
 	 * @generated
 	 */
 	protected Command getReorientReferenceRelationshipCommand(
@@ -276,6 +345,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the reorient relationship command.
+	 *
+	 * @param req the req
+	 * @return the reorient relationship command
 	 * @generated
 	 */
 	protected Command getReorientRelationshipCommand(
@@ -284,6 +357,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the gEF wrapper.
+	 *
+	 * @param cmd the cmd
+	 * @return the gEF wrapper
 	 * @generated
 	 */
 	protected final Command getGEFWrapper(ICommand cmd) {
@@ -292,7 +369,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 
 	/**
 	 * Returns editing domain from the host edit part.
-	 * 
+	 *
+	 * @return the editing domain
 	 * @generated
 	 */
 	protected TransactionalEditingDomain getEditingDomain() {
@@ -300,8 +378,10 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
-	 * Clean all shortcuts to the host element from the same diagram
-	 * 
+	 * Clean all shortcuts to the host element from the same diagram.
+	 *
+	 * @param cmd the cmd
+	 * @param view the view
 	 * @generated
 	 */
 	protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {
@@ -320,7 +400,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	 * Finds container element for the new relationship of the specified type. Default
 	 * implementation goes up by containment hierarchy starting from the specified element and
 	 * returns the first element that is instance of the specified container class.
-	 * 
+	 *
+	 * @param uelement the uelement
+	 * @param containerClass the container class
+	 * @param relationshipType the relationship type
+	 * @return the relationship container
 	 * @generated not
 	 */
 	protected EObject getRelationshipContainer(Object uelement,
@@ -346,11 +430,19 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * The Class LinkConstraints.
+	 *
 	 * @generated
 	 */
 	public static class LinkConstraints {
 
 		/**
+		 * Can create assembly connector_4004.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canCreateAssemblyConnector_4004(
@@ -360,6 +452,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can create assembly event connector_4007.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canCreateAssemblyEventConnector_4007(
@@ -369,6 +467,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can create required delegation connector_4005.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canCreateRequiredDelegationConnector_4005(
@@ -379,6 +483,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can create provided delegation connector_4006.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canCreateProvidedDelegationConnector_4006(
@@ -389,6 +499,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can create assembly infrastructure connector_4008.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canCreateAssemblyInfrastructureConnector_4008(
@@ -399,6 +515,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can exist assembly connector_4004.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canExistAssemblyConnector_4004(
@@ -408,6 +530,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can exist assembly event connector_4007.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canExistAssemblyEventConnector_4007(
@@ -416,6 +544,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can exist required delegation connector_4005.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canExistRequiredDelegationConnector_4005(
@@ -425,6 +559,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can exist provided delegation connector_4006.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canExistProvidedDelegationConnector_4006(
@@ -434,6 +574,12 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+		 * Can exist assembly infrastructure connector_4008.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
 		 * @generated
 		 */
 		public static boolean canExistAssemblyInfrastructureConnector_4008(

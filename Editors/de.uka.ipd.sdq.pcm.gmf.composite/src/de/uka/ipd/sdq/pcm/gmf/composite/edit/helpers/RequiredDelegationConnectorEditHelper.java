@@ -12,11 +12,16 @@ import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
+ * The Class RequiredDelegationConnectorEditHelper.
+ *
  * @generated not
  */
 public class RequiredDelegationConnectorEditHelper extends
 		PalladioComponentModelBaseEditHelper {
 
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+	 */
 	@Override
 	protected ICommand getConfigureCommand(ConfigureRequest req) {
 		RequiredDelegationConnector con = (RequiredDelegationConnector) req

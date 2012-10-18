@@ -3,25 +3,27 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.commands;
 
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateElementCommand;
-
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
-
 import org.eclipse.gmf.runtime.notation.View;
+
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 // TODO: decide whether this file is obsolete
 
 /**
+ * The Class RequiredRole2CreateCommand.
+ *
  * @generated
  */
 public class RequiredRole2CreateCommand extends CreateElementCommand {
 
     /**
+     * Instantiates a new required role2 create command.
+     *
+     * @param req the req
      * @generated
      */
     public RequiredRole2CreateCommand(CreateElementRequest req) {
@@ -29,6 +31,9 @@ public class RequiredRole2CreateCommand extends CreateElementCommand {
     }
 
     /**
+     * Gets the e class to edit.
+     *
+     * @return the e class to edit
      * @generated
      */
     protected EClass getEClassToEdit() {
@@ -36,6 +41,9 @@ public class RequiredRole2CreateCommand extends CreateElementCommand {
     }
 
     /**
+     * Gets the element to edit.
+     *
+     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {

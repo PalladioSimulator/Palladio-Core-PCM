@@ -11,24 +11,26 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.IBorderItemLocator;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 
 /**
- * Baseclass for both --( and --() type UML style border figures
- * 
+ * Baseclass for both --( and --() type UML style border figures.
+ *
  * @author Philipp Meier
  */
-abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
+public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
 
     /**
      * position type of the figure. internal or external. internal means the figure is connected
      * towards the outside external means the figure is connected towards the inside
      */
     public static enum POSITION_TYPE {
-        /** conntected towards the outside */
+        
+        /** conntected towards the outside. */
         POS_INTERNAL,
 
-        /** connected towards the inside */
+        /** connected towards the inside. */
         POS_EXTERNAL
     }
 
+    /** The my pos type. */
     private final POSITION_TYPE myPosType;
 
     /**
@@ -37,8 +39,10 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
     private ConnectionAnchor myAnchor = null;
 
     /**
-     * @param size
-     *            width and hight of the figure in logical units (LP)
+     * Instantiates a new abstract border figure.
+     *
+     * @param logicalSize the logical size
+     * @param posType the pos type
      */
     public AbstractBorderFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, logicalSize);
@@ -60,8 +64,8 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
     }
 
     /**
-     * Helper function to get the parent's border item locator
-     * 
+     * Helper function to get the parent's border item locator.
+     *
      * @return the parent's border item locator
      */
     protected IBorderItemLocator getBorderItemLocator() {
@@ -76,19 +80,22 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
     }
 
     /**
-     * factory method for the anchor to be used when figure is in an internal position
-     * 
+     * factory method for the anchor to be used when figure is in an internal position.
+     *
      * @return a reference to the new anchor. must not be null
      */
-    abstract protected ConnectionAnchor createAnchorInternal();
+    protected abstract ConnectionAnchor createAnchorInternal();
 
     /**
-     * factory method for the anchor to be used when figure is in an external position
-     * 
+     * factory method for the anchor to be used when figure is in an external position.
+     *
      * @return a reference to the new anchor. must not be null
      */
-    abstract protected ConnectionAnchor createAnchorExternal();
+    protected abstract ConnectionAnchor createAnchorExternal();
 
+    /* (non-Javadoc)
+     * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#getConnectionAnchor(java.lang.String)
+     */
     @Override
     public ConnectionAnchor getConnectionAnchor(final String terminal) {
         if (this.myAnchor == null) {
@@ -106,6 +113,8 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
     }
 
     /**
+     * Gets the stem position.
+     *
      * @return the end position of the -- part of the figure relative to the position of the figure
      */
     private Point getStemPosition() {
@@ -137,10 +146,18 @@ abstract public class AbstractBorderFigure extends DefaultSizeNodeFigure {
      */
     protected class StemAnchor extends AbstractConnectionAnchor {
 
+        /**
+         * Instantiates a new stem anchor.
+         *
+         * @param owner the owner
+         */
         public StemAnchor(final IFigure owner) {
             super(owner);
         }
 
+        /* (non-Javadoc)
+         * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
+         */
         @Override
         public Point getLocation(final Point reference) {
             final Point p = AbstractBorderFigure.this.getStemPosition();

@@ -39,6 +39,8 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 		PalladioComponentModelBaseItemSemanticEditPolicy {
 
 	/**
+	 * Instantiates a new operation required role item semantic edit policy.
+	 *
 	 * @generated
 	 */
 	public OperationRequiredRoleItemSemanticEditPolicy() {
@@ -46,6 +48,10 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the destroy element command.
+	 *
+	 * @param req the req
+	 * @return the destroy element command
 	 * @generated
 	 */
 	protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -120,6 +126,10 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the start create relationship command.
+	 *
+	 * @param req the req
+	 * @return the start create relationship command
 	 * @generated
 	 */
 	protected Command getStartCreateRelationshipCommand(
@@ -203,6 +213,10 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	}
 
 	/**
+	 * Gets the complete create relationship command.
+	 *
+	 * @param req the req
+	 * @return the complete create relationship command
 	 * @generated
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
@@ -222,7 +236,9 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	/**
 	 * Returns command to reorient EClass based link. New link target or source should be the domain
 	 * model element associated with this node.
-	 * 
+	 *
+	 * @param req the req
+	 * @return the reorient relationship command
 	 * @generated
 	 */
 	protected Command getReorientRelationshipCommand(

@@ -16,17 +16,20 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.AssemblyInfrastructureConnectorItemSemanticEditPolicy;
 
 /**
+ * The Class AssemblyInfrastructureConnectorEditPart.
+ *
  * @generated
  */
 public class AssemblyInfrastructureConnectorEditPart extends
 		ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-	/**
-	 * @generated
-	 */
+	/** The Constant VISUAL_ID. @generated */
 	public static final int VISUAL_ID = 4008;
 
 	/**
+	 * Instantiates a new assembly infrastructure connector edit part.
+	 *
+	 * @param view the view
 	 * @generated
 	 */
 	public AssemblyInfrastructureConnectorEditPart(View view) {
@@ -34,6 +37,8 @@ public class AssemblyInfrastructureConnectorEditPart extends
 	}
 
 	/**
+	 * Creates the default edit policies.
+	 *
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
@@ -47,7 +52,8 @@ public class AssemblyInfrastructureConnectorEditPart extends
 	 * 
 	 * Body of this method does not depend on settings in generation model so you may safely remove
 	 * <i>generated</i> tag and modify it.
-	 * 
+	 *
+	 * @return the connection
 	 * @generated
 	 */
 
@@ -56,6 +62,9 @@ public class AssemblyInfrastructureConnectorEditPart extends
 	}
 
 	/**
+	 * Gets the primary shape.
+	 *
+	 * @return the primary shape
 	 * @generated
 	 */
 	public AssemblyInfrastructureConnectorFigure getPrimaryShape() {
@@ -63,12 +72,16 @@ public class AssemblyInfrastructureConnectorEditPart extends
 	}
 
 	/**
+	 * The Class AssemblyInfrastructureConnectorFigure.
+	 *
 	 * @generated
 	 */
 	public class AssemblyInfrastructureConnectorFigure extends
 			PolylineConnectionEx {
 
 		/**
+		 * Instantiates a new assembly infrastructure connector figure.
+		 *
 		 * @generated
 		 */
 		public AssemblyInfrastructureConnectorFigure() {
@@ -78,6 +91,9 @@ public class AssemblyInfrastructureConnectorEditPart extends
 		}
 
 		/**
+		 * Creates the target decoration.
+		 *
+		 * @return the rotatable decoration
 		 * @generated
 		 */
 		private RotatableDecoration createTargetDecoration() {

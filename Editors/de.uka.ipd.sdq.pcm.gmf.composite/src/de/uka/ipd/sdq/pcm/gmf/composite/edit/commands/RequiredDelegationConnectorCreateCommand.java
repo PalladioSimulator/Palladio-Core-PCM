@@ -24,27 +24,28 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBase
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
+ * The Class RequiredDelegationConnectorCreateCommand.
+ *
  * @generated
  */
 public class RequiredDelegationConnectorCreateCommand extends
 		EditElementCommand {
 
-	/**
-	 * @generated
-	 */
+	/** The source. @generated */
 	private final EObject source;
 
-	/**
-	 * @generated
-	 */
+	/** The target. @generated */
 	private final EObject target;
 
-	/**
-	 * @generated
-	 */
+	/** The container. @generated */
 	private final ComposedStructure container;
 
 	/**
+	 * Instantiates a new required delegation connector create command.
+	 *
+	 * @param request the request
+	 * @param source the source
+	 * @param target the target
 	 * @generated
 	 */
 	public RequiredDelegationConnectorCreateCommand(
@@ -56,9 +57,13 @@ public class RequiredDelegationConnectorCreateCommand extends
 	}
 
 	/**
+	 * Can execute.
+	 *
+	 * @return true, if successful
 	 * @generated
 	 */
-	public boolean canExecute() {
+	@Override
+    public boolean canExecute() {
 		if (source == null && target == null) {
 			return false;
 		}
@@ -85,10 +90,15 @@ public class RequiredDelegationConnectorCreateCommand extends
 	 * 
 	 * This method has been adopted manually, to set the source assembly context in the required
 	 * delegation connector.
-	 * 
+	 *
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @return the command result
+	 * @throws ExecutionException the execution exception
 	 * @generated not
 	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+	@Override
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
 			IAdaptable info) throws ExecutionException {
 		if (!canExecute()) {
 			throw new ExecutionException(
@@ -118,6 +128,12 @@ public class RequiredDelegationConnectorCreateCommand extends
 	}
 
 	/**
+	 * Do configure.
+	 *
+	 * @param newElement the new element
+	 * @param monitor the monitor
+	 * @param info the info
+	 * @throws ExecutionException the execution exception
 	 * @generated
 	 */
 	protected void doConfigure(RequiredDelegationConnector newElement,
@@ -142,13 +158,20 @@ public class RequiredDelegationConnectorCreateCommand extends
 	}
 
 	/**
+	 * Sets the element to edit.
+	 *
+	 * @param element the new element to edit
 	 * @generated
 	 */
-	protected void setElementToEdit(EObject element) {
+	@Override
+    protected void setElementToEdit(EObject element) {
 		throw new UnsupportedOperationException();
 	}
 
 	/**
+	 * Gets the source.
+	 *
+	 * @return the source
 	 * @generated
 	 */
 	protected OperationRequiredRole getSource() {
@@ -156,6 +179,9 @@ public class RequiredDelegationConnectorCreateCommand extends
 	}
 
 	/**
+	 * Gets the target.
+	 *
+	 * @return the target
 	 * @generated
 	 */
 	protected OperationRequiredRole getTarget() {
@@ -163,6 +189,9 @@ public class RequiredDelegationConnectorCreateCommand extends
 	}
 
 	/**
+	 * Gets the container.
+	 *
+	 * @return the container
 	 * @generated
 	 */
 	public ComposedStructure getContainer() {
@@ -172,7 +201,10 @@ public class RequiredDelegationConnectorCreateCommand extends
 	/**
 	 * Default approach is to traverse ancestors of the source to find instance of container. Modify
 	 * with appropriate logic.
-	 * 
+	 *
+	 * @param source the source
+	 * @param target the target
+	 * @return the composed structure
 	 * @generated not
 	 */
 	private static ComposedStructure deduceContainer(EObject source,

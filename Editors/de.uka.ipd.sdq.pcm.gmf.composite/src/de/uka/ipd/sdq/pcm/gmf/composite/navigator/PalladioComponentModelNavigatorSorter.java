@@ -3,21 +3,25 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.navigator;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
-
 import org.eclipse.jface.viewers.ViewerSorter;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
+
 /**
+ * The Class PalladioComponentModelNavigatorSorter.
+ *
  * @generated
  */
 public class PalladioComponentModelNavigatorSorter extends ViewerSorter {
 
-	/**
-	 * @generated
-	 */
+	/** The Constant GROUP_CATEGORY. @generated */
 	private static final int GROUP_CATEGORY = 7004;
 
 	/**
+	 * Category.
+	 *
+	 * @param element the element
+	 * @return the int
 	 * @generated
 	 */
 	public int category(Object element) {

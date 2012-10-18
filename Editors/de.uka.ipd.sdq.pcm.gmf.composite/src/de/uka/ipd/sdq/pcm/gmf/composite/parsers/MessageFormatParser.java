@@ -19,36 +19,31 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
+ * The Class MessageFormatParser.
+ *
  * @generated
  */
 public class MessageFormatParser extends AbstractParser {
 
-	/**
-	 * @generated
-	 */
+	/** The default pattern. @generated */
 	private String defaultPattern;
 
-	/**
-	 * @generated
-	 */
+	/** The default editable pattern. @generated */
 	private String defaultEditablePattern;
 
-	/**
-	 * @generated
-	 */
+	/** The view processor. @generated */
 	private MessageFormat viewProcessor;
 
-	/**
-	 * @generated
-	 */
+	/** The editor processor. @generated */
 	private MessageFormat editorProcessor;
 
-	/**
-	 * @generated
-	 */
+	/** The edit processor. @generated */
 	private MessageFormat editProcessor;
 
 	/**
+	 * Instantiates a new message format parser.
+	 *
+	 * @param features the features
 	 * @generated
 	 */
 	public MessageFormatParser(EAttribute[] features) {
@@ -56,6 +51,10 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Instantiates a new message format parser.
+	 *
+	 * @param features the features
+	 * @param editableFeatures the editable features
 	 * @generated
 	 */
 	public MessageFormatParser(EAttribute[] features,
@@ -64,6 +63,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the default pattern.
+	 *
+	 * @return the default pattern
 	 * @generated
 	 */
 	protected String getDefaultPattern() {
@@ -83,6 +85,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Sets the view pattern.
+	 *
+	 * @param viewPattern the new view pattern
 	 * @generated
 	 */
 	public void setViewPattern(String viewPattern) {
@@ -91,6 +96,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Sets the editor pattern.
+	 *
+	 * @param editorPattern the new editor pattern
 	 * @generated
 	 */
 	public void setEditorPattern(String editorPattern) {
@@ -99,6 +107,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the view processor.
+	 *
+	 * @return the view processor
 	 * @generated
 	 */
 	protected MessageFormat getViewProcessor() {
@@ -111,6 +122,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the editor processor.
+	 *
+	 * @return the editor processor
 	 * @generated
 	 */
 	protected MessageFormat getEditorProcessor() {
@@ -123,6 +137,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the default editable pattern.
+	 *
+	 * @return the default editable pattern
 	 * @generated
 	 */
 	protected String getDefaultEditablePattern() {
@@ -142,6 +159,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Sets the edits the pattern.
+	 *
+	 * @param editPattern the new edits the pattern
 	 * @generated
 	 */
 	public void setEditPattern(String editPattern) {
@@ -150,6 +170,9 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the edits the processor.
+	 *
+	 * @return the edits the processor
 	 * @generated
 	 */
 	protected MessageFormat getEditProcessor() {
@@ -162,6 +185,11 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the edits the string.
+	 *
+	 * @param adapter the adapter
+	 * @param flags the flags
+	 * @return the edits the string
 	 * @generated
 	 */
 	public String getEditString(IAdaptable adapter, int flags) {
@@ -171,6 +199,11 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Checks if is valid edit string.
+	 *
+	 * @param adapter the adapter
+	 * @param editString the edit string
+	 * @return the i parser edit status
 	 * @generated
 	 */
 	public IParserEditStatus isValidEditString(IAdaptable adapter,
@@ -188,6 +221,12 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the parses the command.
+	 *
+	 * @param adapter the adapter
+	 * @param newString the new string
+	 * @param flags the flags
+	 * @return the parses the command
 	 * @generated
 	 */
 	public ICommand getParseCommand(IAdaptable adapter, String newString,
@@ -198,6 +237,11 @@ public class MessageFormatParser extends AbstractParser {
 	}
 
 	/**
+	 * Gets the prints the string.
+	 *
+	 * @param adapter the adapter
+	 * @param flags the flags
+	 * @return the prints the string
 	 * @generated
 	 */
 	public String getPrintString(IAdaptable adapter, int flags) {

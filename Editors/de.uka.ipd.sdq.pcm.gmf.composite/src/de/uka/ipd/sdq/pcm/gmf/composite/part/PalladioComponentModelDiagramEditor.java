@@ -3,78 +3,66 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.part;
 
-import org.eclipse.gef.palette.PaletteRoot;
-import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
-import org.eclipse.gmf.runtime.notation.Diagram;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.core.resources.IFile;
 import org.eclipse.core.resources.IMarker;
 import org.eclipse.core.resources.IWorkspaceRoot;
 import org.eclipse.core.resources.ResourcesPlugin;
-
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IPath;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.IStatus;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
 import org.eclipse.emf.common.ui.URIEditorInput;
-
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
+import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gmf.runtime.common.ui.services.marker.MarkerNavigationService;
-
 import org.eclipse.gmf.runtime.diagram.core.preferences.PreferencesHint;
-
 import org.eclipse.gmf.runtime.diagram.ui.actions.ActionIds;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDiagramDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocument;
 import org.eclipse.gmf.runtime.diagram.ui.resources.editor.document.IDocumentProvider;
-
+import org.eclipse.gmf.runtime.diagram.ui.resources.editor.parts.DiagramDocumentEditor;
+import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.dialogs.ErrorDialog;
 import org.eclipse.jface.dialogs.IMessageProvider;
 import org.eclipse.jface.dialogs.MessageDialog;
-
 import org.eclipse.jface.viewers.ISelection;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.window.Window;
-
 import org.eclipse.osgi.util.NLS;
-
 import org.eclipse.swt.widgets.Shell;
-
 import org.eclipse.ui.IEditorInput;
 import org.eclipse.ui.IEditorMatchingStrategy;
 import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.IFileEditorInput;
 import org.eclipse.ui.PlatformUI;
-
 import org.eclipse.ui.dialogs.SaveAsDialog;
-
 import org.eclipse.ui.ide.IGotoMarker;
-
 import org.eclipse.ui.navigator.resources.ProjectExplorer;
 import org.eclipse.ui.part.FileEditorInput;
 import org.eclipse.ui.part.IShowInTargetList;
 import org.eclipse.ui.part.ShowInContext;
+
 import de.uka.ipd.sdq.pcm.gmf.composite.navigator.PalladioComponentModelNavigatorItem;
 
 /**
+ * The Class PalladioComponentModelDiagramEditor.
+ *
  * @generated
  */
 public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 		implements IGotoMarker {
 
-	/**
-	 * @generated
-	 */
+	/** The Constant ID. @generated */
 	public static final String ID = "de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditorID"; //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant CONTEXT_ID. @generated */
 	public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.composite.ui.diagramContext"; //$NON-NLS-1$
 
 	/**
+	 * Instantiates a new palladio component model diagram editor.
+	 *
 	 * @generated
 	 */
 	public PalladioComponentModelDiagramEditor() {
@@ -82,6 +70,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the context id.
+	 *
+	 * @return the context id
 	 * @generated
 	 */
 	protected String getContextID() {
@@ -89,6 +80,10 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Creates the palette root.
+	 *
+	 * @param existingPaletteRoot the existing palette root
+	 * @return the palette root
 	 * @generated
 	 */
 	protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
@@ -98,6 +93,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the preferences hint.
+	 *
+	 * @return the preferences hint
 	 * @generated
 	 */
 	protected PreferencesHint getPreferencesHint() {
@@ -105,6 +103,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the contributor id.
+	 *
+	 * @return the contributor id
 	 * @generated
 	 */
 	public String getContributorId() {
@@ -112,6 +113,10 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the adapter.
+	 *
+	 * @param type the type
+	 * @return the adapter
 	 * @generated
 	 */
 	public Object getAdapter(Class type) {
@@ -126,6 +131,10 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the document provider.
+	 *
+	 * @param input the input
+	 * @return the document provider
 	 * @generated
 	 */
 	protected IDocumentProvider getDocumentProvider(IEditorInput input) {
@@ -138,6 +147,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the editing domain.
+	 *
+	 * @return the editing domain
 	 * @generated
 	 */
 	public TransactionalEditingDomain getEditingDomain() {
@@ -150,6 +162,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Sets the document provider.
+	 *
+	 * @param input the new document provider
 	 * @generated
 	 */
 	protected void setDocumentProvider(IEditorInput input) {
@@ -163,6 +178,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Goto marker.
+	 *
+	 * @param marker the marker
 	 * @generated
 	 */
 	public void gotoMarker(IMarker marker) {
@@ -170,6 +188,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Checks if is save as allowed.
+	 *
+	 * @return true, if is save as allowed
 	 * @generated
 	 */
 	public boolean isSaveAsAllowed() {
@@ -177,6 +198,8 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Do save as.
+	 *
 	 * @generated
 	 */
 	public void doSaveAs() {
@@ -184,6 +207,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Perform save as.
+	 *
+	 * @param progressMonitor the progress monitor
 	 * @generated
 	 */
 	protected void performSaveAs(IProgressMonitor progressMonitor) {
@@ -271,6 +297,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the show in context.
+	 *
+	 * @return the show in context
 	 * @generated
 	 */
 	public ShowInContext getShowInContext() {
@@ -278,6 +307,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Gets the navigator selection.
+	 *
+	 * @return the navigator selection
 	 * @generated
 	 */
 	private ISelection getNavigatorSelection() {
@@ -296,6 +328,8 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor
 	}
 
 	/**
+	 * Configure graphical viewer.
+	 *
 	 * @generated
 	 */
 	protected void configureGraphicalViewer() {

@@ -52,7 +52,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SinkRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramUpdater;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelLinkDescriptor;
-import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.repository.Role;
 
@@ -71,10 +70,12 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	 * In the composite diagram, the root element is not represented by the canvas, but by the first
 	 * included rectangle. To enable this, this edit policy needs to return the system and not the
 	 * real children as done in the generated version of this method.
-	 * 
+	 *
+	 * @return the semantic children list
 	 * @generated not
 	 */
-	protected List getSemanticChildrenList() {
+	@Override
+    protected List getSemanticChildrenList() {
 		List result = new LinkedList();
 		EObject modelObject = ((View) getHost().getModel()).getElement();
 		View viewObject = (View) getHost().getModel();
@@ -83,9 +84,11 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	}
 
 	// TODO: Find out whether this method has been modified.
-	/**
+	/* (non-Javadoc)
+	 * @see org.eclipse.gmf.runtime.diagram.ui.editpolicies.CanonicalConnectionEditPolicy#shouldDeleteView(org.eclipse.gmf.runtime.notation.View)
 	 */
-	protected boolean shouldDeleteView(View view) {
+	@Override
+    protected boolean shouldDeleteView(View view) {
 		if (view.getEAnnotation("Shortcut") != null) { //$NON-NLS-1$
 			return view.isSetElement()
 					&& (view.getElement() == null || view.getElement()
@@ -95,9 +98,15 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	}
 
 	/**
+	 * Checks if is orphaned.
+	 *
+	 * @param semanticChildren the semantic children
+	 * @param view the view
+	 * @return true, if is orphaned
 	 * @generated
 	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
+	@Override
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case ComposedProvidingRequiringEntity2EditPart.VISUAL_ID:
@@ -109,45 +118,72 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	}
 
 	/**
+	 * Gets the default factory hint.
+	 *
+	 * @return the default factory hint
 	 * @generated
 	 */
-	protected String getDefaultFactoryHint() {
+	@Override
+    protected String getDefaultFactoryHint() {
 		return null;
 	}
 
 	/**
+	 * Gets the semantic connections list.
+	 *
+	 * @return the semantic connections list
 	 * @generated
 	 */
-	protected List getSemanticConnectionsList() {
+	@Override
+    protected List getSemanticConnectionsList() {
 		return Collections.EMPTY_LIST;
 	}
 
 	/**
+	 * Gets the source element.
+	 *
+	 * @param relationship the relationship
+	 * @return the source element
 	 * @generated
 	 */
-	protected EObject getSourceElement(EObject relationship) {
+	@Override
+    protected EObject getSourceElement(EObject relationship) {
 		return null;
 	}
 
 	/**
+	 * Gets the target element.
+	 *
+	 * @param relationship the relationship
+	 * @return the target element
 	 * @generated
 	 */
-	protected EObject getTargetElement(EObject relationship) {
+	@Override
+    protected EObject getTargetElement(EObject relationship) {
 		return null;
 	}
 
 	/**
+	 * Should include connection.
+	 *
+	 * @param connector the connector
+	 * @param children the children
+	 * @return true, if successful
 	 * @generated
 	 */
-	protected boolean shouldIncludeConnection(Edge connector,
+	@Override
+    protected boolean shouldIncludeConnection(Edge connector,
 			Collection children) {
 		return false;
 	}
 
 	/**
+	 * Refresh semantic.
+	 *
 	 * @generated
 	 */
-	protected void refreshSemantic() {
+	@Override
+    protected void refreshSemantic() {
 		List createdViews = new LinkedList();
 		createdViews.addAll(refreshSemanticChildren());
 		List createdConnectionViews = new LinkedList();
@@ -166,6 +202,9 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	}
 
 	/**
+	 * Refresh connections.
+	 *
+	 * @return the collection
 	 * @generated
 	 */
 	private Collection refreshConnections() {
@@ -209,6 +248,11 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	}
 
 	/**
+	 * Collect all links.
+	 *
+	 * @param view the view
+	 * @param domain2NotationMap the domain2 notation map
+	 * @return the collection
 	 * @generated
 	 */
 	private Collection collectAllLinks(View view, Map domain2NotationMap) {
@@ -527,6 +571,11 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	}
 
 	/**
+	 * Gets the edits the part.
+	 *
+	 * @param domainModelElement the domain model element
+	 * @param domain2NotationMap the domain2 notation map
+	 * @return the edits the part
 	 * @generated
 	 */
 	private EditPart getEditPart(EObject domainModelElement,
@@ -562,8 +611,9 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 				if (n instanceof Node) {
 					Node node = (Node) n;
 					if (!node.getType().equals("7002")
-							&& node.getElement() == modelElement)
-						view = node;
+							&& node.getElement() == modelElement) {
+                        view = node;
+                    }
 				}
 			}
 		} else {
@@ -612,19 +662,18 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	/**
 	 * Returns one CompartmentNode out of a list of nodes if there is at least one included. This
 	 * method was manually added.
-	 * 
-	 * @param children
-	 *            - List of children to be checked
+	 *
+	 * @param nodeList the node list
 	 * @return node - one compartementNode if there is a node of that type, null otherwise
-	 * 
 	 * @generated NOT
 	 */
 	private Node getCompartmentNode(EList nodeList) {
 		for (Object n : nodeList) {
 			if (n instanceof Node) {
 				Node node = (Node) n;
-				if (node.getType().equals("7002"))
-					return node;
+				if (node.getType().equals("7002")) {
+                    return node;
+                }
 
 			}
 		}
@@ -632,6 +681,9 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 	}
 
 	/**
+	 * Gets the diagram.
+	 *
+	 * @return the diagram
 	 * @generated
 	 */
 	private Diagram getDiagram() {

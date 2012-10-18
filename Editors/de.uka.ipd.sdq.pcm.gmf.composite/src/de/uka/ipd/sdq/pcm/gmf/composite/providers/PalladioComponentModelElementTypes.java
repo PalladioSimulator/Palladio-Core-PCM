@@ -41,111 +41,81 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
+ * The Class PalladioComponentModelElementTypes.
+ *
  * @generated
  */
 public class PalladioComponentModelElementTypes extends ElementInitializers {
 
 	/**
+	 * Instantiates a new palladio component model element types.
+	 *
 	 * @generated
 	 */
 	private PalladioComponentModelElementTypes() {
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The elements. @generated */
 	private static Map elements;
 
-	/**
-	 * @generated
-	 */
+	/** The image registry. @generated */
 	private static ImageRegistry imageRegistry;
 
-	/**
-	 * @generated
-	 */
+	/** The known element types. @generated */
 	private static Set KNOWN_ELEMENT_TYPES;
 
-	/**
-	 * @generated
-	 */
+	/** The Constant ComposedProvidingRequiringEntity_1000. @generated */
 	public static final IElementType ComposedProvidingRequiringEntity_1000 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.ComposedProvidingRequiringEntity_1000"); //$NON-NLS-1$
-	/**
-	 * @generated
-	 */
+	
+	/** The Constant ComposedProvidingRequiringEntity_2002. @generated */
 	public static final IElementType ComposedProvidingRequiringEntity_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.ComposedProvidingRequiringEntity_2002"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant AssemblyContext_3006. @generated */
 	public static final IElementType AssemblyContext_3006 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyContext_3006"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant OperationProvidedRole_3007. @generated */
 	public static final IElementType OperationProvidedRole_3007 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationProvidedRole_3007"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant OperationRequiredRole_3008. @generated */
 	public static final IElementType OperationRequiredRole_3008 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3008"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant SourceRole_3013. @generated */
 	public static final IElementType SourceRole_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.SourceRole_3013"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant SinkRole_3014. @generated */
 	public static final IElementType SinkRole_3014 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.SinkRole_3014"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant InfrastructureProvidedRole_3015. @generated */
 	public static final IElementType InfrastructureProvidedRole_3015 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureProvidedRole_3015"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant InfrastructureRequiredRole_3016. @generated */
 	public static final IElementType InfrastructureRequiredRole_3016 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureRequiredRole_3016"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant OperationProvidedRole_3011. @generated */
 	public static final IElementType OperationProvidedRole_3011 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationProvidedRole_3011"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant OperationRequiredRole_3012. @generated */
 	public static final IElementType OperationRequiredRole_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3012"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant AssemblyConnector_4004. @generated */
 	public static final IElementType AssemblyConnector_4004 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4004"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant AssemblyEventConnector_4007. @generated */
 	public static final IElementType AssemblyEventConnector_4007 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyEventConnector_4007"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant RequiredDelegationConnector_4005. @generated */
 	public static final IElementType RequiredDelegationConnector_4005 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.RequiredDelegationConnector_4005"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant ProvidedDelegationConnector_4006. @generated */
 	public static final IElementType ProvidedDelegationConnector_4006 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.ProvidedDelegationConnector_4006"); //$NON-NLS-1$
 
-	/**
-	 * @generated
-	 */
+	/** The Constant AssemblyInfrastructureConnector_4008. @generated */
 	public static final IElementType AssemblyInfrastructureConnector_4008 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyInfrastructureConnector_4008"); //$NON-NLS-1$
 
 	/**
+	 * Gets the image registry.
+	 *
+	 * @return the image registry
 	 * @generated
 	 */
 	private static ImageRegistry getImageRegistry() {
@@ -156,6 +126,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the image registry key.
+	 *
+	 * @param element the element
+	 * @return the image registry key
 	 * @generated
 	 */
 	private static String getImageRegistryKey(ENamedElement element) {
@@ -163,6 +137,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the provided image descriptor.
+	 *
+	 * @param element the element
+	 * @return the provided image descriptor
 	 * @generated
 	 */
 	private static ImageDescriptor getProvidedImageDescriptor(
@@ -192,6 +170,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the image descriptor.
+	 *
+	 * @param element the element
+	 * @return the image descriptor
 	 * @generated
 	 */
 	public static ImageDescriptor getImageDescriptor(ENamedElement element) {
@@ -208,6 +190,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the image.
+	 *
+	 * @param element the element
+	 * @return the image
 	 * @generated
 	 */
 	public static Image getImage(ENamedElement element) {
@@ -225,6 +211,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the image descriptor.
+	 *
+	 * @param hint the hint
+	 * @return the image descriptor
 	 * @generated
 	 */
 	public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
@@ -236,6 +226,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the image.
+	 *
+	 * @param hint the hint
+	 * @return the image
 	 * @generated
 	 */
 	public static Image getImage(IAdaptable hint) {
@@ -248,7 +242,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
 	/**
 	 * Returns 'type' of the ecore object associated with the hint.
-	 * 
+	 *
+	 * @param hint the hint
+	 * @return the element
 	 * @generated
 	 */
 	public static ENamedElement getElement(IAdaptable hint) {
@@ -317,6 +313,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the element type.
+	 *
+	 * @param id the id
+	 * @return the element type
 	 * @generated
 	 */
 	private static IElementType getElementType(String id) {
@@ -324,6 +324,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Checks if is known element type.
+	 *
+	 * @param elementType the element type
+	 * @return true, if is known element type
 	 * @generated
 	 */
 	public static boolean isKnownElementType(IElementType elementType) {
@@ -350,6 +354,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	}
 
 	/**
+	 * Gets the element type.
+	 *
+	 * @param visualID the visual id
+	 * @return the element type
 	 * @generated
 	 */
 	public static IElementType getElementType(int visualID) {

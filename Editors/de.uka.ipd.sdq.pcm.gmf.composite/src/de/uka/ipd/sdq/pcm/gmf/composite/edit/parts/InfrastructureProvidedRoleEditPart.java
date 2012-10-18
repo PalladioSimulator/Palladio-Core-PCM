@@ -11,7 +11,6 @@ import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
-import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
@@ -35,41 +34,36 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureProvidedRoleManualFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure.POSITION_TYPE;
+import de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureProvidedRoleManualFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.InfrastructureProvidedRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class InfrastructureProvidedRoleEditPart.
+ *
  * @generated
  */
 public class InfrastructureProvidedRoleEditPart extends
 		BorderedBorderItemEditPart {
 
-	/**
-	 * size of the figure in LP
-	 * 
-	 * @generated not
-	 */
+	/** size of the figure in LP. @generated not */
 	private static final int FIGURE_LOGICAL_SIZE = 30;
 
-	/**
-	 * @generated
-	 */
+	/** The Constant VISUAL_ID. @generated */
 	public static final int VISUAL_ID = 3015;
 
-	/**
-	 * @generated
-	 */
+	/** The content pane. @generated */
 	protected IFigure contentPane;
 
-	/**
-	 * @generated
-	 */
+	/** The primary shape. @generated */
 	protected IFigure primaryShape;
 
 	/**
+	 * Instantiates a new infrastructure provided role edit part.
+	 *
+	 * @param view the view
 	 * @generated
 	 */
 	public InfrastructureProvidedRoleEditPart(View view) {
@@ -77,6 +71,8 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Creates the default edit policies.
+	 *
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
@@ -91,6 +87,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Creates the layout edit policy.
+	 *
+	 * @return the layout edit policy
 	 * @generated
 	 */
 	protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -131,6 +130,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Creates the node shape.
+	 *
+	 * @return the i figure
 	 * @generated
 	 */
 	protected IFigure createNodeShape() {
@@ -139,6 +141,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Gets the primary shape.
+	 *
+	 * @return the primary shape
 	 * @generated
 	 */
 	public InfrastructureProvidedRoleFigure getPrimaryShape() {
@@ -146,6 +151,10 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Adds the border item.
+	 *
+	 * @param borderItemContainer the border item container
+	 * @param borderItemEditPart the border item edit part
 	 * @generated
 	 */
 	protected void addBorderItem(IFigure borderItemContainer,
@@ -161,6 +170,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Creates the node plate.
+	 *
+	 * @return the node figure
 	 * @generated
 	 */
 	protected NodeFigure createNodePlate() {
@@ -172,6 +184,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Gets the primary drag edit policy.
+	 *
+	 * @return the primary drag edit policy
 	 * @generated
 	 */
 	public EditPolicy getPrimaryDragEditPolicy() {
@@ -191,7 +206,8 @@ public class InfrastructureProvidedRoleEditPart extends
 	 * 
 	 * Manually modified to generate a specific source figure instead of the standard shape
 	 * configured in the map model.
-	 * 
+	 *
+	 * @return the node figure
 	 * @generated not
 	 */
 	protected NodeFigure createMainFigure() {
@@ -205,9 +221,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	/**
 	 * Default implementation treats passed figure as content pane. Respects layout one may have set
 	 * for generated figure.
-	 * 
-	 * @param nodeShape
-	 *            instance of generated figure class
+	 *
+	 * @param nodeShape instance of generated figure class
+	 * @return the i figure
 	 * @generated
 	 */
 	protected IFigure setupContentPane(IFigure nodeShape) {
@@ -215,6 +231,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Gets the content pane.
+	 *
+	 * @return the content pane
 	 * @generated
 	 */
 	public IFigure getContentPane() {
@@ -225,6 +244,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Sets the foreground color.
+	 *
+	 * @param color the new foreground color
 	 * @generated
 	 */
 	protected void setForegroundColor(Color color) {
@@ -234,6 +256,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Sets the background color.
+	 *
+	 * @param color the new background color
 	 * @generated
 	 */
 	protected void setBackgroundColor(Color color) {
@@ -243,6 +268,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Sets the line width.
+	 *
+	 * @param width the new line width
 	 * @generated
 	 */
 	protected void setLineWidth(int width) {
@@ -252,6 +280,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Sets the line type.
+	 *
+	 * @param style the new line type
 	 * @generated
 	 */
 	protected void setLineType(int style) {
@@ -261,6 +292,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Gets the primary child edit part.
+	 *
+	 * @return the primary child edit part
 	 * @generated
 	 */
 	public EditPart getPrimaryChildEditPart() {
@@ -269,6 +303,9 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Gets the mA rel types on target.
+	 *
+	 * @return the mA rel types on target
 	 * @generated
 	 */
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnTarget() {
@@ -279,6 +316,10 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * Gets the mA types for source.
+	 *
+	 * @param relationshipType the relationship type
+	 * @return the mA types for source
 	 * @generated
 	 */
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForSource(
@@ -292,11 +333,15 @@ public class InfrastructureProvidedRoleEditPart extends
 	}
 
 	/**
+	 * The Class InfrastructureProvidedRoleFigure.
+	 *
 	 * @generated
 	 */
 	public class InfrastructureProvidedRoleFigure extends RectangleFigure {
 
 		/**
+		 * Instantiates a new infrastructure provided role figure.
+		 *
 		 * @generated
 		 */
 		public InfrastructureProvidedRoleFigure() {
@@ -309,12 +354,13 @@ public class InfrastructureProvidedRoleEditPart extends
 					.DPtoLP(40)));
 		}
 
-		/**
-		 * @generated
-		 */
+		/** The my use local coordinates. @generated */
 		private boolean myUseLocalCoordinates = false;
 
 		/**
+		 * Use local coordinates.
+		 *
+		 * @return true, if successful
 		 * @generated
 		 */
 		protected boolean useLocalCoordinates() {
@@ -322,6 +368,9 @@ public class InfrastructureProvidedRoleEditPart extends
 		}
 
 		/**
+		 * Sets the use local coordinates.
+		 *
+		 * @param useLocalCoordinates the new use local coordinates
 		 * @generated
 		 */
 		protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

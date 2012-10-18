@@ -9,6 +9,8 @@ import org.eclipse.core.runtime.PlatformObject;
 import org.eclipse.ui.views.properties.tabbed.ITabbedPropertySheetPageContributor;
 
 /**
+ * The Class PalladioComponentModelAbstractNavigatorItem.
+ *
  * @generated
  */
 public abstract class PalladioComponentModelAbstractNavigatorItem extends
@@ -43,12 +45,13 @@ public abstract class PalladioComponentModelAbstractNavigatorItem extends
 				de.uka.ipd.sdq.pcm.gmf.composite.navigator.PalladioComponentModelAbstractNavigatorItem.class);
 	}
 
-	/**
-	 * @generated
-	 */
+	/** The my parent. @generated */
 	private Object myParent;
 
 	/**
+	 * Instantiates a new palladio component model abstract navigator item.
+	 *
+	 * @param parent the parent
 	 * @generated
 	 */
 	protected PalladioComponentModelAbstractNavigatorItem(Object parent) {
@@ -56,6 +59,9 @@ public abstract class PalladioComponentModelAbstractNavigatorItem extends
 	}
 
 	/**
+	 * Gets the parent.
+	 *
+	 * @return the parent
 	 * @generated
 	 */
 	public Object getParent() {

@@ -17,17 +17,20 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiring
 import de.uka.ipd.sdq.pcm.gmf.composite.part.Messages;
 
 /**
+ * The Class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart.
+ *
  * @generated
  */
 public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart
 		extends ShapeCompartmentEditPart {
 
-	/**
-	 * @generated
-	 */
+	/** The Constant VISUAL_ID. @generated */
 	public static final int VISUAL_ID = 7002;
 
 	/**
+	 * Instantiates a new composed providing requiring entity composite structure inner compartment edit part.
+	 *
+	 * @param view the view
 	 * @generated
 	 */
 	public ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart(
@@ -36,6 +39,9 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentE
 	}
 
 	/**
+	 * Gets the compartment name.
+	 *
+	 * @return the compartment name
 	 * @generated
 	 */
 	public String getCompartmentName() {
@@ -43,6 +49,9 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentE
 	}
 
 	/**
+	 * Creates the figure.
+	 *
+	 * @return the i figure
 	 * @generated
 	 */
 	public IFigure createFigure() {
@@ -53,6 +62,8 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentE
 	}
 
 	/**
+	 * Creates the default edit policies.
+	 *
 	 * @generated
 	 */
 	protected void createDefaultEditPolicies() {
@@ -70,6 +81,9 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentE
 	}
 
 	/**
+	 * Sets the ratio.
+	 *
+	 * @param ratio the new ratio
 	 * @generated
 	 */
 	protected void setRatio(Double ratio) {

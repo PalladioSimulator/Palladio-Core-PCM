@@ -13,25 +13,32 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
+ * The Class PalladioComponentModelDomainNavigatorLabelProvider.
+ *
  * @generated
  */
 public class PalladioComponentModelDomainNavigatorLabelProvider implements
 		ICommonLabelProvider {
 
-	/**
-	 * @generated
-	 */
+	/** The my adapter factory label provider. @generated */
 	private AdapterFactoryLabelProvider myAdapterFactoryLabelProvider = new AdapterFactoryLabelProvider(
 			PalladioComponentModelComposedStructureDiagramEditorPlugin
 					.getInstance().getItemProvidersAdapterFactory());
 
 	/**
+	 * Inits the.
+	 *
+	 * @param aConfig the a config
 	 * @generated
 	 */
 	public void init(ICommonContentExtensionSite aConfig) {
 	}
 
 	/**
+	 * Gets the image.
+	 *
+	 * @param element the element
+	 * @return the image
 	 * @generated
 	 */
 	public Image getImage(Object element) {
@@ -44,6 +51,10 @@ public class PalladioComponentModelDomainNavigatorLabelProvider implements
 	}
 
 	/**
+	 * Gets the text.
+	 *
+	 * @param element the element
+	 * @return the text
 	 * @generated
 	 */
 	public String getText(Object element) {
@@ -56,6 +67,9 @@ public class PalladioComponentModelDomainNavigatorLabelProvider implements
 	}
 
 	/**
+	 * Adds the listener.
+	 *
+	 * @param listener the listener
 	 * @generated
 	 */
 	public void addListener(ILabelProviderListener listener) {
@@ -63,6 +77,8 @@ public class PalladioComponentModelDomainNavigatorLabelProvider implements
 	}
 
 	/**
+	 * Dispose.
+	 *
 	 * @generated
 	 */
 	public void dispose() {
@@ -70,6 +86,11 @@ public class PalladioComponentModelDomainNavigatorLabelProvider implements
 	}
 
 	/**
+	 * Checks if is label property.
+	 *
+	 * @param element the element
+	 * @param property the property
+	 * @return true, if is label property
 	 * @generated
 	 */
 	public boolean isLabelProperty(Object element, String property) {
@@ -77,6 +98,9 @@ public class PalladioComponentModelDomainNavigatorLabelProvider implements
 	}
 
 	/**
+	 * Removes the listener.
+	 *
+	 * @param listener the listener
 	 * @generated
 	 */
 	public void removeListener(ILabelProviderListener listener) {
@@ -84,18 +108,28 @@ public class PalladioComponentModelDomainNavigatorLabelProvider implements
 	}
 
 	/**
+	 * Restore state.
+	 *
+	 * @param aMemento the a memento
 	 * @generated
 	 */
 	public void restoreState(IMemento aMemento) {
 	}
 
 	/**
+	 * Save state.
+	 *
+	 * @param aMemento the a memento
 	 * @generated
 	 */
 	public void saveState(IMemento aMemento) {
 	}
 
 	/**
+	 * Gets the description.
+	 *
+	 * @param anElement the an element
+	 * @return the description
 	 * @generated
 	 */
 	public String getDescription(Object anElement) {

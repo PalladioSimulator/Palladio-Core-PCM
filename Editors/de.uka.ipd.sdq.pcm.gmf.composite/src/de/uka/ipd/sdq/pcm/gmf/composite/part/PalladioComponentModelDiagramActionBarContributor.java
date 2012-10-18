@@ -14,12 +14,17 @@ import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
 
 /**
+ * The Class PalladioComponentModelDiagramActionBarContributor.
+ *
  * @generated
  */
 public class PalladioComponentModelDiagramActionBarContributor extends
 		DiagramActionBarContributor {
 
 	/**
+	 * Gets the editor class.
+	 *
+	 * @return the editor class
 	 * @generated
 	 */
 	protected Class getEditorClass() {
@@ -27,6 +32,9 @@ public class PalladioComponentModelDiagramActionBarContributor extends
 	}
 
 	/**
+	 * Gets the editor id.
+	 *
+	 * @return the editor id
 	 * @generated
 	 */
 	protected String getEditorId() {
@@ -34,6 +42,10 @@ public class PalladioComponentModelDiagramActionBarContributor extends
 	}
 
 	/**
+	 * Inits the.
+	 *
+	 * @param bars the bars
+	 * @param page the page
 	 * @generated
 	 */
 	public void init(IActionBars bars, IWorkbenchPage page) {

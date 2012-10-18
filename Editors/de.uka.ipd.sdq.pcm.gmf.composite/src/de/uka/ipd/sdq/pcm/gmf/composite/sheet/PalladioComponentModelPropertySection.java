@@ -8,11 +8,8 @@ import java.util.Iterator;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.AdapterFactory;
-import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
-import org.eclipse.emf.transaction.TransactionalEditingDomain;
-import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.properties.sections.AdvancedPropertySection;
 import org.eclipse.gmf.runtime.notation.View;
@@ -25,12 +22,18 @@ import org.eclipse.ui.views.properties.IPropertySourceProvider;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
+ * The Class PalladioComponentModelPropertySection.
+ *
  * @generated
  */
 public class PalladioComponentModelPropertySection extends
 		AdvancedPropertySection implements IPropertySourceProvider {
 
 	/**
+	 * Gets the property source.
+	 *
+	 * @param object the object
+	 * @return the property source
 	 * @generated
 	 */
 	public IPropertySource getPropertySource(Object object) {
@@ -53,6 +56,9 @@ public class PalladioComponentModelPropertySection extends
 	}
 
 	/**
+	 * Gets the property source provider.
+	 *
+	 * @return the property source provider
 	 * @generated
 	 */
 	protected IPropertySourceProvider getPropertySourceProvider() {
@@ -61,7 +67,9 @@ public class PalladioComponentModelPropertySection extends
 
 	/**
 	 * Modify/unwrap selection.
-	 * 
+	 *
+	 * @param selected the selected
+	 * @return the object
 	 * @generated
 	 */
 	protected Object transformSelection(Object selected) {
@@ -83,6 +91,10 @@ public class PalladioComponentModelPropertySection extends
 	}
 
 	/**
+	 * Sets the input.
+	 *
+	 * @param part the part
+	 * @param selection the selection
 	 * @generated
 	 */
 	public void setInput(IWorkbenchPart part, ISelection selection) {
@@ -104,6 +116,10 @@ public class PalladioComponentModelPropertySection extends
 	}
 
 	/**
+	 * Gets the adapter factory.
+	 *
+	 * @param object the object
+	 * @return the adapter factory
 	 * @generated not
 	 */
 	protected AdapterFactory getAdapterFactory(Object object) {

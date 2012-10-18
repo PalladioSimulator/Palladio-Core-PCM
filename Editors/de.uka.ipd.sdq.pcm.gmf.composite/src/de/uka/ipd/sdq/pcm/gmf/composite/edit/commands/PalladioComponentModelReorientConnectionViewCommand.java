@@ -14,17 +14,21 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
+ * The Class PalladioComponentModelReorientConnectionViewCommand.
+ *
  * @generated
  */
 public class PalladioComponentModelReorientConnectionViewCommand extends
 		AbstractTransactionalCommand {
 
-	/**
-	 * @generated
-	 */
+	/** The edge adaptor. @generated */
 	private IAdaptable edgeAdaptor;
 
 	/**
+	 * Instantiates a new palladio component model reorient connection view command.
+	 *
+	 * @param editingDomain the editing domain
+	 * @param label the label
 	 * @generated
 	 */
 	public PalladioComponentModelReorientConnectionViewCommand(
@@ -33,6 +37,9 @@ public class PalladioComponentModelReorientConnectionViewCommand extends
 	}
 
 	/**
+	 * Gets the affected files.
+	 *
+	 * @return the affected files
 	 * @generated
 	 */
 	public List getAffectedFiles() {
@@ -44,6 +51,9 @@ public class PalladioComponentModelReorientConnectionViewCommand extends
 	}
 
 	/**
+	 * Gets the edge adaptor.
+	 *
+	 * @return the edge adaptor
 	 * @generated
 	 */
 	public IAdaptable getEdgeAdaptor() {
@@ -51,6 +61,9 @@ public class PalladioComponentModelReorientConnectionViewCommand extends
 	}
 
 	/**
+	 * Sets the edge adaptor.
+	 *
+	 * @param edgeAdaptor the new edge adaptor
 	 * @generated
 	 */
 	public void setEdgeAdaptor(IAdaptable edgeAdaptor) {
@@ -58,6 +71,11 @@ public class PalladioComponentModelReorientConnectionViewCommand extends
 	}
 
 	/**
+	 * Do execute with result.
+	 *
+	 * @param progressMonitor the progress monitor
+	 * @param info the info
+	 * @return the command result
 	 * @generated
 	 */
 	protected CommandResult doExecuteWithResult(
