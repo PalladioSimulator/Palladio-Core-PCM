@@ -6,9 +6,9 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator;
 
-import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 
 /**
  * <!-- begin-user-doc -->

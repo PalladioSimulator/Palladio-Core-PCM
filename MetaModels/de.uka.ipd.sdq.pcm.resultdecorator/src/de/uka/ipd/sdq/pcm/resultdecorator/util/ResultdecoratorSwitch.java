@@ -6,14 +6,14 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.util;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
 
 /**
  * <!-- begin-user-doc -->

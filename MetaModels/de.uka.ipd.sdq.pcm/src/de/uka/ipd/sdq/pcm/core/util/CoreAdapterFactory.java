@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.core.util;
 
-import de.uka.ipd.sdq.pcm.core.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;

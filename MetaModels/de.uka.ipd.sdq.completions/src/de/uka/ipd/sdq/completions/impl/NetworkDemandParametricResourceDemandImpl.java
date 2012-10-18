@@ -3,16 +3,15 @@
  */
 package de.uka.ipd.sdq.completions.impl;
 
-import de.uka.ipd.sdq.completions.CompletionsPackage;
-import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand;
-
-import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl;
-
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.completions.CompletionsPackage;
+import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand;
+import de.uka.ipd.sdq.pcm.resourcetype.CommunicationLinkResourceType;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.impl.ParametricResourceDemandImpl;
 
 /**
  * <!-- begin-user-doc -->

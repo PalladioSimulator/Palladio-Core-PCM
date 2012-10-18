@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.completions.impl;
 
-import de.uka.ipd.sdq.completions.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -17,6 +16,7 @@ import de.uka.ipd.sdq.completions.CompletionRepository;
 import de.uka.ipd.sdq.completions.CompletionsFactory;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
+import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand;
 
 /**
  * <!-- begin-user-doc -->

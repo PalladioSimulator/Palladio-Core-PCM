@@ -6,15 +6,15 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.impl;
 
-import de.uka.ipd.sdq.pcm.resultdecorator.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorFactory;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
 
 /**
  * <!-- begin-user-doc -->

@@ -3,21 +3,21 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_reliability.util;
 
-import de.uka.ipd.sdq.identifier.Identifier;
-
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
-
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.identifier.Identifier;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.seff.AbstractAction;
+import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
  * <!-- begin-user-doc -->

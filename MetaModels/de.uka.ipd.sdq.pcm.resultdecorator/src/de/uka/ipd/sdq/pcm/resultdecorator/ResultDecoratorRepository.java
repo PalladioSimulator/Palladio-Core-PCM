@@ -6,14 +6,12 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator;
 
+import org.eclipse.emf.common.util.EList;
+
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
 import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ComponentResult;
-
 import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ServiceResult;
 import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
-
-import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc -->

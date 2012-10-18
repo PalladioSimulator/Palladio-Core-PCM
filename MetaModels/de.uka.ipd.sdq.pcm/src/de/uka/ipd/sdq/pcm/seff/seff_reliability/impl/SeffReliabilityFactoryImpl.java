@@ -3,15 +3,16 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_reliability.impl;
 
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
  * <!-- begin-user-doc -->

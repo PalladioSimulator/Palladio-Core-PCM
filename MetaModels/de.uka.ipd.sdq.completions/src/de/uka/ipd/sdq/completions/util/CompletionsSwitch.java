@@ -5,18 +5,15 @@
  */
 package de.uka.ipd.sdq.completions.util;
 
-import de.uka.ipd.sdq.completions.*;
-import java.util.List;
-
-import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
-
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.Switch;
+
 import de.uka.ipd.sdq.completions.Completion;
 import de.uka.ipd.sdq.completions.CompletionRepository;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
+import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;

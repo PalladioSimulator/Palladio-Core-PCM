@@ -3,20 +3,19 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_reliability.util;
 
-import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
-
-import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
-
-import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
-
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
+import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
 
 /**
  * <!-- begin-user-doc -->

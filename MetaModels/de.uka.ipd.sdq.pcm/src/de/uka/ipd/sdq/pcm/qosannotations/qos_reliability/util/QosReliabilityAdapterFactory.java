@@ -3,16 +3,14 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.util;
 
-import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
-
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 
 /**
  * <!-- begin-user-doc -->

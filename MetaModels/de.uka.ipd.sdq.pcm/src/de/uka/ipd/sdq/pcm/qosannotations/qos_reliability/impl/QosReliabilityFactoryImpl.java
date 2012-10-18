@@ -3,15 +3,15 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.*;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.impl.EFactoryImpl;
-
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
+
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityFactory;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 
 /**
  * <!-- begin-user-doc -->

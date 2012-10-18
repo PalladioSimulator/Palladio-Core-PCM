@@ -6,16 +6,14 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.util;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.*;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
 
 /**
  * <!-- begin-user-doc -->

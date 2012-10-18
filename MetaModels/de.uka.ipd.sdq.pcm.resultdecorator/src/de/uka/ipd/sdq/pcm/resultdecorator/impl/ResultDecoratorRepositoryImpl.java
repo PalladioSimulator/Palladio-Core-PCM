@@ -6,27 +6,21 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.impl;
 
-import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
-import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ComponentResult;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ServiceResult;
-import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.notify.NotificationChain;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
+
+import de.uka.ipd.sdq.pcm.core.entity.impl.NamedElementImpl;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ComponentResult;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ServiceResult;
+import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.UtilisationResult;
 
 /**
  * <!-- begin-user-doc -->

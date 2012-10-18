@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.completions.util;
 
-import de.uka.ipd.sdq.completions.*;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
@@ -15,6 +14,7 @@ import de.uka.ipd.sdq.completions.Completion;
 import de.uka.ipd.sdq.completions.CompletionRepository;
 import de.uka.ipd.sdq.completions.CompletionsPackage;
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
+import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand;
 import de.uka.ipd.sdq.identifier.Identifier;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;

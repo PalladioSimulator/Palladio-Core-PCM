@@ -6,17 +6,14 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.impl;
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.InterfaceProvidingRequiringEntityResults;
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.InterfaceProvidingRequiringEntityResults;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
 
 /**
  * <!-- begin-user-doc -->

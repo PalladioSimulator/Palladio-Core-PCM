@@ -6,50 +6,20 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.impl;
 
-import de.uka.ipd.sdq.pcm.PcmPackage;
-import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
-
-import de.uka.ipd.sdq.pcm.core.CorePackage;
-
-import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
-
-import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
-
-import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
-
-import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
-
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
-
-import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
-
-import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
-import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorFactory;
-import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.impl.RepositorydecoratorPackageImpl;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.impl.ResourceenvironmentdecoratorPackageImpl;
-
-import de.uka.ipd.sdq.pcm.seff.SeffPackage;
-
-import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
-
-import de.uka.ipd.sdq.pcm.system.SystemPackage;
-
-import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
-
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+
+import de.uka.ipd.sdq.pcm.PcmPackage;
+import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultDecoratorRepository;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorFactory;
+import de.uka.ipd.sdq.pcm.resultdecorator.ResultdecoratorPackage;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.impl.RepositorydecoratorPackageImpl;
+import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.ResourceenvironmentdecoratorPackage;
+import de.uka.ipd.sdq.pcm.resultdecorator.resourceenvironmentdecorator.impl.ResourceenvironmentdecoratorPackageImpl;
 
 /**
  * <!-- begin-user-doc -->

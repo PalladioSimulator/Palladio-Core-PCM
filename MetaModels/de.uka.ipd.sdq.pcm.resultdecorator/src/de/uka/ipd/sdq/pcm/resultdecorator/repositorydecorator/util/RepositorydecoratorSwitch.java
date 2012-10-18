@@ -6,14 +6,18 @@
  */
 package de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.util;
 
-import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-
-import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.*;
-
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
+
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.AllocationContextResults;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.AllocationServiceResult;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ComponentResult;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.InterfaceProvidingRequiringEntityResults;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.RepositorydecoratorPackage;
+import de.uka.ipd.sdq.pcm.resultdecorator.repositorydecorator.ServiceResult;
 
 /**
  * <!-- begin-user-doc -->

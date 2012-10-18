@@ -20,7 +20,6 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceInterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
-import de.uka.ipd.sdq.pcm.subsystem.*;
 import de.uka.ipd.sdq.pcm.subsystem.SubSystem;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
