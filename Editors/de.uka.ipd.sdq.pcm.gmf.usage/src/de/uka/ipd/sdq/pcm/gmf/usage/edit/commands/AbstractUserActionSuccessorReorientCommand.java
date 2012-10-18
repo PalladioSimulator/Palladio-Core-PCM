@@ -16,31 +16,28 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.PalladioComponentModelBaseItem
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 
 /**
+ * The Class AbstractUserActionSuccessorReorientCommand.
+ *
  * @generated
  */
 public class AbstractUserActionSuccessorReorientCommand extends EditElementCommand {
 
-    /**
-     * @generated
-     */
+    /** The reorient direction. @generated */
     private final int reorientDirection;
 
-    /**
-     * @generated
-     */
+    /** The reference owner. @generated */
     private final EObject referenceOwner;
 
-    /**
-     * @generated
-     */
+    /** The old end. @generated */
     private final EObject oldEnd;
 
-    /**
-     * @generated
-     */
+    /** The new end. @generated */
     private final EObject newEnd;
 
     /**
+     * Instantiates a new abstract user action successor reorient command.
+     *
+     * @param request the request
      * @generated
      */
     public AbstractUserActionSuccessorReorientCommand(ReorientReferenceRelationshipRequest request) {
@@ -52,6 +49,9 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Can execute.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -68,6 +68,9 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Can reorient source.
+     *
+     * @return true, if successful
      * @generated
      */
     protected boolean canReorientSource() {
@@ -79,6 +82,9 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Can reorient target.
+     *
+     * @return true, if successful
      * @generated
      */
     protected boolean canReorientTarget() {
@@ -90,6 +96,12 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -106,6 +118,10 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Reorient source.
+     *
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult reorientSource() throws ExecutionException {
@@ -115,6 +131,10 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Reorient target.
+     *
+     * @return the command result
+     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult reorientTarget() throws ExecutionException {
@@ -123,6 +143,9 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Gets the old source.
+     *
+     * @return the old source
      * @generated
      */
     protected AbstractUserAction getOldSource() {
@@ -130,6 +153,9 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Gets the new source.
+     *
+     * @return the new source
      * @generated
      */
     protected AbstractUserAction getNewSource() {
@@ -137,6 +163,9 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Gets the old target.
+     *
+     * @return the old target
      * @generated
      */
     protected AbstractUserAction getOldTarget() {
@@ -144,6 +173,9 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
     }
 
     /**
+     * Gets the new target.
+     *
+     * @return the new target
      * @generated
      */
     protected AbstractUserAction getNewTarget() {

@@ -4,6 +4,8 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.helpers;
 
 /**
+ * The Class UsageScenarioEditHelper.
+ *
  * @generated
  */
 public class UsageScenarioEditHelper extends PalladioComponentModelBaseEditHelper {

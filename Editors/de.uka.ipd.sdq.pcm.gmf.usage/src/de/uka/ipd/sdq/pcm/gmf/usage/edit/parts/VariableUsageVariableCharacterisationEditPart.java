@@ -18,16 +18,19 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.VariableUsageVariableCharacter
 import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
 
 /**
+ * The Class VariableUsageVariableCharacterisationEditPart.
+ *
  * @generated
  */
 public class VariableUsageVariableCharacterisationEditPart extends ListCompartmentEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 7011;
 
     /**
+     * Instantiates a new variable usage variable characterisation edit part.
+     *
+     * @param view the view
      * @generated
      */
     public VariableUsageVariableCharacterisationEditPart(View view) {
@@ -35,6 +38,10 @@ public class VariableUsageVariableCharacterisationEditPart extends ListCompartme
     }
 
     /**
+     * Checks for model children changed.
+     *
+     * @param evt the evt
+     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -42,6 +49,9 @@ public class VariableUsageVariableCharacterisationEditPart extends ListCompartme
     }
 
     /**
+     * Gets the compartment name.
+     *
+     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -49,6 +59,8 @@ public class VariableUsageVariableCharacterisationEditPart extends ListCompartme
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -63,6 +75,9 @@ public class VariableUsageVariableCharacterisationEditPart extends ListCompartme
     }
 
     /**
+     * Sets the ratio.
+     *
+     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

@@ -20,15 +20,21 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.system.System;
 
 /**
+ * The Class EntryLevelSystemCallEditHelperAdvice.
+ *
  * @author roman, Christian Busch
  * @generated NOT
  */
 public class EntryLevelSystemCallEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
+   
+    
     /**
      * This command opens two selection dialogs for choosing the system operation provided role and
      * interface.
-     * 
+     *
+     * @param request the request
+     * @return the after configure command
      */
     @Override
     protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
@@ -52,10 +58,12 @@ public class EntryLevelSystemCallEditHelperAdvice extends AbstractEditHelperAdvi
                 .getResourceSet());
         dialog.setProvidedService(OperationProvidedRole.class);
         dialog.open();
-        if (dialog.getResult() == null)
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
-        if (!(dialog.getResult() instanceof OperationProvidedRole))
+        }
+        if (!(dialog.getResult() instanceof OperationProvidedRole)) {
             return new CanceledCommand();
+        }
 
         providedRole = (OperationProvidedRole) dialog.getResult();
 
@@ -69,10 +77,12 @@ public class EntryLevelSystemCallEditHelperAdvice extends AbstractEditHelperAdvi
                 filterList, additionalReferences, providedRole);
         dialog.setProvidedService(OperationSignature.class);
         dialog.open();
-        if (dialog.getResult() == null)
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
-        if (!(dialog.getResult() instanceof OperationSignature))
+        }
+        if (!(dialog.getResult() instanceof OperationSignature)) {
             return new CanceledCommand();
+        }
         signature = (OperationSignature) dialog.getResult();
 
         return new EntryLevelSystemCallConfigureCommand(request, signature, providedRole);

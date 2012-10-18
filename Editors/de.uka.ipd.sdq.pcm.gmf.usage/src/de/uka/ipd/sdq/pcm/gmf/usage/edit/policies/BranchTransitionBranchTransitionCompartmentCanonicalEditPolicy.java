@@ -15,11 +15,16 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 
 /**
+ * The Class BranchTransitionBranchTransitionCompartmentCanonicalEditPolicy.
+ *
  * @generated
  */
 public class BranchTransitionBranchTransitionCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
     /**
+     * Gets the semantic children list.
+     *
+     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -37,6 +42,10 @@ public class BranchTransitionBranchTransitionCompartmentCanonicalEditPolicy exte
     }
 
     /**
+     * Should delete view.
+     *
+     * @param view the view
+     * @return true, if successful
      * @generated
      */
     protected boolean shouldDeleteView(View view) {
@@ -52,6 +61,9 @@ public class BranchTransitionBranchTransitionCompartmentCanonicalEditPolicy exte
     }
 
     /**
+     * Gets the default factory hint.
+     *
+     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {

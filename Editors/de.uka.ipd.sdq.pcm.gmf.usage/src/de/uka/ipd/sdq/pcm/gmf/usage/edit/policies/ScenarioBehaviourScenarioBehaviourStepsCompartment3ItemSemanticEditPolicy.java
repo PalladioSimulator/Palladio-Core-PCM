@@ -15,12 +15,16 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.StopCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new scenario behaviour scenario behaviour steps compartment3 item semantic edit policy.
+     *
      * @generated
      */
     public ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEditPolicy() {
@@ -28,6 +32,10 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3ItemSemanticEdit
     }
 
     /**
+     * Gets the creates the command.
+     *
+     * @param req the req
+     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

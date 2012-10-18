@@ -10,12 +10,16 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.VariableUsageCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class EntryLevelSystemCallParameterUsageItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class EntryLevelSystemCallParameterUsageItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new entry level system call parameter usage item semantic edit policy.
+     *
      * @generated
      */
     public EntryLevelSystemCallParameterUsageItemSemanticEditPolicy() {
@@ -23,6 +27,10 @@ public class EntryLevelSystemCallParameterUsageItemSemanticEditPolicy extends
     }
 
     /**
+     * Gets the creates the command.
+     *
+     * @param req the req
+     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

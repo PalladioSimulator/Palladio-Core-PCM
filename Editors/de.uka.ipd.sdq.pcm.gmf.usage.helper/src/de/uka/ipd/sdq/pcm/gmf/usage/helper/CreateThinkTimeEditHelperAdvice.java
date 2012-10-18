@@ -13,6 +13,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
+ * The Class CreateThinkTimeEditHelperAdvice.
+ *
  * @author Roman Andrej
  */
 public class CreateThinkTimeEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
@@ -22,6 +24,13 @@ public class CreateThinkTimeEditHelperAdvice extends AbstractEditHelperAdvice im
      * 
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    /**
+     * Gets the after configure command.
+     *
+     * @param request the request
+     * @return the after configure command
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     @Override
     protected ICommand getAfterConfigureCommand(ConfigureRequest request) {

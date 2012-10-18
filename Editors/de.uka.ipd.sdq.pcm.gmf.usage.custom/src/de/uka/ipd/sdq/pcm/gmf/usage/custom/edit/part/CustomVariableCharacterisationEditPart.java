@@ -10,39 +10,64 @@ import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
+import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 import de.uka.ipd.sdq.stoex.Expression;
 
+/**
+ * The Class CustomVariableCharacterisationEditPart.
+ */
 public class CustomVariableCharacterisationEditPart extends VariableCharacterisationEditPart {
 
+    /**
+     * Instantiates a new custom variable characterisation edit part.
+     *
+     * @param view the view
+     */
     public CustomVariableCharacterisationEditPart(View view) {
         super(view);
     }
 
+    /** The change listener. */
     private EContentAdapter changeListener = null;
+    
+    /** The adapted element. */
     private EObject adaptedElement = null;
 
+    
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
         EObject semanticElement = this.resolveSemanticElement();
         // Handle errors when element deleted
-        if (semanticElement == null || !(semanticElement instanceof VariableCharacterisation))
+        if (semanticElement == null || !(semanticElement instanceof VariableCharacterisation)) {
             return "";
+        }
 
         VariableCharacterisation vc = (VariableCharacterisation) semanticElement;
         text = vc.getType().getLiteral() + " = ";
         Expression expression = vc.getSpecification_VariableCharacterisation().getExpression();
-        if (expression != null)
+        if (expression != null) {
             text += new PCMStoExPrettyPrintVisitor().prettyPrint(expression);
+        }
         if (text == null || text.length() == 0) {
             text = getLabelTextHelper(getFigure());
         }
         return text;
     }
 
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         EObject element = resolveSemanticElement();
@@ -60,12 +85,23 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
         addListenerFilter("SemanticModel", this, element); //$NON-NLS-1$
     }
 
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
         adaptedElement.eAdapters().remove(changeListener);
     }
 
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(final Notification event) {
         Object feature = event.getFeature();

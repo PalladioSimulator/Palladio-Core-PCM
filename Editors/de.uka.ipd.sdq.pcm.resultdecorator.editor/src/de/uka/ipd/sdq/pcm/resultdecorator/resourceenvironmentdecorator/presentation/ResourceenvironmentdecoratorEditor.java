@@ -293,12 +293,7 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
      */
     protected MarkerHelper markerHelper = new EditUIMarkerHelper();
 
-    /**
-     * This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc
-     * -->
-     * 
-     * @generated
-     */
+    /** This listens for when the outline becomes active <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
     protected IPartListener partListener = new IPartListener() {
         public void partActivated(IWorkbenchPart p) {
             if (p instanceof ContentOutline) {
@@ -615,7 +610,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * Shows a dialog that asks if conflicting changes should be discarded. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @return true, if successful
      * @generated
      */
     protected boolean handleDirtyConflict() {
@@ -707,7 +703,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This is here for the listener to be able to call it. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @param action the action
      * @generated
      */
     @Override
@@ -718,7 +715,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This sets the selection into whichever viewer is active. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @param collection the new selection to viewer
      * @generated
      */
     public void setSelectionToViewer(Collection<?> collection) {
@@ -744,7 +742,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
      * This is important for implementing the static methods of {@link AdapterFactoryEditingDomain}
      * and for supporting {@link org.eclipse.emf.edit.ui.action.CommandAction}. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
+     * @return the editing domain
      * @generated
      */
     public EditingDomain getEditingDomain() {
@@ -752,14 +751,16 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
      * @generated
      */
     public class ReverseAdapterFactoryContentProvider extends AdapterFactoryContentProvider {
+        
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @param adapterFactory the adapter factory
          * @generated
          */
         public ReverseAdapterFactoryContentProvider(AdapterFactory adapterFactory) {
@@ -767,8 +768,10 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @param object the object
+         * @return the elements
          * @generated
          */
         @Override
@@ -778,8 +781,10 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @param object the object
+         * @return the children
          * @generated
          */
         @Override
@@ -789,8 +794,10 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @param object the object
+         * @return true, if successful
          * @generated
          */
         @Override
@@ -800,8 +807,10 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @param object the object
+         * @return the parent
          * @generated
          */
         @Override
@@ -811,8 +820,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
+     * @param viewerPane the new current viewer pane
      * @generated
      */
     public void setCurrentViewerPane(ViewerPane viewerPane) {
@@ -828,7 +838,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This makes sure that one content viewer, either for the current page or the outline view, if
      * it has focus, is the current one. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param viewer the new current viewer
      * @generated
      */
     public void setCurrentViewer(Viewer viewer) {
@@ -872,7 +883,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This returns the viewer as required by the {@link IViewerProvider} interface. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @return the viewer
      * @generated
      */
     public Viewer getViewer() {
@@ -882,7 +894,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This creates a context menu for the viewer and adds a listener as well registering the menu
      * for extension. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param viewer the viewer
      * @generated
      */
     protected void createContextMenuFor(StructuredViewer viewer) {
@@ -929,7 +942,10 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * Returns a diagnostic describing the errors and warnings listed in the resource and the
      * specified exception (if any). <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param resource the resource
+     * @param exception the exception
+     * @return the diagnostic
      * @generated
      */
     public Diagnostic analyzeResourceProblems(Resource resource, Exception exception) {
@@ -1230,7 +1246,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
 
     /**
      * This is used to track the active viewer. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param pageIndex the page index
      * @generated
      */
     @Override
@@ -1245,7 +1262,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This is how the framework determines which interfaces we implement. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @param key the key
+     * @return the adapter
      * @generated
      */
     @SuppressWarnings("unchecked")
@@ -1265,7 +1284,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This accesses a cached version of the content outliner. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @return the content outline page
      * @generated
      */
     public IContentOutlinePage getContentOutlinePage() {
@@ -1330,7 +1350,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This accesses a cached version of the property sheet. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @return the property sheet page
      * @generated
      */
     public IPropertySheetPage getPropertySheetPage() {
@@ -1357,7 +1378,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This deals with how we want selection in the outliner to affect the other views. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param selection the selection
      * @generated
      */
     public void handleContentOutlineSelection(ISelection selection) {
@@ -1396,7 +1418,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This is for implementing {@link IEditorPart} and simply tests the command stack. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @return true, if is dirty
      * @generated
      */
     @Override
@@ -1407,7 +1430,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This is for implementing {@link IEditorPart} and simply saves the model file. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param progressMonitor the progress monitor
      * @generated
      */
     @Override
@@ -1469,7 +1493,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
      * This returns whether something has been persisted to the URI of the specified resource. The
      * implementation uses the URI converter from the editor's resource set to try to open an input
      * stream. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param resource the resource
+     * @return true, if is persisted
      * @generated
      */
     protected boolean isPersisted(Resource resource) {
@@ -1489,7 +1515,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This always returns true because it is not currently supported. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @return true, if is save as allowed
      * @generated
      */
     @Override
@@ -1516,8 +1543,10 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
+     * @param uri the uri
+     * @param editorInput the editor input
      * @generated
      */
     protected void doSaveAs(URI uri, IEditorInput editorInput) {
@@ -1530,8 +1559,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
+     * @param marker the marker
      * @generated
      */
     public void gotoMarker(IMarker marker) {
@@ -1553,7 +1583,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
 
     /**
      * This is called during startup. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param site the site
+     * @param editorInput the editor input
      * @generated
      */
     @Override
@@ -1568,8 +1600,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
      * @generated
      */
     @Override
@@ -1584,7 +1616,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @param listener the listener
      * @generated
      */
     public void addSelectionChangedListener(ISelectionChangedListener listener) {
@@ -1594,7 +1627,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This implements {@link org.eclipse.jface.viewers.ISelectionProvider}. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @param listener the listener
      * @generated
      */
     public void removeSelectionChangedListener(ISelectionChangedListener listener) {
@@ -1604,7 +1638,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to return this editor's
      * overall selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @return the selection
      * @generated
      */
     public ISelection getSelection() {
@@ -1615,7 +1650,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
      * This implements {@link org.eclipse.jface.viewers.ISelectionProvider} to set this editor's
      * overall selection. Calling this result will notify the listeners. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @param selection the new selection
      * @generated
      */
     public void setSelection(ISelection selection) {
@@ -1628,8 +1664,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
+     * @param selection the new status line manager
      * @generated
      */
     public void setStatusLineManager(ISelection selection) {
@@ -1664,7 +1701,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This looks up a string in the plugin's plugin.properties file. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @param key the key
+     * @return the string
      * @generated
      */
     private static String getString(String key) {
@@ -1674,7 +1713,10 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This looks up a string in plugin.properties, making a substitution. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @param key the key
+     * @param s1 the s1
+     * @return the string
      * @generated
      */
     private static String getString(String key, Object s1) {
@@ -1684,7 +1726,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * This implements {@link org.eclipse.jface.action.IMenuListener} to help fill the context menus
      * with contributions from the Edit menu. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param menuManager the menu manager
      * @generated
      */
     public void menuAboutToShow(IMenuManager menuManager) {
@@ -1692,8 +1735,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
+     * @return the action bar contributor
      * @generated
      */
     public EditingDomainActionBarContributor getActionBarContributor() {
@@ -1701,8 +1745,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
+     * @return the action bars
      * @generated
      */
     public IActionBars getActionBars() {
@@ -1710,8 +1755,9 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
+     * @return the adapter factory
      * @generated
      */
     public AdapterFactory getAdapterFactory() {
@@ -1719,8 +1765,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     }
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     * <!-- begin-user-doc --> <!-- end-user-doc -->.
+     *
      * @generated
      */
     @Override
@@ -1751,7 +1797,8 @@ public class ResourceenvironmentdecoratorEditor extends MultiPageEditorPart impl
     /**
      * Returns whether the outline view should be presented to the user. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @return true, if successful
      * @generated
      */
     protected boolean showOutlineView() {

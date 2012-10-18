@@ -8,7 +8,11 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.IEditHelperAdvice;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 
-/** @author roman */
+/**
+ * The Class ScenarioBehaviourEditHelperAdvice.
+ *
+ * @author roman
+ */
 public class ScenarioBehaviourEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
     /*
@@ -16,6 +20,13 @@ public class ScenarioBehaviourEditHelperAdvice extends AbstractEditHelperAdvice 
      * 
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    /**
+     * Gets the after configure command.
+     *
+     * @param request the request
+     * @return the after configure command
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     @Override
     protected ICommand getAfterConfigureCommand(ConfigureRequest request) {

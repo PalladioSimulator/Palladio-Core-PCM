@@ -17,15 +17,30 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
+/**
+ * The Class CustomVariableUsageEditPart.
+ */
 public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 
     // ATTENTION This value is likely to break. But there was no way to get access in parent.
+    /** The Constant THIS_BACK. */
     static final Color THIS_BACK = new Color(null, 220, 220, 220);
 
+    /**
+     * Instantiates a new custom variable usage edit part.
+     *
+     * @param view the view
+     */
     public CustomVariableUsageEditPart(View view) {
         super(view);
     }
 
+    /**
+     * Creates the node shape.
+     *
+     * @return the i figure
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageEditPart#createNodeShape()
+     */
     @Override
     protected IFigure createNodeShape() {
         CustomParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();
@@ -33,20 +48,21 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
     }
 
     /**
+     * The Class CustomParametricParameterUsageFigure.
+     *
      * @generated
      */
     public class CustomParametricParameterUsageFigure extends ParametricParameterUsageFigure {
-        /**
-         * @generated
-         */
+        
+        /** The figure variable usage reference label figure. @generated */
         private WrappingLabel fFigureVariableUsageReferenceLabelFigure;
 
-        /**
-         * @generated
-         */
+        /** The figure parametric parameter usage rectangle compartment. @generated */
         private RectangleFigure fFigureParametricParameterUsageRectangleCompartment;
 
         /**
+         * Instantiates a new custom parametric parameter usage figure.
+         *
          * @generated
          */
         public CustomParametricParameterUsageFigure() {
@@ -67,6 +83,8 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
         }
 
         /**
+         * Creates the contents.
+         *
          * @generated not
          */
         private void createContents() {
@@ -105,6 +123,9 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
         }
 
         /**
+         * Gets the figure variable usage reference label figure.
+         *
+         * @return the figure variable usage reference label figure
          * @generated
          */
         public WrappingLabel getFigureVariableUsageReferenceLabelFigure() {
@@ -112,18 +133,22 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
         }
 
         /**
+         * Gets the figure parametric parameter usage rectangle compartment.
+         *
+         * @return the figure parametric parameter usage rectangle compartment
          * @generated
          */
         public RectangleFigure getFigureParametricParameterUsageRectangleCompartment() {
             return fFigureParametricParameterUsageRectangleCompartment;
         }
 
-        /**
-         * @generated
-         */
+        /** The my use local coordinates. @generated */
         private boolean myUseLocalCoordinates = false;
 
         /**
+         * Use local coordinates.
+         *
+         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -131,6 +156,9 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
         }
 
         /**
+         * Sets the use local coordinates.
+         *
+         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

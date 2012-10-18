@@ -6,6 +6,8 @@ package de.uka.ipd.sdq.pcm.gmf.usage.part;
 import org.eclipse.osgi.util.NLS;
 
 /**
+ * The Class Messages.
+ *
  * @generated
  */
 public class Messages extends NLS {
@@ -18,559 +20,341 @@ public class Messages extends NLS {
     }
 
     /**
+     * Instantiates a new messages.
+     *
      * @generated
      */
     private Messages() {
     }
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard title. @generated */
     public static String PalladioComponentModelCreationWizardTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard_ diagram model file page title. @generated */
     public static String PalladioComponentModelCreationWizard_DiagramModelFilePageTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard_ diagram model file page description. @generated */
     public static String PalladioComponentModelCreationWizard_DiagramModelFilePageDescription;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard_ domain model file page title. @generated */
     public static String PalladioComponentModelCreationWizard_DomainModelFilePageTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard_ domain model file page description. @generated */
     public static String PalladioComponentModelCreationWizard_DomainModelFilePageDescription;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard open editor error. @generated */
     public static String PalladioComponentModelCreationWizardOpenEditorError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard creation error. @generated */
     public static String PalladioComponentModelCreationWizardCreationError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model creation wizard page extension error. @generated */
     public static String PalladioComponentModelCreationWizardPageExtensionError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model diagram editor util_ open model resource error dialog title. @generated */
     public static String PalladioComponentModelDiagramEditorUtil_OpenModelResourceErrorDialogTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model diagram editor util_ open model resource error dialog message. @generated */
     public static String PalladioComponentModelDiagramEditorUtil_OpenModelResourceErrorDialogMessage;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model diagram editor util_ create diagram progress task. @generated */
     public static String PalladioComponentModelDiagramEditorUtil_CreateDiagramProgressTask;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model diagram editor util_ create diagram command label. @generated */
     public static String PalladioComponentModelDiagramEditorUtil_CreateDiagramCommandLabel;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_is modifiable. @generated */
     public static String PalladioComponentModelDocumentProvider_isModifiable;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_handle element content changed. @generated */
     public static String PalladioComponentModelDocumentProvider_handleElementContentChanged;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_ incorrect input error. @generated */
     public static String PalladioComponentModelDocumentProvider_IncorrectInputError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_ no diagram in resource error. @generated */
     public static String PalladioComponentModelDocumentProvider_NoDiagramInResourceError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_ diagram loading error. @generated */
     public static String PalladioComponentModelDocumentProvider_DiagramLoadingError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_ unsynchronized file save error. @generated */
     public static String PalladioComponentModelDocumentProvider_UnsynchronizedFileSaveError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_ save diagram task. @generated */
     public static String PalladioComponentModelDocumentProvider_SaveDiagramTask;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_ save next resource task. @generated */
     public static String PalladioComponentModelDocumentProvider_SaveNextResourceTask;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model document provider_ save as operation. @generated */
     public static String PalladioComponentModelDocumentProvider_SaveAsOperation;
 
-    /**
-     * @generated
-     */
+    /** The Init diagram file_ resource error dialog title. @generated */
     public static String InitDiagramFile_ResourceErrorDialogTitle;
 
-    /**
-     * @generated
-     */
+    /** The Init diagram file_ resource error dialog message. @generated */
     public static String InitDiagramFile_ResourceErrorDialogMessage;
 
-    /**
-     * @generated
-     */
+    /** The Init diagram file_ wizard title. @generated */
     public static String InitDiagramFile_WizardTitle;
 
-    /**
-     * @generated
-     */
+    /** The Init diagram file_ open model file dialog title. @generated */
     public static String InitDiagramFile_OpenModelFileDialogTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ creation page name. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_CreationPageName;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ creation page title. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_CreationPageTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ creation page description. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_CreationPageDescription;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ root selection page name. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ root selection page title. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ root selection page description. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ root selection page selection title. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageSelectionTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ root selection page no selection message. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageNoSelectionMessage;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ root selection page invalid selection message. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ init diagram command. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_InitDiagramCommand;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model new diagram file wizard_ incorrect root error. @generated */
     public static String PalladioComponentModelNewDiagramFileWizard_IncorrectRootError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model usage diagram editor_ saving deleted file. @generated */
     public static String PalladioComponentModelUsageDiagramEditor_SavingDeletedFile;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model usage diagram editor_ save as error title. @generated */
     public static String PalladioComponentModelUsageDiagramEditor_SaveAsErrorTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model usage diagram editor_ save as error message. @generated */
     public static String PalladioComponentModelUsageDiagramEditor_SaveAsErrorMessage;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model usage diagram editor_ save error title. @generated */
     public static String PalladioComponentModelUsageDiagramEditor_SaveErrorTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model usage diagram editor_ save error message. @generated */
     public static String PalladioComponentModelUsageDiagramEditor_SaveErrorMessage;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model element chooser dialog_ select model element title. @generated */
     public static String PalladioComponentModelElementChooserDialog_SelectModelElementTitle;
 
-    /**
-     * @generated
-     */
+    /** The Model element selection page message. @generated */
     public static String ModelElementSelectionPageMessage;
 
-    /**
-     * @generated
-     */
+    /** The Validate action message. @generated */
     public static String ValidateActionMessage;
 
-    /**
-     * @generated
-     */
+    /** The User actions1 group_title. @generated */
     public static String UserActions1Group_title;
 
-    /**
-     * @generated
-     */
+    /** The User actions1 group_desc. @generated */
     public static String UserActions1Group_desc;
 
-    /**
-     * @generated
-     */
+    /** The Action details2 group_title. @generated */
     public static String ActionDetails2Group_title;
 
-    /**
-     * @generated
-     */
+    /** The Action details2 group_desc. @generated */
     public static String ActionDetails2Group_desc;
 
-    /**
-     * @generated
-     */
+    /** The Links3 group_title. @generated */
     public static String Links3Group_title;
 
-    /**
-     * @generated
-     */
+    /** The Links3 group_desc. @generated */
     public static String Links3Group_desc;
 
-    /**
-     * @generated
-     */
+    /** The Workloads4 group_title. @generated */
     public static String Workloads4Group_title;
 
-    /**
-     * @generated
-     */
+    /** The Workloads4 group_desc. @generated */
     public static String Workloads4Group_desc;
 
-    /**
-     * @generated
-     */
+    /** The Start1 creation tool_title. @generated */
     public static String Start1CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Start1 creation tool_desc. @generated */
     public static String Start1CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Stop2 creation tool_title. @generated */
     public static String Stop2CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Stop2 creation tool_desc. @generated */
     public static String Stop2CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Delay3 creation tool_title. @generated */
     public static String Delay3CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Delay3 creation tool_desc. @generated */
     public static String Delay3CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Entry level system call4 creation tool_title. @generated */
     public static String EntryLevelSystemCall4CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Entry level system call4 creation tool_desc. @generated */
     public static String EntryLevelSystemCall4CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Loop5 creation tool_title. @generated */
     public static String Loop5CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Loop5 creation tool_desc. @generated */
     public static String Loop5CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Branch6 creation tool_title. @generated */
     public static String Branch6CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Branch6 creation tool_desc. @generated */
     public static String Branch6CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Usage flow1 creation tool_title. @generated */
     public static String UsageFlow1CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Usage flow1 creation tool_desc. @generated */
     public static String UsageFlow1CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Variable usage1 creation tool_title. @generated */
     public static String VariableUsage1CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Variable usage1 creation tool_desc. @generated */
     public static String VariableUsage1CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Variable characterisation2 creation tool_title. @generated */
     public static String VariableCharacterisation2CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Variable characterisation2 creation tool_desc. @generated */
     public static String VariableCharacterisation2CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Scenario behaviour3 creation tool_title. @generated */
     public static String ScenarioBehaviour3CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Scenario behaviour3 creation tool_desc. @generated */
     public static String ScenarioBehaviour3CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Branch transition4 creation tool_title. @generated */
     public static String BranchTransition4CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Branch transition4 creation tool_desc. @generated */
     public static String BranchTransition4CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Open workload1 creation tool_title. @generated */
     public static String OpenWorkload1CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Open workload1 creation tool_desc. @generated */
     public static String OpenWorkload1CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Closed workload2 creation tool_title. @generated */
     public static String ClosedWorkload2CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Closed workload2 creation tool_desc. @generated */
     public static String ClosedWorkload2CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Usage scenario3 creation tool_title. @generated */
     public static String UsageScenario3CreationTool_title;
 
-    /**
-     * @generated
-     */
+    /** The Usage scenario3 creation tool_desc. @generated */
     public static String UsageScenario3CreationTool_desc;
 
-    /**
-     * @generated
-     */
+    /** The Usage scenario usage scenario compartment edit part_title. @generated */
     public static String UsageScenarioUsageScenarioCompartmentEditPart_title;
 
-    /**
-     * @generated
-     */
+    /** The Scenario behaviour scenario behaviour steps compartment edit part_title. @generated */
     public static String ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart_title;
 
-    /**
-     * @generated
-     */
+    /** The Entry level system call parameter usage edit part_title. @generated */
     public static String EntryLevelSystemCallParameterUsageEditPart_title;
 
-    /**
-     * @generated
-     */
+    /** The Variable usage variable characterisation edit part_title. @generated */
     public static String VariableUsageVariableCharacterisationEditPart_title;
 
-    /**
-     * @generated
-     */
+    /** The Scenario behaviour scenario behaviour steps compartment2 edit part_title. @generated */
     public static String ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart_title;
 
-    /**
-     * @generated
-     */
+    /** The Branch usage branch transitions compartment edit part_title. @generated */
     public static String BranchUsageBranchTransitionsCompartmentEditPart_title;
 
-    /**
-     * @generated
-     */
+    /** The Scenario behaviour scenario behaviour steps compartment3 edit part_title. @generated */
     public static String ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart_title;
 
-    /**
-     * @generated
-     */
+    /** The Command name_ open diagram. @generated */
     public static String CommandName_OpenDiagram;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ usage model_1000_links. @generated */
     public static String NavigatorGroupName_UsageModel_1000_links;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ start_3001_outgoinglinks. @generated */
     public static String NavigatorGroupName_Start_3001_outgoinglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ start_3001_incominglinks. @generated */
     public static String NavigatorGroupName_Start_3001_incominglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ stop_3002_outgoinglinks. @generated */
     public static String NavigatorGroupName_Stop_3002_outgoinglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ stop_3002_incominglinks. @generated */
     public static String NavigatorGroupName_Stop_3002_incominglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ entry level system call_3003_outgoinglinks. @generated */
     public static String NavigatorGroupName_EntryLevelSystemCall_3003_outgoinglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ entry level system call_3003_incominglinks. @generated */
     public static String NavigatorGroupName_EntryLevelSystemCall_3003_incominglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ loop_3005_outgoinglinks. @generated */
     public static String NavigatorGroupName_Loop_3005_outgoinglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ loop_3005_incominglinks. @generated */
     public static String NavigatorGroupName_Loop_3005_incominglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ branch_3008_outgoinglinks. @generated */
     public static String NavigatorGroupName_Branch_3008_outgoinglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ delay_3017_incominglinks. @generated */
     public static String NavigatorGroupName_Delay_3017_incominglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ delay_3017_outgoinglinks. @generated */
     public static String NavigatorGroupName_Delay_3017_outgoinglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ branch_3008_incominglinks. @generated */
     public static String NavigatorGroupName_Branch_3008_incominglinks;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ abstract user action successor_4002_source. @generated */
     public static String NavigatorGroupName_AbstractUserActionSuccessor_4002_source;
 
-    /**
-     * @generated
-     */
+    /** The Navigator action provider_ open diagram action name. @generated */
     public static String NavigatorActionProvider_OpenDiagramActionName;
 
-    /**
-     * @generated
-     */
+    /** The Abstract parser_ unexpected value type. @generated */
     public static String AbstractParser_UnexpectedValueType;
 
-    /**
-     * @generated
-     */
+    /** The Abstract parser_ wrong string conversion. @generated */
     public static String AbstractParser_WrongStringConversion;
 
-    /**
-     * @generated
-     */
+    /** The Abstract parser_ unknown literal. @generated */
     public static String AbstractParser_UnknownLiteral;
 
-    /**
-     * @generated
-     */
+    /** The Message format parser_ invalid input error. @generated */
     public static String MessageFormatParser_InvalidInputError;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model modeling assistant provider title. @generated */
     public static String PalladioComponentModelModelingAssistantProviderTitle;
 
-    /**
-     * @generated
-     */
+    /** The Palladio component model modeling assistant provider message. @generated */
     public static String PalladioComponentModelModelingAssistantProviderMessage;
 
-    /**
-     * @generated
-     */
+    /** The Navigator group name_ abstract user action successor_4002_target. @generated */
     public static String NavigatorGroupName_AbstractUserActionSuccessor_4002_target;
 
     // TODO: put accessor fields manually

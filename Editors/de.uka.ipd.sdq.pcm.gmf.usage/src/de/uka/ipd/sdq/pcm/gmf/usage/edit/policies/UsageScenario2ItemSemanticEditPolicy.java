@@ -23,11 +23,15 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class UsageScenario2ItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class UsageScenario2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new usage scenario2 item semantic edit policy.
+     *
      * @generated
      */
     public UsageScenario2ItemSemanticEditPolicy() {
@@ -35,6 +39,10 @@ public class UsageScenario2ItemSemanticEditPolicy extends PalladioComponentModel
     }
 
     /**
+     * Gets the destroy element command.
+     *
+     * @param req the req
+     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -55,6 +63,9 @@ public class UsageScenario2ItemSemanticEditPolicy extends PalladioComponentModel
     }
 
     /**
+     * Adds the destroy child nodes command.
+     *
+     * @param cmd the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

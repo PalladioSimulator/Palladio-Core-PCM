@@ -13,21 +13,24 @@ import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
+ * The Class AbstractUserActionTypeLinkCreateCommand.
+ *
  * @generated
  */
 public class AbstractUserActionTypeLinkCreateCommand extends CreateRelationshipCommand {
 
-    /**
-     * @generated
-     */
+    /** The my source. @generated */
     private ScenarioBehaviour mySource;
 
-    /**
-     * @generated
-     */
+    /** The my target. @generated */
     private AbstractUserAction myTarget;
 
     /**
+     * Instantiates a new abstract user action type link create command.
+     *
+     * @param req the req
+     * @param source the source
+     * @param target the target
      * @generated
      */
     public AbstractUserActionTypeLinkCreateCommand(CreateRelationshipRequest req, ScenarioBehaviour source,
@@ -39,6 +42,9 @@ public class AbstractUserActionTypeLinkCreateCommand extends CreateRelationshipC
     }
 
     /**
+     * Gets the source.
+     *
+     * @return the source
      * @generated
      */
     public EObject getSource() {
@@ -46,6 +52,9 @@ public class AbstractUserActionTypeLinkCreateCommand extends CreateRelationshipC
     }
 
     /**
+     * Gets the target.
+     *
+     * @return the target
      * @generated
      */
     public EObject getTarget() {
@@ -53,6 +62,9 @@ public class AbstractUserActionTypeLinkCreateCommand extends CreateRelationshipC
     }
 
     /**
+     * Gets the e class to edit.
+     *
+     * @return the e class to edit
      * @generated
      */
     protected EClass getEClassToEdit() {
@@ -60,6 +72,9 @@ public class AbstractUserActionTypeLinkCreateCommand extends CreateRelationshipC
     }
 
     /**
+     * Sets the element to edit.
+     *
+     * @param element the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -67,6 +82,9 @@ public class AbstractUserActionTypeLinkCreateCommand extends CreateRelationshipC
     }
 
     /**
+     * Do default element creation.
+     *
+     * @return the e object
      * @generated
      */
     protected EObject doDefaultElementCreation() {

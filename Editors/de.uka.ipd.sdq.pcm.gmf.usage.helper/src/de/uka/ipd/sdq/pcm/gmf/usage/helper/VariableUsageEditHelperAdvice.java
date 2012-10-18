@@ -37,8 +37,9 @@ import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 
 /**
+ * The Class VariableUsageEditHelperAdvice.
+ *
  * @author admin
- * 
  */
 public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
@@ -47,6 +48,14 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice impl
      * 
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    
+    /**
+     * Gets the after configure command.
+     *
+     * @param request the request
+     * @return the after configure command
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     @Override
     protected ICommand getAfterConfigureCommand(ConfigureRequest request) {
@@ -76,14 +85,16 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice impl
                 new PalladioItemProviderAdapterFactory(adapterFactory))));
         dialog.open();
 
-        if (dialog.getResult() == null)
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
+        }
         if (!(dialog.getResult() instanceof DataTypeContainer)
                 && !(dialog.getResult() instanceof InnerDeclarationContainer)
-                && !(dialog.getResult() instanceof Parameter))
+                && !(dialog.getResult() instanceof Parameter)) {
             return new CanceledCommand();
+        }
 
-        resource = (EObject) dialog.getResult();
+        resource = dialog.getResult();
 
         AbstractNamedReference namedReference = setNamedReference(resource, null, true);
 
@@ -93,6 +104,11 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice impl
     }
 
     /**
+     * Sets the named reference.
+     *
+     * @param object the object
+     * @param namedReference the named reference
+     * @param last the last
      * @return - String: specification of VariableCharacterisation
      */
     private AbstractNamedReference setNamedReference(EObject object, AbstractNamedReference namedReference, boolean last) {
@@ -144,7 +160,11 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice impl
     }
 
     /**
-     * Create the AbstractNamedReference and set a string parameter
+     * Create the AbstractNamedReference and set a string parameter.
+     *
+     * @param string the string
+     * @param shouldGenerateVariableReference the should generate variable reference
+     * @return the abstract named reference
      */
     private AbstractNamedReference referenceFactory(String string, boolean shouldGenerateVariableReference) {
         AbstractNamedReference parameterReference = null;
@@ -157,12 +177,20 @@ public class VariableUsageEditHelperAdvice extends AbstractEditHelperAdvice impl
         return parameterReference;
     }
 
+    /**
+     * Gets the call.
+     *
+     * @param a the a
+     * @return the call
+     */
     private EntryLevelSystemCall getCall(EObject a) {
         EObject container = a;
-        while (!(container instanceof EntryLevelSystemCall))
+        while (!(container instanceof EntryLevelSystemCall)) {
             container = container.eContainer();
-        if (!(container instanceof EntryLevelSystemCall))
+        }
+        if (!(container instanceof EntryLevelSystemCall)) {
             return null;
+        }
         return (EntryLevelSystemCall) container;
     }
 }

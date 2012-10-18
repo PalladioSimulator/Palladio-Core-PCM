@@ -13,6 +13,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
+ * The Class CreateArrivalRateEditHelperAdvice.
+ *
  * @author Roman Andrej
  */
 public class CreateArrivalRateEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
@@ -22,6 +24,13 @@ public class CreateArrivalRateEditHelperAdvice extends AbstractEditHelperAdvice 
      * 
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
      * getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    /**
+     * Gets the after configure command.
+     *
+     * @param request the request
+     * @return the after configure command
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     @Override
     protected ICommand getAfterConfigureCommand(ConfigureRequest request) {

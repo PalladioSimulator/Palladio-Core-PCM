@@ -11,12 +11,26 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart;
 import de.uka.ipd.sdq.pcm.usagemodel.Delay;
 
+/**
+ * The Class CustomDelayLabelSpecEditPart.
+ */
 public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
+    /**
+     * Instantiates a new custom delay label spec edit part.
+     *
+     * @param view the view
+     */
     public CustomDelayLabelSpecEditPart(View view) {
         super(view);
     }
 
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -33,17 +47,33 @@ public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
     }
 
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         Delay d = (Delay) resolveSemanticElement();
         addListenerFilter("SemanticModel", this, d.getTimeSpecification_Delay()); //$NON-NLS-1$
     }
 
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
     }
 
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(final Notification event) {
         Object feature = event.getFeature();

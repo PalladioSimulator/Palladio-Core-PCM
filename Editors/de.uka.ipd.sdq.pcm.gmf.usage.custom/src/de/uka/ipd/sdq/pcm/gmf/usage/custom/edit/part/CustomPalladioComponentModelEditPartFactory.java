@@ -37,8 +37,19 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableUsageVariableCharacterisa
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
+/**
+ * A factory for creating CustomPalladioComponentModelEditPart objects.
+ */
 public class CustomPalladioComponentModelEditPartFactory extends PalladioComponentModelEditPartFactory {
 
+    /**
+     * Creates a new CustomPalladioComponentModelEditPart object.
+     *
+     * @param context the context
+     * @param model the model
+     * @return the edits the part
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.PalladioComponentModelEditPartFactory#createEditPart(org.eclipse.gef.EditPart, java.lang.Object)
+     */
     @Override
     public EditPart createEditPart(final EditPart context, final Object model) {
         if (model instanceof View) {
@@ -158,6 +169,13 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
         return createUnrecognizedEditPart(context, model);
     }
 
+    /**
+     * Creates a new CustomPalladioComponentModelEditPart object.
+     *
+     * @param context the context
+     * @param model the model
+     * @return the edits the part
+     */
     private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
         // Handle creation of unrecognized child node EditParts here
         return null;

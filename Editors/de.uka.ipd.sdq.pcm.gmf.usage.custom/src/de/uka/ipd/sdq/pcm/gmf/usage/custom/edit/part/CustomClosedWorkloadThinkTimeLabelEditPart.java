@@ -4,21 +4,33 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.custom.edit.part;
 
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
-
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 
+/**
+ * The Class CustomClosedWorkloadThinkTimeLabelEditPart.
+ */
 public class CustomClosedWorkloadThinkTimeLabelEditPart extends ClosedWorkloadThinkTimeLabelEditPart {
 
+    /**
+     * Instantiates a new custom closed workload think time label edit part.
+     *
+     * @param view the view
+     */
     public CustomClosedWorkloadThinkTimeLabelEditPart(View view) {
         super(view);
     }
 
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -32,17 +44,33 @@ public class CustomClosedWorkloadThinkTimeLabelEditPart extends ClosedWorkloadTh
         return text;
     }
 
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         ClosedWorkload cw = (ClosedWorkload) resolveSemanticElement();
         addListenerFilter("SemanticModel", this, cw.getThinkTime_ClosedWorkload()); //$NON-NLS-1$
     }
 
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
     }
 
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(final Notification event) {
         Object feature = event.getFeature();

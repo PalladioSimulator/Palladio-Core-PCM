@@ -35,16 +35,21 @@ import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 /**
+ * The Class PalladioComponentModelNewDiagramFileWizard.
+ *
  * @generated
  */
 public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
-    /**
-     * @generated
-     */
+    /** The my editing domain. @generated */
     private TransactionalEditingDomain myEditingDomain;
 
     /**
+     * Instantiates a new palladio component model new diagram file wizard.
+     *
+     * @param domainModelURI the domain model uri
+     * @param diagramRoot the diagram root
+     * @param editingDomain the editing domain
      * @generated
      */
     public PalladioComponentModelNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot,
@@ -84,17 +89,15 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
         myEditingDomain = editingDomain;
     }
 
-    /**
-     * @generated
-     */
+    /** The my file creation page. @generated */
     private WizardNewFileCreationPage myFileCreationPage;
 
-    /**
-     * @generated
-     */
+    /** The diagram root element selection page. @generated */
     private ModelElementSelectionPage diagramRootElementSelectionPage;
 
     /**
+     * Adds the pages.
+     *
      * @generated
      */
     public void addPages() {
@@ -103,6 +106,9 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
     }
 
     /**
+     * Perform finish.
+     *
+     * @return true, if successful
      * @generated
      */
     public boolean performFinish() {
@@ -148,11 +154,16 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
     }
 
     /**
+     * The Class DiagramRootElementSelectionPage.
+     *
      * @generated
      */
     private static class DiagramRootElementSelectionPage extends ModelElementSelectionPage {
 
         /**
+         * Instantiates a new diagram root element selection page.
+         *
+         * @param pageName the page name
          * @generated
          */
         protected DiagramRootElementSelectionPage(String pageName) {
@@ -160,6 +171,9 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
         }
 
         /**
+         * Gets the selection title.
+         *
+         * @return the selection title
          * @generated
          */
         protected String getSelectionTitle() {
@@ -167,6 +181,9 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
         }
 
         /**
+         * Validate page.
+         *
+         * @return true, if successful
          * @generated
          */
         protected boolean validatePage() {

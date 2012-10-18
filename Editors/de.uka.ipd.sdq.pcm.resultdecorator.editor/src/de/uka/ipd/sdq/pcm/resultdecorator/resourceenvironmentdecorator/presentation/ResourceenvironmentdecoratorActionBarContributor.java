@@ -80,13 +80,7 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
         }
     };
 
-    /**
-     * This action refreshes the viewer of the current editor if the editor implements
-     * {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated
-     */
+    /** This action refreshes the viewer of the current editor if the editor implements. {@link org.eclipse.emf.common.ui.viewer.IViewerProvider}. <!-- begin-user-doc --> <!-- end-user-doc --> @generated */
     protected IAction refreshViewerAction = new Action(
             ResultdecoratorEditorPlugin.INSTANCE.getString("_UI_RefreshViewer_menu_item")) {
         @Override
@@ -154,7 +148,8 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This adds Separators for editor additions to the tool bar. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @param toolBarManager the tool bar manager
      * @generated
      */
     @Override
@@ -166,7 +161,8 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This adds to the menu bar a menu and some separators for editor additions, as well as the
      * sub-menus for object creation items. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param menuManager the menu manager
      * @generated
      */
     @Override
@@ -208,7 +204,8 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * When the active editor changes, this remembers the change and registers with it as a
      * selection provider. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param part the new active editor
      * @generated
      */
     @Override
@@ -237,10 +234,11 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
 
     /**
      * This implements {@link org.eclipse.jface.viewers.ISelectionChangedListener}, handling
+     *
+     * @param event the event
      * {@link org.eclipse.jface.viewers.SelectionChangedEvent}s by querying for the children and
      * siblings that can be added to the selected object and updating the menus accordingly. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void selectionChanged(SelectionChangedEvent event) {
@@ -287,7 +285,10 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
      * This generates a {@link org.eclipse.emf.edit.ui.action.CreateChildAction} for each object in
      * <code>descriptors</code>, and returns the collection of these actions. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
+     * @param descriptors the descriptors
+     * @param selection the selection
+     * @return the collection
      * @generated
      */
     protected Collection<IAction> generateCreateChildActions(Collection<?> descriptors, ISelection selection) {
@@ -304,7 +305,10 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
      * This generates a {@link org.eclipse.emf.edit.ui.action.CreateSiblingAction} for each object
      * in <code>descriptors</code>, and returns the collection of these actions. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
+     * @param descriptors the descriptors
+     * @param selection the selection
+     * @return the collection
      * @generated
      */
     protected Collection<IAction> generateCreateSiblingActions(Collection<?> descriptors, ISelection selection) {
@@ -318,13 +322,16 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     }
 
     /**
-     * This populates the specified <code>manager</code> with
+     * This populates the specified <code>manager</code> with.
+     *
+     * @param manager the manager
+     * @param actions the actions
+     * @param contributionID the contribution id
      * {@link org.eclipse.jface.action.ActionContributionItem}s based on the
      * {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection,
      * by inserting them before the specified contribution item <code>contributionID</code>. If
      * <code>contributionID</code> is <code>null</code>, they are simply added. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void populateManager(IContributionManager manager, Collection<? extends IAction> actions,
@@ -341,11 +348,13 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     }
 
     /**
-     * This removes from the specified <code>manager</code> all
+     * This removes from the specified <code>manager</code> all.
+     *
+     * @param manager the manager
+     * @param actions the actions
      * {@link org.eclipse.jface.action.ActionContributionItem}s based on the
      * {@link org.eclipse.jface.action.IAction}s contained in the <code>actions</code> collection.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected void depopulateManager(IContributionManager manager, Collection<? extends IAction> actions) {
@@ -374,7 +383,8 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This populates the pop-up menu before it appears. <!-- begin-user-doc --> <!-- end-user-doc
      * -->
-     * 
+     *
+     * @param menuManager the menu manager
      * @generated
      */
     @Override
@@ -394,7 +404,8 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This inserts global actions before the "additions-end" separator. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * 
+     *
+     * @param menuManager the menu manager
      * @generated
      */
     @Override
@@ -411,7 +422,8 @@ public class ResourceenvironmentdecoratorActionBarContributor extends EditingDom
     /**
      * This ensures that a delete action will clean up all references to deleted objects. <!--
      * begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @return true, if successful
      * @generated
      */
     @Override

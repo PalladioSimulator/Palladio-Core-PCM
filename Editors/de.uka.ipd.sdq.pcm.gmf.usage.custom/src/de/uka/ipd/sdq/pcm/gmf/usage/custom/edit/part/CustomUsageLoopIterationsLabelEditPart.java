@@ -13,15 +13,32 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart;
 import de.uka.ipd.sdq.pcm.usagemodel.Loop;
 
+/**
+ * The Class CustomUsageLoopIterationsLabelEditPart.
+ */
 public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsLabelEditPart {
 
+    /** The change listener. */
     private EContentAdapter changeListener = null;
+    
+    /** The adapted element. */
     private EObject adaptedElement = null;
 
+    /**
+     * Instantiates a new custom usage loop iterations label edit part.
+     *
+     * @param view the view
+     */
     public CustomUsageLoopIterationsLabelEditPart(View view) {
         super(view);
     }
 
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -40,6 +57,11 @@ public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsL
         return text;
     }
 
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         EObject element = resolveSemanticElement();
@@ -57,12 +79,23 @@ public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsL
         addListenerFilter("SemanticModel", this, element); //$NON-NLS-1$
     }
 
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
         adaptedElement.eAdapters().remove(changeListener);
     }
 
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(final Notification event) {
         Object feature = event.getFeature();

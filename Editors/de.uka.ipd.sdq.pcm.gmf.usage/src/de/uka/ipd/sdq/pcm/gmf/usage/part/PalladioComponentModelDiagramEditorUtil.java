@@ -59,11 +59,16 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 
 /**
+ * The Class PalladioComponentModelDiagramEditorUtil.
+ *
  * @generated
  */
 public class PalladioComponentModelDiagramEditorUtil {
 
     /**
+     * Gets the save options.
+     *
+     * @return the save options
      * @generated
      */
     public static Map getSaveOptions() {
@@ -74,6 +79,11 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Open diagram.
+     *
+     * @param diagram the diagram
+     * @return true, if successful
+     * @throws PartInitException the part init exception
      * @generated
      */
     public static boolean openDiagram(Resource diagram) throws PartInitException {
@@ -88,6 +98,9 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Sets the charset.
+     *
+     * @param file the new charset
      * @generated
      */
     public static void setCharset(IFile file) {
@@ -103,6 +116,12 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Gets the unique file name.
+     *
+     * @param containerFullPath the container full path
+     * @param fileName the file name
+     * @param extension the extension
+     * @return the unique file name
      * @generated
      */
     public static String getUniqueFileName(IPath containerFullPath, String fileName, String extension) {
@@ -131,7 +150,10 @@ public class PalladioComponentModelDiagramEditorUtil {
 
     /**
      * Runs the wizard in a dialog.
-     * 
+     *
+     * @param shell the shell
+     * @param wizard the wizard
+     * @param settingsKey the settings key
      * @generated
      */
     public static void runWizard(Shell shell, Wizard wizard, String settingsKey) {
@@ -150,7 +172,11 @@ public class PalladioComponentModelDiagramEditorUtil {
 
     /**
      * This method should be called within a workspace modify operation since it creates resources.
-     * 
+     *
+     * @param diagramURI the diagram uri
+     * @param modelURI the model uri
+     * @param progressMonitor the progress monitor
+     * @return the resource
      * @generated not
      */
     public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
@@ -217,7 +243,8 @@ public class PalladioComponentModelDiagramEditorUtil {
     /**
      * Create a new instance of domain element associated with canvas. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * 
+     *
+     * @return the usage model
      * @generated
      */
     private static UsageModel createInitialModel() {
@@ -226,7 +253,9 @@ public class PalladioComponentModelDiagramEditorUtil {
 
     /**
      * Store model element in the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param model the model
+     * @param resource the resource
      * @generated
      */
     private static void attachModelToResource(UsageModel model, Resource resource) {
@@ -234,6 +263,10 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Select elements in diagram.
+     *
+     * @param diagramPart the diagram part
+     * @param editParts the edit parts
      * @generated
      */
     public static void selectElementsInDiagram(IDiagramWorkbenchPart diagramPart, List/* EditPart */editParts) {
@@ -255,6 +288,12 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Find elements in diagram by id.
+     *
+     * @param diagramPart the diagram part
+     * @param element the element
+     * @param editPartCollector the edit part collector
+     * @return the int
      * @generated
      */
     private static int findElementsInDiagramByID(DiagramEditPart diagramPart, EObject element, List editPartCollector) {
@@ -296,6 +335,12 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Find view.
+     *
+     * @param diagramEditPart the diagram edit part
+     * @param targetElement the target element
+     * @param lazyElement2ViewMap the lazy element2 view map
+     * @return the view
      * @generated
      */
     public static View findView(DiagramEditPart diagramEditPart, EObject targetElement,
@@ -318,30 +363,29 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * The Class LazyElement2ViewMap.
+     *
      * @generated
      */
     public static class LazyElement2ViewMap {
-        /**
-         * @generated
-         */
+        
+        /** The element2 view map. @generated */
         private Map element2ViewMap;
 
-        /**
-         * @generated
-         */
+        /** The scope. @generated */
         private View scope;
 
-        /**
-         * @generated
-         */
+        /** The element set. @generated */
         private Set elementSet;
 
-        /**
-         * @generated
-         */
+        /** The edit part tmp holder. @generated */
         public final List editPartTmpHolder = new ArrayList();
 
         /**
+         * Instantiates a new lazy element2 view map.
+         *
+         * @param scope the scope
+         * @param elements the elements
          * @generated
          */
         public LazyElement2ViewMap(View scope, Set elements) {
@@ -350,6 +394,9 @@ public class PalladioComponentModelDiagramEditorUtil {
         }
 
         /**
+         * Gets the element2 view map.
+         *
+         * @return the element2 view map
          * @generated
          */
         public final Map getElement2ViewMap() {
@@ -374,6 +421,12 @@ public class PalladioComponentModelDiagramEditorUtil {
         }
 
         /**
+         * Builds the element2 view map.
+         *
+         * @param parentView the parent view
+         * @param element2ViewMap the element2 view map
+         * @param elements the elements
+         * @return the map
          * @generated
          */
         static Map buildElement2ViewMap(View parentView, Map element2ViewMap, Set elements) {

@@ -11,21 +11,22 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.UsageScenarioCanonicalEditPoli
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.UsageScenarioItemSemanticEditPolicy;
 
 /**
+ * The Class UsageScenarioEditPart.
+ *
  * @generated
  */
 public class UsageScenarioEditPart extends DiagramEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant MODEL_ID. @generated */
     public final static String MODEL_ID = "PCM Usage Model"; //$NON-NLS-1$
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 1000;
 
     /**
+     * Instantiates a new usage scenario edit part.
+     *
+     * @param view the view
      * @generated
      */
     public UsageScenarioEditPart(View view) {
@@ -33,6 +34,8 @@ public class UsageScenarioEditPart extends DiagramEditPart {
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {

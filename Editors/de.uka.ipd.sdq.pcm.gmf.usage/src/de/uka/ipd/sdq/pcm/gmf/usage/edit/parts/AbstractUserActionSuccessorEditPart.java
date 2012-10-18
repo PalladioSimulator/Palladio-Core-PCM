@@ -16,16 +16,19 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.AbstractUserActionSuccessorItemSemanticEditPolicy;
 
 /**
+ * The Class AbstractUserActionSuccessorEditPart.
+ *
  * @generated
  */
 public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 4002;
 
     /**
+     * Instantiates a new abstract user action successor edit part.
+     *
+     * @param view the view
      * @generated
      */
     public AbstractUserActionSuccessorEditPart(View view) {
@@ -33,6 +36,8 @@ public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -45,7 +50,8 @@ public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart 
      * 
      * Body of this method does not depend on settings in generation model so you may safely remove
      * <i>generated</i> tag and modify it.
-     * 
+     *
+     * @return the connection
      * @generated
      */
     protected Connection createConnectionFigure() {
@@ -53,6 +59,9 @@ public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
+     * Gets the primary shape.
+     *
+     * @return the primary shape
      * @generated
      */
     public ControlFlowConnectionFigure getPrimaryShape() {
@@ -60,11 +69,15 @@ public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
+     * The Class ControlFlowConnectionFigure.
+     *
      * @generated
      */
     public class ControlFlowConnectionFigure extends PolylineConnectionEx {
 
         /**
+         * Instantiates a new control flow connection figure.
+         *
          * @generated
          */
         public ControlFlowConnectionFigure() {
@@ -74,6 +87,9 @@ public class AbstractUserActionSuccessorEditPart extends ConnectionNodeEditPart 
         }
 
         /**
+         * Creates the target decoration.
+         *
+         * @return the rotatable decoration
          * @generated
          */
         private RotatableDecoration createTargetDecoration() {

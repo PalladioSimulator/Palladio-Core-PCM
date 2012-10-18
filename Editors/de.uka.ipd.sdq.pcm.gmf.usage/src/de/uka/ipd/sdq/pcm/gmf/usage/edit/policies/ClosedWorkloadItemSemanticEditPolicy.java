@@ -14,11 +14,15 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
+ * The Class ClosedWorkloadItemSemanticEditPolicy.
+ *
  * @generated
  */
 public class ClosedWorkloadItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
+     * Instantiates a new closed workload item semantic edit policy.
+     *
      * @generated
      */
     public ClosedWorkloadItemSemanticEditPolicy() {
@@ -26,6 +30,10 @@ public class ClosedWorkloadItemSemanticEditPolicy extends PalladioComponentModel
     }
 
     /**
+     * Gets the destroy element command.
+     *
+     * @param req the req
+     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {

@@ -18,15 +18,33 @@ import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
+/**
+ * The Class ConfigureMinimalSeffCommand.
+ */
 public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
 
+    /** The my request. */
     private ConfigureRequest myRequest = null;
 
+    /**
+     * Instantiates a new configure minimal seff command.
+     *
+     * @param request the request
+     */
     public ConfigureMinimalSeffCommand(ConfigureRequest request) {
         super(request);
         myRequest = request;
     }
 
+    /**
+     * Do execute with result.
+     *
+     * @param monitor the monitor
+     * @param info the info
+     * @return the command result
+     * @throws ExecutionException the execution exception
+     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         Start start = null;
@@ -52,6 +70,14 @@ public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
         return CommandResult.newOKCommandResult();
     }
 
+    /**
+     * Creates the control flow.
+     *
+     * @param start the start
+     * @param stop the stop
+     * @param monitor the monitor
+     * @return the command result
+     */
     private CommandResult createControlFlow(Start start, Stop stop, IProgressMonitor monitor) {
         SetRequest setReq = new SetRequest(start, UsagemodelPackage.eINSTANCE.getAbstractUserAction_Successor(), stop);
         SetValueCommand createControlFlowCommand = new SetValueCommand(setReq);
@@ -65,6 +91,14 @@ public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
         return commandResult;
     }
 
+    /**
+     * Creates the seff action.
+     *
+     * @param typeId the type id
+     * @param monitor the monitor
+     * @return the command result
+     * @throws ExecutionException the execution exception
+     */
     private CommandResult createSEFFAction(IElementType typeId, IProgressMonitor monitor) throws ExecutionException {
         CreateElementRequest startRequest = new CreateElementRequest(myRequest.getElementToConfigure(), typeId,
                 UsagemodelPackage.eINSTANCE.getScenarioBehaviour_Actions_ScenarioBehaviour());

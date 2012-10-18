@@ -11,12 +11,26 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 
+/**
+ * The Class CustomComponentExternalCallNameLabelEditPart.
+ */
 public class CustomComponentExternalCallNameLabelEditPart extends ComponentExternalCallNameLabelEditPart {
 
+    /**
+     * Instantiates a new custom component external call name label edit part.
+     *
+     * @param view the view
+     */
     public CustomComponentExternalCallNameLabelEditPart(View view) {
         super(view);
     }
 
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -34,6 +48,12 @@ public class CustomComponentExternalCallNameLabelEditPart extends ComponentExter
         return text;
     }
 
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(final Notification event) {
         Object feature = event.getFeature();

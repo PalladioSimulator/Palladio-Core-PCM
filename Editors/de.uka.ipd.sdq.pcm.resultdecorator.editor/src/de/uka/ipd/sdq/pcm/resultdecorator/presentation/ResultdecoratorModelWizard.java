@@ -141,7 +141,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
 
     /**
      * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @param workbench the workbench
+     * @param selection the selection
      * @generated
      */
     public void init(IWorkbench workbench, IStructuredSelection selection) {
@@ -155,7 +157,8 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
     /**
      * Returns the names of the types that can be created as the root object. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * 
+     *
+     * @return the initial object names
      * @generated
      */
     protected Collection<String> getInitialObjectNames() {
@@ -176,7 +179,8 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
 
     /**
      * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @return the e object
      * @generated
      */
     protected EObject createInitialModel() {
@@ -188,7 +192,8 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
 
     /**
      * Do the work after everything is specified. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @return true, if successful
      * @generated
      */
     @Override
@@ -277,9 +282,12 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
      * @generated
      */
     public class ResultdecoratorModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
+        
         /**
          * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
+         * @param pageId the page id
+         * @param selection the selection
          * @generated
          */
         public ResultdecoratorModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
@@ -289,7 +297,8 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         /**
          * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!--
          * end-user-doc -->
-         * 
+         *
+         * @return true, if successful
          * @generated
          */
         @Override
@@ -308,8 +317,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @return the model file
          * @generated
          */
         public IFile getModelFile() {
@@ -324,28 +334,20 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
      * @generated
      */
     public class ResultdecoratorModelWizardInitialObjectCreationPage extends WizardPage {
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
+        
+        /** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
         protected Combo initialObjectField;
 
-        /**
-         * @generated <!-- begin-user-doc --> <!-- end-user-doc -->
-         */
+        /** The encodings. @generated <!-- begin-user-doc --> <!-- end-user-doc --> */
         protected List<String> encodings;
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
+        /** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
         protected Combo encodingField;
 
         /**
          * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         *
+         * @param pageId the page id
          * @generated
          */
         public ResultdecoratorModelWizardInitialObjectCreationPage(String pageId) {
@@ -353,8 +355,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @param parent the parent
          * @generated
          */
         public void createControl(Composite parent) {
@@ -425,11 +428,7 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
             setControl(composite);
         }
 
-        /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
-         * @generated
-         */
+        /** <!-- begin-user-doc --> <!-- end-user-doc -->. @generated */
         protected ModifyListener validator = new ModifyListener() {
             public void modifyText(ModifyEvent e) {
                 setPageComplete(validatePage());
@@ -437,8 +436,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         };
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @return true, if successful
          * @generated
          */
         protected boolean validatePage() {
@@ -446,8 +446,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @param visible the new visible
          * @generated
          */
         @Override
@@ -465,8 +466,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @return the initial object name
          * @generated
          */
         public String getInitialObjectName() {
@@ -481,8 +483,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @return the encoding
          * @generated
          */
         public String getEncoding() {
@@ -492,7 +495,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         /**
          * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
          * -->
-         * 
+         *
+         * @param typeName the type name
+         * @return the label
          * @generated
          */
         protected String getLabel(String typeName) {
@@ -505,8 +510,9 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
+         * <!-- begin-user-doc --> <!-- end-user-doc -->.
+         *
+         * @return the encodings
          * @generated
          */
         protected Collection<String> getEncodings() {
@@ -585,7 +591,8 @@ public class ResultdecoratorModelWizard extends Wizard implements INewWizard {
 
     /**
      * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
+     *
+     * @return the model file
      * @generated
      */
     public IFile getModelFile() {

@@ -83,11 +83,17 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.WrappingLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
+ * The Class PalladioComponentModelViewProvider.
+ *
  * @generated
  */
 public class PalladioComponentModelViewProvider extends AbstractProvider implements IViewProvider {
 
     /**
+     * Provides.
+     *
+     * @param operation the operation
+     * @return true, if successful
      * @generated
      */
     public final boolean provides(IOperation operation) {
@@ -106,6 +112,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Provides.
+     *
+     * @param op the op
+     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateViewForKindOperation op) {
@@ -119,6 +129,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Provides.
+     *
+     * @param op the op
+     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateDiagramViewOperation op) {
@@ -128,6 +142,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Provides.
+     *
+     * @param op the op
+     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateNodeViewOperation op) {
@@ -207,6 +225,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Provides.
+     *
+     * @param op the op
+     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateEdgeViewOperation op) {
@@ -230,6 +252,12 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the diagram.
+     *
+     * @param semanticAdapter the semantic adapter
+     * @param diagramKind the diagram kind
+     * @param preferencesHint the preferences hint
+     * @return the diagram
      * @generated
      */
     public Diagram createDiagram(IAdaptable semanticAdapter, String diagramKind, PreferencesHint preferencesHint) {
@@ -242,6 +270,15 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the node.
+     *
+     * @param semanticAdapter the semantic adapter
+     * @param containerView the container view
+     * @param semanticHint the semantic hint
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createNode(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -290,6 +327,15 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the edge.
+     *
+     * @param semanticAdapter the semantic adapter
+     * @param containerView the container view
+     * @param semanticHint the semantic hint
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the edge
      * @generated
      */
     public Edge createEdge(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -305,6 +351,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the usage scenario_2004.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createUsageScenario_2004(EObject domainElement, View containerView, int index, boolean persisted,
@@ -345,6 +399,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the scenario behaviour_3014.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createScenarioBehaviour_3014(EObject domainElement, View containerView, int index, boolean persisted,
@@ -384,6 +446,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the start_3001.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createStart_3001(EObject domainElement, View containerView, int index, boolean persisted,
@@ -418,6 +488,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the stop_3002.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createStop_3002(EObject domainElement, View containerView, int index, boolean persisted,
@@ -453,6 +531,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the entry level system call_3003.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createEntryLevelSystemCall_3003(EObject domainElement, View containerView, int index,
@@ -493,6 +579,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the variable usage_3012.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createVariableUsage_3012(EObject domainElement, View containerView, int index, boolean persisted,
@@ -533,6 +627,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the variable characterisation_3013.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createVariableCharacterisation_3013(EObject domainElement, View containerView, int index,
@@ -546,6 +648,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the loop_3005.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createLoop_3005(EObject domainElement, View containerView, int index, boolean persisted,
@@ -583,6 +693,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the scenario behaviour_3007.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createScenarioBehaviour_3007(EObject domainElement, View containerView, int index, boolean persisted,
@@ -622,6 +740,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the branch_3008.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createBranch_3008(EObject domainElement, View containerView, int index, boolean persisted,
@@ -660,6 +786,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the branch transition_3009.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createBranchTransition_3009(EObject domainElement, View containerView, int index, boolean persisted,
@@ -697,6 +831,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the scenario behaviour_3010.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createScenarioBehaviour_3010(EObject domainElement, View containerView, int index, boolean persisted,
@@ -736,6 +878,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the delay_3017.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createDelay_3017(EObject domainElement, View containerView, int index, boolean persisted,
@@ -775,6 +925,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the closed workload_3015.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createClosedWorkload_3015(EObject domainElement, View containerView, int index, boolean persisted,
@@ -815,6 +973,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the open workload_3016.
+     *
+     * @param domainElement the domain element
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the node
      * @generated
      */
     public Node createOpenWorkload_3016(EObject domainElement, View containerView, int index, boolean persisted,
@@ -851,6 +1017,13 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the abstract user action successor_4002.
+     *
+     * @param containerView the container view
+     * @param index the index
+     * @param persisted the persisted
+     * @param preferencesHint the preferences hint
+     * @return the edge
      * @generated
      */
     public Edge createAbstractUserActionSuccessor_4002(View containerView, int index, boolean persisted,
@@ -892,6 +1065,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Stamp shortcut.
+     *
+     * @param containerView the container view
+     * @param target the target
      * @generated
      */
     private void stampShortcut(View containerView, Node target) {
@@ -904,6 +1081,11 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the label.
+     *
+     * @param owner the owner
+     * @param hint the hint
+     * @return the node
      * @generated
      */
     private Node createLabel(View owner, String hint) {
@@ -914,6 +1096,15 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Creates the compartment.
+     *
+     * @param owner the owner
+     * @param hint the hint
+     * @param canCollapse the can collapse
+     * @param hasTitle the has title
+     * @param canSort the can sort
+     * @param canFilter the can filter
+     * @return the node
      * @generated
      */
     private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
@@ -944,6 +1135,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Gets the semantic element.
+     *
+     * @param semanticAdapter the semantic adapter
+     * @return the semantic element
      * @generated
      */
     private EObject getSemanticElement(IAdaptable semanticAdapter) {
@@ -958,6 +1153,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
+     * Gets the semantic element type.
+     *
+     * @param semanticAdapter the semantic adapter
+     * @return the semantic element type
      * @generated
      */
     private IElementType getSemanticElementType(IAdaptable semanticAdapter) {

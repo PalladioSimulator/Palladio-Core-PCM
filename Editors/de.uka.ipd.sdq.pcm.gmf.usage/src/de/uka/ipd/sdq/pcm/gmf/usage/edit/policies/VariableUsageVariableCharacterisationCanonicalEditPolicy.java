@@ -20,16 +20,19 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 
 /**
+ * The Class VariableUsageVariableCharacterisationCanonicalEditPolicy.
+ *
  * @generated
  */
 public class VariableUsageVariableCharacterisationCanonicalEditPolicy extends CanonicalEditPolicy {
 
-    /**
-     * @generated
-     */
+    /** The my features to synchronize. @generated */
     Set myFeaturesToSynchronize;
 
     /**
+     * Gets the semantic children list.
+     *
+     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -43,6 +46,11 @@ public class VariableUsageVariableCharacterisationCanonicalEditPolicy extends Ca
     }
 
     /**
+     * Checks if is orphaned.
+     *
+     * @param semanticChildren the semantic children
+     * @param view the view
+     * @return true, if is orphaned
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -57,6 +65,9 @@ public class VariableUsageVariableCharacterisationCanonicalEditPolicy extends Ca
     }
 
     /**
+     * Gets the default factory hint.
+     *
+     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {
@@ -64,6 +75,9 @@ public class VariableUsageVariableCharacterisationCanonicalEditPolicy extends Ca
     }
 
     /**
+     * Gets the features to synchronize.
+     *
+     * @return the features to synchronize
      * @generated
      */
     protected Set getFeaturesToSynchronize() {

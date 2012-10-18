@@ -17,11 +17,16 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
+ * A factory for creating PalladioComponentModelPalette objects.
+ *
  * @generated
  */
 public class PalladioComponentModelPaletteFactory {
 
     /**
+     * Fill palette.
+     *
+     * @param paletteRoot the palette root
      * @generated
      */
     public void fillPalette(PaletteRoot paletteRoot) {
@@ -32,8 +37,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "User Actions" palette tool group
-     * 
+     * Creates "User Actions" palette tool group.
+     *
+     * @return the palette container
      * @generated
      */
     private PaletteContainer createUserActions1Group() {
@@ -50,8 +56,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "Action Details" palette tool group
-     * 
+     * Creates "Action Details" palette tool group.
+     *
+     * @return the palette container
      * @generated
      */
     private PaletteContainer createActionDetails2Group() {
@@ -66,8 +73,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "Links" palette tool group
-     * 
+     * Creates "Links" palette tool group.
+     *
+     * @return the palette container
      * @generated
      */
     private PaletteContainer createLinks3Group() {
@@ -79,8 +87,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "Workloads" palette tool group
-     * 
+     * Creates "Workloads" palette tool group.
+     *
+     * @return the palette container
      * @generated
      */
     private PaletteContainer createWorkloads4Group() {
@@ -94,6 +103,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createStart1CreationTool() {
@@ -109,6 +121,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createStop2CreationTool() {
@@ -124,6 +139,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createDelay3CreationTool() {
@@ -139,6 +157,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createEntryLevelSystemCall4CreationTool() {
@@ -154,6 +175,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createLoop5CreationTool() {
@@ -169,6 +193,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createBranch6CreationTool() {
@@ -184,6 +211,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createUsageFlow1CreationTool() {
@@ -199,6 +229,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createVariableUsage1CreationTool() {
@@ -214,6 +247,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createVariableCharacterisation2CreationTool() {
@@ -229,6 +265,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createScenarioBehaviour3CreationTool() {
@@ -246,6 +285,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createBranchTransition4CreationTool() {
@@ -261,6 +303,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createOpenWorkload1CreationTool() {
@@ -276,6 +321,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createClosedWorkload2CreationTool() {
@@ -291,6 +339,9 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * Creates a new PalladioComponentModelPalette object.
+     *
+     * @return the tool entry
      * @generated
      */
     private ToolEntry createUsageScenario3CreationTool() {
@@ -306,16 +357,21 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * The Class NodeToolEntry.
+     *
      * @generated
      */
     private static class NodeToolEntry extends ToolEntry {
 
-        /**
-         * @generated
-         */
+        /** The element types. @generated */
         private final List elementTypes;
 
         /**
+         * Instantiates a new node tool entry.
+         *
+         * @param title the title
+         * @param description the description
+         * @param elementTypes the element types
          * @generated
          */
         private NodeToolEntry(String title, String description, List elementTypes) {
@@ -324,6 +380,9 @@ public class PalladioComponentModelPaletteFactory {
         }
 
         /**
+         * Creates the tool.
+         *
+         * @return the tool
          * @generated
          */
         public Tool createTool() {
@@ -334,16 +393,21 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
+     * The Class LinkToolEntry.
+     *
      * @generated
      */
     private static class LinkToolEntry extends ToolEntry {
 
-        /**
-         * @generated
-         */
+        /** The relationship types. @generated */
         private final List relationshipTypes;
 
         /**
+         * Instantiates a new link tool entry.
+         *
+         * @param title the title
+         * @param description the description
+         * @param relationshipTypes the relationship types
          * @generated
          */
         private LinkToolEntry(String title, String description, List relationshipTypes) {
@@ -352,6 +416,9 @@ public class PalladioComponentModelPaletteFactory {
         }
 
         /**
+         * Creates the tool.
+         *
+         * @return the tool
          * @generated
          */
         public Tool createTool() {

@@ -42,16 +42,19 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelMarkerNaviga
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelValidationProvider;
 
 /**
+ * The Class ValidateAction.
+ *
  * @generated
  */
 public class ValidateAction extends Action {
 
-    /**
-     * @generated
-     */
+    /** The page. @generated */
     private IWorkbenchPage page;
 
     /**
+     * Instantiates a new validate action.
+     *
+     * @param page the page
      * @generated
      */
     public ValidateAction(IWorkbenchPage page) {
@@ -60,6 +63,8 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Run.
+     *
      * @generated
      */
     public void run() {
@@ -80,6 +85,9 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Run validation.
+     *
+     * @param view the view
      * @generated
      */
     public static void runValidation(View view) {
@@ -99,6 +107,9 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Run non ui validation.
+     *
+     * @param view the view
      * @generated
      */
     public static void runNonUIValidation(View view) {
@@ -108,6 +119,10 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Run validation.
+     *
+     * @param diagramEditPart the diagram edit part
+     * @param view the view
      * @generated
      */
     public static void runValidation(DiagramEditPart diagramEditPart, View view) {
@@ -123,6 +138,10 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Run emf validator.
+     *
+     * @param target the target
+     * @return the diagnostic
      * @generated
      */
     private static Diagnostic runEMFValidator(View target) {
@@ -138,6 +157,10 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Validate.
+     *
+     * @param diagramEditPart the diagram edit part
+     * @param view the view
      * @generated
      */
     private static void validate(DiagramEditPart diagramEditPart, View view) {
@@ -157,6 +180,11 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Creates the markers.
+     *
+     * @param target the target
+     * @param validationStatus the validation status
+     * @param diagramEditPart the diagram edit part
      * @generated
      */
     private static void createMarkers(IFile target, IStatus validationStatus, DiagramEditPart diagramEditPart) {
@@ -178,6 +206,11 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Creates the markers.
+     *
+     * @param target the target
+     * @param emfValidationStatus the emf validation status
+     * @param diagramEditPart the diagram edit part
      * @generated
      */
     private static void createMarkers(IFile target, Diagnostic emfValidationStatus, DiagramEditPart diagramEditPart) {
@@ -202,6 +235,14 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Adds the marker.
+     *
+     * @param viewer the viewer
+     * @param target the target
+     * @param elementId the element id
+     * @param location the location
+     * @param message the message
+     * @param statusSeverity the status severity
      * @generated
      */
     private static void addMarker(EditPartViewer viewer, IFile target, String elementId, String location,
@@ -213,6 +254,10 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Diagnostic to status severity.
+     *
+     * @param diagnosticSeverity the diagnostic severity
+     * @return the int
      * @generated
      */
     private static int diagnosticToStatusSeverity(int diagnosticSeverity) {
@@ -229,6 +274,12 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Collect target elements.
+     *
+     * @param status the status
+     * @param targetElementCollector the target element collector
+     * @param allConstraintStatuses the all constraint statuses
+     * @return the sets the
      * @generated
      */
     private static Set collectTargetElements(IStatus status, Set targetElementCollector, List allConstraintStatuses) {
@@ -246,6 +297,12 @@ public class ValidateAction extends Action {
     }
 
     /**
+     * Collect target elements.
+     *
+     * @param diagnostic the diagnostic
+     * @param targetElementCollector the target element collector
+     * @param allDiagnostics the all diagnostics
+     * @return the sets the
      * @generated
      */
     private static Set collectTargetElements(Diagnostic diagnostic, Set targetElementCollector, List allDiagnostics) {

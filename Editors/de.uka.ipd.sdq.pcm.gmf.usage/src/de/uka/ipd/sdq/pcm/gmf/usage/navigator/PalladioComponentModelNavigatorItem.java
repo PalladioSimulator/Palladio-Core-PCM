@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
+ * The Class PalladioComponentModelNavigatorItem.
+ *
  * @generated
  */
 public class PalladioComponentModelNavigatorItem extends PalladioComponentModelAbstractNavigatorItem {
@@ -36,17 +38,18 @@ public class PalladioComponentModelNavigatorItem extends PalladioComponentModelA
         }, de.uka.ipd.sdq.pcm.gmf.usage.navigator.PalladioComponentModelNavigatorItem.class);
     }
 
-    /**
-     * @generated
-     */
+    /** The my view. @generated */
     private View myView;
 
-    /**
-     * @generated
-     */
+    /** The my leaf. @generated */
     private boolean myLeaf = false;
 
     /**
+     * Instantiates a new palladio component model navigator item.
+     *
+     * @param view the view
+     * @param parent the parent
+     * @param isLeaf the is leaf
      * @generated
      */
     public PalladioComponentModelNavigatorItem(View view, Object parent, boolean isLeaf) {
@@ -56,6 +59,9 @@ public class PalladioComponentModelNavigatorItem extends PalladioComponentModelA
     }
 
     /**
+     * Gets the view.
+     *
+     * @return the view
      * @generated
      */
     public View getView() {
@@ -63,6 +69,9 @@ public class PalladioComponentModelNavigatorItem extends PalladioComponentModelA
     }
 
     /**
+     * Checks if is leaf.
+     *
+     * @return true, if is leaf
      * @generated
      */
     public boolean isLeaf() {
@@ -70,6 +79,10 @@ public class PalladioComponentModelNavigatorItem extends PalladioComponentModelA
     }
 
     /**
+     * Equals.
+     *
+     * @param obj the obj
+     * @return true, if successful
      * @generated
      */
     public boolean equals(Object obj) {
@@ -82,6 +95,9 @@ public class PalladioComponentModelNavigatorItem extends PalladioComponentModelA
     }
 
     /**
+     * Hash code.
+     *
+     * @return the int
      * @generated
      */
     public int hashCode() {

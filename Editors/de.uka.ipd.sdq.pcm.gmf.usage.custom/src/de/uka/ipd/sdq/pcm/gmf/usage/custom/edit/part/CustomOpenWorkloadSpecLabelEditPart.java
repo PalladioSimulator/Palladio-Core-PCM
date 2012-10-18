@@ -11,13 +11,27 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
 
+/**
+ * The Class CustomOpenWorkloadSpecLabelEditPart.
+ */
 public class CustomOpenWorkloadSpecLabelEditPart extends OpenWorkloadSpecLabelEditPart {
 
+    /**
+     * Instantiates a new custom open workload spec label edit part.
+     *
+     * @param view the view
+     */
     public CustomOpenWorkloadSpecLabelEditPart(View view) {
         super(view);
         // TODO Auto-generated constructor stub
     }
 
+    /**
+     * Gets the label text.
+     *
+     * @return the label text
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -31,17 +45,33 @@ public class CustomOpenWorkloadSpecLabelEditPart extends OpenWorkloadSpecLabelEd
         return text;
     }
 
+    /**
+     * Adds the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         OpenWorkload ow = (OpenWorkload) resolveSemanticElement();
         addListenerFilter("SemanticModel", this, ow.getInterArrivalTime_OpenWorkload()); //$NON-NLS-1$
     }
 
+    /**
+     * Removes the semantic listeners.
+     *
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
     }
 
+    /**
+     * Handle notification event.
+     *
+     * @param event the event
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(final Notification event) {
         Object feature = event.getFeature();

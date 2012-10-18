@@ -17,16 +17,19 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.UsageScenarioUsageScenarioComp
 import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
 
 /**
+ * The Class UsageScenarioUsageScenarioCompartmentEditPart.
+ *
  * @generated
  */
 public class UsageScenarioUsageScenarioCompartmentEditPart extends ShapeCompartmentEditPart {
 
-    /**
-     * @generated
-     */
+    /** The Constant VISUAL_ID. @generated */
     public static final int VISUAL_ID = 7012;
 
     /**
+     * Instantiates a new usage scenario usage scenario compartment edit part.
+     *
+     * @param view the view
      * @generated
      */
     public UsageScenarioUsageScenarioCompartmentEditPart(View view) {
@@ -34,6 +37,9 @@ public class UsageScenarioUsageScenarioCompartmentEditPart extends ShapeCompartm
     }
 
     /**
+     * Gets the compartment name.
+     *
+     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -41,6 +47,9 @@ public class UsageScenarioUsageScenarioCompartmentEditPart extends ShapeCompartm
     }
 
     /**
+     * Creates the figure.
+     *
+     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -50,6 +59,8 @@ public class UsageScenarioUsageScenarioCompartmentEditPart extends ShapeCompartm
     }
 
     /**
+     * Creates the default edit policies.
+     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -63,6 +74,9 @@ public class UsageScenarioUsageScenarioCompartmentEditPart extends ShapeCompartm
     }
 
     /**
+     * Sets the ratio.
+     *
+     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

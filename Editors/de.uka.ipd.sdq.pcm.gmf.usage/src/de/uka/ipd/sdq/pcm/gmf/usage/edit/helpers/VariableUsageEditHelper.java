@@ -4,6 +4,8 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.helpers;
 
 /**
+ * The Class VariableUsageEditHelper.
+ *
  * @generated
  */
 public class VariableUsageEditHelper extends PalladioComponentModelBaseEditHelper {
