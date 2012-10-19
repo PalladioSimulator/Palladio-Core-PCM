@@ -5,6 +5,7 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.IDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.CalculatePrimesDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.CountNumbersDemand;
+import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FFTDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.FibonacciDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.MandelbrotDemand;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.cpu.SortArrayDemand;
@@ -32,7 +33,7 @@ public class AbstractResourceEnvironment {
 	/**
 	 * CPU strategies, corresponding classes
 	 */
-	protected static final Class<?>[] cpuStrategiesClasses = { CalculatePrimesDemand.class, CountNumbersDemand.class, FibonacciDemand.class,
+	protected static final Class<?>[] cpuStrategiesClasses = { CalculatePrimesDemand.class, CountNumbersDemand.class, FFTDemand.class, FibonacciDemand.class,
 			MandelbrotDemand.class, SortArrayDemand.class, VoidDemand.class, WaitDemand.class };
 
 	/** 
