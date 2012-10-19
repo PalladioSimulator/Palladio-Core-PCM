@@ -1,5 +1,15 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
+<listAttribute key="com.mountainminds.eclemma.core.SCOPE_IDS">
+<listEntry value="=de.uka.ipd.sdq.simucomframework.variables/src"/>
+<listEntry value="=de.uka.ipd.sdq.simucomframework/src"/>
+<listEntry value="=de.uka.ipd.sdq.pcm/model"/>
+<listEntry value="=de.uka.ipd.sdq.simucomframework.variables.tests/src"/>
+<listEntry value="=de.uka.ipd.sdq.stoex.analyser/src"/>
+<listEntry value="=de.uka.ipd.sdq.pcm/src"/>
+<listEntry value="=de.uka.ipd.sdq.simulation/src"/>
+<listEntry value="=de.uka.ipd.sdq.pcm/src-man"/>
+</listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/de.uka.ipd.sdq.simucomframework.variables.tests/src"/>
 </listAttribute>
