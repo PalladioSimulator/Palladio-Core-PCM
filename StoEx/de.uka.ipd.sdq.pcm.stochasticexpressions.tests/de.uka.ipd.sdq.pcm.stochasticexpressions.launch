@@ -6,6 +6,7 @@
 <listEntry value="/de.uka.ipd.sdq.stoex.analyzer/bin"/>
 <listEntry value="/de.uka.ipd.sdq.simulation/bin"/>
 <listEntry value="/de.uka.ipd.sdq.pcm.stochasticexpressions/bin"/>
+<listEntry value="/de.uka.ipd.sdq.pcm.stochasticexpressions.tests/bin"/>
 </listAttribute>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/de.uka.ipd.sdq.pcm.stochasticexpressions.tests/src"/>
