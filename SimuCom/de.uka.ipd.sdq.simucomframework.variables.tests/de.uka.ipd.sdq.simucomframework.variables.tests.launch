@@ -1,9 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
-<listAttribute key="com.mountainminds.eclemma.core.INSTRUMENTATION_PATHS">
-<listEntry value="*"/>
-<listEntry value="-*Lexer*"/>
-</listAttribute>
+<booleanAttribute key="com.mountainminds.eclemma.core.INPLACE_INSTRUMENTATION" value="true"/>
 <listAttribute key="org.eclipse.debug.core.MAPPED_RESOURCE_PATHS">
 <listEntry value="/de.uka.ipd.sdq.simucomframework.variables.tests/src"/>
 </listAttribute>
