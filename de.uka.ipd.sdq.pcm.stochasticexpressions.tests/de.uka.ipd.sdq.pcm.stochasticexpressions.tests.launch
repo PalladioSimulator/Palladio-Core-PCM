@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
 <listAttribute key="com.mountainminds.eclemma.core.INSTRUMENTATION_PATHS">
-<listEntry value="/de.uka.ipd.sdq.stoex.analyzer/bin"/
+<listEntry value="/de.uka.ipd.sdq.stoex.analyzer/bin"/>
 <listEntry value="/de.uka.ipd.sdq.pcm.stochasticexpressions/bin"/>
 <listEntry value="/de.uka.ipd.sdq.pcm.stochasticexpressions.tests/bin"/>
 </listAttribute>
