@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="org.eclipse.jdt.junit.launchconfig">
-<listAttribute key="com.mountainminds.eclemma.core.SCOPE_IDS">
+<listAttribute key="com.mountainminds.eclemma.core.INSTRUMENTATION_PATHS">
 <listEntry value="=de.uka.ipd.sdq.simucomframework.variables/src"/>
 <listEntry value="=de.uka.ipd.sdq.simucomframework/src"/>
 <listEntry value="=de.uka.ipd.sdq.pcm/model"/>
