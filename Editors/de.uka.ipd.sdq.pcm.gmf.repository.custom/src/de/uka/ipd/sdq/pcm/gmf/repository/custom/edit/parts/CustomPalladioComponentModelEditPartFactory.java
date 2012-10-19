@@ -203,7 +203,8 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
 
             case SourceRoleLabelEditPart.VISUAL_ID:
                 return new SourceRoleLabelEditPart(view);
-
+            
+            default:
             }
         }
         return createUnrecognizedEditPart(context, model);

@@ -66,7 +66,7 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
             this.setLayoutManager(layoutThis);
 
             this.setLineWidth(1);
-            // TODO: Find a better way!
+            //TODO: Find a better way!
             this.setBackgroundColor(getThisBack());
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
