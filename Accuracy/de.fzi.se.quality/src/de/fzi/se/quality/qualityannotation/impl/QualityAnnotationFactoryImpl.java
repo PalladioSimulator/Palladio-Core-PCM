@@ -80,8 +80,6 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 			case QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION: return createPCMServiceSpecification();
 			case QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE: return createPCMREResourceInterface();
 			case QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE: return createPCMREResourceSignature();
-			case QualityAnnotationPackage.PCMRE_RESOURCE: return createPCMREResource();
-			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE: return createPCMREResourceRole();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -305,26 +303,6 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 	public PCMREResourceSignature createPCMREResourceSignature() {
 		PCMREResourceSignatureImpl pcmreResourceSignature = new PCMREResourceSignatureImpl();
 		return pcmreResourceSignature;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMREResource createPCMREResource() {
-		PCMREResourceImpl pcmreResource = new PCMREResourceImpl();
-		return pcmreResource;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public PCMREResourceRole createPCMREResourceRole() {
-		PCMREResourceRoleImpl pcmreResourceRole = new PCMREResourceRoleImpl();
-		return pcmreResourceRole;
 	}
 
 	/**

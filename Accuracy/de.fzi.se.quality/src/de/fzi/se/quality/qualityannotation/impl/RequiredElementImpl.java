@@ -38,6 +38,9 @@ import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 
 /**
  * <!-- begin-user-doc -->
@@ -275,16 +278,42 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #StipulatedPrecisionMustBeSetInStipulationContext(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Stipulated Precision Must Be Set In Stipulation Context</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #StipulatedPrecisionMustBeSetInStipulationContext(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.qualityAnnotation->size() = self.precision->size()";
+
+	/**
+	 * The cached OCL invariant for the '{@link #StipulatedPrecisionMustBeSetInStipulationContext(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Stipulated Precision Must Be Set In Stipulation Context</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #StipulatedPrecisionMustBeSetInStipulationContext(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean StipulatedPrecisionMustBeSetInStipulationContext(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT);
+			try {
+				STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -469,5 +498,14 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 		}
 		return super.eIsSet(featureID);
 	}
+
+	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } //RequiredElementImpl

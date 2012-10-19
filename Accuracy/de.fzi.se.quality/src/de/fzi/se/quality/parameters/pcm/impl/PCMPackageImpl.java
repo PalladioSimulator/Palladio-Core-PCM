@@ -44,6 +44,10 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import probfunction.ProbfunctionPackage;
+import probfunction.impl.ProbfunctionPackageImpl;
+import types.TypesPackage;
+import types.impl.TypesPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -161,18 +165,24 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 		QualityPackageImpl theQualityPackage = (QualityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
 		QualityAnnotationPackageImpl theQualityAnnotationPackage = (QualityAnnotationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) instanceof QualityAnnotationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) : QualityAnnotationPackage.eINSTANCE);
 		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
+		ProbfunctionPackageImpl theProbfunctionPackage = (ProbfunctionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) instanceof ProbfunctionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) : ProbfunctionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		thePCMPackage.createPackageContents();
 		theQualityPackage.createPackageContents();
 		theQualityAnnotationPackage.createPackageContents();
 		theParametersPackage.createPackageContents();
+		theTypesPackage.createPackageContents();
+		theProbfunctionPackage.createPackageContents();
 
 		// Initialize created meta-data
 		thePCMPackage.initializePackageContents();
 		theQualityPackage.initializePackageContents();
 		theQualityAnnotationPackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
+		theTypesPackage.initializePackageContents();
+		theProbfunctionPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		thePCMPackage.freeze();

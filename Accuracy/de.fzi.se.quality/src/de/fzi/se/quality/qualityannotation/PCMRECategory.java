@@ -60,11 +60,10 @@ public interface PCMRECategory extends PCMRE {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.childREs->forAll(child | child.oclIsTypeOf(PCMREInterface))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.childREs->forAll(child | child.oclIsTypeOf(PCMREInterface))'"
 	 * @generated
 	 */
 	boolean NextLowerHierarchyLevelIsInterface(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -73,11 +72,10 @@ public interface PCMRECategory extends PCMRE {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.parentRE.oclIsUndefined()
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parentRE.oclIsUndefined()'"
 	 * @generated
 	 */
 	boolean ThisIsHighestHierarchyLevel(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -86,11 +84,10 @@ public interface PCMRECategory extends PCMRE {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.category = PCMRERequestCategory::ResourceDemand implies self.childREs->size() = 0
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.category = PCMRERequestCategory::ResourceDemand implies self.childREs->size() = 0'"
 	 * @generated
 	 */
 	boolean NoSublevelsForCategoryResourceDemand(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -99,12 +96,10 @@ public interface PCMRECategory extends PCMRE {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * (self.precision->size() > 0 and category = PCMRERequestCategory::ResourceDemand) implies self.precision.defaultPrecisionCallParameter.oclIsTypeOf(NoPrecision)
-	 * 
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='(self.precision->size() > 0 and category = PCMRERequestCategory::ResourceDemand) implies self.precision.defaultPrecisionCallParameter.oclIsTypeOf(NoPrecision)\r\n'"
 	 * @generated
 	 */
 	boolean ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(DiagnosticChain diagnostics, Map<Object, Object> context);

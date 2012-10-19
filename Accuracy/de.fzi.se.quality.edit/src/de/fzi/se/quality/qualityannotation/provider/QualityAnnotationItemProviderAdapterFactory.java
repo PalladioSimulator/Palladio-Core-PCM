@@ -513,52 +513,6 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResource} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PCMREResourceItemProvider pcmreResourceItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResource}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPCMREResourceAdapter() {
-		if (pcmreResourceItemProvider == null) {
-			pcmreResourceItemProvider = new PCMREResourceItemProvider(this);
-		}
-
-		return pcmreResourceItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected PCMREResourceRoleItemProvider pcmreResourceRoleItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createPCMREResourceRoleAdapter() {
-		if (pcmreResourceRoleItemProvider == null) {
-			pcmreResourceRoleItemProvider = new PCMREResourceRoleItemProvider(this);
-		}
-
-		return pcmreResourceRoleItemProvider;
-	}
-
-	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -676,8 +630,6 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 		if (pcmServiceSpecificationItemProvider != null) pcmServiceSpecificationItemProvider.dispose();
 		if (pcmreResourceInterfaceItemProvider != null) pcmreResourceInterfaceItemProvider.dispose();
 		if (pcmreResourceSignatureItemProvider != null) pcmreResourceSignatureItemProvider.dispose();
-		if (pcmreResourceItemProvider != null) pcmreResourceItemProvider.dispose();
-		if (pcmreResourceRoleItemProvider != null) pcmreResourceRoleItemProvider.dispose();
 	}
 
 }

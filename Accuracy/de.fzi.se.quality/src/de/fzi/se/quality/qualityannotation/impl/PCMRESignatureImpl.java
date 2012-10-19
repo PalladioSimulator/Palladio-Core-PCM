@@ -29,6 +29,9 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import org.eclipse.emf.ecore.util.EObjectValidator;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 
 /**
  * <!-- begin-user-doc -->
@@ -112,16 +115,41 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is The Lowest Hierarchy Level</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.childREs->isEmpty()";
+	/**
+	 * The cached OCL invariant for the '{@link #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is The Lowest Hierarchy Level</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean ThisIsTheLowestHierarchyLevel(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_SIGNATURE);
+			try {
+				THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
@@ -137,16 +165,41 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Upper Hierarchy Level Is Role</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parentRE.oclIsTypeOf(PCMRERole)";
+	/**
+	 * The cached OCL invariant for the '{@link #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Upper Hierarchy Level Is Role</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean NextUpperHierarchyLevelIsRole(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
+		if (NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_SIGNATURE);
+			try {
+				NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic

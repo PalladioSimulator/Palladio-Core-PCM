@@ -55,8 +55,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="RequiredElement" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eOperations name="StipulatedPrecisionMustBeSetInStipulationContext" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.qualityAnnotation->size() = self.precision->size()"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.qualityAnnotation->size() = self.precision->size()"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -169,8 +169,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="NoPrecision" eSuperTypes="#//qualityannotation/Precision"/>
     <eClassifiers xsi:type="ecore:EClass" name="PCMRECategory" eSuperTypes="#//qualityannotation/PCMRE">
       <eOperations name="NextLowerHierarchyLevelIsInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.childREs->forAll(child | child.oclIsTypeOf(PCMREInterface))"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.childREs->forAll(child | child.oclIsTypeOf(PCMREInterface))"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -188,8 +188,8 @@
         </eParameters>
       </eOperations>
       <eOperations name="ThisIsHighestHierarchyLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parentRE.oclIsUndefined()"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.parentRE.oclIsUndefined()"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -207,8 +207,8 @@
         </eParameters>
       </eOperations>
       <eOperations name="NoSublevelsForCategoryResourceDemand" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.category = PCMRERequestCategory::ResourceDemand implies self.childREs->size() = 0"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.category = PCMRERequestCategory::ResourceDemand implies self.childREs->size() = 0"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -227,8 +227,8 @@
       </eOperations>
       <eOperations name="ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="(self.precision->size() > 0 and category = PCMRERequestCategory::ResourceDemand) implies self.precision.defaultPrecisionCallParameter.oclIsTypeOf(NoPrecision)&#xD;&#xA;"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="(self.precision->size() > 0 and category = PCMRERequestCategory::ResourceDemand) implies self.precision.defaultPrecisionCallParameter.oclIsTypeOf(NoPrecision)&#xD;&#xA;"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -251,8 +251,8 @@
     <eClassifiers xsi:type="ecore:EClass" name="PCMRE" abstract="true" eSuperTypes="#//qualityannotation/RequiredElement"/>
     <eClassifiers xsi:type="ecore:EClass" name="PCMREInterface" eSuperTypes="#//qualityannotation/PCMRE">
       <eOperations name="NextLowerHierachyLevelIsRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.childREs->forAll(child | child.oclIsTypeOf(PCMRERole))"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.childREs->forAll(child | child.oclIsTypeOf(PCMRERole))"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -270,8 +270,8 @@
         </eParameters>
       </eOperations>
       <eOperations name="NextUpperHierarchyLevelIsCategory" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parentRE.oclIsTypeOf(PCMRECategory)"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.parentRE.oclIsTypeOf(PCMRECategory)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -293,8 +293,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PCMRERole" eSuperTypes="#//qualityannotation/PCMRE">
       <eOperations name="NextLowerHierarchyLevelIsSignature" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.childREs->forAll(child | child.oclIsTypeOf(PCMRESignature))"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.childREs->forAll(child | child.oclIsTypeOf(PCMRESignature))"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -312,8 +312,8 @@
         </eParameters>
       </eOperations>
       <eOperations name="NextUpperHierarchyLevelIsInterface" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parentRE.oclIsTypeOf(PCMREInterface)"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.parentRE.oclIsTypeOf(PCMREInterface)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -335,8 +335,8 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PCMRESignature" eSuperTypes="#//qualityannotation/PCMRE">
       <eOperations name="ThisIsTheLowestHierarchyLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.childREs->isEmpty()"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.childREs->isEmpty()"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -354,8 +354,8 @@
         </eParameters>
       </eOperations>
       <eOperations name="NextUpperHierarchyLevelIsRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
-        <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
-          <details key="documentation" value="self.parentRE.oclIsTypeOf(PCMRERole)"/>
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.parentRE.oclIsTypeOf(PCMRERole)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -386,14 +386,6 @@
     <eClassifiers xsi:type="ecore:EClass" name="PCMREResourceSignature" eSuperTypes="#//qualityannotation/PCMRE">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceSignature" ordered="false"
           lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourcetype/ResourceSignature"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMREResource" eSuperTypes="#//qualityannotation/PCMRE">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="processingResourceType"
-          lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//resourcetype/ProcessingResourceType"/>
-    </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMREResourceRole" eSuperTypes="#//qualityannotation/PCMRE">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="resourceRole" lowerBound="1"
-          eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//core/entity/ResourceRequiredRole"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="parameters" nsURI="http://fzi.de/PalladioComponentModel/Quality/Parameters/0.2"

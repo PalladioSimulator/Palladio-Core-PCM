@@ -170,14 +170,6 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 				return createPCMREResourceSignatureAdapter();
 			}
 			@Override
-			public Adapter casePCMREResource(PCMREResource object) {
-				return createPCMREResourceAdapter();
-			}
-			@Override
-			public Adapter casePCMREResourceRole(PCMREResourceRole object) {
-				return createPCMREResourceRoleAdapter();
-			}
-			@Override
 			public Adapter caseIdentifier(Identifier object) {
 				return createIdentifierAdapter();
 			}
@@ -528,34 +520,6 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPCMREResourceSignatureAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResource <em>PCMRE Resource</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREResource
-	 * @generated
-	 */
-	public Adapter createPCMREResourceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceRole <em>PCMRE Resource Role</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole
-	 * @generated
-	 */
-	public Adapter createPCMREResourceRoleAdapter() {
 		return null;
 	}
 

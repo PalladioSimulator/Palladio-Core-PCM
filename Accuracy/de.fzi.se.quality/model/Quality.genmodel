@@ -3,8 +3,8 @@
     xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
     modelDirectory="/de.fzi.se.quality/src" modelPluginID="de.fzi.se.quality"
     templateDirectory="/de.fzi.se.quality/templates" dynamicTemplates="true" modelName="Quality"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" copyrightFields="false"
-    runtimeVersion="2.3" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" copyrightFields="false"
+    runtimeVersion="2.3" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
     <details key="UNION_PROPERTIES" value="REPORT"/>
@@ -23,7 +23,7 @@
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
     <details key="SUPER_CLASS_ORDER" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>quality.ecore</foreignModel>
+  <foreignModel>Quality.uml</foreignModel>
   <modelPluginVariables>OCL_ECORE=org.eclipse.ocl.ecore</modelPluginVariables>
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
@@ -205,14 +205,6 @@
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResourceSignature/resourceSignature"/>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREResource">
-        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResource/processingResourceType"/>
-      </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREResourceRole">
-        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResourceRole/resourceRole"/>
-      </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Parameters" basePackage="de.fzi.se.quality"
         resource="XML" disposableProviderFactory="true" ecorePackage="quality.ecore#//parameters">
@@ -312,5 +304,62 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
+  </genPackages>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Types" disposableProviderFactory="true"
+      ecorePackage="types.ecore#/">
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//Boolean"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//Integer"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//Real"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//UnlimitedNatural"/>
+    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//String"/>
+  </genPackages>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Probfunction" resource="XML"
+      disposableProviderFactory="true" ecorePackage="probfunction.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//BoxedPDF">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference probfunction.ecore#//BoxedPDF/samples"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probfunction.ecore#//ProbabilityDensityFunction"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//ContinuousSample">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ContinuousSample/value"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ContinuousSample/probability"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//ProbabilityMassFunction">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference probfunction.ecore#//ProbabilityMassFunction/samples"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ProbabilityMassFunction/orderedDomain"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//Sample">
+      <genTypeParameters ecoreTypeParameter="probfunction.ecore#//Sample/T"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference probfunction.ecore#//Sample/value"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//Sample/probability"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//SamplePDF">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//SamplePDF/distance"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference probfunction.ecore#//SamplePDF/values"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//Complex">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//Complex/real"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//Complex/imaginary"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probfunction.ecore#//ContinuousPDF"/>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//ExponentialDistribution">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ExponentialDistribution/rate"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//NormalDistribution">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//NormalDistribution/mu"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//NormalDistribution/sigma"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//LognormalDistribution">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//LognormalDistribution/mu"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//LognormalDistribution/sigma"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//GammaDistribution">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//GammaDistribution/alpha"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//GammaDistribution/theta"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probfunction.ecore#//ProbabilityFunction"/>
   </genPackages>
 </genmodel:GenModel>

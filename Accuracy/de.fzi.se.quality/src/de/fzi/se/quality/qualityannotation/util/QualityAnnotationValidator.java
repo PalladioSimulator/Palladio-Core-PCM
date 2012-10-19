@@ -233,10 +233,6 @@ public class QualityAnnotationValidator extends EObjectValidator {
 				return validatePCMREResourceInterface((PCMREResourceInterface)value, diagnostics, context);
 			case QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE:
 				return validatePCMREResourceSignature((PCMREResourceSignature)value, diagnostics, context);
-			case QualityAnnotationPackage.PCMRE_RESOURCE:
-				return validatePCMREResource((PCMREResource)value, diagnostics, context);
-			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE:
-				return validatePCMREResourceRole((PCMREResourceRole)value, diagnostics, context);
 			case QualityAnnotationPackage.PCMRE_REQUEST_CATEGORY:
 				return validatePCMRERequestCategory((PCMRERequestCategory)value, diagnostics, context);
 			default:
@@ -736,42 +732,6 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreResourceSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreResourceSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreResourceSignature, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePCMREResource(PCMREResource pcmreResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreResource, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreResource, diagnostics, context);
-		return result;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePCMREResourceRole(PCMREResourceRole pcmreResourceRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		boolean result = validate_EveryMultiplicityConforms(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_UniqueID(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreResourceRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreResourceRole, diagnostics, context);
 		return result;
 	}
 

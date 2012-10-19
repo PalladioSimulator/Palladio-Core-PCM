@@ -56,9 +56,9 @@ public final class QualityEditorPlugin extends EMFPlugin {
 			(new ResourceLocator [] {
 				IdentifierEditPlugin.INSTANCE,
 				PalladioComponentModelEditPlugin.INSTANCE,
-				ProbabilityFunctionEditPlugin.INSTANCE,
 				StoexEditPlugin.INSTANCE,
 				UnitsEditPlugin.INSTANCE,
+				ProbabilityFunctionEditPlugin.INSTANCE,
 			});
 	}
 

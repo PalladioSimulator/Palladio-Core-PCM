@@ -73,6 +73,10 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
+import probfunction.ProbfunctionPackage;
+import probfunction.impl.ProbfunctionPackageImpl;
+import types.TypesPackage;
+import types.impl.TypesPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -247,20 +251,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass pcmreResourceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass pcmreResourceRoleEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EEnum pcmreRequestCategoryEEnum = null;
 
 	/**
@@ -316,18 +306,24 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		QualityPackageImpl theQualityPackage = (QualityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
 		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
 		PCMPackageImpl thePCMPackage = (PCMPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) instanceof PCMPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
+		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
+		ProbfunctionPackageImpl theProbfunctionPackage = (ProbfunctionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) instanceof ProbfunctionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) : ProbfunctionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theQualityAnnotationPackage.createPackageContents();
 		theQualityPackage.createPackageContents();
 		theParametersPackage.createPackageContents();
 		thePCMPackage.createPackageContents();
+		theTypesPackage.createPackageContents();
+		theProbfunctionPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theQualityAnnotationPackage.initializePackageContents();
 		theQualityPackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
 		thePCMPackage.initializePackageContents();
+		theTypesPackage.initializePackageContents();
+		theProbfunctionPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -919,42 +915,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getPCMREResource() {
-		return pcmreResourceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPCMREResource_ProcessingResourceType() {
-		return (EReference)pcmreResourceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getPCMREResourceRole() {
-		return pcmreResourceRoleEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPCMREResourceRole_ResourceRole() {
-		return (EReference)pcmreResourceRoleEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EEnum getPCMRERequestCategory() {
 		return pcmreRequestCategoryEEnum;
 	}
@@ -1073,12 +1033,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmreResourceSignatureEClass = createEClass(PCMRE_RESOURCE_SIGNATURE);
 		createEReference(pcmreResourceSignatureEClass, PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE);
 
-		pcmreResourceEClass = createEClass(PCMRE_RESOURCE);
-		createEReference(pcmreResourceEClass, PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE);
-
-		pcmreResourceRoleEClass = createEClass(PCMRE_RESOURCE_ROLE);
-		createEReference(pcmreResourceRoleEClass, PCMRE_RESOURCE_ROLE__RESOURCE_ROLE);
-
 		// Create enums
 		pcmreRequestCategoryEEnum = createEEnum(PCMRE_REQUEST_CATEGORY);
 	}
@@ -1116,7 +1070,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
-		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1143,8 +1096,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmServiceSpecificationEClass.getESuperTypes().add(this.getServiceSpecification());
 		pcmreResourceInterfaceEClass.getESuperTypes().add(this.getPCMRE());
 		pcmreResourceSignatureEClass.getESuperTypes().add(this.getPCMRE());
-		pcmreResourceEClass.getESuperTypes().add(this.getPCMRE());
-		pcmreResourceRoleEClass.getESuperTypes().add(this.getPCMRE());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(callParameterDeviationEClass, CallParameterDeviation.class, "CallParameterDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1331,12 +1282,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
 		initEClass(pcmreResourceSignatureEClass, PCMREResourceSignature.class, "PCMREResourceSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMREResourceSignature_ResourceSignature(), theResourcetypePackage.getResourceSignature(), null, "resourceSignature", null, 1, 1, PCMREResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		initEClass(pcmreResourceEClass, PCMREResource.class, "PCMREResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMREResource_ProcessingResourceType(), theResourcetypePackage.getProcessingResourceType(), null, "processingResourceType", null, 1, 1, PCMREResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-
-		initEClass(pcmreResourceRoleEClass, PCMREResourceRole.class, "PCMREResourceRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMREResourceRole_ResourceRole(), theEntityPackage.getResourceRequiredRole(), null, "resourceRole", null, 1, 1, PCMREResourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(pcmreRequestCategoryEEnum, PCMRERequestCategory.class, "PCMRERequestCategory");

@@ -59,11 +59,10 @@ public interface PCMREInterface extends PCMRE {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.childREs->forAll(child | child.oclIsTypeOf(PCMRERole))
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.childREs->forAll(child | child.oclIsTypeOf(PCMRERole))'"
 	 * @generated
 	 */
 	boolean NextLowerHierachyLevelIsRole(DiagnosticChain diagnostics, Map<Object, Object> context);
@@ -72,11 +71,10 @@ public interface PCMREInterface extends PCMRE {
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
-	 * self.parentRE.oclIsTypeOf(PCMRECategory)
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parentRE.oclIsTypeOf(PCMRECategory)'"
 	 * @generated
 	 */
 	boolean NextUpperHierarchyLevelIsCategory(DiagnosticChain diagnostics, Map<Object, Object> context);

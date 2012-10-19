@@ -216,16 +216,6 @@ public class NumberOfCallsDeviationItemProvider
 			(createChildParameter
 				(QualityAnnotationPackage.Literals.NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT,
 				 QualityAnnotationFactory.eINSTANCE.createPCMREResourceSignature()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT,
-				 QualityAnnotationFactory.eINSTANCE.createPCMREResource()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT,
-				 QualityAnnotationFactory.eINSTANCE.createPCMREResourceRole()));
 	}
 
 	/**

@@ -272,24 +272,6 @@ public class QualityAnnotationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case QualityAnnotationPackage.PCMRE_RESOURCE: {
-				PCMREResource pcmreResource = (PCMREResource)theEObject;
-				T result = casePCMREResource(pcmreResource);
-				if (result == null) result = casePCMRE(pcmreResource);
-				if (result == null) result = caseRequiredElement(pcmreResource);
-				if (result == null) result = caseIdentifier(pcmreResource);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE: {
-				PCMREResourceRole pcmreResourceRole = (PCMREResourceRole)theEObject;
-				T result = casePCMREResourceRole(pcmreResourceRole);
-				if (result == null) result = casePCMRE(pcmreResourceRole);
-				if (result == null) result = caseRequiredElement(pcmreResourceRole);
-				if (result == null) result = caseIdentifier(pcmreResourceRole);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -636,36 +618,6 @@ public class QualityAnnotationSwitch<T> {
 	 * @generated
 	 */
 	public T casePCMREResourceSignature(PCMREResourceSignature object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>PCMRE Resource</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>PCMRE Resource</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePCMREResource(PCMREResource object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>PCMRE Resource Role</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>PCMRE Resource Role</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T casePCMREResourceRole(PCMREResourceRole object) {
 		return null;
 	}
 

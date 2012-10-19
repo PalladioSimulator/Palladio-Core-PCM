@@ -232,16 +232,6 @@ public class QualityAnnotationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS,
-				 QualityAnnotationFactory.eINSTANCE.createPCMREResource()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS,
-				 QualityAnnotationFactory.eINSTANCE.createPCMREResourceRole()));
-
-		newChildDescriptors.add
-			(createChildParameter
 				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT,
 				 QualityAnnotationFactory.eINSTANCE.createInternalStateInfluenceAnalysisAggregation()));
 
