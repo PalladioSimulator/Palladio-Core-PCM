@@ -1,5 +1,0 @@
-Notes about TypeInferTests.launch
----------------------------------
-
-This file is currently excluded from the pcm build because the emma code coverage interfers with the ANTLr generated code in the pcm package.
-Furthermore, this test plugin fragement is more focused on the code in de.uka.ipd.sdq.pcm than on the code in de.uka.ipd.sdq.pcm.stochasticexpressions.tests
