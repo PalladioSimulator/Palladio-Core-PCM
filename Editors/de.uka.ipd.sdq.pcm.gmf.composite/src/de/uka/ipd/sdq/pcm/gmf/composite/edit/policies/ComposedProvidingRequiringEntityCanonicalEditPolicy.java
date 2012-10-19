@@ -32,6 +32,8 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
@@ -40,6 +42,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPar
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntity2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart;
@@ -387,6 +392,40 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 			}
 			break;
 		}
+		case EventChannelEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getEventChannel_3017ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case EventChannelSinkConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result.addAll(PalladioComponentModelDiagramUpdater
+						.getEventChannelSinkConnector_4010ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
+		case EventChannelSourceConnectorEditPart.VISUAL_ID: {
+			if (!domain2NotationMap.containsKey(view.getElement())) {
+				result
+						.addAll(PalladioComponentModelDiagramUpdater
+								.getEventChannelSourceConnector_4009ContainedLinks(view));
+			}
+			if (!domain2NotationMap.containsKey(view.getElement())
+					|| view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
+				domain2NotationMap.put(view.getElement(), view);
+			}
+			break;
+		}
 		case AssemblyConnectorEditPart.VISUAL_ID: {
 			if (!domain2NotationMap.containsKey(view.getElement())) {
 				result.addAll(PalladioComponentModelDiagramUpdater
@@ -458,6 +497,7 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 		return result;
 	}
 
+
 	// newly created, may cause problems!
 	// well, it actually did cause problems and it will again in the future. so here follows the
 	// warning: :P
@@ -514,6 +554,22 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends
 				targetEditPart = myGetEditPartFor((Role) nextLinkDescriptor
 						.getDestination(), ctx
 						.getSinkAssemblyContext__AssemblyEventConnector());
+			} else if (nextLinkDescriptor.getModelElement() instanceof EventChannelSourceConnector) {
+				EventChannelSourceConnector ctx = (EventChannelSourceConnector) nextLinkDescriptor
+						.getModelElement();
+				sourceEditPart = myGetEditPartFor((Role) nextLinkDescriptor
+						.getSource(), ctx
+						.getAssemblyContext__EventChannelSourceConnector());
+				targetEditPart = getEditPart(nextLinkDescriptor
+						.getDestination(), domain2NotationMap);
+			} else if (nextLinkDescriptor.getModelElement() instanceof EventChannelSinkConnector) {
+				EventChannelSinkConnector ctx = (EventChannelSinkConnector) nextLinkDescriptor
+						.getModelElement();
+				sourceEditPart = myGetEditPartFor((Role) nextLinkDescriptor
+						.getSource(), ctx
+						.getAssemblyContext__EventChannelSinkConnector());
+				targetEditPart = getEditPart(nextLinkDescriptor
+						.getDestination(), domain2NotationMap);
 			} else if (nextLinkDescriptor.getModelElement() instanceof AssemblyInfrastructureConnector) {
 				AssemblyInfrastructureConnector ctx = (AssemblyInfrastructureConnector) nextLinkDescriptor
 						.getModelElement();

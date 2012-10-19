@@ -19,6 +19,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRoleEntityName2EditPart;
@@ -235,6 +236,27 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 	 * @return the parser
 	 * @generated
 	 */
+	private IParser eventChannelEntityName_5019Parser;
+
+	/**
+	 * @generated
+	 */
+	private IParser getEventChannelEntityName_5019Parser() {
+		if (eventChannelEntityName_5019Parser == null) {
+			EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE
+					.getNamedElement_EntityName() };
+			MessageFormatParser parser = new MessageFormatParser(features,
+					editableFeatures);
+			eventChannelEntityName_5019Parser = parser;
+		}
+		return eventChannelEntityName_5019Parser;
+	}
+
+	/**
+	 * @generated
+	 */
 	protected IParser getParser(int visualID) {
 		switch (visualID) {
 		case ComposedProvidingRequiringEntityEntityNameEditPart.VISUAL_ID:
@@ -257,6 +279,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider
 			return getOperationProvidedRoleEntityName_5013Parser();
 		case OperationRequiredRoleEntityName2EditPart.VISUAL_ID:
 			return getOperationRequiredRoleEntityName_5014Parser();
+		case EventChannelEntityNameEditPart.VISUAL_ID:
+			return getEventChannelEntityName_5019Parser();
 		}
 		return null;
 	}

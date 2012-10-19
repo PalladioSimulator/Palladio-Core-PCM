@@ -32,6 +32,8 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRoleEditPart;
@@ -235,6 +237,15 @@ public class AssemblyContextItemSemanticEditPolicy extends
 						.hasNext();) {
 					Edge outgoingLink = (Edge) it.next();
 					if (PalladioComponentModelVisualIDRegistry
+							.getVisualID(outgoingLink) == EventChannelSourceConnectorEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
+						continue;
+					}
+					if (PalladioComponentModelVisualIDRegistry
 							.getVisualID(outgoingLink) == AssemblyEventConnectorEditPart.VISUAL_ID) {
 						DestroyElementRequest r = new DestroyElementRequest(
 								outgoingLink.getElement(), false);
@@ -260,6 +271,19 @@ public class AssemblyContextItemSemanticEditPolicy extends
 						cmd.add(new DestroyElementCommand(r));
 						cmd.add(new DeleteCommand(getEditingDomain(),
 								incomingLink));
+						continue;
+					}
+				}
+				for (Iterator it = node.getSourceEdges().iterator(); it
+						.hasNext();) {
+					Edge outgoingLink = (Edge) it.next();
+					if (PalladioComponentModelVisualIDRegistry
+							.getVisualID(outgoingLink) == EventChannelSinkConnectorEditPart.VISUAL_ID) {
+						DestroyElementRequest r = new DestroyElementRequest(
+								outgoingLink.getElement(), false);
+						cmd.add(new DestroyElementCommand(r));
+						cmd.add(new DeleteCommand(getEditingDomain(),
+								outgoingLink));
 						continue;
 					}
 				}

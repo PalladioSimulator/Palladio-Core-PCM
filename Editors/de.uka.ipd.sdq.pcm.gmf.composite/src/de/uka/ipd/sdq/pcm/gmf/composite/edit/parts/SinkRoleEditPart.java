@@ -24,6 +24,7 @@ import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
@@ -282,6 +283,44 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
 	public EditPart getPrimaryChildEditPart() {
 		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
 				.getType(SinkRoleEntityNameEditPart.VISUAL_ID));
+	}
+
+	/**
+	 * Gets the mA rel types on Source.
+	 *
+	 * @return the mA rel types on S—urce
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		types
+				.add(PalladioComponentModelElementTypes.EventChannelSinkConnector_4010);
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSourceAndTarget(
+			IGraphicalEditPart targetEditPart) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (targetEditPart instanceof EventChannelEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.EventChannelSinkConnector_4010);
+		}
+		return types;
+	}
+
+	/**
+	 * @generated
+	 */
+	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
+			IElementType relationshipType) {
+		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (relationshipType == PalladioComponentModelElementTypes.EventChannelSinkConnector_4010) {
+			types.add(PalladioComponentModelElementTypes.EventChannel_3017);
+		}
+		return types;
 	}
 
 	/**

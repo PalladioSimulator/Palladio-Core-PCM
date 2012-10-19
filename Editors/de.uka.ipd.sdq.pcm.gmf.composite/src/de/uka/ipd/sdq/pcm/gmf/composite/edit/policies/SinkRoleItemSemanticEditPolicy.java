@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EAnnotation;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
@@ -21,9 +22,13 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSinkConnectorCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSinkConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
 
 /**
  * The Class SinkRoleItemSemanticEditPolicy.
@@ -66,6 +71,17 @@ public class SinkRoleItemSemanticEditPolicy extends
 				continue;
 			}
 		}
+		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+			Edge outgoingLink = (Edge) it.next();
+			if (PalladioComponentModelVisualIDRegistry
+					.getVisualID(outgoingLink) == EventChannelSinkConnectorEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+		}
 		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
 		if (annotation == null) {
 			// there are indirectly referenced children, need extra commands: false
@@ -86,14 +102,55 @@ public class SinkRoleItemSemanticEditPolicy extends
 	 *
 	 * @param req the req
 	 * @return the creates the relationship command
-	 * @generated
+	 * @generated not
 	 */
 	@Override
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+
+		if (PalladioComponentModelElementTypes.EventChannelSinkConnector_4010 == req
+				.getElementType()) {
+			return req.getTarget() == null ? getStartCreateRelationshipCommandEventConnectors(req)
+					: null;
+		}
+
 		Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
 				: getCompleteCreateRelationshipCommand(req);
 		return command != null ? command : super
 				.getCreateRelationshipCommand(req);
+
+	}
+
+	/**
+	 * Helper to create an instance of an outgoing event connector.
+	 * 
+	 * @param req
+	 *            The request describing the command to be created.
+	 * @return The prepared command to create an AssemblyEventConnector
+	 * 
+	 * @generated not
+	 */
+	protected Command getStartCreateRelationshipCommandEventConnectors(
+			CreateRelationshipRequest req) {
+		EObject sinkEObject = req.getSource();
+		if (false == sinkEObject instanceof SinkRole) {
+			return UnexecutableCommand.INSTANCE;
+		}
+		SinkRole source = (SinkRole) sinkEObject;
+		ComposedStructure container = (ComposedStructure) getRelationshipContainer(
+				source, CompositionPackage.eINSTANCE.getComposedStructure(),
+				req.getElementType());
+		if (container == null) {
+			return UnexecutableCommand.INSTANCE;
+		}
+		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+				.canCreateEventChannelSinkConnector_4010(container, source,
+						null)) {
+			return UnexecutableCommand.INSTANCE;
+		}
+		req.setParameter("SINK_CONTEXT", ((View) getHost().getParent()
+				.getModel()).getElement());
+		return new Command() {
+		};
 	}
 
 	/**
@@ -105,6 +162,11 @@ public class SinkRoleItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
+		if (PalladioComponentModelElementTypes.EventChannelSinkConnector_4010 == req
+				.getElementType()) {
+			return getGEFWrapper(new EventChannelSinkConnectorCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req
 				.getElementType()) {
 			return null;
@@ -174,6 +236,9 @@ public class SinkRoleItemSemanticEditPolicy extends
     protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return getGEFWrapper(new EventChannelSinkConnectorReorientCommand(
+					req));
 		case AssemblyEventConnectorEditPart.VISUAL_ID:
 			return getGEFWrapper(new AssemblyEventConnectorReorientCommand(req));
 		}

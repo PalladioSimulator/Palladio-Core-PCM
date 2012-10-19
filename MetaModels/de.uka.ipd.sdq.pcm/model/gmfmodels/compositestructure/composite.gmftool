@@ -35,6 +35,15 @@
         <largeIcon
             xsi:type="gmftool:DefaultImage"/>
       </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EventChannel"
+          description="Create new EventChannel">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
     </tools>
     <tools
         xsi:type="gmftool:ToolGroup"
@@ -80,6 +89,24 @@
           xsi:type="gmftool:CreationTool"
           title="OperationProvidedDelegationConnector"
           description="Create new OperationProvidedDelegationConnector">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EventChannelSourceConnector"
+          description="Create an EventChannelSourceConnector">
+        <smallIcon
+            xsi:type="gmftool:DefaultImage"/>
+        <largeIcon
+            xsi:type="gmftool:DefaultImage"/>
+      </tools>
+      <tools
+          xsi:type="gmftool:CreationTool"
+          title="EventChannelSinkConnector"
+          description="Create new EventChannelSinkConnector">
         <smallIcon
             xsi:type="gmftool:DefaultImage"/>
         <largeIcon

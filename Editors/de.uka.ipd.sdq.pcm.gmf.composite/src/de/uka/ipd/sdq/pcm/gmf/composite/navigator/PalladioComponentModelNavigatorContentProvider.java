@@ -31,6 +31,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnect
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntity2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart;
@@ -266,6 +269,20 @@ public class PalladioComponentModelNavigatorContentProvider implements
 							.getType(ComposedProvidingRequiringEntity2EditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(EventChannelSinkConnectorEditPart.VISUAL_ID));
+			links
+					.addChildren(createNavigatorItems(connectedViews, links,
+							false));
+			connectedViews = getDiagramLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(EventChannelSourceConnectorEditPart.VISUAL_ID));
+			links
+					.addChildren(createNavigatorItems(connectedViews, links,
+							false));
 			connectedViews = getDiagramLinksByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
 							.getType(AssemblyConnectorEditPart.VISUAL_ID));
@@ -324,6 +341,15 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			connectedViews = getChildrenByType(Collections.singleton(view),
 					PalladioComponentModelVisualIDRegistry
 							.getType(OperationRequiredRole2EditPart.VISUAL_ID));
+			result.addAll(createNavigatorItems(connectedViews, parentElement,
+					false));
+			connectedViews = getChildrenByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart.VISUAL_ID));
+			connectedViews = getChildrenByType(connectedViews,
+					PalladioComponentModelVisualIDRegistry
+							.getType(EventChannelEditPart.VISUAL_ID));
 			result.addAll(createNavigatorItems(connectedViews, parentElement,
 					false));
 			return result.toArray();
@@ -441,7 +467,13 @@ public class PalladioComponentModelNavigatorContentProvider implements
 					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			Collection connectedViews = getOutgoingLinksByType(Collections
 					.singleton(view), PalladioComponentModelVisualIDRegistry
-					.getType(AssemblyEventConnectorEditPart.VISUAL_ID));
+					.getType(EventChannelSourceConnectorEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getOutgoingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AssemblyEventConnectorEditPart.VISUAL_ID));
 			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
 					outgoinglinks, true));
 			if (!outgoinglinks.isEmpty()) {
@@ -452,14 +484,26 @@ public class PalladioComponentModelNavigatorContentProvider implements
 
 		case SinkRoleEditPart.VISUAL_ID: {
 			Collection result = new ArrayList();
+			PalladioComponentModelNavigatorGroup outgoinglinks = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_SinkRole_3014_outgoinglinks,
+					"icons/outgoingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
 			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
 					Messages.NavigatorGroupName_SinkRole_3014_incominglinks,
 					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
-			Collection connectedViews = getIncomingLinksByType(Collections
+			Collection connectedViews = getOutgoingLinksByType(Collections
 					.singleton(view), PalladioComponentModelVisualIDRegistry
-					.getType(AssemblyEventConnectorEditPart.VISUAL_ID));
+					.getType(EventChannelSinkConnectorEditPart.VISUAL_ID));
+			outgoinglinks.addChildren(createNavigatorItems(connectedViews,
+					outgoinglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(AssemblyEventConnectorEditPart.VISUAL_ID));
 			incominglinks.addChildren(createNavigatorItems(connectedViews,
 					incominglinks, true));
+			if (!outgoinglinks.isEmpty()) {
+				result.add(outgoinglinks);
+			}
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
 			}
@@ -562,6 +606,82 @@ public class PalladioComponentModelNavigatorContentProvider implements
 			}
 			if (!incominglinks.isEmpty()) {
 				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventChannelEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			PalladioComponentModelNavigatorGroup incominglinks = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_EventChannel_3017_incominglinks,
+					"icons/incomingLinksNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getIncomingLinksByType(Collections
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(EventChannelSinkConnectorEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			connectedViews = getIncomingLinksByType(
+					Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(EventChannelSourceConnectorEditPart.VISUAL_ID));
+			incominglinks.addChildren(createNavigatorItems(connectedViews,
+					incominglinks, true));
+			if (!incominglinks.isEmpty()) {
+				result.add(incominglinks);
+			}
+			return result.toArray();
+		}
+
+		case EventChannelSinkConnectorEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_EventChannelSinkConnector_4010_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_EventChannelSinkConnector_4010_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getLinksTargetByType(Collections
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(EventChannelEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(SinkRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
+			}
+			return result.toArray();
+		}
+
+		case EventChannelSourceConnectorEditPart.VISUAL_ID: {
+			Collection result = new ArrayList();
+			PalladioComponentModelNavigatorGroup target = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_EventChannelSourceConnector_4009_target,
+					"icons/linkTargetNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			PalladioComponentModelNavigatorGroup source = new PalladioComponentModelNavigatorGroup(
+					Messages.NavigatorGroupName_EventChannelSourceConnector_4009_source,
+					"icons/linkSourceNavigatorGroup.gif", parentElement); //$NON-NLS-1$
+			Collection connectedViews = getLinksTargetByType(Collections
+					.singleton(view), PalladioComponentModelVisualIDRegistry
+					.getType(EventChannelEditPart.VISUAL_ID));
+			target.addChildren(createNavigatorItems(connectedViews, target,
+					true));
+			connectedViews = getLinksSourceByType(Collections.singleton(view),
+					PalladioComponentModelVisualIDRegistry
+							.getType(SourceRoleEditPart.VISUAL_ID));
+			source.addChildren(createNavigatorItems(connectedViews, source,
+					true));
+			if (!target.isEmpty()) {
+				result.add(target);
+			}
+			if (!source.isEmpty()) {
+				result.add(source);
 			}
 			return result.toArray();
 		}

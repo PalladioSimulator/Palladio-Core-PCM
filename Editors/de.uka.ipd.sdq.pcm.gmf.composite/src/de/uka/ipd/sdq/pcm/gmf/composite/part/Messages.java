@@ -183,7 +183,13 @@ public class Messages extends NLS {
 	/** The System operation provided role3 creation tool_desc. @generated */
 	public static String SystemOperationProvidedRole3CreationTool_desc;
 
+	/** The Operation required delegation EventChannel creation tool_title. @generated */
+	public static String EventChannel4CreationTool_title;
+
 	/** The Operation required delegation connector1 creation tool_title. @generated */
+	public static String EventChannel4CreationTool_desc;
+
+	/** The Operation required delegation connector1 creation tool_desc. @generated */
 	public static String OperationRequiredDelegationConnector1CreationTool_title;
 
 	/** The Operation required delegation connector1 creation tool_desc. @generated */
@@ -213,7 +219,20 @@ public class Messages extends NLS {
 	/** The Operation provided delegation connector5 creation tool_desc. @generated */
 	public static String OperationProvidedDelegationConnector5CreationTool_desc;
 
-	/** The Composed providing requiring entity composite structure inner compartment edit part_title. @generated */
+
+	/** The EventChannelSourceConnector tooltitel. @generated */
+	public static String EventChannelSourceConnector6CreationTool_title;
+
+	/** The EventChannelSourceConnectorDescription @generated */
+	public static String EventChannelSourceConnector6CreationTool_desc;
+
+	/** The Command name_ open diagram. @generated */
+	public static String EventChannelSinkConnector7CreationTool_title;
+
+	/** The Navigator group name_ composed providing requiring entity_1000_links. @generated */
+	public static String EventChannelSinkConnector7CreationTool_desc;
+
+	/** The Navigator group name_ operation provided role_3007_incominglinks. @generated */
 	public static String ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart_title;
 
 	/** The Command name_ open diagram. @generated */
@@ -237,6 +256,11 @@ public class Messages extends NLS {
 	/** The Navigator group name_ source role_3013_outgoinglinks. @generated */
 	public static String NavigatorGroupName_SourceRole_3013_outgoinglinks;
 
+
+	/**  @generated */
+	public static String NavigatorGroupName_SinkRole_3014_outgoinglinks;
+
+
 	/** The Navigator group name_ sink role_3014_incominglinks. @generated */
 	public static String NavigatorGroupName_SinkRole_3014_incominglinks;
 
@@ -258,7 +282,24 @@ public class Messages extends NLS {
 	/** The Navigator group name_ operation required role_3012_incominglinks. @generated */
 	public static String NavigatorGroupName_OperationRequiredRole_3012_incominglinks;
 
+
+	/** The Navigator group name_ EventChannel_3017_incominglinks. @generated */
+	public static String NavigatorGroupName_EventChannel_3017_incominglinks;
+
+
 	/** The Navigator group name_ assembly connector_4004_target. @generated */
+	public static String NavigatorGroupName_EventChannelSinkConnector_4010_target;
+
+	/** The Navigator group name_ assembly connector_4004_source. @generated */
+	public static String NavigatorGroupName_EventChannelSinkConnector_4010_source;
+
+	/** The Navigator group name_ assembly event connector_4007_target. @generated */
+	public static String NavigatorGroupName_EventChannelSourceConnector_4009_target;
+
+	/** The Navigator group name_ assembly event connector_4007_source. @generated */
+	public static String NavigatorGroupName_EventChannelSourceConnector_4009_source;
+
+	/** The Navigator group name_ required delegation connector_4005_target. @generated */
 	public static String NavigatorGroupName_AssemblyConnector_4004_target;
 
 	/** The Navigator group name_ assembly connector_4004_source. @generated */

@@ -209,13 +209,72 @@
               href="composite.gmfgraph#OuterRequiredRole"/>
         </ownedChild>
       </children>
+      <children
+          compartment="//@nodes.0/@ownedChild/@compartments.0">
+        <containmentFeature
+            href="../../pcm.ecore#//core/composition/ComposedStructure/eventChannel__ComposedStructure"/>
+        <childrenFeature
+            href="../../pcm.ecore#//core/composition/ComposedStructure/eventChannel__ComposedStructure"/>
+        <ownedChild>
+          <domainMetaElement
+              href="../../pcm.ecore#//core/composition/EventChannel"/>
+          <labelMappings
+              xsi:type="gmfmap:FeatureLabelMapping">
+            <diagramLabel
+                href="composite.gmfgraph#EventChannelLabel"/>
+            <features
+                href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+            <editableFeatures
+                href="../../pcm.ecore#//core/entity/NamedElement/entityName"/>
+          </labelMappings>
+          <tool
+              xsi:type="gmftool:CreationTool"
+              href="composite.gmftool#//@palette/@tools.0/@tools.3"/>
+          <diagramNode
+              href="composite.gmfgraph#EventChannel"/>
+        </ownedChild>
+      </children>
       <compartments
-          children="//@nodes.0/@ownedChild/@children.0">
+          children="//@nodes.0/@ownedChild/@children.0 //@nodes.0/@ownedChild/@children.3">
         <compartment
             href="composite.gmfgraph#CompositeStructureInnerCompartment"/>
       </compartments>
     </ownedChild>
   </nodes>
+  <links>
+    <domainMetaElement
+        href="../../pcm.ecore#//core/composition/EventChannelSinkConnector"/>
+    <containmentFeature
+        href="../../pcm.ecore#//core/composition/ComposedStructure/connectors__ComposedStructure"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="composite.gmftool#//@palette/@tools.1/@tools.6"/>
+    <diagramLink
+        href="composite.gmfgraph#EventChannelSinkConnector"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//core/composition/EventChannelSinkConnector/sinkRole__EventChannelSinkConnector"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//core/composition/EventChannelSinkConnector/eventChannel__EventChannelSinkConnector"/>
+  </links>
+  <links>
+    <domainMetaElement
+        href="../../pcm.ecore#//core/composition/EventChannelSourceConnector"/>
+    <containmentFeature
+        href="../../pcm.ecore#//core/composition/ComposedStructure/connectors__ComposedStructure"/>
+    <tool
+        xsi:type="gmftool:CreationTool"
+        href="composite.gmftool#//@palette/@tools.1/@tools.5"/>
+    <diagramLink
+        href="composite.gmfgraph#EventChannelSourceConnector"/>
+    <sourceMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//core/composition/EventChannelSourceConnector/sourceRole__EventChannelSourceRole"/>
+    <linkMetaFeature
+        xsi:type="ecore:EReference"
+        href="../../pcm.ecore#//core/composition/EventChannelSourceConnector/eventChannel__EventChannelSourceConnector"/>
+  </links>
   <links>
     <domainMetaElement
         href="../../pcm.ecore#//core/composition/AssemblyConnector"/>

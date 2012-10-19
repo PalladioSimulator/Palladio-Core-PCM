@@ -22,6 +22,8 @@ import org.eclipse.ui.navigator.ICommonLabelProvider;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
@@ -33,6 +35,10 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnect
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntity2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
@@ -165,6 +171,15 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 		case OperationRequiredRole2EditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationRequiredRole", PalladioComponentModelElementTypes.OperationRequiredRole_3012); //$NON-NLS-1$
+		case EventChannelEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannel", PalladioComponentModelElementTypes.EventChannel_3017); //$NON-NLS-1$
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannelSinkConnector", PalladioComponentModelElementTypes.EventChannelSinkConnector_4010); //$NON-NLS-1$
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return getImage(
+					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannelSourceConnector", PalladioComponentModelElementTypes.EventChannelSourceConnector_4009); //$NON-NLS-1$
 		case AssemblyConnectorEditPart.VISUAL_ID:
 			return getImage(
 					"Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyConnector", PalladioComponentModelElementTypes.AssemblyConnector_4004); //$NON-NLS-1$
@@ -269,6 +284,12 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 			return getOperationProvidedRole_3011Text(view);
 		case OperationRequiredRole2EditPart.VISUAL_ID:
 			return getOperationRequiredRole_3012Text(view);
+		case EventChannelEditPart.VISUAL_ID:
+			return getEventChannel_3017Text(view);
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return getEventChannelSinkConnector_4010Text(view);
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return getEventChannelSourceConnector_4009Text(view);
 		case AssemblyConnectorEditPart.VISUAL_ID:
 			return getAssemblyConnector_4004Text(view);
 		case AssemblyEventConnectorEditPart.VISUAL_ID:
@@ -566,6 +587,61 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider
 	 *
 	 * @param view the view
 	 * @return the assembly connector_4004 text
+	 * @generated
+	 */
+	private String getEventChannel_3017Text(View view) {
+		IParser parser = PalladioComponentModelParserProvider.getParser(
+				PalladioComponentModelElementTypes.EventChannel_3017, view
+						.getElement() != null ? view.getElement() : view,
+				PalladioComponentModelVisualIDRegistry
+						.getType(EventChannelEntityNameEditPart.VISUAL_ID));
+		if (parser != null) {
+			return parser.getPrintString(new EObjectAdapter(
+					view.getElement() != null ? view.getElement() : view),
+					ParserOptions.NONE.intValue());
+		} else {
+			PalladioComponentModelComposedStructureDiagramEditorPlugin
+					.getInstance().logError(
+							"Parser was not found for label " + 5019); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getEventChannelSinkConnector_4010Text(View view) {
+		EventChannelSinkConnector domainModelElement = (EventChannelSinkConnector) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelComposedStructureDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 4010); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
+	 * @generated
+	 */
+	private String getEventChannelSourceConnector_4009Text(View view) {
+		EventChannelSourceConnector domainModelElement = (EventChannelSourceConnector) view
+				.getElement();
+		if (domainModelElement != null) {
+			return domainModelElement.getId();
+		} else {
+			PalladioComponentModelComposedStructureDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"No domain element for view with visualID = " + 4009); //$NON-NLS-1$
+			return ""; //$NON-NLS-1$
+		}
+	}
+
+	/**
 	 * @generated
 	 */
 	private String getAssemblyConnector_4004Text(View view) {

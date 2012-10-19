@@ -247,6 +247,68 @@
             y="40"/>
       </actualFigure>
     </descriptors>
+    <descriptors
+        name="EventChannelFigure">
+      <actualFigure
+          xsi:type="gmfgraph:ScalablePolygon"
+          name=""
+          fill="false">
+        <layout
+            xsi:type="gmfgraph:GridLayout"/>
+        <minimumSize/>
+        <preferredSize
+            dx="80"
+            dy="40"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="EventChannelLabelFigure"
+            text="&lt;…>">
+          <layoutData
+              xsi:type="gmfgraph:GridLayoutData"
+              grabExcessHorizontalSpace="true"
+              grabExcessVerticalSpace="true"/>
+        </children>
+        <template
+            y="20"/>
+        <template
+            x="40"/>
+        <template
+            x="80"
+            y="20"/>
+        <template
+            x="40"
+            y="40"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.17/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="EventChannelSourceConnectorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="EventChannelSourceConnector"
+          targetDecoration="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+    </descriptors>
+    <descriptors
+        name="EventChannelSinkConnectorFigure">
+      <actualFigure
+          xsi:type="gmfgraph:PolylineConnection"
+          name="EventChannelSinkConnector"
+          targetDecoration="//@figures.0/@descriptors.19/@actualFigure/@children.0">
+        <children
+            xsi:type="gmfgraph:PolylineDecoration"
+            name="BackArrowHead">
+          <template
+              x="-1"
+              y="1"/>
+          <template
+              x="-2"/>
+          <template
+              x="-1"
+              y="-1"/>
+        </children>
+      </actualFigure>
+    </descriptors>
   </figures>
   <nodes
       name="AssemblyContext"
@@ -292,6 +354,9 @@
   <nodes
       name="CompositeStructureNode"
       figure="CompositeStructureFigure"/>
+  <nodes
+      name="EventChannel"
+      figure="EventChannelFigure"/>
   <connections
       name="ProvidedDelegationConnector"
       figure="OperationProvidedDelegationConnectorFigure"/>
@@ -307,6 +372,12 @@
   <connections
       name="RequiredDelegationConnector"
       figure="OperationRequiredDelegationConnectorFigure"/>
+  <connections
+      name="EventChannelSourceConnector"
+      figure="EventChannelSourceConnectorFigure"/>
+  <connections
+      name="EventChannelSinkConnector"
+      figure="EventChannelSinkConnectorFigure"/>
   <compartments
       name="CompositeStructureInnerCompartment"
       figure="CompositeStructureFigure"
@@ -342,4 +413,8 @@
       name="InfrastructureRequiredRoleLabel"
       figure="InfrastructureRoleLabelFigure"
       elementIcon="false"/>
+  <labels
+      name="EventChannelLabel"
+      figure="EventChannelFigure"
+      accessor="//@figures.0/@descriptors.17/@accessors.0"/>
 </gmfgraph:Canvas>

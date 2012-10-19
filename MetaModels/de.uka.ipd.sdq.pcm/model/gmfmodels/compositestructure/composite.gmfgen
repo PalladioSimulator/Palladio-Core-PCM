@@ -526,6 +526,59 @@
         </modelFacet>
       </labels>
     </childNodes>
+    <childNodes
+        visualID="3017"
+        editPartClassName="EventChannelEditPart"
+        itemSemanticEditPolicyClassName="EventChannelItemSemanticEditPolicy"
+        notationViewFactoryClassName="EventChannelViewFactory"
+        canonicalEditPolicyClassName="EventChannelCanonicalEditPolicy"
+        graphicalNodeEditPolicyClassName="EventChannelGraphicalNodeEditPolicy"
+        createCommandClassName="EventChannelCreateCommand"
+        containers="//@diagram/@compartments.0">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="EventChannelEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="EventChannelFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EventChannelFigure extends org.eclipse.draw2d.Shape {&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel fFigureEventChannelLabelFigure; &#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EventChannelFigure() {&#xA;&#x9;&#x9;&#xA;&#x9;org.eclipse.draw2d.GridLayout layoutThis = new org.eclipse.draw2d.GridLayout();&#xA;&#x9;layoutThis.numColumns = 1;&#xA;&#x9;layoutThis.makeColumnsEqualWidth = true;&#xA;&#x9;this.setLayoutManager(layoutThis);&#xA;&#xA;&#x9;&#x9;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(20)&#xA;));&#xA;this.addPoint(new org.eclipse.draw2d.geometry.Point(getMapMode().DPtoLP(40)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.setLineWidth(1);&#xA;this.setPreferredSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(80)&#xA;, getMapMode().DPtoLP(40)&#xA;));&#xA;this.setMinimumSize(new org.eclipse.draw2d.geometry.Dimension(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;));&#xA;&#x9;&#x9;createContents();&#xA;&#x9;}&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private void createContents(){&#xA;&#xA;&#xA;fFigureEventChannelLabelFigure = new org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel();&#xA;fFigureEventChannelLabelFigure.setText(&quot;&lt;…>&quot;);&#xA;&#xA;&#xA;org.eclipse.draw2d.GridData constraintFFigureEventChannelLabelFigure = new org.eclipse.draw2d.GridData();&#xA;constraintFFigureEventChannelLabelFigure.verticalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureEventChannelLabelFigure.horizontalAlignment = org.eclipse.draw2d.GridData.CENTER;&#xA;constraintFFigureEventChannelLabelFigure.horizontalIndent = 0;&#xA;constraintFFigureEventChannelLabelFigure.horizontalSpan = 1;&#xA;constraintFFigureEventChannelLabelFigure.verticalSpan = 1;&#xA;constraintFFigureEventChannelLabelFigure.grabExcessHorizontalSpace = true;&#xA;constraintFFigureEventChannelLabelFigure.grabExcessVerticalSpace = true;&#xA;this.add(fFigureEventChannelLabelFigure, constraintFFigureEventChannelLabelFigure);&#xA;&#xA;&#xA;&#xA;&#x9;}&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private final org.eclipse.draw2d.geometry.PointList myTemplate = new org.eclipse.draw2d.geometry.PointList();&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.geometry.Rectangle myTemplateBounds;&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public void addPoint(org.eclipse.draw2d.geometry.Point point){&#xA;&#x9;&#x9;myTemplate.addPoint(point);&#xA;&#x9;&#x9;myTemplateBounds = null;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void fillShape(org.eclipse.draw2d.Graphics graphics) {&#xA;&#x9;&#x9;org.eclipse.draw2d.geometry.Rectangle bounds = getBounds();&#xA;&#x9;&#x9;graphics.pushState();&#xA;&#x9;&#x9;graphics.translate(bounds.x, bounds.y);&#xA;&#x9;&#x9;graphics.fillPolygon(scalePointList());&#xA;&#x9;&#x9;graphics.popState();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;protected void outlineShape(org.eclipse.draw2d.Graphics graphics) {&#xA;&#x9;&#x9;org.eclipse.draw2d.geometry.Rectangle bounds = getBounds();&#xA;&#x9;&#x9;graphics.pushState();&#xA;&#x9;&#x9;graphics.translate(bounds.x, bounds.y);&#xA;&#x9;&#x9;graphics.drawPolygon(scalePointList());&#xA;&#x9;&#x9;graphics.popState();&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.geometry.Rectangle getTemplateBounds(){&#xA;&#x9;&#x9;if (myTemplateBounds == null){&#xA;&#x9;&#x9;&#x9;myTemplateBounds = myTemplate.getBounds().getCopy().union(0, 0);&#xA;&#x9;&#x9;&#x9;//just safety -- we are going to use this as divider &#xA;&#x9;&#x9;&#x9;if (myTemplateBounds.width &lt; 1){&#xA;&#x9;&#x9;&#x9;&#x9;myTemplateBounds.width = 1;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;&#x9;if (myTemplateBounds.height &lt; 1){&#xA;&#x9;&#x9;&#x9;&#x9;myTemplateBounds.height = 1;&#xA;&#x9;&#x9;&#x9;}&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return myTemplateBounds;&#xA;&#x9;}&#xA;&#x9;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private int[] scalePointList() {&#xA;&#x9;&#x9;org.eclipse.draw2d.geometry.Rectangle pointsBounds = getTemplateBounds();&#xA;&#x9;&#x9;org.eclipse.draw2d.geometry.Rectangle actualBounds = getBounds();&#xA;&#xA;&#x9;&#x9;float xScale = ((float) actualBounds.width) / pointsBounds.width;&#xA;&#x9;&#x9;float yScale = ((float) actualBounds.height) / pointsBounds.height;&#xA;&#xA;&#x9;&#x9;if (xScale == 1 &amp;&amp; yScale == 1) {&#xA;&#x9;&#x9;&#x9;return myTemplate.toIntArray();&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;int[] scaled = (int[]) myTemplate.toIntArray().clone();&#xA;&#x9;&#x9;for (int i = 0; i &lt; scaled.length; i += 2) {&#xA;&#x9;&#x9;&#x9;scaled[i] = (int) Math.floor(scaled[i] * xScale);&#xA;&#x9;&#x9;&#x9;scaled[i + 1] = (int) Math.floor(scaled[i + 1] * yScale);&#xA;&#x9;&#x9;}&#xA;&#x9;&#x9;return scaled;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel getFigureEventChannelLabelFigure() {&#xA;&#x9;&#x9;return fFigureEventChannelLabelFigure;&#xA;&#x9;}&#xA;&#xA;&#xA;}&#xA;&#xA;">
+        <attributes
+            xsi:type="gmfgen:DefaultSizeAttributes"
+            width="80"
+            height="40"/>
+      </viewmap>
+      <modelFacet>
+        <metaClass
+            href="../../pcm.genmodel#//pcm/core/composition/EventChannel"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/ComposedStructure/eventChannel__ComposedStructure"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/ComposedStructure/eventChannel__ComposedStructure"/>
+      </modelFacet>
+      <labels
+          visualID="5019"
+          editPartClassName="EventChannelEntityNameEditPart"
+          itemSemanticEditPolicyClassName="EventChannelEntityNameItemSemanticEditPolicy"
+          notationViewFactoryClassName="EventChannelEntityNameViewFactory"
+          elementIcon="true">
+        <diagramRunTimeClass
+            href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Node"/>
+        <viewmap
+            xsi:type="gmfgen:ParentAssignedViewmap"
+            getterName="getFigureEventChannelLabelFigure"
+            figureQualifiedClassName="org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel"/>
+        <modelFacet
+            xsi:type="gmfgen:FeatureLabelModelFacet"
+            parser="//@labelParsers/@implementations.0">
+          <metaFeatures
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
+          <editableMetaFeatures
+              href="../../pcm.genmodel#//pcm/core/entity/NamedElement/entityName"/>
+        </modelFacet>
+      </labels>
+    </childNodes>
     <topLevelNodes
         visualID="2002"
         editPartClassName="ComposedProvidingRequiringEntity2EditPart"
@@ -574,6 +627,66 @@
         </modelFacet>
       </labels>
     </topLevelNodes>
+    <links
+        visualID="4010"
+        editPartClassName="EventChannelSinkConnectorEditPart"
+        itemSemanticEditPolicyClassName="EventChannelSinkConnectorItemSemanticEditPolicy"
+        notationViewFactoryClassName="EventChannelSinkConnectorViewFactory"
+        createCommandClassName="EventChannelSinkConnectorCreateCommand"
+        reorientCommandClassName="EventChannelSinkConnectorReorientCommand">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="EventChannelSinkConnectorEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="EventChannelSinkConnectorFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EventChannelSinkConnectorFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EventChannelSinkConnectorFigure() {&#xA;&#x9;&#x9;this.setLineWidth(1);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(1);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(-1)&#xA;, getMapMode().DPtoLP(1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-2)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-1)&#xA;, getMapMode().DPtoLP(-1)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="../../pcm.genmodel#//pcm/core/composition/EventChannelSinkConnector"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/ComposedStructure/connectors__ComposedStructure"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/ComposedStructure/connectors__ComposedStructure"/>
+        <sourceMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/EventChannelSinkConnector/sinkRole__EventChannelSinkConnector"/>
+        <targetMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/EventChannelSinkConnector/eventChannel__EventChannelSinkConnector"/>
+      </modelFacet>
+    </links>
+    <links
+        visualID="4009"
+        editPartClassName="EventChannelSourceConnectorEditPart"
+        itemSemanticEditPolicyClassName="EventChannelSourceConnectorItemSemanticEditPolicy"
+        notationViewFactoryClassName="EventChannelSourceConnectorViewFactory"
+        createCommandClassName="EventChannelSourceConnectorCreateCommand"
+        reorientCommandClassName="EventChannelSourceConnectorReorientCommand">
+      <diagramRunTimeClass
+          href="../../../../../plugin/org.eclipse.gmf.runtime.notation/model/notation.genmodel#//notation/Edge"/>
+      <elementType
+          xsi:type="gmfgen:MetamodelType"
+          editHelperClassName="EventChannelSourceConnectorEditHelper"/>
+      <viewmap
+          xsi:type="gmfgen:InnerClassViewmap"
+          className="EventChannelSourceConnectorFigure"
+          classBody="&#xA;/**&#xA; * @generated&#xA; */&#xA;public class EventChannelSourceConnectorFigure extends org.eclipse.gmf.runtime.draw2d.ui.figures.PolylineConnectionEx {&#xA;&#xA;&#xA;&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;public EventChannelSourceConnectorFigure() {&#xA;&#x9;&#x9;this.setLineWidth(1);&#xA;&#xA;&#x9;&#x9;setTargetDecoration(createTargetDecoration());&#xA;&#x9;}&#xA;&#xA;&#x9;/**&#xA;&#x9; * @generated&#xA;&#x9; */&#xA;&#x9;private org.eclipse.draw2d.RotatableDecoration createTargetDecoration() {&#xA;&#x9;&#x9;org.eclipse.draw2d.PolylineDecoration df = new org.eclipse.draw2d.PolylineDecoration();&#xA;df.setLineWidth(1);&#xA;org.eclipse.draw2d.geometry.PointList pl = new org.eclipse.draw2d.geometry.PointList();&#xA;pl.addPoint(getMapMode().DPtoLP(-1)&#xA;, getMapMode().DPtoLP(-1)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(0)&#xA;, getMapMode().DPtoLP(0)&#xA;);&#xA;pl.addPoint(getMapMode().DPtoLP(-1)&#xA;, getMapMode().DPtoLP(1)&#xA;);&#xA;df.setTemplate(pl);&#xA;df.setScale(getMapMode().DPtoLP(7)&#xA;, getMapMode().DPtoLP(3)&#xA;);&#xA;&#x9;&#x9;return df;&#xA;&#x9;}&#xA;&#xA;&#xA;&#xA;&#xA;}&#xA;&#xA;"/>
+      <modelFacet
+          xsi:type="gmfgen:TypeLinkModelFacet">
+        <metaClass
+            href="../../pcm.genmodel#//pcm/core/composition/EventChannelSourceConnector"/>
+        <containmentMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/ComposedStructure/connectors__ComposedStructure"/>
+        <childMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/ComposedStructure/connectors__ComposedStructure"/>
+        <sourceMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/EventChannelSourceConnector/sourceRole__EventChannelSourceRole"/>
+        <targetMetaFeature
+            href="../../pcm.genmodel#//pcm/core/composition/EventChannelSourceConnector/eventChannel__EventChannelSourceConnector"/>
+      </modelFacet>
+    </links>
     <links
         visualID="4004"
         editPartClassName="AssemblyConnectorEditPart"
@@ -730,7 +843,7 @@
         itemSemanticEditPolicyClassName="ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy"
         notationViewFactoryClassName="ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentViewFactory"
         canonicalEditPolicyClassName="ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy"
-        childNodes="//@diagram/@childNodes.0"
+        childNodes="//@diagram/@childNodes.0 //@diagram/@childNodes.9"
         title="CompositeStructureInnerCompartment"
         canCollapse="false"
         needsTitle="false"
@@ -766,6 +879,11 @@
             title="SystemOperationProvidedRole"
             description="Create new SystemOperationProvidedRole"
             genNodes="//@diagram/@childNodes.7"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EventChannel"
+            description="Create new EventChannel"
+            genNodes="//@diagram/@childNodes.9"/>
       </groups>
       <groups
           title="Links"
@@ -774,27 +892,37 @@
             xsi:type="gmfgen:ToolEntry"
             title="OperationRequiredDelegationConnector"
             description="Create new OperationRequiredDelegationConnector"
-            genLinks="//@diagram/@links.2"/>
+            genLinks="//@diagram/@links.4"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="AssemblyConnector"
             description="Connect business roles"
-            genLinks="//@diagram/@links.0"/>
+            genLinks="//@diagram/@links.2"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="AssemblyInfrastructureConnector"
             description="Connect infrastructure roles"
-            genLinks="//@diagram/@links.4"/>
+            genLinks="//@diagram/@links.6"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="AssemblyEventConnector"
             description="Connect event ports"
-            genLinks="//@diagram/@links.1"/>
+            genLinks="//@diagram/@links.3"/>
         <entries
             xsi:type="gmfgen:ToolEntry"
             title="OperationProvidedDelegationConnector"
             description="Create new OperationProvidedDelegationConnector"
-            genLinks="//@diagram/@links.3"/>
+            genLinks="//@diagram/@links.5"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EventChannelSourceConnector"
+            description="Create an EventChannelSourceConnector"
+            genLinks="//@diagram/@links.1"/>
+        <entries
+            xsi:type="gmfgen:ToolEntry"
+            title="EventChannelSinkConnector"
+            description="Create new EventChannelSinkConnector"
+            genLinks="//@diagram/@links.0"/>
       </groups>
     </palette>
     <preferencePages
@@ -864,6 +992,9 @@
         parent="//@diagram/@topLevelNodes.0"
         child="//@diagram/@childNodes.8"/>
     <childReferences
+        parent="//@diagram/@topLevelNodes.0"
+        child="//@diagram/@childNodes.9"/>
+    <childReferences
         parent="//@diagram"
         child="//@diagram/@topLevelNodes.0"/>
     <childReferences
@@ -873,48 +1004,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.1"
+        child="//@diagram/@childNodes.9"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.1"
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@links.0"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.7"
-        referenceType="out_target"
-        groupName="target"
-        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@links.0"
-        referenceType="in_source"
-        groupName="incoming links"
-        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.4"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.2"
-        child="//@diagram/@links.0"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.0"
-        child="//@diagram/@childNodes.8"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.8"
+        parent="//@diagram/@childNodes.4"
         child="//@diagram/@links.0"
         referenceType="out_target"
         groupName="outgoing links"
@@ -926,12 +1033,12 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.1"
-        child="//@diagram/@childNodes.4"
+        child="//@diagram/@childNodes.9"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.4"
+        parent="//@diagram/@childNodes.9"
         child="//@diagram/@links.1"
         referenceType="in_source"
         groupName="incoming links"
@@ -955,24 +1062,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.2"
-        child="//@diagram/@childNodes.2"
+        child="//@diagram/@childNodes.1"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.2"
+        parent="//@diagram/@childNodes.1"
         child="//@diagram/@links.2"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.2"
-        child="//@diagram/@childNodes.8"
+        child="//@diagram/@childNodes.7"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.8"
+        parent="//@diagram/@childNodes.7"
         child="//@diagram/@links.2"
         referenceType="in_source"
         groupName="incoming links"
@@ -1008,48 +1115,24 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.3"
-        child="//@diagram/@childNodes.1"
+        child="//@diagram/@childNodes.4"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.1"
+        parent="//@diagram/@childNodes.4"
         child="//@diagram/@links.3"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.3"
-        child="//@diagram/@childNodes.7"
-        referenceType="out_target"
-        groupName="target"
-        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
-        child="//@diagram/@links.3"
-        referenceType="in_source"
-        groupName="incoming links"
-        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.3"
-        child="//@diagram/@childNodes.1"
+        child="//@diagram/@childNodes.3"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@childNodes.1"
-        child="//@diagram/@links.3"
-        referenceType="out_target"
-        groupName="outgoing links"
-        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@links.3"
-        child="//@diagram/@childNodes.7"
-        referenceType="in_source"
-        groupName="source"
-        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
-    <childReferences
-        parent="//@diagram/@childNodes.7"
+        parent="//@diagram/@childNodes.3"
         child="//@diagram/@links.3"
         referenceType="out_target"
         groupName="outgoing links"
@@ -1061,25 +1144,131 @@
         groupIcon="icons/linksNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@links.4"
+        child="//@diagram/@childNodes.2"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@links.4"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.4"
+        child="//@diagram/@childNodes.8"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@links.4"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.4"
+        child="//@diagram/@childNodes.2"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.2"
+        child="//@diagram/@links.4"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.4"
+        child="//@diagram/@childNodes.8"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.8"
+        child="//@diagram/@links.4"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.5"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.5"
+        child="//@diagram/@childNodes.1"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.1"
+        child="//@diagram/@links.5"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.5"
+        child="//@diagram/@childNodes.7"
+        referenceType="out_target"
+        groupName="target"
+        groupIcon="icons/linkTargetNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.7"
+        child="//@diagram/@links.5"
+        referenceType="in_source"
+        groupName="incoming links"
+        groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.5"
+        child="//@diagram/@childNodes.1"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.1"
+        child="//@diagram/@links.5"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.5"
+        child="//@diagram/@childNodes.7"
+        referenceType="in_source"
+        groupName="source"
+        groupIcon="icons/linkSourceNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@childNodes.7"
+        child="//@diagram/@links.5"
+        referenceType="out_target"
+        groupName="outgoing links"
+        groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram"
+        child="//@diagram/@links.6"
+        groupName="links"
+        groupIcon="icons/linksNavigatorGroup.gif"/>
+    <childReferences
+        parent="//@diagram/@links.6"
         child="//@diagram/@childNodes.5"
         referenceType="out_target"
         groupName="target"
         groupIcon="icons/linkTargetNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@childNodes.5"
-        child="//@diagram/@links.4"
+        child="//@diagram/@links.6"
         referenceType="in_source"
         groupName="incoming links"
         groupIcon="icons/incomingLinksNavigatorGroup.gif"/>
     <childReferences
-        parent="//@diagram/@links.4"
+        parent="//@diagram/@links.6"
         child="//@diagram/@childNodes.6"
         referenceType="in_source"
         groupName="source"
         groupIcon="icons/linkSourceNavigatorGroup.gif"/>
     <childReferences
         parent="//@diagram/@childNodes.6"
-        child="//@diagram/@links.4"
+        child="//@diagram/@links.6"
         referenceType="out_target"
         groupName="outgoing links"
         groupIcon="icons/outgoingLinksNavigatorGroup.gif"/>
@@ -1110,7 +1299,7 @@
       extensibleViaService="true">
     <implementations
         xsi:type="gmfgen:PredefinedParser"
-        uses="//@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
+        uses="//@diagram/@childNodes.1/@labels.0/@modelFacet //@diagram/@childNodes.2/@labels.0/@modelFacet //@diagram/@childNodes.3/@labels.0/@modelFacet //@diagram/@childNodes.4/@labels.0/@modelFacet //@diagram/@childNodes.5/@labels.0/@modelFacet //@diagram/@childNodes.6/@labels.0/@modelFacet //@diagram/@childNodes.0/@labels.0/@modelFacet //@diagram/@childNodes.7/@labels.0/@modelFacet //@diagram/@childNodes.8/@labels.0/@modelFacet //@diagram/@childNodes.9/@labels.0/@modelFacet //@diagram/@topLevelNodes.0/@labels.0/@modelFacet"/>
   </labelParsers>
   <contextMenus
       context="//@diagram">

@@ -22,7 +22,10 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorReorientCommand;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSourceConnectorCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSourceConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
@@ -59,6 +62,14 @@ public class SourceRoleItemSemanticEditPolicy extends
 		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
 			Edge outgoingLink = (Edge) it.next();
 			if (PalladioComponentModelVisualIDRegistry
+					.getVisualID(outgoingLink) == EventChannelSourceConnectorEditPart.VISUAL_ID) {
+				DestroyElementRequest r = new DestroyElementRequest(
+						outgoingLink.getElement(), false);
+				cmd.add(new DestroyElementCommand(r));
+				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+				continue;
+			}
+			if (PalladioComponentModelVisualIDRegistry
 					.getVisualID(outgoingLink) == AssemblyEventConnectorEditPart.VISUAL_ID) {
 				DestroyElementRequest r = new DestroyElementRequest(
 						outgoingLink.getElement(), false);
@@ -92,14 +103,18 @@ public class SourceRoleItemSemanticEditPolicy extends
 	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req
 				.getElementType()) {
-			return req.getTarget() == null ? getStartCreateRelationshipCommandAssemblyEventConnector(req)
+			return req.getTarget() == null ? getStartCreateRelationshipCommandEventConnectors(req)
+					: null;
+		} else if (PalladioComponentModelElementTypes.EventChannelSourceConnector_4009 == req
+				.getElementType()) {
+			return req.getTarget() == null ? getStartCreateRelationshipCommandEventConnectors(req)
 					: null;
 		}
 		return super.getCreateRelationshipCommand(req);
 	}
 
 	/**
-	 * Helper to create an instance of an outgoing assembly event connector.
+	 * Helper to create an instance of an outgoing event connector.
 	 * 
 	 * @param req
 	 *            The request describing the command to be created.
@@ -107,7 +122,7 @@ public class SourceRoleItemSemanticEditPolicy extends
 	 * 
 	 * @generated not
 	 */
-	protected Command getStartCreateRelationshipCommandAssemblyEventConnector(
+	protected Command getStartCreateRelationshipCommandEventConnectors(
 			CreateRelationshipRequest req) {
 		EObject sourceEObject = req.getSource();
 		if (false == sourceEObject instanceof SourceRole) {
@@ -122,6 +137,11 @@ public class SourceRoleItemSemanticEditPolicy extends
 		}
 		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
 				.canCreateAssemblyEventConnector_4007(container, source, null)) {
+			return UnexecutableCommand.INSTANCE;
+		}
+		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+				.canCreateEventChannelSourceConnector_4009(container, source,
+						null)) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		req.setParameter("SOURCE_CONTEXT", ((View) getHost().getParent()
@@ -139,6 +159,11 @@ public class SourceRoleItemSemanticEditPolicy extends
 	 */
 	protected Command getStartCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
+		if (PalladioComponentModelElementTypes.EventChannelSourceConnector_4009 == req
+				.getElementType()) {
+			return getGEFWrapper(new EventChannelSourceConnectorCreateCommand(
+					req, req.getSource(), req.getTarget()));
+		}
 		if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req
 				.getElementType()) {
 			return getGEFWrapper(new AssemblyEventConnectorCreateCommand(req,
@@ -156,6 +181,10 @@ public class SourceRoleItemSemanticEditPolicy extends
 	 */
 	protected Command getCompleteCreateRelationshipCommand(
 			CreateRelationshipRequest req) {
+		if (PalladioComponentModelElementTypes.EventChannelSourceConnector_4009 == req
+				.getElementType()) {
+			return null;
+		}
 		if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req
 				.getElementType()) {
 			return null;
@@ -174,6 +203,9 @@ public class SourceRoleItemSemanticEditPolicy extends
 	protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return getGEFWrapper(new EventChannelSourceConnectorReorientCommand(
+					req));
 		case AssemblyEventConnectorEditPart.VISUAL_ID:
 			return getGEFWrapper(new AssemblyEventConnectorReorientCommand(req));
 		}

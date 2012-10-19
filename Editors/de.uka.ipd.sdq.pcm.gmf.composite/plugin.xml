@@ -272,8 +272,8 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
       <viewProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="CompositeModel"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2002,3006,3007,3008,3013,3014,3015,3016,3011,3012"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4004,4007,4005,4006,4008"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2002,3006,3007,3008,3013,3014,3015,3016,3011,3012,3017"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4010,4009,4004,4007,4005,4006,4008"/>
       </viewProvider>
    </extension>
 
@@ -285,13 +285,13 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <method name="getType()" value="CompositeModel"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2002,3006,3007,3008,3013,3014,3015,3016,3011,3012"/>
+            <method name="getType()" value="2002,3006,3007,3008,3013,3014,3015,3016,3011,3012,3017"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
-            <method name="getType()" value="4004,4007,4005,4006,4008"/>
+            <method name="getType()" value="4010,4009,4004,4007,4005,4006,4008"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5012,5009,5007,5008,5015,5016,5017,5018,5013,5014"/>
+            <method name="getType()" value="5012,5009,5007,5008,5015,5016,5017,5018,5013,5014,5019"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
             <method name="getType()" value="7002"/>
@@ -435,6 +435,36 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0">
          <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.composite.EventChannel_3017"
+               name="%metatype.name.EventChannel_3017"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EventChannel"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers.EventChannelEditHelper">
+            <param name="semanticHint" value="3017"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSinkConnector_4010"
+               name="%metatype.name.EventChannelSinkConnector_4010"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EventChannelSinkConnector"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers.EventChannelSinkConnectorEditHelper">
+            <param name="semanticHint" value="4010"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSourceConnector_4009"
+               name="%metatype.name.EventChannelSourceConnector_4009"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               eclass="EventChannelSourceConnector"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers.EventChannelSourceConnectorEditHelper">
+            <param name="semanticHint" value="4009"/>
+         </metamodelType>
+      </metamodel>
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0">
+         <metamodelType
                id="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4004"
                name="%metatype.name.AssemblyConnector_4004"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
@@ -506,6 +536,9 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureRequiredRole_3016"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.OperationProvidedRole_3011"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3012"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.EventChannel_3017"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSinkConnector_4010"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSourceConnector_4009"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4004"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.AssemblyEventConnector_4007"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.RequiredDelegationConnector_4005"/>
@@ -714,8 +747,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
       <super type="org.eclipse.core.resources.problemmarker"/>
       <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
       <persistent value="true"/>
-   </extension>
-<extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+   </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
       <?gmfgen generated="true"?>
       <decoratorProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelValidationDecoratorProvider">
          <Priority name="Lowest"/>

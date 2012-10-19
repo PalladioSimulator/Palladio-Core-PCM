@@ -21,6 +21,10 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEnt
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
@@ -215,6 +219,10 @@ public class PalladioComponentModelVisualIDRegistry {
 					.isSuperTypeOf(domainElement.eClass())) {
 				return AssemblyContextEditPart.VISUAL_ID;
 			}
+			if (CompositionPackage.eINSTANCE.getEventChannel().isSuperTypeOf(
+					domainElement.eClass())) {
+				return EventChannelEditPart.VISUAL_ID;
+			}
 			break;
 		case ComposedProvidingRequiringEntityEditPart.VISUAL_ID:
 			if (EntityPackage.eINSTANCE.getComposedProvidingRequiringEntity()
@@ -331,8 +339,16 @@ public class PalladioComponentModelVisualIDRegistry {
 				return true;
 			}
 			break;
+		case EventChannelEditPart.VISUAL_ID:
+			if (EventChannelEntityNameEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			break;
 		case ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart.VISUAL_ID:
 			if (AssemblyContextEditPart.VISUAL_ID == nodeVisualID) {
+				return true;
+			}
+			if (EventChannelEditPart.VISUAL_ID == nodeVisualID) {
 				return true;
 			}
 			break;
@@ -355,6 +371,14 @@ public class PalladioComponentModelVisualIDRegistry {
 	public static int getLinkWithClassVisualID(EObject domainElement) {
 		if (domainElement == null) {
 			return -1;
+		}
+		if (CompositionPackage.eINSTANCE.getEventChannelSinkConnector()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return EventChannelSinkConnectorEditPart.VISUAL_ID;
+		}
+		if (CompositionPackage.eINSTANCE.getEventChannelSourceConnector()
+				.isSuperTypeOf(domainElement.eClass())) {
+			return EventChannelSourceConnectorEditPart.VISUAL_ID;
 		}
 		if (CompositionPackage.eINSTANCE.getAssemblyConnector().isSuperTypeOf(
 				domainElement.eClass())) {

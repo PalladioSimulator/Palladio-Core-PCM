@@ -22,6 +22,9 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
@@ -32,6 +35,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnect
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntity2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart;
@@ -210,6 +216,17 @@ public class PalladioComponentModelDiagramUpdater {
 				continue;
 			}
 		}
+		for (Iterator it = modelElement.getEventChannel__ComposedStructure()
+				.iterator(); it.hasNext();) {
+			EventChannel childElement = (EventChannel) it.next();
+			int visualID = PalladioComponentModelVisualIDRegistry
+					.getNodeVisualID(view, childElement);
+			if (visualID == EventChannelEditPart.VISUAL_ID) {
+				result.add(new PalladioComponentModelNodeDescriptor(
+						childElement, visualID));
+				continue;
+			}
+		}
 		return result;
 	}
 
@@ -288,6 +305,12 @@ public class PalladioComponentModelDiagramUpdater {
 			return getOperationProvidedRole_3011ContainedLinks(view);
 		case OperationRequiredRole2EditPart.VISUAL_ID:
 			return getOperationRequiredRole_3012ContainedLinks(view);
+		case EventChannelEditPart.VISUAL_ID:
+			return getEventChannel_3017ContainedLinks(view);
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return getEventChannelSinkConnector_4010ContainedLinks(view);
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return getEventChannelSourceConnector_4009ContainedLinks(view);
 		case AssemblyConnectorEditPart.VISUAL_ID:
 			return getAssemblyConnector_4004ContainedLinks(view);
 		case AssemblyEventConnectorEditPart.VISUAL_ID:
@@ -331,6 +354,12 @@ public class PalladioComponentModelDiagramUpdater {
 			return getOperationProvidedRole_3011IncomingLinks(view);
 		case OperationRequiredRole2EditPart.VISUAL_ID:
 			return getOperationRequiredRole_3012IncomingLinks(view);
+		case EventChannelEditPart.VISUAL_ID:
+			return getEventChannel_3017IncomingLinks(view);
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return getEventChannelSinkConnector_4010IncomingLinks(view);
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return getEventChannelSourceConnector_4009IncomingLinks(view);
 		case AssemblyConnectorEditPart.VISUAL_ID:
 			return getAssemblyConnector_4004IncomingLinks(view);
 		case AssemblyEventConnectorEditPart.VISUAL_ID:
@@ -374,6 +403,12 @@ public class PalladioComponentModelDiagramUpdater {
 			return getOperationProvidedRole_3011OutgoingLinks(view);
 		case OperationRequiredRole2EditPart.VISUAL_ID:
 			return getOperationRequiredRole_3012OutgoingLinks(view);
+		case EventChannelEditPart.VISUAL_ID:
+			return getEventChannel_3017OutgoingLinks(view);
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return getEventChannelSinkConnector_4010OutgoingLinks(view);
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return getEventChannelSourceConnector_4009OutgoingLinks(view);
 		case AssemblyConnectorEditPart.VISUAL_ID:
 			return getAssemblyConnector_4004OutgoingLinks(view);
 		case AssemblyEventConnectorEditPart.VISUAL_ID:
@@ -401,6 +436,10 @@ public class PalladioComponentModelDiagramUpdater {
 				.getElement();
 		List result = new LinkedList();
 		result
+				.addAll(getContainedTypeModelFacetLinks_EventChannelSinkConnector_4010(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_EventChannelSourceConnector_4009(modelElement));
+		result
 				.addAll(getContainedTypeModelFacetLinks_AssemblyConnector_4004(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_AssemblyEventConnector_4007(modelElement));
@@ -425,6 +464,10 @@ public class PalladioComponentModelDiagramUpdater {
 		ComposedProvidingRequiringEntity modelElement = (ComposedProvidingRequiringEntity) view
 				.getElement();
 		List result = new LinkedList();
+		result
+				.addAll(getContainedTypeModelFacetLinks_EventChannelSinkConnector_4010(modelElement));
+		result
+				.addAll(getContainedTypeModelFacetLinks_EventChannelSourceConnector_4009(modelElement));
 		result
 				.addAll(getContainedTypeModelFacetLinks_AssemblyConnector_4004(modelElement));
 		result
@@ -544,6 +587,28 @@ public class PalladioComponentModelDiagramUpdater {
 	 *
 	 * @param view the view
 	 * @return the assembly connector_4004 contained links
+	 * @generated
+	 */
+	public static List getEventChannel_3017ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEventChannelSinkConnector_4010ContainedLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEventChannelSourceConnector_4009ContainedLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
 	 * @generated
 	 */
 	public static List getAssemblyConnector_4004ContainedLinks(View view) {
@@ -766,6 +831,38 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @return the assembly connector_4004 incoming links
 	 * @generated
 	 */
+	public static List getEventChannel_3017IncomingLinks(View view) {
+		EventChannel modelElement = (EventChannel) view.getElement();
+		Map crossReferences = EcoreUtil.CrossReferencer.find(view.eResource()
+				.getResourceSet().getResources());
+		List result = new LinkedList();
+		result
+				.addAll(getIncomingTypeModelFacetLinks_EventChannelSinkConnector_4010(
+						modelElement, crossReferences));
+		result
+				.addAll(getIncomingTypeModelFacetLinks_EventChannelSourceConnector_4009(
+						modelElement, crossReferences));
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEventChannelSinkConnector_4010IncomingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEventChannelSourceConnector_4009IncomingLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getAssemblyConnector_4004IncomingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -885,6 +982,8 @@ public class PalladioComponentModelDiagramUpdater {
 		SourceRole modelElement = (SourceRole) view.getElement();
 		List result = new LinkedList();
 		result
+				.addAll(getOutgoingTypeModelFacetLinks_EventChannelSourceConnector_4009(modelElement));
+		result
 				.addAll(getOutgoingTypeModelFacetLinks_AssemblyEventConnector_4007(modelElement));
 		return result;
 	}
@@ -897,7 +996,11 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @generated
 	 */
 	public static List getSinkRole_3014OutgoingLinks(View view) {
-		return Collections.EMPTY_LIST;
+		SinkRole modelElement = (SinkRole) view.getElement();
+		List result = new LinkedList();
+		result
+				.addAll(getOutgoingTypeModelFacetLinks_EventChannelSinkConnector_4010(modelElement));
+		return result;
 	}
 
 	/**
@@ -968,6 +1071,28 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @return the assembly connector_4004 outgoing links
 	 * @generated
 	 */
+	public static List getEventChannel_3017OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEventChannelSinkConnector_4010OutgoingLinks(View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
+	public static List getEventChannelSourceConnector_4009OutgoingLinks(
+			View view) {
+		return Collections.EMPTY_LIST;
+	}
+
+	/**
+	 * @generated
+	 */
 	public static List getAssemblyConnector_4004OutgoingLinks(View view) {
 		return Collections.EMPTY_LIST;
 	}
@@ -1024,6 +1149,68 @@ public class PalladioComponentModelDiagramUpdater {
 	 *
 	 * @param container the container
 	 * @return the contained type model facet links_ assembly connector_4004
+	 * @generated
+	 */
+	private static Collection getContainedTypeModelFacetLinks_EventChannelSinkConnector_4010(
+			ComposedStructure container) {
+		Collection result = new LinkedList();
+		for (Iterator links = container.getConnectors__ComposedStructure()
+				.iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof EventChannelSinkConnector) {
+				continue;
+			}
+			EventChannelSinkConnector link = (EventChannelSinkConnector) linkObject;
+			if (EventChannelSinkConnectorEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			EventChannel dst = link
+					.getEventChannel__EventChannelSinkConnector();
+			SinkRole src = link.getSinkRole__EventChannelSinkConnector();
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							src,
+							dst,
+							link,
+							PalladioComponentModelElementTypes.EventChannelSinkConnector_4010,
+							EventChannelSinkConnectorEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getContainedTypeModelFacetLinks_EventChannelSourceConnector_4009(
+			ComposedStructure container) {
+		Collection result = new LinkedList();
+		for (Iterator links = container.getConnectors__ComposedStructure()
+				.iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof EventChannelSourceConnector) {
+				continue;
+			}
+			EventChannelSourceConnector link = (EventChannelSourceConnector) linkObject;
+			if (EventChannelSourceConnectorEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			EventChannel dst = link
+					.getEventChannel__EventChannelSourceConnector();
+			SourceRole src = link.getSourceRole__EventChannelSourceRole();
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							src,
+							dst,
+							link,
+							PalladioComponentModelElementTypes.EventChannelSourceConnector_4009,
+							EventChannelSourceConnectorEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
 	 * @generated
 	 */
 	private static Collection getContainedTypeModelFacetLinks_AssemblyConnector_4004(
@@ -1199,6 +1386,72 @@ public class PalladioComponentModelDiagramUpdater {
 	 * @param target the target
 	 * @param crossReferences the cross references
 	 * @return the incoming type model facet links_ assembly connector_4004
+	 * @generated
+	 */
+	private static Collection getIncomingTypeModelFacetLinks_EventChannelSinkConnector_4010(
+			EventChannel target, Map crossReferences) {
+		Collection result = new LinkedList();
+		Collection settings = (Collection) crossReferences.get(target);
+		for (Iterator it = settings.iterator(); it.hasNext();) {
+			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
+					.next();
+			if (setting.getEStructuralFeature() != CompositionPackage.eINSTANCE
+					.getEventChannelSinkConnector_EventChannel__EventChannelSinkConnector()
+					|| false == setting.getEObject() instanceof EventChannelSinkConnector) {
+				continue;
+			}
+			EventChannelSinkConnector link = (EventChannelSinkConnector) setting
+					.getEObject();
+			if (EventChannelSinkConnectorEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			SinkRole src = link.getSinkRole__EventChannelSinkConnector();
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							src,
+							target,
+							link,
+							PalladioComponentModelElementTypes.EventChannelSinkConnector_4010,
+							EventChannelSinkConnectorEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getIncomingTypeModelFacetLinks_EventChannelSourceConnector_4009(
+			EventChannel target, Map crossReferences) {
+		Collection result = new LinkedList();
+		Collection settings = (Collection) crossReferences.get(target);
+		for (Iterator it = settings.iterator(); it.hasNext();) {
+			EStructuralFeature.Setting setting = (EStructuralFeature.Setting) it
+					.next();
+			if (setting.getEStructuralFeature() != CompositionPackage.eINSTANCE
+					.getEventChannelSourceConnector_EventChannel__EventChannelSourceConnector()
+					|| false == setting.getEObject() instanceof EventChannelSourceConnector) {
+				continue;
+			}
+			EventChannelSourceConnector link = (EventChannelSourceConnector) setting
+					.getEObject();
+			if (EventChannelSourceConnectorEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			SourceRole src = link.getSourceRole__EventChannelSourceRole();
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							src,
+							target,
+							link,
+							PalladioComponentModelElementTypes.EventChannelSourceConnector_4009,
+							EventChannelSourceConnectorEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
 	 * @generated
 	 */
 	private static Collection getIncomingTypeModelFacetLinks_AssemblyConnector_4004(
@@ -1388,6 +1641,100 @@ public class PalladioComponentModelDiagramUpdater {
 	 *
 	 * @param source the source
 	 * @return the outgoing type model facet links_ assembly connector_4004
+	 * @generated
+	 */
+	private static Collection getOutgoingTypeModelFacetLinks_EventChannelSinkConnector_4010(
+			SinkRole source) {
+		ComposedStructure container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof ComposedStructure) {
+				container = (ComposedStructure) element;
+			}
+		}
+		if (container == null) {
+			return Collections.EMPTY_LIST;
+		}
+		Collection result = new LinkedList();
+		for (Iterator links = container.getConnectors__ComposedStructure()
+				.iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof EventChannelSinkConnector) {
+				continue;
+			}
+			EventChannelSinkConnector link = (EventChannelSinkConnector) linkObject;
+			if (EventChannelSinkConnectorEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			EventChannel dst = link
+					.getEventChannel__EventChannelSinkConnector();
+			SinkRole src = link.getSinkRole__EventChannelSinkConnector();
+			if (src != source) {
+				continue;
+			}
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							src,
+							dst,
+							link,
+							PalladioComponentModelElementTypes.EventChannelSinkConnector_4010,
+							EventChannelSinkConnectorEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
+	 * @generated
+	 */
+	private static Collection getOutgoingTypeModelFacetLinks_EventChannelSourceConnector_4009(
+			SourceRole source) {
+		ComposedStructure container = null;
+		// Find container element for the link.
+		// Climb up by containment hierarchy starting from the source
+		// and return the first element that is instance of the container class.
+		for (EObject element = source; element != null && container == null; element = element
+				.eContainer()) {
+			if (element instanceof ComposedStructure) {
+				container = (ComposedStructure) element;
+			}
+		}
+		if (container == null) {
+			return Collections.EMPTY_LIST;
+		}
+		Collection result = new LinkedList();
+		for (Iterator links = container.getConnectors__ComposedStructure()
+				.iterator(); links.hasNext();) {
+			EObject linkObject = (EObject) links.next();
+			if (false == linkObject instanceof EventChannelSourceConnector) {
+				continue;
+			}
+			EventChannelSourceConnector link = (EventChannelSourceConnector) linkObject;
+			if (EventChannelSourceConnectorEditPart.VISUAL_ID != PalladioComponentModelVisualIDRegistry
+					.getLinkWithClassVisualID(link)) {
+				continue;
+			}
+			EventChannel dst = link
+					.getEventChannel__EventChannelSourceConnector();
+			SourceRole src = link.getSourceRole__EventChannelSourceRole();
+			if (src != source) {
+				continue;
+			}
+			result
+					.add(new PalladioComponentModelLinkDescriptor(
+							src,
+							dst,
+							link,
+							PalladioComponentModelElementTypes.EventChannelSourceConnector_4009,
+							EventChannelSourceConnectorEditPart.VISUAL_ID));
+		}
+		return result;
+	}
+
+	/**
 	 * @generated
 	 */
 	private static Collection getOutgoingTypeModelFacetLinks_AssemblyConnector_4004(

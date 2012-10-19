@@ -294,6 +294,8 @@ public class SourceRoleEditPart extends BorderedBorderItemEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSource() {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
 		types
+				.add(PalladioComponentModelElementTypes.EventChannelSourceConnector_4009);
+		types
 				.add(PalladioComponentModelElementTypes.AssemblyEventConnector_4007);
 		return types;
 	}
@@ -308,6 +310,10 @@ public class SourceRoleEditPart extends BorderedBorderItemEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMARelTypesOnSourceAndTarget(
 			IGraphicalEditPart targetEditPart) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (targetEditPart instanceof EventChannelEditPart) {
+			types
+					.add(PalladioComponentModelElementTypes.EventChannelSourceConnector_4009);
+		}
 		if (targetEditPart instanceof SinkRoleEditPart) {
 			types
 					.add(PalladioComponentModelElementTypes.AssemblyEventConnector_4007);
@@ -325,6 +331,9 @@ public class SourceRoleEditPart extends BorderedBorderItemEditPart {
 	public List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/getMATypesForTarget(
 			IElementType relationshipType) {
 		List/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/types = new ArrayList/*<org.eclipse.gmf.runtime.emf.type.core.IElementType>*/();
+		if (relationshipType == PalladioComponentModelElementTypes.EventChannelSourceConnector_4009) {
+			types.add(PalladioComponentModelElementTypes.EventChannel_3017);
+		}
 		if (relationshipType == PalladioComponentModelElementTypes.AssemblyEventConnector_4007) {
 			types.add(PalladioComponentModelElementTypes.SinkRole_3014);
 		}

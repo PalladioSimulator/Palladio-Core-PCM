@@ -15,8 +15,11 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
@@ -51,6 +54,15 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
 					result.add(assemblyContext);
 				}
 			}
+			for (EventChannel eventChannel : ((ComposedStructure) modelObject)
+					.getEventChannel__ComposedStructure()) {
+
+				int channelNodeVID = PalladioComponentModelVisualIDRegistry
+						.getNodeVisualID(viewObject, eventChannel);
+				if (EventChannelEditPart.VISUAL_ID == channelNodeVID) {
+					result.add(eventChannel);
+				}
+			}
 		}
 		return result;
 	}
@@ -67,6 +79,7 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
 		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
 		switch (visualID) {
 		case AssemblyContextEditPart.VISUAL_ID:
+		case EventChannelEditPart.VISUAL_ID:
 			if (!semanticChildren.contains(view.getElement())) {
 				return true;
 			}
@@ -96,6 +109,8 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
 			myFeaturesToSynchronize
 					.add(EntityPackage.eINSTANCE
 							.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
+			myFeaturesToSynchronize.add(CompositionPackage.eINSTANCE
+					.getComposedStructure_EventChannel__ComposedStructure());
 		}
 		return myFeaturesToSynchronize;
 	}

@@ -55,6 +55,10 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEnt
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
@@ -195,6 +199,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				case SinkRoleEditPart.VISUAL_ID:
 				case InfrastructureProvidedRoleEditPart.VISUAL_ID:
 				case InfrastructureRequiredRoleEditPart.VISUAL_ID:
+				case EventChannelEditPart.VISUAL_ID:
 				case ComposedProvidingRequiringEntity2EditPart.VISUAL_ID:
 				case OperationProvidedRole2EditPart.VISUAL_ID:
 				case OperationRequiredRole2EditPart.VISUAL_ID:
@@ -219,7 +224,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 				|| InfrastructureProvidedRoleEditPart.VISUAL_ID == visualID
 				|| InfrastructureRequiredRoleEditPart.VISUAL_ID == visualID
 				|| OperationProvidedRole2EditPart.VISUAL_ID == visualID
-				|| OperationRequiredRole2EditPart.VISUAL_ID == visualID;
+				|| OperationRequiredRole2EditPart.VISUAL_ID == visualID
+				|| EventChannelEditPart.VISUAL_ID == visualID;
 	}
 
 	/**
@@ -327,6 +333,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		case OperationRequiredRole2EditPart.VISUAL_ID:
 			return createOperationRequiredRole_3012(domainElement,
 					containerView, index, persisted, preferencesHint);
+		case EventChannelEditPart.VISUAL_ID:
+			return createEventChannel_3017(domainElement, containerView, index,
+					persisted, preferencesHint);
 		}
 		// can't happen, provided #provides(CreateNodeViewOperation) is correct
 		return null;
@@ -351,6 +360,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 		String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
 		switch (PalladioComponentModelVisualIDRegistry
 				.getVisualID(elementTypeHint)) {
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return createEventChannelSinkConnector_4010(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return createEventChannelSourceConnector_4009(
+					getSemanticElement(semanticAdapter), containerView, index,
+					persisted, preferencesHint);
 		case AssemblyConnectorEditPart.VISUAL_ID:
 			return createAssemblyConnector_4004(
 					getSemanticElement(semanticAdapter), containerView, index,
@@ -977,6 +994,154 @@ public class PalladioComponentModelViewProvider extends AbstractProvider
 	 * @param persisted the persisted
 	 * @param preferencesHint the preferences hint
 	 * @return the edge
+	 * @generated
+	 */
+	public Node createEventChannel_3017(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Shape node = NotationFactory.eINSTANCE.createShape();
+		node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+		node.setType(PalladioComponentModelVisualIDRegistry
+				.getType(EventChannelEditPart.VISUAL_ID));
+		ViewUtil.insertChildView(containerView, node, index, persisted);
+		node.setElement(domainElement);
+		// initializeFromPreferences 
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle nodeFontStyle = (FontStyle) node
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (nodeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			nodeFontStyle.setFontName(fontData.getName());
+			nodeFontStyle.setFontHeight(fontData.getHeight());
+			nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_FILL_COLOR);
+		ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE
+				.getFillStyle_FillColor(), FigureUtilities
+				.RGBToInteger(fillRGB));
+		Node label5019 = createLabel(node,
+				PalladioComponentModelVisualIDRegistry
+						.getType(EventChannelEntityNameEditPart.VISUAL_ID));
+		return node;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createEventChannelSinkConnector_4010(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList points = new ArrayList(2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(PalladioComponentModelVisualIDRegistry
+				.getType(EventChannelSinkConnectorEditPart.VISUAL_ID));
+		edge.setElement(domainElement);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+					.getRoutingStyle_Routing(), routing);
+		}
+		return edge;
+	}
+
+	/**
+	 * @generated
+	 */
+	public Edge createEventChannelSourceConnector_4009(EObject domainElement,
+			View containerView, int index, boolean persisted,
+			PreferencesHint preferencesHint) {
+		Connector edge = NotationFactory.eINSTANCE.createConnector();
+		edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
+		RelativeBendpoints bendpoints = NotationFactory.eINSTANCE
+				.createRelativeBendpoints();
+		ArrayList points = new ArrayList(2);
+		points.add(new RelativeBendpoint());
+		points.add(new RelativeBendpoint());
+		bendpoints.setPoints(points);
+		edge.setBendpoints(bendpoints);
+		ViewUtil.insertChildView(containerView, edge, index, persisted);
+		edge.setType(PalladioComponentModelVisualIDRegistry
+				.getType(EventChannelSourceConnectorEditPart.VISUAL_ID));
+		edge.setElement(domainElement);
+		// initializePreferences
+		final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint
+				.getPreferenceStore();
+
+		org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(
+				prefStore, IPreferenceConstants.PREF_LINE_COLOR);
+		ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+				.getLineStyle_LineColor(), FigureUtilities
+				.RGBToInteger(lineRGB));
+		FontStyle edgeFontStyle = (FontStyle) edge
+				.getStyle(NotationPackage.Literals.FONT_STYLE);
+		if (edgeFontStyle != null) {
+			FontData fontData = PreferenceConverter.getFontData(prefStore,
+					IPreferenceConstants.PREF_DEFAULT_FONT);
+			edgeFontStyle.setFontName(fontData.getName());
+			edgeFontStyle.setFontHeight(fontData.getHeight());
+			edgeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+			edgeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+			org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter
+					.getColor(prefStore, IPreferenceConstants.PREF_FONT_COLOR);
+			edgeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB)
+					.intValue());
+		}
+		Routing routing = Routing.get(prefStore
+				.getInt(IPreferenceConstants.PREF_LINE_STYLE));
+		if (routing != null) {
+			ViewUtil.setStructuralFeatureValue(edge, NotationPackage.eINSTANCE
+					.getRoutingStyle_Routing(), routing);
+		}
+		return edge;
+	}
+
+	/**
 	 * @generated
 	 */
 	public Edge createAssemblyConnector_4004(EObject domainElement,

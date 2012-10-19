@@ -37,6 +37,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers.PalladioComponentModelBaseEditHelper;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
@@ -437,6 +438,32 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 	public static class LinkConstraints {
 
 		/**
+		 * Can create EventChannelSinkConnector_4010.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
+		 * @generated
+		 */
+		public static boolean canCreateEventChannelSinkConnector_4010(
+				ComposedStructure container, SinkRole source,
+				EventChannel target) {
+			return canExistEventChannelSinkConnector_4010(container, source,
+					target);
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canCreateEventChannelSourceConnector_4009(
+				ComposedStructure container, SourceRole source,
+				EventChannel target) {
+			return canExistEventChannelSourceConnector_4009(container, source,
+					target);
+		}
+
+		/**
 		 * Can create assembly connector_4004.
 		 *
 		 * @param container the container
@@ -515,12 +542,39 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends
 		}
 
 		/**
+<<<<<<< .mine
 		 * Can exist assembly connector_4004.
 		 *
 		 * @param container the container
 		 * @param source the source
 		 * @param target the target
 		 * @return true, if successful
+		 * @generated
+		 */
+		public static boolean canExistEventChannelSinkConnector_4010(
+				ComposedStructure container, SinkRole source,
+				EventChannel target) {
+			return true;
+		}
+
+		/**
+		 * @generated
+		 */
+		public static boolean canExistEventChannelSourceConnector_4009(
+				ComposedStructure container, SourceRole source,
+				EventChannel target) {
+			return true;
+		}
+
+		/**
+=======
+		 * Can exist assembly connector_4004.
+		 *
+		 * @param container the container
+		 * @param source the source
+		 * @param target the target
+		 * @return true, if successful
+>>>>>>> .r16773
 		 * @generated
 		 */
 		public static boolean canExistAssemblyConnector_4004(

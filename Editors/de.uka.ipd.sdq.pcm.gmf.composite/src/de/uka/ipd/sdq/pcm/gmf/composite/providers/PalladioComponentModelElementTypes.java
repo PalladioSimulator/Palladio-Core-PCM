@@ -27,6 +27,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPar
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntity2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSourceConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart;
@@ -98,6 +101,21 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 	public static final IElementType OperationRequiredRole_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3012"); //$NON-NLS-1$
 
 	/** The Constant AssemblyConnector_4004. @generated */
+	public static final IElementType EventChannel_3017 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.EventChannel_3017"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EventChannelSinkConnector_4010 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSinkConnector_4010"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
+	public static final IElementType EventChannelSourceConnector_4009 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSourceConnector_4009"); //$NON-NLS-1$
+
+	/**
+	 * @generated
+	 */
 	public static final IElementType AssemblyConnector_4004 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4004"); //$NON-NLS-1$
 
 	/** The Constant AssemblyEventConnector_4007. @generated */
@@ -291,6 +309,18 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			elements.put(OperationRequiredRole_3012,
 					RepositoryPackage.eINSTANCE.getOperationRequiredRole());
 
+			elements.put(EventChannel_3017, CompositionPackage.eINSTANCE
+					.getEventChannel());
+
+			elements
+					.put(EventChannelSinkConnector_4010,
+							CompositionPackage.eINSTANCE
+									.getEventChannelSinkConnector());
+
+			elements.put(EventChannelSourceConnector_4009,
+					CompositionPackage.eINSTANCE
+							.getEventChannelSourceConnector());
+
 			elements.put(AssemblyConnector_4004, CompositionPackage.eINSTANCE
 					.getAssemblyConnector());
 
@@ -344,6 +374,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			KNOWN_ELEMENT_TYPES.add(InfrastructureRequiredRole_3016);
 			KNOWN_ELEMENT_TYPES.add(OperationProvidedRole_3011);
 			KNOWN_ELEMENT_TYPES.add(OperationRequiredRole_3012);
+			KNOWN_ELEMENT_TYPES.add(EventChannel_3017);
+			KNOWN_ELEMENT_TYPES.add(EventChannelSinkConnector_4010);
+			KNOWN_ELEMENT_TYPES.add(EventChannelSourceConnector_4009);
 			KNOWN_ELEMENT_TYPES.add(AssemblyConnector_4004);
 			KNOWN_ELEMENT_TYPES.add(AssemblyEventConnector_4007);
 			KNOWN_ELEMENT_TYPES.add(RequiredDelegationConnector_4005);
@@ -384,6 +417,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 			return OperationProvidedRole_3011;
 		case OperationRequiredRole2EditPart.VISUAL_ID:
 			return OperationRequiredRole_3012;
+		case EventChannelEditPart.VISUAL_ID:
+			return EventChannel_3017;
+		case EventChannelSinkConnectorEditPart.VISUAL_ID:
+			return EventChannelSinkConnector_4010;
+		case EventChannelSourceConnectorEditPart.VISUAL_ID:
+			return EventChannelSourceConnector_4009;
 		case AssemblyConnectorEditPart.VISUAL_ID:
 			return AssemblyConnector_4004;
 		case AssemblyEventConnectorEditPart.VISUAL_ID:

@@ -103,9 +103,21 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 			case OperationRequiredRoleEntityName2EditPart.VISUAL_ID:
 				return new OperationRequiredRoleEntityName2EditPart(view);
 
+			case EventChannelEditPart.VISUAL_ID:
+				return new EventChannelEditPart(view);
+
+			case EventChannelEntityNameEditPart.VISUAL_ID:
+				return new EventChannelEntityNameEditPart(view);
+
 			case ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart.VISUAL_ID:
 				return new ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart(
 						view);
+
+			case EventChannelSinkConnectorEditPart.VISUAL_ID:
+				return new EventChannelSinkConnectorEditPart(view);
+
+			case EventChannelSourceConnectorEditPart.VISUAL_ID:
+				return new EventChannelSourceConnectorEditPart(view);
 
 			case AssemblyConnectorEditPart.VISUAL_ID:
 				return new AssemblyConnectorEditPart(view);

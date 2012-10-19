@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntity2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart;
@@ -79,6 +80,7 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		if (editPart instanceof ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) {
 			ArrayList types = new ArrayList(1);
 			types.add(PalladioComponentModelElementTypes.AssemblyContext_3006);
+			types.add(PalladioComponentModelElementTypes.EventChannel_3017);
 			return types;
 		}
 		if (editPart instanceof ComposedProvidingRequiringEntityEditPart) {
@@ -108,6 +110,9 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		if (sourceEditPart instanceof SourceRoleEditPart) {
 			return ((SourceRoleEditPart) sourceEditPart)
 					.getMARelTypesOnSource();
+		}
+		if (sourceEditPart instanceof SinkRoleEditPart) {
+			return ((SinkRoleEditPart) sourceEditPart).getMARelTypesOnSource();
 		}
 		if (sourceEditPart instanceof InfrastructureRequiredRoleEditPart) {
 			return ((InfrastructureRequiredRoleEditPart) sourceEditPart)
@@ -157,6 +162,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((OperationRequiredRole2EditPart) targetEditPart)
 					.getMARelTypesOnTarget();
 		}
+		if (targetEditPart instanceof EventChannelEditPart) {
+			return ((EventChannelEditPart) targetEditPart)
+					.getMARelTypesOnTarget();
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -184,6 +193,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		}
 		if (sourceEditPart instanceof SourceRoleEditPart) {
 			return ((SourceRoleEditPart) sourceEditPart)
+					.getMARelTypesOnSourceAndTarget(targetEditPart);
+		}
+		if (sourceEditPart instanceof SinkRoleEditPart) {
+			return ((SinkRoleEditPart) sourceEditPart)
 					.getMARelTypesOnSourceAndTarget(targetEditPart);
 		}
 		if (sourceEditPart instanceof InfrastructureRequiredRoleEditPart) {
@@ -237,6 +250,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 			return ((OperationRequiredRole2EditPart) targetEditPart)
 					.getMATypesForSource(relationshipType);
 		}
+		if (targetEditPart instanceof EventChannelEditPart) {
+			return ((EventChannelEditPart) targetEditPart)
+					.getMATypesForSource(relationshipType);
+		}
 		return Collections.EMPTY_LIST;
 	}
 
@@ -262,6 +279,10 @@ public class PalladioComponentModelModelingAssistantProvider extends
 		}
 		if (sourceEditPart instanceof SourceRoleEditPart) {
 			return ((SourceRoleEditPart) sourceEditPart)
+					.getMATypesForTarget(relationshipType);
+		}
+		if (sourceEditPart instanceof SinkRoleEditPart) {
+			return ((SinkRoleEditPart) sourceEditPart)
 					.getMATypesForTarget(relationshipType);
 		}
 		if (sourceEditPart instanceof InfrastructureRequiredRoleEditPart) {

@@ -47,6 +47,7 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createAssemblyContext1CreationTool());
 		paletteContainer.add(createSystemOperationRequiredRole2CreationTool());
 		paletteContainer.add(createSystemOperationProvidedRole3CreationTool());
+		paletteContainer.add(createEventChannel4CreationTool());
 		return paletteContainer;
 	}
 
@@ -68,6 +69,8 @@ public class PalladioComponentModelPaletteFactory {
 		paletteContainer.add(createAssemblyEventConnector4CreationTool());
 		paletteContainer
 				.add(createOperationProvidedDelegationConnector5CreationTool());
+		paletteContainer.add(createEventChannelSourceConnector6CreationTool());
+		paletteContainer.add(createEventChannelSinkConnector7CreationTool());
 		return paletteContainer;
 	}
 
@@ -129,6 +132,26 @@ public class PalladioComponentModelPaletteFactory {
 		entry
 				.setSmallIcon(PalladioComponentModelElementTypes
 						.getImageDescriptor(PalladioComponentModelElementTypes.OperationProvidedRole_3011));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * Creates a new PalladioComponentModelPalette object.
+	 *
+	 * @return the tool entry
+	 * @generated
+	 */
+	private ToolEntry createEventChannel4CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types.add(PalladioComponentModelElementTypes.EventChannel_3017);
+		NodeToolEntry entry = new NodeToolEntry(
+				Messages.EventChannel4CreationTool_title,
+				Messages.EventChannel4CreationTool_desc, types);
+		entry.setId("createEventChannel4CreationTool"); //$NON-NLS-1$
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.EventChannel_3017));
 		entry.setLargeIcon(entry.getSmallIcon());
 		return entry;
 	}
@@ -241,8 +264,49 @@ public class PalladioComponentModelPaletteFactory {
 	}
 
 	/**
+<<<<<<< .mine
 	 * The Class NodeToolEntry.
 	 *
+	 * @generated
+	 */
+	private ToolEntry createEventChannelSourceConnector6CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.EventChannelSourceConnector_4009);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.EventChannelSourceConnector6CreationTool_title,
+				Messages.EventChannelSourceConnector6CreationTool_desc, types);
+		entry.setId("createEventChannelSourceConnector6CreationTool"); //$NON-NLS-1$
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.EventChannelSourceConnector_4009));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+	 * @generated
+	 */
+	private ToolEntry createEventChannelSinkConnector7CreationTool() {
+		List/*<IElementType>*/types = new ArrayList/*<IElementType>*/(1);
+		types
+				.add(PalladioComponentModelElementTypes.EventChannelSinkConnector_4010);
+		LinkToolEntry entry = new LinkToolEntry(
+				Messages.EventChannelSinkConnector7CreationTool_title,
+				Messages.EventChannelSinkConnector7CreationTool_desc, types);
+		entry.setId("createEventChannelSinkConnector7CreationTool"); //$NON-NLS-1$
+		entry
+				.setSmallIcon(PalladioComponentModelElementTypes
+						.getImageDescriptor(PalladioComponentModelElementTypes.EventChannelSinkConnector_4010));
+		entry.setLargeIcon(entry.getSmallIcon());
+		return entry;
+	}
+
+	/**
+=======
+	 * The Class NodeToolEntry.
+	 *
+>>>>>>> .r16773
 	 * @generated
 	 */
 	private static class NodeToolEntry extends ToolEntry {
