@@ -5,11 +5,12 @@ import org.apache.commons.math.transform.FastFourierTransformer;
 
 import de.uka.ipd.sdq.measurement.strategies.activeresource.AbstractDemandStrategy;
 import de.uka.ipd.sdq.measurement.strategies.activeresource.ResourceTypeEnum;
-//import flanagan.complex.Complex;
-//import flanagan.math.FourierTransform;
 
+/**
+ * @TODO This DemandStrategy was not tested after changing it to use apache.math
+ */
 public class FFTDemand extends AbstractDemandStrategy {
-
+    
 	private FastFourierTransformer ft;
 
 	public FFTDemand() {
@@ -60,7 +61,6 @@ public class FFTDemand extends AbstractDemandStrategy {
     private static int nextPowerOfTwo(final int i) {
         return Integer.highestOneBit(i) << 1;
     }
-    
     
     /**
      * Find the smallest power of two smaller than the input value
