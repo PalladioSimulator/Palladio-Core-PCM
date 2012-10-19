@@ -62,6 +62,7 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
             case CustomResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
                 return new CustomResourceContainerAllocationCompartmentEditPart(view); // use custom
                                                                                        // edit part
+            default:
             }
         }
         return createUnrecognizedEditPart(context, model);
