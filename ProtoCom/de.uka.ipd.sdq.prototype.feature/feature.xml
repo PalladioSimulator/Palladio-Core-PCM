@@ -225,11 +225,11 @@ litigation.
       <import plugin="org.apache.commons.cli"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.variables" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="uc.ac.ucl.ee.flanagan"/>
       <import plugin="org.jscience"/>
       <import plugin="de.uka.ipd.sdq.pcm"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
+      <import plugin="org.apache.commons.math"/>
    </requires>
 
    <plugin
