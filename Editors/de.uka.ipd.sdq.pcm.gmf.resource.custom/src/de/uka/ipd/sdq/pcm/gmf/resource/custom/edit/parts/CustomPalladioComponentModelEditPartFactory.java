@@ -92,6 +92,7 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
             case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
                 return new LinkingResourceConnectedResourceContainers_LinkingResourceEditPart(view);
 
+            default:
             }
         }
         return createUnrecognizedEditPart(context, model);
