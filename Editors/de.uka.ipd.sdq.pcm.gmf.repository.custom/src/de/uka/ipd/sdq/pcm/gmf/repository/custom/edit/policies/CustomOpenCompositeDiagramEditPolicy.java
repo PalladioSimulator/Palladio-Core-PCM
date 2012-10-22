@@ -53,12 +53,12 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
      */
     protected Command getOpenCommand(Request request) {
         EditPart targetEditPart = getTargetEditPart(request);
-        if (false == targetEditPart.getModel() instanceof View) {
+        if (!(targetEditPart.getModel() instanceof View)) {
             return null;
         }
         View view = (View) targetEditPart.getModel();
         Style link = view.getStyle(NotationPackage.eINSTANCE.getHintedDiagramLinkStyle());
-        if (false == link instanceof HintedDiagramLinkStyle) {
+        if (!(link instanceof HintedDiagramLinkStyle)) {
             return null;
         }
         return new ICommandProxy(new OpenDiagramCommand((HintedDiagramLinkStyle) link));

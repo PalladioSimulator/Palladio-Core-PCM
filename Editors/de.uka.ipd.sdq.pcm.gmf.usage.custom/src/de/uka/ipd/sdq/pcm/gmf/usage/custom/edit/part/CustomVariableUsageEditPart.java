@@ -44,7 +44,8 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
     @Override
     protected IFigure createNodeShape() {
         CustomParametricParameterUsageFigure figure = new CustomParametricParameterUsageFigure();
-        return primaryShape = figure;
+        primaryShape = figure;
+        return primaryShape;
     }
 
     /**
