@@ -51,7 +51,6 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
         final ResourceSet resourceSet = request.getElementToConfigure().eResource().getResourceSet();
         final PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(shell, filterList,
                 additionalReferences, resourceSet);
-        dialog.setProvidedService(AssemblyContext.class);
         return dialog;
     }
 
@@ -65,18 +64,25 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
      * @return the command corresponding to the selection
      */
     private ICommand createCommandFromSelection(final ConfigureRequest request, final PalladioSelectEObjectDialog dialog) {
-        AssemblyContext resource;
         if (dialog.getResult() == null) {
             return new CanceledCommand();
         }
-        if (!(dialog.getResult() instanceof AssemblyContext)) {
+        if (!(dialog.getResult() instanceof AssemblyContext) && !(dialog.getResult() instanceof EventChannel)) {
             return new CanceledCommand();
         }
-        resource = (AssemblyContext) dialog.getResult();
+        if (dialog.getResult() instanceof AssemblyContext){
+        	AssemblyContext resource = (AssemblyContext) dialog.getResult();
+        	final CompositeCommand cc = this.constructInitializationAssemblyContextCommand(request, resource);
+        	return cc;
+        
+        }
+        else if (dialog.getResult() instanceof EventChannel){
+        	EventChannel resource= (EventChannel) dialog.getResult();
+        	final CompositeCommand cc = this.constructInitializationEventChannelCommand(request, resource);
+        	return cc;
+        }
 
-        final CompositeCommand cc = this.constructInitializationCommand(request, resource);
-
-        return cc;
+        return new CanceledCommand();
     }
 
     /**
@@ -88,7 +94,7 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
      *            the resource the allocation is to be associated with
      * @return the composite command containing all necessary commands
      */
-    private CompositeCommand constructInitializationCommand(final ConfigureRequest request,
+    private CompositeCommand constructInitializationAssemblyContextCommand(final ConfigureRequest request,
             final AssemblyContext resource) {
         final ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
                 AllocationPackage.eINSTANCE.getAllocationContext_AssemblyContext_AllocationContext(), resource));
@@ -106,4 +112,20 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
         cc.add(cmd2);
         return cc;
     }
+    
+    private CompositeCommand constructInitializationEventChannelCommand(final ConfigureRequest request,
+            final EventChannel resource) {
+        final ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                AllocationPackage.eINSTANCE.getAllocationContext_EventChannel__AllocationContext(), resource));
+
+        String allocationName = "Allocation_" + resource.getEntityName();
+        final ICommand cmd2 = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                EntityPackage.eINSTANCE.getNamedElement_EntityName(), allocationName));
+
+        final CompositeCommand cc = new CompositeCommand("Configure Allocation Context");
+        cc.add(cmd);
+        cc.add(cmd2);
+        return cc;
+    }
+    
 }
