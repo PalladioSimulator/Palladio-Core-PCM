@@ -30,7 +30,8 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
     @Override
     protected IFigure createNodeShape() {
         ParametricParameterUsageFigure2 figure = new ParametricParameterUsageFigure2();
-        return primaryShape = figure;
+        primaryShape = figure;
+        return primaryShape;
     }
 
     // I left the @generated tags in, so it is clear what part(s) of the class has been modified.
