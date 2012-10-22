@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<de.uka.ipd.sdq.regexp:SystemModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq.regexp="http:///regexp.sdq.ipd.uka.de">
+  <processes numReplicas="20" name="Customer">
+    <behaviour xsi:type="de.uka.ipd.sdq.regexp:Sequence">
+      <leftRegExp xsi:type="de.uka.ipd.sdq.regexp:Sleep" result="">
+        <inputVal xsi:type="de.uka.ipd.sdq.regexp:FixedDistributionFunction" distance="1.0">
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.0</samplingPoints>
+          <samplingPoints>0.1</samplingPoints>
+          <samplingPoints>0.2</samplingPoints>
+          <samplingPoints>0.5</samplingPoints>
+          <samplingPoints>0.2</samplingPoints>
+        </inputVal>
+      </leftRegExp>
+      <rightRegExp xsi:type="de.uka.ipd.sdq.regexp:Sequence">
+        <leftRegExp xsi:type="de.uka.ipd.sdq.regexp:Sequence">
+          <leftRegExp xsi:type="de.uka.ipd.sdq.regexp:Acquire" result="" resource="//@resources.0"/>
+          <rightRegExp xsi:type="de.uka.ipd.sdq.regexp:Terminal" symbol="sym">
+            <inputValue xsi:type="de.uka.ipd.sdq.regexp:FixedDistributionFunction" distance="1.0">
+              <samplingPoints>0.0</samplingPoints>
+              <samplingPoints>0.0</samplingPoints>
+              <samplingPoints>0.0</samplingPoints>
+              <samplingPoints>0.2</samplingPoints>
+              <samplingPoints>0.3</samplingPoints>
+              <samplingPoints>0.1</samplingPoints>
+              <samplingPoints>0.4</samplingPoints>
+            </inputValue>
+          </rightRegExp>
+        </leftRegExp>
+        <rightRegExp xsi:type="de.uka.ipd.sdq.regexp:Release" resource="//@resources.0"/>
+      </rightRegExp>
+    </behaviour>
+  </processes>
+  <resources xsi:type="de.uka.ipd.sdq.regexp:Semaphore" numReplicas="1" name="Queue"/>
+</de.uka.ipd.sdq.regexp:SystemModel>
