@@ -18,23 +18,25 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class ResourceContainerAllocationCompartmentItemSemanticEditPolicy extends
-        PalladioComponentModelBaseItemSemanticEditPolicy {
+public class ResourceContainerAllocationCompartmentItemSemanticEditPolicy
+		extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated not
-     * 
-     * @param req a CreateElementRequest
-     * @return a CreateCommand
-     */
-    protected Command getCreateCommand(CreateElementRequest req) {
-        if (PalladioComponentModelElementTypes.AllocationContext_3001 == req.getElementType()) {
-            if (req.getContainmentFeature() == null) {
-                req.setContainmentFeature(AllocationPackage.eINSTANCE.getAllocation_AllocationContexts_Allocation());
-            }
-            Allocation a = (Allocation) ((View) getHost().getParent().getParent().getModel()).getElement();
-            return getMSLWrapper(new AllocationContextCreateCommand(req, a));
-        }
-        return super.getCreateCommand(req);
-    }
+	/**
+	 * @generated
+	 */
+	public ResourceContainerAllocationCompartmentItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.ResourceContainer_2003);
+	}
+
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (PalladioComponentModelElementTypes.AllocationContext_3002 == req
+				.getElementType()) {
+			return getGEFWrapper(new AllocationContextCreateCommand(req));
+		}
+		return super.getCreateCommand(req);
+	}
+
 }

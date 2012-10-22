@@ -1,7 +1,7 @@
-# Debugging options for the de.uka.ipd.sdq.pcm.gmf.allocation plug-in
+# Tracing options for the de.uka.ipd.sdq.pcm.gmf.allocation plug-in
 
-# Turn on general debugging for the de.uka.ipd.sdq.pcm.gmf.allocation plug-in
+# Common issues
 de.uka.ipd.sdq.pcm.gmf.allocation/debug=false
 
-# Turn on debugging of visualID processing
-de.uka.ipd.sdq.pcm.gmf.allocation/debug/visualID=true
+# Visual IDs
+de.uka.ipd.sdq.pcm.gmf.allocation/debug/visualID=false

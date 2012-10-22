@@ -12,6 +12,7 @@ import org.eclipse.gef.EditPartFactory;
 import org.eclipse.gef.tools.CellEditorLocator;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrapLabel;
+import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.swt.SWT;
@@ -24,138 +25,145 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelVisualIDRegi
  */
 public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
-    /**
-     * @generated
-     */
-    public EditPart createEditPart(EditPart context, Object model) {
-        if (model instanceof View) {
-            View view = (View) model;
-            switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
+	/**
+	 * @generated
+	 */
+	public EditPart createEditPart(EditPart context, Object model) {
+		if (model instanceof View) {
+			View view = (View) model;
+			switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
 
-            case AllocationEditPart.VISUAL_ID:
-                return new AllocationEditPart(view);
+			case AllocationEditPart.VISUAL_ID:
+				return new AllocationEditPart(view);
 
-            case ResourceContainerEditPart.VISUAL_ID:
-                return new ResourceContainerEditPart(view);
+			case ResourceContainerEditPart.VISUAL_ID:
+				return new ResourceContainerEditPart(view);
 
-            case ResourceContainerEntityNameEditPart.VISUAL_ID:
-                return new ResourceContainerEntityNameEditPart(view);
+			case ResourceContainerEntityNameEditPart.VISUAL_ID:
+				return new ResourceContainerEntityNameEditPart(view);
 
-            case AllocationContextEditPart.VISUAL_ID:
-                return new AllocationContextEditPart(view);
+			case AllocationContextEditPart.VISUAL_ID:
+				return new AllocationContextEditPart(view);
 
-            case AllocationContextEntityNameEditPart.VISUAL_ID:
-                return new AllocationContextEntityNameEditPart(view);
+			case AllocationContextEntityNameEditPart.VISUAL_ID:
+				return new AllocationContextEntityNameEditPart(view);
 
-            case AllocationComponentLabelEditPart.VISUAL_ID:
-                return new AllocationComponentLabelEditPart(view);
+			case AllocationComponentLabelEditPart.VISUAL_ID:
+				return new AllocationComponentLabelEditPart(view);
 
-            case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
-                return new ResourceContainerAllocationCompartmentEditPart(view);
-            }
-        }
-        return createUnrecognizedEditPart(context, model);
-    }
+			case ResourceContainerAllocationCompartmentEditPart.VISUAL_ID:
+				return new ResourceContainerAllocationCompartmentEditPart(view);
+			}
+		}
+		return createUnrecognizedEditPart(context, model);
+	}
 
-    /**
-     * @generated
-     */
-    private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
-        // Handle creation of unrecognized child node EditParts here
-        return null;
-    }
+	/**
+	 * @generated
+	 */
+	private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
+		// Handle creation of unrecognized child node EditParts here
+		return null;
+	}
 
-    /**
-     * @generated
-     */
-    public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
-        if (source.getFigure() instanceof WrapLabel)
-            return new TextCellEditorLocator((WrapLabel) source.getFigure());
-        else {
-            return new LabelCellEditorLocator((Label) source.getFigure());
-        }
-    }
+	/**
+	 * @generated
+	 */
+	public static CellEditorLocator getTextCellEditorLocator(
+			ITextAwareEditPart source) {
+		if (source.getFigure() instanceof WrappingLabel)
+			return new TextCellEditorLocator((WrappingLabel) source.getFigure());
+		else {
+			return new LabelCellEditorLocator((Label) source.getFigure());
+		}
+	}
 
-    /**
-     * @generated
-     */
-    static private class TextCellEditorLocator implements CellEditorLocator {
+	/**
+	 * @generated
+	 */
+	static private class TextCellEditorLocator implements CellEditorLocator {
 
-        /**
-         * @generated
-         */
-        private WrapLabel wrapLabel;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel wrapLabel;
 
-        /**
-         * @generated
-         */
-        public TextCellEditorLocator(WrapLabel wrapLabel) {
-            this.wrapLabel = wrapLabel;
-        }
+		/**
+		 * @generated
+		 */
+		public TextCellEditorLocator(WrappingLabel wrapLabel) {
+			this.wrapLabel = wrapLabel;
+		}
 
-        /**
-         * @generated
-         */
-        public WrapLabel getWrapLabel() {
-            return wrapLabel;
-        }
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getWrapLabel() {
+			return wrapLabel;
+		}
 
-        /**
-         * @generated
-         */
-        public void relocate(CellEditor celleditor) {
-            Text text = (Text) celleditor.getControl();
-            Rectangle rect = getWrapLabel().getTextBounds().getCopy();
-            getWrapLabel().translateToAbsolute(rect);
-            if (getWrapLabel().isTextWrapped() && getWrapLabel().getText().length() > 0) {
-                rect.setSize(new Dimension(text.computeSize(rect.width, SWT.DEFAULT)));
-            } else {
-                int avr = FigureUtilities.getFontMetrics(text.getFont()).getAverageCharWidth();
-                rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT, SWT.DEFAULT)).expand(avr * 2, 0));
-            }
-            if (!rect.equals(new Rectangle(text.getBounds()))) {
-                text.setBounds(rect.x, rect.y, rect.width, rect.height);
-            }
-        }
+		/**
+		 * @generated
+		 */
+		public void relocate(CellEditor celleditor) {
+			Text text = (Text) celleditor.getControl();
+			Rectangle rect = getWrapLabel().getTextBounds().getCopy();
+			getWrapLabel().translateToAbsolute(rect);
+			if (getWrapLabel().isTextWrapOn()
+					&& getWrapLabel().getText().length() > 0) {
+				rect.setSize(new Dimension(text.computeSize(rect.width,
+						SWT.DEFAULT)));
+			} else {
+				int avr = FigureUtilities.getFontMetrics(text.getFont())
+						.getAverageCharWidth();
+				rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
+						SWT.DEFAULT)).expand(avr * 2, 0));
+			}
+			if (!rect.equals(new Rectangle(text.getBounds()))) {
+				text.setBounds(rect.x, rect.y, rect.width, rect.height);
+			}
+		}
 
-    }
+	}
 
-    /**
-     * @generated
-     */
-    private static class LabelCellEditorLocator implements CellEditorLocator {
+	/**
+	 * @generated
+	 */
+	private static class LabelCellEditorLocator implements CellEditorLocator {
 
-        /**
-         * @generated
-         */
-        private Label label;
+		/**
+		 * @generated
+		 */
+		private Label label;
 
-        /**
-         * @generated
-         */
-        public LabelCellEditorLocator(Label label) {
-            this.label = label;
-        }
+		/**
+		 * @generated
+		 */
+		public LabelCellEditorLocator(Label label) {
+			this.label = label;
+		}
 
-        /**
-         * @generated
-         */
-        public Label getLabel() {
-            return label;
-        }
+		/**
+		 * @generated
+		 */
+		public Label getLabel() {
+			return label;
+		}
 
-        /**
-         * @generated
-         */
-        public void relocate(CellEditor celleditor) {
-            Text text = (Text) celleditor.getControl();
-            Rectangle rect = getLabel().getTextBounds().getCopy();
-            getLabel().translateToAbsolute(rect);
-            int avr = FigureUtilities.getFontMetrics(text.getFont()).getAverageCharWidth();
-            rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT, SWT.DEFAULT)).expand(avr * 2, 0));
-            if (!rect.equals(new Rectangle(text.getBounds()))) {
-                text.setBounds(rect.x, rect.y, rect.width, rect.height);
-            }
-        }
-    }
+		/**
+		 * @generated
+		 */
+		public void relocate(CellEditor celleditor) {
+			Text text = (Text) celleditor.getControl();
+			Rectangle rect = getLabel().getTextBounds().getCopy();
+			getLabel().translateToAbsolute(rect);
+			int avr = FigureUtilities.getFontMetrics(text.getFont())
+					.getAverageCharWidth();
+			rect.setSize(new Dimension(text.computeSize(SWT.DEFAULT,
+					SWT.DEFAULT)).expand(avr * 2, 0));
+			if (!rect.equals(new Rectangle(text.getBounds()))) {
+				text.setBounds(rect.x, rect.y, rect.width, rect.height);
+			}
+		}
+	}
 }

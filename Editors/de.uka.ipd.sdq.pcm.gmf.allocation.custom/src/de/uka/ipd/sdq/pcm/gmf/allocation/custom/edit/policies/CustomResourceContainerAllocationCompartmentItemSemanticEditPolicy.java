@@ -21,14 +21,18 @@ public class CustomResourceContainerAllocationCompartmentItemSemanticEditPolicy 
      * @param req a CreateElementRequest
      * @return the CreateCommand
      */
-    protected Command getCreateCommand(CreateElementRequest req) {
-        if (PalladioComponentModelElementTypes.AllocationContext_3001 == req.getElementType()) {
-            if (req.getContainmentFeature() == null) {
-                req.setContainmentFeature(AllocationPackage.eINSTANCE.getAllocation_AllocationContexts_Allocation());
-            }
-            Allocation a = (Allocation) ((View) getHost().getParent().getParent().getModel()).getElement();
-            return getMSLWrapper(new AllocationContextCreateCommand(req, a));
-        }
-        return super.getCreateCommand(req);
-    }
+    
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (PalladioComponentModelElementTypes.AllocationContext_3002 == req
+				.getElementType()) {
+			if (req.getContainmentFeature() == null) {
+				req.setContainmentFeature(AllocationPackage.eINSTANCE
+						.getAllocation_AllocationContexts_Allocation());
+			}
+			Allocation a = (Allocation) ((View) getHost().getParent()
+					.getParent().getModel()).getElement();
+			return getGEFWrapper(new AllocationContextCreateCommand(req, a));
+		}
+		return super.getCreateCommand(req);
+	}
 }

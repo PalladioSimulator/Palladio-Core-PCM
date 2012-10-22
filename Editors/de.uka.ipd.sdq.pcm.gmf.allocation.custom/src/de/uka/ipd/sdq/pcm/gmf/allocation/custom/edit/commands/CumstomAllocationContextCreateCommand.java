@@ -2,11 +2,18 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.commands;
 
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.core.commands.ExecutionException;
+import org.eclipse.core.runtime.IAdaptable;
+import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
+import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
+import de.uka.ipd.sdq.pcm.allocation.AllocationFactory;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCommand;
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**
  * a custom AllocationContext CreateCommand.
@@ -36,4 +43,25 @@ public class CumstomAllocationContextCreateCommand extends AllocationContextCrea
         }
         return container;
     }
+    
+/**
+ * Extended to automatically set the ressourceContainer Reference
+ */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		AllocationContext newElement = AllocationFactory.eINSTANCE
+				.createAllocationContext();
+
+		newElement				.setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this
+						.getRequest()).getContainer());
+
+		Allocation owner = (Allocation) getElementToEdit();
+		owner.getAllocationContexts_Allocation().add(newElement);
+
+		doConfigure(newElement, monitor, info);
+
+		((CreateElementRequest) getRequest()).setNewElement(newElement);
+		return CommandResult.newOKCommandResult(newElement);
+	}
+
 }

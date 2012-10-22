@@ -9,20 +9,20 @@
                class="de.uka.ipd.sdq.pcm.gmf.allocation.helper.AllocationContextEditHelperAdvice"
                id="de.uka.ipd.sdq.pcm.gmf.allocation.AllocationContextAdvice"
                inheritance="all"
-               typeId="de.uka.ipd.sdq.pcm.gmf.allocation.AllocationContext_3001">
+               typeId="de.uka.ipd.sdq.pcm.gmf.allocation.AllocationContext_3002">
          </adviceBinding>
 	</metamodel>
 	</extension>
    <extension
          point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
-      <clientContext id="allocationClientContext">
+      <clientContext id="de.uka.ipd.sdq.pcm.gmf.allocation.TypeContext">
          <enablement>
             <test
                property="org.eclipse.gmf.runtime.emf.core.editingDomain"
                value="de.uka.ipd.sdq.pcm.gmf.allocation.EditingDomain"/>
          </enablement>
       </clientContext> 
-      <binding context="allocationClientContext">
+      <binding context="de.uka.ipd.sdq.pcm.gmf.allocation.TypeContext">
          <advice
                ref="de.uka.ipd.sdq.pcm.gmf.allocation.AllocationContextAdvice">
          </advice>

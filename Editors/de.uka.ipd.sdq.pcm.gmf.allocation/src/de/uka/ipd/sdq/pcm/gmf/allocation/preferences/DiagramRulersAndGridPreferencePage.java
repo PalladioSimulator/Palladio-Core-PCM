@@ -12,10 +12,11 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelAllocationDi
  */
 public class DiagramRulersAndGridPreferencePage extends RulerGridPreferencePage {
 
-    /**
-     * @generated
-     */
-    public DiagramRulersAndGridPreferencePage() {
-        setPreferenceStore(PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().getPreferenceStore());
-    }
+	/**
+	 * @generated
+	 */
+	public DiagramRulersAndGridPreferencePage() {
+		setPreferenceStore(PalladioComponentModelAllocationDiagramEditorPlugin
+				.getInstance().getPreferenceStore());
+	}
 }

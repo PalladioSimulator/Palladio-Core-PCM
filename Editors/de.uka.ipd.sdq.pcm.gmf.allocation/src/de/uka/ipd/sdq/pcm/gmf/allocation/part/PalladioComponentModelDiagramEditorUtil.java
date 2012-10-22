@@ -24,6 +24,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.SubProgressMonitor;
+import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.xmi.XMIResource;
@@ -61,350 +62,462 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
  * @generated
  */
 public class PalladioComponentModelDiagramEditorUtil {
-    /**
-     * @generated
-     */
-    public static Map getSaveOptions() {
-        Map saveOptions = new HashMap();
-        saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
-        saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
-        return saveOptions;
-    }
+	/**
+	 * @generated
+	 */
+	public static Map getSaveOptions() {
+		Map saveOptions = new HashMap();
+		saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+		saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED,
+				Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
+		return saveOptions;
+	}
 
-    /**
-     * @generated
-     */
-    public static boolean openDiagram(Resource diagram) throws PartInitException {
-        String path = diagram.getURI().toPlatformString(true);
-        IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot().findMember(new Path(path));
-        if (workspaceResource instanceof IFile) {
-            IWorkbenchPage page = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getActivePage();
-            return null != page.openEditor(new FileEditorInput((IFile) workspaceResource),
-                    PalladioComponentModelAllocationDiagramEditor.ID);
-        }
-        return false;
-    }
+	/**
+	 * @generated
+	 */
+	public static boolean openDiagram(Resource diagram)
+			throws PartInitException {
+		String path = diagram.getURI().toPlatformString(true);
+		IResource workspaceResource = ResourcesPlugin.getWorkspace().getRoot()
+				.findMember(new Path(path));
+		if (workspaceResource instanceof IFile) {
+			IWorkbenchPage page = PlatformUI.getWorkbench()
+					.getActiveWorkbenchWindow().getActivePage();
+			return null != page.openEditor(new FileEditorInput(
+					(IFile) workspaceResource),
+					PalladioComponentModelAllocationDiagramEditor.ID);
+		}
+		return false;
+	}
 
-    /**
-     * @generated
-     */
-    public static void setCharset(IFile file) {
-        if (file == null) {
-            return;
-        }
-        try {
-            file.setCharset("UTF-8", new NullProgressMonitor()); //$NON-NLS-1$
-        } catch (CoreException e) {
-            PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().logError(
-                    "Unable to set charset for file " + file.getFullPath(), e); //$NON-NLS-1$
-        }
-    }
+	/**
+	 * @generated
+	 */
+	public static void setCharset(IFile file) {
+		if (file == null) {
+			return;
+		}
+		try {
+			file.setCharset("UTF-8", new NullProgressMonitor()); //$NON-NLS-1$
+		} catch (CoreException e) {
+			PalladioComponentModelAllocationDiagramEditorPlugin
+					.getInstance()
+					.logError(
+							"Unable to set charset for file " + file.getFullPath(), e); //$NON-NLS-1$
+		}
+	}
 
-    /**
-     * @generated
-     */
-    public static String getUniqueFileName(IPath containerFullPath, String fileName, String extension) {
-        if (containerFullPath == null) {
-            containerFullPath = new Path(""); //$NON-NLS-1$
-        }
-        if (fileName == null || fileName.trim().length() == 0) {
-            fileName = "default"; //$NON-NLS-1$
-        }
-        IPath filePath = containerFullPath.append(fileName);
-        if (extension != null && !extension.equals(filePath.getFileExtension())) {
-            filePath = filePath.addFileExtension(extension);
-        }
-        extension = filePath.getFileExtension();
-        fileName = filePath.removeFileExtension().lastSegment();
-        int i = 1;
-        while (ResourcesPlugin.getWorkspace().getRoot().exists(filePath)) {
-            i++;
-            filePath = containerFullPath.append(fileName + i);
-            if (extension != null) {
-                filePath = filePath.addFileExtension(extension);
-            }
-        }
-        return filePath.lastSegment();
-    }
+	/**
+	 * @generated
+	 */
+	public static String getUniqueFileName(IPath containerFullPath,
+			String fileName, String extension) {
+		if (containerFullPath == null) {
+			containerFullPath = new Path(""); //$NON-NLS-1$
+		}
+		if (fileName == null || fileName.trim().length() == 0) {
+			fileName = "default"; //$NON-NLS-1$
+		}
+		IPath filePath = containerFullPath.append(fileName);
+		if (extension != null && !extension.equals(filePath.getFileExtension())) {
+			filePath = filePath.addFileExtension(extension);
+		}
+		extension = filePath.getFileExtension();
+		fileName = filePath.removeFileExtension().lastSegment();
+		int i = 1;
+		while (ResourcesPlugin.getWorkspace().getRoot().exists(filePath)) {
+			i++;
+			filePath = containerFullPath.append(fileName + i);
+			if (extension != null) {
+				filePath = filePath.addFileExtension(extension);
+			}
+		}
+		return filePath.lastSegment();
+	}
 
-    /**
-     * Runs the wizard in a dialog.
-     * 
-     * @generated
-     */
-    public static void runWizard(Shell shell, Wizard wizard, String settingsKey) {
-        IDialogSettings pluginDialogSettings = PalladioComponentModelAllocationDiagramEditorPlugin.getInstance()
-                .getDialogSettings();
-        IDialogSettings wizardDialogSettings = pluginDialogSettings.getSection(settingsKey);
-        if (wizardDialogSettings == null) {
-            wizardDialogSettings = pluginDialogSettings.addNewSection(settingsKey);
-        }
-        wizard.setDialogSettings(wizardDialogSettings);
-        WizardDialog dialog = new WizardDialog(shell, wizard);
-        dialog.create();
-        dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x), 500);
-        dialog.open();
-    }
+	/**
+	 * Runs the wizard in a dialog.
+	 * 
+	 * @generated
+	 */
+	public static void runWizard(Shell shell, Wizard wizard, String settingsKey) {
+		IDialogSettings pluginDialogSettings = PalladioComponentModelAllocationDiagramEditorPlugin
+				.getInstance().getDialogSettings();
+		IDialogSettings wizardDialogSettings = pluginDialogSettings
+				.getSection(settingsKey);
+		if (wizardDialogSettings == null) {
+			wizardDialogSettings = pluginDialogSettings
+					.addNewSection(settingsKey);
+		}
+		wizard.setDialogSettings(wizardDialogSettings);
+		WizardDialog dialog = new WizardDialog(shell, wizard);
+		dialog.create();
+		dialog.getShell().setSize(Math.max(500, dialog.getShell().getSize().x),
+				500);
+		dialog.open();
+	}
 
-    /**
-     * This method should be called within a workspace modify operation since it creates resources.
-     * 
-     * @generated not
-     *
-     * @param diagramURI the diagram's URI
-     * @param modelURI the model's URI
-     * @param mySystem a pcm System
-     * @param myResourceEnv a ResourceEnvironment
-     * @param progressMonitor an IProgressMonitor
-     * @return a diagram resource
-     */
-    public static Resource createDiagram(org.eclipse.emf.common.util.URI diagramURI,
-            org.eclipse.emf.common.util.URI modelURI, final de.uka.ipd.sdq.pcm.system.System mySystem,
-            final ResourceEnvironment myResourceEnv, IProgressMonitor progressMonitor) {
-        TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
-        progressMonitor.beginTask("Creating diagram and model files", 3);
-        final Resource diagramResource = editingDomain.getResourceSet().createResource(diagramURI);
-        final Resource modelResource = editingDomain.getResourceSet().createResource(modelURI);
-        final String diagramName = diagramURI.lastSegment();
-        AbstractTransactionalCommand command = new AbstractTransactionalCommand(editingDomain,
-                "Creating diagram and model", Collections.EMPTY_LIST) { //$NON-NLS-1$
-            protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
-                    throws ExecutionException {
-                Allocation model = createInitialModel();
-                model.setSystem_Allocation(mySystem);
-                model.setTargetResourceEnvironment_Allocation(myResourceEnv);
-                attachModelToResource(model, modelResource);
+	/**
+	 * This method should be called within a workspace modify operation since it creates resources.
+	 * @generated
+	 */
+	public static Resource createDiagram(URI diagramURI, URI modelURI,
+			IProgressMonitor progressMonitor) {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
+				.createEditingDomain();
+		progressMonitor
+				.beginTask(
+						Messages.PalladioComponentModelDiagramEditorUtil_CreateDiagramProgressTask,
+						3);
+		final Resource diagramResource = editingDomain.getResourceSet()
+				.createResource(diagramURI);
+		final Resource modelResource = editingDomain.getResourceSet()
+				.createResource(modelURI);
+		final String diagramName = diagramURI.lastSegment();
+		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
+				editingDomain,
+				Messages.PalladioComponentModelDiagramEditorUtil_CreateDiagramCommandLabel,
+				Collections.EMPTY_LIST) {
+			protected CommandResult doExecuteWithResult(
+					IProgressMonitor monitor, IAdaptable info)
+					throws ExecutionException {
+				Allocation model = createInitialModel();
+				attachModelToResource(model, modelResource);
 
-                Diagram diagram = ViewService.createDiagram(model, AllocationEditPart.MODEL_ID,
-                        PalladioComponentModelAllocationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-                if (diagram != null) {
-                    diagramResource.getContents().add(diagram);
-                    diagram.setName(diagramName);
-                    diagram.setElement(model);
-                }
+				Diagram diagram = ViewService
+						.createDiagram(
+								model,
+								AllocationEditPart.MODEL_ID,
+								PalladioComponentModelAllocationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+				if (diagram != null) {
+					diagramResource.getContents().add(diagram);
+					diagram.setName(diagramName);
+					diagram.setElement(model);
+				}
 
-                try {
-                    Map options = new HashMap();
-                    options.put(XMIResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
-                    modelResource.save(options);
-                    diagramResource.save(options);
-                } catch (IOException e) {
+				try {
+					modelResource
+							.save(de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelDiagramEditorUtil
+									.getSaveOptions());
+					diagramResource
+							.save(de.uka.ipd.sdq.pcm.gmf.allocation.part.PalladioComponentModelDiagramEditorUtil
+									.getSaveOptions());
+				} catch (IOException e) {
 
-                    PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().logError(
-                            "Unable to store model and diagram resources", e); //$NON-NLS-1$
-                }
-                return CommandResult.newOKCommandResult();
-            }
-        };
-        try {
-            OperationHistoryFactory.getOperationHistory().execute(command, new SubProgressMonitor(progressMonitor, 1),
-                    null);
-        } catch (ExecutionException e) {
-            PalladioComponentModelAllocationDiagramEditorPlugin.getInstance().logError(
-                    "Unable to create model and diagram", e); //$NON-NLS-1$
-        }
-        setCharset(WorkspaceSynchronizer.getFile(modelResource));
-        setCharset(WorkspaceSynchronizer.getFile(diagramResource));
-        return diagramResource;
-    }
+					PalladioComponentModelAllocationDiagramEditorPlugin
+							.getInstance()
+							.logError(
+									"Unable to store model and diagram resources", e); //$NON-NLS-1$
+				}
+				return CommandResult.newOKCommandResult();
+			}
+		};
+		try {
+			OperationHistoryFactory.getOperationHistory().execute(command,
+					new SubProgressMonitor(progressMonitor, 1), null);
+		} catch (ExecutionException e) {
+			PalladioComponentModelAllocationDiagramEditorPlugin.getInstance()
+					.logError("Unable to create model and diagram", e); //$NON-NLS-1$
+		}
+		setCharset(WorkspaceSynchronizer.getFile(modelResource));
+		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
+		return diagramResource;
+	}
 
-    /**
-     * Create a new instance of domain element associated with canvas. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @generated not
-     * 
-     * @return the initial model
-     */
-    private static Allocation createInitialModel() {
-        Allocation alloc = AllocationFactory.eINSTANCE.createAllocation();
+	/**
+	 * This method should be called within a workspace modify operation since it creates resources.
+	 * 
+	 * @generated not
+	 *
+	 * @param diagramURI the diagram's URI
+	 * @param modelURI the model's URI
+	 * @param mySystem a pcm System
+	 * @param myResourceEnv a ResourceEnvironment
+	 * @param progressMonitor an IProgressMonitor
+	 * @return a diagram resource
+	 */
+	public static Resource createDiagram(
+			org.eclipse.emf.common.util.URI diagramURI,
+			org.eclipse.emf.common.util.URI modelURI,
+			final de.uka.ipd.sdq.pcm.system.System mySystem,
+			final ResourceEnvironment myResourceEnv,
+			IProgressMonitor progressMonitor) {
+		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
+				.createEditingDomain();
+		progressMonitor.beginTask("Creating diagram and model files", 3);
+		final Resource diagramResource = editingDomain.getResourceSet()
+				.createResource(diagramURI);
+		final Resource modelResource = editingDomain.getResourceSet()
+				.createResource(modelURI);
+		final String diagramName = diagramURI.lastSegment();
+		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
+				editingDomain,
+				"Creating diagram and model", Collections.EMPTY_LIST) { //$NON-NLS-1$
+			protected CommandResult doExecuteWithResult(
+					IProgressMonitor monitor, IAdaptable info)
+					throws ExecutionException {
+				Allocation model = createInitialModel();
+				model.setSystem_Allocation(mySystem);
+				model.setTargetResourceEnvironment_Allocation(myResourceEnv);
+				attachModelToResource(model, modelResource);
 
-        // set default entity name
-        alloc.setEntityName("defaultAllocation"); //$NON-NLS-1$
+				Diagram diagram = ViewService
+						.createDiagram(
+								model,
+								AllocationEditPart.MODEL_ID,
+								PalladioComponentModelAllocationDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+				if (diagram != null) {
+					diagramResource.getContents().add(diagram);
+					diagram.setName(diagramName);
+					diagram.setElement(model);
+				}
 
-        return alloc;
-    }
+				try {
+					Map options = new HashMap();
+					options.put(XMIResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
+					modelResource.save(options);
+					diagramResource.save(options);
+				} catch (IOException e) {
 
-    /**
-     * Store model element in the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    private static void attachModelToResource(Allocation model, Resource resource) {
-        resource.getContents().add(model);
-    }
+					PalladioComponentModelAllocationDiagramEditorPlugin
+							.getInstance()
+							.logError(
+									"Unable to store model and diagram resources", e); //$NON-NLS-1$
+				}
+				return CommandResult.newOKCommandResult();
+			}
+		};
+		try {
+			OperationHistoryFactory.getOperationHistory().execute(command,
+					new SubProgressMonitor(progressMonitor, 1), null);
+		} catch (ExecutionException e) {
+			PalladioComponentModelAllocationDiagramEditorPlugin.getInstance()
+					.logError("Unable to create model and diagram", e); //$NON-NLS-1$
+		}
+		setCharset(WorkspaceSynchronizer.getFile(modelResource));
+		setCharset(WorkspaceSynchronizer.getFile(diagramResource));
+		return diagramResource;
+	}
 
-    /**
-     * @generated
-     */
-    public static void selectElementsInDiagram(IDiagramWorkbenchPart diagramPart, List/* EditPart */editParts) {
-        diagramPart.getDiagramGraphicalViewer().deselectAll();
+	/**
+	 * Create a new instance of domain element associated with canvas. <!-- begin-user-doc --> <!--
+	 * end-user-doc -->
+	 * 
+	 * @generated not
+	 * 
+	 * @return the initial model
+	 */
+	private static Allocation createInitialModel() {
+		Allocation alloc = AllocationFactory.eINSTANCE.createAllocation();
 
-        EditPart firstPrimary = null;
-        for (Iterator it = editParts.iterator(); it.hasNext();) {
-            EditPart nextPart = (EditPart) it.next();
-            diagramPart.getDiagramGraphicalViewer().appendSelection(nextPart);
-            if (firstPrimary == null && nextPart instanceof IPrimaryEditPart) {
-                firstPrimary = nextPart;
-            }
-        }
+		// set default entity name
+		alloc.setEntityName("defaultAllocation"); //$NON-NLS-1$
 
-        if (!editParts.isEmpty()) {
-            diagramPart.getDiagramGraphicalViewer().reveal(
-                    firstPrimary != null ? firstPrimary : (EditPart) editParts.get(0));
-        }
-    }
+		return alloc;
+	}
 
-    /**
-     * @generated
-     */
-    private static int findElementsInDiagramByID(DiagramEditPart diagramPart, EObject element, List editPartCollector) {
-        IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart.getViewer();
-        final int intialNumOfEditParts = editPartCollector.size();
+	/**
+	 * Store model element in the resource.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
+	private static void attachModelToResource(Allocation model,
+			Resource resource) {
+		resource.getContents().add(model);
+	}
 
-        if (element instanceof View) { // support notation element lookup
-            EditPart editPart = (EditPart) viewer.getEditPartRegistry().get(element);
-            if (editPart != null) {
-                editPartCollector.add(editPart);
-                return 1;
-            }
-        }
+	/**
+	 * @generated
+	 */
+	public static void selectElementsInDiagram(
+			IDiagramWorkbenchPart diagramPart, List/*EditPart*/editParts) {
+		diagramPart.getDiagramGraphicalViewer().deselectAll();
 
-        String elementID = EMFCoreUtil.getProxyID(element);
-        List associatedParts = viewer.findEditPartsForElement(elementID, IGraphicalEditPart.class);
-        // perform the possible hierarchy disjoint -> take the top-most parts only
-        for (Iterator editPartIt = associatedParts.iterator(); editPartIt.hasNext();) {
-            EditPart nextPart = (EditPart) editPartIt.next();
-            EditPart parentPart = nextPart.getParent();
-            while (parentPart != null && !associatedParts.contains(parentPart)) {
-                parentPart = parentPart.getParent();
-            }
-            if (parentPart == null) {
-                editPartCollector.add(nextPart);
-            }
-        }
+		EditPart firstPrimary = null;
+		for (Iterator it = editParts.iterator(); it.hasNext();) {
+			EditPart nextPart = (EditPart) it.next();
+			diagramPart.getDiagramGraphicalViewer().appendSelection(nextPart);
+			if (firstPrimary == null && nextPart instanceof IPrimaryEditPart) {
+				firstPrimary = nextPart;
+			}
+		}
 
-        if (intialNumOfEditParts == editPartCollector.size()) {
-            if (!associatedParts.isEmpty()) {
-                editPartCollector.add(associatedParts.iterator().next());
-            } else {
-                if (element.eContainer() != null) {
-                    return findElementsInDiagramByID(diagramPart, element.eContainer(), editPartCollector);
-                }
-            }
-        }
-        return editPartCollector.size() - intialNumOfEditParts;
-    }
+		if (!editParts.isEmpty()) {
+			diagramPart.getDiagramGraphicalViewer().reveal(
+					firstPrimary != null ? firstPrimary : (EditPart) editParts
+							.get(0));
+		}
+	}
 
-    /**
-     * @generated
-     */
-    public static View findView(DiagramEditPart diagramEditPart, EObject targetElement,
-            LazyElement2ViewMap lazyElement2ViewMap) {
-        boolean hasStructuralURI = false;
-        if (targetElement.eResource() instanceof XMLResource) {
-            hasStructuralURI = ((XMLResource) targetElement.eResource()).getID(targetElement) == null;
-        }
+	/**
+	 * @generated
+	 */
+	private static int findElementsInDiagramByID(DiagramEditPart diagramPart,
+			EObject element, List editPartCollector) {
+		IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart
+				.getViewer();
+		final int intialNumOfEditParts = editPartCollector.size();
 
-        View view = null;
-        if (hasStructuralURI && !lazyElement2ViewMap.getElement2ViewMap().isEmpty()) {
-            view = (View) lazyElement2ViewMap.getElement2ViewMap().get(targetElement);
-        } else if (findElementsInDiagramByID(diagramEditPart, targetElement, lazyElement2ViewMap.editPartTmpHolder) > 0) {
-            EditPart editPart = (EditPart) lazyElement2ViewMap.editPartTmpHolder.get(0);
-            lazyElement2ViewMap.editPartTmpHolder.clear();
-            view = editPart.getModel() instanceof View ? (View) editPart.getModel() : null;
-        }
+		if (element instanceof View) { // support notation element lookup
+			EditPart editPart = (EditPart) viewer.getEditPartRegistry().get(
+					element);
+			if (editPart != null) {
+				editPartCollector.add(editPart);
+				return 1;
+			}
+		}
 
-        return (view == null) ? diagramEditPart.getDiagramView() : view;
-    }
+		String elementID = EMFCoreUtil.getProxyID(element);
+		List associatedParts = viewer.findEditPartsForElement(elementID,
+				IGraphicalEditPart.class);
+		// perform the possible hierarchy disjoint -> take the top-most parts only
+		for (Iterator editPartIt = associatedParts.iterator(); editPartIt
+				.hasNext();) {
+			EditPart nextPart = (EditPart) editPartIt.next();
+			EditPart parentPart = nextPart.getParent();
+			while (parentPart != null && !associatedParts.contains(parentPart)) {
+				parentPart = parentPart.getParent();
+			}
+			if (parentPart == null) {
+				editPartCollector.add(nextPart);
+			}
+		}
 
-    /**
-     * @generated
-     */
-    public static class LazyElement2ViewMap {
-        /**
-         * @generated
-         */
-        private Map element2ViewMap;
+		if (intialNumOfEditParts == editPartCollector.size()) {
+			if (!associatedParts.isEmpty()) {
+				editPartCollector.add(associatedParts.iterator().next());
+			} else {
+				if (element.eContainer() != null) {
+					return findElementsInDiagramByID(diagramPart, element
+							.eContainer(), editPartCollector);
+				}
+			}
+		}
+		return editPartCollector.size() - intialNumOfEditParts;
+	}
 
-        /**
-         * @generated
-         */
-        private View scope;
+	/**
+	 * @generated
+	 */
+	public static View findView(DiagramEditPart diagramEditPart,
+			EObject targetElement, LazyElement2ViewMap lazyElement2ViewMap) {
+		boolean hasStructuralURI = false;
+		if (targetElement.eResource() instanceof XMLResource) {
+			hasStructuralURI = ((XMLResource) targetElement.eResource())
+					.getID(targetElement) == null;
+		}
 
-        /**
-         * @generated
-         */
-        private Set elementSet;
+		View view = null;
+		if (hasStructuralURI
+				&& !lazyElement2ViewMap.getElement2ViewMap().isEmpty()) {
+			view = (View) lazyElement2ViewMap.getElement2ViewMap().get(
+					targetElement);
+		} else if (findElementsInDiagramByID(diagramEditPart, targetElement,
+				lazyElement2ViewMap.editPartTmpHolder) > 0) {
+			EditPart editPart = (EditPart) lazyElement2ViewMap.editPartTmpHolder
+					.get(0);
+			lazyElement2ViewMap.editPartTmpHolder.clear();
+			view = editPart.getModel() instanceof View ? (View) editPart
+					.getModel() : null;
+		}
 
-        /**
-         * @generated
-         */
-        public final List editPartTmpHolder = new ArrayList();
+		return (view == null) ? diagramEditPart.getDiagramView() : view;
+	}
 
-        /**
-         * @generated
-         */
-        public LazyElement2ViewMap(View scope, Set elements) {
-            this.scope = scope;
-            this.elementSet = elements;
-        }
+	/**
+	 * @generated
+	 */
+	public static class LazyElement2ViewMap {
+		/**
+		 * @generated
+		 */
+		private Map element2ViewMap;
 
-        /**
-         * @generated
-         */
-        public final Map getElement2ViewMap() {
-            if (element2ViewMap == null) {
-                element2ViewMap = new HashMap();
-                // map possible notation elements to itself as these can't be found by
-                // view.getElement()
-                for (Iterator it = elementSet.iterator(); it.hasNext();) {
-                    EObject element = (EObject) it.next();
-                    if (element instanceof View) {
-                        View view = (View) element;
-                        if (view.getDiagram() == scope.getDiagram()) {
-                            element2ViewMap.put(element, element); // take only those that part of
-                                                                   // our diagram
-                        }
-                    }
-                }
+		/**
+		 * @generated
+		 */
+		private View scope;
 
-                buildElement2ViewMap(scope, element2ViewMap, elementSet);
-            }
-            return element2ViewMap;
-        }
+		/**
+		 * @generated
+		 */
+		private Set elementSet;
 
-        /**
-         * @generated
-         */
-        static Map buildElement2ViewMap(View parentView, Map element2ViewMap, Set elements) {
-            if (elements.size() == element2ViewMap.size())
-                return element2ViewMap;
+		/**
+		 * @generated
+		 */
+		public final List editPartTmpHolder = new ArrayList();
 
-            if (parentView.isSetElement() && !element2ViewMap.containsKey(parentView.getElement())
-                    && elements.contains(parentView.getElement())) {
-                element2ViewMap.put(parentView.getElement(), parentView);
-                if (elements.size() == element2ViewMap.size())
-                    return element2ViewMap;
-            }
+		/**
+		 * @generated
+		 */
+		public LazyElement2ViewMap(View scope, Set elements) {
+			this.scope = scope;
+			this.elementSet = elements;
+		}
 
-            for (Iterator it = parentView.getChildren().iterator(); it.hasNext();) {
-                buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
-                if (elements.size() == element2ViewMap.size())
-                    return element2ViewMap;
-            }
-            for (Iterator it = parentView.getSourceEdges().iterator(); it.hasNext();) {
-                buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
-                if (elements.size() == element2ViewMap.size())
-                    return element2ViewMap;
-            }
-            for (Iterator it = parentView.getSourceEdges().iterator(); it.hasNext();) {
-                buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
-                if (elements.size() == element2ViewMap.size())
-                    return element2ViewMap;
-            }
-            return element2ViewMap;
-        }
-    } // LazyElement2ViewMap
+		/**
+		 * @generated
+		 */
+		public final Map getElement2ViewMap() {
+			if (element2ViewMap == null) {
+				element2ViewMap = new HashMap();
+				// map possible notation elements to itself as these can't be found by view.getElement()
+				for (Iterator it = elementSet.iterator(); it.hasNext();) {
+					EObject element = (EObject) it.next();
+					if (element instanceof View) {
+						View view = (View) element;
+						if (view.getDiagram() == scope.getDiagram()) {
+							element2ViewMap.put(element, element); // take only those that part of our diagram
+						}
+					}
+				}
+
+				buildElement2ViewMap(scope, element2ViewMap, elementSet);
+			}
+			return element2ViewMap;
+		}
+
+		/**
+		 * @generated
+		 */
+		static Map buildElement2ViewMap(View parentView, Map element2ViewMap,
+				Set elements) {
+			if (elements.size() == element2ViewMap.size())
+				return element2ViewMap;
+
+			if (parentView.isSetElement()
+					&& !element2ViewMap.containsKey(parentView.getElement())
+					&& elements.contains(parentView.getElement())) {
+				element2ViewMap.put(parentView.getElement(), parentView);
+				if (elements.size() == element2ViewMap.size())
+					return element2ViewMap;
+			}
+
+			for (Iterator it = parentView.getChildren().iterator(); it
+					.hasNext();) {
+				buildElement2ViewMap((View) it.next(), element2ViewMap,
+						elements);
+				if (elements.size() == element2ViewMap.size())
+					return element2ViewMap;
+			}
+			for (Iterator it = parentView.getSourceEdges().iterator(); it
+					.hasNext();) {
+				buildElement2ViewMap((View) it.next(), element2ViewMap,
+						elements);
+				if (elements.size() == element2ViewMap.size())
+					return element2ViewMap;
+			}
+			for (Iterator it = parentView.getSourceEdges().iterator(); it
+					.hasNext();) {
+				buildElement2ViewMap((View) it.next(), element2ViewMap,
+						elements);
+				if (elements.size() == element2ViewMap.size())
+					return element2ViewMap;
+			}
+			return element2ViewMap;
+		}
+	} // LazyElement2ViewMap
 
 }

@@ -15,6 +15,7 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 
@@ -43,6 +44,7 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
         final ArrayList<Object> filterList = new ArrayList<Object>();
         filterList.add(de.uka.ipd.sdq.pcm.system.System.class);
         filterList.add(AssemblyContext.class);
+        filterList.add(EventChannel.class);
 
         final ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
         final Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();

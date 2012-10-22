@@ -2,33 +2,44 @@
 <gmfgraph:Canvas xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:gmfgraph="http://www.eclipse.org/gmf/2005/GraphicalDefinition" name="pcm">
+    xmlns:gmfgraph="http://www.eclipse.org/gmf/2006/GraphicalDefinition" name="pcm">
   <figures
       name="Default">
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="AllocationContext"
+    <descriptors
         name="AllocationContextFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="AllocationNameLabel"
-          name="AllocationNameFigure"
-          text="&lt;...>"/>
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="AllocationComponentLabel"
-          name="AllocationComponentLabelFigure"/>
-    </figures>
-    <figures
-        xsi:type="gmfgraph:Rectangle"
-        referencingElements="ResourceContainer AllocationCompartment"
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="AllocationContextFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AllocationNameFigure"
+            text="&lt;...>"/>
+        <children
+            xsi:type="gmfgraph:Label"
+            name="AllocationComponentLabelFigure"/>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.0"/>
+      <accessors
+          figure="//@figures.0/@descriptors.0/@actualFigure/@children.1"/>
+    </descriptors>
+    <descriptors
         name="ResourceContainerFigure">
-      <children
-          xsi:type="gmfgraph:Label"
-          referencingElements="ResContainerNameLabel"
-          name="ResContainerNameFigure"
-          text="&lt;...>"/>
-    </figures>
+      <actualFigure
+          xsi:type="gmfgraph:Rectangle"
+          name="ResourceContainerFigure">
+        <children
+            xsi:type="gmfgraph:Label"
+            name="ResContainerNameFigure"
+            text="&lt;...>">
+          <maximumSize
+              dx="100000"
+              dy="40"/>
+        </children>
+      </actualFigure>
+      <accessors
+          figure="//@figures.0/@descriptors.1/@actualFigure/@children.0"/>
+    </descriptors>
   </figures>
   <nodes
       name="AllocationContext"
@@ -41,11 +52,14 @@
       figure="ResourceContainerFigure"/>
   <labels
       name="AllocationNameLabel"
-      figure="AllocationNameFigure"/>
+      figure="AllocationContextFigure"
+      accessor="//@figures.0/@descriptors.0/@accessors.0"/>
   <labels
       name="ResContainerNameLabel"
-      figure="ResContainerNameFigure"/>
+      figure="ResourceContainerFigure"
+      accessor="//@figures.0/@descriptors.1/@accessors.0"/>
   <labels
       name="AllocationComponentLabel"
-      figure="AllocationComponentLabelFigure"/>
+      figure="AllocationContextFigure"
+      accessor="//@figures.0/@descriptors.0/@accessors.1"/>
 </gmfgraph:Canvas>

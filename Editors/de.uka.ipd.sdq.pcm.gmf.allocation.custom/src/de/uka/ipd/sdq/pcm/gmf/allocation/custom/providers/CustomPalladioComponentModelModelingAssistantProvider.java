@@ -24,7 +24,7 @@ public class CustomPalladioComponentModelModelingAssistantProvider extends
         IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
 
         if (editPart instanceof ResourceContainerAllocationCompartmentEditPart) {
-            types.add(PalladioComponentModelElementTypes.AllocationContext_3001);
+            types.add(PalladioComponentModelElementTypes.AllocationContext_3002);
             return types;
         }
         return Collections.emptyList();
