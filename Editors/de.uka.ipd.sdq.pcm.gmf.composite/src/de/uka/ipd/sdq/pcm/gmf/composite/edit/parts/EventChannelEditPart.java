@@ -5,8 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.parts;
 
 import java.util.ArrayList;
 import java.util.List;
-import org.eclipse.draw2d.BorderLayout;
-import org.eclipse.draw2d.Ellipse;
+
 import org.eclipse.draw2d.Graphics;
 import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;

@@ -223,6 +223,11 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
                 id="property.tab.componentParam"
                 label="Parameters">
           </propertyTab>
+          <propertyTab
+                category="extra"
+                id="property.tab.filter"
+                label="Filter">
+          </propertyTab>
       </propertyTabs>
    </extension>
 
@@ -263,6 +268,13 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
                filter="de.uka.ipd.sdq.pcmbench.tabs.AssemblyContextFilter"
                id="property.section.componentParam"
                tab="property.tab.componentParam">
+         </propertySection>
+         <propertySection
+               class="de.uka.ipd.sdq.pcmbench.tabs.EventChannelSinkConnectorSection"
+               enablesFor="1"
+               filter="de.uka.ipd.sdq.pcmbench.tabs.EventConnectorFilter"
+               id="property.section.filter"
+               tab="property.tab.filter">
          </propertySection>
       </propertySections>
    </extension>

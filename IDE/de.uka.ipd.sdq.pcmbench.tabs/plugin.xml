@@ -16,6 +16,9 @@
          <propertyCategory
                category="infrastructureSignatures">
          </propertyCategory>
+         <propertyCategory
+               category="eventConnectors">
+         </propertyCategory>
       </propertyContributor>
    </extension> <extension
          point="org.eclipse.ui.views.properties.tabbed.propertyTabs">
@@ -45,6 +48,11 @@
                category="infrastructureSignatures"
                id="de.uka.ipd.sdq.pcmbench.infrastructureSignaturesTab"
                label="InfrastructureSignatures">
+         </propertyTab>
+         <propertyTab
+               category="eventConnectors"
+               id="de.uka.ipd.sdq.pcmbench.eventConnectorsTab"
+               label="EventConnectors">
          </propertyTab>
       </propertyTabs>
    </extension>
@@ -87,6 +95,14 @@
                tab="de.uka.ipd.sdq.pcmbench.infrastructureSignaturesTab">
             <input
                   type="de.uka.ipd.sdq.pcm.repository.InfrastructureInterface">
+            </input>
+         </propertySection>
+         <propertySection
+               class="de.uka.ipd.sdq.pcmbench.tabs.EventChannelSinkConnectorSection"
+               id="de.uka.ipd.sdq.pcmbench.eventConnectors.section"
+               tab="de.uka.ipd.sdq.pcmbench.eventConnectorsTab">
+            <input
+                  type="de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector">
             </input>
          </propertySection>
 
