@@ -224,7 +224,7 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 	 */
 	public EList<ParameterPartition> getValidForParameterPartitions() {
 		if (validForParameterPartitions == null) {
-			validForParameterPartitions = new EObjectContainmentWithInverseEList<ParameterPartition>(ParameterPartition.class, this, QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS, ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING);
+			validForParameterPartitions = new EObjectContainmentWithInverseEList<ParameterPartition>(ParameterPartition.class, this, QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS, ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION);
 		}
 		return validForParameterPartitions;
 	}

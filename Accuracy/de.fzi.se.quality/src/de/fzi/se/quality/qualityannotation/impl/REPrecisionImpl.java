@@ -11,6 +11,7 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.fzi.se.quality.qualityannotation.REPrecision;
 import de.fzi.se.quality.qualityannotation.RequiredElement;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -37,7 +38,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class REPrecisionImpl extends EObjectImpl implements REPrecision {
+public class REPrecisionImpl extends IdentifierImpl implements REPrecision {
 	/**
 	 * The cached value of the '{@link #getDefaultPrecisionNumberOfCalls() <em>Default Precision Number Of Calls</em>}' containment reference.
 	 * <!-- begin-user-doc -->

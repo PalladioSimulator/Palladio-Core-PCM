@@ -13,6 +13,7 @@ import de.fzi.se.quality.parameters.ParameterReference;
 import de.fzi.se.quality.parameters.ParameterValue;
 import de.fzi.se.quality.parameters.ParametersPackage;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -41,7 +42,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public class ParameterInstanceImpl extends EObjectImpl implements ParameterInstance {
+public class ParameterInstanceImpl extends IdentifierImpl implements ParameterInstance {
 	/**
 	 * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->

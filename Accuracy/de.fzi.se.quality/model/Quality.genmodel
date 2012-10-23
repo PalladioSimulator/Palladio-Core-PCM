@@ -4,7 +4,7 @@
     modelDirectory="/de.fzi.se.quality/src" modelPluginID="de.fzi.se.quality"
     templateDirectory="/de.fzi.se.quality/templates" dynamicTemplates="true" modelName="Quality"
     importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" copyrightFields="false"
-    runtimeVersion="2.3" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
+    runtimeVersion="2.3" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.genmodel#//pcm platform:/plugin/org.eclipse.uml2.types/model/Types.genmodel#//types platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
     <details key="UNION_PROPERTIES" value="REPORT"/>
@@ -139,58 +139,75 @@
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/NoPrecision"/>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMRECategory">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/PCMRECategory/category"/>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsInterface">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsInterface/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsInterface/context"/>
-        </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/ThisIsHighestHierarchyLevel">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/ThisIsHighestHierarchyLevel/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/ThisIsHighestHierarchyLevel/context"/>
-        </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/NoSublevelsForCategoryResourceDemand">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NoSublevelsForCategoryResourceDemand/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NoSublevelsForCategoryResourceDemand/context"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure/context"/>
         </genOperations>
         <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand">
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand/diagnostics"/>
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand/context"/>
         </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECategory/EachCategoryExactlyOnceIfSpecified">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/EachCategoryExactlyOnceIfSpecified/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECategory/EachCategoryExactlyOnceIfSpecified/context"/>
+        </genOperations>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//qualityannotation/PCMRE"/>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//qualityannotation/PCMRE">
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRE/TopmostLevelForPCMMustBePCMRECategory">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRE/TopmostLevelForPCMMustBePCMRECategory/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRE/TopmostLevelForPCMMustBePCMRECategory/context"/>
+        </genOperations>
+      </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREInterface">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREInterface/interface"/>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInterface/NextLowerHierachyLevelIsRole">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/NextLowerHierachyLevelIsRole/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/NextLowerHierachyLevelIsRole/context"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInterface/NextLowerLevelMustConsistOfTypePCMRERole">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/NextLowerLevelMustConsistOfTypePCMRERole/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/NextLowerLevelMustConsistOfTypePCMRERole/context"/>
         </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInterface/NextUpperHierarchyLevelIsCategory">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/NextUpperHierarchyLevelIsCategory/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/NextUpperHierarchyLevelIsCategory/context"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInterface/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInterface/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
         </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMRERole">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMRERole/role"/>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRERole/NextLowerHierarchyLevelIsSignature">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/NextLowerHierarchyLevelIsSignature/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/NextLowerHierarchyLevelIsSignature/context"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRERole/NextLowerLevelMustConsistOfTypePCMRESignature">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/NextLowerLevelMustConsistOfTypePCMRESignature/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/NextLowerLevelMustConsistOfTypePCMRESignature/context"/>
         </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRERole/NextUpperHierarchyLevelIsInterface">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/NextUpperHierarchyLevelIsInterface/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/NextUpperHierarchyLevelIsInterface/context"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRERole/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRERole/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
         </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMRESignature">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMRESignature/signature"/>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRESignature/ThisIsTheLowestHierarchyLevel">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/ThisIsTheLowestHierarchyLevel/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/ThisIsTheLowestHierarchyLevel/context"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRESignature/ThisIsTheLowestComponentHierarchyLevel">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/ThisIsTheLowestComponentHierarchyLevel/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/ThisIsTheLowestComponentHierarchyLevel/context"/>
         </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRESignature/NextUpperHierarchyLevelIsRole">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/NextUpperHierarchyLevelIsRole/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/NextUpperHierarchyLevelIsRole/context"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRESignature/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRESignature/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
         </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMServiceSpecification">
@@ -200,17 +217,105 @@
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREResourceInterface">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResourceInterface/resourceInterface"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResourceInterface/NextLowerLevelMustConsistOfTypePCMREResourceRole">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceInterface/NextLowerLevelMustConsistOfTypePCMREResourceRole/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceInterface/NextLowerLevelMustConsistOfTypePCMREResourceRole/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResourceInterface/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceInterface/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceInterface/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREResourceSignature">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
             propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResourceSignature/resourceSignature"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResourceSignature/ThisIsTheLowestResourceHierarchyLevel">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceSignature/ThisIsTheLowestResourceHierarchyLevel/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceSignature/ThisIsTheLowestResourceHierarchyLevel/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResourceSignature/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceSignature/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceSignature/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREResource">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResource/processingResourceType"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResource/ThisIsTheLowestResourceDemandHierarchyLevel">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResource/ThisIsTheLowestResourceDemandHierarchyLevel/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResource/ThisIsTheLowestResourceDemandHierarchyLevel/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResource/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResource/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResource/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREResourceRole">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResourceRole/resourceRequiredRole"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResourceRole/NextLowerLevelMustConsistOfTypePCMREResourceSignature">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceRole/NextLowerLevelMustConsistOfTypePCMREResourceSignature/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceRole/NextLowerLevelMustConsistOfTypePCMREResourceSignature/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResourceRole/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceRole/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceRole/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMRECIBehavior">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMRECIBehavior/internalBehaviour"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECIBehavior/ThisIsTheLowestComponentInternalHierarchyLevel">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECIBehavior/ThisIsTheLowestComponentInternalHierarchyLevel/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECIBehavior/ThisIsTheLowestComponentInternalHierarchyLevel/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMRECIBehavior/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECIBehavior/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMRECIBehavior/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREInfrastructureInterface">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREInfrastructureInterface/interface"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInfrastructureInterface/NextLowerLevelMustConsistOfTypePCMREInfrastructureRole">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureInterface/NextLowerLevelMustConsistOfTypePCMREInfrastructureRole/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureInterface/NextLowerLevelMustConsistOfTypePCMREInfrastructureRole/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInfrastructureInterface/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureInterface/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureInterface/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREInfrastructureRole">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREInfrastructureRole/role"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInfrastructureRole/NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureRole/NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureRole/NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInfrastructureRole/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureRole/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureRole/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREInfrastructureSignature">
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREInfrastructureSignature/signature"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInfrastructureSignature/ThisIsTheLowestInfrastructureHierarchyLevel">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureSignature/ThisIsTheLowestInfrastructureHierarchyLevel/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureSignature/ThisIsTheLowestInfrastructureHierarchyLevel/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREInfrastructureSignature/EachRETargetMustBeReferencedOnlyFromOneRE">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureSignature/EachRETargetMustBeReferencedOnlyFromOneRE/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREInfrastructureSignature/EachRETargetMustBeReferencedOnlyFromOneRE/context"/>
+        </genOperations>
       </genClasses>
     </nestedGenPackages>
     <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="Parameters" basePackage="de.fzi.se.quality"
         resource="XML" disposableProviderFactory="true" ecorePackage="quality.ecore#//parameters">
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/ParameterPartition">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterPartition/validatedSetting"/>
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterPartition/qualityAnnotation"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/ParameterValue">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
@@ -272,7 +377,7 @@
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//parameters/pcm/PCMInfrastructureOperationReference">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMInfrastructureOperationReference/resourceRequiredRole"/>
+              propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMInfrastructureOperationReference/role"/>
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
               propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMInfrastructureOperationReference/signature"/>
         </genClasses>
@@ -304,62 +409,5 @@
         </genClasses>
       </nestedGenPackages>
     </nestedGenPackages>
-  </genPackages>
-  <genPackages xsi:type="genmodel:GenPackage" prefix="Types" disposableProviderFactory="true"
-      ecorePackage="types.ecore#/">
-    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//Boolean"/>
-    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//Integer"/>
-    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//Real"/>
-    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//UnlimitedNatural"/>
-    <genDataTypes xsi:type="genmodel:GenDataType" ecoreDataType="types.ecore#//String"/>
-  </genPackages>
-  <genPackages xsi:type="genmodel:GenPackage" prefix="Probfunction" resource="XML"
-      disposableProviderFactory="true" ecorePackage="probfunction.ecore#/">
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//BoxedPDF">
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference probfunction.ecore#//BoxedPDF/samples"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probfunction.ecore#//ProbabilityDensityFunction"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//ContinuousSample">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ContinuousSample/value"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ContinuousSample/probability"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//ProbabilityMassFunction">
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference probfunction.ecore#//ProbabilityMassFunction/samples"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ProbabilityMassFunction/orderedDomain"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//Sample">
-      <genTypeParameters ecoreTypeParameter="probfunction.ecore#//Sample/T"/>
-      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-          propertySortChoices="true" ecoreFeature="ecore:EReference probfunction.ecore#//Sample/value"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//Sample/probability"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//SamplePDF">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//SamplePDF/distance"/>
-      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-          createChild="true" ecoreFeature="ecore:EReference probfunction.ecore#//SamplePDF/values"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//Complex">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//Complex/real"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//Complex/imaginary"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probfunction.ecore#//ContinuousPDF"/>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//ExponentialDistribution">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//ExponentialDistribution/rate"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//NormalDistribution">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//NormalDistribution/mu"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//NormalDistribution/sigma"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//LognormalDistribution">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//LognormalDistribution/mu"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//LognormalDistribution/sigma"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" ecoreClass="probfunction.ecore#//GammaDistribution">
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//GammaDistribution/alpha"/>
-      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute probfunction.ecore#//GammaDistribution/theta"/>
-    </genClasses>
-    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="probfunction.ecore#//ProbabilityFunction"/>
   </genPackages>
 </genmodel:GenModel>

@@ -196,6 +196,36 @@ public class RequiredElementItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMREResource()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMREResourceRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMRECIBehavior()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureInterface()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureRole()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
+				 QualityAnnotationFactory.eINSTANCE.createPCMREInfrastructureSignature()));
+
+		newChildDescriptors.add
+			(createChildParameter
 				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__PRECISION,
 				 QualityAnnotationFactory.eINSTANCE.createREPrecision()));
 	}

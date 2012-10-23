@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * @model abstract="true"
  * @generated
  */
-public interface PCMParameterReference extends ParameterReference, Identifier {
+public interface PCMParameterReference extends ParameterReference {
 	/**
 	 * Returns the value of the '<em><b>Parameter Partition</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.PCMParameterPartition#getParameterReference <em>Parameter Reference</em>}'.

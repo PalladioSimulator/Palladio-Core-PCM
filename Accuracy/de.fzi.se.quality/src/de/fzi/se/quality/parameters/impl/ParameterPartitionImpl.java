@@ -31,7 +31,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterPartitionImpl#getValidatedSetting <em>Validated Setting</em>}</li>
+ *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterPartitionImpl#getQualityAnnotation <em>Quality Annotation</em>}</li>
  * </ul>
  * </p>
  *
@@ -62,8 +62,8 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public QualityAnnotation getValidatedSetting() {
-		if (eContainerFeatureID() != ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING) return null;
+	public QualityAnnotation getQualityAnnotation() {
+		if (eContainerFeatureID() != ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION) return null;
 		return (QualityAnnotation)eContainer();
 	}
 
@@ -72,8 +72,8 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetValidatedSetting(QualityAnnotation newValidatedSetting, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newValidatedSetting, ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING, msgs);
+	public NotificationChain basicSetQualityAnnotation(QualityAnnotation newQualityAnnotation, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newQualityAnnotation, ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION, msgs);
 		return msgs;
 	}
 
@@ -82,20 +82,20 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setValidatedSetting(QualityAnnotation newValidatedSetting) {
-		if (newValidatedSetting != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING && newValidatedSetting != null)) {
-			if (EcoreUtil.isAncestor(this, newValidatedSetting))
+	public void setQualityAnnotation(QualityAnnotation newQualityAnnotation) {
+		if (newQualityAnnotation != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION && newQualityAnnotation != null)) {
+			if (EcoreUtil.isAncestor(this, newQualityAnnotation))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newValidatedSetting != null)
-				msgs = ((InternalEObject)newValidatedSetting).eInverseAdd(this, QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS, QualityAnnotation.class, msgs);
-			msgs = basicSetValidatedSetting(newValidatedSetting, msgs);
+			if (newQualityAnnotation != null)
+				msgs = ((InternalEObject)newQualityAnnotation).eInverseAdd(this, QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS, QualityAnnotation.class, msgs);
+			msgs = basicSetQualityAnnotation(newQualityAnnotation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING, newValidatedSetting, newValidatedSetting));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION, newQualityAnnotation, newQualityAnnotation));
 	}
 
 	/**
@@ -106,10 +106,10 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING:
+			case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetValidatedSetting((QualityAnnotation)otherEnd, msgs);
+				return basicSetQualityAnnotation((QualityAnnotation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -122,8 +122,8 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING:
-				return basicSetValidatedSetting(null, msgs);
+			case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
+				return basicSetQualityAnnotation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,7 +136,7 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING:
+			case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
 				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS, QualityAnnotation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
@@ -150,8 +150,8 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING:
-				return getValidatedSetting();
+			case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
+				return getQualityAnnotation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,8 +164,8 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING:
-				setValidatedSetting((QualityAnnotation)newValue);
+			case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
+				setQualityAnnotation((QualityAnnotation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -179,8 +179,8 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING:
-				setValidatedSetting((QualityAnnotation)null);
+			case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
+				setQualityAnnotation((QualityAnnotation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -194,8 +194,8 @@ public abstract class ParameterPartitionImpl extends IdentifierImpl implements P
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING:
-				return getValidatedSetting() != null;
+			case ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION:
+				return getQualityAnnotation() != null;
 		}
 		return super.eIsSet(featureID);
 	}

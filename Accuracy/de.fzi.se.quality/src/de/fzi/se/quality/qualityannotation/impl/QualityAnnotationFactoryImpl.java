@@ -80,6 +80,12 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 			case QualityAnnotationPackage.PCM_SERVICE_SPECIFICATION: return createPCMServiceSpecification();
 			case QualityAnnotationPackage.PCMRE_RESOURCE_INTERFACE: return createPCMREResourceInterface();
 			case QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE: return createPCMREResourceSignature();
+			case QualityAnnotationPackage.PCMRE_RESOURCE: return createPCMREResource();
+			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE: return createPCMREResourceRole();
+			case QualityAnnotationPackage.PCMRECI_BEHAVIOR: return createPCMRECIBehavior();
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE: return createPCMREInfrastructureInterface();
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE: return createPCMREInfrastructureRole();
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE: return createPCMREInfrastructureSignature();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -303,6 +309,66 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 	public PCMREResourceSignature createPCMREResourceSignature() {
 		PCMREResourceSignatureImpl pcmreResourceSignature = new PCMREResourceSignatureImpl();
 		return pcmreResourceSignature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMREResource createPCMREResource() {
+		PCMREResourceImpl pcmreResource = new PCMREResourceImpl();
+		return pcmreResource;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMREResourceRole createPCMREResourceRole() {
+		PCMREResourceRoleImpl pcmreResourceRole = new PCMREResourceRoleImpl();
+		return pcmreResourceRole;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMRECIBehavior createPCMRECIBehavior() {
+		PCMRECIBehaviorImpl pcmreciBehavior = new PCMRECIBehaviorImpl();
+		return pcmreciBehavior;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMREInfrastructureInterface createPCMREInfrastructureInterface() {
+		PCMREInfrastructureInterfaceImpl pcmreInfrastructureInterface = new PCMREInfrastructureInterfaceImpl();
+		return pcmreInfrastructureInterface;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMREInfrastructureRole createPCMREInfrastructureRole() {
+		PCMREInfrastructureRoleImpl pcmreInfrastructureRole = new PCMREInfrastructureRoleImpl();
+		return pcmreInfrastructureRole;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMREInfrastructureSignature createPCMREInfrastructureSignature() {
+		PCMREInfrastructureSignatureImpl pcmreInfrastructureSignature = new PCMREInfrastructureSignatureImpl();
+		return pcmreInfrastructureSignature;
 	}
 
 	/**

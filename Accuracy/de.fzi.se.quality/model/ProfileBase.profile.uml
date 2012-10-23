@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xmi:id="_bFUAMdWLEdiy4IqP8whjFA" name="ProfileBase" metamodelReference="_bFUAMtWLEdiy4IqP8whjFA">
+<uml:Profile xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xmi:id="_bFUAMdWLEdiy4IqP8whjFA" name="ProfileBase" metamodelReference="_bFUAMtWLEdiy4IqP8whjFA">
   <eAnnotations xmi:id="_bFgNctWLEdiy4IqP8whjFA" source="http://www.eclipse.org/uml2/2.0.0/UML">
     <contents xmi:type="ecore:EPackage" xmi:id="_IfFYQMmBEdqBcN1R6EvWUw" name="ProfileBase" nsURI="http:///schemas/ProfileBase/1" nsPrefix="ProfileBase">
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_IfFYQcmBEdqBcN1R6EvWUw" name="ProfileConstraint" eSuperTypes="_IfFYRcmBEdqBcN1R6EvWUw">
@@ -8,7 +8,7 @@
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eStructuralFeatures>
         <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_IfFYRMmBEdqBcN1R6EvWUw" name="base_Constraint" ordered="false" lowerBound="1">
-          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Constraint"/>
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Constraint"/>
         </eStructuralFeatures>
       </eClassifiers>
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_IfFYRcmBEdqBcN1R6EvWUw" name="Default_AbstractMetaConstraint" abstract="true">
@@ -52,7 +52,7 @@
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
         </eStructuralFeatures>
         <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_yuNa7fyiEdqPUO--Lw65Tw" name="base_Image" ordered="false" lowerBound="1">
-          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Image"/>
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Image"/>
         </eStructuralFeatures>
       </eClassifiers>
     </contents>
@@ -60,7 +60,7 @@
       <eClassifiers xmi:type="ecore:EClass" xmi:id="_bFmUEdWLEdiy4IqP8whjFA" name="ProfileBase__ProfileConstraint" eSuperTypes="_bFmUFNWLEdiy4IqP8whjFA">
         <eAnnotations xmi:id="_bFmUEtWLEdiy4IqP8whjFA" source="http://www.eclipse.org/uml2/2.0.0/UML" references="_bFaG0tWLEdiy4IqP8whjFA"/>
         <eStructuralFeatures xmi:type="ecore:EReference" xmi:id="_IbqQ0smBEdqBcN1R6EvWUw" name="base_Constraint">
-          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/2.1.0/UML#//Constraint"/>
+          <eType xmi:type="ecore:EClass" href="http://www.eclipse.org/uml2/3.0.0/UML#//Constraint"/>
         </eStructuralFeatures>
         <eStructuralFeatures xmi:type="ecore:EAttribute" xmi:id="_bFmUE9WLEdiy4IqP8whjFA" name="messageKey" defaultValueLiteral="">
           <eType xmi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>

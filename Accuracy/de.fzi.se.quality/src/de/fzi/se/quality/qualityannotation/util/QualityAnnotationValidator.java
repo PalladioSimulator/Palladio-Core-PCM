@@ -53,28 +53,12 @@ public class QualityAnnotationValidator extends EObjectValidator {
 	public static final int REQUIRED_ELEMENT__STIPULATED_PRECISION_MUST_BE_SET_IN_STIPULATION_CONTEXT = 1;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Is Interface' of 'PCMRE Category'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure' of 'PCMRE Category'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE = 2;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is Highest Hierarchy Level' of 'PCMRE Category'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int PCMRE_CATEGORY__THIS_IS_HIGHEST_HIERARCHY_LEVEL = 3;
-
-	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Sublevels For Category Resource Demand' of 'PCMRE Category'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final int PCMRE_CATEGORY__NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND = 4;
+	public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE = 2;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Existing RE Precision Call Parameter Must Be No Precision Due To The Non Existence Of Parameters For Category Resource Demand' of 'PCMRE Category'.
@@ -82,55 +66,231 @@ public class QualityAnnotationValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND = 5;
+	public static final int PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND = 3;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierachy Level Is Role' of 'PCMRE Interface'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Is PCMRE Resource Interface For Category Resource' of 'PCMRE Category'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_INTERFACE__NEXT_LOWER_HIERACHY_LEVEL_IS_ROLE = 6;
+	public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE = 4;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Upper Hierarchy Level Is Category' of 'PCMRE Interface'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Is PCMRE Interface For Category Component' of 'PCMRE Category'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_INTERFACE__NEXT_UPPER_HIERARCHY_LEVEL_IS_CATEGORY = 7;
+	public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT = 5;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Is Signature' of 'PCMRE Role'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Is PCMRE Resource For Category Resource Demand' of 'PCMRE Category'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_ROLE__NEXT_LOWER_HIERARCHY_LEVEL_IS_SIGNATURE = 8;
+	public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND = 6;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Upper Hierarchy Level Is Interface' of 'PCMRE Role'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Is PCMRECI Behavior For Category Component Internal' of 'PCMRE Category'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_ROLE__NEXT_UPPER_HIERARCHY_LEVEL_IS_INTERFACE = 9;
+	public static final int PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL = 7;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The Lowest Hierarchy Level' of 'PCMRE Signature'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each Category Exactly Once If Specified' of 'PCMRE Category'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_SIGNATURE__THIS_IS_THE_LOWEST_HIERARCHY_LEVEL = 10;
+	public static final int PCMRE_CATEGORY__EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED = 8;
 
 	/**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Upper Hierarchy Level Is Role' of 'PCMRE Signature'.
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Topmost Level For PCM Must Be PCMRE Category' of 'PCMRE'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int PCMRE_SIGNATURE__NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE = 11;
+	public static final int PCMRE__TOPMOST_LEVEL_FOR_PCM_MUST_BE_PCMRE_CATEGORY = 9;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Level Must Consist Of Type PCMRE Role' of 'PCMRE Interface'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_ROLE = 10;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Interface'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 11;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Level Must Consist Of Type PCMRE Signature' of 'PCMRE Role'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_ROLE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_SIGNATURE = 12;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Role'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_ROLE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 13;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The Lowest Component Hierarchy Level' of 'PCMRE Signature'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_SIGNATURE__THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL = 14;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Signature'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 15;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Level Must Consist Of Type PCMRE Resource Role' of 'PCMRE Resource Interface'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_ROLE = 16;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Resource Interface'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 17;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The Lowest Resource Hierarchy Level' of 'PCMRE Resource Signature'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE_SIGNATURE__THIS_IS_THE_LOWEST_RESOURCE_HIERARCHY_LEVEL = 18;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Resource Signature'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 19;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The Lowest Resource Demand Hierarchy Level' of 'PCMRE Resource'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE__THIS_IS_THE_LOWEST_RESOURCE_DEMAND_HIERARCHY_LEVEL = 20;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Resource'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 21;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Level Must Consist Of Type PCMRE Resource Signature' of 'PCMRE Resource Role'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE_ROLE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_RESOURCE_SIGNATURE = 22;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Resource Role'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_RESOURCE_ROLE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 23;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The Lowest Component Internal Hierarchy Level' of 'PCMRECI Behavior'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRECI_BEHAVIOR__THIS_IS_THE_LOWEST_COMPONENT_INTERNAL_HIERARCHY_LEVEL = 24;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRECI Behavior'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRECI_BEHAVIOR__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 25;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Level Must Consist Of Type PCMRE Infrastructure Role' of 'PCMRE Infrastructure Interface'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INFRASTRUCTURE_INTERFACE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_ROLE = 26;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Infrastructure Interface'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INFRASTRUCTURE_INTERFACE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 27;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Level Must Consist Of Type PCMRE Infrastructure Signature' of 'PCMRE Infrastructure Role'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INFRASTRUCTURE_ROLE__NEXT_LOWER_LEVEL_MUST_CONSIST_OF_TYPE_PCMRE_INFRASTRUCTURE_SIGNATURE = 28;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Infrastructure Role'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INFRASTRUCTURE_ROLE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 29;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The Lowest Infrastructure Hierarchy Level' of 'PCMRE Infrastructure Signature'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INFRASTRUCTURE_SIGNATURE__THIS_IS_THE_LOWEST_INFRASTRUCTURE_HIERARCHY_LEVEL = 30;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Each RE Target Must Be Referenced Only From One RE' of 'PCMRE Infrastructure Signature'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMRE_INFRASTRUCTURE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 31;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -138,7 +298,7 @@ public class QualityAnnotationValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 11;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 31;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -233,6 +393,18 @@ public class QualityAnnotationValidator extends EObjectValidator {
 				return validatePCMREResourceInterface((PCMREResourceInterface)value, diagnostics, context);
 			case QualityAnnotationPackage.PCMRE_RESOURCE_SIGNATURE:
 				return validatePCMREResourceSignature((PCMREResourceSignature)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMRE_RESOURCE:
+				return validatePCMREResource((PCMREResource)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE:
+				return validatePCMREResourceRole((PCMREResourceRole)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMRECI_BEHAVIOR:
+				return validatePCMRECIBehavior((PCMRECIBehavior)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE:
+				return validatePCMREInfrastructureInterface((PCMREInfrastructureInterface)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE:
+				return validatePCMREInfrastructureRole((PCMREInfrastructureRole)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE:
+				return validatePCMREInfrastructureSignature((PCMREInfrastructureSignature)value, diagnostics, context);
 			case QualityAnnotationPackage.PCMRE_REQUEST_CATEGORY:
 				return validatePCMRERequestCategory((PCMRERequestCategory)value, diagnostics, context);
 			default:
@@ -343,7 +515,15 @@ public class QualityAnnotationValidator extends EObjectValidator {
 	 * @generated
 	 */
 	public boolean validateREPrecision(REPrecision rePrecision, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(rePrecision, diagnostics, context);
+		boolean result = validate_EveryMultiplicityConforms(rePrecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(rePrecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(rePrecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(rePrecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(rePrecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(rePrecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(rePrecision, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(rePrecision, diagnostics, context);
+		return result;
 	}
 
 	/**
@@ -497,41 +677,25 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreCategory, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreCategory, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreCategory, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMRECategory_NextLowerHierarchyLevelIsInterface(pcmreCategory, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMRECategory_ThisIsHighestHierarchyLevel(pcmreCategory, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMRECategory_NoSublevelsForCategoryResourceDemand(pcmreCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECategory_NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(pcmreCategory, diagnostics, context);
 		if (result || diagnostics != null) result &= validatePCMRECategory_ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(pcmreCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECategory_NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(pcmreCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECategory_NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(pcmreCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECategory_NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(pcmreCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECategory_NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(pcmreCategory, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECategory_EachCategoryExactlyOnceIfSpecified(pcmreCategory, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the NextLowerHierarchyLevelIsInterface constraint of '<em>PCMRE Category</em>'.
+	 * Validates the NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure constraint of '<em>PCMRE Category</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePCMRECategory_NextLowerHierarchyLevelIsInterface(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreCategory.NextLowerHierarchyLevelIsInterface(diagnostics, context);
-	}
-
-	/**
-	 * Validates the ThisIsHighestHierarchyLevel constraint of '<em>PCMRE Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePCMRECategory_ThisIsHighestHierarchyLevel(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreCategory.ThisIsHighestHierarchyLevel(diagnostics, context);
-	}
-
-	/**
-	 * Validates the NoSublevelsForCategoryResourceDemand constraint of '<em>PCMRE Category</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean validatePCMRECategory_NoSublevelsForCategoryResourceDemand(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreCategory.NoSublevelsForCategoryResourceDemand(diagnostics, context);
+	public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreCategory.NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(diagnostics, context);
 	}
 
 	/**
@@ -542,6 +706,56 @@ public class QualityAnnotationValidator extends EObjectValidator {
 	 */
 	public boolean validatePCMRECategory_ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return pcmreCategory.ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand(diagnostics, context);
+	}
+
+	/**
+	 * Validates the NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource constraint of '<em>PCMRE Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreCategory.NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(diagnostics, context);
+	}
+
+	/**
+	 * Validates the NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent constraint of '<em>PCMRE Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreCategory.NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(diagnostics, context);
+	}
+
+	/**
+	 * Validates the NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand constraint of '<em>PCMRE Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreCategory.NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(diagnostics, context);
+	}
+
+	/**
+	 * Validates the NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal constraint of '<em>PCMRE Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECategory_NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreCategory.NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachCategoryExactlyOnceIfSpecified constraint of '<em>PCMRE Category</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECategory_EachCategoryExactlyOnceIfSpecified(PCMRECategory pcmreCategory, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreCategory.EachCategoryExactlyOnceIfSpecified(diagnostics, context);
 	}
 
 	/**
@@ -559,7 +773,18 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmre, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmre, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmre, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmre, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the TopmostLevelForPCMMustBePCMRECategory constraint of '<em>PCMRE</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(PCMRE pcmre, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmre.TopmostLevelForPCMMustBePCMRECategory(diagnostics, context);
 	}
 
 	/**
@@ -577,29 +802,30 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMREInterface_NextLowerHierachyLevelIsRole(pcmreInterface, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMREInterface_NextUpperHierarchyLevelIsCategory(pcmreInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInterface_NextLowerLevelMustConsistOfTypePCMRERole(pcmreInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInterface_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreInterface, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the NextLowerHierachyLevelIsRole constraint of '<em>PCMRE Interface</em>'.
+	 * Validates the NextLowerLevelMustConsistOfTypePCMRERole constraint of '<em>PCMRE Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePCMREInterface_NextLowerHierachyLevelIsRole(PCMREInterface pcmreInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreInterface.NextLowerHierachyLevelIsRole(diagnostics, context);
+	public boolean validatePCMREInterface_NextLowerLevelMustConsistOfTypePCMRERole(PCMREInterface pcmreInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInterface.NextLowerLevelMustConsistOfTypePCMRERole(diagnostics, context);
 	}
 
 	/**
-	 * Validates the NextUpperHierarchyLevelIsCategory constraint of '<em>PCMRE Interface</em>'.
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Interface</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePCMREInterface_NextUpperHierarchyLevelIsCategory(PCMREInterface pcmreInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreInterface.NextUpperHierarchyLevelIsCategory(diagnostics, context);
+	public boolean validatePCMREInterface_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREInterface pcmreInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInterface.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
 	}
 
 	/**
@@ -617,29 +843,30 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreRole, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreRole, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMRERole_NextLowerHierarchyLevelIsSignature(pcmreRole, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMRERole_NextUpperHierarchyLevelIsInterface(pcmreRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRERole_NextLowerLevelMustConsistOfTypePCMRESignature(pcmreRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRERole_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreRole, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the NextLowerHierarchyLevelIsSignature constraint of '<em>PCMRE Role</em>'.
+	 * Validates the NextLowerLevelMustConsistOfTypePCMRESignature constraint of '<em>PCMRE Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePCMRERole_NextLowerHierarchyLevelIsSignature(PCMRERole pcmreRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreRole.NextLowerHierarchyLevelIsSignature(diagnostics, context);
+	public boolean validatePCMRERole_NextLowerLevelMustConsistOfTypePCMRESignature(PCMRERole pcmreRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreRole.NextLowerLevelMustConsistOfTypePCMRESignature(diagnostics, context);
 	}
 
 	/**
-	 * Validates the NextUpperHierarchyLevelIsInterface constraint of '<em>PCMRE Role</em>'.
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Role</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePCMRERole_NextUpperHierarchyLevelIsInterface(PCMRERole pcmreRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreRole.NextUpperHierarchyLevelIsInterface(diagnostics, context);
+	public boolean validatePCMRERole_EachRETargetMustBeReferencedOnlyFromOneRE(PCMRERole pcmreRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreRole.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
 	}
 
 	/**
@@ -657,29 +884,30 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreSignature, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMRESignature_ThisIsTheLowestHierarchyLevel(pcmreSignature, diagnostics, context);
-		if (result || diagnostics != null) result &= validatePCMRESignature_NextUpperHierarchyLevelIsRole(pcmreSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRESignature_ThisIsTheLowestComponentHierarchyLevel(pcmreSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRESignature_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreSignature, diagnostics, context);
 		return result;
 	}
 
 	/**
-	 * Validates the ThisIsTheLowestHierarchyLevel constraint of '<em>PCMRE Signature</em>'.
+	 * Validates the ThisIsTheLowestComponentHierarchyLevel constraint of '<em>PCMRE Signature</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePCMRESignature_ThisIsTheLowestHierarchyLevel(PCMRESignature pcmreSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreSignature.ThisIsTheLowestHierarchyLevel(diagnostics, context);
+	public boolean validatePCMRESignature_ThisIsTheLowestComponentHierarchyLevel(PCMRESignature pcmreSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreSignature.ThisIsTheLowestComponentHierarchyLevel(diagnostics, context);
 	}
 
 	/**
-	 * Validates the NextUpperHierarchyLevelIsRole constraint of '<em>PCMRE Signature</em>'.
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Signature</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean validatePCMRESignature_NextUpperHierarchyLevelIsRole(PCMRESignature pcmreSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return pcmreSignature.NextUpperHierarchyLevelIsRole(diagnostics, context);
+	public boolean validatePCMRESignature_EachRETargetMustBeReferencedOnlyFromOneRE(PCMRESignature pcmreSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreSignature.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
 	}
 
 	/**
@@ -714,7 +942,30 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreResourceInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreResourceInterface, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreResourceInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreResourceInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResourceInterface_NextLowerLevelMustConsistOfTypePCMREResourceRole(pcmreResourceInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResourceInterface_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreResourceInterface, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the NextLowerLevelMustConsistOfTypePCMREResourceRole constraint of '<em>PCMRE Resource Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResourceInterface_NextLowerLevelMustConsistOfTypePCMREResourceRole(PCMREResourceInterface pcmreResourceInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResourceInterface.NextLowerLevelMustConsistOfTypePCMREResourceRole(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Resource Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResourceInterface_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREResourceInterface pcmreResourceInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResourceInterface.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
 	}
 
 	/**
@@ -732,7 +983,276 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreResourceSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreResourceSignature, diagnostics, context);
 		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreResourceSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreResourceSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResourceSignature_ThisIsTheLowestResourceHierarchyLevel(pcmreResourceSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResourceSignature_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreResourceSignature, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * Validates the ThisIsTheLowestResourceHierarchyLevel constraint of '<em>PCMRE Resource Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResourceSignature_ThisIsTheLowestResourceHierarchyLevel(PCMREResourceSignature pcmreResourceSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResourceSignature.ThisIsTheLowestResourceHierarchyLevel(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Resource Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResourceSignature_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREResourceSignature pcmreResourceSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResourceSignature.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResource(PCMREResource pcmreResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResource_ThisIsTheLowestResourceDemandHierarchyLevel(pcmreResource, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResource_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreResource, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the ThisIsTheLowestResourceDemandHierarchyLevel constraint of '<em>PCMRE Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResource_ThisIsTheLowestResourceDemandHierarchyLevel(PCMREResource pcmreResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResource.ThisIsTheLowestResourceDemandHierarchyLevel(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResource_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREResource pcmreResource, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResource.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResourceRole(PCMREResourceRole pcmreResourceRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResourceRole_NextLowerLevelMustConsistOfTypePCMREResourceSignature(pcmreResourceRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREResourceRole_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreResourceRole, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the NextLowerLevelMustConsistOfTypePCMREResourceSignature constraint of '<em>PCMRE Resource Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResourceRole_NextLowerLevelMustConsistOfTypePCMREResourceSignature(PCMREResourceRole pcmreResourceRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResourceRole.NextLowerLevelMustConsistOfTypePCMREResourceSignature(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Resource Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREResourceRole_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREResourceRole pcmreResourceRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreResourceRole.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECIBehavior(PCMRECIBehavior pcmreciBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECIBehavior_ThisIsTheLowestComponentInternalHierarchyLevel(pcmreciBehavior, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRECIBehavior_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreciBehavior, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the ThisIsTheLowestComponentInternalHierarchyLevel constraint of '<em>PCMRECI Behavior</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECIBehavior_ThisIsTheLowestComponentInternalHierarchyLevel(PCMRECIBehavior pcmreciBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreciBehavior.ThisIsTheLowestComponentInternalHierarchyLevel(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRECI Behavior</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMRECIBehavior_EachRETargetMustBeReferencedOnlyFromOneRE(PCMRECIBehavior pcmreciBehavior, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreciBehavior.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureInterface(PCMREInfrastructureInterface pcmreInfrastructureInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInfrastructureInterface_NextLowerLevelMustConsistOfTypePCMREInfrastructureRole(pcmreInfrastructureInterface, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInfrastructureInterface_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreInfrastructureInterface, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the NextLowerLevelMustConsistOfTypePCMREInfrastructureRole constraint of '<em>PCMRE Infrastructure Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureInterface_NextLowerLevelMustConsistOfTypePCMREInfrastructureRole(PCMREInfrastructureInterface pcmreInfrastructureInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInfrastructureInterface.NextLowerLevelMustConsistOfTypePCMREInfrastructureRole(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Infrastructure Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureInterface_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREInfrastructureInterface pcmreInfrastructureInterface, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInfrastructureInterface.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureRole(PCMREInfrastructureRole pcmreInfrastructureRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInfrastructureRole_NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(pcmreInfrastructureRole, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInfrastructureRole_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreInfrastructureRole, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature constraint of '<em>PCMRE Infrastructure Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureRole_NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(PCMREInfrastructureRole pcmreInfrastructureRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInfrastructureRole.NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Infrastructure Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureRole_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREInfrastructureRole pcmreInfrastructureRole, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInfrastructureRole.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureSignature(PCMREInfrastructureSignature pcmreInfrastructureSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validateRequiredElement_StipulatedPrecisionMustBeSetInStipulationContext(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMRE_TopmostLevelForPCMMustBePCMRECategory(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInfrastructureSignature_ThisIsTheLowestInfrastructureHierarchyLevel(pcmreInfrastructureSignature, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMREInfrastructureSignature_EachRETargetMustBeReferencedOnlyFromOneRE(pcmreInfrastructureSignature, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the ThisIsTheLowestInfrastructureHierarchyLevel constraint of '<em>PCMRE Infrastructure Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureSignature_ThisIsTheLowestInfrastructureHierarchyLevel(PCMREInfrastructureSignature pcmreInfrastructureSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInfrastructureSignature.ThisIsTheLowestInfrastructureHierarchyLevel(diagnostics, context);
+	}
+
+	/**
+	 * Validates the EachRETargetMustBeReferencedOnlyFromOneRE constraint of '<em>PCMRE Infrastructure Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMREInfrastructureSignature_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREInfrastructureSignature pcmreInfrastructureSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmreInfrastructureSignature.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
 	}
 
 	/**

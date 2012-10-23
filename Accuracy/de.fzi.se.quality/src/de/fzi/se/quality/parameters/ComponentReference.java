@@ -6,6 +6,7 @@
  */
 package de.fzi.se.quality.parameters;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface ComponentReference extends EObject {
+public interface ComponentReference extends Identifier {
 	/**
 	 * Returns the value of the '<em><b>Component Instance</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.ComponentInstance#getComponentReference <em>Component Reference</em>}'.

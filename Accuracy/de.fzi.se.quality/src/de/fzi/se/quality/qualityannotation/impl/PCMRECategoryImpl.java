@@ -93,151 +93,49 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 	}
 
 	/**
-	 * The cached OCL expression body for the '{@link #NextLowerHierarchyLevelIsInterface(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is Interface</em>}' operation.
+	 * The cached OCL expression body for the '{@link #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NextLowerHierarchyLevelIsInterface(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.childREs->forAll(child | child.oclIsTypeOf(PCMREInterface))";
+	protected static final String NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.category = PCMRERequestCategory::Infrastructure implies self.childREs->forAll(child | child.oclIsTypeOf(PCMREInfrastructureInterface))";
 
 	/**
-	 * The cached OCL invariant for the '{@link #NextLowerHierarchyLevelIsInterface(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is Interface</em>}' invariant operation.
+	 * The cached OCL invariant for the '{@link #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Infrastructure Interface For Category Infrastructure</em>}' invariant operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NextLowerHierarchyLevelIsInterface(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see #NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static Constraint NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean NextLowerHierarchyLevelIsInterface(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+	public boolean NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
 			try {
-				NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			}
 			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
-		if (!EOCL_ENV.createQuery(NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+		if (!EOCL_ENV.createQuery(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-						 QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_INTERFACE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NextLowerHierarchyLevelIsInterface", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * The cached OCL expression body for the '{@link #ThisIsHighestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is Highest Hierarchy Level</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ThisIsHighestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String THIS_IS_HIGHEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parentRE.oclIsUndefined()";
-
-	/**
-	 * The cached OCL invariant for the '{@link #ThisIsHighestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is Highest Hierarchy Level</em>}' invariant operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #ThisIsHighestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static Constraint THIS_IS_HIGHEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean ThisIsHighestHierarchyLevel(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (THIS_IS_HIGHEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
-			try {
-				THIS_IS_HIGHEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(THIS_IS_HIGHEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(THIS_IS_HIGHEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-						 QualityAnnotationValidator.PCMRE_CATEGORY__THIS_IS_HIGHEST_HIERARCHY_LEVEL,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ThisIsHighestHierarchyLevel", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
-
-	/**
-	 * The cached OCL expression body for the '{@link #NoSublevelsForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No Sublevels For Category Resource Demand</em>}' operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NoSublevelsForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static final String NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.category = PCMRERequestCategory::ResourceDemand implies self.childREs->size() = 0";
-
-	/**
-	 * The cached OCL invariant for the '{@link #NoSublevelsForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>No Sublevels For Category Resource Demand</em>}' invariant operation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #NoSublevelsForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
-	protected static Constraint NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public boolean NoSublevelsForCategoryResourceDemand(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
-			try {
-				NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-						 QualityAnnotationValidator.PCMRE_CATEGORY__NO_SUBLEVELS_FOR_CATEGORY_RESOURCE_DEMAND,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NoSublevelsForCategoryResourceDemand", EObjectValidator.getObjectLabel(this, context) }),
+						 QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INFRASTRUCTURE_INTERFACE_FOR_CATEGORY_INFRASTRUCTURE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -289,6 +187,261 @@ public class PCMRECategoryImpl extends PCMREImpl implements PCMRECategory {
 						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
 						 QualityAnnotationValidator.PCMRE_CATEGORY__EXISTING_RE_PRECISION_CALL_PARAMETER_MUST_BE_NO_PRECISION_DUE_TO_THE_NON_EXISTENCE_OF_PARAMETERS_FOR_CATEGORY_RESOURCE_DEMAND,
 						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ExistingREPrecisionCallParameterMustBeNoPrecisionDueToTheNonExistenceOfParametersForCategoryResourceDemand", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Resource Interface For Category Resource</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.category = PCMRERequestCategory::Resource implies self.childREs->forAll(child | child.oclIsTypeOf(PCMREResourceInterface))";
+
+	/**
+	 * The cached OCL invariant for the '{@link #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Resource Interface For Category Resource</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
+			try {
+				NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+						 QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_INTERFACE_FOR_CATEGORY_RESOURCE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Interface For Category Component</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.category = PCMRERequestCategory::Component implies self.childREs->forAll(child | child.oclIsTypeOf(PCMREInterface))";
+
+	/**
+	 * The cached OCL invariant for the '{@link #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Interface For Category Component</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
+			try {
+				NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+						 QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_INTERFACE_FOR_CATEGORY_COMPONENT,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Resource For Category Resource Demand</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.category = PCMRERequestCategory::ResourceDemand implies self.childREs->forAll(child | child.oclIsTypeOf(PCMREResource))";
+
+	/**
+	 * The cached OCL invariant for the '{@link #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRE Resource For Category Resource Demand</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
+			try {
+				NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+						 QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRE_RESOURCE_FOR_CATEGORY_RESOURCE_DEMAND,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRECI Behavior For Category Component Internal</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.category = PCMRERequestCategory::ComponentInternal implies self.childREs->forAll(child | child.oclIsTypeOf(PCMRECIBehavior))";
+
+	/**
+	 * The cached OCL invariant for the '{@link #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Lower Hierarchy Level Is PCMRECI Behavior For Category Component Internal</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
+			try {
+				NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+						 QualityAnnotationValidator.PCMRE_CATEGORY__NEXT_LOWER_HIERARCHY_LEVEL_IS_PCMRECI_BEHAVIOR_FOR_CATEGORY_COMPONENT_INTERNAL,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
+	 * The cached OCL expression body for the '{@link #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Each Category Exactly Once If Specified</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.qualityAnnotation.stipulatedREPrecisions->select(pcmre | pcmre.oclIsTypeOf(PCMRECategory) and pcmre.oclAsType(PCMRECategory).category = self.category)->size() = 1";
+
+	/**
+	 * The cached OCL invariant for the '{@link #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Each Category Exactly Once If Specified</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #EachCategoryExactlyOnceIfSpecified(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean EachCategoryExactlyOnceIfSpecified(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_CATEGORY);
+			try {
+				EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+						 QualityAnnotationValidator.PCMRE_CATEGORY__EACH_CATEGORY_EXACTLY_ONCE_IF_SPECIFIED,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EachCategoryExactlyOnceIfSpecified", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;

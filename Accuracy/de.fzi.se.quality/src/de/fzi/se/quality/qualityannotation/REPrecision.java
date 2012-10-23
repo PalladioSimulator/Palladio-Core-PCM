@@ -6,6 +6,7 @@
  */
 package de.fzi.se.quality.qualityannotation;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -30,7 +31,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface REPrecision extends EObject {
+public interface REPrecision extends Identifier {
 	/**
 	 * Returns the value of the '<em><b>Default Precision Number Of Calls</b></em>' containment reference.
 	 * <!-- begin-user-doc -->

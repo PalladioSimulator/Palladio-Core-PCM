@@ -13,6 +13,7 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationFactory;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.fzi.se.quality.qualityannotation.REPrecision;
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -39,7 +40,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class REPrecisionItemProvider
-	extends ItemProviderAdapter
+	extends IdentifierItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -121,7 +122,10 @@ public class REPrecisionItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_REPrecision_type");
+		String label = ((REPrecision)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_REPrecision_type") :
+			getString("_UI_REPrecision_type") + " " + label;
 	}
 
 	/**

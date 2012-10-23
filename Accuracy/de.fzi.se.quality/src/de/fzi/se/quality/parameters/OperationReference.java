@@ -6,6 +6,7 @@
  */
 package de.fzi.se.quality.parameters;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,7 +25,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model abstract="true"
  * @generated
  */
-public interface OperationReference extends EObject {
+public interface OperationReference extends Identifier {
 	/**
 	 * Returns the value of the '<em><b>Call Instance</b></em>' container reference.
 	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.CallInstance#getOperationReference <em>Operation Reference</em>}'.

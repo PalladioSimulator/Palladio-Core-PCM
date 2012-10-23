@@ -6,6 +6,7 @@
  */
 package de.fzi.se.quality.parameters;
 
+import de.uka.ipd.sdq.identifier.Identifier;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -28,7 +29,7 @@ import org.eclipse.emf.ecore.EObject;
  * @model
  * @generated
  */
-public interface ParameterInstance extends EObject {
+public interface ParameterInstance extends Identifier {
 	/**
 	 * Returns the value of the '<em><b>Parameter Reference</b></em>' containment reference.
 	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.ParameterReference#getParameterInstance <em>Parameter Instance</em>}'.

@@ -7,6 +7,7 @@
 package de.fzi.se.quality.parameters.pcm.provider;
 
 
+import de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
 import de.fzi.se.quality.parameters.provider.InfrastructureOperationReferenceItemProvider;
@@ -64,26 +65,26 @@ public class PCMInfrastructureOperationReferenceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addResourceRequiredRolePropertyDescriptor(object);
+			addRolePropertyDescriptor(object);
 			addSignaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource Required Role feature.
+	 * This adds a property descriptor for the Role feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourceRequiredRolePropertyDescriptor(Object object) {
+	protected void addRolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PCMInfrastructureOperationReference_resourceRequiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PCMInfrastructureOperationReference_resourceRequiredRole_feature", "_UI_PCMInfrastructureOperationReference_type"),
-				 PCMPackage.Literals.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE,
+				 getString("_UI_PCMInfrastructureOperationReference_role_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PCMInfrastructureOperationReference_role_feature", "_UI_PCMInfrastructureOperationReference_type"),
+				 PCMPackage.Literals.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE,
 				 true,
 				 false,
 				 true,
@@ -133,7 +134,10 @@ public class PCMInfrastructureOperationReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PCMInfrastructureOperationReference_type");
+		String label = ((PCMInfrastructureOperationReference)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PCMInfrastructureOperationReference_type") :
+			getString("_UI_PCMInfrastructureOperationReference_type") + " " + label;
 	}
 
 	/**

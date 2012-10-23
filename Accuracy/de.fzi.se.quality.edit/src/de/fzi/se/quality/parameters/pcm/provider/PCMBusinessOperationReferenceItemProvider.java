@@ -7,6 +7,7 @@
 package de.fzi.se.quality.parameters.pcm.provider;
 
 
+import de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
 import de.fzi.se.quality.parameters.provider.BusinessOperationReferenceItemProvider;
@@ -133,7 +134,10 @@ public class PCMBusinessOperationReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PCMBusinessOperationReference_type");
+		String label = ((PCMBusinessOperationReference)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PCMBusinessOperationReference_type") :
+			getString("_UI_PCMBusinessOperationReference_type") + " " + label;
 	}
 
 	/**

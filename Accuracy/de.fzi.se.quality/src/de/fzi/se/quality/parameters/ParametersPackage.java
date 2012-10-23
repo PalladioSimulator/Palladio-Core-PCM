@@ -81,13 +81,13 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_PARTITION__ID = IdentifierPackage.IDENTIFIER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Validated Setting</b></em>' container reference.
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_PARTITION__VALIDATED_SETTING = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+	int PARAMETER_PARTITION__QUALITY_ANNOTATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Partition</em>' class.
@@ -146,13 +146,22 @@ public interface ParametersPackage extends EPackage {
 	int PARAMETER_INSTANCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_INSTANCE__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Parameter Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_INSTANCE__PARAMETER_REFERENCE = 0;
+	int PARAMETER_INSTANCE__PARAMETER_REFERENCE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Input Call Instance</b></em>' container reference.
@@ -161,7 +170,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_INSTANCE__INPUT_CALL_INSTANCE = 1;
+	int PARAMETER_INSTANCE__INPUT_CALL_INSTANCE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Output Call Instance</b></em>' container reference.
@@ -170,7 +179,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE = 2;
+	int PARAMETER_INSTANCE__OUTPUT_CALL_INSTANCE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The feature id for the '<em><b>Component Instance</b></em>' container reference.
@@ -179,7 +188,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_INSTANCE__COMPONENT_INSTANCE = 3;
+	int PARAMETER_INSTANCE__COMPONENT_INSTANCE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Parameter Value</b></em>' containment reference.
@@ -188,7 +197,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_INSTANCE__PARAMETER_VALUE = 4;
+	int PARAMETER_INSTANCE__PARAMETER_VALUE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Instance</em>' class.
@@ -197,7 +206,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PARAMETER_INSTANCE_FEATURE_COUNT = 5;
+	int PARAMETER_INSTANCE_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.CallInstanceImpl <em>Call Instance</em>}' class.
@@ -274,13 +283,22 @@ public interface ParametersPackage extends EPackage {
 	int OPERATION_REFERENCE = 4;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int OPERATION_REFERENCE__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Call Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_REFERENCE__CALL_INSTANCE = 0;
+	int OPERATION_REFERENCE__CALL_INSTANCE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Operation Reference</em>' class.
@@ -289,7 +307,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int OPERATION_REFERENCE_FEATURE_COUNT = 1;
+	int OPERATION_REFERENCE_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.ComponentInstanceImpl <em>Component Instance</em>}' class.
@@ -348,13 +366,22 @@ public interface ParametersPackage extends EPackage {
 	int COMPONENT_REFERENCE = 6;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int COMPONENT_REFERENCE__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Component Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_REFERENCE__COMPONENT_INSTANCE = 0;
+	int COMPONENT_REFERENCE__COMPONENT_INSTANCE = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Component Reference</em>' class.
@@ -363,7 +390,7 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int COMPONENT_REFERENCE_FEATURE_COUNT = 1;
+	int COMPONENT_REFERENCE_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.parameters.impl.InfrastructureOperationReferenceImpl <em>Infrastructure Operation Reference</em>}' class.
@@ -374,6 +401,15 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	int INFRASTRUCTURE_OPERATION_REFERENCE = 7;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int INFRASTRUCTURE_OPERATION_REFERENCE__ID = OPERATION_REFERENCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Call Instance</b></em>' container reference.
@@ -402,6 +438,15 @@ public interface ParametersPackage extends EPackage {
 	 * @generated
 	 */
 	int BUSINESS_OPERATION_REFERENCE = 8;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int BUSINESS_OPERATION_REFERENCE__ID = OPERATION_REFERENCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Call Instance</b></em>' container reference.
@@ -479,15 +524,15 @@ public interface ParametersPackage extends EPackage {
 	EClass getParameterPartition();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.parameters.ParameterPartition#getValidatedSetting <em>Validated Setting</em>}'.
+	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.parameters.ParameterPartition#getQualityAnnotation <em>Quality Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Validated Setting</em>'.
-	 * @see de.fzi.se.quality.parameters.ParameterPartition#getValidatedSetting()
+	 * @return the meta object for the container reference '<em>Quality Annotation</em>'.
+	 * @see de.fzi.se.quality.parameters.ParameterPartition#getQualityAnnotation()
 	 * @see #getParameterPartition()
 	 * @generated
 	 */
-	EReference getParameterPartition_ValidatedSetting();
+	EReference getParameterPartition_QualityAnnotation();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.parameters.ParameterValue <em>Parameter Value</em>}'.
@@ -788,12 +833,12 @@ public interface ParametersPackage extends EPackage {
 		EClass PARAMETER_PARTITION = eINSTANCE.getParameterPartition();
 
 		/**
-		 * The meta object literal for the '<em><b>Validated Setting</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Quality Annotation</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PARAMETER_PARTITION__VALIDATED_SETTING = eINSTANCE.getParameterPartition_ValidatedSetting();
+		EReference PARAMETER_PARTITION__QUALITY_ANNOTATION = eINSTANCE.getParameterPartition_QualityAnnotation();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.parameters.impl.ParameterValueImpl <em>Parameter Value</em>}' class.

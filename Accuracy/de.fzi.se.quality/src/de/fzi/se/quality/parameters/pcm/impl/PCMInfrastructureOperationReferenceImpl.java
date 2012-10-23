@@ -11,6 +11,8 @@ import de.fzi.se.quality.parameters.impl.InfrastructureOperationReferenceImpl;
 import de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 
 import de.uka.ipd.sdq.pcm.repository.Signature;
@@ -29,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl#getResourceRequiredRole <em>Resource Required Role</em>}</li>
+ *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl#getRole <em>Role</em>}</li>
  *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl#getSignature <em>Signature</em>}</li>
  * </ul>
  * </p>
@@ -38,14 +40,14 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOperationReferenceImpl implements PCMInfrastructureOperationReference {
 	/**
-	 * The cached value of the '{@link #getResourceRequiredRole() <em>Resource Required Role</em>}' reference.
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResourceRequiredRole()
+	 * @see #getRole()
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceRequiredRole resourceRequiredRole;
+	protected InfrastructureRequiredRole role;
 
 	/**
 	 * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference.
@@ -55,7 +57,7 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature signature;
+	protected InfrastructureSignature signature;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,16 +83,16 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredRole getResourceRequiredRole() {
-		if (resourceRequiredRole != null && resourceRequiredRole.eIsProxy()) {
-			InternalEObject oldResourceRequiredRole = (InternalEObject)resourceRequiredRole;
-			resourceRequiredRole = (ResourceRequiredRole)eResolveProxy(oldResourceRequiredRole);
-			if (resourceRequiredRole != oldResourceRequiredRole) {
+	public InfrastructureRequiredRole getRole() {
+		if (role != null && role.eIsProxy()) {
+			InternalEObject oldRole = (InternalEObject)role;
+			role = (InfrastructureRequiredRole)eResolveProxy(oldRole);
+			if (role != oldRole) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE, oldResourceRequiredRole, resourceRequiredRole));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE, oldRole, role));
 			}
 		}
-		return resourceRequiredRole;
+		return role;
 	}
 
 	/**
@@ -98,8 +100,8 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredRole basicGetResourceRequiredRole() {
-		return resourceRequiredRole;
+	public InfrastructureRequiredRole basicGetRole() {
+		return role;
 	}
 
 	/**
@@ -107,11 +109,11 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResourceRequiredRole(ResourceRequiredRole newResourceRequiredRole) {
-		ResourceRequiredRole oldResourceRequiredRole = resourceRequiredRole;
-		resourceRequiredRole = newResourceRequiredRole;
+	public void setRole(InfrastructureRequiredRole newRole) {
+		InfrastructureRequiredRole oldRole = role;
+		role = newRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE, oldResourceRequiredRole, resourceRequiredRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE, oldRole, role));
 	}
 
 	/**
@@ -119,10 +121,10 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature getSignature() {
+	public InfrastructureSignature getSignature() {
 		if (signature != null && signature.eIsProxy()) {
 			InternalEObject oldSignature = (InternalEObject)signature;
-			signature = (Signature)eResolveProxy(oldSignature);
+			signature = (InfrastructureSignature)eResolveProxy(oldSignature);
 			if (signature != oldSignature) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
@@ -136,7 +138,7 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature basicGetSignature() {
+	public InfrastructureSignature basicGetSignature() {
 		return signature;
 	}
 
@@ -145,8 +147,8 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSignature(Signature newSignature) {
-		Signature oldSignature = signature;
+	public void setSignature(InfrastructureSignature newSignature) {
+		InfrastructureSignature oldSignature = signature;
 		signature = newSignature;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
@@ -160,9 +162,9 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE:
-				if (resolve) return getResourceRequiredRole();
-				return basicGetResourceRequiredRole();
+			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE:
+				if (resolve) return getRole();
+				return basicGetRole();
 			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE:
 				if (resolve) return getSignature();
 				return basicGetSignature();
@@ -178,11 +180,11 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE:
-				setResourceRequiredRole((ResourceRequiredRole)newValue);
+			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE:
+				setRole((InfrastructureRequiredRole)newValue);
 				return;
 			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE:
-				setSignature((Signature)newValue);
+				setSignature((InfrastructureSignature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,11 +198,11 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE:
-				setResourceRequiredRole((ResourceRequiredRole)null);
+			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE:
+				setRole((InfrastructureRequiredRole)null);
 				return;
 			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE:
-				setSignature((Signature)null);
+				setSignature((InfrastructureSignature)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -214,8 +216,8 @@ public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOpera
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE:
-				return resourceRequiredRole != null;
+			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE:
+				return role != null;
 			case PCMPackage.PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE:
 				return signature != null;
 		}

@@ -197,6 +197,60 @@ public interface QualityAnnotationFactory extends EFactory {
 	PCMREResourceSignature createPCMREResourceSignature();
 
 	/**
+	 * Returns a new object of class '<em>PCMRE Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMRE Resource</em>'.
+	 * @generated
+	 */
+	PCMREResource createPCMREResource();
+
+	/**
+	 * Returns a new object of class '<em>PCMRE Resource Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMRE Resource Role</em>'.
+	 * @generated
+	 */
+	PCMREResourceRole createPCMREResourceRole();
+
+	/**
+	 * Returns a new object of class '<em>PCMRECI Behavior</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMRECI Behavior</em>'.
+	 * @generated
+	 */
+	PCMRECIBehavior createPCMRECIBehavior();
+
+	/**
+	 * Returns a new object of class '<em>PCMRE Infrastructure Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMRE Infrastructure Interface</em>'.
+	 * @generated
+	 */
+	PCMREInfrastructureInterface createPCMREInfrastructureInterface();
+
+	/**
+	 * Returns a new object of class '<em>PCMRE Infrastructure Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMRE Infrastructure Role</em>'.
+	 * @generated
+	 */
+	PCMREInfrastructureRole createPCMREInfrastructureRole();
+
+	/**
+	 * Returns a new object of class '<em>PCMRE Infrastructure Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMRE Infrastructure Signature</em>'.
+	 * @generated
+	 */
+	PCMREInfrastructureSignature createPCMREInfrastructureSignature();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

@@ -6,36 +6,24 @@
  */
 package de.fzi.se.quality.impl;
 
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EPackage;
+import org.eclipse.emf.ecore.EReference;
+import org.eclipse.emf.ecore.impl.EPackageImpl;
+import org.eclipse.uml2.types.TypesPackage;
+
 import de.fzi.se.quality.QualityFactory;
 import de.fzi.se.quality.QualityPackage;
 import de.fzi.se.quality.QualityRepository;
 import de.fzi.se.quality.QualityStatement;
-
 import de.fzi.se.quality.parameters.ParametersPackage;
-
 import de.fzi.se.quality.parameters.impl.ParametersPackageImpl;
-
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
-
 import de.fzi.se.quality.parameters.pcm.impl.PCMPackageImpl;
-
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
-
 import de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl;
-
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
-
 import de.uka.ipd.sdq.pcm.PcmPackage;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.EPackage;
-import org.eclipse.emf.ecore.EReference;
-
-import org.eclipse.emf.ecore.impl.EPackageImpl;
-import probfunction.ProbfunctionPackage;
-import probfunction.impl.ProbfunctionPackageImpl;
-import types.TypesPackage;
-import types.impl.TypesPackageImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -106,29 +94,24 @@ public class QualityPackageImpl extends EPackageImpl implements QualityPackage {
 
 		// Initialize simple dependencies
 		PcmPackage.eINSTANCE.eClass();
+		TypesPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		QualityAnnotationPackageImpl theQualityAnnotationPackage = (QualityAnnotationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) instanceof QualityAnnotationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) : QualityAnnotationPackage.eINSTANCE);
 		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
 		PCMPackageImpl thePCMPackage = (PCMPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) instanceof PCMPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		ProbfunctionPackageImpl theProbfunctionPackage = (ProbfunctionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) instanceof ProbfunctionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) : ProbfunctionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theQualityPackage.createPackageContents();
 		theQualityAnnotationPackage.createPackageContents();
 		theParametersPackage.createPackageContents();
 		thePCMPackage.createPackageContents();
-		theTypesPackage.createPackageContents();
-		theProbfunctionPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theQualityPackage.initializePackageContents();
 		theQualityAnnotationPackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
 		thePCMPackage.initializePackageContents();
-		theTypesPackage.initializePackageContents();
-		theProbfunctionPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theQualityPackage.freeze();

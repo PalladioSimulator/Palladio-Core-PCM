@@ -11,6 +11,7 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 
 import de.fzi.se.quality.qualityannotation.util.QualityAnnotationValidator;
 
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
 import java.util.Map;
@@ -55,7 +56,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature signature;
+	protected OperationSignature signature;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -81,10 +82,10 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature getSignature() {
+	public OperationSignature getSignature() {
 		if (signature != null && signature.eIsProxy()) {
 			InternalEObject oldSignature = (InternalEObject)signature;
-			signature = (Signature)eResolveProxy(oldSignature);
+			signature = (OperationSignature)eResolveProxy(oldSignature);
 			if (signature != oldSignature) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE, oldSignature, signature));
@@ -98,7 +99,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature basicGetSignature() {
+	public OperationSignature basicGetSignature() {
 		return signature;
 	}
 
@@ -107,56 +108,56 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSignature(Signature newSignature) {
-		Signature oldSignature = signature;
+	public void setSignature(OperationSignature newSignature) {
+		OperationSignature oldSignature = signature;
 		signature = newSignature;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE, oldSignature, signature));
 	}
 
 	/**
-	 * The cached OCL expression body for the '{@link #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is The Lowest Hierarchy Level</em>}' operation.
+	 * The cached OCL expression body for the '{@link #ThisIsTheLowestComponentHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is The Lowest Component Hierarchy Level</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see #ThisIsTheLowestComponentHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.childREs->isEmpty()";
+	protected static final String THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.childREs->isEmpty()";
 	/**
-	 * The cached OCL invariant for the '{@link #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is The Lowest Hierarchy Level</em>}' invariant operation.
+	 * The cached OCL invariant for the '{@link #ThisIsTheLowestComponentHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>This Is The Lowest Component Hierarchy Level</em>}' invariant operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #ThisIsTheLowestHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see #ThisIsTheLowestComponentHierarchyLevel(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static Constraint THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean ThisIsTheLowestHierarchyLevel(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+	public boolean ThisIsTheLowestComponentHierarchyLevel(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_SIGNATURE);
 			try {
-				THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			}
 			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
-		if (!EOCL_ENV.createQuery(THIS_IS_THE_LOWEST_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+		if (!EOCL_ENV.createQuery(THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-						 QualityAnnotationValidator.PCMRE_SIGNATURE__THIS_IS_THE_LOWEST_HIERARCHY_LEVEL,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ThisIsTheLowestHierarchyLevel", EObjectValidator.getObjectLabel(this, context) }),
+						 QualityAnnotationValidator.PCMRE_SIGNATURE__THIS_IS_THE_LOWEST_COMPONENT_HIERARCHY_LEVEL,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ThisIsTheLowestComponentHierarchyLevel", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -165,48 +166,48 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	}
 
 	/**
-	 * The cached OCL expression body for the '{@link #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Upper Hierarchy Level Is Role</em>}' operation.
+	 * The cached OCL expression body for the '{@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Each RE Target Must Be Referenced Only From One RE</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parentRE.oclIsTypeOf(PCMRERole)";
+	protected static final String EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parentRE.childREs->select(pcmre | pcmre.oclAsType(PCMRESignature).signature = self.signature)->size() = 1";
 	/**
-	 * The cached OCL invariant for the '{@link #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Next Upper Hierarchy Level Is Role</em>}' invariant operation.
+	 * The cached OCL invariant for the '{@link #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Each RE Target Must Be Referenced Only From One RE</em>}' invariant operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #NextUpperHierarchyLevelIsRole(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @see #EachRETargetMustBeReferencedOnlyFromOneRE(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
 	 * @ordered
 	 */
-	protected static Constraint NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+	protected static Constraint EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public boolean NextUpperHierarchyLevelIsRole(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+	public boolean EachRETargetMustBeReferencedOnlyFromOneRE(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
 			OCL.Helper helper = EOCL_ENV.createOCLHelper();
 			helper.setContext(QualityAnnotationPackage.Literals.PCMRE_SIGNATURE);
 			try {
-				NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+				EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
 			}
 			catch (ParserException pe) {
 				throw new UnsupportedOperationException(pe.getLocalizedMessage());
 			}
 		}
-		if (!EOCL_ENV.createQuery(NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+		if (!EOCL_ENV.createQuery(EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
 			if (diagnostics != null) {
 				diagnostics.add
 					(new BasicDiagnostic
 						(Diagnostic.ERROR,
 						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
-						 QualityAnnotationValidator.PCMRE_SIGNATURE__NEXT_UPPER_HIERARCHY_LEVEL_IS_ROLE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "NextUpperHierarchyLevelIsRole", EObjectValidator.getObjectLabel(this, context) }),
+						 QualityAnnotationValidator.PCMRE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EachRETargetMustBeReferencedOnlyFromOneRE", EObjectValidator.getObjectLabel(this, context) }),
 						 new Object [] { this }));
 			}
 			return false;
@@ -238,7 +239,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE:
-				setSignature((Signature)newValue);
+				setSignature((OperationSignature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -253,7 +254,7 @@ public class PCMRESignatureImpl extends PCMREImpl implements PCMRESignature {
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case QualityAnnotationPackage.PCMRE_SIGNATURE__SIGNATURE:
-				setSignature((Signature)null);
+				setSignature((OperationSignature)null);
 				return;
 		}
 		super.eUnset(featureID);

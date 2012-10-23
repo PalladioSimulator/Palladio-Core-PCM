@@ -7,6 +7,7 @@
 package de.fzi.se.quality.parameters.provider;
 
 
+import de.fzi.se.quality.parameters.BusinessOperationReference;
 import java.util.Collection;
 import java.util.List;
 
@@ -67,7 +68,10 @@ public class BusinessOperationReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_BusinessOperationReference_type");
+		String label = ((BusinessOperationReference)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_BusinessOperationReference_type") :
+			getString("_UI_BusinessOperationReference_type") + " " + label;
 	}
 
 	/**

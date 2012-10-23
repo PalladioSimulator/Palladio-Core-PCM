@@ -7,6 +7,7 @@
 package de.fzi.se.quality.parameters.pcm.provider;
 
 
+import de.fzi.se.quality.parameters.pcm.PCMComponentReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
 import de.fzi.se.quality.parameters.provider.ComponentReferenceItemProvider;
@@ -110,7 +111,10 @@ public class PCMComponentReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_PCMComponentReference_type");
+		String label = ((PCMComponentReference)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_PCMComponentReference_type") :
+			getString("_UI_PCMComponentReference_type") + " " + label;
 	}
 
 	/**

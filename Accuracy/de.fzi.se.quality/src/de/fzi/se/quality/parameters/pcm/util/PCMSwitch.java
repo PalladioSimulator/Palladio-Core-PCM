@@ -117,6 +117,7 @@ public class PCMSwitch<T> {
 				T result = casePCMInfrastructureOperationReference(pcmInfrastructureOperationReference);
 				if (result == null) result = caseInfrastructureOperationReference(pcmInfrastructureOperationReference);
 				if (result == null) result = caseOperationReference(pcmInfrastructureOperationReference);
+				if (result == null) result = caseIdentifier(pcmInfrastructureOperationReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -125,6 +126,7 @@ public class PCMSwitch<T> {
 				T result = casePCMBusinessOperationReference(pcmBusinessOperationReference);
 				if (result == null) result = caseBusinessOperationReference(pcmBusinessOperationReference);
 				if (result == null) result = caseOperationReference(pcmBusinessOperationReference);
+				if (result == null) result = caseIdentifier(pcmBusinessOperationReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +134,7 @@ public class PCMSwitch<T> {
 				PCMComponentReference pcmComponentReference = (PCMComponentReference)theEObject;
 				T result = casePCMComponentReference(pcmComponentReference);
 				if (result == null) result = caseComponentReference(pcmComponentReference);
+				if (result == null) result = caseIdentifier(pcmComponentReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

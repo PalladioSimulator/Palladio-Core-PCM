@@ -41,10 +41,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.EReference;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import probfunction.ProbfunctionPackage;
-import probfunction.impl.ProbfunctionPackageImpl;
-import types.TypesPackage;
-import types.impl.TypesPackageImpl;
+import org.eclipse.uml2.types.TypesPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -171,29 +168,24 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		// Initialize simple dependencies
 		PcmPackage.eINSTANCE.eClass();
+		TypesPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		QualityPackageImpl theQualityPackage = (QualityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
 		QualityAnnotationPackageImpl theQualityAnnotationPackage = (QualityAnnotationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) instanceof QualityAnnotationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) : QualityAnnotationPackage.eINSTANCE);
 		PCMPackageImpl thePCMPackage = (PCMPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) instanceof PCMPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		ProbfunctionPackageImpl theProbfunctionPackage = (ProbfunctionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) instanceof ProbfunctionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) : ProbfunctionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theParametersPackage.createPackageContents();
 		theQualityPackage.createPackageContents();
 		theQualityAnnotationPackage.createPackageContents();
 		thePCMPackage.createPackageContents();
-		theTypesPackage.createPackageContents();
-		theProbfunctionPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theParametersPackage.initializePackageContents();
 		theQualityPackage.initializePackageContents();
 		theQualityAnnotationPackage.initializePackageContents();
 		thePCMPackage.initializePackageContents();
-		theTypesPackage.initializePackageContents();
-		theProbfunctionPackage.initializePackageContents();
 
 		// Mark meta-data to indicate it can't be changed
 		theParametersPackage.freeze();
@@ -218,7 +210,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterPartition_ValidatedSetting() {
+	public EReference getParameterPartition_QualityAnnotation() {
 		return (EReference)parameterPartitionEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -476,7 +468,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		// Create classes and their features
 		parameterPartitionEClass = createEClass(PARAMETER_PARTITION);
-		createEReference(parameterPartitionEClass, PARAMETER_PARTITION__VALIDATED_SETTING);
+		createEReference(parameterPartitionEClass, PARAMETER_PARTITION__QUALITY_ANNOTATION);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
 		createEReference(parameterValueEClass, PARAMETER_VALUE__PARAMETER_INSTANCE);
@@ -551,15 +543,18 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Add supertypes to classes
 		parameterPartitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		parameterValueEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		parameterInstanceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		callInstanceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		operationReferenceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		componentInstanceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		componentReferenceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		infrastructureOperationReferenceEClass.getESuperTypes().add(this.getOperationReference());
 		businessOperationReferenceEClass.getESuperTypes().add(this.getOperationReference());
 		parameterReferenceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(parameterPartitionEClass, ParameterPartition.class, "ParameterPartition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getParameterPartition_ValidatedSetting(), theQualityAnnotationPackage.getQualityAnnotation(), theQualityAnnotationPackage.getQualityAnnotation_ValidForParameterPartitions(), "validatedSetting", null, 1, 1, ParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterPartition_QualityAnnotation(), theQualityAnnotationPackage.getQualityAnnotation(), theQualityAnnotationPackage.getQualityAnnotation_ValidForParameterPartitions(), "qualityAnnotation", null, 1, 1, ParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterValue_ParameterInstance(), this.getParameterInstance(), this.getParameterInstance_ParameterValue(), "parameterInstance", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

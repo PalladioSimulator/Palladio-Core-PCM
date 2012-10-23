@@ -7,8 +7,10 @@
 package de.fzi.se.quality.parameters.provider;
 
 
+import de.fzi.se.quality.parameters.ComponentReference;
 import de.fzi.se.quality.provider.QualityEditPlugin;
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -32,7 +34,7 @@ import org.eclipse.emf.edit.provider.ItemProviderAdapter;
  * @generated
  */
 public class ComponentReferenceItemProvider
-	extends ItemProviderAdapter
+	extends IdentifierItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -72,7 +74,10 @@ public class ComponentReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ComponentReference_type");
+		String label = ((ComponentReference)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ComponentReference_type") :
+			getString("_UI_ComponentReference_type") + " " + label;
 	}
 
 	/**

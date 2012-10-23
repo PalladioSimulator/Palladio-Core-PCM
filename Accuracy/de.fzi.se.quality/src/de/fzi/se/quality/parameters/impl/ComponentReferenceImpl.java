@@ -10,6 +10,7 @@ import de.fzi.se.quality.parameters.ComponentInstance;
 import de.fzi.se.quality.parameters.ComponentReference;
 import de.fzi.se.quality.parameters.ParametersPackage;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public abstract class ComponentReferenceImpl extends EObjectImpl implements ComponentReference {
+public abstract class ComponentReferenceImpl extends IdentifierImpl implements ComponentReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

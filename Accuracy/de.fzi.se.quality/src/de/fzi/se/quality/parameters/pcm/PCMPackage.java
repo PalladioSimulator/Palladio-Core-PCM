@@ -172,6 +172,15 @@ public interface PCMPackage extends EPackage {
 	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE = 2;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ID = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE__ID;
+
+	/**
 	 * The feature id for the '<em><b>Call Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -181,13 +190,13 @@ public interface PCMPackage extends EPackage {
 	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__CALL_INSTANCE = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE__CALL_INSTANCE;
 
 	/**
-	 * The feature id for the '<em><b>Resource Required Role</b></em>' reference.
+	 * The feature id for the '<em><b>Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE_FEATURE_COUNT + 0;
+	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' reference.
@@ -216,6 +225,15 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 */
 	int PCM_BUSINESS_OPERATION_REFERENCE = 3;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_BUSINESS_OPERATION_REFERENCE__ID = ParametersPackage.BUSINESS_OPERATION_REFERENCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Call Instance</b></em>' container reference.
@@ -262,6 +280,15 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 */
 	int PCM_COMPONENT_REFERENCE = 4;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT_REFERENCE__ID = ParametersPackage.COMPONENT_REFERENCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Component Instance</b></em>' container reference.
@@ -554,15 +581,15 @@ public interface PCMPackage extends EPackage {
 	EClass getPCMInfrastructureOperationReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getResourceRequiredRole <em>Resource Required Role</em>}'.
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getRole <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resource Required Role</em>'.
-	 * @see de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getResourceRequiredRole()
+	 * @return the meta object for the reference '<em>Role</em>'.
+	 * @see de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getRole()
 	 * @see #getPCMInfrastructureOperationReference()
 	 * @generated
 	 */
-	EReference getPCMInfrastructureOperationReference_ResourceRequiredRole();
+	EReference getPCMInfrastructureOperationReference_Role();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference#getSignature <em>Signature</em>}'.
@@ -782,12 +809,12 @@ public interface PCMPackage extends EPackage {
 		EClass PCM_INFRASTRUCTURE_OPERATION_REFERENCE = eINSTANCE.getPCMInfrastructureOperationReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Resource Required Role</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Role</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_INFRASTRUCTURE_OPERATION_REFERENCE__RESOURCE_REQUIRED_ROLE = eINSTANCE.getPCMInfrastructureOperationReference_ResourceRequiredRole();
+		EReference PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE = eINSTANCE.getPCMInfrastructureOperationReference_Role();
 
 		/**
 		 * The meta object literal for the '<em><b>Signature</b></em>' reference feature.

@@ -10,6 +10,7 @@ import de.fzi.se.quality.parameters.CallInstance;
 import de.fzi.se.quality.parameters.OperationReference;
 import de.fzi.se.quality.parameters.ParametersPackage;
 
+import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
@@ -34,7 +35,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  *
  * @generated
  */
-public abstract class OperationReferenceImpl extends EObjectImpl implements OperationReference {
+public abstract class OperationReferenceImpl extends IdentifierImpl implements OperationReference {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

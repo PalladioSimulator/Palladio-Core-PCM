@@ -425,13 +425,22 @@ public interface QualityAnnotationPackage extends EPackage {
 	int RE_PRECISION = 6;
 
 	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int RE_PRECISION__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
 	 * The feature id for the '<em><b>Default Precision Number Of Calls</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS = 0;
+	int RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Default Precision Call Parameter</b></em>' containment reference.
@@ -440,7 +449,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER = 1;
+	int RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
 	 * The feature id for the '<em><b>Required Element</b></em>' container reference.
@@ -449,7 +458,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RE_PRECISION__REQUIRED_ELEMENT = 2;
+	int RE_PRECISION__REQUIRED_ELEMENT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>RE Precision</em>' class.
@@ -458,7 +467,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int RE_PRECISION_FEATURE_COUNT = 3;
+	int RE_PRECISION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PrecisionImpl <em>Precision</em>}' class.
@@ -508,13 +517,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCM_PARAMETER_PARTITION__ID = ParametersPackage.PARAMETER_PARTITION__ID;
 
 	/**
-	 * The feature id for the '<em><b>Validated Setting</b></em>' container reference.
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_PARAMETER_PARTITION__VALIDATED_SETTING = ParametersPackage.PARAMETER_PARTITION__VALIDATED_SETTING;
+	int PCM_PARAMETER_PARTITION__QUALITY_ANNOTATION = ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION;
 
 	/**
 	 * The feature id for the '<em><b>Characerised Parameter Partitions</b></em>' containment reference list.
@@ -1431,6 +1440,498 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_RESOURCE_SIGNATURE_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREResourceImpl <em>PCMRE Resource</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMREResourceImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResource()
+	 * @generated
+	 */
+	int PCMRE_RESOURCE = 23;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE__ID = PCMRE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+
+	/**
+	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE__CHILD_RES = PCMRE__CHILD_RES;
+
+	/**
+	 * The feature id for the '<em><b>Parent RE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE__PARENT_RE = PCMRE__PARENT_RE;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE__PRECISION = PCMRE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE__QUALITY_ANNOTATION = PCMRE__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Processing Resource Type</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE = PCMRE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCMRE Resource</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREResourceRoleImpl <em>PCMRE Resource Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMREResourceRoleImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResourceRole()
+	 * @generated
+	 */
+	int PCMRE_RESOURCE_ROLE = 24;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE__ID = PCMRE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+
+	/**
+	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE__CHILD_RES = PCMRE__CHILD_RES;
+
+	/**
+	 * The feature id for the '<em><b>Parent RE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE__PARENT_RE = PCMRE__PARENT_RE;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE__PRECISION = PCMRE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE__QUALITY_ANNOTATION = PCMRE__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Resource Required Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE = PCMRE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCMRE Resource Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_RESOURCE_ROLE_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMRECIBehaviorImpl <em>PCMRECI Behavior</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMRECIBehaviorImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRECIBehavior()
+	 * @generated
+	 */
+	int PCMRECI_BEHAVIOR = 25;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR__ID = PCMRE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+
+	/**
+	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR__CHILD_RES = PCMRE__CHILD_RES;
+
+	/**
+	 * The feature id for the '<em><b>Parent RE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR__PARENT_RE = PCMRE__PARENT_RE;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR__PRECISION = PCMRE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR__QUALITY_ANNOTATION = PCMRE__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Internal Behaviour</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR = PCMRE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCMRECI Behavior</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRECI_BEHAVIOR_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureInterfaceImpl <em>PCMRE Infrastructure Interface</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureInterfaceImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureInterface()
+	 * @generated
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE = 26;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE__ID = PCMRE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+
+	/**
+	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE__CHILD_RES = PCMRE__CHILD_RES;
+
+	/**
+	 * The feature id for the '<em><b>Parent RE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE__PARENT_RE = PCMRE__PARENT_RE;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE__PRECISION = PCMRE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE__QUALITY_ANNOTATION = PCMRE__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Interface</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE = PCMRE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCMRE Infrastructure Interface</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_INTERFACE_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureRoleImpl <em>PCMRE Infrastructure Role</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureRoleImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureRole()
+	 * @generated
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE = 27;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE__ID = PCMRE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+
+	/**
+	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE__CHILD_RES = PCMRE__CHILD_RES;
+
+	/**
+	 * The feature id for the '<em><b>Parent RE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE__PARENT_RE = PCMRE__PARENT_RE;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE__PRECISION = PCMRE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE__QUALITY_ANNOTATION = PCMRE__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Role</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE__ROLE = PCMRE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCMRE Infrastructure Role</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_ROLE_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureSignatureImpl <em>PCMRE Infrastructure Signature</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureSignatureImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureSignature()
+	 * @generated
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE = 28;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__ID = PCMRE__ID;
+
+	/**
+	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+
+	/**
+	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__CHILD_RES = PCMRE__CHILD_RES;
+
+	/**
+	 * The feature id for the '<em><b>Parent RE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__PARENT_RE = PCMRE__PARENT_RE;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__PRECISION = PCMRE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__QUALITY_ANNOTATION = PCMRE__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Signature</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE = PCMRE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCMRE Infrastructure Signature</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMRE_INFRASTRUCTURE_SIGNATURE_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.PCMRERequestCategory <em>PCMRE Request Category</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1438,7 +1939,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRERequestCategory()
 	 * @generated
 	 */
-	int PCMRE_REQUEST_CATEGORY = 23;
+	int PCMRE_REQUEST_CATEGORY = 29;
 
 
 	/**
@@ -2112,6 +2613,132 @@ public interface QualityAnnotationPackage extends EPackage {
 	EReference getPCMREResourceSignature_ResourceSignature();
 
 	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMREResource <em>PCMRE Resource</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMRE Resource</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREResource
+	 * @generated
+	 */
+	EClass getPCMREResource();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMREResource#getProcessingResourceType <em>Processing Resource Type</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Processing Resource Type</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREResource#getProcessingResourceType()
+	 * @see #getPCMREResource()
+	 * @generated
+	 */
+	EReference getPCMREResource_ProcessingResourceType();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceRole <em>PCMRE Resource Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMRE Resource Role</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole
+	 * @generated
+	 */
+	EClass getPCMREResourceRole();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMREResourceRole#getResourceRequiredRole <em>Resource Required Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Resource Required Role</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole#getResourceRequiredRole()
+	 * @see #getPCMREResourceRole()
+	 * @generated
+	 */
+	EReference getPCMREResourceRole_ResourceRequiredRole();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior <em>PCMRECI Behavior</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMRECI Behavior</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMRECIBehavior
+	 * @generated
+	 */
+	EClass getPCMRECIBehavior();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior#getInternalBehaviour <em>Internal Behaviour</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Internal Behaviour</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMRECIBehavior#getInternalBehaviour()
+	 * @see #getPCMRECIBehavior()
+	 * @generated
+	 */
+	EReference getPCMRECIBehavior_InternalBehaviour();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface <em>PCMRE Infrastructure Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMRE Infrastructure Interface</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface
+	 * @generated
+	 */
+	EClass getPCMREInfrastructureInterface();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface#getInterface <em>Interface</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Interface</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface#getInterface()
+	 * @see #getPCMREInfrastructureInterface()
+	 * @generated
+	 */
+	EReference getPCMREInfrastructureInterface_Interface();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole <em>PCMRE Infrastructure Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMRE Infrastructure Role</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole
+	 * @generated
+	 */
+	EClass getPCMREInfrastructureRole();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole#getRole <em>Role</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Role</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole#getRole()
+	 * @see #getPCMREInfrastructureRole()
+	 * @generated
+	 */
+	EReference getPCMREInfrastructureRole_Role();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature <em>PCMRE Infrastructure Signature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMRE Infrastructure Signature</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature
+	 * @generated
+	 */
+	EClass getPCMREInfrastructureSignature();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature#getSignature <em>Signature</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Signature</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature#getSignature()
+	 * @see #getPCMREInfrastructureSignature()
+	 * @generated
+	 */
+	EReference getPCMREInfrastructureSignature_Signature();
+
+	/**
 	 * Returns the meta object for enum '{@link de.fzi.se.quality.qualityannotation.PCMRERequestCategory <em>PCMRE Request Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2692,6 +3319,114 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE = eINSTANCE.getPCMREResourceSignature_ResourceSignature();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREResourceImpl <em>PCMRE Resource</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMREResourceImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResource()
+		 * @generated
+		 */
+		EClass PCMRE_RESOURCE = eINSTANCE.getPCMREResource();
+
+		/**
+		 * The meta object literal for the '<em><b>Processing Resource Type</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE = eINSTANCE.getPCMREResource_ProcessingResourceType();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREResourceRoleImpl <em>PCMRE Resource Role</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMREResourceRoleImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResourceRole()
+		 * @generated
+		 */
+		EClass PCMRE_RESOURCE_ROLE = eINSTANCE.getPCMREResourceRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Resource Required Role</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE = eINSTANCE.getPCMREResourceRole_ResourceRequiredRole();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMRECIBehaviorImpl <em>PCMRECI Behavior</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMRECIBehaviorImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRECIBehavior()
+		 * @generated
+		 */
+		EClass PCMRECI_BEHAVIOR = eINSTANCE.getPCMRECIBehavior();
+
+		/**
+		 * The meta object literal for the '<em><b>Internal Behaviour</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR = eINSTANCE.getPCMRECIBehavior_InternalBehaviour();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureInterfaceImpl <em>PCMRE Infrastructure Interface</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureInterfaceImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureInterface()
+		 * @generated
+		 */
+		EClass PCMRE_INFRASTRUCTURE_INTERFACE = eINSTANCE.getPCMREInfrastructureInterface();
+
+		/**
+		 * The meta object literal for the '<em><b>Interface</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE = eINSTANCE.getPCMREInfrastructureInterface_Interface();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureRoleImpl <em>PCMRE Infrastructure Role</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureRoleImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureRole()
+		 * @generated
+		 */
+		EClass PCMRE_INFRASTRUCTURE_ROLE = eINSTANCE.getPCMREInfrastructureRole();
+
+		/**
+		 * The meta object literal for the '<em><b>Role</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCMRE_INFRASTRUCTURE_ROLE__ROLE = eINSTANCE.getPCMREInfrastructureRole_Role();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureSignatureImpl <em>PCMRE Infrastructure Signature</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMREInfrastructureSignatureImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureSignature()
+		 * @generated
+		 */
+		EClass PCMRE_INFRASTRUCTURE_SIGNATURE = eINSTANCE.getPCMREInfrastructureSignature();
+
+		/**
+		 * The meta object literal for the '<em><b>Signature</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE = eINSTANCE.getPCMREInfrastructureSignature_Signature();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.PCMRERequestCategory <em>PCMRE Request Category</em>}' enum.

@@ -513,6 +513,144 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResource} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMREResourceItemProvider pcmreResourceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResource}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMREResourceAdapter() {
+		if (pcmreResourceItemProvider == null) {
+			pcmreResourceItemProvider = new PCMREResourceItemProvider(this);
+		}
+
+		return pcmreResourceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMREResourceRoleItemProvider pcmreResourceRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMREResourceRoleAdapter() {
+		if (pcmreResourceRoleItemProvider == null) {
+			pcmreResourceRoleItemProvider = new PCMREResourceRoleItemProvider(this);
+		}
+
+		return pcmreResourceRoleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMRECIBehaviorItemProvider pcmreciBehaviorItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMRECIBehaviorAdapter() {
+		if (pcmreciBehaviorItemProvider == null) {
+			pcmreciBehaviorItemProvider = new PCMRECIBehaviorItemProvider(this);
+		}
+
+		return pcmreciBehaviorItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMREInfrastructureInterfaceItemProvider pcmreInfrastructureInterfaceItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMREInfrastructureInterfaceAdapter() {
+		if (pcmreInfrastructureInterfaceItemProvider == null) {
+			pcmreInfrastructureInterfaceItemProvider = new PCMREInfrastructureInterfaceItemProvider(this);
+		}
+
+		return pcmreInfrastructureInterfaceItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMREInfrastructureRoleItemProvider pcmreInfrastructureRoleItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMREInfrastructureRoleAdapter() {
+		if (pcmreInfrastructureRoleItemProvider == null) {
+			pcmreInfrastructureRoleItemProvider = new PCMREInfrastructureRoleItemProvider(this);
+		}
+
+		return pcmreInfrastructureRoleItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMREInfrastructureSignatureItemProvider pcmreInfrastructureSignatureItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMREInfrastructureSignatureAdapter() {
+		if (pcmreInfrastructureSignatureItemProvider == null) {
+			pcmreInfrastructureSignatureItemProvider = new PCMREInfrastructureSignatureItemProvider(this);
+		}
+
+		return pcmreInfrastructureSignatureItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -630,6 +768,12 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 		if (pcmServiceSpecificationItemProvider != null) pcmServiceSpecificationItemProvider.dispose();
 		if (pcmreResourceInterfaceItemProvider != null) pcmreResourceInterfaceItemProvider.dispose();
 		if (pcmreResourceSignatureItemProvider != null) pcmreResourceSignatureItemProvider.dispose();
+		if (pcmreResourceItemProvider != null) pcmreResourceItemProvider.dispose();
+		if (pcmreResourceRoleItemProvider != null) pcmreResourceRoleItemProvider.dispose();
+		if (pcmreciBehaviorItemProvider != null) pcmreciBehaviorItemProvider.dispose();
+		if (pcmreInfrastructureInterfaceItemProvider != null) pcmreInfrastructureInterfaceItemProvider.dispose();
+		if (pcmreInfrastructureRoleItemProvider != null) pcmreInfrastructureRoleItemProvider.dispose();
+		if (pcmreInfrastructureSignatureItemProvider != null) pcmreInfrastructureSignatureItemProvider.dispose();
 	}
 
 }

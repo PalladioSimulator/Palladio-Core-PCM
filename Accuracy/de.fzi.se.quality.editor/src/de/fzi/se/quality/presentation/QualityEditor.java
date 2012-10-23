@@ -203,6 +203,7 @@ import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 
+import de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
@@ -766,7 +767,7 @@ public class QualityEditor
 		adapterFactory.addAdapterFactory(new SubsystemItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new StoexItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new UnitsItemProviderAdapterFactory());
-		adapterFactory.addAdapterFactory(new de.uka.ipd.sdq.probfunction.provider.ProbfunctionItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new ProbfunctionItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReflectiveItemProviderAdapterFactory());
 
 		// Create the command stack that will notify this editor as commands are executed.

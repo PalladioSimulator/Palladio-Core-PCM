@@ -127,7 +127,7 @@ public interface QualityAnnotation extends QualityStatement {
 	/**
 	 * Returns the value of the '<em><b>Valid For Parameter Partitions</b></em>' containment reference list.
 	 * The list contents are of type {@link de.fzi.se.quality.parameters.ParameterPartition}.
-	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.ParameterPartition#getValidatedSetting <em>Validated Setting</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.ParameterPartition#getQualityAnnotation <em>Quality Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Valid For Parameter Partitions</em>' containment reference list isn't clear,
@@ -136,8 +136,8 @@ public interface QualityAnnotation extends QualityStatement {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Valid For Parameter Partitions</em>' containment reference list.
 	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_ValidForParameterPartitions()
-	 * @see de.fzi.se.quality.parameters.ParameterPartition#getValidatedSetting
-	 * @model opposite="validatedSetting" containment="true" ordered="false"
+	 * @see de.fzi.se.quality.parameters.ParameterPartition#getQualityAnnotation
+	 * @model opposite="qualityAnnotation" containment="true" ordered="false"
 	 * @generated
 	 */
 	EList<ParameterPartition> getValidForParameterPartitions();

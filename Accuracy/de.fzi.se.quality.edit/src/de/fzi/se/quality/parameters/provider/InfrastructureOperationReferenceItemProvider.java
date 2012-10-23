@@ -7,6 +7,7 @@
 package de.fzi.se.quality.parameters.provider;
 
 
+import de.fzi.se.quality.parameters.InfrastructureOperationReference;
 import java.util.Collection;
 import java.util.List;
 
@@ -67,7 +68,10 @@ public class InfrastructureOperationReferenceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_InfrastructureOperationReference_type");
+		String label = ((InfrastructureOperationReference)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_InfrastructureOperationReference_type") :
+			getString("_UI_InfrastructureOperationReference_type") + " " + label;
 	}
 
 	/**

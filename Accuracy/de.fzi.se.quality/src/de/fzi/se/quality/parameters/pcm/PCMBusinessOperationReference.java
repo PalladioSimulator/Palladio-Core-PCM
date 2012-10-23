@@ -8,6 +8,8 @@ package de.fzi.se.quality.parameters.pcm;
 
 import de.fzi.se.quality.parameters.BusinessOperationReference;
 
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -38,12 +40,12 @@ public interface PCMBusinessOperationReference extends BusinessOperationReferenc
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Required Role</em>' reference.
-	 * @see #setRequiredRole(RequiredRole)
+	 * @see #setRequiredRole(OperationRequiredRole)
 	 * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMBusinessOperationReference_RequiredRole()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	RequiredRole getRequiredRole();
+	OperationRequiredRole getRequiredRole();
 
 	/**
 	 * Sets the value of the '{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRequiredRole <em>Required Role</em>}' reference.
@@ -53,7 +55,7 @@ public interface PCMBusinessOperationReference extends BusinessOperationReferenc
 	 * @see #getRequiredRole()
 	 * @generated
 	 */
-	void setRequiredRole(RequiredRole value);
+	void setRequiredRole(OperationRequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Signature</b></em>' reference.
@@ -64,12 +66,12 @@ public interface PCMBusinessOperationReference extends BusinessOperationReferenc
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Signature</em>' reference.
-	 * @see #setSignature(Signature)
+	 * @see #setSignature(OperationSignature)
 	 * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMBusinessOperationReference_Signature()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Signature getSignature();
+	OperationSignature getSignature();
 
 	/**
 	 * Sets the value of the '{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getSignature <em>Signature</em>}' reference.
@@ -79,6 +81,6 @@ public interface PCMBusinessOperationReference extends BusinessOperationReferenc
 	 * @see #getSignature()
 	 * @generated
 	 */
-	void setSignature(Signature value);
+	void setSignature(OperationSignature value);
 
 } // PCMBusinessOperationReference

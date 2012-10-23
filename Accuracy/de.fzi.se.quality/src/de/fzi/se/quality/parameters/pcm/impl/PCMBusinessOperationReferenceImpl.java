@@ -11,6 +11,8 @@ import de.fzi.se.quality.parameters.impl.BusinessOperationReferenceImpl;
 import de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
@@ -44,7 +46,7 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * @generated
 	 * @ordered
 	 */
-	protected RequiredRole requiredRole;
+	protected OperationRequiredRole requiredRole;
 
 	/**
 	 * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference.
@@ -54,7 +56,7 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * @generated
 	 * @ordered
 	 */
-	protected Signature signature;
+	protected OperationSignature signature;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -80,10 +82,10 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredRole getRequiredRole() {
+	public OperationRequiredRole getRequiredRole() {
 		if (requiredRole != null && requiredRole.eIsProxy()) {
 			InternalEObject oldRequiredRole = (InternalEObject)requiredRole;
-			requiredRole = (RequiredRole)eResolveProxy(oldRequiredRole);
+			requiredRole = (OperationRequiredRole)eResolveProxy(oldRequiredRole);
 			if (requiredRole != oldRequiredRole) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE, oldRequiredRole, requiredRole));
@@ -97,7 +99,7 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredRole basicGetRequiredRole() {
+	public OperationRequiredRole basicGetRequiredRole() {
 		return requiredRole;
 	}
 
@@ -106,8 +108,8 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiredRole(RequiredRole newRequiredRole) {
-		RequiredRole oldRequiredRole = requiredRole;
+	public void setRequiredRole(OperationRequiredRole newRequiredRole) {
+		OperationRequiredRole oldRequiredRole = requiredRole;
 		requiredRole = newRequiredRole;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE, oldRequiredRole, requiredRole));
@@ -118,10 +120,10 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature getSignature() {
+	public OperationSignature getSignature() {
 		if (signature != null && signature.eIsProxy()) {
 			InternalEObject oldSignature = (InternalEObject)signature;
-			signature = (Signature)eResolveProxy(oldSignature);
+			signature = (OperationSignature)eResolveProxy(oldSignature);
 			if (signature != oldSignature) {
 				if (eNotificationRequired())
 					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
@@ -135,7 +137,7 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public Signature basicGetSignature() {
+	public OperationSignature basicGetSignature() {
 		return signature;
 	}
 
@@ -144,8 +146,8 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setSignature(Signature newSignature) {
-		Signature oldSignature = signature;
+	public void setSignature(OperationSignature newSignature) {
+		OperationSignature oldSignature = signature;
 		signature = newSignature;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
@@ -178,10 +180,10 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE:
-				setRequiredRole((RequiredRole)newValue);
+				setRequiredRole((OperationRequiredRole)newValue);
 				return;
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
-				setSignature((Signature)newValue);
+				setSignature((OperationSignature)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -196,10 +198,10 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	public void eUnset(int featureID) {
 		switch (featureID) {
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE:
-				setRequiredRole((RequiredRole)null);
+				setRequiredRole((OperationRequiredRole)null);
 				return;
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
-				setSignature((Signature)null);
+				setSignature((OperationSignature)null);
 				return;
 		}
 		super.eUnset(featureID);

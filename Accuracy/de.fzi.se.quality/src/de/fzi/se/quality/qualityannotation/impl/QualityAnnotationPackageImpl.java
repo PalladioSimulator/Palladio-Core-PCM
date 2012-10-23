@@ -28,7 +28,11 @@ import de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision;
 import de.fzi.se.quality.qualityannotation.NoPrecision;
 import de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation;
 import de.fzi.se.quality.qualityannotation.PCMParameterPartition;
+import de.fzi.se.quality.qualityannotation.PCMRECIBehavior;
 import de.fzi.se.quality.qualityannotation.PCMRECategory;
+import de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface;
+import de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole;
+import de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature;
 import de.fzi.se.quality.qualityannotation.PCMREInterface;
 import de.fzi.se.quality.qualityannotation.PCMRERequestCategory;
 import de.fzi.se.quality.qualityannotation.PCMREResource;
@@ -73,10 +77,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 
 import org.eclipse.emf.ecore.impl.EPackageImpl;
-import probfunction.ProbfunctionPackage;
-import probfunction.impl.ProbfunctionPackageImpl;
-import types.TypesPackage;
-import types.impl.TypesPackageImpl;
+import org.eclipse.uml2.types.TypesPackage;
 
 /**
  * <!-- begin-user-doc -->
@@ -251,6 +252,48 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass pcmreResourceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmreResourceRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmreciBehaviorEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmreInfrastructureInterfaceEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmreInfrastructureRoleEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmreInfrastructureSignatureEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum pcmreRequestCategoryEEnum = null;
 
 	/**
@@ -301,29 +344,24 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
 		// Initialize simple dependencies
 		PcmPackage.eINSTANCE.eClass();
+		TypesPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		QualityPackageImpl theQualityPackage = (QualityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
 		ParametersPackageImpl theParametersPackage = (ParametersPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) instanceof ParametersPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI) : ParametersPackage.eINSTANCE);
 		PCMPackageImpl thePCMPackage = (PCMPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) instanceof PCMPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI) : PCMPackage.eINSTANCE);
-		TypesPackageImpl theTypesPackage = (TypesPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) instanceof TypesPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI) : TypesPackage.eINSTANCE);
-		ProbfunctionPackageImpl theProbfunctionPackage = (ProbfunctionPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) instanceof ProbfunctionPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(ProbfunctionPackage.eNS_URI) : ProbfunctionPackage.eINSTANCE);
 
 		// Create package meta-data objects
 		theQualityAnnotationPackage.createPackageContents();
 		theQualityPackage.createPackageContents();
 		theParametersPackage.createPackageContents();
 		thePCMPackage.createPackageContents();
-		theTypesPackage.createPackageContents();
-		theProbfunctionPackage.createPackageContents();
 
 		// Initialize created meta-data
 		theQualityAnnotationPackage.initializePackageContents();
 		theQualityPackage.initializePackageContents();
 		theParametersPackage.initializePackageContents();
 		thePCMPackage.initializePackageContents();
-		theTypesPackage.initializePackageContents();
-		theProbfunctionPackage.initializePackageContents();
 
 		// Register package validator
 		EValidator.Registry.INSTANCE.put
@@ -915,6 +953,114 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPCMREResource() {
+		return pcmreResourceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMREResource_ProcessingResourceType() {
+		return (EReference)pcmreResourceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMREResourceRole() {
+		return pcmreResourceRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMREResourceRole_ResourceRequiredRole() {
+		return (EReference)pcmreResourceRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMRECIBehavior() {
+		return pcmreciBehaviorEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMRECIBehavior_InternalBehaviour() {
+		return (EReference)pcmreciBehaviorEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMREInfrastructureInterface() {
+		return pcmreInfrastructureInterfaceEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMREInfrastructureInterface_Interface() {
+		return (EReference)pcmreInfrastructureInterfaceEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMREInfrastructureRole() {
+		return pcmreInfrastructureRoleEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMREInfrastructureRole_Role() {
+		return (EReference)pcmreInfrastructureRoleEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMREInfrastructureSignature() {
+		return pcmreInfrastructureSignatureEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMREInfrastructureSignature_Signature() {
+		return (EReference)pcmreInfrastructureSignatureEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPCMRERequestCategory() {
 		return pcmreRequestCategoryEEnum;
 	}
@@ -1033,6 +1179,24 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmreResourceSignatureEClass = createEClass(PCMRE_RESOURCE_SIGNATURE);
 		createEReference(pcmreResourceSignatureEClass, PCMRE_RESOURCE_SIGNATURE__RESOURCE_SIGNATURE);
 
+		pcmreResourceEClass = createEClass(PCMRE_RESOURCE);
+		createEReference(pcmreResourceEClass, PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE);
+
+		pcmreResourceRoleEClass = createEClass(PCMRE_RESOURCE_ROLE);
+		createEReference(pcmreResourceRoleEClass, PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE);
+
+		pcmreciBehaviorEClass = createEClass(PCMRECI_BEHAVIOR);
+		createEReference(pcmreciBehaviorEClass, PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR);
+
+		pcmreInfrastructureInterfaceEClass = createEClass(PCMRE_INFRASTRUCTURE_INTERFACE);
+		createEReference(pcmreInfrastructureInterfaceEClass, PCMRE_INFRASTRUCTURE_INTERFACE__INTERFACE);
+
+		pcmreInfrastructureRoleEClass = createEClass(PCMRE_INFRASTRUCTURE_ROLE);
+		createEReference(pcmreInfrastructureRoleEClass, PCMRE_INFRASTRUCTURE_ROLE__ROLE);
+
+		pcmreInfrastructureSignatureEClass = createEClass(PCMRE_INFRASTRUCTURE_SIGNATURE);
+		createEReference(pcmreInfrastructureSignatureEClass, PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE);
+
 		// Create enums
 		pcmreRequestCategoryEEnum = createEEnum(PCMRE_REQUEST_CATEGORY);
 	}
@@ -1070,6 +1234,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 		SeffPackage theSeffPackage = (SeffPackage)EPackage.Registry.INSTANCE.getEPackage(SeffPackage.eNS_URI);
 		ResourcetypePackage theResourcetypePackage = (ResourcetypePackage)EPackage.Registry.INSTANCE.getEPackage(ResourcetypePackage.eNS_URI);
+		EntityPackage theEntityPackage = (EntityPackage)EPackage.Registry.INSTANCE.getEPackage(EntityPackage.eNS_URI);
 
 		// Create type parameters
 
@@ -1080,6 +1245,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		serviceSpecificationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		requiredElementEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		internalStateInfluenceAnalysisAggregationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		rePrecisionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		precisionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		pcmParameterPartitionEClass.getESuperTypes().add(theParametersPackage.getParameterPartition());
 		characterisedPCMParameterPartitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
@@ -1096,6 +1262,12 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmServiceSpecificationEClass.getESuperTypes().add(this.getServiceSpecification());
 		pcmreResourceInterfaceEClass.getESuperTypes().add(this.getPCMRE());
 		pcmreResourceSignatureEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreResourceEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreResourceRoleEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreciBehaviorEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreInfrastructureInterfaceEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreInfrastructureRoleEClass.getESuperTypes().add(this.getPCMRE());
+		pcmreInfrastructureSignatureEClass.getESuperTypes().add(this.getPCMRE());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(callParameterDeviationEClass, CallParameterDeviation.class, "CallParameterDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1108,7 +1280,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		initEReference(getQualityAnnotation_ForServiceSpecification(), this.getServiceSpecification(), this.getServiceSpecification_QualityAnnotation(), "forServiceSpecification", null, 1, 1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getQualityAnnotation_StipulatedREPrecisions(), this.getRequiredElement(), this.getRequiredElement_QualityAnnotation(), "stipulatedREPrecisions", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getQualityAnnotation_InternalStateInfluenceAnalysisResult(), this.getInternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation_QualityAnnotation(), "internalStateInfluenceAnalysisResult", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getQualityAnnotation_ValidForParameterPartitions(), theParametersPackage.getParameterPartition(), theParametersPackage.getParameterPartition_ValidatedSetting(), "validForParameterPartitions", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getQualityAnnotation_ValidForParameterPartitions(), theParametersPackage.getParameterPartition(), theParametersPackage.getParameterPartition_QualityAnnotation(), "validForParameterPartitions", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(serviceSpecificationEClass, ServiceSpecification.class, "ServiceSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceSpecification_Checksum(), ecorePackage.getELong(), "checksum", null, 0, 1, ServiceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1171,27 +1343,9 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		initEClass(noPrecisionEClass, NoPrecision.class, "NoPrecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pcmreCategoryEClass, PCMRECategory.class, "PCMRECategory", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEAttribute(getPCMRECategory_Category(), this.getPCMRERequestCategory(), "category", null, 1, 1, PCMRECategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getPCMRECategory_Category(), this.getPCMRERequestCategory(), "category", null, 1, 1, PCMRECategory.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, !IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelIsInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "ThisIsHighestHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
-		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
-		g1 = createEGenericType(ecorePackage.getEMap());
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		g2 = createEGenericType(ecorePackage.getEJavaObject());
-		g1.getETypeArguments().add(g2);
-		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
-
-		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "NoSublevelsForCategoryResourceDemand", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelIsPCMREInfrastructureInterfaceForCategoryInfrastructure", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1209,12 +1363,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(pcmreEClass, de.fzi.se.quality.qualityannotation.PCMRE.class, "PCMRE", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(pcmreInterfaceEClass, PCMREInterface.class, "PCMREInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMREInterface_Interface(), theRepositoryPackage.getInterface(), null, "interface", null, 1, 1, PCMREInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
-		op = addEOperation(pcmreInterfaceEClass, ecorePackage.getEBoolean(), "NextLowerHierachyLevelIsRole", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelIsPCMREResourceInterfaceForCategoryResource", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1223,7 +1372,66 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(pcmreInterfaceEClass, ecorePackage.getEBoolean(), "NextUpperHierarchyLevelIsCategory", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelIsPCMREInterfaceForCategoryComponent", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelIsPCMREResourceForCategoryResourceDemand", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelIsPCMRECIBehaviorForCategoryComponentInternal", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreCategoryEClass, ecorePackage.getEBoolean(), "EachCategoryExactlyOnceIfSpecified", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreEClass, de.fzi.se.quality.qualityannotation.PCMRE.class, "PCMRE", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(pcmreEClass, ecorePackage.getEBoolean(), "TopmostLevelForPCMMustBePCMRECategory", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreInterfaceEClass, PCMREInterface.class, "PCMREInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREInterface_Interface(), theRepositoryPackage.getOperationInterface(), null, "interface", null, 1, 1, PCMREInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreInterfaceEClass, ecorePackage.getEBoolean(), "NextLowerLevelMustConsistOfTypePCMRERole", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreInterfaceEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1233,9 +1441,9 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pcmreRoleEClass, PCMRERole.class, "PCMRERole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMRERole_Role(), theRepositoryPackage.getRole(), null, "role", null, 1, 1, PCMRERole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMRERole_Role(), theRepositoryPackage.getOperationRequiredRole(), null, "role", null, 1, 1, PCMRERole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = addEOperation(pcmreRoleEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelIsSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pcmreRoleEClass, ecorePackage.getEBoolean(), "NextLowerLevelMustConsistOfTypePCMRESignature", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1244,7 +1452,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(pcmreRoleEClass, ecorePackage.getEBoolean(), "NextUpperHierarchyLevelIsInterface", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pcmreRoleEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1254,9 +1462,9 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pcmreSignatureEClass, PCMRESignature.class, "PCMRESignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMRESignature_Signature(), theRepositoryPackage.getSignature(), null, "signature", null, 1, 1, PCMRESignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMRESignature_Signature(), theRepositoryPackage.getOperationSignature(), null, "signature", null, 1, 1, PCMRESignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		op = addEOperation(pcmreSignatureEClass, ecorePackage.getEBoolean(), "ThisIsTheLowestHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pcmreSignatureEClass, ecorePackage.getEBoolean(), "ThisIsTheLowestComponentHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1265,7 +1473,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		op = addEOperation(pcmreSignatureEClass, ecorePackage.getEBoolean(), "NextUpperHierarchyLevelIsRole", 0, 1, IS_UNIQUE, IS_ORDERED);
+		op = addEOperation(pcmreSignatureEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());
@@ -1280,8 +1488,170 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		initEClass(pcmreResourceInterfaceEClass, PCMREResourceInterface.class, "PCMREResourceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMREResourceInterface_ResourceInterface(), theResourcetypePackage.getResourceInterface(), null, "resourceInterface", null, 1, 1, PCMREResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
+		op = addEOperation(pcmreResourceInterfaceEClass, ecorePackage.getEBoolean(), "NextLowerLevelMustConsistOfTypePCMREResourceRole", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreResourceInterfaceEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
 		initEClass(pcmreResourceSignatureEClass, PCMREResourceSignature.class, "PCMREResourceSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMREResourceSignature_ResourceSignature(), theResourcetypePackage.getResourceSignature(), null, "resourceSignature", null, 1, 1, PCMREResourceSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreResourceSignatureEClass, ecorePackage.getEBoolean(), "ThisIsTheLowestResourceHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreResourceSignatureEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreResourceEClass, PCMREResource.class, "PCMREResource", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREResource_ProcessingResourceType(), theResourcetypePackage.getProcessingResourceType(), null, "processingResourceType", null, 1, 1, PCMREResource.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreResourceEClass, ecorePackage.getEBoolean(), "ThisIsTheLowestResourceDemandHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreResourceEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreResourceRoleEClass, PCMREResourceRole.class, "PCMREResourceRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREResourceRole_ResourceRequiredRole(), theEntityPackage.getResourceRequiredRole(), null, "resourceRequiredRole", null, 1, 1, PCMREResourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreResourceRoleEClass, ecorePackage.getEBoolean(), "NextLowerLevelMustConsistOfTypePCMREResourceSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreResourceRoleEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreciBehaviorEClass, PCMRECIBehavior.class, "PCMRECIBehavior", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMRECIBehavior_InternalBehaviour(), theSeffPackage.getResourceDemandingInternalBehaviour(), null, "internalBehaviour", null, 1, 1, PCMRECIBehavior.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreciBehaviorEClass, ecorePackage.getEBoolean(), "ThisIsTheLowestComponentInternalHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreciBehaviorEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreInfrastructureInterfaceEClass, PCMREInfrastructureInterface.class, "PCMREInfrastructureInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREInfrastructureInterface_Interface(), theRepositoryPackage.getInfrastructureInterface(), null, "interface", null, 1, 1, PCMREInfrastructureInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreInfrastructureInterfaceEClass, ecorePackage.getEBoolean(), "NextLowerLevelMustConsistOfTypePCMREInfrastructureRole", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreInfrastructureInterfaceEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreInfrastructureRoleEClass, PCMREInfrastructureRole.class, "PCMREInfrastructureRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREInfrastructureRole_Role(), theRepositoryPackage.getInfrastructureRequiredRole(), null, "role", null, 1, 1, PCMREInfrastructureRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreInfrastructureRoleEClass, ecorePackage.getEBoolean(), "NextLowerLevelMustConsistOfTypePCMREInfrastructureSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreInfrastructureRoleEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmreInfrastructureSignatureEClass, PCMREInfrastructureSignature.class, "PCMREInfrastructureSignature", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMREInfrastructureSignature_Signature(), theRepositoryPackage.getInfrastructureSignature(), null, "signature", null, 1, 1, PCMREInfrastructureSignature.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmreInfrastructureSignatureEClass, ecorePackage.getEBoolean(), "ThisIsTheLowestInfrastructureHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		op = addEOperation(pcmreInfrastructureSignatureEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		// Initialize enums and add enum literals
 		initEEnum(pcmreRequestCategoryEEnum, PCMRERequestCategory.class, "PCMRERequestCategory");

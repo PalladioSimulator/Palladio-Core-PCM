@@ -30,7 +30,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESOURCE(0, "Resource", "Resource"),
+	RESOURCE(1, "Resource", "Resource"),
 
 	/**
 	 * The '<em><b>Infrastructure</b></em>' literal object.
@@ -40,7 +40,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	INFRASTRUCTURE(1, "Infrastructure", "Infrastructure"),
+	INFRASTRUCTURE(2, "Infrastructure", "Infrastructure"),
 
 	/**
 	 * The '<em><b>Component</b></em>' literal object.
@@ -50,7 +50,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPONENT(2, "Component", "Component"),
+	COMPONENT(3, "Component", "Component"),
 
 	/**
 	 * The '<em><b>Resource Demand</b></em>' literal object.
@@ -60,7 +60,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	RESOURCE_DEMAND(3, "ResourceDemand", "ResourceDemand"),
+	RESOURCE_DEMAND(4, "ResourceDemand", "ResourceDemand"),
 
 	/**
 	 * The '<em><b>Component Internal</b></em>' literal object.
@@ -70,7 +70,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	COMPONENT_INTERNAL(4, "ComponentInternal", "ComponentInternal");
+	COMPONENT_INTERNAL(5, "ComponentInternal", "ComponentInternal");
 
 	/**
 	 * The '<em><b>Resource</b></em>' literal value.
@@ -85,7 +85,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESOURCE_VALUE = 0;
+	public static final int RESOURCE_VALUE = 1;
 
 	/**
 	 * The '<em><b>Infrastructure</b></em>' literal value.
@@ -100,7 +100,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int INFRASTRUCTURE_VALUE = 1;
+	public static final int INFRASTRUCTURE_VALUE = 2;
 
 	/**
 	 * The '<em><b>Component</b></em>' literal value.
@@ -115,7 +115,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPONENT_VALUE = 2;
+	public static final int COMPONENT_VALUE = 3;
 
 	/**
 	 * The '<em><b>Resource Demand</b></em>' literal value.
@@ -130,7 +130,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int RESOURCE_DEMAND_VALUE = 3;
+	public static final int RESOURCE_DEMAND_VALUE = 4;
 
 	/**
 	 * The '<em><b>Component Internal</b></em>' literal value.
@@ -145,7 +145,7 @@ public enum PCMRERequestCategory implements Enumerator {
 	 * @generated
 	 * @ordered
 	 */
-	public static final int COMPONENT_INTERNAL_VALUE = 4;
+	public static final int COMPONENT_INTERNAL_VALUE = 5;
 
 	/**
 	 * An array of all the '<em><b>PCMRE Request Category</b></em>' enumerators.

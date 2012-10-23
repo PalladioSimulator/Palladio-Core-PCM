@@ -6,6 +6,7 @@
  */
 package de.fzi.se.quality.qualityannotation;
 
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.Role;
 
 import java.util.Map;
@@ -38,12 +39,12 @@ public interface PCMRERole extends PCMRE {
 	 * </p>
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Role</em>' reference.
-	 * @see #setRole(Role)
+	 * @see #setRole(OperationRequiredRole)
 	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMRERole_Role()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	Role getRole();
+	OperationRequiredRole getRole();
 
 	/**
 	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.PCMRERole#getRole <em>Role</em>}' reference.
@@ -53,7 +54,7 @@ public interface PCMRERole extends PCMRE {
 	 * @see #getRole()
 	 * @generated
 	 */
-	void setRole(Role value);
+	void setRole(OperationRequiredRole value);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -62,10 +63,10 @@ public interface PCMRERole extends PCMRE {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.childREs->forAll(child | child.oclIsTypeOf(PCMRESignature))'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.childREs->select(pcmre | not pcmre.oclIsTypeOf(PCMRESignature))->size() = 0'"
 	 * @generated
 	 */
-	boolean NextLowerHierarchyLevelIsSignature(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean NextLowerLevelMustConsistOfTypePCMRESignature(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -74,9 +75,9 @@ public interface PCMRERole extends PCMRE {
 	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
 	 * @param context The cache of context-specific information.
 	 * <!-- end-model-doc -->
-	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parentRE.oclIsTypeOf(PCMREInterface)'"
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parentRE.childREs->select(pcmre | pcmre.oclAsType(PCMRERole).role = self.role)->size() = 1'"
 	 * @generated
 	 */
-	boolean NextUpperHierarchyLevelIsInterface(DiagnosticChain diagnostics, Map<Object, Object> context);
+	boolean EachRETargetMustBeReferencedOnlyFromOneRE(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // PCMRERole

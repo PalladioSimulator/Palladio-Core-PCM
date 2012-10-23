@@ -137,6 +137,7 @@ public class QualityAnnotationSwitch<T> {
 			case QualityAnnotationPackage.RE_PRECISION: {
 				REPrecision rePrecision = (REPrecision)theEObject;
 				T result = caseREPrecision(rePrecision);
+				if (result == null) result = caseIdentifier(rePrecision);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -269,6 +270,60 @@ public class QualityAnnotationSwitch<T> {
 				if (result == null) result = casePCMRE(pcmreResourceSignature);
 				if (result == null) result = caseRequiredElement(pcmreResourceSignature);
 				if (result == null) result = caseIdentifier(pcmreResourceSignature);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMRE_RESOURCE: {
+				PCMREResource pcmreResource = (PCMREResource)theEObject;
+				T result = casePCMREResource(pcmreResource);
+				if (result == null) result = casePCMRE(pcmreResource);
+				if (result == null) result = caseRequiredElement(pcmreResource);
+				if (result == null) result = caseIdentifier(pcmreResource);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE: {
+				PCMREResourceRole pcmreResourceRole = (PCMREResourceRole)theEObject;
+				T result = casePCMREResourceRole(pcmreResourceRole);
+				if (result == null) result = casePCMRE(pcmreResourceRole);
+				if (result == null) result = caseRequiredElement(pcmreResourceRole);
+				if (result == null) result = caseIdentifier(pcmreResourceRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMRECI_BEHAVIOR: {
+				PCMRECIBehavior pcmreciBehavior = (PCMRECIBehavior)theEObject;
+				T result = casePCMRECIBehavior(pcmreciBehavior);
+				if (result == null) result = casePCMRE(pcmreciBehavior);
+				if (result == null) result = caseRequiredElement(pcmreciBehavior);
+				if (result == null) result = caseIdentifier(pcmreciBehavior);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE: {
+				PCMREInfrastructureInterface pcmreInfrastructureInterface = (PCMREInfrastructureInterface)theEObject;
+				T result = casePCMREInfrastructureInterface(pcmreInfrastructureInterface);
+				if (result == null) result = casePCMRE(pcmreInfrastructureInterface);
+				if (result == null) result = caseRequiredElement(pcmreInfrastructureInterface);
+				if (result == null) result = caseIdentifier(pcmreInfrastructureInterface);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE: {
+				PCMREInfrastructureRole pcmreInfrastructureRole = (PCMREInfrastructureRole)theEObject;
+				T result = casePCMREInfrastructureRole(pcmreInfrastructureRole);
+				if (result == null) result = casePCMRE(pcmreInfrastructureRole);
+				if (result == null) result = caseRequiredElement(pcmreInfrastructureRole);
+				if (result == null) result = caseIdentifier(pcmreInfrastructureRole);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE: {
+				PCMREInfrastructureSignature pcmreInfrastructureSignature = (PCMREInfrastructureSignature)theEObject;
+				T result = casePCMREInfrastructureSignature(pcmreInfrastructureSignature);
+				if (result == null) result = casePCMRE(pcmreInfrastructureSignature);
+				if (result == null) result = caseRequiredElement(pcmreInfrastructureSignature);
+				if (result == null) result = caseIdentifier(pcmreInfrastructureSignature);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -618,6 +673,96 @@ public class QualityAnnotationSwitch<T> {
 	 * @generated
 	 */
 	public T casePCMREResourceSignature(PCMREResourceSignature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMRE Resource</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMRE Resource</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMREResource(PCMREResource object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMRE Resource Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMRE Resource Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMREResourceRole(PCMREResourceRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMRECI Behavior</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMRECI Behavior</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMRECIBehavior(PCMRECIBehavior object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMRE Infrastructure Interface</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMRE Infrastructure Interface</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMREInfrastructureInterface(PCMREInfrastructureInterface object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMRE Infrastructure Role</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMRE Infrastructure Role</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMREInfrastructureRole(PCMREInfrastructureRole object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMRE Infrastructure Signature</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMRE Infrastructure Signature</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMREInfrastructureSignature(PCMREInfrastructureSignature object) {
 		return null;
 	}
 

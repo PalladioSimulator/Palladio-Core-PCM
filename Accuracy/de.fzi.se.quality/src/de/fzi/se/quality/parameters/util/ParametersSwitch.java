@@ -106,6 +106,7 @@ public class ParametersSwitch<T> {
 			case ParametersPackage.PARAMETER_INSTANCE: {
 				ParameterInstance parameterInstance = (ParameterInstance)theEObject;
 				T result = caseParameterInstance(parameterInstance);
+				if (result == null) result = caseIdentifier(parameterInstance);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -119,6 +120,7 @@ public class ParametersSwitch<T> {
 			case ParametersPackage.OPERATION_REFERENCE: {
 				OperationReference operationReference = (OperationReference)theEObject;
 				T result = caseOperationReference(operationReference);
+				if (result == null) result = caseIdentifier(operationReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -132,6 +134,7 @@ public class ParametersSwitch<T> {
 			case ParametersPackage.COMPONENT_REFERENCE: {
 				ComponentReference componentReference = (ComponentReference)theEObject;
 				T result = caseComponentReference(componentReference);
+				if (result == null) result = caseIdentifier(componentReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -139,6 +142,7 @@ public class ParametersSwitch<T> {
 				InfrastructureOperationReference infrastructureOperationReference = (InfrastructureOperationReference)theEObject;
 				T result = caseInfrastructureOperationReference(infrastructureOperationReference);
 				if (result == null) result = caseOperationReference(infrastructureOperationReference);
+				if (result == null) result = caseIdentifier(infrastructureOperationReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -146,6 +150,7 @@ public class ParametersSwitch<T> {
 				BusinessOperationReference businessOperationReference = (BusinessOperationReference)theEObject;
 				T result = caseBusinessOperationReference(businessOperationReference);
 				if (result == null) result = caseOperationReference(businessOperationReference);
+				if (result == null) result = caseIdentifier(businessOperationReference);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}

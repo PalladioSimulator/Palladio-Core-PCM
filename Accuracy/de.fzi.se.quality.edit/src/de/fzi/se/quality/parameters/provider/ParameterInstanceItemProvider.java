@@ -14,6 +14,7 @@ import de.fzi.se.quality.parameters.pcm.PCMFactory;
 
 import de.fzi.se.quality.provider.QualityEditPlugin;
 
+import de.uka.ipd.sdq.identifier.provider.IdentifierItemProvider;
 import java.util.Collection;
 import java.util.List;
 
@@ -40,7 +41,7 @@ import org.eclipse.emf.edit.provider.ViewerNotification;
  * @generated
  */
 public class ParameterInstanceItemProvider
-	extends ItemProviderAdapter
+	extends IdentifierItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -122,7 +123,10 @@ public class ParameterInstanceItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		return getString("_UI_ParameterInstance_type");
+		String label = ((ParameterInstance)object).getId();
+		return label == null || label.length() == 0 ?
+			getString("_UI_ParameterInstance_type") :
+			getString("_UI_ParameterInstance_type") + " " + label;
 	}
 
 	/**
