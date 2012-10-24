@@ -7,12 +7,11 @@ import java.rmi.Naming;
 import java.rmi.NotBoundException;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
+import java.rmi.ServerException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Scanner;
-
-import de.uka.ipd.sdq.prototype.framework.usage.AbstractScenarioThread;
 
 /**
  * RMI registry service for ProtoCom. It can be started on any hardware node of
@@ -38,7 +37,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	/**
 	 * Remote address of RMI registry.
 	 */
-	private static String configuredRemoteAddr;
+	private static String configuredRemoteAddr = LOCALHOST;
 	
 	/**
 	 * IP Port of RMI registry, default is 1099.
@@ -76,6 +75,8 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 
 			try {
 				String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY;
+//				String bindingName = PCM_RMI_REGISTRY;
+				
 				Naming.bind(bindingName, this);
 				logger.info("RMI binding service bound as " + bindingName);
 			} catch (MalformedURLException e2) {
@@ -89,6 +90,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	@Override
 	public void bindPort(String name, Remote portClass) throws RemoteException {
 		String bindingName = "//" + getRemoteAddress() + ":" + getRegistryPort() + "/" + name;
+//		String bindingName = name;
 		logger.info("Binding " + name + " to RMI registry as " + bindingName);
 		try {
 			java.rmi.Naming.rebind(bindingName, portClass);
@@ -122,18 +124,26 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 		try {
 			Registry reg = LocateRegistry.getRegistry(registryIP, registryPort);
 
+			logger.info("Located Java RMI Registy at " + registryIP + ":" + registryPort + ", " + reg);
+			
 			de.uka.ipd.sdq.prototype.framework.registry.IRmiRegistry pcmRegistry = null;
+
+			String bindingName = PCM_RMI_REGISTRY;
+//			String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY;
 
 			while (true) {
 				try {
-					pcmRegistry = (IRmiRegistry) reg.lookup(PCM_RMI_REGISTRY);
+					pcmRegistry = (IRmiRegistry) reg.lookup(bindingName);
 					pcmRegistry.bindPort(componentName, component);
 					break;
+				} catch (ServerException e) {
+					logger.error("Server Error: Check marshalling/serialization of your model!", e);
+					break;
 				} catch (RemoteException e) {
-					logger.info("RMI registry not found. Next attempt in 3 seconds.");
+					logger.info("RMI registry (" + bindingName + ") at " + registryIP + ":" + registryPort + " not found. Next attempt in 3 seconds.");
 					Thread.sleep(3000);
 				} catch (NotBoundException e) {
-					logger.info("RMI binding service not found. Next attempt in 3 seconds.");
+					logger.info("RMI binding service (" + bindingName + ") at " + registryIP + ":" + registryPort + " not found. Next attempt in 3 seconds.");
 					Thread.sleep(3000);
 				}
 			}
