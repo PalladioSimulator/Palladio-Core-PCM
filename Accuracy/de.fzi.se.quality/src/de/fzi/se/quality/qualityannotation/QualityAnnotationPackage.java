@@ -1586,13 +1586,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_RESOURCE_ROLE__QUALITY_ANNOTATION = PCMRE__QUALITY_ANNOTATION;
 
 	/**
-	 * The feature id for the '<em><b>Resource Required Role</b></em>' reference.
+	 * The feature id for the '<em><b>Resource Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE = PCMRE_FEATURE_COUNT + 0;
+	int PCMRE_RESOURCE_ROLE__RESOURCE_ROLE = PCMRE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>PCMRE Resource Role</em>' class.
@@ -2644,15 +2644,15 @@ public interface QualityAnnotationPackage extends EPackage {
 	EClass getPCMREResourceRole();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMREResourceRole#getResourceRequiredRole <em>Resource Required Role</em>}'.
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMREResourceRole#getResourceRole <em>Resource Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Resource Required Role</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole#getResourceRequiredRole()
+	 * @return the meta object for the reference '<em>Resource Role</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole#getResourceRole()
 	 * @see #getPCMREResourceRole()
 	 * @generated
 	 */
-	EReference getPCMREResourceRole_ResourceRequiredRole();
+	EReference getPCMREResourceRole_ResourceRole();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior <em>PCMRECI Behavior</em>}'.
@@ -3349,12 +3349,12 @@ public interface QualityAnnotationPackage extends EPackage {
 		EClass PCMRE_RESOURCE_ROLE = eINSTANCE.getPCMREResourceRole();
 
 		/**
-		 * The meta object literal for the '<em><b>Resource Required Role</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Resource Role</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE = eINSTANCE.getPCMREResourceRole_ResourceRequiredRole();
+		EReference PCMRE_RESOURCE_ROLE__RESOURCE_ROLE = eINSTANCE.getPCMREResourceRole_ResourceRole();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMRECIBehaviorImpl <em>PCMRECI Behavior</em>}' class.

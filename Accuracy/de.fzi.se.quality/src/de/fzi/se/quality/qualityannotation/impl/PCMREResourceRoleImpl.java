@@ -38,7 +38,7 @@ import org.eclipse.ocl.ecore.OCL;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.qualityannotation.impl.PCMREResourceRoleImpl#getResourceRequiredRole <em>Resource Required Role</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.PCMREResourceRoleImpl#getResourceRole <em>Resource Role</em>}</li>
  * </ul>
  * </p>
  *
@@ -46,14 +46,14 @@ import org.eclipse.ocl.ecore.OCL;
  */
 public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRole {
 	/**
-	 * The cached value of the '{@link #getResourceRequiredRole() <em>Resource Required Role</em>}' reference.
+	 * The cached value of the '{@link #getResourceRole() <em>Resource Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getResourceRequiredRole()
+	 * @see #getResourceRole()
 	 * @generated
 	 * @ordered
 	 */
-	protected ResourceRequiredRole resourceRequiredRole;
+	protected ResourceRequiredRole resourceRole;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -79,16 +79,16 @@ public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRol
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredRole getResourceRequiredRole() {
-		if (resourceRequiredRole != null && resourceRequiredRole.eIsProxy()) {
-			InternalEObject oldResourceRequiredRole = (InternalEObject)resourceRequiredRole;
-			resourceRequiredRole = (ResourceRequiredRole)eResolveProxy(oldResourceRequiredRole);
-			if (resourceRequiredRole != oldResourceRequiredRole) {
+	public ResourceRequiredRole getResourceRole() {
+		if (resourceRole != null && resourceRole.eIsProxy()) {
+			InternalEObject oldResourceRole = (InternalEObject)resourceRole;
+			resourceRole = (ResourceRequiredRole)eResolveProxy(oldResourceRole);
+			if (resourceRole != oldResourceRole) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE, oldResourceRequiredRole, resourceRequiredRole));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_ROLE, oldResourceRole, resourceRole));
 			}
 		}
-		return resourceRequiredRole;
+		return resourceRole;
 	}
 
 	/**
@@ -96,8 +96,8 @@ public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRol
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public ResourceRequiredRole basicGetResourceRequiredRole() {
-		return resourceRequiredRole;
+	public ResourceRequiredRole basicGetResourceRole() {
+		return resourceRole;
 	}
 
 	/**
@@ -105,11 +105,11 @@ public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRol
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setResourceRequiredRole(ResourceRequiredRole newResourceRequiredRole) {
-		ResourceRequiredRole oldResourceRequiredRole = resourceRequiredRole;
-		resourceRequiredRole = newResourceRequiredRole;
+	public void setResourceRole(ResourceRequiredRole newResourceRole) {
+		ResourceRequiredRole oldResourceRole = resourceRole;
+		resourceRole = newResourceRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE, oldResourceRequiredRole, resourceRequiredRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_ROLE, oldResourceRole, resourceRole));
 	}
 
 	/**
@@ -222,9 +222,9 @@ public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRol
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE:
-				if (resolve) return getResourceRequiredRole();
-				return basicGetResourceRequiredRole();
+			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_ROLE:
+				if (resolve) return getResourceRole();
+				return basicGetResourceRole();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -237,8 +237,8 @@ public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRol
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE:
-				setResourceRequiredRole((ResourceRequiredRole)newValue);
+			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_ROLE:
+				setResourceRole((ResourceRequiredRole)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -252,8 +252,8 @@ public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRol
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE:
-				setResourceRequiredRole((ResourceRequiredRole)null);
+			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_ROLE:
+				setResourceRole((ResourceRequiredRole)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -267,8 +267,8 @@ public class PCMREResourceRoleImpl extends PCMREImpl implements PCMREResourceRol
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE:
-				return resourceRequiredRole != null;
+			case QualityAnnotationPackage.PCMRE_RESOURCE_ROLE__RESOURCE_ROLE:
+				return resourceRole != null;
 		}
 		return super.eIsSet(featureID);
 	}

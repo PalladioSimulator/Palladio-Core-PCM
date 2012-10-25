@@ -980,7 +980,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPCMREResourceRole_ResourceRequiredRole() {
+	public EReference getPCMREResourceRole_ResourceRole() {
 		return (EReference)pcmreResourceRoleEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -1183,7 +1183,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		createEReference(pcmreResourceEClass, PCMRE_RESOURCE__PROCESSING_RESOURCE_TYPE);
 
 		pcmreResourceRoleEClass = createEClass(PCMRE_RESOURCE_ROLE);
-		createEReference(pcmreResourceRoleEClass, PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE);
+		createEReference(pcmreResourceRoleEClass, PCMRE_RESOURCE_ROLE__RESOURCE_ROLE);
 
 		pcmreciBehaviorEClass = createEClass(PCMRECI_BEHAVIOR);
 		createEReference(pcmreciBehaviorEClass, PCMRECI_BEHAVIOR__INTERNAL_BEHAVIOUR);
@@ -1549,7 +1549,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pcmreResourceRoleEClass, PCMREResourceRole.class, "PCMREResourceRole", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMREResourceRole_ResourceRequiredRole(), theEntityPackage.getResourceRequiredRole(), null, "resourceRequiredRole", null, 1, 1, PCMREResourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMREResourceRole_ResourceRole(), theEntityPackage.getResourceRequiredRole(), null, "resourceRole", null, 1, 1, PCMREResourceRole.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		op = addEOperation(pcmreResourceRoleEClass, ecorePackage.getEBoolean(), "NextLowerLevelMustConsistOfTypePCMREResourceSignature", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);

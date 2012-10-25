@@ -252,7 +252,7 @@
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMREResourceRole">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResourceRole/resourceRequiredRole"/>
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMREResourceRole/resourceRole"/>
         <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMREResourceRole/NextLowerLevelMustConsistOfTypePCMREResourceSignature">
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceRole/NextLowerLevelMustConsistOfTypePCMREResourceSignature/diagnostics"/>
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMREResourceRole/NextLowerLevelMustConsistOfTypePCMREResourceSignature/context"/>

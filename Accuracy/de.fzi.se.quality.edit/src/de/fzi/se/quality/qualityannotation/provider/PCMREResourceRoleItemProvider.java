@@ -55,25 +55,25 @@ public class PCMREResourceRoleItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addResourceRequiredRolePropertyDescriptor(object);
+			addResourceRolePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Resource Required Role feature.
+	 * This adds a property descriptor for the Resource Role feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addResourceRequiredRolePropertyDescriptor(Object object) {
+	protected void addResourceRolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PCMREResourceRole_resourceRequiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PCMREResourceRole_resourceRequiredRole_feature", "_UI_PCMREResourceRole_type"),
-				 QualityAnnotationPackage.Literals.PCMRE_RESOURCE_ROLE__RESOURCE_REQUIRED_ROLE,
+				 getString("_UI_PCMREResourceRole_resourceRole_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PCMREResourceRole_resourceRole_feature", "_UI_PCMREResourceRole_type"),
+				 QualityAnnotationPackage.Literals.PCMRE_RESOURCE_ROLE__RESOURCE_ROLE,
 				 true,
 				 false,
 				 true,
