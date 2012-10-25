@@ -63,7 +63,7 @@
   </uml:Model>
   <Ecore:EPackage xmi:id="_TF6xUJZwEdyvM-KRcbKtDQ" base_Package="_hFALoK6GEdqR97hrnpMlhg" packageName="identifier" nsPrefix="identifier" nsURI="http://sdq.ipd.uka.de/Identifier/1.0" basePackage="de.uka.ipd.sdq" prefix="identifier"/>
   <Default:Documentation xmi:id="_TF_p0JZwEdyvM-KRcbKtDQ" base_Comment="_ozoGMJ1ZEdqX-LqEpACX-A"/>
-  <Ecore:EAttribute xmi:id="_TF90oJZwEdyvM-KRcbKtDQ" xmlName="" xmlNamespace="" base_Property="_bTQrMJMWEdqSSImFLKDkSg" attributeName="id" isID="true"/>
+  <Ecore:EAttribute xmi:id="_TF90oJZwEdyvM-KRcbKtDQ" xmlName="id" xmlNamespace="http://sdq.ipd.uka.de/Identifier/1.0" base_Property="_bTQrMJMWEdqSSImFLKDkSg" attributeName="id" isID="true"/>
   <Default:Documentation xmi:id="_hV4K4Pw2Ed68D51GrGx7ow" base_Comment="_hV1uoPw2Ed68D51GrGx7ow"/>
   <Default:Documentation xmi:id="_0CHLEPw3Ed68D51GrGx7ow" base_Comment="_0CFV4Pw3Ed68D51GrGx7ow"/>
 </xmi:XMI>
