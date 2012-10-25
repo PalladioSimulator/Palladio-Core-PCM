@@ -4493,7 +4493,7 @@ the referenced SEFF (or not).</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_uUFowOxhEeG-fYgYogRGGg" general="_RIgp4PY4Ed-XX4IW1je7gw"/>
-        <ownedAttribute xmi:id="_qdGwIOxhEeG-fYgYogRGGg" name="resourceRequiredRole" visibility="public" association="_qdFiAOxhEeG-fYgYogRGGg">
+        <ownedAttribute xmi:id="_qdGwIOxhEeG-fYgYogRGGg" name="resourceRole" visibility="public" association="_qdFiAOxhEeG-fYgYogRGGg">
           <type xmi:type="uml:Class" href="pcm.emx#_XT0qcJR_Ed27_9sKGvEc-Q?pcm/core/entity/ResourceRequiredRole?"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_qdHXMexhEeG-fYgYogRGGg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_qdHXMOxhEeG-fYgYogRGGg" value="1"/>
