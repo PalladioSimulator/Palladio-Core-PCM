@@ -34,88 +34,101 @@ import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorP
  */
 public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
 
-    /**
-     * @generated
-     */
-    private static IEditorInput getEditorInput(Diagram diagram) {
-        Resource diagramResource = diagram.eResource();
-        for (Iterator it = diagramResource.getContents().iterator(); it.hasNext();) {
-            EObject nextEObject = (EObject) it.next();
-            if (nextEObject == diagram) {
-                return new FileEditorInput(WorkspaceSynchronizer.getFile(diagramResource));
-            }
-            if (nextEObject instanceof Diagram) {
-                break;
-            }
-        }
-        URI uri = EcoreUtil.getURI(diagram);
-        String editorName = uri.lastSegment() + "#" + diagram.eResource().getContents().indexOf(diagram); //$NON-NLS-1$
-        IEditorInput editorInput = new URIEditorInput(uri, editorName);
-        return editorInput;
-    }
+	/**
+	 * @generated
+	 */
+	private static IEditorInput getEditorInput(Diagram diagram) {
+		Resource diagramResource = diagram.eResource();
+		for (EObject nextEObject : diagramResource.getContents()) {
+			if (nextEObject == diagram) {
+				return new FileEditorInput(
+						WorkspaceSynchronizer.getFile(diagramResource));
+			}
+			if (nextEObject instanceof Diagram) {
+				break;
+			}
+		}
+		URI uri = EcoreUtil.getURI(diagram);
+		String editorName = uri.lastSegment() + '#'
+				+ diagram.eResource().getContents().indexOf(diagram);
+		IEditorInput editorInput = new URIEditorInput(uri, editorName);
+		return editorInput;
+	}
 
-    /**
-     * @generated
-     */
-    public IStructuredSelection findSelection(IEditorInput anInput) {
-        IDiagramDocument document = PalladioComponentModelDiagramEditorPlugin.getInstance().getDocumentProvider()
-                .getDiagramDocument(anInput);
-        if (document == null) {
-            return StructuredSelection.EMPTY;
-        }
-        Diagram diagram = document.getDiagram();
-        IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
-        if (file != null) {
-            PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(diagram, file, false);
-            return new StructuredSelection(item);
-        }
-        return StructuredSelection.EMPTY;
-    }
+	/**
+	 * @generated
+	 */
+	public IStructuredSelection findSelection(IEditorInput anInput) {
+		IDiagramDocument document = PalladioComponentModelDiagramEditorPlugin
+				.getInstance().getDocumentProvider()
+				.getDiagramDocument(anInput);
+		if (document == null) {
+			return StructuredSelection.EMPTY;
+		}
+		Diagram diagram = document.getDiagram();
+		if (diagram == null || diagram.eResource() == null) {
+			return StructuredSelection.EMPTY;
+		}
+		IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
+		if (file != null) {
+			PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(
+					diagram, file, false);
+			return new StructuredSelection(item);
+		}
+		return StructuredSelection.EMPTY;
+	}
 
-    /**
-     * @generated
-     */
-    public void activateEditor(IWorkbenchPage aPage, IStructuredSelection aSelection) {
-        if (aSelection == null || aSelection.isEmpty()) {
-            return;
-        }
-        if (false == aSelection.getFirstElement() instanceof PalladioComponentModelAbstractNavigatorItem) {
-            return;
-        }
+	/**
+	 * @generated
+	 */
+	public void activateEditor(IWorkbenchPage aPage,
+			IStructuredSelection aSelection) {
+		if (aSelection == null || aSelection.isEmpty()) {
+			return;
+		}
+		if (false == aSelection.getFirstElement() instanceof PalladioComponentModelAbstractNavigatorItem) {
+			return;
+		}
 
-        PalladioComponentModelAbstractNavigatorItem abstractNavigatorItem = (PalladioComponentModelAbstractNavigatorItem) aSelection
-                .getFirstElement();
-        View navigatorView = null;
-        if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorItem) {
-            navigatorView = ((PalladioComponentModelNavigatorItem) abstractNavigatorItem).getView();
-        } else if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorGroup) {
-            PalladioComponentModelNavigatorGroup navigatorGroup = (PalladioComponentModelNavigatorGroup) abstractNavigatorItem;
-            if (navigatorGroup.getParent() instanceof PalladioComponentModelNavigatorItem) {
-                navigatorView = ((PalladioComponentModelNavigatorItem) navigatorGroup.getParent()).getView();
-            }
-        }
-        if (navigatorView == null) {
-            return;
-        }
-        IEditorInput editorInput = getEditorInput(navigatorView.getDiagram());
-        IEditorPart editor = aPage.findEditor(editorInput);
-        if (editor == null) {
-            return;
-        }
-        aPage.bringToTop(editor);
-        if (editor instanceof DiagramEditor) {
-            DiagramEditor diagramEditor = (DiagramEditor) editor;
-            ResourceSet diagramEditorResourceSet = diagramEditor.getEditingDomain().getResourceSet();
-            EObject selectedView = diagramEditorResourceSet.getEObject(EcoreUtil.getURI(navigatorView), true);
-            if (selectedView == null) {
-                return;
-            }
-            GraphicalViewer graphicalViewer = (GraphicalViewer) diagramEditor.getAdapter(GraphicalViewer.class);
-            EditPart selectedEditPart = (EditPart) graphicalViewer.getEditPartRegistry().get(selectedView);
-            if (selectedEditPart != null) {
-                graphicalViewer.select(selectedEditPart);
-            }
-        }
-    }
+		PalladioComponentModelAbstractNavigatorItem abstractNavigatorItem = (PalladioComponentModelAbstractNavigatorItem) aSelection
+				.getFirstElement();
+		View navigatorView = null;
+		if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorItem) {
+			navigatorView = ((PalladioComponentModelNavigatorItem) abstractNavigatorItem)
+					.getView();
+		} else if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorGroup) {
+			PalladioComponentModelNavigatorGroup navigatorGroup = (PalladioComponentModelNavigatorGroup) abstractNavigatorItem;
+			if (navigatorGroup.getParent() instanceof PalladioComponentModelNavigatorItem) {
+				navigatorView = ((PalladioComponentModelNavigatorItem) navigatorGroup
+						.getParent()).getView();
+			}
+		}
+		if (navigatorView == null) {
+			return;
+		}
+		IEditorInput editorInput = getEditorInput(navigatorView.getDiagram());
+		IEditorPart editor = aPage.findEditor(editorInput);
+		if (editor == null) {
+			return;
+		}
+		aPage.bringToTop(editor);
+		if (editor instanceof DiagramEditor) {
+			DiagramEditor diagramEditor = (DiagramEditor) editor;
+			ResourceSet diagramEditorResourceSet = diagramEditor
+					.getEditingDomain().getResourceSet();
+			EObject selectedView = diagramEditorResourceSet.getEObject(
+					EcoreUtil.getURI(navigatorView), true);
+			if (selectedView == null) {
+				return;
+			}
+			GraphicalViewer graphicalViewer = (GraphicalViewer) diagramEditor
+					.getAdapter(GraphicalViewer.class);
+			EditPart selectedEditPart = (EditPart) graphicalViewer
+					.getEditPartRegistry().get(selectedView);
+			if (selectedEditPart != null) {
+				graphicalViewer.select(selectedEditPart);
+			}
+		}
+	}
 
 }

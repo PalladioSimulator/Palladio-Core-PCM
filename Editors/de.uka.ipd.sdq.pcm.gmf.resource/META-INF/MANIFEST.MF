@@ -48,7 +48,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.editors,
  org.eclipse.draw2d;visibility:=reexport,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0"
+ de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
+ org.eclipse.gmf.tooling.runtime;visibility:=reexport,
+ org.eclipse.emf.validation;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Import-Package: de.uka.ipd.sdq.pcm.dialogs.stoex,
  de.uka.ipd.sdq.pcmbench.ui.provider

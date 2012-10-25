@@ -86,6 +86,10 @@
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
                <GlobalActionId actionId="save"/>
             </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
@@ -254,7 +258,9 @@
          <object class="de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart" id="ResourceEnvironment_1000"/>
          <object class="de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart" id="ResourceContainer_2004"/>
          <object class="de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart" id="LinkingResource_2005"/>
-         <context elements="ResourceEnvironment_1000,ResourceContainer_2004,LinkingResource_2005"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart" id="ProcessingResourceSpecification_3003"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart" id="CommunicationLinkResourceSpecification_3004"/>
+         <context elements="ResourceEnvironment_1000,ResourceContainer_2004,LinkingResource_2005,ProcessingResourceSpecification_3003,CommunicationLinkResourceSpecification_3004"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -518,5 +524,27 @@
 <extension point="org.eclipse.ui.handlers" id="menu-handlers">
       <?gmfgen generated="true"?>
    </extension>
+<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelMarkerNavigationProvider">
+         <MarkerType name="de.uka.ipd.sdq.pcm.gmf.resource.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+<extension id="diagnostic" name="PalladioComponentModel Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
 
 </plugin>

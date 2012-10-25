@@ -17,48 +17,57 @@ import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTy
 /**
  * @generated
  */
-public class ResourceEnvironmentItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
+public class ResourceEnvironmentItemSemanticEditPolicy extends
+		PalladioComponentModelBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public ResourceEnvironmentItemSemanticEditPolicy() {
-        super(PalladioComponentModelElementTypes.ResourceEnvironment_1000);
-    }
+	/**
+	 * @generated
+	 */
+	public ResourceEnvironmentItemSemanticEditPolicy() {
+		super(PalladioComponentModelElementTypes.ResourceEnvironment_1000);
+	}
 
-    /**
-     * @generated
-     */
-    protected Command getCreateCommand(CreateElementRequest req) {
-        if (PalladioComponentModelElementTypes.ResourceContainer_2004 == req.getElementType()) {
-            return getGEFWrapper(new ResourceContainerCreateCommand(req));
-        }
-        if (PalladioComponentModelElementTypes.LinkingResource_2005 == req.getElementType()) {
-            return getGEFWrapper(new LinkingResourceCreateCommand(req));
-        }
-        return super.getCreateCommand(req);
-    }
+	/**
+	 * @generated
+	 */
+	protected Command getCreateCommand(CreateElementRequest req) {
+		if (PalladioComponentModelElementTypes.ResourceContainer_2004 == req
+				.getElementType()) {
+			return getGEFWrapper(new ResourceContainerCreateCommand(req));
+		}
+		if (PalladioComponentModelElementTypes.LinkingResource_2005 == req
+				.getElementType()) {
+			return getGEFWrapper(new LinkingResourceCreateCommand(req));
+		}
+		return super.getCreateCommand(req);
+	}
 
-    /**
-     * @generated
-     */
-    protected Command getDuplicateCommand(DuplicateElementsRequest req) {
-        TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost()).getEditingDomain();
-        return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
-    }
+	/**
+	 * @generated
+	 */
+	protected Command getDuplicateCommand(DuplicateElementsRequest req) {
+		TransactionalEditingDomain editingDomain = ((IGraphicalEditPart) getHost())
+				.getEditingDomain();
+		return getGEFWrapper(new DuplicateAnythingCommand(editingDomain, req));
+	}
 
-    /**
-     * @generated
-     */
-    private static class DuplicateAnythingCommand extends DuplicateEObjectsCommand {
+	/**
+	 * @generated
+	 */
+	private static class DuplicateAnythingCommand extends
+			DuplicateEObjectsCommand {
 
-        /**
-         * @generated
-         */
-        public DuplicateAnythingCommand(TransactionalEditingDomain editingDomain, DuplicateElementsRequest req) {
-            super(editingDomain, req.getLabel(), req.getElementsToBeDuplicated(), req.getAllDuplicatedElementsMap());
-        }
+		/**
+		 * @generated
+		 */
+		public DuplicateAnythingCommand(
+				TransactionalEditingDomain editingDomain,
+				DuplicateElementsRequest req) {
+			super(editingDomain, req.getLabel(), req
+					.getElementsToBeDuplicated(), req
+					.getAllDuplicatedElementsMap());
+		}
 
-    }
+	}
 
 }

@@ -23,52 +23,56 @@ import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTy
  * @generated
  */
 public class ProcessingResourceSpecificationItemSemanticEditPolicy extends
-        PalladioComponentModelBaseItemSemanticEditPolicy {
+		PalladioComponentModelBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public ProcessingResourceSpecificationItemSemanticEditPolicy() {
-        super(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
-    }
+	/**
+	 * @generated
+	 */
+	public ProcessingResourceSpecificationItemSemanticEditPolicy() {
+		super(
+				PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
+	}
 
-    /**
-     * @generated
-     */
-    protected Command getDestroyElementCommand(DestroyElementRequest req) {
-        View view = (View) getHost().getModel();
-        CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
-        cmd.setTransactionNestingEnabled(false);
-        EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-        if (annotation == null) {
-            // there are indirectly referenced children, need extra commands: false
-            addDestroyChildNodesCommand(cmd);
-            addDestroyShortcutsCommand(cmd, view);
-            // delete host element
-            cmd.add(new DestroyElementCommand(req));
-        } else {
-            cmd.add(new DeleteCommand(getEditingDomain(), view));
-        }
-        return getGEFWrapper(cmd.reduce());
-    }
+	/**
+	 * @generated
+	 */
+	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+		View view = (View) getHost().getModel();
+		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
+				getEditingDomain(), null);
+		cmd.setTransactionNestingEnabled(false);
+		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+		if (annotation == null) {
+			// there are indirectly referenced children, need extra commands: false
+			addDestroyChildNodesCommand(cmd);
+			addDestroyShortcutsCommand(cmd, view);
+			// delete host element
+			cmd.add(new DestroyElementCommand(req));
+		} else {
+			cmd.add(new DeleteCommand(getEditingDomain(), view));
+		}
+		return getGEFWrapper(cmd.reduce());
+	}
 
-    /**
-     * @generated
-     */
-    private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
-        View view = (View) getHost().getModel();
-        for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
-            Node node = (Node) nit.next();
-            switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
-            case ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
-                for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
-                    Node cnode = (Node) cit.next();
-                    switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
-                    }
-                }
-                break;
-            }
-        }
-    }
+	/**
+	 * @generated
+	 */
+	private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
+		View view = (View) getHost().getModel();
+		for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
+			Node node = (Node) nit.next();
+			switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
+			case ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
+				for (Iterator<?> cit = node.getChildren().iterator(); cit
+						.hasNext();) {
+					Node cnode = (Node) cit.next();
+					switch (PalladioComponentModelVisualIDRegistry
+							.getVisualID(cnode)) {
+					}
+				}
+				break;
+			}
+		}
+	}
 
 }

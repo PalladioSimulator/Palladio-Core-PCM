@@ -8,14 +8,15 @@ import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTy
 /**
  * @generated
  */
-public class ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentItemSemanticEditPolicy extends
-        PalladioComponentModelBaseItemSemanticEditPolicy {
+public class ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentItemSemanticEditPolicy
+		extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-    /**
-     * @generated
-     */
-    public ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentItemSemanticEditPolicy() {
-        super(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
-    }
+	/**
+	 * @generated
+	 */
+	public ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentItemSemanticEditPolicy() {
+		super(
+				PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
+	}
 
 }

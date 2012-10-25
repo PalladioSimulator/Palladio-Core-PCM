@@ -4,8 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.resource.edit.parts;
 
 import org.eclipse.draw2d.ColorConstants;
+import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.LineBorder;
+import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -35,406 +37,407 @@ import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegist
  */
 public class ProcessingResourceSpecificationEditPart extends ShapeNodeEditPart {
 
-    /**
-     * @generated
-     */
-    public static final int VISUAL_ID = 3003;
+	/**
+	 * @generated
+	 */
+	public static final int VISUAL_ID = 3003;
 
-    /**
-     * @generated
-     */
-    protected IFigure contentPane;
+	/**
+	 * @generated
+	 */
+	protected IFigure contentPane;
 
-    /**
-     * @generated
-     */
-    protected IFigure primaryShape;
+	/**
+	 * @generated
+	 */
+	protected IFigure primaryShape;
 
-    /**
-     * @generated
-     */
-    public ProcessingResourceSpecificationEditPart(View view) {
-        super(view);
-    }
+	/**
+	 * @generated
+	 */
+	public ProcessingResourceSpecificationEditPart(View view) {
+		super(view);
+	}
 
-    /**
-     * @generated
-     */
-    protected void createDefaultEditPolicies() {
-        super.createDefaultEditPolicies();
-        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ProcessingResourceSpecificationItemSemanticEditPolicy());
-        installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
-        // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-    }
+	/**
+	 * @generated
+	 */
+	protected void createDefaultEditPolicies() {
+		super.createDefaultEditPolicies();
+		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+				new ProcessingResourceSpecificationItemSemanticEditPolicy());
+		installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+		// XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+	}
 
-    /**
-     * @generated
-     */
-    protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+	/**
+	 * @generated
+	 */
+	protected LayoutEditPolicy createLayoutEditPolicy() {
+		org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-            protected EditPolicy createChildEditPolicy(EditPart child) {
-                EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
-                if (result == null) {
-                    result = new NonResizableEditPolicy();
-                }
-                return result;
-            }
+			protected EditPolicy createChildEditPolicy(EditPart child) {
+				EditPolicy result = child
+						.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
+				if (result == null) {
+					result = new NonResizableEditPolicy();
+				}
+				return result;
+			}
 
-            protected Command getMoveChildrenCommand(Request request) {
-                return null;
-            }
+			protected Command getMoveChildrenCommand(Request request) {
+				return null;
+			}
 
-            protected Command getCreateCommand(CreateRequest request) {
-                return null;
-            }
-        };
-        return lep;
-    }
+			protected Command getCreateCommand(CreateRequest request) {
+				return null;
+			}
+		};
+		return lep;
+	}
 
-    /**
-     * @generated
-     */
-    protected IFigure createNodeShape() {
-        ProcessingResourceSpecificationFigure figure = new ProcessingResourceSpecificationFigure();
-        return primaryShape = figure;
-    }
+	/**
+	 * @generated
+	 */
+	protected IFigure createNodeShape() {
+		return primaryShape = new ProcessingResourceSpecificationFigure();
+	}
 
-    /**
-     * @generated
-     */
-    public ProcessingResourceSpecificationFigure getPrimaryShape() {
-        return (ProcessingResourceSpecificationFigure) primaryShape;
-    }
+	/**
+	 * @generated
+	 */
+	public ProcessingResourceSpecificationFigure getPrimaryShape() {
+		return (ProcessingResourceSpecificationFigure) primaryShape;
+	}
 
-    /**
-     * @generated
-     */
-    protected boolean addFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof ProcessingResourceSpecificationProcessingRateLabelEditPart) {
-            ((ProcessingResourceSpecificationProcessingRateLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureProcessingRateFigure());
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) {
-            ((ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureActiveResourceTypeFigure());
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) {
-            ((ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureSchedulingPolicyFigure());
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationNumberOfReplicasEditPart) {
-            ((ProcessingResourceSpecificationNumberOfReplicasEditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureNoOfReplicasFigure());
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
-            ((ProcessingResourceSpecificationMTTFEditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureMTTFFigure());
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-            ((ProcessingResourceSpecificationMTTREditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureMTTRFigure());
-            return true;
-        }
-        return false;
-    }
+	/**
+	 * @generated
+	 */
+	protected boolean addFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
+			((ProcessingResourceSpecificationMTTFEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMTTFFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+			((ProcessingResourceSpecificationMTTREditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureMTTRFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) {
+			((ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureSchedulingPolicyFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationNumberOfReplicasEditPart) {
+			((ProcessingResourceSpecificationNumberOfReplicasEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureNoOfReplicasFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationProcessingRateLabelEditPart) {
+			((ProcessingResourceSpecificationProcessingRateLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape().getFigureProcessingRateFigure());
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) {
+			((ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) childEditPart)
+					.setLabel(getPrimaryShape()
+							.getFigureActiveResourceTypeFigure());
+			return true;
+		}
+		return false;
+	}
 
-    /**
-     * @generated
-     */
-    protected boolean removeFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof ProcessingResourceSpecificationProcessingRateLabelEditPart) {
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) {
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) {
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationNumberOfReplicasEditPart) {
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
-            return true;
-        }
-        if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
-            return true;
-        }
-        return false;
-    }
+	/**
+	 * @generated
+	 */
+	protected boolean removeFixedChild(EditPart childEditPart) {
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTFEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationMTTREditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationSchedulingPolicyLabelEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationNumberOfReplicasEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationProcessingRateLabelEditPart) {
+			return true;
+		}
+		if (childEditPart instanceof ProcessingResourceSpecificationActiveResourceTypeLabelEditPart) {
+			return true;
+		}
+		return false;
+	}
 
-    /**
-     * @generated
-     */
-    protected void addChildVisual(EditPart childEditPart, int index) {
-        if (addFixedChild(childEditPart)) {
-            return;
-        }
-        super.addChildVisual(childEditPart, -1);
-    }
+	/**
+	 * @generated
+	 */
+	protected void addChildVisual(EditPart childEditPart, int index) {
+		if (addFixedChild(childEditPart)) {
+			return;
+		}
+		super.addChildVisual(childEditPart, -1);
+	}
 
-    /**
-     * @generated
-     */
-    protected void removeChildVisual(EditPart childEditPart) {
-        if (removeFixedChild(childEditPart)) {
-            return;
-        }
-        super.removeChildVisual(childEditPart);
-    }
+	/**
+	 * @generated
+	 */
+	protected void removeChildVisual(EditPart childEditPart) {
+		if (removeFixedChild(childEditPart)) {
+			return;
+		}
+		super.removeChildVisual(childEditPart);
+	}
 
-    /**
-     * @generated
-     */
-    protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-        return getContentPane();
-    }
+	/**
+	 * @generated
+	 */
+	protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+		return getContentPane();
+	}
 
-    /**
-     * @generated
-     */
-    protected NodeFigure createNodePlate() {
-        DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
-        return result;
-    }
+	/**
+	 * @generated
+	 */
+	protected NodeFigure createNodePlate() {
+		DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(40, 40);
+		return result;
+	}
 
-    /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * @generated
-     */
-    protected NodeFigure createNodeFigure() {
-        NodeFigure figure = createNodePlate();
-        figure.setLayoutManager(new StackLayout());
-        IFigure shape = createNodeShape();
-        figure.add(shape);
-        contentPane = setupContentPane(shape);
-        return figure;
-    }
+	/**
+	 * Creates figure for this edit part.
+	 * 
+	 * Body of this method does not depend on settings in generation model so you may safely remove
+	 * <i>generated</i> tag and modify it.
+	 * 
+	 * @generated
+	 */
+	protected NodeFigure createNodeFigure() {
+		NodeFigure figure = createNodePlate();
+		figure.setLayoutManager(new StackLayout());
+		IFigure shape = createNodeShape();
+		figure.add(shape);
+		contentPane = setupContentPane(shape);
+		return figure;
+	}
 
-    /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
-     * @generated
-     */
-    protected IFigure setupContentPane(IFigure nodeShape) {
-        if (nodeShape.getLayoutManager() == null) {
-            ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
-            layout.setSpacing(5);
-            nodeShape.setLayoutManager(layout);
-        }
-        return nodeShape; // use nodeShape itself as contentPane
-    }
+	/**
+	 * Default implementation treats passed figure as content pane. Respects layout one may have set
+	 * for generated figure.
+	 * 
+	 * @param nodeShape
+	 *            instance of generated figure class
+	 * @generated
+	 */
+	protected IFigure setupContentPane(IFigure nodeShape) {
+		if (nodeShape.getLayoutManager() == null) {
+			ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+			layout.setSpacing(5);
+			nodeShape.setLayoutManager(layout);
+		}
+		return nodeShape; // use nodeShape itself as contentPane
+	}
 
-    /**
-     * @generated
-     */
-    public IFigure getContentPane() {
-        if (contentPane != null) {
-            return contentPane;
-        }
-        return super.getContentPane();
-    }
+	/**
+	 * @generated
+	 */
+	public IFigure getContentPane() {
+		if (contentPane != null) {
+			return contentPane;
+		}
+		return super.getContentPane();
+	}
 
-    /**
-     * @generated
-     */
-    protected void setForegroundColor(Color color) {
-        if (primaryShape != null) {
-            primaryShape.setForegroundColor(color);
-        }
-    }
+	/**
+	 * @generated
+	 */
+	protected void setForegroundColor(Color color) {
+		if (primaryShape != null) {
+			primaryShape.setForegroundColor(color);
+		}
+	}
 
-    /**
-     * @generated
-     */
-    protected void setBackgroundColor(Color color) {
-        if (primaryShape != null) {
-            primaryShape.setBackgroundColor(color);
-        }
-    }
+	/**
+	 * @generated
+	 */
+	protected void setBackgroundColor(Color color) {
+		if (primaryShape != null) {
+			primaryShape.setBackgroundColor(color);
+		}
+	}
 
-    /**
-     * @generated
-     */
-    protected void setLineWidth(int width) {
-        if (primaryShape instanceof Shape) {
-            ((Shape) primaryShape).setLineWidth(width);
-        }
-    }
+	/**
+	 * @generated
+	 */
+	protected void setLineWidth(int width) {
+		if (primaryShape instanceof Shape) {
+			((Shape) primaryShape).setLineWidth(width);
+		}
+	}
 
-    /**
-     * @generated
-     */
-    protected void setLineType(int style) {
-        if (primaryShape instanceof Shape) {
-            ((Shape) primaryShape).setLineStyle(style);
-        }
-    }
+	/**
+	 * @generated
+	 */
+	protected void setLineType(int style) {
+		if (primaryShape instanceof Shape) {
+			((Shape) primaryShape).setLineStyle(style);
+		}
+	}
 
-    /**
-     * @generated
-     */
-    public EditPart getPrimaryChildEditPart() {
-        return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-                .getType(ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID));
-    }
+	/**
+	 * @generated
+	 */
+	public EditPart getPrimaryChildEditPart() {
+		return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
+				.getType(ProcessingResourceSpecificationMTTFEditPart.VISUAL_ID));
+	}
 
-    /**
-     * @generated
-     */
-    public class ProcessingResourceSpecificationFigure extends RectangleFigure {
+	/**
+	 * @generated
+	 */
+	public class ProcessingResourceSpecificationFigure extends RectangleFigure {
 
-        /**
-         * @generated
-         */
-        private WrappingLabel fFigureProcessingRateFigure;
-        /**
-         * @generated
-         */
-        private WrappingLabel fFigureSchedulingPolicyFigure;
-        /**
-         * @generated
-         */
-        private WrappingLabel fFigureMTTFFigure;
-        /**
-         * @generated
-         */
-        private WrappingLabel fFigureMTTRFigure;
-        /**
-         * @generated
-         */
-        private WrappingLabel fFigureActiveResourceTypeFigure;
-        /**
-         * @generated
-         */
-        private WrappingLabel fFigureNoOfReplicasFigure;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureProcessingRateFigure;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureSchedulingPolicyFigure;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureMTTFFigure;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureMTTRFigure;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureActiveResourceTypeFigure;
+		/**
+		 * @generated
+		 */
+		private WrappingLabel fFigureNoOfReplicasFigure;
 
-        /**
-         * @generated
-         */
-        public ProcessingResourceSpecificationFigure() {
-            this.setFill(false);
-            this.setOutline(false);
-            this.setLineWidth(1);
-            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
-            this.setBorder(new LineBorder(null, getMapMode().DPtoLP(1)));
-            createContents();
-        }
+		/**
+		 * @generated
+		 */
+		public ProcessingResourceSpecificationFigure() {
 
-        /**
-         * @generated
-         */
-        private void createContents() {
+			GridLayout layoutThis = new GridLayout();
+			layoutThis.numColumns = 1;
+			layoutThis.makeColumnsEqualWidth = true;
+			this.setLayoutManager(layoutThis);
 
-            fFigureActiveResourceTypeFigure = new WrappingLabel();
-            fFigureActiveResourceTypeFigure.setText("ProcessingResourceSpecification");
-            fFigureActiveResourceTypeFigure.setForegroundColor(ColorConstants.lightGray);
+			this.setFill(false);
+			this.setOutline(false);
+			this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(0)));
 
-            this.add(fFigureActiveResourceTypeFigure);
+			this.setBorder(new MarginBorder(getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(5), getMapMode().DPtoLP(0),
+					getMapMode().DPtoLP(0)));
+			this.setBorder(new LineBorder(null, getMapMode().DPtoLP(1)));
+			createContents();
+		}
 
-            fFigureSchedulingPolicyFigure = new WrappingLabel();
-            fFigureSchedulingPolicyFigure.setText("");
+		/**
+		 * @generated
+		 */
+		private void createContents() {
 
-            this.add(fFigureSchedulingPolicyFigure);
+			fFigureActiveResourceTypeFigure = new WrappingLabel();
 
-            fFigureNoOfReplicasFigure = new WrappingLabel();
-            fFigureNoOfReplicasFigure.setText("");
+			fFigureActiveResourceTypeFigure
+					.setText("ProcessingResourceSpecification");
+			fFigureActiveResourceTypeFigure
+					.setForegroundColor(ColorConstants.lightGray);
 
-            this.add(fFigureNoOfReplicasFigure);
+			this.add(fFigureActiveResourceTypeFigure);
 
-            fFigureProcessingRateFigure = new WrappingLabel();
-            fFigureProcessingRateFigure.setText("");
+			fFigureSchedulingPolicyFigure = new WrappingLabel();
 
-            this.add(fFigureProcessingRateFigure);
+			fFigureSchedulingPolicyFigure.setText("");
 
-            fFigureMTTFFigure = new WrappingLabel();
-            fFigureMTTFFigure.setText("");
+			this.add(fFigureSchedulingPolicyFigure);
 
-            this.add(fFigureMTTFFigure);
+			fFigureNoOfReplicasFigure = new WrappingLabel();
 
-            fFigureMTTRFigure = new WrappingLabel();
-            fFigureMTTRFigure.setText("");
+			fFigureNoOfReplicasFigure.setText("");
 
-            this.add(fFigureMTTRFigure);
+			this.add(fFigureNoOfReplicasFigure);
 
-        }
+			fFigureProcessingRateFigure = new WrappingLabel();
 
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
+			fFigureProcessingRateFigure.setText("");
 
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
+			this.add(fFigureProcessingRateFigure);
 
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
-        }
+			fFigureMTTFFigure = new WrappingLabel();
 
-        /**
-         * @generated
-         */
-        public WrappingLabel getFigureProcessingRateFigure() {
-            return fFigureProcessingRateFigure;
-        }
+			fFigureMTTFFigure.setText("");
 
-        /**
-         * @generated
-         */
-        public WrappingLabel getFigureSchedulingPolicyFigure() {
-            return fFigureSchedulingPolicyFigure;
-        }
+			this.add(fFigureMTTFFigure);
 
-        /**
-         * @generated
-         */
-        public WrappingLabel getFigureMTTFFigure() {
-            return fFigureMTTFFigure;
-        }
+			fFigureMTTRFigure = new WrappingLabel();
 
-        /**
-         * @generated
-         */
-        public WrappingLabel getFigureMTTRFigure() {
-            return fFigureMTTRFigure;
-        }
+			fFigureMTTRFigure.setText("");
 
-        /**
-         * @generated
-         */
-        public WrappingLabel getFigureActiveResourceTypeFigure() {
-            return fFigureActiveResourceTypeFigure;
-        }
+			this.add(fFigureMTTRFigure);
 
-        /**
-         * @generated
-         */
-        public WrappingLabel getFigureNoOfReplicasFigure() {
-            return fFigureNoOfReplicasFigure;
-        }
+		}
 
-    }
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureProcessingRateFigure() {
+			return fFigureProcessingRateFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureSchedulingPolicyFigure() {
+			return fFigureSchedulingPolicyFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureMTTFFigure() {
+			return fFigureMTTFFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureMTTRFigure() {
+			return fFigureMTTRFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureActiveResourceTypeFigure() {
+			return fFigureActiveResourceTypeFigure;
+		}
+
+		/**
+		 * @generated
+		 */
+		public WrappingLabel getFigureNoOfReplicasFigure() {
+			return fFigureNoOfReplicasFigure;
+		}
+
+	}
 
 }
