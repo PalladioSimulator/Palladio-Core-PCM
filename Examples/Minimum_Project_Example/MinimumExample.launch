@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
 <stringAttribute key="accuracyQualityAnnotationFile" value=""/>
-<stringAttribute key="allocationFile" value="platform:/resource/PCM3.3_Minimum_Project/default.allocation"/>
+<stringAttribute key="allocationFile" value="platform:/resource/Minimum_Project/default.allocation"/>
 <booleanAttribute key="clear" value="true"/>
 <listAttribute key="completion.config"/>
 <booleanAttribute key="completion.qvt.verbose.logging" value="false"/>
@@ -31,7 +31,7 @@
 <booleanAttribute key="simulateFailures" value="false"/>
 <booleanAttribute key="simulateLinkingResources" value="true"/>
 <stringAttribute key="stepwidth" value=""/>
-<stringAttribute key="usageFile" value="platform:/resource/PCM3.3_Minimum_Project/default.usagemodel"/>
+<stringAttribute key="usageFile" value="platform:/resource/Minimum_Project/default.usagemodel"/>
 <booleanAttribute key="useConfidenceStopCondition" value="false"/>
 <booleanAttribute key="useFixedSeed" value="false"/>
 <stringAttribute key="variable" value=""/>
