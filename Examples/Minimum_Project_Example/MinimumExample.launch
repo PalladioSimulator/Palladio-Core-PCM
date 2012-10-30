@@ -5,10 +5,13 @@
 <booleanAttribute key="clear" value="true"/>
 <listAttribute key="completion.config"/>
 <booleanAttribute key="completion.qvt.verbose.logging" value="false"/>
+<stringAttribute key="confidenceBatchSize" value="200"/>
 <stringAttribute key="confidenceHalfWidth" value="10"/>
 <stringAttribute key="confidenceLevel" value="95"/>
+<stringAttribute key="confidenceMinNumberOfBatches" value="60"/>
 <stringAttribute key="confidenceModelElementName" value=""/>
 <stringAttribute key="confidenceModelElementURI" value=""/>
+<booleanAttribute key="confidenceUseAutomaticBatches" value="false"/>
 <intAttribute key="datasourceID" value="0"/>
 <intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
 <stringAttribute key="eventMiddlewareRepositoryFile" value="pathmap://PCM_MODELS/default_event_middleware.repository"/>
@@ -30,6 +33,7 @@
 <booleanAttribute key="simulateAccuracy" value="false"/>
 <booleanAttribute key="simulateFailures" value="false"/>
 <booleanAttribute key="simulateLinkingResources" value="true"/>
+<stringAttribute key="simulatorId" value="de.uka.ipd.sdq.codegen.simucontroller.simucom"/>
 <stringAttribute key="stepwidth" value=""/>
 <stringAttribute key="usageFile" value="platform:/resource/Minimum_Project/default.usagemodel"/>
 <booleanAttribute key="useConfidenceStopCondition" value="false"/>
