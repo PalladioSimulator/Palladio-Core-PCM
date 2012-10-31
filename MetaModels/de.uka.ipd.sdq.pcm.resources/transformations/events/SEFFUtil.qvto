@@ -279,7 +279,7 @@ helper OperationSignature::SEFFUtil_createSEFFWithBranchAction(	component : Basi
 			then {positiveFilterCondition := filterCondition}
 			else {positiveFilterCondition := object PCMRandomVariable{specification := 'true'}}
 	endif;	
-	var negativeFilterCondition := object PCMRandomVariable {specification := 'NOT (' + filterCondition.specification + ')'};
+	var negativeFilterCondition := object PCMRandomVariable {specification := 'NOT (' + positiveFilterCondition.specification + ')'};
 	// create the actions
 	var startAction := SEFFUtil_createStartAction();
 	var branchAction := SEFFUtil_createEmptyBranchAction(startAction);
