@@ -127,6 +127,7 @@ public class EventTypesCellModifier extends ObservableCellModifier {
 			recCommand.setDescription("Edit EventType Parameter Property");
 			recCommand.setLabel("Set name");
 			editingDomain.getCommandStack().execute(recCommand);
+			notifyObservers();
 		}
 	}
 
