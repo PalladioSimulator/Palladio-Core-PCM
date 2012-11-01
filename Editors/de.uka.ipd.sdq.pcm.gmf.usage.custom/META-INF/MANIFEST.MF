@@ -1,6 +1,6 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: PalladioComponentModel Custom Usage Model Diagram Plugin
+Bundle-Name: Palladio Usage Model Editor Customization
 Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.usage.custom;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.usage.custom.Activator
