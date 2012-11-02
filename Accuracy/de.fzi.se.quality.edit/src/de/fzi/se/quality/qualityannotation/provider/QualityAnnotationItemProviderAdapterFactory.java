@@ -76,29 +76,6 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected ParameterValueDeviationItemProvider parameterValueDeviationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createParameterValueDeviationAdapter() {
-		if (parameterValueDeviationItemProvider == null) {
-			parameterValueDeviationItemProvider = new ParameterValueDeviationItemProvider(this);
-		}
-
-		return parameterValueDeviationItemProvider;
-	}
-
-	/**
 	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.QualityAnnotation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -119,29 +96,6 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 		}
 
 		return qualityAnnotationItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected RequiredElementDeviationItemProvider requiredElementDeviationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createRequiredElementDeviationAdapter() {
-		if (requiredElementDeviationItemProvider == null) {
-			requiredElementDeviationItemProvider = new RequiredElementDeviationItemProvider(this);
-		}
-
-		return requiredElementDeviationItemProvider;
 	}
 
 	/**
@@ -726,9 +680,7 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	 * @generated
 	 */
 	public void dispose() {
-		if (parameterValueDeviationItemProvider != null) parameterValueDeviationItemProvider.dispose();
 		if (qualityAnnotationItemProvider != null) qualityAnnotationItemProvider.dispose();
-		if (requiredElementDeviationItemProvider != null) requiredElementDeviationItemProvider.dispose();
 		if (internalStateInfluenceAnalysisAggregationItemProvider != null) internalStateInfluenceAnalysisAggregationItemProvider.dispose();
 		if (rePrecisionItemProvider != null) rePrecisionItemProvider.dispose();
 		if (pcmParameterPartitionItemProvider != null) pcmParameterPartitionItemProvider.dispose();
