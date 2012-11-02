@@ -10,6 +10,8 @@ import de.fzi.se.quality.parameters.ParameterInstance;
 import de.fzi.se.quality.parameters.ParameterValue;
 import de.fzi.se.quality.parameters.ParametersPackage;
 
+import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
+import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 import org.eclipse.emf.common.notify.Notification;
@@ -30,6 +32,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterValueImpl#getParameterInstance <em>Parameter Instance</em>}</li>
+ *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterValueImpl#getParameterValueDeviation <em>Parameter Value Deviation</em>}</li>
  * </ul>
  * </p>
  *
@@ -101,6 +104,47 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public ParameterValueDeviation getParameterValueDeviation() {
+		if (eContainerFeatureID() != ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION) return null;
+		return (ParameterValueDeviation)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParameterValueDeviation(ParameterValueDeviation newParameterValueDeviation, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParameterValueDeviation, ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameterValueDeviation(ParameterValueDeviation newParameterValueDeviation) {
+		if (newParameterValueDeviation != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION && newParameterValueDeviation != null)) {
+			if (EcoreUtil.isAncestor(this, newParameterValueDeviation))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParameterValueDeviation != null)
+				msgs = ((InternalEObject)newParameterValueDeviation).eInverseAdd(this, QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, ParameterValueDeviation.class, msgs);
+			msgs = basicSetParameterValueDeviation(newParameterValueDeviation, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION, newParameterValueDeviation, newParameterValueDeviation));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -108,6 +152,10 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParameterInstance((ParameterInstance)otherEnd, msgs);
+			case ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParameterValueDeviation((ParameterValueDeviation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -122,6 +170,8 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 		switch (featureID) {
 			case ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE:
 				return basicSetParameterInstance(null, msgs);
+			case ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION:
+				return basicSetParameterValueDeviation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -136,6 +186,8 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 		switch (eContainerFeatureID()) {
 			case ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE:
 				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_INSTANCE__PARAMETER_VALUE, ParameterInstance.class, msgs);
+			case ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION:
+				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE, ParameterValueDeviation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -150,6 +202,8 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 		switch (featureID) {
 			case ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE:
 				return getParameterInstance();
+			case ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION:
+				return getParameterValueDeviation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -164,6 +218,9 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 		switch (featureID) {
 			case ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE:
 				setParameterInstance((ParameterInstance)newValue);
+				return;
+			case ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION:
+				setParameterValueDeviation((ParameterValueDeviation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -180,6 +237,9 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 			case ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE:
 				setParameterInstance((ParameterInstance)null);
 				return;
+			case ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION:
+				setParameterValueDeviation((ParameterValueDeviation)null);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -194,6 +254,8 @@ public abstract class ParameterValueImpl extends IdentifierImpl implements Param
 		switch (featureID) {
 			case ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE:
 				return getParameterInstance() != null;
+			case ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION:
+				return getParameterValueDeviation() != null;
 		}
 		return super.eIsSet(featureID);
 	}

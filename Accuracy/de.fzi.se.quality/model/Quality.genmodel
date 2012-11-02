@@ -47,12 +47,15 @@
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="quality.ecore#//qualityannotation/PCMRERequestCategory/ResourceDemand"/>
         <genEnumLiterals xsi:type="genmodel:GenEnumLiteral" ecoreEnumLiteral="quality.ecore#//qualityannotation/PCMRERequestCategory/ComponentInternal"/>
       </genEnums>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/CallParameterDeviation">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/ParameterValueDeviation">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/CallParameterDeviation/parameterReference"/>
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/ParameterValueDeviation/parameterReference"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/CallParameterDeviation/internalStateInfluenceAnalysisAggregation"/>
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/CallParameterDeviation/maximum"/>
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/ParameterValueDeviation/internalStateInfluenceAnalysisAggregation"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/ParameterValueDeviation/requiredElementDeviation"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/ParameterValueDeviation/parameterValue"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/QualityAnnotation">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/QualityAnnotation/isValid"/>
@@ -67,12 +70,13 @@
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//qualityannotation/ServiceSpecification">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/ServiceSpecification/checksum"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/ServiceSpecification/checksumAlg"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/ServiceSpecification/qualityAnnotation"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/RequiredElement">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/RequiredElement/numberOfCallsDeviation"/>
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/RequiredElement/requiredElementDeviation"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/RequiredElement/childREs"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
@@ -86,21 +90,25 @@
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/RequiredElement/StipulatedPrecisionMustBeSetInStipulationContext/context"/>
         </genOperations>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/NumberOfCallsDeviation">
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/RequiredElementDeviation">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/NumberOfCallsDeviation/internalStateInfluenceAnalysisAggregation"/>
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/NumberOfCallsDeviation/maximum"/>
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/RequiredElementDeviation/internalStateInfluenceAnalysisAggregation"/>
+        <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+            propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/RequiredElementDeviation/maximumDeviationNumberOfCalls"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/NumberOfCallsDeviation/requiredElement"/>
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/RequiredElementDeviation/maximumDeviationCallParameterValues"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/RequiredElementDeviation/requiredElement"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/InternalStateInfluenceAnalysisAggregation">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/InternalStateInfluenceAnalysisAggregation/qualityAnnotation"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/InternalStateInfluenceAnalysisAggregation/callParameterDeviation"/>
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/InternalStateInfluenceAnalysisAggregation/parameterValueDeviations"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/InternalStateInfluenceAnalysisAggregation/numberOfCallsDeviation"/>
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/InternalStateInfluenceAnalysisAggregation/requiredElementDeviations"/>
       </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//qualityannotation/Precision"/>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/REPrecision">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/REPrecision/defaultPrecisionNumberOfCalls"/>
@@ -109,17 +117,18 @@
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/REPrecision/requiredElement"/>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//qualityannotation/Precision"/>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMParameterPartition">
-        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMParameterPartition/characerisedParameterPartitions"/>
-        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMParameterPartition/parameterReference"/>
-      </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//qualityannotation/CharacterisedPCMParameterPartition">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/CharacterisedPCMParameterPartition/forCharacterisation"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/CharacterisedPCMParameterPartition/pcmParameterPartition"/>
+      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMParameterPartition">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/PCMParameterPartition/characerisedParameterPartitions"/>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="quality.ecore#//qualityannotation/PCMParameterPartition/APCMParameterPartitionMustReferenceAPCMParameterReference">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMParameterPartition/APCMParameterPartitionMustReferenceAPCMParameterReference/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="quality.ecore#//qualityannotation/PCMParameterPartition/APCMParameterPartitionMustReferenceAPCMParameterReference/context"/>
+        </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/CharacterisedPCMParameterPartitionInterval">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -316,10 +325,14 @@
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/ParameterPartition">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterPartition/qualityAnnotation"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+            createChild="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterPartition/parameterReference"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/ParameterValue">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterValue/parameterInstance"/>
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterValue/parameterValueDeviation"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//parameters/ParameterInstance">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -356,21 +369,18 @@
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ComponentReference/componentInstance"/>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/InfrastructureOperationReference"/>
-      <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/BusinessOperationReference"/>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/ParameterReference">
+        <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterReference/parameterPartition"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterReference/parameterInstance"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterReference/callParameterDeviation"/>
+            createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/ParameterReference/parameterValueDeviation"/>
       </genClasses>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="PCM" basePackage="de.fzi.se.quality.parameters"
           resource="XML" disposableProviderFactory="true" contentTypeIdentifier=""
           fileExtensions="quality_parameters_pcm" ecorePackage="quality.ecore#//parameters/pcm">
-        <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/pcm/PCMParameterReference">
-          <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
-              createChild="false" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMParameterReference/parameterPartition"/>
-        </genClasses>
+        <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/pcm/PCMParameterReference"/>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//parameters/pcm/PCMParameterValue">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
               createChild="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMParameterValue/variableCharacterisation"/>
@@ -383,7 +393,7 @@
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//parameters/pcm/PCMBusinessOperationReference">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
-              propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMBusinessOperationReference/requiredRole"/>
+              propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMBusinessOperationReference/role"/>
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
               propertySortChoices="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMBusinessOperationReference/signature"/>
         </genClasses>

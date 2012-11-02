@@ -8,6 +8,8 @@ package de.fzi.se.quality.qualityannotation;
 
 import de.fzi.se.quality.parameters.ParameterPartition;
 
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import de.fzi.se.quality.parameters.pcm.PCMParameterReference;
 
 import org.eclipse.emf.common.util.EList;
@@ -21,7 +23,6 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.PCMParameterPartition#getCharacerisedParameterPartitions <em>Characerised Parameter Partitions</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.PCMParameterPartition#getParameterReference <em>Parameter Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -43,37 +44,21 @@ public interface PCMParameterPartition extends ParameterPartition {
 	 * @return the value of the '<em>Characerised Parameter Partitions</em>' containment reference list.
 	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMParameterPartition_CharacerisedParameterPartitions()
 	 * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getPcmParameterPartition
-	 * @model opposite="pcmParameterPartition" containment="true" ordered="false"
+	 * @model opposite="pcmParameterPartition" containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<CharacterisedPCMParameterPartition> getCharacerisedParameterPartitions();
 
 	/**
-	 * Returns the value of the '<em><b>Parameter Reference</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.pcm.PCMParameterReference#getParameterPartition <em>Parameter Partition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <p>
-	 * If the meaning of the '<em>Parameter Reference</em>' containment reference isn't clear,
-	 * there really should be more of a description here...
-	 * </p>
-	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Reference</em>' containment reference.
-	 * @see #setParameterReference(PCMParameterReference)
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMParameterPartition_ParameterReference()
-	 * @see de.fzi.se.quality.parameters.pcm.PCMParameterReference#getParameterPartition
-	 * @model opposite="parameterPartition" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
-	PCMParameterReference getParameterReference();
-
-	/**
-	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.PCMParameterPartition#getParameterReference <em>Parameter Reference</em>}' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parameter Reference</em>' containment reference.
-	 * @see #getParameterReference()
+	 * <!-- begin-model-doc -->
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.parameterReference.oclIsTypeOf(Quality::Parameters::PCM::PCMParameterReference)'"
 	 * @generated
 	 */
-	void setParameterReference(PCMParameterReference value);
+	boolean APCMParameterPartitionMustReferenceAPCMParameterReference(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // PCMParameterPartition

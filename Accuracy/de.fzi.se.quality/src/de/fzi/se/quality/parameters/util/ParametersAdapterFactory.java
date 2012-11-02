@@ -102,14 +102,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 				return createComponentReferenceAdapter();
 			}
 			@Override
-			public Adapter caseInfrastructureOperationReference(InfrastructureOperationReference object) {
-				return createInfrastructureOperationReferenceAdapter();
-			}
-			@Override
-			public Adapter caseBusinessOperationReference(BusinessOperationReference object) {
-				return createBusinessOperationReferenceAdapter();
-			}
-			@Override
 			public Adapter caseParameterReference(ParameterReference object) {
 				return createParameterReferenceAdapter();
 			}
@@ -232,34 +224,6 @@ public class ParametersAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createComponentReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.parameters.InfrastructureOperationReference <em>Infrastructure Operation Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.parameters.InfrastructureOperationReference
-	 * @generated
-	 */
-	public Adapter createInfrastructureOperationReferenceAdapter() {
-		return null;
-	}
-
-	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.parameters.BusinessOperationReference <em>Business Operation Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * This default implementation returns null so that we can easily ignore cases;
-	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
-	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.parameters.BusinessOperationReference
-	 * @generated
-	 */
-	public Adapter createBusinessOperationReferenceAdapter() {
 		return null;
 	}
 

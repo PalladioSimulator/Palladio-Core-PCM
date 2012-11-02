@@ -10,6 +10,7 @@ package de.fzi.se.quality.parameters.pcm.provider;
 import de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
+import de.fzi.se.quality.parameters.provider.OperationReferenceItemProvider;
 import de.fzi.se.quality.parameters.provider.InfrastructureOperationReferenceItemProvider;
 
 import de.fzi.se.quality.provider.QualityEditPlugin;
@@ -37,7 +38,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class PCMInfrastructureOperationReferenceItemProvider
-	extends InfrastructureOperationReferenceItemProvider
+	extends OperationReferenceItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

@@ -30,6 +30,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.ServiceSpecificationImpl#getChecksum <em>Checksum</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.ServiceSpecificationImpl#getChecksumAlg <em>Checksum Alg</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.ServiceSpecificationImpl#getQualityAnnotation <em>Quality Annotation</em>}</li>
  * </ul>
  * </p>
@@ -56,6 +57,26 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
 	 * @ordered
 	 */
 	protected long checksum = CHECKSUM_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getChecksumAlg() <em>Checksum Alg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChecksumAlg()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String CHECKSUM_ALG_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getChecksumAlg() <em>Checksum Alg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getChecksumAlg()
+	 * @generated
+	 * @ordered
+	 */
+	protected String checksumAlg = CHECKSUM_ALG_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -95,6 +116,27 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
 		checksum = newChecksum;
 		if (eNotificationRequired())
 			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM, oldChecksum, checksum));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public String getChecksumAlg() {
+		return checksumAlg;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setChecksumAlg(String newChecksumAlg) {
+		String oldChecksumAlg = checksumAlg;
+		checksumAlg = newChecksumAlg;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM_ALG, oldChecksumAlg, checksumAlg));
 	}
 
 	/**
@@ -192,6 +234,8 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
 		switch (featureID) {
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM:
 				return getChecksum();
+			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM_ALG:
+				return getChecksumAlg();
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__QUALITY_ANNOTATION:
 				return getQualityAnnotation();
 		}
@@ -208,6 +252,9 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
 		switch (featureID) {
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM:
 				setChecksum((Long)newValue);
+				return;
+			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM_ALG:
+				setChecksumAlg((String)newValue);
 				return;
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__QUALITY_ANNOTATION:
 				setQualityAnnotation((QualityAnnotation)newValue);
@@ -227,6 +274,9 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM:
 				setChecksum(CHECKSUM_EDEFAULT);
 				return;
+			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM_ALG:
+				setChecksumAlg(CHECKSUM_ALG_EDEFAULT);
+				return;
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__QUALITY_ANNOTATION:
 				setQualityAnnotation((QualityAnnotation)null);
 				return;
@@ -244,6 +294,8 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
 		switch (featureID) {
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM:
 				return checksum != CHECKSUM_EDEFAULT;
+			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM_ALG:
+				return CHECKSUM_ALG_EDEFAULT == null ? checksumAlg != null : !CHECKSUM_ALG_EDEFAULT.equals(checksumAlg);
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__QUALITY_ANNOTATION:
 				return getQualityAnnotation() != null;
 		}
@@ -262,6 +314,8 @@ public abstract class ServiceSpecificationImpl extends IdentifierImpl implements
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (checksum: ");
 		result.append(checksum);
+		result.append(", checksumAlg: ");
+		result.append(checksumAlg);
 		result.append(')');
 		return result.toString();
 	}

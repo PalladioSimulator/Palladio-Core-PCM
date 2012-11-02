@@ -6,23 +6,16 @@
  */
 package de.fzi.se.quality.parameters.pcm.impl;
 
-import de.fzi.se.quality.parameters.impl.InfrastructureOperationReferenceImpl;
-
-import de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference;
-import de.fzi.se.quality.parameters.pcm.PCMPackage;
-
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
-import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
-
-import de.uka.ipd.sdq.pcm.repository.Signature;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.fzi.se.quality.parameters.impl.OperationReferenceImpl;
+import de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference;
+import de.fzi.se.quality.parameters.pcm.PCMPackage;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +31,7 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  *
  * @generated
  */
-public class PCMInfrastructureOperationReferenceImpl extends InfrastructureOperationReferenceImpl implements PCMInfrastructureOperationReference {
+public class PCMInfrastructureOperationReferenceImpl extends OperationReferenceImpl implements PCMInfrastructureOperationReference {
 	/**
 	 * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
 	 * <!-- begin-user-doc -->

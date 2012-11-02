@@ -185,15 +185,6 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPCMParameterReference_ParameterPartition() {
-		return (EReference)pcmParameterReferenceEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getPCMParameterValue() {
 		return pcmParameterValueEClass;
 	}
@@ -248,7 +239,7 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPCMBusinessOperationReference_RequiredRole() {
+	public EReference getPCMBusinessOperationReference_Role() {
 		return (EReference)pcmBusinessOperationReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -380,7 +371,6 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 
 		// Create classes and their features
 		pcmParameterReferenceEClass = createEClass(PCM_PARAMETER_REFERENCE);
-		createEReference(pcmParameterReferenceEClass, PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION);
 
 		pcmParameterValueEClass = createEClass(PCM_PARAMETER_VALUE);
 		createEReference(pcmParameterValueEClass, PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION);
@@ -390,7 +380,7 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 		createEReference(pcmInfrastructureOperationReferenceEClass, PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE);
 
 		pcmBusinessOperationReferenceEClass = createEClass(PCM_BUSINESS_OPERATION_REFERENCE);
-		createEReference(pcmBusinessOperationReferenceEClass, PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE);
+		createEReference(pcmBusinessOperationReferenceEClass, PCM_BUSINESS_OPERATION_REFERENCE__ROLE);
 		createEReference(pcmBusinessOperationReferenceEClass, PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE);
 
 		pcmComponentReferenceEClass = createEClass(PCM_COMPONENT_REFERENCE);
@@ -433,7 +423,6 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 
 		// Obtain other dependent packages
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
-		QualityAnnotationPackage theQualityAnnotationPackage = (QualityAnnotationPackage)EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
 
@@ -444,8 +433,8 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 		// Add supertypes to classes
 		pcmParameterReferenceEClass.getESuperTypes().add(theParametersPackage.getParameterReference());
 		pcmParameterValueEClass.getESuperTypes().add(theParametersPackage.getParameterValue());
-		pcmInfrastructureOperationReferenceEClass.getESuperTypes().add(theParametersPackage.getInfrastructureOperationReference());
-		pcmBusinessOperationReferenceEClass.getESuperTypes().add(theParametersPackage.getBusinessOperationReference());
+		pcmInfrastructureOperationReferenceEClass.getESuperTypes().add(theParametersPackage.getOperationReference());
+		pcmBusinessOperationReferenceEClass.getESuperTypes().add(theParametersPackage.getOperationReference());
 		pcmComponentReferenceEClass.getESuperTypes().add(theParametersPackage.getComponentReference());
 		pcmComponentParameterReferenceEClass.getESuperTypes().add(this.getPCMParameterReference());
 		pcmOperationParameterReferenceEClass.getESuperTypes().add(this.getPCMParameterReference());
@@ -453,17 +442,16 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(pcmParameterReferenceEClass, PCMParameterReference.class, "PCMParameterReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMParameterReference_ParameterPartition(), theQualityAnnotationPackage.getPCMParameterPartition(), theQualityAnnotationPackage.getPCMParameterPartition_ParameterReference(), "parameterPartition", null, 0, 1, PCMParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pcmParameterValueEClass, PCMParameterValue.class, "PCMParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMParameterValue_VariableCharacterisation(), theParameterPackage.getVariableCharacterisation(), null, "variableCharacterisation", null, 0, -1, PCMParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMParameterValue_VariableCharacterisation(), theParameterPackage.getVariableCharacterisation(), null, "variableCharacterisation", null, 1, -1, PCMParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pcmInfrastructureOperationReferenceEClass, PCMInfrastructureOperationReference.class, "PCMInfrastructureOperationReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMInfrastructureOperationReference_Role(), theRepositoryPackage.getInfrastructureRequiredRole(), null, "role", null, 1, 1, PCMInfrastructureOperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPCMInfrastructureOperationReference_Signature(), theRepositoryPackage.getInfrastructureSignature(), null, "signature", null, 1, 1, PCMInfrastructureOperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pcmBusinessOperationReferenceEClass, PCMBusinessOperationReference.class, "PCMBusinessOperationReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMBusinessOperationReference_RequiredRole(), theRepositoryPackage.getOperationRequiredRole(), null, "requiredRole", null, 1, 1, PCMBusinessOperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMBusinessOperationReference_Role(), theRepositoryPackage.getOperationRequiredRole(), null, "role", null, 1, 1, PCMBusinessOperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getPCMBusinessOperationReference_Signature(), theRepositoryPackage.getOperationSignature(), null, "signature", null, 1, 1, PCMBusinessOperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pcmComponentReferenceEClass, PCMComponentReference.class, "PCMComponentReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);

@@ -68,6 +68,7 @@ public class ServiceSpecificationItemProvider
 			super.getPropertyDescriptors(object);
 
 			addChecksumPropertyDescriptor(object);
+			addChecksumAlgPropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -90,6 +91,28 @@ public class ServiceSpecificationItemProvider
 				 false,
 				 false,
 				 ItemPropertyDescriptor.INTEGRAL_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Checksum Alg feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addChecksumAlgPropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_ServiceSpecification_checksumAlg_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_ServiceSpecification_checksumAlg_feature", "_UI_ServiceSpecification_type"),
+				 QualityAnnotationPackage.Literals.SERVICE_SPECIFICATION__CHECKSUM_ALG,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
 				 null,
 				 null));
 	}
@@ -121,6 +144,7 @@ public class ServiceSpecificationItemProvider
 
 		switch (notification.getFeatureID(ServiceSpecification.class)) {
 			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM:
+			case QualityAnnotationPackage.SERVICE_SPECIFICATION__CHECKSUM_ALG:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

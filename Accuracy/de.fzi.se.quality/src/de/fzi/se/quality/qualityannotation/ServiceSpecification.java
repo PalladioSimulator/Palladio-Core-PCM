@@ -17,6 +17,7 @@ import de.uka.ipd.sdq.identifier.Identifier;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getChecksum <em>Checksum</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getChecksumAlg <em>Checksum Alg</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getQualityAnnotation <em>Quality Annotation</em>}</li>
  * </ul>
  * </p>
@@ -51,6 +52,32 @@ public interface ServiceSpecification extends Identifier {
 	 * @generated
 	 */
 	void setChecksum(long value);
+
+	/**
+	 * Returns the value of the '<em><b>Checksum Alg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Checksum Alg</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Checksum Alg</em>' attribute.
+	 * @see #setChecksumAlg(String)
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getServiceSpecification_ChecksumAlg()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getChecksumAlg();
+
+	/**
+	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getChecksumAlg <em>Checksum Alg</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Checksum Alg</em>' attribute.
+	 * @see #getChecksumAlg()
+	 * @generated
+	 */
+	void setChecksumAlg(String value);
 
 	/**
 	 * Returns the value of the '<em><b>Quality Annotation</b></em>' container reference.

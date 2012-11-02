@@ -6,6 +6,7 @@
  */
 package de.fzi.se.quality.parameters.pcm;
 
+import de.fzi.se.quality.parameters.OperationReference;
 import de.fzi.se.quality.parameters.InfrastructureOperationReference;
 
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
@@ -31,7 +32,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * @model
  * @generated
  */
-public interface PCMInfrastructureOperationReference extends InfrastructureOperationReference {
+public interface PCMInfrastructureOperationReference extends OperationReference {
 	/**
 	 * Returns the value of the '<em><b>Role</b></em>' reference.
 	 * <!-- begin-user-doc -->

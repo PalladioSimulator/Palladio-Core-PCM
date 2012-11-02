@@ -278,11 +278,6 @@ public class QualityAnnotationLookup {
 			logger.severe(msg);
 			throw new IllegalArgumentException(msg);
 		}
-		if (current == null) {
-			String msg = "Could not find a RE Precision for signature " + signature + " and the role " + role + ".";
-			logger.severe(msg);
-			throw new IllegalArgumentException(msg);
-		}
 		return current;
 	}
 
@@ -328,11 +323,6 @@ public class QualityAnnotationLookup {
 			}
 		} else {
 			String msg = "Could not find a RE Precision for the category " + category + ". Add an RE Precision for this category.";
-			logger.severe(msg);
-			throw new IllegalArgumentException(msg);
-		}
-		if (current == null) {
-			String msg = "Could not find a RE Precision for signature " + signature + " and the role " + role + ".";
 			logger.severe(msg);
 			throw new IllegalArgumentException(msg);
 		}

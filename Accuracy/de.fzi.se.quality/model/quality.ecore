@@ -15,15 +15,17 @@
   </eClassifiers>
   <eSubpackages name="qualityannotation" nsURI="http://fzi.de/PalladioComponentModel/Quality/QualityAnnotation/0.2"
       nsPrefix="qualityannotation">
-    <eClassifiers xsi:type="ecore:EClass" name="CallParameterDeviation">
+    <eClassifiers xsi:type="ecore:EClass" name="ParameterValueDeviation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReference" ordered="false"
-          upperBound="-1" eType="#//parameters/ParameterReference" containment="true"
-          eOpposite="#//parameters/ParameterReference/callParameterDeviation"/>
+          lowerBound="1" eType="#//parameters/ParameterReference" containment="true"
+          eOpposite="#//parameters/ParameterReference/parameterValueDeviation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="internalStateInfluenceAnalysisAggregation"
-          ordered="false" lowerBound="1" eType="#//qualityannotation/InternalStateInfluenceAnalysisAggregation"
-          eOpposite="#//qualityannotation/InternalStateInfluenceAnalysisAggregation/callParameterDeviation"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+          ordered="false" eType="#//qualityannotation/InternalStateInfluenceAnalysisAggregation"
+          eOpposite="#//qualityannotation/InternalStateInfluenceAnalysisAggregation/parameterValueDeviations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredElementDeviation"
+          ordered="false" eType="#//qualityannotation/RequiredElementDeviation" eOpposite="#//qualityannotation/RequiredElementDeviation/maximumDeviationCallParameterValues"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValue" ordered="false"
+          lowerBound="1" eType="#//parameters/ParameterValue" containment="true" eOpposite="#//parameters/ParameterValue/parameterValueDeviation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="QualityAnnotation" eSuperTypes="#//QualityStatement">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="isValid" ordered="false"
@@ -50,10 +52,12 @@
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksum" ordered="false"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="checksumAlg" ordered="false"
+          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="qualityAnnotation" ordered="false"
           lowerBound="1" eType="#//qualityannotation/QualityAnnotation" eOpposite="#//qualityannotation/QualityAnnotation/forServiceSpecification"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="RequiredElement" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredElement" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eOperations name="StipulatedPrecisionMustBeSetInStipulationContext" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
           <details key="body" value="self.qualityAnnotation->size() = self.precision->size()"/>
@@ -73,8 +77,8 @@
           </eGenericType>
         </eParameters>
       </eOperations>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfCallsDeviation"
-          ordered="false" eType="#//qualityannotation/NumberOfCallsDeviation" eOpposite="#//qualityannotation/NumberOfCallsDeviation/requiredElement"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredElementDeviation"
+          ordered="false" eType="#//qualityannotation/RequiredElementDeviation" eOpposite="#//qualityannotation/RequiredElementDeviation/requiredElement"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="childREs" ordered="false"
           upperBound="-1" eType="#//qualityannotation/RequiredElement" containment="true"
           eOpposite="#//qualityannotation/RequiredElement/parentRE"/>
@@ -85,27 +89,31 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="qualityAnnotation" ordered="false"
           eType="#//qualityannotation/QualityAnnotation" eOpposite="#//qualityannotation/QualityAnnotation/stipulatedREPrecisions"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="NumberOfCallsDeviation">
+    <eClassifiers xsi:type="ecore:EClass" name="RequiredElementDeviation">
       <eStructuralFeatures xsi:type="ecore:EReference" name="internalStateInfluenceAnalysisAggregation"
           ordered="false" lowerBound="1" eType="#//qualityannotation/InternalStateInfluenceAnalysisAggregation"
-          eOpposite="#//qualityannotation/InternalStateInfluenceAnalysisAggregation/numberOfCallsDeviation"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="maximum" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDouble"/>
+          eOpposite="#//qualityannotation/InternalStateInfluenceAnalysisAggregation/requiredElementDeviations"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="maximumDeviationNumberOfCalls"
+          ordered="false" lowerBound="1" eType="#//qualityannotation/Precision"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="maximumDeviationCallParameterValues"
+          ordered="false" upperBound="-1" eType="#//qualityannotation/ParameterValueDeviation"
+          containment="true" eOpposite="#//qualityannotation/ParameterValueDeviation/requiredElementDeviation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredElement" ordered="false"
           lowerBound="1" eType="#//qualityannotation/RequiredElement" containment="true"
-          eOpposite="#//qualityannotation/RequiredElement/numberOfCallsDeviation"/>
+          eOpposite="#//qualityannotation/RequiredElement/requiredElementDeviation"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="InternalStateInfluenceAnalysisAggregation"
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="qualityAnnotation" ordered="false"
           lowerBound="1" eType="#//qualityannotation/QualityAnnotation" eOpposite="#//qualityannotation/QualityAnnotation/internalStateInfluenceAnalysisResult"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="callParameterDeviation"
-          upperBound="-1" eType="#//qualityannotation/CallParameterDeviation" containment="true"
-          eOpposite="#//qualityannotation/CallParameterDeviation/internalStateInfluenceAnalysisAggregation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfCallsDeviation"
-          upperBound="-1" eType="#//qualityannotation/NumberOfCallsDeviation" containment="true"
-          eOpposite="#//qualityannotation/NumberOfCallsDeviation/internalStateInfluenceAnalysisAggregation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValueDeviations"
+          upperBound="-1" eType="#//qualityannotation/ParameterValueDeviation" containment="true"
+          eOpposite="#//qualityannotation/ParameterValueDeviation/internalStateInfluenceAnalysisAggregation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="requiredElementDeviations"
+          upperBound="-1" eType="#//qualityannotation/RequiredElementDeviation" containment="true"
+          eOpposite="#//qualityannotation/RequiredElementDeviation/internalStateInfluenceAnalysisAggregation"/>
     </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="Precision" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
     <eClassifiers xsi:type="ecore:EClass" name="REPrecision" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Precision&amp;nbsp;of specification on&amp;nbsp;required element."/>
@@ -117,14 +125,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredElement" ordered="false"
           lowerBound="1" eType="#//qualityannotation/RequiredElement" eOpposite="#//qualityannotation/RequiredElement/precision"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="Precision" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier"/>
-    <eClassifiers xsi:type="ecore:EClass" name="PCMParameterPartition" eSuperTypes="#//parameters/ParameterPartition">
-      <eStructuralFeatures xsi:type="ecore:EReference" name="characerisedParameterPartitions"
-          ordered="false" upperBound="-1" eType="#//qualityannotation/CharacterisedPCMParameterPartition"
-          containment="true" eOpposite="#//qualityannotation/CharacterisedPCMParameterPartition/pcmParameterPartition"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReference" ordered="false"
-          lowerBound="1" eType="#//parameters/pcm/PCMParameterReference" containment="true"
-          eOpposite="#//parameters/pcm/PCMParameterReference/parameterPartition"/>
+    <eClassifiers xsi:type="ecore:EEnum" name="PCMRERequestCategory">
+      <eLiterals name="Resource" value="1"/>
+      <eLiterals name="Infrastructure" value="2"/>
+      <eLiterals name="Component" value="3"/>
+      <eLiterals name="ResourceDemand" value="4"/>
+      <eLiterals name="ComponentInternal" value="5"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CharacterisedPCMParameterPartition"
         abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
@@ -134,12 +140,30 @@
           ordered="false" lowerBound="1" eType="#//qualityannotation/PCMParameterPartition"
           eOpposite="#//qualityannotation/PCMParameterPartition/characerisedParameterPartitions"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EEnum" name="PCMRERequestCategory">
-      <eLiterals name="Resource" value="1"/>
-      <eLiterals name="Infrastructure" value="2"/>
-      <eLiterals name="Component" value="3"/>
-      <eLiterals name="ResourceDemand" value="4"/>
-      <eLiterals name="ComponentInternal" value="5"/>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMParameterPartition" eSuperTypes="#//parameters/ParameterPartition">
+      <eOperations name="APCMParameterPartitionMustReferenceAPCMParameterReference"
+          eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.parameterReference.oclIsTypeOf(Quality::Parameters::PCM::PCMParameterReference)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="characerisedParameterPartitions"
+          ordered="false" lowerBound="1" upperBound="-1" eType="#//qualityannotation/CharacterisedPCMParameterPartition"
+          containment="true" eOpposite="#//qualityannotation/CharacterisedPCMParameterPartition/pcmParameterPartition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CharacterisedPCMParameterPartitionInterval"
         eSuperTypes="#//qualityannotation/CharacterisedPCMParameterPartition">
@@ -459,7 +483,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PCMServiceSpecification" eSuperTypes="#//qualityannotation/ServiceSpecification">
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemandingSEFF"
-          ordered="false" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ResourceDemandingSEFF"/>
+          ordered="false" lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/ResourceDemandingSEFF"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PCMREResourceInterface" eSuperTypes="#//qualityannotation/PCMRE">
       <eOperations name="NextLowerLevelMustConsistOfTypePCMREResourceRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
@@ -805,10 +829,15 @@
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="qualityAnnotation" ordered="false"
           lowerBound="1" eType="#//qualityannotation/QualityAnnotation" eOpposite="#//qualityannotation/QualityAnnotation/validForParameterPartitions"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReference" ordered="false"
+          lowerBound="1" eType="#//parameters/ParameterReference" containment="true"
+          eOpposite="#//parameters/ParameterReference/parameterPartition"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterValue" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterInstance" ordered="false"
           eType="#//parameters/ParameterInstance" eOpposite="#//parameters/ParameterInstance/parameterValue"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValueDeviation"
+          ordered="false" eType="#//qualityannotation/ParameterValueDeviation" eOpposite="#//qualityannotation/ParameterValueDeviation/parameterValue"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterInstance" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterReference" ordered="false"
@@ -847,7 +876,7 @@
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="ComponentInstance" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="componentReference" ordered="false"
-          upperBound="-1" eType="#//parameters/ComponentReference" containment="true"
+          lowerBound="1" eType="#//parameters/ComponentReference" containment="true"
           eOpposite="#//parameters/ComponentReference/componentInstance"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterInstances" ordered="false"
           upperBound="-1" eType="#//parameters/ParameterInstance" containment="true"
@@ -858,38 +887,33 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="componentInstance" ordered="false"
           eType="#//parameters/ComponentInstance" eOpposite="#//parameters/ComponentInstance/componentReference"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="InfrastructureOperationReference"
-        abstract="true" eSuperTypes="#//parameters/OperationReference"/>
-    <eClassifiers xsi:type="ecore:EClass" name="BusinessOperationReference" abstract="true"
-        eSuperTypes="#//parameters/OperationReference"/>
     <eClassifiers xsi:type="ecore:EClass" name="ParameterReference" abstract="true"
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterPartition" ordered="false"
+          eType="#//parameters/ParameterPartition" eOpposite="#//parameters/ParameterPartition/parameterReference"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterInstance" ordered="false"
           eType="#//parameters/ParameterInstance" eOpposite="#//parameters/ParameterInstance/parameterReference"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="callParameterDeviation"
-          ordered="false" eType="#//qualityannotation/CallParameterDeviation" eOpposite="#//qualityannotation/CallParameterDeviation/parameterReference"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValueDeviation"
+          ordered="false" eType="#//qualityannotation/ParameterValueDeviation" eOpposite="#//qualityannotation/ParameterValueDeviation/parameterReference"/>
     </eClassifiers>
     <eSubpackages name="pcm" nsURI="http://fzi.de/PalladioComponentModel/Quality/Parameters/PCM/0.2"
         nsPrefix="pcmparameters">
       <eClassifiers xsi:type="ecore:EClass" name="PCMParameterReference" abstract="true"
-          eSuperTypes="#//parameters/ParameterReference">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="parameterPartition"
-            ordered="false" eType="#//qualityannotation/PCMParameterPartition" eOpposite="#//qualityannotation/PCMParameterPartition/parameterReference"/>
-      </eClassifiers>
+          eSuperTypes="#//parameters/ParameterReference"/>
       <eClassifiers xsi:type="ecore:EClass" name="PCMParameterValue" eSuperTypes="#//parameters/ParameterValue">
         <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation"
-            ordered="false" upperBound="-1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableCharacterisation"
+            ordered="false" lowerBound="1" upperBound="-1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableCharacterisation"
             containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="PCMInfrastructureOperationReference"
-          eSuperTypes="#//parameters/InfrastructureOperationReference">
+          eSuperTypes="#//parameters/OperationReference">
         <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
             lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/InfrastructureRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="signature" ordered="false"
             lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/InfrastructureSignature"/>
       </eClassifiers>
-      <eClassifiers xsi:type="ecore:EClass" name="PCMBusinessOperationReference" eSuperTypes="#//parameters/BusinessOperationReference">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="requiredRole" ordered="false"
+      <eClassifiers xsi:type="ecore:EClass" name="PCMBusinessOperationReference" eSuperTypes="#//parameters/OperationReference">
+        <eStructuralFeatures xsi:type="ecore:EReference" name="role" ordered="false"
             lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/OperationRequiredRole"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="signature" ordered="false"
             lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/OperationSignature"/>

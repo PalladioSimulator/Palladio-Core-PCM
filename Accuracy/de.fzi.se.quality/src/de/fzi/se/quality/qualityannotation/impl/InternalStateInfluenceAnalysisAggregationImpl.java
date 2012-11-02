@@ -8,10 +8,12 @@ package de.fzi.se.quality.qualityannotation.impl;
 
 import de.fzi.se.quality.qualityannotation.CallParameterDeviation;
 import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
+import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
 import de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation;
 import de.fzi.se.quality.qualityannotation.QualityAnnotation;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 
+import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
 
 import java.util.Collection;
@@ -38,8 +40,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.InternalStateInfluenceAnalysisAggregationImpl#getQualityAnnotation <em>Quality Annotation</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.impl.InternalStateInfluenceAnalysisAggregationImpl#getCallParameterDeviation <em>Call Parameter Deviation</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.impl.InternalStateInfluenceAnalysisAggregationImpl#getNumberOfCallsDeviation <em>Number Of Calls Deviation</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.InternalStateInfluenceAnalysisAggregationImpl#getParameterValueDeviations <em>Parameter Value Deviations</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.InternalStateInfluenceAnalysisAggregationImpl#getRequiredElementDeviations <em>Required Element Deviations</em>}</li>
  * </ul>
  * </p>
  *
@@ -47,24 +49,24 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImpl implements InternalStateInfluenceAnalysisAggregation {
 	/**
-	 * The cached value of the '{@link #getCallParameterDeviation() <em>Call Parameter Deviation</em>}' containment reference list.
+	 * The cached value of the '{@link #getParameterValueDeviations() <em>Parameter Value Deviations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCallParameterDeviation()
+	 * @see #getParameterValueDeviations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<CallParameterDeviation> callParameterDeviation;
+	protected EList<ParameterValueDeviation> parameterValueDeviations;
 
 	/**
-	 * The cached value of the '{@link #getNumberOfCallsDeviation() <em>Number Of Calls Deviation</em>}' containment reference list.
+	 * The cached value of the '{@link #getRequiredElementDeviations() <em>Required Element Deviations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getNumberOfCallsDeviation()
+	 * @see #getRequiredElementDeviations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<NumberOfCallsDeviation> numberOfCallsDeviation;
+	protected EList<RequiredElementDeviation> requiredElementDeviations;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -131,11 +133,11 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<CallParameterDeviation> getCallParameterDeviation() {
-		if (callParameterDeviation == null) {
-			callParameterDeviation = new EObjectContainmentWithInverseEList<CallParameterDeviation>(CallParameterDeviation.class, this, QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION, QualityAnnotationPackage.CALL_PARAMETER_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
+	public EList<ParameterValueDeviation> getParameterValueDeviations() {
+		if (parameterValueDeviations == null) {
+			parameterValueDeviations = new EObjectContainmentWithInverseEList<ParameterValueDeviation>(ParameterValueDeviation.class, this, QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS, QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
 		}
-		return callParameterDeviation;
+		return parameterValueDeviations;
 	}
 
 	/**
@@ -143,11 +145,11 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<NumberOfCallsDeviation> getNumberOfCallsDeviation() {
-		if (numberOfCallsDeviation == null) {
-			numberOfCallsDeviation = new EObjectContainmentWithInverseEList<NumberOfCallsDeviation>(NumberOfCallsDeviation.class, this, QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION, QualityAnnotationPackage.NUMBER_OF_CALLS_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
+	public EList<RequiredElementDeviation> getRequiredElementDeviations() {
+		if (requiredElementDeviations == null) {
+			requiredElementDeviations = new EObjectContainmentWithInverseEList<RequiredElementDeviation>(RequiredElementDeviation.class, this, QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS, QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
 		}
-		return numberOfCallsDeviation;
+		return requiredElementDeviations;
 	}
 
 	/**
@@ -163,10 +165,10 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetQualityAnnotation((QualityAnnotation)otherEnd, msgs);
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCallParameterDeviation()).basicAdd(otherEnd, msgs);
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getNumberOfCallsDeviation()).basicAdd(otherEnd, msgs);
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameterValueDeviations()).basicAdd(otherEnd, msgs);
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getRequiredElementDeviations()).basicAdd(otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -181,10 +183,10 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 		switch (featureID) {
 			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION:
 				return basicSetQualityAnnotation(null, msgs);
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION:
-				return ((InternalEList<?>)getCallParameterDeviation()).basicRemove(otherEnd, msgs);
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION:
-				return ((InternalEList<?>)getNumberOfCallsDeviation()).basicRemove(otherEnd, msgs);
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
+				return ((InternalEList<?>)getParameterValueDeviations()).basicRemove(otherEnd, msgs);
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
+				return ((InternalEList<?>)getRequiredElementDeviations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -213,10 +215,10 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 		switch (featureID) {
 			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION:
 				return getQualityAnnotation();
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION:
-				return getCallParameterDeviation();
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION:
-				return getNumberOfCallsDeviation();
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
+				return getParameterValueDeviations();
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
+				return getRequiredElementDeviations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -233,13 +235,13 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION:
 				setQualityAnnotation((QualityAnnotation)newValue);
 				return;
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION:
-				getCallParameterDeviation().clear();
-				getCallParameterDeviation().addAll((Collection<? extends CallParameterDeviation>)newValue);
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
+				getParameterValueDeviations().clear();
+				getParameterValueDeviations().addAll((Collection<? extends ParameterValueDeviation>)newValue);
 				return;
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION:
-				getNumberOfCallsDeviation().clear();
-				getNumberOfCallsDeviation().addAll((Collection<? extends NumberOfCallsDeviation>)newValue);
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
+				getRequiredElementDeviations().clear();
+				getRequiredElementDeviations().addAll((Collection<? extends RequiredElementDeviation>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -256,11 +258,11 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION:
 				setQualityAnnotation((QualityAnnotation)null);
 				return;
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION:
-				getCallParameterDeviation().clear();
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
+				getParameterValueDeviations().clear();
 				return;
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION:
-				getNumberOfCallsDeviation().clear();
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
+				getRequiredElementDeviations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -276,10 +278,10 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 		switch (featureID) {
 			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION:
 				return getQualityAnnotation() != null;
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION:
-				return callParameterDeviation != null && !callParameterDeviation.isEmpty();
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION:
-				return numberOfCallsDeviation != null && !numberOfCallsDeviation.isEmpty();
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
+				return parameterValueDeviations != null && !parameterValueDeviations.isEmpty();
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
+				return requiredElementDeviations != null && !requiredElementDeviations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

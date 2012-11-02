@@ -10,6 +10,7 @@ package de.fzi.se.quality.parameters.pcm.provider;
 import de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 
+import de.fzi.se.quality.parameters.provider.OperationReferenceItemProvider;
 import de.fzi.se.quality.parameters.provider.BusinessOperationReferenceItemProvider;
 
 import de.fzi.se.quality.provider.QualityEditPlugin;
@@ -37,7 +38,7 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  * @generated
  */
 public class PCMBusinessOperationReferenceItemProvider
-	extends BusinessOperationReferenceItemProvider
+	extends OperationReferenceItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -65,26 +66,26 @@ public class PCMBusinessOperationReferenceItemProvider
 		if (itemPropertyDescriptors == null) {
 			super.getPropertyDescriptors(object);
 
-			addRequiredRolePropertyDescriptor(object);
+			addRolePropertyDescriptor(object);
 			addSignaturePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
 
 	/**
-	 * This adds a property descriptor for the Required Role feature.
+	 * This adds a property descriptor for the Role feature.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected void addRequiredRolePropertyDescriptor(Object object) {
+	protected void addRolePropertyDescriptor(Object object) {
 		itemPropertyDescriptors.add
 			(createItemPropertyDescriptor
 				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
 				 getResourceLocator(),
-				 getString("_UI_PCMBusinessOperationReference_requiredRole_feature"),
-				 getString("_UI_PropertyDescriptor_description", "_UI_PCMBusinessOperationReference_requiredRole_feature", "_UI_PCMBusinessOperationReference_type"),
-				 PCMPackage.Literals.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE,
+				 getString("_UI_PCMBusinessOperationReference_role_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_PCMBusinessOperationReference_role_feature", "_UI_PCMBusinessOperationReference_type"),
+				 PCMPackage.Literals.PCM_BUSINESS_OPERATION_REFERENCE__ROLE,
 				 true,
 				 false,
 				 true,

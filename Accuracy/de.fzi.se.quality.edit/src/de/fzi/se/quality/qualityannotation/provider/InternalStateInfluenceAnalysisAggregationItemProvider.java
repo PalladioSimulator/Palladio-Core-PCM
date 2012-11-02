@@ -84,8 +84,8 @@ public class InternalStateInfluenceAnalysisAggregationItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION);
-			childrenFeatures.add(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION);
+			childrenFeatures.add(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS);
+			childrenFeatures.add(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS);
 		}
 		return childrenFeatures;
 	}
@@ -140,8 +140,8 @@ public class InternalStateInfluenceAnalysisAggregationItemProvider
 		updateChildren(notification);
 
 		switch (notification.getFeatureID(InternalStateInfluenceAnalysisAggregation.class)) {
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION:
-			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION:
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS:
+			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -161,13 +161,13 @@ public class InternalStateInfluenceAnalysisAggregationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION,
-				 QualityAnnotationFactory.eINSTANCE.createCallParameterDeviation()));
+				(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS,
+				 QualityAnnotationFactory.eINSTANCE.createParameterValueDeviation()));
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION,
-				 QualityAnnotationFactory.eINSTANCE.createNumberOfCallsDeviation()));
+				(QualityAnnotationPackage.Literals.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS,
+				 QualityAnnotationFactory.eINSTANCE.createRequiredElementDeviation()));
 	}
 
 	/**

@@ -78,8 +78,8 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 	protected QualityAnnotationSwitch<Adapter> modelSwitch =
 		new QualityAnnotationSwitch<Adapter>() {
 			@Override
-			public Adapter caseCallParameterDeviation(CallParameterDeviation object) {
-				return createCallParameterDeviationAdapter();
+			public Adapter caseParameterValueDeviation(ParameterValueDeviation object) {
+				return createParameterValueDeviationAdapter();
 			}
 			@Override
 			public Adapter caseQualityAnnotation(QualityAnnotation object) {
@@ -94,28 +94,28 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 				return createRequiredElementAdapter();
 			}
 			@Override
-			public Adapter caseNumberOfCallsDeviation(NumberOfCallsDeviation object) {
-				return createNumberOfCallsDeviationAdapter();
+			public Adapter caseRequiredElementDeviation(RequiredElementDeviation object) {
+				return createRequiredElementDeviationAdapter();
 			}
 			@Override
 			public Adapter caseInternalStateInfluenceAnalysisAggregation(InternalStateInfluenceAnalysisAggregation object) {
 				return createInternalStateInfluenceAnalysisAggregationAdapter();
 			}
 			@Override
-			public Adapter caseREPrecision(REPrecision object) {
-				return createREPrecisionAdapter();
-			}
-			@Override
 			public Adapter casePrecision(Precision object) {
 				return createPrecisionAdapter();
 			}
 			@Override
-			public Adapter casePCMParameterPartition(PCMParameterPartition object) {
-				return createPCMParameterPartitionAdapter();
+			public Adapter caseREPrecision(REPrecision object) {
+				return createREPrecisionAdapter();
 			}
 			@Override
 			public Adapter caseCharacterisedPCMParameterPartition(CharacterisedPCMParameterPartition object) {
 				return createCharacterisedPCMParameterPartitionAdapter();
+			}
+			@Override
+			public Adapter casePCMParameterPartition(PCMParameterPartition object) {
+				return createPCMParameterPartitionAdapter();
 			}
 			@Override
 			public Adapter caseCharacterisedPCMParameterPartitionInterval(CharacterisedPCMParameterPartitionInterval object) {
@@ -226,16 +226,16 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.CallParameterDeviation <em>Call Parameter Deviation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation <em>Parameter Value Deviation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.CallParameterDeviation
+	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation
 	 * @generated
 	 */
-	public Adapter createCallParameterDeviationAdapter() {
+	public Adapter createParameterValueDeviationAdapter() {
 		return null;
 	}
 
@@ -282,16 +282,16 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 	}
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation <em>Number Of Calls Deviation</em>}'.
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation <em>Required Element Deviation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
 	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation
 	 * @generated
 	 */
-	public Adapter createNumberOfCallsDeviationAdapter() {
+	public Adapter createRequiredElementDeviationAdapter() {
 		return null;
 	}
 

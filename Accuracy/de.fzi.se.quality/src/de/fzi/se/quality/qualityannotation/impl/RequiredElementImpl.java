@@ -12,6 +12,7 @@ import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.fzi.se.quality.qualityannotation.REPrecision;
 import de.fzi.se.quality.qualityannotation.RequiredElement;
 
+import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
 import de.fzi.se.quality.qualityannotation.util.QualityAnnotationValidator;
 
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
@@ -49,7 +50,7 @@ import org.eclipse.ocl.ecore.OCL;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementImpl#getNumberOfCallsDeviation <em>Number Of Calls Deviation</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementImpl#getRequiredElementDeviation <em>Required Element Deviation</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementImpl#getChildREs <em>Child REs</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementImpl#getParentRE <em>Parent RE</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementImpl#getPrecision <em>Precision</em>}</li>
@@ -59,7 +60,7 @@ import org.eclipse.ocl.ecore.OCL;
  *
  * @generated
  */
-public class RequiredElementImpl extends IdentifierImpl implements RequiredElement {
+public abstract class RequiredElementImpl extends IdentifierImpl implements RequiredElement {
 	/**
 	 * The cached value of the '{@link #getChildREs() <em>Child REs</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
@@ -104,9 +105,9 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NumberOfCallsDeviation getNumberOfCallsDeviation() {
-		if (eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION) return null;
-		return (NumberOfCallsDeviation)eContainer();
+	public RequiredElementDeviation getRequiredElementDeviation() {
+		if (eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION) return null;
+		return (RequiredElementDeviation)eContainer();
 	}
 
 	/**
@@ -114,8 +115,8 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetNumberOfCallsDeviation(NumberOfCallsDeviation newNumberOfCallsDeviation, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newNumberOfCallsDeviation, QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION, msgs);
+	public NotificationChain basicSetRequiredElementDeviation(RequiredElementDeviation newRequiredElementDeviation, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newRequiredElementDeviation, QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION, msgs);
 		return msgs;
 	}
 
@@ -124,20 +125,20 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setNumberOfCallsDeviation(NumberOfCallsDeviation newNumberOfCallsDeviation) {
-		if (newNumberOfCallsDeviation != eInternalContainer() || (eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION && newNumberOfCallsDeviation != null)) {
-			if (EcoreUtil.isAncestor(this, newNumberOfCallsDeviation))
+	public void setRequiredElementDeviation(RequiredElementDeviation newRequiredElementDeviation) {
+		if (newRequiredElementDeviation != eInternalContainer() || (eContainerFeatureID() != QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION && newRequiredElementDeviation != null)) {
+			if (EcoreUtil.isAncestor(this, newRequiredElementDeviation))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newNumberOfCallsDeviation != null)
-				msgs = ((InternalEObject)newNumberOfCallsDeviation).eInverseAdd(this, QualityAnnotationPackage.NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT, NumberOfCallsDeviation.class, msgs);
-			msgs = basicSetNumberOfCallsDeviation(newNumberOfCallsDeviation, msgs);
+			if (newRequiredElementDeviation != null)
+				msgs = ((InternalEObject)newRequiredElementDeviation).eInverseAdd(this, QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, RequiredElementDeviation.class, msgs);
+			msgs = basicSetRequiredElementDeviation(newRequiredElementDeviation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION, newNumberOfCallsDeviation, newNumberOfCallsDeviation));
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION, newRequiredElementDeviation, newRequiredElementDeviation));
 	}
 
 	/**
@@ -337,10 +338,10 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION:
+			case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetNumberOfCallsDeviation((NumberOfCallsDeviation)otherEnd, msgs);
+				return basicSetRequiredElementDeviation((RequiredElementDeviation)otherEnd, msgs);
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildREs()).basicAdd(otherEnd, msgs);
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE:
@@ -367,8 +368,8 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION:
-				return basicSetNumberOfCallsDeviation(null, msgs);
+			case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
+				return basicSetRequiredElementDeviation(null, msgs);
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES:
 				return ((InternalEList<?>)getChildREs()).basicRemove(otherEnd, msgs);
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE:
@@ -389,8 +390,8 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
-			case QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION:
-				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT, NumberOfCallsDeviation.class, msgs);
+			case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
+				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT, RequiredElementDeviation.class, msgs);
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE:
 				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES, RequiredElement.class, msgs);
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__QUALITY_ANNOTATION:
@@ -407,8 +408,8 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION:
-				return getNumberOfCallsDeviation();
+			case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
+				return getRequiredElementDeviation();
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES:
 				return getChildREs();
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE:
@@ -430,8 +431,8 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION:
-				setNumberOfCallsDeviation((NumberOfCallsDeviation)newValue);
+			case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
+				setRequiredElementDeviation((RequiredElementDeviation)newValue);
 				return;
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES:
 				getChildREs().clear();
@@ -458,8 +459,8 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION:
-				setNumberOfCallsDeviation((NumberOfCallsDeviation)null);
+			case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
+				setRequiredElementDeviation((RequiredElementDeviation)null);
 				return;
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES:
 				getChildREs().clear();
@@ -485,8 +486,8 @@ public class RequiredElementImpl extends IdentifierImpl implements RequiredEleme
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case QualityAnnotationPackage.REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION:
-				return getNumberOfCallsDeviation() != null;
+			case QualityAnnotationPackage.REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION:
+				return getRequiredElementDeviation() != null;
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__CHILD_RES:
 				return childREs != null && !childREs.isEmpty();
 			case QualityAnnotationPackage.REQUIRED_ELEMENT__PARENT_RE:

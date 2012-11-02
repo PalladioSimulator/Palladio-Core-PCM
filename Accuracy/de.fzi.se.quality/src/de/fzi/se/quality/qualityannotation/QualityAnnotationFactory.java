@@ -26,13 +26,13 @@ public interface QualityAnnotationFactory extends EFactory {
 	QualityAnnotationFactory eINSTANCE = de.fzi.se.quality.qualityannotation.impl.QualityAnnotationFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Call Parameter Deviation</em>'.
+	 * Returns a new object of class '<em>Parameter Value Deviation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Call Parameter Deviation</em>'.
+	 * @return a new object of class '<em>Parameter Value Deviation</em>'.
 	 * @generated
 	 */
-	CallParameterDeviation createCallParameterDeviation();
+	ParameterValueDeviation createParameterValueDeviation();
 
 	/**
 	 * Returns a new object of class '<em>Quality Annotation</em>'.
@@ -44,22 +44,13 @@ public interface QualityAnnotationFactory extends EFactory {
 	QualityAnnotation createQualityAnnotation();
 
 	/**
-	 * Returns a new object of class '<em>Required Element</em>'.
+	 * Returns a new object of class '<em>Required Element Deviation</em>'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Required Element</em>'.
+	 * @return a new object of class '<em>Required Element Deviation</em>'.
 	 * @generated
 	 */
-	RequiredElement createRequiredElement();
-
-	/**
-	 * Returns a new object of class '<em>Number Of Calls Deviation</em>'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Number Of Calls Deviation</em>'.
-	 * @generated
-	 */
-	NumberOfCallsDeviation createNumberOfCallsDeviation();
+	RequiredElementDeviation createRequiredElementDeviation();
 
 	/**
 	 * Returns a new object of class '<em>Internal State Influence Analysis Aggregation</em>'.

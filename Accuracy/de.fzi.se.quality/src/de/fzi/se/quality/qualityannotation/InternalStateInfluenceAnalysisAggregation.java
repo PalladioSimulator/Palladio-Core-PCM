@@ -19,8 +19,8 @@ import org.eclipse.emf.common.util.EList;
  * The following features are supported:
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getQualityAnnotation <em>Quality Annotation</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getCallParameterDeviation <em>Call Parameter Deviation</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getNumberOfCallsDeviation <em>Number Of Calls Deviation</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getParameterValueDeviations <em>Parameter Value Deviations</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getRequiredElementDeviations <em>Required Element Deviations</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,39 +58,39 @@ public interface InternalStateInfluenceAnalysisAggregation extends Identifier {
 	void setQualityAnnotation(QualityAnnotation value);
 
 	/**
-	 * Returns the value of the '<em><b>Call Parameter Deviation</b></em>' containment reference list.
-	 * The list contents are of type {@link de.fzi.se.quality.qualityannotation.CallParameterDeviation}.
-	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.CallParameterDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
+	 * Returns the value of the '<em><b>Parameter Value Deviations</b></em>' containment reference list.
+	 * The list contents are of type {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation}.
+	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Call Parameter Deviation</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Parameter Value Deviations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Call Parameter Deviation</em>' containment reference list.
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_CallParameterDeviation()
-	 * @see de.fzi.se.quality.qualityannotation.CallParameterDeviation#getInternalStateInfluenceAnalysisAggregation
+	 * @return the value of the '<em>Parameter Value Deviations</em>' containment reference list.
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations()
+	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getInternalStateInfluenceAnalysisAggregation
 	 * @model opposite="internalStateInfluenceAnalysisAggregation" containment="true"
 	 * @generated
 	 */
-	EList<CallParameterDeviation> getCallParameterDeviation();
+	EList<ParameterValueDeviation> getParameterValueDeviations();
 
 	/**
-	 * Returns the value of the '<em><b>Number Of Calls Deviation</b></em>' containment reference list.
-	 * The list contents are of type {@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation}.
-	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
+	 * Returns the value of the '<em><b>Required Element Deviations</b></em>' containment reference list.
+	 * The list contents are of type {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation}.
+	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number Of Calls Deviation</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Required Element Deviations</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number Of Calls Deviation</em>' containment reference list.
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_NumberOfCallsDeviation()
-	 * @see de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getInternalStateInfluenceAnalysisAggregation
+	 * @return the value of the '<em>Required Element Deviations</em>' containment reference list.
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations()
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getInternalStateInfluenceAnalysisAggregation
 	 * @model opposite="internalStateInfluenceAnalysisAggregation" containment="true"
 	 * @generated
 	 */
-	EList<NumberOfCallsDeviation> getNumberOfCallsDeviation();
+	EList<RequiredElementDeviation> getRequiredElementDeviations();
 
 } // InternalStateInfluenceAnalysisAggregation

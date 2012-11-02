@@ -80,6 +80,15 @@ public interface PCMPackage extends EPackage {
 	int PCM_PARAMETER_REFERENCE__ID = ParametersPackage.PARAMETER_REFERENCE__ID;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION = ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION;
+
+	/**
 	 * The feature id for the '<em><b>Parameter Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -89,22 +98,13 @@ public interface PCMPackage extends EPackage {
 	int PCM_PARAMETER_REFERENCE__PARAMETER_INSTANCE = ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE;
 
 	/**
-	 * The feature id for the '<em><b>Call Parameter Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter Value Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION = ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION = ParametersPackage.PARAMETER_REFERENCE_FEATURE_COUNT + 0;
+	int PCM_PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION = ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Reference</em>' class.
@@ -113,7 +113,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_PARAMETER_REFERENCE_FEATURE_COUNT = ParametersPackage.PARAMETER_REFERENCE_FEATURE_COUNT + 1;
+	int PCM_PARAMETER_REFERENCE_FEATURE_COUNT = ParametersPackage.PARAMETER_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl <em>Parameter Value</em>}' class.
@@ -142,6 +142,15 @@ public interface PCMPackage extends EPackage {
 	 * @ordered
 	 */
 	int PCM_PARAMETER_VALUE__PARAMETER_INSTANCE = ParametersPackage.PARAMETER_VALUE__PARAMETER_INSTANCE;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Value Deviation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION = ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Variable Characterisation</b></em>' containment reference list.
@@ -178,7 +187,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ID = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE__ID;
+	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ID = ParametersPackage.OPERATION_REFERENCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Call Instance</b></em>' container reference.
@@ -187,7 +196,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__CALL_INSTANCE = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE__CALL_INSTANCE;
+	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__CALL_INSTANCE = ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE;
 
 	/**
 	 * The feature id for the '<em><b>Role</b></em>' reference.
@@ -196,7 +205,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE_FEATURE_COUNT + 0;
+	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE = ParametersPackage.OPERATION_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' reference.
@@ -205,7 +214,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE_FEATURE_COUNT + 1;
+	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE__SIGNATURE = ParametersPackage.OPERATION_REFERENCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Infrastructure Operation Reference</em>' class.
@@ -214,7 +223,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE_FEATURE_COUNT = ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE_FEATURE_COUNT + 2;
+	int PCM_INFRASTRUCTURE_OPERATION_REFERENCE_FEATURE_COUNT = ParametersPackage.OPERATION_REFERENCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.parameters.pcm.impl.PCMBusinessOperationReferenceImpl <em>Business Operation Reference</em>}' class.
@@ -233,7 +242,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_BUSINESS_OPERATION_REFERENCE__ID = ParametersPackage.BUSINESS_OPERATION_REFERENCE__ID;
+	int PCM_BUSINESS_OPERATION_REFERENCE__ID = ParametersPackage.OPERATION_REFERENCE__ID;
 
 	/**
 	 * The feature id for the '<em><b>Call Instance</b></em>' container reference.
@@ -242,16 +251,16 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_BUSINESS_OPERATION_REFERENCE__CALL_INSTANCE = ParametersPackage.BUSINESS_OPERATION_REFERENCE__CALL_INSTANCE;
+	int PCM_BUSINESS_OPERATION_REFERENCE__CALL_INSTANCE = ParametersPackage.OPERATION_REFERENCE__CALL_INSTANCE;
 
 	/**
-	 * The feature id for the '<em><b>Required Role</b></em>' reference.
+	 * The feature id for the '<em><b>Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE = ParametersPackage.BUSINESS_OPERATION_REFERENCE_FEATURE_COUNT + 0;
+	int PCM_BUSINESS_OPERATION_REFERENCE__ROLE = ParametersPackage.OPERATION_REFERENCE_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Signature</b></em>' reference.
@@ -260,7 +269,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE = ParametersPackage.BUSINESS_OPERATION_REFERENCE_FEATURE_COUNT + 1;
+	int PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE = ParametersPackage.OPERATION_REFERENCE_FEATURE_COUNT + 1;
 
 	/**
 	 * The number of structural features of the '<em>Business Operation Reference</em>' class.
@@ -269,7 +278,7 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_BUSINESS_OPERATION_REFERENCE_FEATURE_COUNT = ParametersPackage.BUSINESS_OPERATION_REFERENCE_FEATURE_COUNT + 2;
+	int PCM_BUSINESS_OPERATION_REFERENCE_FEATURE_COUNT = ParametersPackage.OPERATION_REFERENCE_FEATURE_COUNT + 2;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.parameters.pcm.impl.PCMComponentReferenceImpl <em>Component Reference</em>}' class.
@@ -337,6 +346,15 @@ public interface PCMPackage extends EPackage {
 	int PCM_COMPONENT_PARAMETER_REFERENCE__ID = PCM_PARAMETER_REFERENCE__ID;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_COMPONENT_PARAMETER_REFERENCE__PARAMETER_PARTITION = PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION;
+
+	/**
 	 * The feature id for the '<em><b>Parameter Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -346,22 +364,13 @@ public interface PCMPackage extends EPackage {
 	int PCM_COMPONENT_PARAMETER_REFERENCE__PARAMETER_INSTANCE = PCM_PARAMETER_REFERENCE__PARAMETER_INSTANCE;
 
 	/**
-	 * The feature id for the '<em><b>Call Parameter Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter Value Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_COMPONENT_PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION = PCM_PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_COMPONENT_PARAMETER_REFERENCE__PARAMETER_PARTITION = PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION;
+	int PCM_COMPONENT_PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION = PCM_PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Implementation Component Type</b></em>' reference.
@@ -410,6 +419,15 @@ public interface PCMPackage extends EPackage {
 	int PCM_OPERATION_PARAMETER_REFERENCE__ID = PCM_PARAMETER_REFERENCE__ID;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER_PARTITION = PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION;
+
+	/**
 	 * The feature id for the '<em><b>Parameter Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -419,22 +437,13 @@ public interface PCMPackage extends EPackage {
 	int PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER_INSTANCE = PCM_PARAMETER_REFERENCE__PARAMETER_INSTANCE;
 
 	/**
-	 * The feature id for the '<em><b>Call Parameter Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter Value Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_OPERATION_PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION = PCM_PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER_PARTITION = PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION;
+	int PCM_OPERATION_PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION = PCM_PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Parameter</b></em>' reference.
@@ -474,6 +483,15 @@ public interface PCMPackage extends EPackage {
 	int PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__ID = PCM_PARAMETER_REFERENCE__ID;
 
 	/**
+	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__PARAMETER_PARTITION = PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION;
+
+	/**
 	 * The feature id for the '<em><b>Parameter Instance</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -483,22 +501,13 @@ public interface PCMPackage extends EPackage {
 	int PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__PARAMETER_INSTANCE = PCM_PARAMETER_REFERENCE__PARAMETER_INSTANCE;
 
 	/**
-	 * The feature id for the '<em><b>Call Parameter Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Parameter Value Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION = PCM_PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Partition</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__PARAMETER_PARTITION = PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION;
+	int PCM_REQUIRED_BUSINESS_OPERATION_RETURN_PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION = PCM_PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Required Role</b></em>' reference.
@@ -537,17 +546,6 @@ public interface PCMPackage extends EPackage {
 	 * @generated
 	 */
 	EClass getPCMParameterReference();
-
-	/**
-	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.parameters.pcm.PCMParameterReference#getParameterPartition <em>Parameter Partition</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Parameter Partition</em>'.
-	 * @see de.fzi.se.quality.parameters.pcm.PCMParameterReference#getParameterPartition()
-	 * @see #getPCMParameterReference()
-	 * @generated
-	 */
-	EReference getPCMParameterReference_ParameterPartition();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.parameters.pcm.PCMParameterValue <em>Parameter Value</em>}'.
@@ -613,15 +611,15 @@ public interface PCMPackage extends EPackage {
 	EClass getPCMBusinessOperationReference();
 
 	/**
-	 * Returns the meta object for the reference '{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRequiredRole <em>Required Role</em>}'.
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRole <em>Role</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Required Role</em>'.
-	 * @see de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRequiredRole()
+	 * @return the meta object for the reference '<em>Role</em>'.
+	 * @see de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRole()
 	 * @see #getPCMBusinessOperationReference()
 	 * @generated
 	 */
-	EReference getPCMBusinessOperationReference_RequiredRole();
+	EReference getPCMBusinessOperationReference_Role();
 
 	/**
 	 * Returns the meta object for the reference '{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getSignature <em>Signature</em>}'.
@@ -773,14 +771,6 @@ public interface PCMPackage extends EPackage {
 		EClass PCM_PARAMETER_REFERENCE = eINSTANCE.getPCMParameterReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Partition</b></em>' container reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION = eINSTANCE.getPCMParameterReference_ParameterPartition();
-
-		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl <em>Parameter Value</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -835,12 +825,12 @@ public interface PCMPackage extends EPackage {
 		EClass PCM_BUSINESS_OPERATION_REFERENCE = eINSTANCE.getPCMBusinessOperationReference();
 
 		/**
-		 * The meta object literal for the '<em><b>Required Role</b></em>' reference feature.
+		 * The meta object literal for the '<em><b>Role</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE = eINSTANCE.getPCMBusinessOperationReference_RequiredRole();
+		EReference PCM_BUSINESS_OPERATION_REFERENCE__ROLE = eINSTANCE.getPCMBusinessOperationReference_Role();
 
 		/**
 		 * The meta object literal for the '<em><b>Signature</b></em>' reference feature.

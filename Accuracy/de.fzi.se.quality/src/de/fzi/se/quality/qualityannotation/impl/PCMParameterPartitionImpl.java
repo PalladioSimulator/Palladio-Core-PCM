@@ -15,20 +15,30 @@ import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition;
 import de.fzi.se.quality.qualityannotation.PCMParameterPartition;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 
+import de.fzi.se.quality.qualityannotation.util.QualityAnnotationValidator;
 import java.util.Collection;
 
+import java.util.Map;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 
+import org.eclipse.emf.common.util.BasicDiagnostic;
+import org.eclipse.emf.common.util.Diagnostic;
+import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 
+import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
+import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.InternalEList;
+import org.eclipse.ocl.ParserException;
+import org.eclipse.ocl.ecore.Constraint;
+import org.eclipse.ocl.ecore.OCL;
 
 /**
  * <!-- begin-user-doc -->
@@ -38,7 +48,6 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * The following features are implemented:
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.PCMParameterPartitionImpl#getCharacerisedParameterPartitions <em>Characerised Parameter Partitions</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.impl.PCMParameterPartitionImpl#getParameterReference <em>Parameter Reference</em>}</li>
  * </ul>
  * </p>
  *
@@ -54,16 +63,6 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 	 * @ordered
 	 */
 	protected EList<CharacterisedPCMParameterPartition> characerisedParameterPartitions;
-
-	/**
-	 * The cached value of the '{@link #getParameterReference() <em>Parameter Reference</em>}' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getParameterReference()
-	 * @generated
-	 * @ordered
-	 */
-	protected PCMParameterReference parameterReference;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -97,46 +96,54 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>APCM Parameter Partition Must Reference APCM Parameter Reference</em>}' operation.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
+	 * @see #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
 	 * @generated
+	 * @ordered
 	 */
-	public PCMParameterReference getParameterReference() {
-		return parameterReference;
-	}
+	protected static final String APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parameterReference.oclIsTypeOf(Quality::Parameters::PCM::PCMParameterReference)";
+
+	/**
+	 * The cached OCL invariant for the '{@link #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>APCM Parameter Partition Must Reference APCM Parameter Reference</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetParameterReference(PCMParameterReference newParameterReference, NotificationChain msgs) {
-		PCMParameterReference oldParameterReference = parameterReference;
-		parameterReference = newParameterReference;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE, oldParameterReference, newParameterReference);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
+	public boolean APCMParameterPartitionMustReferenceAPCMParameterReference(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION);
+			try {
+				APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
 		}
-		return msgs;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public void setParameterReference(PCMParameterReference newParameterReference) {
-		if (newParameterReference != parameterReference) {
-			NotificationChain msgs = null;
-			if (parameterReference != null)
-				msgs = ((InternalEObject)parameterReference).eInverseRemove(this, PCMPackage.PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION, PCMParameterReference.class, msgs);
-			if (newParameterReference != null)
-				msgs = ((InternalEObject)newParameterReference).eInverseAdd(this, PCMPackage.PCM_PARAMETER_REFERENCE__PARAMETER_PARTITION, PCMParameterReference.class, msgs);
-			msgs = basicSetParameterReference(newParameterReference, msgs);
-			if (msgs != null) msgs.dispatch();
+		if (!EOCL_ENV.createQuery(APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 QualityAnnotationValidator.DIAGNOSTIC_SOURCE,
+						 QualityAnnotationValidator.PCM_PARAMETER_PARTITION__APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "APCMParameterPartitionMustReferenceAPCMParameterReference", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
 		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE, newParameterReference, newParameterReference));
+		return true;
 	}
 
 	/**
@@ -150,10 +157,6 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 		switch (featureID) {
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getCharacerisedParameterPartitions()).basicAdd(otherEnd, msgs);
-			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE:
-				if (parameterReference != null)
-					msgs = ((InternalEObject)parameterReference).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE, null, msgs);
-				return basicSetParameterReference((PCMParameterReference)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -168,8 +171,6 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 		switch (featureID) {
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS:
 				return ((InternalEList<?>)getCharacerisedParameterPartitions()).basicRemove(otherEnd, msgs);
-			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE:
-				return basicSetParameterReference(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -184,8 +185,6 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 		switch (featureID) {
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS:
 				return getCharacerisedParameterPartitions();
-			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE:
-				return getParameterReference();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -203,9 +202,6 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 				getCharacerisedParameterPartitions().clear();
 				getCharacerisedParameterPartitions().addAll((Collection<? extends CharacterisedPCMParameterPartition>)newValue);
 				return;
-			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE:
-				setParameterReference((PCMParameterReference)newValue);
-				return;
 		}
 		super.eSet(featureID, newValue);
 	}
@@ -221,9 +217,6 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS:
 				getCharacerisedParameterPartitions().clear();
 				return;
-			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE:
-				setParameterReference((PCMParameterReference)null);
-				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -238,10 +231,17 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 		switch (featureID) {
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS:
 				return characerisedParameterPartitions != null && !characerisedParameterPartitions.isEmpty();
-			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE:
-				return parameterReference != null;
 		}
 		return super.eIsSet(featureID);
 	}
+
+	/**
+	 * The cached environment for evaluating OCL expressions.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } //PCMParameterPartitionImpl

@@ -87,7 +87,6 @@ public class PCMParameterPartitionItemProvider
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS);
-			childrenFeatures.add(QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE);
 		}
 		return childrenFeatures;
 	}
@@ -143,7 +142,6 @@ public class PCMParameterPartitionItemProvider
 
 		switch (notification.getFeatureID(PCMParameterPartition.class)) {
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS:
-			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -170,21 +168,6 @@ public class PCMParameterPartitionItemProvider
 			(createChildParameter
 				(QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS,
 				 QualityAnnotationFactory.eINSTANCE.createCharacterisedPCMParameterPartitionRange()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE,
-				 PCMFactory.eINSTANCE.createPCMComponentParameterReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE,
-				 PCMFactory.eINSTANCE.createPCMOperationParameterReference()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE,
-				 PCMFactory.eINSTANCE.createPCMRequiredBusinessOperationReturnParameterReference()));
 	}
 
 	/**

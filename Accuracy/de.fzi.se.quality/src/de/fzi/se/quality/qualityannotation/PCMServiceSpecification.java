@@ -36,7 +36,7 @@ public interface PCMServiceSpecification extends ServiceSpecification {
 	 * @return the value of the '<em>Resource Demanding SEFF</em>' reference.
 	 * @see #setResourceDemandingSEFF(ResourceDemandingSEFF)
 	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMServiceSpecification_ResourceDemandingSEFF()
-	 * @model ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	ResourceDemandingSEFF getResourceDemandingSEFF();

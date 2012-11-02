@@ -67,23 +67,23 @@ public interface QualityAnnotationPackage extends EPackage {
 	QualityAnnotationPackage eINSTANCE = de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl.init();
 
 	/**
-	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.CallParameterDeviationImpl <em>Call Parameter Deviation</em>}' class.
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.ParameterValueDeviationImpl <em>Parameter Value Deviation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.fzi.se.quality.qualityannotation.impl.CallParameterDeviationImpl
-	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getCallParameterDeviation()
+	 * @see de.fzi.se.quality.qualityannotation.impl.ParameterValueDeviationImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getParameterValueDeviation()
 	 * @generated
 	 */
-	int CALL_PARAMETER_DEVIATION = 0;
+	int PARAMETER_VALUE_DEVIATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Parameter Reference</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Parameter Reference</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_PARAMETER_DEVIATION__PARAMETER_REFERENCE = 0;
+	int PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE = 0;
 
 	/**
 	 * The feature id for the '<em><b>Internal State Influence Analysis Aggregation</b></em>' container reference.
@@ -92,25 +92,34 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_PARAMETER_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = 1;
+	int PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = 1;
 
 	/**
-	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_PARAMETER_DEVIATION__MAXIMUM = 2;
+	int PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION = 2;
 
 	/**
-	 * The number of structural features of the '<em>Call Parameter Deviation</em>' class.
+	 * The feature id for the '<em><b>Parameter Value</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CALL_PARAMETER_DEVIATION_FEATURE_COUNT = 3;
+	int PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE = 3;
+
+	/**
+	 * The number of structural features of the '<em>Parameter Value Deviation</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PARAMETER_VALUE_DEVIATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl <em>Quality Annotation</em>}' class.
@@ -223,13 +232,22 @@ public interface QualityAnnotationPackage extends EPackage {
 	int SERVICE_SPECIFICATION__CHECKSUM = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
+	 * The feature id for the '<em><b>Checksum Alg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int SERVICE_SPECIFICATION__CHECKSUM_ALG = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+
+	/**
 	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_SPECIFICATION__QUALITY_ANNOTATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+	int SERVICE_SPECIFICATION__QUALITY_ANNOTATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Service Specification</em>' class.
@@ -238,7 +256,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int SERVICE_SPECIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+	int SERVICE_SPECIFICATION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementImpl <em>Required Element</em>}' class.
@@ -260,13 +278,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int REQUIRED_ELEMENT__ID = IdentifierPackage.IDENTIFIER__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
+	int REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -314,14 +332,14 @@ public interface QualityAnnotationPackage extends EPackage {
 	int REQUIRED_ELEMENT_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 5;
 
 	/**
-	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.NumberOfCallsDeviationImpl <em>Number Of Calls Deviation</em>}' class.
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementDeviationImpl <em>Required Element Deviation</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see de.fzi.se.quality.qualityannotation.impl.NumberOfCallsDeviationImpl
-	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getNumberOfCallsDeviation()
+	 * @see de.fzi.se.quality.qualityannotation.impl.RequiredElementDeviationImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getRequiredElementDeviation()
 	 * @generated
 	 */
-	int NUMBER_OF_CALLS_DEVIATION = 4;
+	int REQUIRED_ELEMENT_DEVIATION = 4;
 
 	/**
 	 * The feature id for the '<em><b>Internal State Influence Analysis Aggregation</b></em>' container reference.
@@ -330,16 +348,25 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CALLS_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = 0;
+	int REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = 0;
 
 	/**
-	 * The feature id for the '<em><b>Maximum</b></em>' attribute.
+	 * The feature id for the '<em><b>Maximum Deviation Number Of Calls</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CALLS_DEVIATION__MAXIMUM = 1;
+	int REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS = 1;
+
+	/**
+	 * The feature id for the '<em><b>Maximum Deviation Call Parameter Values</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES = 2;
 
 	/**
 	 * The feature id for the '<em><b>Required Element</b></em>' containment reference.
@@ -348,16 +375,16 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT = 2;
+	int REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT = 3;
 
 	/**
-	 * The number of structural features of the '<em>Number Of Calls Deviation</em>' class.
+	 * The number of structural features of the '<em>Required Element Deviation</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int NUMBER_OF_CALLS_DEVIATION_FEATURE_COUNT = 3;
+	int REQUIRED_ELEMENT_DEVIATION_FEATURE_COUNT = 4;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.InternalStateInfluenceAnalysisAggregationImpl <em>Internal State Influence Analysis Aggregation</em>}' class.
@@ -388,22 +415,22 @@ public interface QualityAnnotationPackage extends EPackage {
 	int INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
-	 * The feature id for the '<em><b>Call Parameter Deviation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Parameter Value Deviations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
+	int INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Required Element Deviations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+	int INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
 
 	/**
 	 * The number of structural features of the '<em>Internal State Influence Analysis Aggregation</em>' class.
@@ -422,7 +449,35 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getREPrecision()
 	 * @generated
 	 */
-	int RE_PRECISION = 6;
+	int RE_PRECISION = 7;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PrecisionImpl <em>Precision</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PrecisionImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPrecision()
+	 * @generated
+	 */
+	int PRECISION = 6;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRECISION__ID = IdentifierPackage.IDENTIFIER__ID;
+
+	/**
+	 * The number of structural features of the '<em>Precision</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PRECISION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -470,34 +525,6 @@ public interface QualityAnnotationPackage extends EPackage {
 	int RE_PRECISION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
-	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PrecisionImpl <em>Precision</em>}' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see de.fzi.se.quality.qualityannotation.impl.PrecisionImpl
-	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPrecision()
-	 * @generated
-	 */
-	int PRECISION = 7;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRECISION__ID = IdentifierPackage.IDENTIFIER__ID;
-
-	/**
-	 * The number of structural features of the '<em>Precision</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PRECISION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 0;
-
-	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMParameterPartitionImpl <em>PCM Parameter Partition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -505,52 +532,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMParameterPartition()
 	 * @generated
 	 */
-	int PCM_PARAMETER_PARTITION = 8;
-
-	/**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_PARAMETER_PARTITION__ID = ParametersPackage.PARAMETER_PARTITION__ID;
-
-	/**
-	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_PARAMETER_PARTITION__QUALITY_ANNOTATION = ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION;
-
-	/**
-	 * The feature id for the '<em><b>Characerised Parameter Partitions</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS = ParametersPackage.PARAMETER_PARTITION_FEATURE_COUNT + 0;
-
-	/**
-	 * The feature id for the '<em><b>Parameter Reference</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE = ParametersPackage.PARAMETER_PARTITION_FEATURE_COUNT + 1;
-
-	/**
-	 * The number of structural features of the '<em>PCM Parameter Partition</em>' class.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int PCM_PARAMETER_PARTITION_FEATURE_COUNT = ParametersPackage.PARAMETER_PARTITION_FEATURE_COUNT + 2;
+	int PCM_PARAMETER_PARTITION = 9;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionImpl <em>Characterised PCM Parameter Partition</em>}' class.
@@ -560,7 +542,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getCharacterisedPCMParameterPartition()
 	 * @generated
 	 */
-	int CHARACTERISED_PCM_PARAMETER_PARTITION = 9;
+	int CHARACTERISED_PCM_PARAMETER_PARTITION = 8;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -597,6 +579,51 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHARACTERISED_PCM_PARAMETER_PARTITION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+
+	/**
+	 * The feature id for the '<em><b>Id</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_PARTITION__ID = ParametersPackage.PARAMETER_PARTITION__ID;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_PARTITION__QUALITY_ANNOTATION = ParametersPackage.PARAMETER_PARTITION__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Parameter Reference</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE = ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE;
+
+	/**
+	 * The feature id for the '<em><b>Characerised Parameter Partitions</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS = ParametersPackage.PARAMETER_PARTITION_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCM Parameter Partition</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_PARAMETER_PARTITION_FEATURE_COUNT = ParametersPackage.PARAMETER_PARTITION_FEATURE_COUNT + 1;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionIntervalImpl <em>Characterised PCM Parameter Partition Interval</em>}' class.
@@ -839,13 +866,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE__ID = REQUIRED_ELEMENT__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE__NUMBER_OF_CALLS_DEVIATION = REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE__REQUIRED_ELEMENT_DEVIATION = REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -912,13 +939,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_CATEGORY__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_CATEGORY__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_CATEGORY__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -994,13 +1021,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_INTERFACE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_INTERFACE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_INTERFACE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1076,13 +1103,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_ROLE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_ROLE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_ROLE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1158,13 +1185,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_SIGNATURE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_SIGNATURE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_SIGNATURE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1249,6 +1276,15 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCM_SERVICE_SPECIFICATION__CHECKSUM = SERVICE_SPECIFICATION__CHECKSUM;
 
 	/**
+	 * The feature id for the '<em><b>Checksum Alg</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCM_SERVICE_SPECIFICATION__CHECKSUM_ALG = SERVICE_SPECIFICATION__CHECKSUM_ALG;
+
+	/**
 	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -1295,13 +1331,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_RESOURCE_INTERFACE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_RESOURCE_INTERFACE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_RESOURCE_INTERFACE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1377,13 +1413,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_RESOURCE_SIGNATURE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_RESOURCE_SIGNATURE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_RESOURCE_SIGNATURE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1459,13 +1495,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_RESOURCE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_RESOURCE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_RESOURCE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1541,13 +1577,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_RESOURCE_ROLE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_RESOURCE_ROLE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_RESOURCE_ROLE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1623,13 +1659,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRECI_BEHAVIOR__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRECI_BEHAVIOR__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRECI_BEHAVIOR__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1705,13 +1741,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_INFRASTRUCTURE_INTERFACE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_INFRASTRUCTURE_INTERFACE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_INFRASTRUCTURE_INTERFACE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1787,13 +1823,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_INFRASTRUCTURE_ROLE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_INFRASTRUCTURE_ROLE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_INFRASTRUCTURE_ROLE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1869,13 +1905,13 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_INFRASTRUCTURE_SIGNATURE__ID = PCMRE__ID;
 
 	/**
-	 * The feature id for the '<em><b>Number Of Calls Deviation</b></em>' container reference.
+	 * The feature id for the '<em><b>Required Element Deviation</b></em>' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCMRE_INFRASTRUCTURE_SIGNATURE__NUMBER_OF_CALLS_DEVIATION = PCMRE__NUMBER_OF_CALLS_DEVIATION;
+	int PCMRE_INFRASTRUCTURE_SIGNATURE__REQUIRED_ELEMENT_DEVIATION = PCMRE__REQUIRED_ELEMENT_DEVIATION;
 
 	/**
 	 * The feature id for the '<em><b>Child REs</b></em>' containment reference list.
@@ -1943,47 +1979,58 @@ public interface QualityAnnotationPackage extends EPackage {
 
 
 	/**
-	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.CallParameterDeviation <em>Call Parameter Deviation</em>}'.
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation <em>Parameter Value Deviation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Call Parameter Deviation</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.CallParameterDeviation
+	 * @return the meta object for class '<em>Parameter Value Deviation</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation
 	 * @generated
 	 */
-	EClass getCallParameterDeviation();
+	EClass getParameterValueDeviation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.CallParameterDeviation#getParameterReference <em>Parameter Reference</em>}'.
+	 * Returns the meta object for the containment reference '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getParameterReference <em>Parameter Reference</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Parameter Reference</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.CallParameterDeviation#getParameterReference()
-	 * @see #getCallParameterDeviation()
+	 * @return the meta object for the containment reference '<em>Parameter Reference</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getParameterReference()
+	 * @see #getParameterValueDeviation()
 	 * @generated
 	 */
-	EReference getCallParameterDeviation_ParameterReference();
+	EReference getParameterValueDeviation_ParameterReference();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.CallParameterDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
+	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Internal State Influence Analysis Aggregation</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.CallParameterDeviation#getInternalStateInfluenceAnalysisAggregation()
-	 * @see #getCallParameterDeviation()
+	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getInternalStateInfluenceAnalysisAggregation()
+	 * @see #getParameterValueDeviation()
 	 * @generated
 	 */
-	EReference getCallParameterDeviation_InternalStateInfluenceAnalysisAggregation();
+	EReference getParameterValueDeviation_InternalStateInfluenceAnalysisAggregation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.fzi.se.quality.qualityannotation.CallParameterDeviation#getMaximum <em>Maximum</em>}'.
+	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getRequiredElementDeviation <em>Required Element Deviation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maximum</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.CallParameterDeviation#getMaximum()
-	 * @see #getCallParameterDeviation()
+	 * @return the meta object for the container reference '<em>Required Element Deviation</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getRequiredElementDeviation()
+	 * @see #getParameterValueDeviation()
 	 * @generated
 	 */
-	EAttribute getCallParameterDeviation_Maximum();
+	EReference getParameterValueDeviation_RequiredElementDeviation();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getParameterValue <em>Parameter Value</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Parameter Value</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation#getParameterValue()
+	 * @see #getParameterValueDeviation()
+	 * @generated
+	 */
+	EReference getParameterValueDeviation_ParameterValue();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation <em>Quality Annotation</em>}'.
@@ -2072,6 +2119,17 @@ public interface QualityAnnotationPackage extends EPackage {
 	EAttribute getServiceSpecification_Checksum();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getChecksumAlg <em>Checksum Alg</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Checksum Alg</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ServiceSpecification#getChecksumAlg()
+	 * @see #getServiceSpecification()
+	 * @generated
+	 */
+	EAttribute getServiceSpecification_ChecksumAlg();
+
+	/**
 	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.ServiceSpecification#getQualityAnnotation <em>Quality Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2093,15 +2151,15 @@ public interface QualityAnnotationPackage extends EPackage {
 	EClass getRequiredElement();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.RequiredElement#getNumberOfCallsDeviation <em>Number Of Calls Deviation</em>}'.
+	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.RequiredElement#getRequiredElementDeviation <em>Required Element Deviation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Number Of Calls Deviation</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.RequiredElement#getNumberOfCallsDeviation()
+	 * @return the meta object for the container reference '<em>Required Element Deviation</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElement#getRequiredElementDeviation()
 	 * @see #getRequiredElement()
 	 * @generated
 	 */
-	EReference getRequiredElement_NumberOfCallsDeviation();
+	EReference getRequiredElement_RequiredElementDeviation();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.RequiredElement#getChildREs <em>Child REs</em>}'.
@@ -2148,47 +2206,58 @@ public interface QualityAnnotationPackage extends EPackage {
 	EReference getRequiredElement_QualityAnnotation();
 
 	/**
-	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation <em>Number Of Calls Deviation</em>}'.
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation <em>Required Element Deviation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Number Of Calls Deviation</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation
+	 * @return the meta object for class '<em>Required Element Deviation</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation
 	 * @generated
 	 */
-	EClass getNumberOfCallsDeviation();
+	EClass getRequiredElementDeviation();
 
 	/**
-	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
+	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getInternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the container reference '<em>Internal State Influence Analysis Aggregation</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getInternalStateInfluenceAnalysisAggregation()
-	 * @see #getNumberOfCallsDeviation()
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getInternalStateInfluenceAnalysisAggregation()
+	 * @see #getRequiredElementDeviation()
 	 * @generated
 	 */
-	EReference getNumberOfCallsDeviation_InternalStateInfluenceAnalysisAggregation();
+	EReference getRequiredElementDeviation_InternalStateInfluenceAnalysisAggregation();
 
 	/**
-	 * Returns the meta object for the attribute '{@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getMaximum <em>Maximum</em>}'.
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getMaximumDeviationNumberOfCalls <em>Maximum Deviation Number Of Calls</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Maximum</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getMaximum()
-	 * @see #getNumberOfCallsDeviation()
+	 * @return the meta object for the reference '<em>Maximum Deviation Number Of Calls</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getMaximumDeviationNumberOfCalls()
+	 * @see #getRequiredElementDeviation()
 	 * @generated
 	 */
-	EAttribute getNumberOfCallsDeviation_Maximum();
+	EReference getRequiredElementDeviation_MaximumDeviationNumberOfCalls();
 
 	/**
-	 * Returns the meta object for the containment reference '{@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getRequiredElement <em>Required Element</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getMaximumDeviationCallParameterValues <em>Maximum Deviation Call Parameter Values</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Maximum Deviation Call Parameter Values</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getMaximumDeviationCallParameterValues()
+	 * @see #getRequiredElementDeviation()
+	 * @generated
+	 */
+	EReference getRequiredElementDeviation_MaximumDeviationCallParameterValues();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getRequiredElement <em>Required Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @return the meta object for the containment reference '<em>Required Element</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getRequiredElement()
-	 * @see #getNumberOfCallsDeviation()
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getRequiredElement()
+	 * @see #getRequiredElementDeviation()
 	 * @generated
 	 */
-	EReference getNumberOfCallsDeviation_RequiredElement();
+	EReference getRequiredElementDeviation_RequiredElement();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
@@ -2212,26 +2281,26 @@ public interface QualityAnnotationPackage extends EPackage {
 	EReference getInternalStateInfluenceAnalysisAggregation_QualityAnnotation();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getCallParameterDeviation <em>Call Parameter Deviation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getParameterValueDeviations <em>Parameter Value Deviations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Call Parameter Deviation</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getCallParameterDeviation()
+	 * @return the meta object for the containment reference list '<em>Parameter Value Deviations</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getParameterValueDeviations()
 	 * @see #getInternalStateInfluenceAnalysisAggregation()
 	 * @generated
 	 */
-	EReference getInternalStateInfluenceAnalysisAggregation_CallParameterDeviation();
+	EReference getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getNumberOfCallsDeviation <em>Number Of Calls Deviation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getRequiredElementDeviations <em>Required Element Deviations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Number Of Calls Deviation</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getNumberOfCallsDeviation()
+	 * @return the meta object for the containment reference list '<em>Required Element Deviations</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getRequiredElementDeviations()
 	 * @see #getInternalStateInfluenceAnalysisAggregation()
 	 * @generated
 	 */
-	EReference getInternalStateInfluenceAnalysisAggregation_NumberOfCallsDeviation();
+	EReference getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.REPrecision <em>RE Precision</em>}'.
@@ -2306,17 +2375,6 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getPCMParameterPartition_CharacerisedParameterPartitions();
-
-	/**
-	 * Returns the meta object for the containment reference '{@link de.fzi.se.quality.qualityannotation.PCMParameterPartition#getParameterReference <em>Parameter Reference</em>}'.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Parameter Reference</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.PCMParameterPartition#getParameterReference()
-	 * @see #getPCMParameterPartition()
-	 * @generated
-	 */
-	EReference getPCMParameterPartition_ParameterReference();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition <em>Characterised PCM Parameter Partition</em>}'.
@@ -2771,22 +2829,22 @@ public interface QualityAnnotationPackage extends EPackage {
 	 */
 	interface Literals {
 		/**
-		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.CallParameterDeviationImpl <em>Call Parameter Deviation</em>}' class.
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.ParameterValueDeviationImpl <em>Parameter Value Deviation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.fzi.se.quality.qualityannotation.impl.CallParameterDeviationImpl
-		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getCallParameterDeviation()
+		 * @see de.fzi.se.quality.qualityannotation.impl.ParameterValueDeviationImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getParameterValueDeviation()
 		 * @generated
 		 */
-		EClass CALL_PARAMETER_DEVIATION = eINSTANCE.getCallParameterDeviation();
+		EClass PARAMETER_VALUE_DEVIATION = eINSTANCE.getParameterValueDeviation();
 
 		/**
-		 * The meta object literal for the '<em><b>Parameter Reference</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Parameter Reference</b></em>' containment reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CALL_PARAMETER_DEVIATION__PARAMETER_REFERENCE = eINSTANCE.getCallParameterDeviation_ParameterReference();
+		EReference PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE = eINSTANCE.getParameterValueDeviation_ParameterReference();
 
 		/**
 		 * The meta object literal for the '<em><b>Internal State Influence Analysis Aggregation</b></em>' container reference feature.
@@ -2794,15 +2852,23 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference CALL_PARAMETER_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = eINSTANCE.getCallParameterDeviation_InternalStateInfluenceAnalysisAggregation();
+		EReference PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = eINSTANCE.getParameterValueDeviation_InternalStateInfluenceAnalysisAggregation();
 
 		/**
-		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Required Element Deviation</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute CALL_PARAMETER_DEVIATION__MAXIMUM = eINSTANCE.getCallParameterDeviation_Maximum();
+		EReference PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION = eINSTANCE.getParameterValueDeviation_RequiredElementDeviation();
+
+		/**
+		 * The meta object literal for the '<em><b>Parameter Value</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE = eINSTANCE.getParameterValueDeviation_ParameterValue();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl <em>Quality Annotation</em>}' class.
@@ -2873,6 +2939,14 @@ public interface QualityAnnotationPackage extends EPackage {
 		EAttribute SERVICE_SPECIFICATION__CHECKSUM = eINSTANCE.getServiceSpecification_Checksum();
 
 		/**
+		 * The meta object literal for the '<em><b>Checksum Alg</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute SERVICE_SPECIFICATION__CHECKSUM_ALG = eINSTANCE.getServiceSpecification_ChecksumAlg();
+
+		/**
 		 * The meta object literal for the '<em><b>Quality Annotation</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
@@ -2891,12 +2965,12 @@ public interface QualityAnnotationPackage extends EPackage {
 		EClass REQUIRED_ELEMENT = eINSTANCE.getRequiredElement();
 
 		/**
-		 * The meta object literal for the '<em><b>Number Of Calls Deviation</b></em>' container reference feature.
+		 * The meta object literal for the '<em><b>Required Element Deviation</b></em>' container reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION = eINSTANCE.getRequiredElement_NumberOfCallsDeviation();
+		EReference REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION = eINSTANCE.getRequiredElement_RequiredElementDeviation();
 
 		/**
 		 * The meta object literal for the '<em><b>Child REs</b></em>' containment reference list feature.
@@ -2931,14 +3005,14 @@ public interface QualityAnnotationPackage extends EPackage {
 		EReference REQUIRED_ELEMENT__QUALITY_ANNOTATION = eINSTANCE.getRequiredElement_QualityAnnotation();
 
 		/**
-		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.NumberOfCallsDeviationImpl <em>Number Of Calls Deviation</em>}' class.
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.RequiredElementDeviationImpl <em>Required Element Deviation</em>}' class.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
-		 * @see de.fzi.se.quality.qualityannotation.impl.NumberOfCallsDeviationImpl
-		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getNumberOfCallsDeviation()
+		 * @see de.fzi.se.quality.qualityannotation.impl.RequiredElementDeviationImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getRequiredElementDeviation()
 		 * @generated
 		 */
-		EClass NUMBER_OF_CALLS_DEVIATION = eINSTANCE.getNumberOfCallsDeviation();
+		EClass REQUIRED_ELEMENT_DEVIATION = eINSTANCE.getRequiredElementDeviation();
 
 		/**
 		 * The meta object literal for the '<em><b>Internal State Influence Analysis Aggregation</b></em>' container reference feature.
@@ -2946,15 +3020,23 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NUMBER_OF_CALLS_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = eINSTANCE.getNumberOfCallsDeviation_InternalStateInfluenceAnalysisAggregation();
+		EReference REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION = eINSTANCE.getRequiredElementDeviation_InternalStateInfluenceAnalysisAggregation();
 
 		/**
-		 * The meta object literal for the '<em><b>Maximum</b></em>' attribute feature.
+		 * The meta object literal for the '<em><b>Maximum Deviation Number Of Calls</b></em>' reference feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EAttribute NUMBER_OF_CALLS_DEVIATION__MAXIMUM = eINSTANCE.getNumberOfCallsDeviation_Maximum();
+		EReference REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS = eINSTANCE.getRequiredElementDeviation_MaximumDeviationNumberOfCalls();
+
+		/**
+		 * The meta object literal for the '<em><b>Maximum Deviation Call Parameter Values</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES = eINSTANCE.getRequiredElementDeviation_MaximumDeviationCallParameterValues();
 
 		/**
 		 * The meta object literal for the '<em><b>Required Element</b></em>' containment reference feature.
@@ -2962,7 +3044,7 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT = eINSTANCE.getNumberOfCallsDeviation_RequiredElement();
+		EReference REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT = eINSTANCE.getRequiredElementDeviation_RequiredElement();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.InternalStateInfluenceAnalysisAggregationImpl <em>Internal State Influence Analysis Aggregation</em>}' class.
@@ -2983,20 +3065,20 @@ public interface QualityAnnotationPackage extends EPackage {
 		EReference INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION = eINSTANCE.getInternalStateInfluenceAnalysisAggregation_QualityAnnotation();
 
 		/**
-		 * The meta object literal for the '<em><b>Call Parameter Deviation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Parameter Value Deviations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION = eINSTANCE.getInternalStateInfluenceAnalysisAggregation_CallParameterDeviation();
+		EReference INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS = eINSTANCE.getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations();
 
 		/**
-		 * The meta object literal for the '<em><b>Number Of Calls Deviation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Required Element Deviations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION = eINSTANCE.getInternalStateInfluenceAnalysisAggregation_NumberOfCallsDeviation();
+		EReference INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS = eINSTANCE.getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.REPrecisionImpl <em>RE Precision</em>}' class.
@@ -3059,14 +3141,6 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS = eINSTANCE.getPCMParameterPartition_CharacerisedParameterPartitions();
-
-		/**
-		 * The meta object literal for the '<em><b>Parameter Reference</b></em>' containment reference feature.
-		 * <!-- begin-user-doc -->
-		 * <!-- end-user-doc -->
-		 * @generated
-		 */
-		EReference PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE = eINSTANCE.getPCMParameterPartition_ParameterReference();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionImpl <em>Characterised PCM Parameter Partition</em>}' class.

@@ -6,22 +6,16 @@
  */
 package de.fzi.se.quality.parameters.pcm.impl;
 
-import de.fzi.se.quality.parameters.impl.BusinessOperationReferenceImpl;
-
-import de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference;
-import de.fzi.se.quality.parameters.pcm.PCMPackage;
-
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
-import de.uka.ipd.sdq.pcm.repository.Signature;
-
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
+import de.fzi.se.quality.parameters.impl.OperationReferenceImpl;
+import de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference;
+import de.fzi.se.quality.parameters.pcm.PCMPackage;
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
+import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,23 +24,23 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMBusinessOperationReferenceImpl#getRequiredRole <em>Required Role</em>}</li>
+ *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMBusinessOperationReferenceImpl#getRole <em>Role</em>}</li>
  *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMBusinessOperationReferenceImpl#getSignature <em>Signature</em>}</li>
  * </ul>
  * </p>
  *
  * @generated
  */
-public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenceImpl implements PCMBusinessOperationReference {
+public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl implements PCMBusinessOperationReference {
 	/**
-	 * The cached value of the '{@link #getRequiredRole() <em>Required Role</em>}' reference.
+	 * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRequiredRole()
+	 * @see #getRole()
 	 * @generated
 	 * @ordered
 	 */
-	protected OperationRequiredRole requiredRole;
+	protected OperationRequiredRole role;
 
 	/**
 	 * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference.
@@ -82,16 +76,16 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OperationRequiredRole getRequiredRole() {
-		if (requiredRole != null && requiredRole.eIsProxy()) {
-			InternalEObject oldRequiredRole = (InternalEObject)requiredRole;
-			requiredRole = (OperationRequiredRole)eResolveProxy(oldRequiredRole);
-			if (requiredRole != oldRequiredRole) {
+	public OperationRequiredRole getRole() {
+		if (role != null && role.eIsProxy()) {
+			InternalEObject oldRole = (InternalEObject)role;
+			role = (OperationRequiredRole)eResolveProxy(oldRole);
+			if (role != oldRole) {
 				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE, oldRequiredRole, requiredRole));
+					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE, oldRole, role));
 			}
 		}
-		return requiredRole;
+		return role;
 	}
 
 	/**
@@ -99,8 +93,8 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public OperationRequiredRole basicGetRequiredRole() {
-		return requiredRole;
+	public OperationRequiredRole basicGetRole() {
+		return role;
 	}
 
 	/**
@@ -108,11 +102,11 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setRequiredRole(OperationRequiredRole newRequiredRole) {
-		OperationRequiredRole oldRequiredRole = requiredRole;
-		requiredRole = newRequiredRole;
+	public void setRole(OperationRequiredRole newRole) {
+		OperationRequiredRole oldRole = role;
+		role = newRole;
 		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE, oldRequiredRole, requiredRole));
+			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE, oldRole, role));
 	}
 
 	/**
@@ -161,9 +155,9 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE:
-				if (resolve) return getRequiredRole();
-				return basicGetRequiredRole();
+			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+				if (resolve) return getRole();
+				return basicGetRole();
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
 				if (resolve) return getSignature();
 				return basicGetSignature();
@@ -179,8 +173,8 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE:
-				setRequiredRole((OperationRequiredRole)newValue);
+			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+				setRole((OperationRequiredRole)newValue);
 				return;
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
 				setSignature((OperationSignature)newValue);
@@ -197,8 +191,8 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE:
-				setRequiredRole((OperationRequiredRole)null);
+			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+				setRole((OperationRequiredRole)null);
 				return;
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
 				setSignature((OperationSignature)null);
@@ -215,8 +209,8 @@ public class PCMBusinessOperationReferenceImpl extends BusinessOperationReferenc
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__REQUIRED_ROLE:
-				return requiredRole != null;
+			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+				return role != null;
 			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
 				return signature != null;
 		}

@@ -7,9 +7,11 @@
 package de.fzi.se.quality.parameters.impl;
 
 import de.fzi.se.quality.parameters.ParameterInstance;
+import de.fzi.se.quality.parameters.ParameterPartition;
 import de.fzi.se.quality.parameters.ParameterReference;
 import de.fzi.se.quality.parameters.ParametersPackage;
 
+import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
 import de.fzi.se.quality.qualityannotation.CallParameterDeviation;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 
@@ -32,8 +34,9 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <p>
  * The following features are implemented:
  * <ul>
+ *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterReferenceImpl#getParameterPartition <em>Parameter Partition</em>}</li>
  *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterReferenceImpl#getParameterInstance <em>Parameter Instance</em>}</li>
- *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterReferenceImpl#getCallParameterDeviation <em>Call Parameter Deviation</em>}</li>
+ *   <li>{@link de.fzi.se.quality.parameters.impl.ParameterReferenceImpl#getParameterValueDeviation <em>Parameter Value Deviation</em>}</li>
  * </ul>
  * </p>
  *
@@ -57,6 +60,47 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	protected EClass eStaticClass() {
 		return ParametersPackage.Literals.PARAMETER_REFERENCE;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ParameterPartition getParameterPartition() {
+		if (eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION) return null;
+		return (ParameterPartition)eContainer();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public NotificationChain basicSetParameterPartition(ParameterPartition newParameterPartition, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParameterPartition, ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION, msgs);
+		return msgs;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setParameterPartition(ParameterPartition newParameterPartition) {
+		if (newParameterPartition != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION && newParameterPartition != null)) {
+			if (EcoreUtil.isAncestor(this, newParameterPartition))
+				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+			NotificationChain msgs = null;
+			if (eInternalContainer() != null)
+				msgs = eBasicRemoveFromContainer(msgs);
+			if (newParameterPartition != null)
+				msgs = ((InternalEObject)newParameterPartition).eInverseAdd(this, ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE, ParameterPartition.class, msgs);
+			msgs = basicSetParameterPartition(newParameterPartition, msgs);
+			if (msgs != null) msgs.dispatch();
+		}
+		else if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION, newParameterPartition, newParameterPartition));
 	}
 
 	/**
@@ -105,9 +149,9 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CallParameterDeviation getCallParameterDeviation() {
-		if (eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION) return null;
-		return (CallParameterDeviation)eContainer();
+	public ParameterValueDeviation getParameterValueDeviation() {
+		if (eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION) return null;
+		return (ParameterValueDeviation)eContainer();
 	}
 
 	/**
@@ -115,8 +159,8 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public NotificationChain basicSetCallParameterDeviation(CallParameterDeviation newCallParameterDeviation, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newCallParameterDeviation, ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION, msgs);
+	public NotificationChain basicSetParameterValueDeviation(ParameterValueDeviation newParameterValueDeviation, NotificationChain msgs) {
+		msgs = eBasicSetContainer((InternalEObject)newParameterValueDeviation, ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION, msgs);
 		return msgs;
 	}
 
@@ -125,20 +169,20 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public void setCallParameterDeviation(CallParameterDeviation newCallParameterDeviation) {
-		if (newCallParameterDeviation != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION && newCallParameterDeviation != null)) {
-			if (EcoreUtil.isAncestor(this, newCallParameterDeviation))
+	public void setParameterValueDeviation(ParameterValueDeviation newParameterValueDeviation) {
+		if (newParameterValueDeviation != eInternalContainer() || (eContainerFeatureID() != ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION && newParameterValueDeviation != null)) {
+			if (EcoreUtil.isAncestor(this, newParameterValueDeviation))
 				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
 			NotificationChain msgs = null;
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
-			if (newCallParameterDeviation != null)
-				msgs = ((InternalEObject)newCallParameterDeviation).eInverseAdd(this, QualityAnnotationPackage.CALL_PARAMETER_DEVIATION__PARAMETER_REFERENCE, CallParameterDeviation.class, msgs);
-			msgs = basicSetCallParameterDeviation(newCallParameterDeviation, msgs);
+			if (newParameterValueDeviation != null)
+				msgs = ((InternalEObject)newParameterValueDeviation).eInverseAdd(this, QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, ParameterValueDeviation.class, msgs);
+			msgs = basicSetParameterValueDeviation(newParameterValueDeviation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
 		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION, newCallParameterDeviation, newCallParameterDeviation));
+			eNotify(new ENotificationImpl(this, Notification.SET, ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION, newParameterValueDeviation, newParameterValueDeviation));
 	}
 
 	/**
@@ -149,14 +193,18 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION:
+				if (eInternalContainer() != null)
+					msgs = eBasicRemoveFromContainer(msgs);
+				return basicSetParameterPartition((ParameterPartition)otherEnd, msgs);
 			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
 				return basicSetParameterInstance((ParameterInstance)otherEnd, msgs);
-			case ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION:
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetCallParameterDeviation((CallParameterDeviation)otherEnd, msgs);
+				return basicSetParameterValueDeviation((ParameterValueDeviation)otherEnd, msgs);
 		}
 		return super.eInverseAdd(otherEnd, featureID, msgs);
 	}
@@ -169,10 +217,12 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION:
+				return basicSetParameterPartition(null, msgs);
 			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE:
 				return basicSetParameterInstance(null, msgs);
-			case ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION:
-				return basicSetCallParameterDeviation(null, msgs);
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION:
+				return basicSetParameterValueDeviation(null, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -185,10 +235,12 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION:
+				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_PARTITION__PARAMETER_REFERENCE, ParameterPartition.class, msgs);
 			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE:
 				return eInternalContainer().eInverseRemove(this, ParametersPackage.PARAMETER_INSTANCE__PARAMETER_REFERENCE, ParameterInstance.class, msgs);
-			case ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION:
-				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.CALL_PARAMETER_DEVIATION__PARAMETER_REFERENCE, CallParameterDeviation.class, msgs);
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION:
+				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE, ParameterValueDeviation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}
@@ -201,10 +253,12 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION:
+				return getParameterPartition();
 			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE:
 				return getParameterInstance();
-			case ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION:
-				return getCallParameterDeviation();
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION:
+				return getParameterValueDeviation();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -217,11 +271,14 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION:
+				setParameterPartition((ParameterPartition)newValue);
+				return;
 			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE:
 				setParameterInstance((ParameterInstance)newValue);
 				return;
-			case ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION:
-				setCallParameterDeviation((CallParameterDeviation)newValue);
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION:
+				setParameterValueDeviation((ParameterValueDeviation)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -235,11 +292,14 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION:
+				setParameterPartition((ParameterPartition)null);
+				return;
 			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE:
 				setParameterInstance((ParameterInstance)null);
 				return;
-			case ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION:
-				setCallParameterDeviation((CallParameterDeviation)null);
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION:
+				setParameterValueDeviation((ParameterValueDeviation)null);
 				return;
 		}
 		super.eUnset(featureID);
@@ -253,10 +313,12 @@ public abstract class ParameterReferenceImpl extends IdentifierImpl implements P
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_PARTITION:
+				return getParameterPartition() != null;
 			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_INSTANCE:
 				return getParameterInstance() != null;
-			case ParametersPackage.PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION:
-				return getCallParameterDeviation() != null;
+			case ParametersPackage.PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION:
+				return getParameterValueDeviation() != null;
 		}
 		return super.eIsSet(featureID);
 	}

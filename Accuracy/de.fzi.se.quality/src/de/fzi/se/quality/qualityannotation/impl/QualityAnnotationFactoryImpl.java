@@ -61,10 +61,9 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 	@Override
 	public EObject create(EClass eClass) {
 		switch (eClass.getClassifierID()) {
-			case QualityAnnotationPackage.CALL_PARAMETER_DEVIATION: return createCallParameterDeviation();
+			case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION: return createParameterValueDeviation();
 			case QualityAnnotationPackage.QUALITY_ANNOTATION: return createQualityAnnotation();
-			case QualityAnnotationPackage.REQUIRED_ELEMENT: return createRequiredElement();
-			case QualityAnnotationPackage.NUMBER_OF_CALLS_DEVIATION: return createNumberOfCallsDeviation();
+			case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION: return createRequiredElementDeviation();
 			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION: return createInternalStateInfluenceAnalysisAggregation();
 			case QualityAnnotationPackage.RE_PRECISION: return createREPrecision();
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION: return createPCMParameterPartition();
@@ -126,9 +125,9 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public CallParameterDeviation createCallParameterDeviation() {
-		CallParameterDeviationImpl callParameterDeviation = new CallParameterDeviationImpl();
-		return callParameterDeviation;
+	public ParameterValueDeviation createParameterValueDeviation() {
+		ParameterValueDeviationImpl parameterValueDeviation = new ParameterValueDeviationImpl();
+		return parameterValueDeviation;
 	}
 
 	/**
@@ -146,19 +145,9 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public RequiredElement createRequiredElement() {
-		RequiredElementImpl requiredElement = new RequiredElementImpl();
-		return requiredElement;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public NumberOfCallsDeviation createNumberOfCallsDeviation() {
-		NumberOfCallsDeviationImpl numberOfCallsDeviation = new NumberOfCallsDeviationImpl();
-		return numberOfCallsDeviation;
+	public RequiredElementDeviation createRequiredElementDeviation() {
+		RequiredElementDeviationImpl requiredElementDeviation = new RequiredElementDeviationImpl();
+		return requiredElementDeviation;
 	}
 
 	/**

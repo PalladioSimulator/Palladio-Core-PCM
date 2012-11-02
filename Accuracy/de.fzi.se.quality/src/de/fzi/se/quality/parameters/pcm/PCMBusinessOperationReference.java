@@ -6,6 +6,7 @@
  */
 package de.fzi.se.quality.parameters.pcm;
 
+import de.fzi.se.quality.parameters.OperationReference;
 import de.fzi.se.quality.parameters.BusinessOperationReference;
 
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
@@ -21,7 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRequiredRole <em>Required Role</em>}</li>
+ *   <li>{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRole <em>Role</em>}</li>
  *   <li>{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getSignature <em>Signature</em>}</li>
  * </ul>
  * </p>
@@ -30,32 +31,32 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * @model
  * @generated
  */
-public interface PCMBusinessOperationReference extends BusinessOperationReference {
+public interface PCMBusinessOperationReference extends OperationReference {
 	/**
-	 * Returns the value of the '<em><b>Required Role</b></em>' reference.
+	 * Returns the value of the '<em><b>Role</b></em>' reference.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Required Role</em>' reference isn't clear,
+	 * If the meaning of the '<em>Role</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Role</em>' reference.
-	 * @see #setRequiredRole(OperationRequiredRole)
-	 * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMBusinessOperationReference_RequiredRole()
+	 * @return the value of the '<em>Role</em>' reference.
+	 * @see #setRole(OperationRequiredRole)
+	 * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMBusinessOperationReference_Role()
 	 * @model required="true" ordered="false"
 	 * @generated
 	 */
-	OperationRequiredRole getRequiredRole();
+	OperationRequiredRole getRole();
 
 	/**
-	 * Sets the value of the '{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRequiredRole <em>Required Role</em>}' reference.
+	 * Sets the value of the '{@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference#getRole <em>Role</em>}' reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Role</em>' reference.
-	 * @see #getRequiredRole()
+	 * @param value the new value of the '<em>Role</em>' reference.
+	 * @see #getRole()
 	 * @generated
 	 */
-	void setRequiredRole(OperationRequiredRole value);
+	void setRole(OperationRequiredRole value);
 
 	/**
 	 * Returns the value of the '<em><b>Signature</b></em>' reference.

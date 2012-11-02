@@ -76,26 +76,26 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.CallParameterDeviation} instances.
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected CallParameterDeviationItemProvider callParameterDeviationItemProvider;
+	protected ParameterValueDeviationItemProvider parameterValueDeviationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.CallParameterDeviation}.
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createCallParameterDeviationAdapter() {
-		if (callParameterDeviationItemProvider == null) {
-			callParameterDeviationItemProvider = new CallParameterDeviationItemProvider(this);
+	public Adapter createParameterValueDeviationAdapter() {
+		if (parameterValueDeviationItemProvider == null) {
+			parameterValueDeviationItemProvider = new ParameterValueDeviationItemProvider(this);
 		}
 
-		return callParameterDeviationItemProvider;
+		return parameterValueDeviationItemProvider;
 	}
 
 	/**
@@ -122,49 +122,26 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	}
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.RequiredElement} instances.
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation} instances.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	protected RequiredElementItemProvider requiredElementItemProvider;
+	protected RequiredElementDeviationItemProvider requiredElementDeviationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.RequiredElement}.
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation}.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
-	public Adapter createRequiredElementAdapter() {
-		if (requiredElementItemProvider == null) {
-			requiredElementItemProvider = new RequiredElementItemProvider(this);
+	public Adapter createRequiredElementDeviationAdapter() {
+		if (requiredElementDeviationItemProvider == null) {
+			requiredElementDeviationItemProvider = new RequiredElementDeviationItemProvider(this);
 		}
 
-		return requiredElementItemProvider;
-	}
-
-	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation} instances.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	protected NumberOfCallsDeviationItemProvider numberOfCallsDeviationItemProvider;
-
-	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation}.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public Adapter createNumberOfCallsDeviationAdapter() {
-		if (numberOfCallsDeviationItemProvider == null) {
-			numberOfCallsDeviationItemProvider = new NumberOfCallsDeviationItemProvider(this);
-		}
-
-		return numberOfCallsDeviationItemProvider;
+		return requiredElementDeviationItemProvider;
 	}
 
 	/**
@@ -749,10 +726,9 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	 * @generated
 	 */
 	public void dispose() {
-		if (callParameterDeviationItemProvider != null) callParameterDeviationItemProvider.dispose();
+		if (parameterValueDeviationItemProvider != null) parameterValueDeviationItemProvider.dispose();
 		if (qualityAnnotationItemProvider != null) qualityAnnotationItemProvider.dispose();
-		if (requiredElementItemProvider != null) requiredElementItemProvider.dispose();
-		if (numberOfCallsDeviationItemProvider != null) numberOfCallsDeviationItemProvider.dispose();
+		if (requiredElementDeviationItemProvider != null) requiredElementDeviationItemProvider.dispose();
 		if (internalStateInfluenceAnalysisAggregationItemProvider != null) internalStateInfluenceAnalysisAggregationItemProvider.dispose();
 		if (rePrecisionItemProvider != null) rePrecisionItemProvider.dispose();
 		if (pcmParameterPartitionItemProvider != null) pcmParameterPartitionItemProvider.dispose();

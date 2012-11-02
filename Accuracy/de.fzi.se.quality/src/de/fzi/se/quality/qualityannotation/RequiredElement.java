@@ -21,7 +21,7 @@ import org.eclipse.emf.common.util.EList;
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.fzi.se.quality.qualityannotation.RequiredElement#getNumberOfCallsDeviation <em>Number Of Calls Deviation</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.RequiredElement#getRequiredElementDeviation <em>Required Element Deviation</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.RequiredElement#getChildREs <em>Child REs</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.RequiredElement#getParentRE <em>Parent RE</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.RequiredElement#getPrecision <em>Precision</em>}</li>
@@ -30,37 +30,37 @@ import org.eclipse.emf.common.util.EList;
  * </p>
  *
  * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement()
- * @model
+ * @model abstract="true"
  * @generated
  */
 public interface RequiredElement extends Identifier {
 	/**
-	 * Returns the value of the '<em><b>Number Of Calls Deviation</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getRequiredElement <em>Required Element</em>}'.
+	 * Returns the value of the '<em><b>Required Element Deviation</b></em>' container reference.
+	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getRequiredElement <em>Required Element</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Number Of Calls Deviation</em>' container reference isn't clear,
+	 * If the meaning of the '<em>Required Element Deviation</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number Of Calls Deviation</em>' container reference.
-	 * @see #setNumberOfCallsDeviation(NumberOfCallsDeviation)
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement_NumberOfCallsDeviation()
-	 * @see de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation#getRequiredElement
+	 * @return the value of the '<em>Required Element Deviation</em>' container reference.
+	 * @see #setRequiredElementDeviation(RequiredElementDeviation)
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getRequiredElement_RequiredElementDeviation()
+	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation#getRequiredElement
 	 * @model opposite="requiredElement" transient="false" ordered="false"
 	 * @generated
 	 */
-	NumberOfCallsDeviation getNumberOfCallsDeviation();
+	RequiredElementDeviation getRequiredElementDeviation();
 
 	/**
-	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.RequiredElement#getNumberOfCallsDeviation <em>Number Of Calls Deviation</em>}' container reference.
+	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.RequiredElement#getRequiredElementDeviation <em>Required Element Deviation</em>}' container reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Calls Deviation</em>' container reference.
-	 * @see #getNumberOfCallsDeviation()
+	 * @param value the new value of the '<em>Required Element Deviation</em>' container reference.
+	 * @see #getRequiredElementDeviation()
 	 * @generated
 	 */
-	void setNumberOfCallsDeviation(NumberOfCallsDeviation value);
+	void setRequiredElementDeviation(RequiredElementDeviation value);
 
 	/**
 	 * Returns the value of the '<em><b>Child REs</b></em>' containment reference list.

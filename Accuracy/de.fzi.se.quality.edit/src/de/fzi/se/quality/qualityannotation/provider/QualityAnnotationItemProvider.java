@@ -198,11 +198,6 @@ public class QualityAnnotationItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS,
-				 QualityAnnotationFactory.eINSTANCE.createRequiredElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS,
 				 QualityAnnotationFactory.eINSTANCE.createPCMRECategory()));
 
 		newChildDescriptors.add

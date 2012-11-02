@@ -42,12 +42,14 @@ import de.fzi.se.quality.qualityannotation.PCMREResourceSignature;
 import de.fzi.se.quality.qualityannotation.PCMRERole;
 import de.fzi.se.quality.qualityannotation.PCMRESignature;
 import de.fzi.se.quality.qualityannotation.PCMServiceSpecification;
+import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
 import de.fzi.se.quality.qualityannotation.Precision;
 import de.fzi.se.quality.qualityannotation.QualityAnnotation;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationFactory;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.fzi.se.quality.qualityannotation.REPrecision;
 import de.fzi.se.quality.qualityannotation.RequiredElement;
+import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
 import de.fzi.se.quality.qualityannotation.ServiceSpecification;
 
 import de.fzi.se.quality.qualityannotation.util.QualityAnnotationValidator;
@@ -91,7 +93,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass callParameterDeviationEClass = null;
+	private EClass parameterValueDeviationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -119,7 +121,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass numberOfCallsDeviationEClass = null;
+	private EClass requiredElementDeviationEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -386,8 +388,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getCallParameterDeviation() {
-		return callParameterDeviationEClass;
+	public EClass getParameterValueDeviation() {
+		return parameterValueDeviationEClass;
 	}
 
 	/**
@@ -395,8 +397,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCallParameterDeviation_ParameterReference() {
-		return (EReference)callParameterDeviationEClass.getEStructuralFeatures().get(0);
+	public EReference getParameterValueDeviation_ParameterReference() {
+		return (EReference)parameterValueDeviationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -404,8 +406,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getCallParameterDeviation_InternalStateInfluenceAnalysisAggregation() {
-		return (EReference)callParameterDeviationEClass.getEStructuralFeatures().get(1);
+	public EReference getParameterValueDeviation_InternalStateInfluenceAnalysisAggregation() {
+		return (EReference)parameterValueDeviationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -413,8 +415,17 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getCallParameterDeviation_Maximum() {
-		return (EAttribute)callParameterDeviationEClass.getEStructuralFeatures().get(2);
+	public EReference getParameterValueDeviation_RequiredElementDeviation() {
+		return (EReference)parameterValueDeviationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterValueDeviation_ParameterValue() {
+		return (EReference)parameterValueDeviationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -494,8 +505,17 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getServiceSpecification_ChecksumAlg() {
+		return (EAttribute)serviceSpecificationEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EReference getServiceSpecification_QualityAnnotation() {
-		return (EReference)serviceSpecificationEClass.getEStructuralFeatures().get(1);
+		return (EReference)serviceSpecificationEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -512,7 +532,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getRequiredElement_NumberOfCallsDeviation() {
+	public EReference getRequiredElement_RequiredElementDeviation() {
 		return (EReference)requiredElementEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -557,8 +577,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getNumberOfCallsDeviation() {
-		return numberOfCallsDeviationEClass;
+	public EClass getRequiredElementDeviation() {
+		return requiredElementDeviationEClass;
 	}
 
 	/**
@@ -566,8 +586,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNumberOfCallsDeviation_InternalStateInfluenceAnalysisAggregation() {
-		return (EReference)numberOfCallsDeviationEClass.getEStructuralFeatures().get(0);
+	public EReference getRequiredElementDeviation_InternalStateInfluenceAnalysisAggregation() {
+		return (EReference)requiredElementDeviationEClass.getEStructuralFeatures().get(0);
 	}
 
 	/**
@@ -575,8 +595,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EAttribute getNumberOfCallsDeviation_Maximum() {
-		return (EAttribute)numberOfCallsDeviationEClass.getEStructuralFeatures().get(1);
+	public EReference getRequiredElementDeviation_MaximumDeviationNumberOfCalls() {
+		return (EReference)requiredElementDeviationEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -584,8 +604,17 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getNumberOfCallsDeviation_RequiredElement() {
-		return (EReference)numberOfCallsDeviationEClass.getEStructuralFeatures().get(2);
+	public EReference getRequiredElementDeviation_MaximumDeviationCallParameterValues() {
+		return (EReference)requiredElementDeviationEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getRequiredElementDeviation_RequiredElement() {
+		return (EReference)requiredElementDeviationEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -611,7 +640,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInternalStateInfluenceAnalysisAggregation_CallParameterDeviation() {
+	public EReference getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations() {
 		return (EReference)internalStateInfluenceAnalysisAggregationEClass.getEStructuralFeatures().get(1);
 	}
 
@@ -620,7 +649,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getInternalStateInfluenceAnalysisAggregation_NumberOfCallsDeviation() {
+	public EReference getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations() {
 		return (EReference)internalStateInfluenceAnalysisAggregationEClass.getEStructuralFeatures().get(2);
 	}
 
@@ -685,15 +714,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 */
 	public EReference getPCMParameterPartition_CharacerisedParameterPartitions() {
 		return (EReference)pcmParameterPartitionEClass.getEStructuralFeatures().get(0);
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EReference getPCMParameterPartition_ParameterReference() {
-		return (EReference)pcmParameterPartitionEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -1093,10 +1113,11 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		isCreated = true;
 
 		// Create classes and their features
-		callParameterDeviationEClass = createEClass(CALL_PARAMETER_DEVIATION);
-		createEReference(callParameterDeviationEClass, CALL_PARAMETER_DEVIATION__PARAMETER_REFERENCE);
-		createEReference(callParameterDeviationEClass, CALL_PARAMETER_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
-		createEAttribute(callParameterDeviationEClass, CALL_PARAMETER_DEVIATION__MAXIMUM);
+		parameterValueDeviationEClass = createEClass(PARAMETER_VALUE_DEVIATION);
+		createEReference(parameterValueDeviationEClass, PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE);
+		createEReference(parameterValueDeviationEClass, PARAMETER_VALUE_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
+		createEReference(parameterValueDeviationEClass, PARAMETER_VALUE_DEVIATION__REQUIRED_ELEMENT_DEVIATION);
+		createEReference(parameterValueDeviationEClass, PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE);
 
 		qualityAnnotationEClass = createEClass(QUALITY_ANNOTATION);
 		createEAttribute(qualityAnnotationEClass, QUALITY_ANNOTATION__IS_VALID);
@@ -1107,39 +1128,40 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
 		serviceSpecificationEClass = createEClass(SERVICE_SPECIFICATION);
 		createEAttribute(serviceSpecificationEClass, SERVICE_SPECIFICATION__CHECKSUM);
+		createEAttribute(serviceSpecificationEClass, SERVICE_SPECIFICATION__CHECKSUM_ALG);
 		createEReference(serviceSpecificationEClass, SERVICE_SPECIFICATION__QUALITY_ANNOTATION);
 
 		requiredElementEClass = createEClass(REQUIRED_ELEMENT);
-		createEReference(requiredElementEClass, REQUIRED_ELEMENT__NUMBER_OF_CALLS_DEVIATION);
+		createEReference(requiredElementEClass, REQUIRED_ELEMENT__REQUIRED_ELEMENT_DEVIATION);
 		createEReference(requiredElementEClass, REQUIRED_ELEMENT__CHILD_RES);
 		createEReference(requiredElementEClass, REQUIRED_ELEMENT__PARENT_RE);
 		createEReference(requiredElementEClass, REQUIRED_ELEMENT__PRECISION);
 		createEReference(requiredElementEClass, REQUIRED_ELEMENT__QUALITY_ANNOTATION);
 
-		numberOfCallsDeviationEClass = createEClass(NUMBER_OF_CALLS_DEVIATION);
-		createEReference(numberOfCallsDeviationEClass, NUMBER_OF_CALLS_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
-		createEAttribute(numberOfCallsDeviationEClass, NUMBER_OF_CALLS_DEVIATION__MAXIMUM);
-		createEReference(numberOfCallsDeviationEClass, NUMBER_OF_CALLS_DEVIATION__REQUIRED_ELEMENT);
+		requiredElementDeviationEClass = createEClass(REQUIRED_ELEMENT_DEVIATION);
+		createEReference(requiredElementDeviationEClass, REQUIRED_ELEMENT_DEVIATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
+		createEReference(requiredElementDeviationEClass, REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_NUMBER_OF_CALLS);
+		createEReference(requiredElementDeviationEClass, REQUIRED_ELEMENT_DEVIATION__MAXIMUM_DEVIATION_CALL_PARAMETER_VALUES);
+		createEReference(requiredElementDeviationEClass, REQUIRED_ELEMENT_DEVIATION__REQUIRED_ELEMENT);
 
 		internalStateInfluenceAnalysisAggregationEClass = createEClass(INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION);
 		createEReference(internalStateInfluenceAnalysisAggregationEClass, INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION);
-		createEReference(internalStateInfluenceAnalysisAggregationEClass, INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__CALL_PARAMETER_DEVIATION);
-		createEReference(internalStateInfluenceAnalysisAggregationEClass, INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__NUMBER_OF_CALLS_DEVIATION);
+		createEReference(internalStateInfluenceAnalysisAggregationEClass, INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__PARAMETER_VALUE_DEVIATIONS);
+		createEReference(internalStateInfluenceAnalysisAggregationEClass, INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__REQUIRED_ELEMENT_DEVIATIONS);
+
+		precisionEClass = createEClass(PRECISION);
 
 		rePrecisionEClass = createEClass(RE_PRECISION);
 		createEReference(rePrecisionEClass, RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS);
 		createEReference(rePrecisionEClass, RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER);
 		createEReference(rePrecisionEClass, RE_PRECISION__REQUIRED_ELEMENT);
 
-		precisionEClass = createEClass(PRECISION);
-
-		pcmParameterPartitionEClass = createEClass(PCM_PARAMETER_PARTITION);
-		createEReference(pcmParameterPartitionEClass, PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS);
-		createEReference(pcmParameterPartitionEClass, PCM_PARAMETER_PARTITION__PARAMETER_REFERENCE);
-
 		characterisedPCMParameterPartitionEClass = createEClass(CHARACTERISED_PCM_PARAMETER_PARTITION);
 		createEAttribute(characterisedPCMParameterPartitionEClass, CHARACTERISED_PCM_PARAMETER_PARTITION__FOR_CHARACTERISATION);
 		createEReference(characterisedPCMParameterPartitionEClass, CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION);
+
+		pcmParameterPartitionEClass = createEClass(PCM_PARAMETER_PARTITION);
+		createEReference(pcmParameterPartitionEClass, PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS);
 
 		characterisedPCMParameterPartitionIntervalEClass = createEClass(CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL);
 		createEReference(characterisedPCMParameterPartitionIntervalEClass, CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__FROM);
@@ -1228,7 +1250,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		ParametersPackage theParametersPackage = (ParametersPackage)EPackage.Registry.INSTANCE.getEPackage(ParametersPackage.eNS_URI);
 		QualityPackage theQualityPackage = (QualityPackage)EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI);
 		IdentifierPackage theIdentifierPackage = (IdentifierPackage)EPackage.Registry.INSTANCE.getEPackage(IdentifierPackage.eNS_URI);
-		PCMPackage thePCMPackage = (PCMPackage)EPackage.Registry.INSTANCE.getEPackage(PCMPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
@@ -1245,10 +1266,10 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		serviceSpecificationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		requiredElementEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		internalStateInfluenceAnalysisAggregationEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		rePrecisionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		precisionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		pcmParameterPartitionEClass.getESuperTypes().add(theParametersPackage.getParameterPartition());
+		rePrecisionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		characterisedPCMParameterPartitionEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
+		pcmParameterPartitionEClass.getESuperTypes().add(theParametersPackage.getParameterPartition());
 		characterisedPCMParameterPartitionIntervalEClass.getESuperTypes().add(this.getCharacterisedPCMParameterPartition());
 		characterisedPCMParameterPartitionRangeEClass.getESuperTypes().add(this.getCharacterisedPCMParameterPartition());
 		exactlyAsSpecifiedPrecisionEClass.getESuperTypes().add(this.getPrecision());
@@ -1270,10 +1291,11 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmreInfrastructureSignatureEClass.getESuperTypes().add(this.getPCMRE());
 
 		// Initialize classes and features; add operations and parameters
-		initEClass(callParameterDeviationEClass, CallParameterDeviation.class, "CallParameterDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getCallParameterDeviation_ParameterReference(), theParametersPackage.getParameterReference(), theParametersPackage.getParameterReference_CallParameterDeviation(), "parameterReference", null, 0, -1, CallParameterDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getCallParameterDeviation_InternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation_CallParameterDeviation(), "internalStateInfluenceAnalysisAggregation", null, 1, 1, CallParameterDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getCallParameterDeviation_Maximum(), ecorePackage.getEDouble(), "maximum", null, 1, 1, CallParameterDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(parameterValueDeviationEClass, ParameterValueDeviation.class, "ParameterValueDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterValueDeviation_ParameterReference(), theParametersPackage.getParameterReference(), theParametersPackage.getParameterReference_ParameterValueDeviation(), "parameterReference", null, 1, 1, ParameterValueDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterValueDeviation_InternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations(), "internalStateInfluenceAnalysisAggregation", null, 0, 1, ParameterValueDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterValueDeviation_RequiredElementDeviation(), this.getRequiredElementDeviation(), this.getRequiredElementDeviation_MaximumDeviationCallParameterValues(), "requiredElementDeviation", null, 0, 1, ParameterValueDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterValueDeviation_ParameterValue(), theParametersPackage.getParameterValue(), theParametersPackage.getParameterValue_ParameterValueDeviation(), "parameterValue", null, 1, 1, ParameterValueDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(qualityAnnotationEClass, QualityAnnotation.class, "QualityAnnotation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getQualityAnnotation_IsValid(), ecorePackage.getEBoolean(), "isValid", "false", 1, 1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1284,10 +1306,11 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
 		initEClass(serviceSpecificationEClass, ServiceSpecification.class, "ServiceSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getServiceSpecification_Checksum(), ecorePackage.getELong(), "checksum", null, 0, 1, ServiceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getServiceSpecification_ChecksumAlg(), ecorePackage.getEString(), "checksumAlg", null, 1, 1, ServiceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getServiceSpecification_QualityAnnotation(), this.getQualityAnnotation(), this.getQualityAnnotation_ForServiceSpecification(), "qualityAnnotation", null, 1, 1, ServiceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(requiredElementEClass, RequiredElement.class, "RequiredElement", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getRequiredElement_NumberOfCallsDeviation(), this.getNumberOfCallsDeviation(), this.getNumberOfCallsDeviation_RequiredElement(), "numberOfCallsDeviation", null, 0, 1, RequiredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(requiredElementEClass, RequiredElement.class, "RequiredElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequiredElement_RequiredElementDeviation(), this.getRequiredElementDeviation(), this.getRequiredElementDeviation_RequiredElement(), "requiredElementDeviation", null, 0, 1, RequiredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRequiredElement_ChildREs(), this.getRequiredElement(), this.getRequiredElement_ParentRE(), "childREs", null, 0, -1, RequiredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRequiredElement_ParentRE(), this.getRequiredElement(), this.getRequiredElement_ChildREs(), "parentRE", null, 0, 1, RequiredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getRequiredElement_Precision(), this.getREPrecision(), this.getREPrecision_RequiredElement(), "precision", null, 0, 1, RequiredElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1302,30 +1325,39 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		g1.getETypeArguments().add(g2);
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
-		initEClass(numberOfCallsDeviationEClass, NumberOfCallsDeviation.class, "NumberOfCallsDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getNumberOfCallsDeviation_InternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation_NumberOfCallsDeviation(), "internalStateInfluenceAnalysisAggregation", null, 1, 1, NumberOfCallsDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getNumberOfCallsDeviation_Maximum(), ecorePackage.getEDouble(), "maximum", null, 1, 1, NumberOfCallsDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getNumberOfCallsDeviation_RequiredElement(), this.getRequiredElement(), this.getRequiredElement_NumberOfCallsDeviation(), "requiredElement", null, 1, 1, NumberOfCallsDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEClass(requiredElementDeviationEClass, RequiredElementDeviation.class, "RequiredElementDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getRequiredElementDeviation_InternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations(), "internalStateInfluenceAnalysisAggregation", null, 1, 1, RequiredElementDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRequiredElementDeviation_MaximumDeviationNumberOfCalls(), this.getPrecision(), null, "maximumDeviationNumberOfCalls", null, 1, 1, RequiredElementDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRequiredElementDeviation_MaximumDeviationCallParameterValues(), this.getParameterValueDeviation(), this.getParameterValueDeviation_RequiredElementDeviation(), "maximumDeviationCallParameterValues", null, 0, -1, RequiredElementDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getRequiredElementDeviation_RequiredElement(), this.getRequiredElement(), this.getRequiredElement_RequiredElementDeviation(), "requiredElement", null, 1, 1, RequiredElementDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(internalStateInfluenceAnalysisAggregationEClass, InternalStateInfluenceAnalysisAggregation.class, "InternalStateInfluenceAnalysisAggregation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getInternalStateInfluenceAnalysisAggregation_QualityAnnotation(), this.getQualityAnnotation(), this.getQualityAnnotation_InternalStateInfluenceAnalysisResult(), "qualityAnnotation", null, 1, 1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getInternalStateInfluenceAnalysisAggregation_CallParameterDeviation(), this.getCallParameterDeviation(), this.getCallParameterDeviation_InternalStateInfluenceAnalysisAggregation(), "callParameterDeviation", null, 0, -1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-		initEReference(getInternalStateInfluenceAnalysisAggregation_NumberOfCallsDeviation(), this.getNumberOfCallsDeviation(), this.getNumberOfCallsDeviation_InternalStateInfluenceAnalysisAggregation(), "numberOfCallsDeviation", null, 0, -1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations(), this.getParameterValueDeviation(), this.getParameterValueDeviation_InternalStateInfluenceAnalysisAggregation(), "parameterValueDeviations", null, 0, -1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+		initEReference(getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations(), this.getRequiredElementDeviation(), this.getRequiredElementDeviation_InternalStateInfluenceAnalysisAggregation(), "requiredElementDeviations", null, 0, -1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+		initEClass(precisionEClass, Precision.class, "Precision", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(rePrecisionEClass, REPrecision.class, "REPrecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getREPrecision_DefaultPrecisionNumberOfCalls(), this.getPrecision(), null, "defaultPrecisionNumberOfCalls", null, 1, 1, REPrecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getREPrecision_DefaultPrecisionCallParameter(), this.getPrecision(), null, "defaultPrecisionCallParameter", null, 1, 1, REPrecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getREPrecision_RequiredElement(), this.getRequiredElement(), this.getRequiredElement_Precision(), "requiredElement", null, 1, 1, REPrecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(precisionEClass, Precision.class, "Precision", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(pcmParameterPartitionEClass, PCMParameterPartition.class, "PCMParameterPartition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMParameterPartition_CharacerisedParameterPartitions(), this.getCharacterisedPCMParameterPartition(), this.getCharacterisedPCMParameterPartition_PcmParameterPartition(), "characerisedParameterPartitions", null, 0, -1, PCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getPCMParameterPartition_ParameterReference(), thePCMPackage.getPCMParameterReference(), thePCMPackage.getPCMParameterReference_ParameterPartition(), "parameterReference", null, 1, 1, PCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-
 		initEClass(characterisedPCMParameterPartitionEClass, CharacterisedPCMParameterPartition.class, "CharacterisedPCMParameterPartition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCharacterisedPCMParameterPartition_ForCharacterisation(), theParameterPackage.getVariableCharacterisationType(), "forCharacterisation", null, 1, 1, CharacterisedPCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCharacterisedPCMParameterPartition_PcmParameterPartition(), this.getPCMParameterPartition(), this.getPCMParameterPartition_CharacerisedParameterPartitions(), "pcmParameterPartition", null, 1, 1, CharacterisedPCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(pcmParameterPartitionEClass, PCMParameterPartition.class, "PCMParameterPartition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMParameterPartition_CharacerisedParameterPartitions(), this.getCharacterisedPCMParameterPartition(), this.getCharacterisedPCMParameterPartition_PcmParameterPartition(), "characerisedParameterPartitions", null, 1, -1, PCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmParameterPartitionEClass, ecorePackage.getEBoolean(), "APCMParameterPartitionMustReferenceAPCMParameterReference", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(characterisedPCMParameterPartitionIntervalEClass, CharacterisedPCMParameterPartitionInterval.class, "CharacterisedPCMParameterPartitionInterval", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getCharacterisedPCMParameterPartitionInterval_From(), theCorePackage.getPCMRandomVariable(), null, "from", null, 1, 1, CharacterisedPCMParameterPartitionInterval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1483,7 +1515,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		initEClass(pcmServiceSpecificationEClass, PCMServiceSpecification.class, "PCMServiceSpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMServiceSpecification_ResourceDemandingSEFF(), theSeffPackage.getResourceDemandingSEFF(), null, "resourceDemandingSEFF", null, 0, 1, PCMServiceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMServiceSpecification_ResourceDemandingSEFF(), theSeffPackage.getResourceDemandingSEFF(), null, "resourceDemandingSEFF", null, 1, 1, PCMServiceSpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pcmreResourceInterfaceEClass, PCMREResourceInterface.class, "PCMREResourceInterface", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMREResourceInterface_ResourceInterface(), theResourcetypePackage.getResourceInterface(), null, "resourceInterface", null, 1, 1, PCMREResourceInterface.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

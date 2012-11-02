@@ -104,20 +104,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private EClass infrastructureOperationReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	private EClass businessOperationReferenceEClass = null;
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	private EClass parameterReferenceEClass = null;
 
 	/**
@@ -219,6 +205,15 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EReference getParameterPartition_ParameterReference() {
+		return (EReference)parameterPartitionEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getParameterValue() {
 		return parameterValueEClass;
 	}
@@ -230,6 +225,15 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 */
 	public EReference getParameterValue_ParameterInstance() {
 		return (EReference)parameterValueEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterValue_ParameterValueDeviation() {
+		return (EReference)parameterValueEClass.getEStructuralFeatures().get(1);
 	}
 
 	/**
@@ -399,24 +403,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EClass getInfrastructureOperationReference() {
-		return infrastructureOperationReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public EClass getBusinessOperationReference() {
-		return businessOperationReferenceEClass;
-	}
-
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
 	public EClass getParameterReference() {
 		return parameterReferenceEClass;
 	}
@@ -426,7 +412,7 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterReference_ParameterInstance() {
+	public EReference getParameterReference_ParameterPartition() {
 		return (EReference)parameterReferenceEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -435,8 +421,17 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getParameterReference_CallParameterDeviation() {
+	public EReference getParameterReference_ParameterInstance() {
 		return (EReference)parameterReferenceEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getParameterReference_ParameterValueDeviation() {
+		return (EReference)parameterReferenceEClass.getEStructuralFeatures().get(2);
 	}
 
 	/**
@@ -469,9 +464,11 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		// Create classes and their features
 		parameterPartitionEClass = createEClass(PARAMETER_PARTITION);
 		createEReference(parameterPartitionEClass, PARAMETER_PARTITION__QUALITY_ANNOTATION);
+		createEReference(parameterPartitionEClass, PARAMETER_PARTITION__PARAMETER_REFERENCE);
 
 		parameterValueEClass = createEClass(PARAMETER_VALUE);
 		createEReference(parameterValueEClass, PARAMETER_VALUE__PARAMETER_INSTANCE);
+		createEReference(parameterValueEClass, PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION);
 
 		parameterInstanceEClass = createEClass(PARAMETER_INSTANCE);
 		createEReference(parameterInstanceEClass, PARAMETER_INSTANCE__PARAMETER_REFERENCE);
@@ -496,13 +493,10 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		componentReferenceEClass = createEClass(COMPONENT_REFERENCE);
 		createEReference(componentReferenceEClass, COMPONENT_REFERENCE__COMPONENT_INSTANCE);
 
-		infrastructureOperationReferenceEClass = createEClass(INFRASTRUCTURE_OPERATION_REFERENCE);
-
-		businessOperationReferenceEClass = createEClass(BUSINESS_OPERATION_REFERENCE);
-
 		parameterReferenceEClass = createEClass(PARAMETER_REFERENCE);
+		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER_PARTITION);
 		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER_INSTANCE);
-		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__CALL_PARAMETER_DEVIATION);
+		createEReference(parameterReferenceEClass, PARAMETER_REFERENCE__PARAMETER_VALUE_DEVIATION);
 	}
 
 	/**
@@ -548,16 +542,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		operationReferenceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		componentInstanceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 		componentReferenceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
-		infrastructureOperationReferenceEClass.getESuperTypes().add(this.getOperationReference());
-		businessOperationReferenceEClass.getESuperTypes().add(this.getOperationReference());
 		parameterReferenceEClass.getESuperTypes().add(theIdentifierPackage.getIdentifier());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(parameterPartitionEClass, ParameterPartition.class, "ParameterPartition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterPartition_QualityAnnotation(), theQualityAnnotationPackage.getQualityAnnotation(), theQualityAnnotationPackage.getQualityAnnotation_ValidForParameterPartitions(), "qualityAnnotation", null, 1, 1, ParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterPartition_ParameterReference(), this.getParameterReference(), this.getParameterReference_ParameterPartition(), "parameterReference", null, 1, 1, ParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parameterValueEClass, ParameterValue.class, "ParameterValue", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterValue_ParameterInstance(), this.getParameterInstance(), this.getParameterInstance_ParameterValue(), "parameterInstance", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterValue_ParameterValueDeviation(), theQualityAnnotationPackage.getParameterValueDeviation(), theQualityAnnotationPackage.getParameterValueDeviation_ParameterValue(), "parameterValueDeviation", null, 0, 1, ParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(parameterInstanceEClass, ParameterInstance.class, "ParameterInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getParameterInstance_ParameterReference(), this.getParameterReference(), this.getParameterReference_ParameterInstance(), "parameterReference", null, 0, 1, ParameterInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -576,19 +570,16 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 		initEReference(getOperationReference_CallInstance(), this.getCallInstance(), this.getCallInstance_OperationReference(), "callInstance", null, 0, 1, OperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(componentInstanceEClass, ComponentInstance.class, "ComponentInstance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getComponentInstance_ComponentReference(), this.getComponentReference(), this.getComponentReference_ComponentInstance(), "componentReference", null, 0, -1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getComponentInstance_ComponentReference(), this.getComponentReference(), this.getComponentReference_ComponentInstance(), "componentReference", null, 1, 1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getComponentInstance_ParameterInstances(), this.getParameterInstance(), this.getParameterInstance_ComponentInstance(), "parameterInstances", null, 0, -1, ComponentInstance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(componentReferenceEClass, ComponentReference.class, "ComponentReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getComponentReference_ComponentInstance(), this.getComponentInstance(), this.getComponentInstance_ComponentReference(), "componentInstance", null, 0, 1, ComponentReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
-		initEClass(infrastructureOperationReferenceEClass, InfrastructureOperationReference.class, "InfrastructureOperationReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
-		initEClass(businessOperationReferenceEClass, BusinessOperationReference.class, "BusinessOperationReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-
 		initEClass(parameterReferenceEClass, ParameterReference.class, "ParameterReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getParameterReference_ParameterPartition(), this.getParameterPartition(), this.getParameterPartition_ParameterReference(), "parameterPartition", null, 0, 1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getParameterReference_ParameterInstance(), this.getParameterInstance(), this.getParameterInstance_ParameterReference(), "parameterInstance", null, 0, 1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getParameterReference_CallParameterDeviation(), theQualityAnnotationPackage.getCallParameterDeviation(), theQualityAnnotationPackage.getCallParameterDeviation_ParameterReference(), "callParameterDeviation", null, 0, 1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getParameterReference_ParameterValueDeviation(), theQualityAnnotationPackage.getParameterValueDeviation(), theQualityAnnotationPackage.getParameterValueDeviation_ParameterReference(), "parameterValueDeviation", null, 0, 1, ParameterReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 	}
 
 } //ParametersPackageImpl

@@ -40,7 +40,7 @@ public interface PCMParameterValue extends ParameterValue {
 	 * <!-- end-user-doc -->
 	 * @return the value of the '<em>Variable Characterisation</em>' containment reference list.
 	 * @see de.fzi.se.quality.parameters.pcm.PCMPackage#getPCMParameterValue_VariableCharacterisation()
-	 * @model containment="true" ordered="false"
+	 * @model containment="true" required="true" ordered="false"
 	 * @generated
 	 */
 	EList<VariableCharacterisation> getVariableCharacterisation();

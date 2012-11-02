@@ -138,22 +138,6 @@ public class ParametersSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case ParametersPackage.INFRASTRUCTURE_OPERATION_REFERENCE: {
-				InfrastructureOperationReference infrastructureOperationReference = (InfrastructureOperationReference)theEObject;
-				T result = caseInfrastructureOperationReference(infrastructureOperationReference);
-				if (result == null) result = caseOperationReference(infrastructureOperationReference);
-				if (result == null) result = caseIdentifier(infrastructureOperationReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case ParametersPackage.BUSINESS_OPERATION_REFERENCE: {
-				BusinessOperationReference businessOperationReference = (BusinessOperationReference)theEObject;
-				T result = caseBusinessOperationReference(businessOperationReference);
-				if (result == null) result = caseOperationReference(businessOperationReference);
-				if (result == null) result = caseIdentifier(businessOperationReference);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
 			case ParametersPackage.PARAMETER_REFERENCE: {
 				ParameterReference parameterReference = (ParameterReference)theEObject;
 				T result = caseParameterReference(parameterReference);
@@ -267,36 +251,6 @@ public class ParametersSwitch<T> {
 	 * @generated
 	 */
 	public T caseComponentReference(ComponentReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Infrastructure Operation Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Infrastructure Operation Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseInfrastructureOperationReference(InfrastructureOperationReference object) {
-		return null;
-	}
-
-	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Business Operation Reference</em>'.
-	 * <!-- begin-user-doc -->
-	 * This implementation returns null;
-	 * returning a non-null result will terminate the switch.
-	 * <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Business Operation Reference</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
-	public T caseBusinessOperationReference(BusinessOperationReference object) {
 		return null;
 	}
 

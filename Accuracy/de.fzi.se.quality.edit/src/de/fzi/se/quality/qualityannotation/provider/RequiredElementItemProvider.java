@@ -162,11 +162,6 @@ public class RequiredElementItemProvider
 		newChildDescriptors.add
 			(createChildParameter
 				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
-				 QualityAnnotationFactory.eINSTANCE.createRequiredElement()));
-
-		newChildDescriptors.add
-			(createChildParameter
-				(QualityAnnotationPackage.Literals.REQUIRED_ELEMENT__CHILD_RES,
 				 QualityAnnotationFactory.eINSTANCE.createPCMRECategory()));
 
 		newChildDescriptors.add

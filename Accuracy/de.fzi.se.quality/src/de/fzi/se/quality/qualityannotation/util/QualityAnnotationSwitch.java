@@ -93,9 +93,9 @@ public class QualityAnnotationSwitch<T> {
 	 */
 	protected T doSwitch(int classifierID, EObject theEObject) {
 		switch (classifierID) {
-			case QualityAnnotationPackage.CALL_PARAMETER_DEVIATION: {
-				CallParameterDeviation callParameterDeviation = (CallParameterDeviation)theEObject;
-				T result = caseCallParameterDeviation(callParameterDeviation);
+			case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION: {
+				ParameterValueDeviation parameterValueDeviation = (ParameterValueDeviation)theEObject;
+				T result = caseParameterValueDeviation(parameterValueDeviation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -121,9 +121,9 @@ public class QualityAnnotationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case QualityAnnotationPackage.NUMBER_OF_CALLS_DEVIATION: {
-				NumberOfCallsDeviation numberOfCallsDeviation = (NumberOfCallsDeviation)theEObject;
-				T result = caseNumberOfCallsDeviation(numberOfCallsDeviation);
+			case QualityAnnotationPackage.REQUIRED_ELEMENT_DEVIATION: {
+				RequiredElementDeviation requiredElementDeviation = (RequiredElementDeviation)theEObject;
+				T result = caseRequiredElementDeviation(requiredElementDeviation);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -134,6 +134,13 @@ public class QualityAnnotationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QualityAnnotationPackage.PRECISION: {
+				Precision precision = (Precision)theEObject;
+				T result = casePrecision(precision);
+				if (result == null) result = caseIdentifier(precision);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QualityAnnotationPackage.RE_PRECISION: {
 				REPrecision rePrecision = (REPrecision)theEObject;
 				T result = caseREPrecision(rePrecision);
@@ -141,10 +148,10 @@ public class QualityAnnotationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
-			case QualityAnnotationPackage.PRECISION: {
-				Precision precision = (Precision)theEObject;
-				T result = casePrecision(precision);
-				if (result == null) result = caseIdentifier(precision);
+			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION: {
+				CharacterisedPCMParameterPartition characterisedPCMParameterPartition = (CharacterisedPCMParameterPartition)theEObject;
+				T result = caseCharacterisedPCMParameterPartition(characterisedPCMParameterPartition);
+				if (result == null) result = caseIdentifier(characterisedPCMParameterPartition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -153,13 +160,6 @@ public class QualityAnnotationSwitch<T> {
 				T result = casePCMParameterPartition(pcmParameterPartition);
 				if (result == null) result = caseParameterPartition(pcmParameterPartition);
 				if (result == null) result = caseIdentifier(pcmParameterPartition);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION: {
-				CharacterisedPCMParameterPartition characterisedPCMParameterPartition = (CharacterisedPCMParameterPartition)theEObject;
-				T result = caseCharacterisedPCMParameterPartition(characterisedPCMParameterPartition);
-				if (result == null) result = caseIdentifier(characterisedPCMParameterPartition);
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
@@ -332,17 +332,17 @@ public class QualityAnnotationSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Call Parameter Deviation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Parameter Value Deviation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Call Parameter Deviation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Parameter Value Deviation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseCallParameterDeviation(CallParameterDeviation object) {
+	public T caseParameterValueDeviation(ParameterValueDeviation object) {
 		return null;
 	}
 
@@ -392,17 +392,17 @@ public class QualityAnnotationSwitch<T> {
 	}
 
 	/**
-	 * Returns the result of interpreting the object as an instance of '<em>Number Of Calls Deviation</em>'.
+	 * Returns the result of interpreting the object as an instance of '<em>Required Element Deviation</em>'.
 	 * <!-- begin-user-doc -->
 	 * This implementation returns null;
 	 * returning a non-null result will terminate the switch.
 	 * <!-- end-user-doc -->
 	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Number Of Calls Deviation</em>'.
+	 * @return the result of interpreting the object as an instance of '<em>Required Element Deviation</em>'.
 	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
 	 * @generated
 	 */
-	public T caseNumberOfCallsDeviation(NumberOfCallsDeviation object) {
+	public T caseRequiredElementDeviation(RequiredElementDeviation object) {
 		return null;
 	}
 
