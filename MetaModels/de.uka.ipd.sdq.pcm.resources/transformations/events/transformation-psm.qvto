@@ -1006,6 +1006,34 @@ query Finder_findAllEventChannelAllocations(in allocationModel : PCM_ALLOC) : Se
 
 
 /**
+ * Collect all AssemblyContexts deployed in an allocation model.
+ *
+ * @param allocationModel The allocation model to scan.
+ * @return The set of identified AllocationContexts refering to an AssemblyContext.
+ */
+query Finder_findAllAssemblyAllocations(in allocationModel : PCM_ALLOC) : Set(AllocationContext){
+
+	// init the source set
+	var assemblyAllocContexts : Set(AllocationContext) = Set{};
+	
+	// iterate over all allocations and assemblies to collect the event channels
+	allocationModel.objects()[Allocation]->forEach(allocation){
+		allocation.allocationContexts_Allocation->forEach(allocContext){
+			allocContext.assemblyContext_AllocationContext->forEach(assembly){
+				if(assemblyAllocContexts->select(s|s.id = allocContext.id)->size() = 0)
+				then {
+					assemblyAllocContexts += allocContext.oclAsType(AllocationContext);
+				} endif;
+			};
+		};
+	};
+		
+	// return the channel allocation context set
+	return assemblyAllocContexts;
+}
+
+
+/**
  * Collect all SourceRoles of the components deployed in an allocation model.
  *
  * @param allocationModel The allocation model to scan.
@@ -1195,6 +1223,7 @@ query Finder_findAllocation(in assemblyContext : AssemblyContext, in allocationM
 	
 	allocation := allocationModel.objects()[Allocation]
 						->select(a | a.allocationContexts_Allocation
+									->select(ac | ac.assemblyContext_AllocationContext!=null)
 									->select(ac | ac.assemblyContext_AllocationContext.id = assemblyContext.id)->size() > 0)
 						->any(true);
 	return allocation;
@@ -1208,12 +1237,13 @@ query Finder_findAllocation(in assemblyContext : AssemblyContext, in allocationM
  * @return The associated ressource container
  */
 query Finder_findResourceContainer(in assemblyContext : AssemblyContext, in allocationModel : PCM_ALLOC) : ResourceContainer {
-	
+	log("Start looking for AllocContext of an AssemblyContext: "+assemblyContext.entityName);
 	var container : ResourceContainer = null;
 	
-	var allocContext : AllocationContext = allocationModel.objects()[Allocation].allocationContexts_Allocation
-						->select(ac | ac.assemblyContext_AllocationContext.id = assemblyContext.id)
+	
+	var allocContext : AllocationContext =Finder_findAllAssemblyAllocations(allocationModel)->select(ac | ac.assemblyContext_AllocationContext.id = assemblyContext.id)
 						->any(true);
+	log("found AllocContext"+allocContext.entityName+"referencing Container: "+ allocContext.resourceContainer_AllocationContext.entityName);
 	container := allocContext.resourceContainer_AllocationContext;
 	
 	return container;
@@ -1227,12 +1257,12 @@ query Finder_findResourceContainer(in assemblyContext : AssemblyContext, in allo
  * @return The associated ressource container
  */
 query Finder_findResourceContainer(in eventChannel : EventChannel, in allocationModel : PCM_ALLOC) : ResourceContainer {
-	
+	log("Start looking fpr EventChannel Allo0cation");
 	var container : ResourceContainer = null;
 	
-	var allocContext : AllocationContext = allocationModel.objects()[Allocation].allocationContexts_Allocation
-						->select(ac | ac.eventChannel__AllocationContext.id = eventChannel.id)
+	var allocContext : AllocationContext = Finder_findAllEventChannelAllocations(allocationModel)->select(ac | ac.eventChannel__AllocationContext.id = eventChannel.id)
 						->any(true);
+	log("found AllocContext"+allocContext.entityName+"referencing Container: "+ allocContext.resourceContainer_AllocationContext.entityName);
 	container := allocContext.resourceContainer_AllocationContext;
 	
 	return container;
