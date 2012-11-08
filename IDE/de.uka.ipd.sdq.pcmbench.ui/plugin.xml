@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.perspectives.PalladioPerspective"
+            icon="icons/palladio-icon.ico"
+            id="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
+            name="Palladio">
+      </perspective>
+   </extension>
+
+</plugin>

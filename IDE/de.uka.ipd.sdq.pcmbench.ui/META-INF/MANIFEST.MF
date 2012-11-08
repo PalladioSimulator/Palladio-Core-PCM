@@ -1,11 +1,13 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
-Bundle-Name: Ui Plug-in
-Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.ui
+Bundle-Name: Palladio UI
+Bundle-SymbolicName: de.uka.ipd.sdq.pcmbench.ui; singleton:=true
 Bundle-Version: 2.0.0.qualifier
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.ui.PCMBenchUIPlugin
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
+ org.eclipse.ui.console;bundle-version="3.5.100",
+ org.eclipse.debug.ui;bundle-version="3.8.1",
  org.eclipse.core.runtime,
  org.eclipse.emf.edit,
  org.eclipse.emf,
