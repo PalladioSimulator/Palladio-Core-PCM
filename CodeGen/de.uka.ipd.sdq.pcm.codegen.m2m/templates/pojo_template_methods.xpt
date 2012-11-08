@@ -125,7 +125,11 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::java_core::ReturnTypeTM FOR OperationSignature»
-	«EXPAND m2t_transforms::pojo::java_core::Type FOR this.returnType__OperationSignature»
+	«IF this.returnType__OperationSignature != null»
+		«EXPAND m2t_transforms::pojo::java_core::Type FOR this.returnType__OperationSignature»
+	«ELSE»
+		void
+	«ENDIF»
 «ENDAROUND»
 
 «AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR OperationSignature»
@@ -213,6 +217,13 @@
 
 «AROUND m2t_transforms::seff::Action FOR ReleaseAction»
 «ENDAROUND»
+
+«AROUND m2t_transforms::seff_body::Action FOR ExternalCallAction»
+	«EXPAND m2t_transforms::calls::Call(this,
+       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
+    	this.inputVariableUsages__CallAction, this.returnVariableUsage__CallReturnAction) FOR this.calledService_ExternalService»
+«ENDAROUND»
+
 // ----------------------------
 // End of Actions Dispatcher 
 // ----------------------------
@@ -245,6 +256,7 @@
 «ENDAROUND»
 
 «AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
+	«EXPAND m2t_transforms::pojo::usage::UsageScenario(a) FOR this»
 «ENDAROUND»
 
 «AROUND m2t_transforms::user_actions::UserAction FOR Loop»
@@ -260,17 +272,14 @@
 //----------------------------
 // Repository
 //----------------------------
-«REM»
-«AROUND m2t_transforms::repository::InterfaceHeader FOR OperationInterface»
-   package «this.repository__Interface.basePackageName()»;
-           
-   public interface «this.javaName()» extends java.rmi.Remote
-«ENDAROUND»
 
-«AROUND m2t_transforms::java_core::OperationSignature FOR Entity»
+«AROUND m2t_transforms::java_core::OperationSignature FOR OperationSignature»
 	«targetDef.proceed()» throws java.rmi.RemoteException
 «ENDAROUND»
-«ENDREM»
+
+«AROUND m2t_transforms::repository::InterfaceHeader FOR OperationInterface»
+   «targetDef.proceed()» extends java.rmi.Remote
+«ENDAROUND»
 
 «AROUND m2t_transforms::java_core::SuperClassesTM FOR RepositoryComponent»
 	«REM»extends java.rmi.server.UnicastRemoteObject«ENDREM»

@@ -14,7 +14,7 @@
 «DEFINE ComposedStructureStart FOR ComposedProvidingRequiringEntity»
 	package «this.implementationPackage()»;
   
-	public class «this.className()»«REM» extends java.rmi.server.UnicastRemoteObject«ENDREM» implements «this.fqnInterface()», java.io.Serializable  
+	public class «this.className()» implements «this.fqnInterface()», java.io.Serializable  
 	{
 		private static final long serialVersionUID = 1L;
 

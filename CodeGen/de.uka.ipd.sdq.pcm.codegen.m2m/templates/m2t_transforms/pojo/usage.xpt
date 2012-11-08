@@ -23,76 +23,33 @@
 	«ERROR "OAW GENERATION ERROR [m2t_transforms/pojo/usage.xpt]: This should never get called!"»
 «ENDDEFINE»
 
-«DEFINE WorkloadDriver(UsageScenario u) FOR OpenWorkload»
-«REM»temporarely removed (2012-01-24, Thomas)
-	new Thread(new java.lang.Runnable(){
-		public void run() {
-			while (true) {
-				«u.fqn()» us = new «u.fqn()»();
-				new Thread(us).run();
-                try {
-                	// TODO: Wait for specified model time
-					Thread.sleep(200);
-				} catch (InterruptedException e) {
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-			}
-		}).start();
-	}
-«ENDREM»
-«ENDDEFINE»
-
-«DEFINE WorkloadDriver(UsageScenario u) FOR ClosedWorkload»
-«REM»temporarely removed (2012-01-24, Thomas)
-	java.util.ArrayList<Thread> threads = new java.util.ArrayList<Thread>();
-	for (int i = 0; i < «this.population»; i++) {
-		threads.add(new Thread(new java.lang.Runnable(){
-			«u.fqn()» us = new «u.fqn()»();
-			public void run() {
-				while (true) {
-					us.run();
-                    try {
-                    	// TODO: Wait for think time of the model instance
-						Thread.sleep(200);
-					} catch (InterruptedException e) {
-						// TODO Auto-generated catch block
-						e.printStackTrace();
-					}
-				}
-			}
-		}));
-	}
-    for (java.util.Iterator<Thread> it = threads.iterator(); it.hasNext(); )
-        it.next().start();
-«ENDREM»
-«ENDDEFINE»
 
 «DEFINE UsageScenario(Allocation a) FOR UsageScenario»
-«REM»Reuse this transformation to create test cases
 	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + ".java"»
 		package «this.implementationPackage()»;
-		public class «this.javaName()» implements java.lang.Runnable
+		public class «this.javaName()»
 		{
 			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
-			«EXPAND UsageScenarioConstructor(a) FOR this»
 			
-			«EXPAND ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
+			public «this.javaName()»() {
+				«EXPAND m2t_transforms::prototype::usage::CreateSystemVar FOREACH this.querySystemCalls().getSystemsFromCalls()»
 			
-			public void run() {
-				scenarioRunner();
+	            «EXPAND m2t_transforms::prototype::usage::ContextInit FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
 			}
+			
+			
+			«REM» Unused for code stubs. Calls to the system need to be added manually.
+			«EXPAND ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
+			«ENDREM»
 		}
 	«ENDFILE»
-«ENDREM»
 «ENDDEFINE» 
 
 «DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
 public «this.javaName()»() {
-	«EXPAND m2t_transforms::usage::UsageScenarioConstructorContextInit(a) FOR this»
 }
 «ENDDEFINE»
-
+ 
 «DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
 	@org.junit.Test public void scenarioRunner() {
 	«PROTECT CSTART '/*' CEND '*/' ID this.id»

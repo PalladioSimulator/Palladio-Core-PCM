@@ -117,6 +117,10 @@ public abstract class «this.javaName()»
 	«this.repository__DataType.basePackageName()».model.«this.entityName»
 «ENDDEFINE»
 
+«DEFINE Type FOR CollectionDataType»
+	Collection<«EXPAND Type FOR this.innerType_CollectionDataType»>
+«ENDDEFINE»
+
 «DEFINE ParameterList FOR Signature»
 «ENDDEFINE»
 
@@ -135,11 +139,37 @@ public abstract class «this.javaName()»
 	«ENDFOREACH»
 «ENDDEFINE»
 
+
 «DEFINE MainImplementation FOR BasicComponent»
-	public static void main(String[] args) {
+	public static void main(String... args) {
+		logger.info("Main method of basic component «this.entityName» called");
+
 		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
-		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
 		
-		new «this.repository__RepositoryComponent.basePackageName()».impl.custom.«this.entityName»("");
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
+		
+		new «this.repository__RepositoryComponent.basePackageName()».impl.custom.«this.entityName»(assemblyContext);
 	}
 «ENDDEFINE»
+
+«REM»
+«DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
+	public static void main(String... args) {
+		logger.info("Main method of composed structure «this.entityName» called");
+
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
+		
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
+		
+		new «this.fqn()»(assemblyContext);
+	}
+«ENDDEFINE»
+«ENDREM»

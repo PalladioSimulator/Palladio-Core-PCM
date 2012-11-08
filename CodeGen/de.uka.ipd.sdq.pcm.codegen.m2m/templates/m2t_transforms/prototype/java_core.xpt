@@ -151,7 +151,7 @@ Haupt-Interfaces müssen Remote erweitern + RemoteExceptions an die Methoden
 
 «DEFINE ComponentImplementationInterface FOR ComposedProvidingRequiringEntity»
 	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
-		«EXPAND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR this» extends java.io.Serializable
+		«EXPAND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR this» extends java.io.Serializable, java.rmi.Remote
 		{
 	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole)»
 	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole)»
