@@ -44,8 +44,8 @@ public class PCMWorkflowConfigurationBuilder extends
 		config.setStoragePluginID(getStringAttribute(ConstantsContainer.TEMPORARY_DATA_LOCATION));
 		config.setDeleteTemporaryDataAfterAnalysis(getBooleanAttribute(ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS));
 		// accuracy analysis
-		config.setAccuracyInfluenceAnalysisEnabled(getBooleanAttribute(ConstantsContainer.ANALYSE_ACCURACY));
-		config.setAccuracyInformationModelFile(getStringAttribute(ConstantsContainer.ACCURACY_QUALITY_ANNOTATION_FILE));
+		config.setAccuracyInfluenceAnalysisEnabled(ConstantsContainer.DEFAULT_ANALYSE_ACCURACY);
+		config.setAccuracyInformationModelFile(ConstantsContainer.DEFAULT_ACCURACY_QUALITY_ANNOTATION_FILE);
 	}
 
 	/** Read the PCM model filenames from this builder's launch configuration
@@ -60,8 +60,8 @@ public class PCMWorkflowConfigurationBuilder extends
 		tempList.add(getStringAttribute(ConstantsContainer.ALLOCATION_FILE));
 		config.setAllocationFiles(tempList);
 		config.setUsageModelFile   ( getStringAttribute(ConstantsContainer.USAGE_FILE) );
-		config.setMiddlewareFile   ( getStringAttribute(ConstantsContainer.MWREPOSITORY_FILE) );
-		config.setEventMiddlewareFile   ( getStringAttribute(ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE) );
+		config.setMiddlewareFile   (ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE);
+		config.setEventMiddlewareFile   (ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE);
 
 	}
 }
