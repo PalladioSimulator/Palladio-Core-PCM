@@ -56,14 +56,14 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		// load the middleware completion
 		if(logger.isEnabledFor(Level.INFO))
 			logger.info("Loading middleware completion models");
-//		middlewarePartition.loadModel(configuration.getMiddlewareFile());
-//		middlewarePartition.resolveAllProxies();
+		middlewarePartition.loadModel(configuration.getMiddlewareFile());
+		middlewarePartition.resolveAllProxies();
 
 		// load the event middleware repository
 		if(logger.isEnabledFor(Level.INFO))
 			logger.info("Loading event middleware models");
-//		eventMiddlewarePartition.loadModel(configuration.getEventMiddlewareFile());
-//		eventMiddlewarePartition.resolveAllProxies();
+		eventMiddlewarePartition.loadModel(configuration.getEventMiddlewareFile());
+		eventMiddlewarePartition.resolveAllProxies();
 	}
 
 	@Override
