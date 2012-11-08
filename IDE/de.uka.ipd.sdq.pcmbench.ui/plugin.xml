@@ -3,7 +3,7 @@
 <plugin>
 <extension point="org.eclipse.ui.perspectives">
       <perspective
-            class="de.uka.ipd.sdq.pcmbench.perspectives.PalladioPerspective"
+            class="de.uka.ipd.sdq.pcmbench.ui.perspectives.PalladioPerspective"
             icon="icons/palladio-icon.ico"
             id="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
             name="Palladio">
