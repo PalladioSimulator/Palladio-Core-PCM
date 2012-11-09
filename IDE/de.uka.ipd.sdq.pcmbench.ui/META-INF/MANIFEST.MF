@@ -7,14 +7,14 @@ Bundle-Activator: de.uka.ipd.sdq.pcmbench.ui.PCMBenchUIPlugin
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.console;bundle-version="3.5.100",
- org.eclipse.debug.ui;bundle-version="3.8.1",
+ org.eclipse.debug.ui,
  org.eclipse.core.runtime,
  org.eclipse.emf.edit,
  org.eclipse.emf,
  de.uka.ipd.sdq.pcm,
  org.eclipse.emf.edit.ui,
  org.eclipse.ui.forms;bundle-version="3.5.200",
- org.eclipse.ui.ide;bundle-version="3.8.1"
+ org.eclipse.ui.ide
 Export-Package: de.uka.ipd.sdq.pcmbench.ui,
  de.uka.ipd.sdq.pcmbench.ui.provider,
  de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware
