@@ -20,6 +20,7 @@
   <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.emf\.mwe\..*" />
   <rm:locator searchPathRef="xtext" failOnError="false" pattern="^org\.eclipse\.emf\.mwe2\..*" />
   <rm:locator searchPathRef="xpand" failOnError="false" pattern="^org\.eclipse\.xpand" />
+  <rm:locator searchPathRef="juno" failOnError="false"/>
   <rm:locator searchPathRef="orbit" failOnError="false" />
     
   <rm:searchPath name="SDQ_Commons">
@@ -92,6 +93,13 @@
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
       <rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/"/>
+    </rm:provider>
+  </rm:searchPath>
+  <rm:searchPath name="juno">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="http://download.eclipse.org/releases/juno/"/>
     </rm:provider>
   </rm:searchPath>
    <rm:searchPath name="localresources">
