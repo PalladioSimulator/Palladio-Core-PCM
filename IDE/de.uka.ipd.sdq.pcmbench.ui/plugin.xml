@@ -9,5 +9,50 @@
             name="Palladio">
       </perspective>
    </extension>
+   <extension-point id="de.uka.ipd.sdq.pcmbench.ui.wizard.template" name="Palladio Model Template" schema="schema/de.uka.ipd.sdq.pcmbench.wizard.template.exsd"/>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+            class="de.uka.ipd.sdq.pcmbench.wizard.pcm.NewPalladioProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
+            hasPages="true"
+            icon="icons/palladio-icon.ico"
+            id="de.uka.ipd.sdq.pcmbench.wizard.pcm.NewPCMWizard"
+            name="New Palladio Project"
+            project="true">
+         <description>
+            Create a new Palladio project and optionally select from a list of template models.
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.pcmbench.ui.wizard.template">
+      <model_template
+            description="Creates a Pallaido project containing a minimum example project."
+            name="Minimum Example Template">
+         <model_file
+               target_file="default.allocation"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/default.allocation">
+         </model_file>
+         <model_file
+               target_file="default.repository"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/default.repository">
+         </model_file>
+         <model_file
+               target_file="default.system"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/default.system">
+         </model_file>
+         <model_file
+               target_file="default.usagemodel"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/default.usagemodel">
+         </model_file>
+         <model_file
+               target_file="My.resourceenvironment"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/My.resourceenvironment">
+         </model_file>
+      </model_template>
+   </extension>
 
 </plugin>
