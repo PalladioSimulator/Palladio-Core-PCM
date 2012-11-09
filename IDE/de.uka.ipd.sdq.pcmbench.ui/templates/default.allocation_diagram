@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:resourceenvironment="http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0 http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//allocation http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0 http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//resourceenvironment" xmi:id="_VzuUoCpXEeKNWc2UWjbmuw" type="allocation" measurementUnit="Pixel">
+  <children xmi:type="notation:Node" xmi:id="_V2_rECpXEeKNWc2UWjbmuw" type="2002">
+    <children xmi:type="notation:Node" xmi:id="_V2_rEypXEeKNWc2UWjbmuw" type="5003"/>
+    <children xmi:type="notation:Node" xmi:id="_V3JcECpXEeKNWc2UWjbmuw" type="7002">
+      <children xmi:type="notation:Node" xmi:id="_XUTWkCpXEeKNWc2UWjbmuw" type="3001">
+        <children xmi:type="notation:Node" xmi:id="_XUdHkCpXEeKNWc2UWjbmuw" type="5001"/>
+        <children xmi:type="notation:Node" xmi:id="_XUdHkSpXEeKNWc2UWjbmuw" type="5005"/>
+        <styles xmi:type="notation:ShapeStyle" xmi:id="_XUTWkSpXEeKNWc2UWjbmuw" fontName="Segoe UI"/>
+        <element xmi:type="allocation:AllocationContext" href="default.allocation#_W_5z4CpXEeKNWc2UWjbmuw"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_XUTWkipXEeKNWc2UWjbmuw" x="30" y="28"/>
+      </children>
+      <styles xmi:type="notation:SortingStyle" xmi:id="_V3JcESpXEeKNWc2UWjbmuw"/>
+      <styles xmi:type="notation:FilteringStyle" xmi:id="_V3JcEipXEeKNWc2UWjbmuw"/>
+    </children>
+    <styles xmi:type="notation:ShapeStyle" xmi:id="_V2_rESpXEeKNWc2UWjbmuw" fontName="Segoe UI"/>
+    <element xmi:type="resourceenvironment:ResourceContainer" href="My.resourceenvironment#_GAeeUCpXEeKNWc2UWjbmuw"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_V2_rEipXEeKNWc2UWjbmuw" x="30" y="30" width="496" height="156"/>
+  </children>
+  <styles xmi:type="notation:DiagramStyle" xmi:id="_VzuUoSpXEeKNWc2UWjbmuw"/>
+  <element xmi:type="allocation:Allocation" href="default.allocation#_JiPBICHdEd6lJo4DCALHMw"/>
+</notation:Diagram>
