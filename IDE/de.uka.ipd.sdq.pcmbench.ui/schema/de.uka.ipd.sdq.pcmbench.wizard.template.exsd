@@ -48,6 +48,11 @@
    </element>
 
    <element name="model_template">
+      <annotation>
+         <documentation>
+            A palladio model template. This defines some information about the template itself as well as the files the model consists of.
+         </documentation>
+      </annotation>
       <complexType>
          <sequence minOccurs="1" maxOccurs="unbounded">
             <element ref="model_file"/>
@@ -70,6 +75,11 @@
    </element>
 
    <element name="model_file">
+      <annotation>
+         <documentation>
+            A single file which is part of the model to be initialized and placed in the new project.
+         </documentation>
+      </annotation>
       <complexType>
          <attribute name="template_uri" type="string" use="required">
             <annotation>
