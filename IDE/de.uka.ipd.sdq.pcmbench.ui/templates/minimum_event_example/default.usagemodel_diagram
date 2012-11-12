@@ -23,7 +23,7 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_vxmhldyoEeGwrZa-N3RJDQ"/>
             </children>
             <element xmi:type="usagemodel:EntryLevelSystemCall" href="default.usagemodel#_tmf78NyoEeGwrZa-N3RJDQ"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vxmhkdyoEeGwrZa-N3RJDQ" x="17" y="97"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vxmhkdyoEeGwrZa-N3RJDQ" x="71" y="98"/>
           </children>
         </children>
         <element xmi:type="usagemodel:ScenarioBehaviour" href="default.usagemodel#_q6g20dyoEeGwrZa-N3RJDQ"/>
