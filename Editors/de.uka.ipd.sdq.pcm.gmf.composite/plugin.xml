@@ -280,12 +280,12 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <viewProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="CompositeModel"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2002,3006,3007,3008,3013,3014,3015,3016,3011,3012,3017"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4010,4009,4004,4007,4005,4006,4008"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints=""/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
       </viewProvider>
    </extension>
 
