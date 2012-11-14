@@ -194,7 +194,7 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getPCMParameterValue_VariableCharacterisation() {
+	public EReference getPCMParameterValue_VariableCharacterisations() {
 		return (EReference)pcmParameterValueEClass.getEStructuralFeatures().get(0);
 	}
 
@@ -373,7 +373,7 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 		pcmParameterReferenceEClass = createEClass(PCM_PARAMETER_REFERENCE);
 
 		pcmParameterValueEClass = createEClass(PCM_PARAMETER_VALUE);
-		createEReference(pcmParameterValueEClass, PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION);
+		createEReference(pcmParameterValueEClass, PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS);
 
 		pcmInfrastructureOperationReferenceEClass = createEClass(PCM_INFRASTRUCTURE_OPERATION_REFERENCE);
 		createEReference(pcmInfrastructureOperationReferenceEClass, PCM_INFRASTRUCTURE_OPERATION_REFERENCE__ROLE);
@@ -444,7 +444,7 @@ public class PCMPackageImpl extends EPackageImpl implements PCMPackage {
 		initEClass(pcmParameterReferenceEClass, PCMParameterReference.class, "PCMParameterReference", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 
 		initEClass(pcmParameterValueEClass, PCMParameterValue.class, "PCMParameterValue", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getPCMParameterValue_VariableCharacterisation(), theParameterPackage.getVariableCharacterisation(), null, "variableCharacterisation", null, 1, -1, PCMParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getPCMParameterValue_VariableCharacterisations(), theParameterPackage.getVariableUsage(), null, "variableCharacterisations", null, 1, -1, PCMParameterValue.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pcmInfrastructureOperationReferenceEClass, PCMInfrastructureOperationReference.class, "PCMInfrastructureOperationReference", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMInfrastructureOperationReference_Role(), theRepositoryPackage.getInfrastructureRequiredRole(), null, "role", null, 1, 1, PCMInfrastructureOperationReference.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

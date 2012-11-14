@@ -383,7 +383,7 @@
         <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="quality.ecore#//parameters/pcm/PCMParameterReference"/>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//parameters/pcm/PCMParameterValue">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
-              createChild="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMParameterValue/variableCharacterisation"/>
+              createChild="true" ecoreFeature="ecore:EReference quality.ecore#//parameters/pcm/PCMParameterValue/variableCharacterisations"/>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//parameters/pcm/PCMInfrastructureOperationReference">
           <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"

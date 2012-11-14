@@ -692,8 +692,8 @@ the referenced SEFF (or not).</body>
         </packagedElement>
         <packagedElement xmi:type="uml:Class" xmi:id="_TyiMIPDSEd-kFeqitXR7Sg" name="PCMParameterValue">
           <generalization xmi:id="_EjPn8PioEd-3z6CDXyLtQw" general="_DdVv0PioEd-3z6CDXyLtQw"/>
-          <ownedAttribute xmi:id="_k3s9UPDSEd-kFeqitXR7Sg" name="variableCharacterisation" visibility="public" aggregation="composite" association="_k3rvMPDSEd-kFeqitXR7Sg">
-            <type xmi:type="uml:Class" href="pcm.uml#_wW070HlpEduf8pXqmhjnpw"/>
+          <ownedAttribute xmi:id="_k3s9UPDSEd-kFeqitXR7Sg" name="variableCharacterisations" visibility="public" aggregation="composite" association="_k3rvMPDSEd-kFeqitXR7Sg">
+            <type xmi:type="uml:Class" href="pcm.uml#_GmAWYOQSEdqeH_WIC9QRew"/>
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_k3uLcPDSEd-kFeqitXR7Sg" value="*"/>
             <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_k3tkYPDSEd-kFeqitXR7Sg" value="1"/>
           </ownedAttribute>

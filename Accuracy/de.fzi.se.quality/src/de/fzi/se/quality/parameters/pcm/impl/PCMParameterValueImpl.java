@@ -11,6 +11,7 @@ import de.fzi.se.quality.parameters.impl.ParameterValueImpl;
 import de.fzi.se.quality.parameters.pcm.PCMPackage;
 import de.fzi.se.quality.parameters.pcm.PCMParameterValue;
 
+import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 
 import java.util.Collection;
@@ -32,7 +33,7 @@ import org.eclipse.emf.ecore.util.InternalEList;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl#getVariableCharacterisation <em>Variable Characterisation</em>}</li>
+ *   <li>{@link de.fzi.se.quality.parameters.pcm.impl.PCMParameterValueImpl#getVariableCharacterisations <em>Variable Characterisations</em>}</li>
  * </ul>
  * </p>
  *
@@ -40,15 +41,14 @@ import org.eclipse.emf.ecore.util.InternalEList;
  */
 public class PCMParameterValueImpl extends ParameterValueImpl implements PCMParameterValue {
 	/**
-	 * The cached value of the '{@link #getVariableCharacterisation() <em>Variable Characterisation</em>}' containment reference list.
+	 * The cached value of the '{@link #getVariableCharacterisations() <em>Variable Characterisations</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getVariableCharacterisation()
+	 * @see #getVariableCharacterisations()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<VariableCharacterisation> variableCharacterisation;
-
+	protected EList<VariableUsage> variableCharacterisations;
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -73,11 +73,11 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<VariableCharacterisation> getVariableCharacterisation() {
-		if (variableCharacterisation == null) {
-			variableCharacterisation = new EObjectContainmentEList<VariableCharacterisation>(VariableCharacterisation.class, this, PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION);
+	public EList<VariableUsage> getVariableCharacterisations() {
+		if (variableCharacterisations == null) {
+			variableCharacterisations = new EObjectContainmentEList<VariableUsage>(VariableUsage.class, this, PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS);
 		}
-		return variableCharacterisation;
+		return variableCharacterisations;
 	}
 
 	/**
@@ -88,8 +88,8 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
-			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION:
-				return ((InternalEList<?>)getVariableCharacterisation()).basicRemove(otherEnd, msgs);
+			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+				return ((InternalEList<?>)getVariableCharacterisations()).basicRemove(otherEnd, msgs);
 		}
 		return super.eInverseRemove(otherEnd, featureID, msgs);
 	}
@@ -102,8 +102,8 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
 		switch (featureID) {
-			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION:
-				return getVariableCharacterisation();
+			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+				return getVariableCharacterisations();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -117,9 +117,9 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 	@Override
 	public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
-			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION:
-				getVariableCharacterisation().clear();
-				getVariableCharacterisation().addAll((Collection<? extends VariableCharacterisation>)newValue);
+			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+				getVariableCharacterisations().clear();
+				getVariableCharacterisations().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -133,8 +133,8 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 	@Override
 	public void eUnset(int featureID) {
 		switch (featureID) {
-			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION:
-				getVariableCharacterisation().clear();
+			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+				getVariableCharacterisations().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -148,8 +148,8 @@ public class PCMParameterValueImpl extends ParameterValueImpl implements PCMPara
 	@Override
 	public boolean eIsSet(int featureID) {
 		switch (featureID) {
-			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION:
-				return variableCharacterisation != null && !variableCharacterisation.isEmpty();
+			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+				return variableCharacterisations != null && !variableCharacterisations.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

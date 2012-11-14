@@ -901,8 +901,8 @@
       <eClassifiers xsi:type="ecore:EClass" name="PCMParameterReference" abstract="true"
           eSuperTypes="#//parameters/ParameterReference"/>
       <eClassifiers xsi:type="ecore:EClass" name="PCMParameterValue" eSuperTypes="#//parameters/ParameterValue">
-        <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisation"
-            ordered="false" lowerBound="1" upperBound="-1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableCharacterisation"
+        <eStructuralFeatures xsi:type="ecore:EReference" name="variableCharacterisations"
+            ordered="false" lowerBound="1" upperBound="-1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//parameter/VariableUsage"
             containment="true"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="PCMInfrastructureOperationReference"

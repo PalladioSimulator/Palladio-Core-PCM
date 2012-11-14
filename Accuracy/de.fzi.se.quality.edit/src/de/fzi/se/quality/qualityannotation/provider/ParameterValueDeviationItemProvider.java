@@ -1,20 +1,14 @@
 /**
- * <copyright>
- * </copyright>
- *
- * $Id$
  */
-package de.fzi.se.quality.parameters.pcm.provider;
+package de.fzi.se.quality.qualityannotation.provider;
 
 
-import de.fzi.se.quality.parameters.pcm.PCMPackage;
-import de.fzi.se.quality.parameters.pcm.PCMParameterValue;
-
-import de.fzi.se.quality.parameters.provider.ParameterValueItemProvider;
+import de.fzi.se.quality.parameters.pcm.PCMFactory;
 
 import de.fzi.se.quality.provider.QualityEditPlugin;
 
-import de.uka.ipd.sdq.pcm.parameter.ParameterFactory;
+import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
+import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 
 import java.util.Collection;
 import java.util.List;
@@ -32,16 +26,17 @@ import org.eclipse.emf.edit.provider.IItemPropertyDescriptor;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.provider.IStructuredItemContentProvider;
 import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
+import org.eclipse.emf.edit.provider.ItemProviderAdapter;
 import org.eclipse.emf.edit.provider.ViewerNotification;
 
 /**
- * This is the item provider adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMParameterValue} object.
+ * This is the item provider adapter for a {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation} object.
  * <!-- begin-user-doc -->
  * <!-- end-user-doc -->
  * @generated
  */
-public class PCMParameterValueItemProvider
-	extends ParameterValueItemProvider
+public class ParameterValueDeviationItemProvider
+	extends ItemProviderAdapter
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,
@@ -54,7 +49,7 @@ public class PCMParameterValueItemProvider
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public PCMParameterValueItemProvider(AdapterFactory adapterFactory) {
+	public ParameterValueDeviationItemProvider(AdapterFactory adapterFactory) {
 		super(adapterFactory);
 	}
 
@@ -85,7 +80,8 @@ public class PCMParameterValueItemProvider
 	public Collection<? extends EStructuralFeature> getChildrenFeatures(Object object) {
 		if (childrenFeatures == null) {
 			super.getChildrenFeatures(object);
-			childrenFeatures.add(PCMPackage.Literals.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS);
+			childrenFeatures.add(QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE);
+			childrenFeatures.add(QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE);
 		}
 		return childrenFeatures;
 	}
@@ -104,14 +100,14 @@ public class PCMParameterValueItemProvider
 	}
 
 	/**
-	 * This returns PCMParameterValue.gif.
+	 * This returns ParameterValueDeviation.gif.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	@Override
 	public Object getImage(Object object) {
-		return overlayImage(object, getResourceLocator().getImage("full/obj16/PCMParameterValue"));
+		return overlayImage(object, getResourceLocator().getImage("full/obj16/ParameterValueDeviation"));
 	}
 
 	/**
@@ -122,10 +118,7 @@ public class PCMParameterValueItemProvider
 	 */
 	@Override
 	public String getText(Object object) {
-		String label = ((PCMParameterValue)object).getId();
-		return label == null || label.length() == 0 ?
-			getString("_UI_PCMParameterValue_type") :
-			getString("_UI_PCMParameterValue_type") + " " + label;
+		return getString("_UI_ParameterValueDeviation_type");
 	}
 
 	/**
@@ -139,8 +132,9 @@ public class PCMParameterValueItemProvider
 	public void notifyChanged(Notification notification) {
 		updateChildren(notification);
 
-		switch (notification.getFeatureID(PCMParameterValue.class)) {
-			case PCMPackage.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS:
+		switch (notification.getFeatureID(ParameterValueDeviation.class)) {
+			case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE:
+			case QualityAnnotationPackage.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
 		}
@@ -160,8 +154,23 @@ public class PCMParameterValueItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(PCMPackage.Literals.PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS,
-				 ParameterFactory.eINSTANCE.createVariableUsage()));
+				(QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE,
+				 PCMFactory.eINSTANCE.createPCMComponentParameterReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE,
+				 PCMFactory.eINSTANCE.createPCMOperationParameterReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_REFERENCE,
+				 PCMFactory.eINSTANCE.createPCMRequiredBusinessOperationReturnParameterReference()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.PARAMETER_VALUE_DEVIATION__PARAMETER_VALUE,
+				 PCMFactory.eINSTANCE.createPCMParameterValue()));
 	}
 
 	/**

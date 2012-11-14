@@ -153,13 +153,13 @@ public interface PCMPackage extends EPackage {
 	int PCM_PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION = ParametersPackage.PARAMETER_VALUE__PARAMETER_VALUE_DEVIATION;
 
 	/**
-	 * The feature id for the '<em><b>Variable Characterisation</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Variable Characterisations</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 0;
+	int PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS = ParametersPackage.PARAMETER_VALUE_FEATURE_COUNT + 0;
 
 	/**
 	 * The number of structural features of the '<em>Parameter Value</em>' class.
@@ -558,15 +558,15 @@ public interface PCMPackage extends EPackage {
 	EClass getPCMParameterValue();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.parameters.pcm.PCMParameterValue#getVariableCharacterisation <em>Variable Characterisation</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.parameters.pcm.PCMParameterValue#getVariableCharacterisations <em>Variable Characterisations</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Variable Characterisation</em>'.
-	 * @see de.fzi.se.quality.parameters.pcm.PCMParameterValue#getVariableCharacterisation()
+	 * @return the meta object for the containment reference list '<em>Variable Characterisations</em>'.
+	 * @see de.fzi.se.quality.parameters.pcm.PCMParameterValue#getVariableCharacterisations()
 	 * @see #getPCMParameterValue()
 	 * @generated
 	 */
-	EReference getPCMParameterValue_VariableCharacterisation();
+	EReference getPCMParameterValue_VariableCharacterisations();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference <em>Infrastructure Operation Reference</em>}'.
@@ -781,12 +781,12 @@ public interface PCMPackage extends EPackage {
 		EClass PCM_PARAMETER_VALUE = eINSTANCE.getPCMParameterValue();
 
 		/**
-		 * The meta object literal for the '<em><b>Variable Characterisation</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Variable Characterisations</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATION = eINSTANCE.getPCMParameterValue_VariableCharacterisation();
+		EReference PCM_PARAMETER_VALUE__VARIABLE_CHARACTERISATIONS = eINSTANCE.getPCMParameterValue_VariableCharacterisations();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.parameters.pcm.impl.PCMInfrastructureOperationReferenceImpl <em>Infrastructure Operation Reference</em>}' class.
