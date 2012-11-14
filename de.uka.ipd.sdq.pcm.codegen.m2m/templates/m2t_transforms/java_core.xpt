@@ -1,0 +1,199 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT pcm::subsystem»
+«IMPORT core::entity»
+«IMPORT completions»
+
+«DEFINE ClassHeader FOR RepositoryComponent»
+public class «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE OperationSignature FOR OperationSignature»
+   «EXPAND ReturnTypeTM FOR this»
+   «this.javaSignature()»
+   ( «EXPAND ParameterListTM FOR this» )
+«ENDDEFINE»
+
+«DEFINE InfrastructureSignature FOR InfrastructureSignature»
+   «EXPAND ReturnTypeTM FOR this»
+   «this.javaSignature()»
+   ( «EXPAND ParameterListTM FOR this» )
+«ENDDEFINE»
+
+«DEFINE ReturnType FOR OperationSignature»
+   «IF this.returnType__OperationSignature != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.returnType__OperationSignature»
+   «ELSE»
+      void
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ReturnType FOR InfrastructureSignature»
+      void
+«ENDDEFINE»
+
+«DEFINE ReturnTypeTM FOR OperationSignature»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ReturnTypeTM FOR InfrastructureSignature»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterListTM FOR Signature»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterListTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageListTM FOR Signature»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Parameter FOR Parameter»
+   «IF this.dataType__Parameter != null»
+      «EXPAND m2t_transforms::datatypes::DataType FOR this.dataType__Parameter»
+   «ELSE»
+      void
+   «ENDIF»
+   «this.parameterName»
+«ENDDEFINE»
+
+«DEFINE ParameterUse FOR Parameter»
+   «this.parameterName»
+«ENDDEFINE»
+
+//-----
+// Generate method implementations by traversing the SEFF
+«DEFINE ComponentService FOR ServiceEffectSpecification»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: Unknown Service Effect Specification found!"»
+«ENDDEFINE»
+
+«DEFINE ComponentServiceSignature FOR OperationSignature»
+	«EXPAND ReturnTypeTM FOR this»
+      «this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»
+         («EXPAND ParameterListTM FOR this»)
+«ENDDEFINE»
+
+«DEFINE ComponentServiceSignature FOR InfrastructureSignature»
+	«EXPAND ReturnTypeTM FOR this»
+      «this.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower()»_«this.javaSignature()»
+         («EXPAND ParameterListTM FOR this»)
+«ENDDEFINE»
+
+«DEFINE ComponentServiceTM(RepositoryComponent component) FOR OperationSignature»
+«ENDDEFINE»
+
+«DEFINE ComponentServiceTM(RepositoryComponent component) FOR InfrastructureSignature»
+«ENDDEFINE»
+
+«DEFINE Actions FOR AbstractAction»
+   «EXPAND m2t_transforms::seff::Action FOR this»
+   «IF !StopAction.isInstance(this)»
+      «EXPAND Actions FOR this.successor_AbstractAction»
+   «ENDIF»
+«ENDDEFINE»
+//-----
+
+//-----
+// Polymorphic switch to generate different thing for {Basic,Complete and Provides}-Types and for
+// ComposedStructure
+«DEFINE ComponentImplementation FOR RepositoryComponent»
+ «ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: " + this.entityName +"(type "+this.metaType+") is an unknown RepositoryComponent type. Fix the transformations or contact the developers."» 
+«ENDDEFINE»
+
+«DEFINE ComponentImplementation FOR ImplementationComponentType»
+  «EXPAND ComponentImplementationForImplComponentTypesAndSubSystems FOR this»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementation FOR SubSystem»
+  «EXPAND ComponentImplementationForImplComponentTypesAndSubSystems FOR this»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationForImplComponentTypesAndSubSystems FOR RepositoryComponent»
+   «FILE this.getFileName()»
+	   «EXPAND ComponentImplementationInterface FOR this»
+	   «EXPAND ComponentPackage FOR this»
+	      
+	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
+	   «EXPAND SuperClassesTM FOR this»
+	   implements «this.fqnInterface()»
+	   {
+	   	  «EXPAND ComponentConstructorTM FOR this» 
+	      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	      «EXPAND InnerImplementation FOR this»
+		  «EXPAND SpecificImplementationPartTM FOR this»
+	   }
+	   «EXPAND ComponentImplementationChildClassTM FOR this»
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentPackage FOR RepositoryComponent»
+	   package «this.implementationPackage()»; 
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationInterface FOR InterfaceProvidingEntity»
+	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
+		«EXPAND ContentImplementationInterfaceHeader FOR this»
+		{
+			«EXPAND ComponentHelperMethodsDeclarationTM FOR this»
+	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface SEPARATOR ";"»;
+	   		«EXPAND ComponentServiceSignature FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole).providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface SEPARATOR ";"»;
+	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole)»
+	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole)»
+	   		«IF InterfaceProvidingRequiringEntity.isInstance(this)»
+	   			«LET (InterfaceProvidingRequiringEntity)this AS requiringEntity»
+	   				«EXPAND m2t_transforms::context_pattern::ComponentContextSetterDefinition FOR requiringEntity»
+	   			«ENDLET»
+            «ENDIF»
+            «IF RepositoryComponent.isInstance(this)»
+	   			«LET (RepositoryComponent)this AS requiringEntity»
+	   				«EXPAND SpecificImplementationPartForInterfaceTM FOR requiringEntity»
+	   			«ENDLET»
+            «ENDIF»
+	    }
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ContentImplementationInterfaceHeader FOR InterfaceProvidingEntity»
+	package «this.implementationPackage()»;
+    
+	public interface «this.interfaceName()»
+«ENDDEFINE»
+
+«DEFINE ComponentHelperMethodsDeclarationTM FOR InterfaceProvidingEntity»
+ «REM»Can be overridden by specific transformations. Not an error if it stays empty«ENDREM»
+«ENDDEFINE»
+
+«DEFINE ComponentImplementationChildClassTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE SpecificImplementationPartTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«REM»Add some component methods also to the generated java interface to access it via EJB lookup.«ENDREM»
+«DEFINE SpecificImplementationPartForInterfaceTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE SuperClassesTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR BasicComponent»
+	«EXPAND ComponentServiceTM(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
+	«EXPAND ComponentServiceTM(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole).providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface»
+«ENDDEFINE»
+
+«DEFINE InnerImplementation FOR CompositeComponent»
+«ENDDEFINE»
+///-----
+
+«DEFINE ComponentConstructorTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE ContainerAvailabilityCheckTM FOR OperationSignature»
+«ENDDEFINE»

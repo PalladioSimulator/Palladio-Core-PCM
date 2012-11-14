@@ -1,0 +1,191 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sensors»
+«IMPORT system»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT core::entity»
+
+«DEFINE ComponentConstructor FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE ComponentConstructor FOR BasicComponent» 
+	private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());
+			
+	«REM»//protected String assemblyContextID = ""; «ENDREM»
+	
+	«REM»
+	Sensores are removed by now. They can be added again, however, 
+	collecting the results in one place has to be implemented first!
+	
+	«EXPAND SensorDefinition FOREACH this.getExternalCallActions()»
+	«EXPAND SEFFSensorDefinitionForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+	private de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun;
+	«ENDREM»
+	
+	«EXPAND m2t_transforms::resources::PassiveResourceInitTM FOREACH this.passiveResource_BasicComponent»
+	
+	public «this.javaName()»(String assemblyContext) {
+
+		«REM»
+		See comment above.
+		
+		expRun = de.uka.ipd.sdq.prototype.framework.AbstractMain.getLatestExperimentRun();
+		«EXPAND SensorInitialisation FOREACH this.getExternalCallActions()»		
+		«EXPAND SEFFSensorInitialisationForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
+		«ENDREM»
+		
+		«REM»
+		(Hopefully) Unneeded quick fix to initialise component params as setComponentFrame 
+		is not called by system for ejbs.
+		
+		this.setComponentFrame(this.myComponentStackFrame);
+		«ENDREM»
+		
+		«FOREACH this.providedRoles_InterfaceProvidingEntity.select(e|OperationProvidedRole.isInstance(e)) AS role»
+			«((OperationProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContext);
+		«ENDFOREACH»
+		
+		«FOREACH this.providedRoles_InterfaceProvidingEntity.select(e|InfrastructureProvidedRole.isInstance(e)) AS role»
+			«((InfrastructureProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContext);
+		«ENDFOREACH»
+	}
+«ENDDEFINE»
+
+
+«DEFINE ComponentImplementationForImplComponentTypesAndSubSystems FOR RepositoryComponent»
+   «FILE this.getFileName()»
+	   «EXPAND m2t_transforms::java_core::ComponentImplementationInterface FOR this»
+	   «EXPAND m2t_transforms::java_core::ComponentPackage FOR this»
+	      
+	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
+	   «EXPAND m2t_transforms::java_core::SuperClassesTM FOR this»
+	   implements «this.fqnInterface()», java.io.Serializable
+	   {
+	   	  «EXPAND m2t_transforms::java_core::ComponentConstructorTM FOR this» 
+	      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	      «EXPAND m2t_transforms::java_core::InnerImplementation FOR this»
+		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»
+	   }
+	   «EXPAND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR this»
+	«ENDFILE»
+«ENDDEFINE»
+
+
+«DEFINE SensorInitialisation FOR ExternalCallAction»
+        tss«this.calledService_ExternalService.externalCallActionDescription(this).javaVariableName()» 
+            = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
+                "«this.calledService_ExternalService.externalCallActionDescription(this)»"
+            );
+«ENDDEFINE»
+
+«DEFINE SensorDefinition FOR ExternalCallAction»
+    de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor tss«this.calledService_ExternalService.externalCallActionDescription(this).javaVariableName()»;
+«ENDDEFINE»
+
+«DEFINE SEFFSensorDefinitionForInterface(BasicComponent component) FOR OperationProvidedRole»
+  «EXPAND SEFFSensorDefinition(component) FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
+«ENDDEFINE»
+
+«DEFINE SEFFSensorDefinition(BasicComponent component) FOR OperationSignature»
+  de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor tss«this.seffDescription(component).javaVariableName()»;
+«ENDDEFINE»
+
+«DEFINE SEFFSensorDefinitionForInterface(BasicComponent component) FOR ProvidedRole»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/java_core.xpt]: Only OperationProvidedRoles are supported."»
+«ENDDEFINE»
+
+«DEFINE SEFFSensorInitialisationForInterface(BasicComponent component) FOR OperationProvidedRole»
+  «EXPAND SEFFSensorInitialisation(component) FOREACH this.providedInterface__OperationProvidedRole.signatures__OperationInterface»
+«ENDDEFINE»
+
+«DEFINE SEFFSensorInitialisation(BasicComponent component) FOR OperationSignature»
+        tss«this.seffDescription(component).javaVariableName()» 
+            = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
+                "«this.seffDescription(component)»"
+            );
+«ENDDEFINE»
+
+«DEFINE SEFFSensorInitialisationForInterface(BasicComponent component) FOR ProvidedRole»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/java_core.xpt]: Only OperationProvidedRoles are supported."»
+«ENDDEFINE»
+
+«DEFINE MainImplementation FOR BasicComponent»
+	public static void main(String... args) {
+		logger.info("Main method of basic component «this.entityName» called");
+
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
+		
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
+		
+		new «this.fqn()»(assemblyContext);
+	}
+«ENDDEFINE»
+
+«DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
+	public static void main(String... args) {
+		logger.info("Main method of composed structure «this.entityName» called");
+
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
+		
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
+		
+		new «this.fqn()»(assemblyContext);
+	}
+«ENDDEFINE»
+
+«REM»
+FIX FIX FIX!!!! FIXME zolynski
+Haupt-Interfaces müssen Remote erweitern + RemoteExceptions an die Methoden
+«ENDREM»
+
+«DEFINE ComponentImplementationInterface FOR ComposedProvidingRequiringEntity»
+	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
+		«EXPAND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR this» extends java.io.Serializable, java.rmi.Remote
+		{
+	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole)»
+	   		«EXPAND m2t_transforms::provided_ports::PortGetterDefinition FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole)»
+	   		«IF InterfaceProvidingRequiringEntity.isInstance(this)»
+	   			«LET (InterfaceProvidingRequiringEntity)this AS requiringEntity»
+	   				«EXPAND m2t_transforms::context_pattern::ComponentContextSetterDefinition FOR requiringEntity»
+	   			«ENDLET»
+            «ENDIF»
+	    }
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   {
+   	  «EXPAND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR this» 
+      «REM»«PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»«ENDREM»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
+    	«ENDLET»
+   	  «ENDIF»
+   	  «REM»«ENDPROTECT»«ENDREM»
+   }   
+«ENDDEFINE»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR InfrastructureSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   { 
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
+    	«ENDLET»
+   	  «ENDIF»
+   }   
+«ENDDEFINE»
+

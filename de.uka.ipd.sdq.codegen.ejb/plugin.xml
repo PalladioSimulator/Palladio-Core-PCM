@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.codegen.ejb.EJBCodegenWorkflowLauncher"
+            id="de.uka.ipd.sdq.codegen.ejb.launchConfigurationType"
+            modes="run, debug"
+            name="Protocom Generator"
+            public="true">
+      </launchConfigurationType>
+   </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+      <launchConfigurationTabGroup
+            class="de.uka.ipd.sdq.codegen.ejb.EjbGeneratorTabGroup"
+            id="de.uka.ipd.sdq.codegen.ejb.launchConfigurationTabGroup1"
+            type="de.uka.ipd.sdq.codegen.ejb.launchConfigurationType">
+      </launchConfigurationTabGroup>
+   </extension>
+
+</plugin>

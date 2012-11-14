@@ -1,0 +1,33 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+
+«DEFINE DataType FOR DataType»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"»
+«ENDDEFINE»
+
+«DEFINE DataType FOR PrimitiveDataType»
+	«IF this.type == PrimitiveTypeEnum::INT»
+		int
+	«ENDIF»
+	«IF this.type == PrimitiveTypeEnum::DOUBLE»
+		double
+	«ENDIF»
+	«IF this.type == PrimitiveTypeEnum::CHAR»
+		char
+	«ENDIF»
+	«IF this.type == PrimitiveTypeEnum::BYTE»
+		byte
+	«ENDIF»
+	«IF this.type == PrimitiveTypeEnum::STRING»
+		String
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE DataType FOR CollectionDataType»
+	«EXPAND DataType FOR this.innerType_CollectionDataType»[]
+«ENDDEFINE»
+
+«DEFINE DataType FOR CompositeDataType»
+	«this.entityName»
+«ENDDEFINE»

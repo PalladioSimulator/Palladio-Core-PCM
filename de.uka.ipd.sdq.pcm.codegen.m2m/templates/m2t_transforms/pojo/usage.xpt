@@ -1,0 +1,63 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+
+«DEFINE Main FOR UsageModel»
+	«FILE "Main.java"»
+		public class Main {
+			public static void main(String[] args) {
+				«FOREACH this.usageScenario_UsageModel AS us»
+					«EXPAND WorkloadDriver(us) FOR us.workload_UsageScenario»
+				«ENDFOREACH»
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriver(UsageScenario u) FOR Workload»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/pojo/usage.xpt]: This should never get called!"»
+«ENDDEFINE»
+
+
+«DEFINE UsageScenario(Allocation a) FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + ".java"»
+		package «this.implementationPackage()»;
+		public class «this.javaName()»
+		{
+			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+			
+			public «this.javaName()»() {
+				«EXPAND m2t_transforms::prototype::usage::CreateSystemVar FOREACH this.querySystemCalls().getSystemsFromCalls()»
+			
+	            «EXPAND m2t_transforms::prototype::usage::ContextInit FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+			}
+			
+			
+			«REM» Unused for code stubs. Calls to the system need to be added manually.
+			«EXPAND ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
+			«ENDREM»
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
+public «this.javaName()»() {
+}
+«ENDDEFINE»
+ 
+«DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
+	@org.junit.Test public void scenarioRunner() {
+	«PROTECT CSTART '/*' CEND '*/' ID this.id»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
+		{
+			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+		}
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
+	«ENDPROTECT»
+	}
+«ENDDEFINE»

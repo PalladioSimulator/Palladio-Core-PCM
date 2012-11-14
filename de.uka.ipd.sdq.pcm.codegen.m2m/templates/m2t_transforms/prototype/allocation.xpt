@@ -1,0 +1,29 @@
+«IMPORT allocation»
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+
+«DEFINE AllocationRoot FOR allocation::Allocation»
+	«FILE "AllocationStorage.java"»
+	
+		public class AllocationStorage extends de.uka.ipd.sdq.prototype.framework.AbstractAllocationStorage
+		{
+	
+			public void initContainerTemplate()
+			{
+				String container;
+				String containerId;
+				Class<?> component;
+				String assemblyContext;
+			
+				«FOREACH this.allocationContexts_Allocation AS acontext»
+					containerId = "«acontext.resourceContainer_AllocationContext.id»";
+					container = "«acontext.resourceContainer_AllocationContext.entityName»";
+					component = «acontext.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext.fqn()».class;
+					assemblyContext = "«acontext.assemblyContext_AllocationContext.id»";
+					saveContainerComponent(containerId, container, component, assemblyContext);
+				«ENDFOREACH»
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»

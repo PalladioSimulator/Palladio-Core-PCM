@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<genmodel:GenModel xmi:version="2.0"
+    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" copyrightText="Copyright 2008, sdq.ipd.uka.de, U KA"
+    modelDirectory="/de.uka.ipd.sdq.simucomframework.simucomstatus/src" modelPluginID="de.uka.ipd.sdq.simucomframework.simucomstatus"
+    modelName="SimuComStatus" importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0"
+    copyrightFields="false">
+  <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
+    <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
+    <details key="UNION_PROPERTIES" value="REPORT"/>
+    <details key="DUPLICATE_FEATURES" value="DISCARD"/>
+    <details key="SUBSETTING_PROPERTIES" value="REPORT"/>
+    <details key="COMMENTS" value="PROCESS"/>
+    <details key="DUPLICATE_FEATURE_INHERITANCE" value="DISCARD"/>
+    <details key="DUPLICATE_OPERATIONS" value="DISCARD"/>
+    <details key="INVARIANT_CONSTRAINTS" value="PROCESS"/>
+    <details key="REDEFINING_PROPERTIES" value="REPORT"/>
+    <details key="ANNOTATION_DETAILS" value="PROCESS"/>
+    <details key="DUPLICATE_OPERATION_INHERITANCE" value="DISCARD"/>
+    <details key="REDEFINING_OPERATIONS" value="REPORT"/>
+    <details key="DERIVED_FEATURES" value="PROCESS"/>
+    <details key="OPERATION_BODIES" value="IGNORE"/>
+    <details key="SUPER_CLASS_ORDER" value="PROCESS"/>
+    <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
+  </genAnnotations>
+  <foreignModel>file:/C:/temp/rsa/SimuComStatus.uml</foreignModel>
+  <genPackages xsi:type="genmodel:GenPackage" prefix="Simucomstatus" basePackage="de.uka.ipd.sdq.simucomframework"
+      disposableProviderFactory="true" ecorePackage="simucomstatus.ecore#/">
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//SimuComStatus">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//SimuComStatus/processStatus"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//SimuComStatus/resourceStatus"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//SimuComStatus/currentSimulationTime"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//SimulatedProcesses">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//SimulatedProcesses/processes"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//Process">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//Process/currentAction"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//Process/id"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//Process/processStartTime"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="simucomstatus.ecore#//Action">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//Action/actionStartTime"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//Action/actionDuration"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//SimulatedResources">
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//SimulatedResources/activeResources"/>
+      <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
+          createChild="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//SimulatedResources/passiveResources"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//ActiveResouce">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//ActiveResouce/waitingDemands"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//ActiveResouce/id"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//WaitForDemand">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//WaitForDemand/demand"/>
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//WaitForDemand/resource"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//PassiveResource">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//PassiveResource/waitingProcesses"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//PassiveResource/initialResourceCount"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//PassiveResource/resourcesAvailable"/>
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//PassiveResource/id"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//WaitForAcquire">
+      <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
+          propertySortChoices="true" ecoreFeature="ecore:EReference simucomstatus.ecore#//WaitForAcquire/resource"/>
+    </genClasses>
+    <genClasses xsi:type="genmodel:GenClass" ecoreClass="simucomstatus.ecore#//WaitForDelay">
+      <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute simucomstatus.ecore#//WaitForDelay/delay"/>
+    </genClasses>
+  </genPackages>
+</genmodel:GenModel>

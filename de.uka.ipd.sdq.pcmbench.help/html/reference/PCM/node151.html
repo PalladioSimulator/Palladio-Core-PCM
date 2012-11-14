@@ -1,0 +1,133 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Motivation</TITLE>
+<META NAME="description" CONTENT="Motivation">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node152.html">
+<LINK REL="previous" HREF="node150.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node152.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2737"
+  HREF="node152.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2731"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2725"
+  HREF="node150.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2733"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2735"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2738"
+  HREF="node152.html">Example</A>
+<B> Up:</B> <A NAME="tex2html2732"
+  HREF="node150.html">Parameter Model</A>
+<B> Previous:</B> <A NAME="tex2html2726"
+  HREF="node150.html">Parameter Model</A>
+ &nbsp; <B>  <A NAME="tex2html2734"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2736"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00453100000000000000">
+Motivation</A>
+</H3>
+Parameters of component services may have a significant impact on the perceived performance and reliability of a component-based systems. It can be distinguished between 
+
+<UL>
+<LI><B>Input Parameters:</B> which are passed to a component service by its clients (users or other components)
+</LI>
+<LI><B>Output Parameters:</B> return values, which are sent back to clients by a service after finishing its execution
+</LI>
+<LI><B>Internal Parameters:</B> which can be global variables or configuration options of a component 
+</LI>
+</UL>
+
+<P>
+All of these forms of parameters can cause different influences on the QoS properties of a system:
+
+<P>
+
+<UL>
+<LI><B>Resource Usage:</B> Parameters can influence the usage of the resources present in the system executing the component. For example, the time for the execution of a service that allows uploading files to a server depends on the size of the files that are passed as input parameters. In this case, the parameter alters the usage of the storage device. Another example would be a service for sorting items within an array. The duration of executing the sort service would mainly depend on the size of the array passed to it. Thus, the parameter would alter CPU usage.
+</LI>
+<LI><B>Control Flow:</B> SEFFs (see Section&nbsp;<A HREF="node118.html#sec:ComponentDeveloper:ServiceEffectSpecification">3.2.9</A>) describe how requests to provided services are propagated to other components. The transition probabilities or number of loop iterations in SEFFs can depend on the parameters passed to a service. For example, a component service might provide clients access to a number of databases, thus communicating with several database interfaces as required services. This service would call different required services depending on the input parameter passed to it. Thus, the transition probabilities in the SEFF modelling the alternative to communicate with different databases would directly be linked to the input parameter. Another example could be a component service having a collection parameter, which would call another component's service subsequently for each item in the array. Such a situation would be expressed as a loop in a SEFF, and the number of iterations would directly be linked to the size of the array. 	
+</LI>
+<LI><B>Internal State:</B> Input parameters can influence the internal state of the component. The component state in turn may influence resource usage or control flow between components. Imagine a component allowing users to log in to a system, which stores user sessions as global variables. The later behaviour of other services of this component in terms of control flow propagation and resource usage could depend on which user is currently logged in. Thus the QoS properties of the component would be related to the internal parameter, which was created when the user logged in to the system. Although the influence of the internal state has been recognised by us, it is so far not modelled in the PCM and remains future work.
+</LI>
+</UL>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2737"
+  HREF="node152.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2731"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2725"
+  HREF="node150.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2733"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2735"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2738"
+  HREF="node152.html">Example</A>
+<B> Up:</B> <A NAME="tex2html2732"
+  HREF="node150.html">Parameter Model</A>
+<B> Previous:</B> <A NAME="tex2html2726"
+  HREF="node150.html">Parameter Model</A>
+ &nbsp; <B>  <A NAME="tex2html2734"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2736"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,260 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sensors»
+«EXTENSION m2t_transforms::sim::accuracyInfluence»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT parameter»
+«IMPORT seff»
+«IMPORT seff_performance»
+«IMPORT qualityannotation»
+
+«DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
+	«IF ExternalCallAction.isInstance(call)»
+		«LET (ExternalCallAction)call AS externalCall»
+			«LET externalCall.id.javaVariableName() AS id»
+		//start handling potential failures
+				«LET javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature()) AS triesVar»
+		int «triesVar» = 1 + «externalCall.retryCount»; //The call plus the retries
+		// Execute the external call until it succeeds or the maximal try count is exeeded.
+		boolean callSucceeded = false;
+		for(int retries=0; retries<«triesVar»; ++retries) {
+
+			// Check if the call has already succeeded:
+			if(callSucceeded == true) {
+				break;
+			}
+
+					«EXPAND m2t_transforms::seff::InitFailureHandling(id) FOR externalCall»
+			try { // needs to be closed after the call in PostCall
+				«ENDLET»
+			«ENDLET»
+		«ENDLET»
+		// end of failure handling before the call
+
+        «EXPAND HandleRemoteExternalCall(prefix) FOR this»
+	«ENDIF»
+	«EXPAND GenericPreCall(call,parameterUsages,prefix) FOR this»
+«ENDDEFINE»
+
+«DEFINE PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) FOR InfrastructureSignature»
+	«IF InternalAction.isInstance(call)»
+	    «EXPAND HandleRemoteExternalCall(prefix) FOR this»
+	«ELSE»
+		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: PreCall(Object call, String prefix, List[VariableUsage] parameterUsages) does not support a call for the provided action type."»
+	«ENDIF»
+	«EXPAND GenericPreCall(call,parameterUsages) FOR this»
+«ENDDEFINE»
+
+«REM»This generic pre call does not include simulation of network failures and latency. «ENDREM»
+«DEFINE GenericPreCall(Object call,List[VariableUsage] parameterUsages, String prefix) FOR OperationSignature»
+	try {
+	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
+	«IF ExternalCallAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR this.externalCallActionDescription(call)»
+	«ELSE»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR this.entryLevelSystemCallActionDescription(call)»
+	«ENDIF»
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =
+«ENDDEFINE»
+
+«DEFINE GenericPreCall(Object call,List[VariableUsage] parameterUsages) FOR InfrastructureSignature»
+	«EXPAND PrepareSimulatedStackFrame(parameterUsages) FOR this»
+	«IF InternalAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR this.internalActionDescription(call)»
+	«ELSE»
+		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPreCall(Object call,List[VariableUsage] parameterUsages) does not support a call for the provided action type."»
+	«ENDIF»
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> callResult =
+«ENDDEFINE»
+
+«DEFINE PrepareSimulatedStackFrame(List[VariableUsage] parameterUsages) FOR Signature»
+	// Start Simulate an external call
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx.getStack().currentStackFrame();
+	// prepare stackframe
+	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> stackframe = ctx.getStack().createAndPushNewStackFrame();
+	«FOREACH parameterUsages AS pu»
+		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+				«IF pu.namedReference__VariableUsage.isInnerReference()»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame.copyFrame()));
+				«ELSE»
+					stackframe.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",currentFrame));
+				«ENDIF»
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE TidySimulatedStackFrame FOR Signature»
+ 	ctx.getStack().removeStackFrame();
+«ENDDEFINE»
+
+«REM»This generic post call does not include simulation of network failures and latency. «ENDREM»
+«DEFINE GenericPostCall(Object call, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+	// Stop the time measurement
+	«IF ExternalCallAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR this.externalCallActionDescription(call)»
+	«ELSE»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR "Call_"+this.javaSignature()+" <EntryLevelSystemCall id: "+((Entity)call).id+" >"»
+	«ENDIF»
+	«REM»Handle accuracy influence analysis. «ENDREM»
+	«IF AbstractAction.isInstance(call)»
+		«IF getQualityAnnotationRepository() != null»
+			«IF ((AbstractAction)call).getRdseff().getQualityAnnotation() != null»
+				«LET ((AbstractAction)call).getRdseff().getQualityAnnotation() AS qualityAnnotation»
+					«EXPAND m2t_transforms::sim::accuracy::CheckAccuracy(((AbstractAction)call).getRdseff(), (AbstractAction)call) FOREACH qualityAnnotation.validForParameterPartitions.typeSelect(PCMParameterPartition)»
+				«ENDLET»
+			«ELSE»
+				«REM»Accuracy analysis was requested but no quality annotation could be found for this RDSEFF«ENDREM»
+				SeverityAndIssue issue = AccuracyIssueFactory.createMissingQualityAnnotationIssue("«((AbstractAction)call).getRdseff().getResourceName()»", "«((AbstractAction)call).getRdseff().id»");
+				config.addIssue(issue);
+			«ENDIF»
+		«ELSE»
+			«REM»Accuracy analysis was not requested. Do nothing.«ENDREM»
+		«ENDIF»
+	«ENDIF»
+
+	«FOREACH outParameterUsages AS pu»
+		«LET pu.parameterUsageLHS() AS lhs_prefix»
+			// Copy out parameter «lhs_prefix» to local stack frame
+			«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+				«IF pu.namedReference__VariableUsage.isInnerReference()»
+					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult.copyFrame()));
+				«ELSE»
+					methodBodyStackFrame.addValue("«lhs_prefix+'.'+vc.type.toString()»",
+					   	ctx.evaluate("«vc.specification_VariableCharacterisation.specification.specificationString()»",callResult));
+				«ENDIF»
+			«ENDFOREACH»
+		«ENDLET»
+	«ENDFOREACH»
+	}
+	finally
+	{
+		«EXPAND TidySimulatedStackFrame FOR this»
+	}
+	// END Simulate an external call
+«ENDDEFINE»
+
+«DEFINE GenericPostCall(Object call) FOR InfrastructureSignature»
+	// Stop the time measurement
+	«IF InternalAction.isInstance(call)»
+		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR this.internalActionDescription(call)»
+	«ELSE»
+		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/calls.xpt]: GenericPostCall(Object call, List[VariableUsage] outParameterUsages) does not support a call for the provided action type."»
+	«ENDIF»
+	«EXPAND TidySimulatedStackFrame FOR this»
+	// END Simulate an external call
+«ENDDEFINE»
+
+«DEFINE PostCall(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+	«EXPAND GenericPostCall(call,outParameterUsages) FOR this»
+	«IF ExternalCallAction.isInstance(call)»
+	
+		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
+		
+    	} // end of try block from the pre cal failure handling section
+    	«LET (ExternalCallAction)call AS externalCall»
+    		«LET externalCall.id.javaVariableName() AS id»
+    			«LET javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature()) AS triesVar»
+    				«EXPAND m2t_transforms::seff::CatchFailureExceptions(id) FOR externalCall-»
+    	«LET "Call "+this.interface__OperationSignature.entityName+"."+this.javaSignature()+" <Component: "+((ExternalCallAction)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">" AS callName»
+    	de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.recordExternalCallResult(
+    		"«callName»",
+    		"«externalCall.id»",
+    		failureException_«id»,
+    		ctx.getModel(),
+    		ctx.getThread().getRequestContext());
+    	«ENDLET»
+ 		if(failureException_«id» != null) { // failure occurred
+
+ 			// Check if we handle this failure-on-demand occurrence:
+ 			if(!«EXPAND m2t_transforms::seff::CheckIfExceptionIsHandled(id) FOR externalCall») { // is this failure type handled?
+ 				throw failureException_«id»;
+ 			}
+			if(retries == «triesVar»-1) { // retry count exceeded?
+				throw failureException_«id»;
+			}
+
+			// If the failure-on-demand occurrence is handled,
+			// update the failure statistics accordingly:
+ 			de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseHandledFailureCounter(
+ 				failureException_«id».getFailureType()); //count handled failure
+
+		} else {
+
+			// Mark this call as successful:
+			callSucceeded = true;
+		}
+				«ENDLET»
+			«ENDLET»
+		«ENDLET»
+	}
+	// End failure handling section.
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE PostCall(Object call, String prefix) FOR InfrastructureSignature»
+	«EXPAND GenericPostCall(call) FOR this»
+	«IF InternalAction.isInstance(call)»
+		«EXPAND HandleRemoteExternalCall(prefix) FOR this»
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE HandleRemoteExternalCall(String prefix) FOR OperationSignature»
+	«EXPAND HandleNetworkLatencyAndFailures(prefix) FOR this»
+«ENDDEFINE»
+
+«DEFINE HandleRemoteExternalCall(String prefix) FOR InfrastructureSignature»
+	«EXPAND HandleNetworkLatencyAndFailures(prefix) FOR this»
+«ENDDEFINE»
+
+«DEFINE HandleNetworkLatencyAndFailures(String prefix) FOR Signature»
+			«REM»
+				Options for moving this code into the framework should be checked.
+				The main problem is how to find out if an external call goes over a network link or not.
+			«ENDREM» 
+			// If the call goes over network, simulate the link latency and the possibility of a communication link failure.
+			// Do this only in case that the "simulate linking resources" option is deactivated, because otherwise,
+			// completions handle the link behaviour.
+			if (!ctx.getModel().getConfig().getSimulateLinkingResources()) {
+				de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer fromContainer = null;
+				de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
+				try {
+					fromContainer = ctx.findResource(this.assemblyContextID);
+					toContainer = ctx.findResource(«prefix»getComponentAssemblyContextID());
+		   		} catch (de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound exception) {
+					// If the call is system external, no target resource container will be found.
+		   		}
+				if ((fromContainer != null) && (toContainer != null) && (!fromContainer.getResourceContainerID().equals(toContainer.getResourceContainerID()))) {
+					String linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(fromContainer.getResourceContainerID(), toContainer.getResourceContainerID());
+					if (linkingResourceID == null) {
+						linkingResourceID = main.ResourceEnvironment.getInstance().getLinkingResourceContainerID(toContainer.getResourceContainerID(), fromContainer.getResourceContainerID());
+					}
+					// If the linkingResourceID is NULL, we have to assume that no linking resource has been specified.
+					// In this case, we assume a perfect link that never fails and has no latency.
+					if (linkingResourceID != null) {
+						de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer linkingContainer = ctx.findLinkingResource(linkingResourceID);
+						// Load linking resource with a demand of 0 byte so that only the latency is considered.
+						// The bytesize is only considered when the completions are activated (ctx.getModel().getConfig().getSimulateLinkingResources() == true).
+						double demand = 0.0;
+						try {
+							if (ctx.getStack().currentStackFrame().getValue("stream.BYTESIZE") != null) {
+								demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("stream.BYTESIZE",Double.class));
+							}
+						} catch(de.uka.ipd.sdq.simucomframework.variables.exceptions.ValueNotInFrameException valueNotInFrameException) {
+							demand = 0.0;
+						}
+						linkingContainer.loadActiveResource(ctx.getThread(), fromContainer.getResourceContainerID(), linkingContainer.getLinkingResourceTypeName(), demand);
+  					} else {
+  						throw new RuntimeException("A component on the resource container with id "+fromContainer.getResourceContainerID()+" calls a component on resource container with id "+toContainer.getResourceContainerID()+", but there is no linking resource between the containers! Add a LinkingResource or change the component allocation.");
+  					}
+  		   		}
+			}
+«ENDDEFINE»

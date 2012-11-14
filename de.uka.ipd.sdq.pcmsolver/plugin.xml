@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <extension point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate"
+            id="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType"
+            name="PCM Solver"
+            modes="run, debug">
+      </launchConfigurationType>
+   </extension>
+   <extension point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+	    <launchConfigurationTypeImage
+	        icon="icons/favicon.ico"
+	        configTypeID="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTypeImage.PCMSolver">
+	    </launchConfigurationTypeImage>
+	</extension>
+	<extension point="org.eclipse.debug.ui.launchConfigurationTabGroups">
+	    <launchConfigurationTabGroup
+	        type="de.uka.ipd.sdq.dsolver_plugin.PCMSolverLaunchConfigurationType"
+	        class="de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverTabGroup"
+	        id="org.eclipse.jdt.debug.ui.launchConfigurationTabGroup.PCMSolver">
+	    </launchConfigurationTabGroup>
+	</extension>
+   <extension point="org.eclipse.ui.editors">
+         <editor
+               class="de.uka.ipd.sdq.pcmsolver.visualisation.LQNResultEditor"
+               extensions="lqnresult"
+               icon="icons/favicon.ico"
+               id="de.uka.ipd.sdq.pcmsolver.LQNResultEditor"
+               name="LQNS Analysis Results">
+         </editor>
+   </extension>
+</plugin>

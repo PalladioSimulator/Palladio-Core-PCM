@@ -1,0 +1,35 @@
+import core::entity;
+import repository;
+import system;
+import core::composition;
+import usagemodel;
+import allocation;
+extension m2t_transforms::java_names;
+
+contextDependencyJNDIName(InterfaceRequiringEntity e) :
+	"ejb/"+e.javaName()+"/Context";
+
+contextDependencyJNDIName(OperationRequiredRole r) :
+	"ejb/"+r.requiredInterface__OperationRequiredRole.javaName();
+
+beanInterfaceName(InterfaceRequiringEntity e) :
+	"I" + e.javaName() + "Bean";
+	
+fqnBeanInterface(InterfaceRequiringEntity e) :
+	e.beanPackage() + "." + e.beanInterfaceName();
+	
+beanPackage(InterfaceRequiringEntity c) :
+	c.implementationPackage() + ".bean";
+	
+fqnBean(RepositoryComponent c) :
+  c.beanPackage()+"."+c.javaName()+'Bean';
+	
+implementationSessionBeanName(AssemblyContext ac) :
+  ac.encapsulatedComponent__AssemblyContext.javaName()+"_Impl_"+ac.id;
+  
+portSessionBeanName(AssemblyContext ac, OperationProvidedRole p) :
+  ac.encapsulatedComponent__AssemblyContext.javaName()+"_"+p.providedInterface__OperationProvidedRole.javaName()+"_"+ac.id;
+  
+contextSessionBeanName(AssemblyContext ac) :
+  ac.encapsulatedComponent__AssemblyContext.entityName+"_Context_"+ac.id;
+    

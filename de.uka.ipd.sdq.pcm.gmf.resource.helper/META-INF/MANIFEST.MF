@@ -1,0 +1,18 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Resource Environment diagram Helper Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.resource.helper;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: org.eclipse.gmf.runtime.diagram.ui,
+ de.uka.ipd.sdq.pcm.gmf.seff,
+ de.uka.ipd.sdq.pcm.gmf.repository,
+ org.eclipse.emf.edit.ui,
+ de.uka.ipd.sdq.stoex.analyser,
+ de.uka.ipd.sdq.pcm.dialogs,
+ org.eclipse.emf.query,
+ de.uka.ipd.sdq.dialogs,
+ de.uka.ipd.sdq.pcm.gmf.resource
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.resource.helper.Activator
+Bundle-Vendor: sdq.ipd.uka.de
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

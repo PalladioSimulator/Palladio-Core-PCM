@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Introductory Note</TITLE>
+<META NAME="description" CONTENT="Introductory Note">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node88.html">
+<LINK REL="previous" HREF="node86.html">
+<LINK REL="up" HREF="node86.html">
+<LINK REL="next" HREF="node88.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1805"
+  HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1799"
+  HREF="node86.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1793"
+  HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1801"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1803"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1806"
+  HREF="node88.html">Component inheritance</A>
+<B> Up:</B> <A NAME="tex2html1800"
+  HREF="node86.html">Relations between Component Type</A>
+<B> Previous:</B> <A NAME="tex2html1794"
+  HREF="node86.html">Relations between Component Type</A>
+ &nbsp; <B>  <A NAME="tex2html1802"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1804"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION00425310000000000000">
+Introductory Note</A>
+</H4>
+
+<DIV ALIGN="CENTER"><A NAME="fig:cm-component-types-inheritance-conforms-01"></A><A NAME="1472"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.4:</STRONG>
+Component type layers: Inheritance structure and conforms-relation</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">		<IMG
+  WIDTH="860" HEIGHT="675" ALIGN="BOTTOM" BORDER="0"
+ SRC="./cm-component-types-inheritance-conforms-01.gif"
+ ALT="Image cm-component-types-inheritance-conforms-01">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Figure <A HREF="#fig:cm-component-types-inheritance-conforms-01">3.4</A> gives an overview on all component types defined in the Palladio Component Model. In particular the inheritance structure (at the left) and the <I>conforms</I>-relations between the component type layers are shown. It should be mentioned that the <I>conforms</I>-relations are helper constructs to simplify the explanation of the inter component type layer semantics; they are not part of the meta-model, (cf. section&nbsp;<A HREF="node157.html#sec:Core">4.1</A>) but can be manifested in constraints. Though the <I>conforms</I>-relation is shown as an association, component types of lower layers do not reference upper layers. Rather two component types automatically are part of a <I>conforms</I>-relation if they fulfil the conditions explained below. So the <I>conforms</I>-relation is comparable to a derived attribute.
+
+<P>
+Further more there are two <I>conforms</I>-relations: one between (provided type and complete type) and one between (complete type and implementation type). The <I>conforms</I>-relations are defined on the meta-model, but apply to model instances. More details on the <I>conforms</I>-relations are given in section <A HREF="#sec:Component_Developer:Conforms-Relation"><IMG  ALIGN="BOTTOM" BORDER="1" ALT="[*]"
+ SRC="file:///C|/programme/latex2html/icons/crossref.png"></A>.
+
+<P>
+The left side of the figure shows a simplified meta-model, while the right side shows a model instance structure. On the one hand the meta-model defines an inheritance structure (in the sense of adding features) between component types, on the other hand the meta-model is the part to explain the <I>conforms</I>-semantics with. The <I>conforms</I>-relation is a relation defined for the meta-model classes - for example using OCL-constraints (see [<A
+ HREF="node177.html#OCL">21</A>]), while instances of the <I>conforms</I>-relation apply to model classes.
+
+<P>
+As pointed out above, at the model instance the <I>conforms</I>-relation is implicitly available only, because the association between different component types is derived, based on the constraints expressed in the meta-model. If for example a complete type <I>conforms</I> to a provided type this is not an explicitly modelled association. The complete type <I>conforms</I> to the provided type just because the <I>conforms</I>-conditions are fulfilled.
+
+<P>
+It should be mentioned that we consider basic and composite components as the full set of possible implementation types. Hence the implementation type is an abstract component type. Therefore no model instances of the implementation type exist. Instead basic or composite components are used. 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html1805"
+  HREF="node88.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1799"
+  HREF="node86.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1793"
+  HREF="node86.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1801"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1803"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1806"
+  HREF="node88.html">Component inheritance</A>
+<B> Up:</B> <A NAME="tex2html1800"
+  HREF="node86.html">Relations between Component Type</A>
+<B> Previous:</B> <A NAME="tex2html1794"
+  HREF="node86.html">Relations between Component Type</A>
+ &nbsp; <B>  <A NAME="tex2html1802"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1804"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

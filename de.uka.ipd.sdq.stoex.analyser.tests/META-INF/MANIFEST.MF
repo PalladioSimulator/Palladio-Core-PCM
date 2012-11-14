@@ -1,0 +1,13 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: %pluginName
+Bundle-SymbolicName: de.uka.ipd.sdq.stoex.analyser.tests;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Fragment-Host: de.uka.ipd.sdq.stoex.analyser
+Bundle-Vendor: %providerName
+Require-Bundle: de.uka.ipd.sdq.stoex;visibility:=reexport,
+ org.junit4;visibility:=reexport,
+ de.uka.ipd.sdq.probfunction.math,
+ org.apache.commons.math
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

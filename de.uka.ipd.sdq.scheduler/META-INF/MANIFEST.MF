@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Scheduler Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.scheduler;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: de.uka.ipd.sdq.probfunction.math,
+ org.apache.log4j,
+ de.uka.ipd.sdq.sensorframework.storage,
+ de.uka.ipd.sdq.sensorframework,
+ org.eclipse.core.runtime;bundle-version="3.5.0",
+ de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0"
+Export-Package: de.uka.ipd.sdq.scheduler,
+ de.uka.ipd.sdq.scheduler.entities,
+ de.uka.ipd.sdq.scheduler.factory,
+ de.uka.ipd.sdq.scheduler.processes,
+ de.uka.ipd.sdq.scheduler.resources,
+ de.uka.ipd.sdq.scheduler.resources.active,
+ de.uka.ipd.sdq.scheduler.resources.active.special,
+ de.uka.ipd.sdq.scheduler.resources.passive,
+ de.uka.ipd.sdq.scheduler.sensors
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

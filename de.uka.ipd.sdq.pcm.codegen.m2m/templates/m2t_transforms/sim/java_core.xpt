@@ -1,0 +1,218 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT core::entity»
+
+«DEFINE SpecificImplementationPartTM FOR RepositoryComponent»
+	// Component Parameter Defaults
+	// TODO: The stackframes are not yet initialised by calling setComponentFrame in Protocom, thus initialise them here, too
+	protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myDefaultComponentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+
+	// Component Parameter setter
+	// TODO: The stackframes are not yet initialised by calling setComponentFrame in Protocom, thus initialise them here, too
+	protected de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+	
+	public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) {
+		this.myComponentStackFrame = myComponentStackFrame;	
+		this.myDefaultComponentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+		«IF ImplementationComponentType.isInstance(this)»
+			«FOREACH ((ImplementationComponentType)this).componentParameterUsage_ImplementationComponentType AS pu»
+				«FOREACH pu.variableCharacterisation_VariableUsage AS vc»
+					this.myDefaultComponentStackFrame.addValue("«pu.parameterUsageLHS()+'.'+vc.type.toString()»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.EvaluationProxy("«vc.specification_VariableCharacterisation.specification.specificationString()»",
+					   	new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>()));
+				«ENDFOREACH»
+			«ENDFOREACH»
+		«ENDIF»
+	}
+«ENDDEFINE»
+
+«DEFINE SpecificImplementationPartForInterfaceTM FOR RepositoryComponent»
+public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame);
+«ENDDEFINE»
+
+«DEFINE ComponentConstructor FOR RepositoryComponent»
+	private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(de.uka.ipd.sdq.simucomframework.model.SimuComModel.class.getName());
+			
+	
+	private String assemblyContextID = null;
+	
+	public String getAssemblyContextID() {
+		return assemblyContextID;
+	}
+	
+	private de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
+
+	private de.uka.ipd.sdq.simucomframework.model.SimuComModel getModel() {
+		return model;
+	} 
+	
+	«EXPAND PassiveResourceDecls FOR this»
+	
+	public «this.javaName()» (String assemblyContextID, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+		this.assemblyContextID = assemblyContextID;
+		this.model = model;
+		
+		«EXPAND InitCalculatorsTM FOR this»
+	}
+«ENDDEFINE»
+
+«DEFINE PassiveResourceDecls FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE PassiveResourceDecls FOR BasicComponent»
+	// Initialise this component's passive resources
+	«FOREACH this.passiveResource_BasicComponent AS pr»
+		de.uka.ipd.sdq.scheduler.IPassiveResource pr_«pr.id.javaVariableName()» = null;
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE ComponentHelperMethodsDeclaration FOR InterfaceProvidingEntity»
+ public String getAssemblyContextID();
+«ENDDEFINE»
+
+«DEFINE InterfaceHelperMethodsDeclaration FOR OperationInterface»
+ public String getComponentAssemblyContextID();
+«ENDDEFINE»
+
+«DEFINE InterfaceHelperMethodsDeclaration FOR InfrastructureInterface»
+ public String getComponentAssemblyContextID();
+«ENDDEFINE»
+
+«REM»Template Method for the calculator initialization«ENDREM»
+«DEFINE InitCalculatorsTM FOR RepositoryComponent»
+«ENDDEFINE»
+
+«DEFINE ContainerAvailabilityCheckTM FOR OperationSignature»
+	// Simulate a failure if one or multiple of the processing resources
+	// required by the executing resource container are currently unavailable:
+	de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer container = ctx.findResource(assemblyContextID);
+	java.util.List<de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource> failedResources = container.getFailedResources();
+	if(failedResources.size() > 0){
+		double randValue = ctx.getModel().getConfiguration().getRandomGenerator().random();
+		int index = (int)Math.floor(randValue * failedResources.size());
+		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(de.uka.ipd.sdq.reliability.core.FailureStatistics
+				.getInstance().getInternalHardwareFailureType(
+						container.getResourceContainerID(),
+						failedResources.get(index).getResourceTypeId()));
+	}
+«ENDDEFINE»
+
+/* Separation of bodies generated for actions and calling these bodies. This is 
+required due to the Java restriction that methods may not longer than 64k which 
+is easily violated if several external actions or infrastructure calls are 
+generated.
+Use ActionsAsCalls to execute the mapped AbstractAction. 
+Use ActionsAsMethods to generate the mapping for exactly one AbstractAction.
+*/
+«DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   {
+   	  «EXPAND ContainerAvailabilityCheckTM FOR this» 
+      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame =
+				new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame =
+				ctx.getStack().currentStackFrame();
+			if (this.myDefaultComponentStackFrame.getContents().size() > 0) {
+				methodBodyStackFrame.addVariables(this.myDefaultComponentStackFrame);
+			}
+			if (this.myComponentStackFrame.getContents().size() > 0) {
+				methodBodyStackFrame.addVariables(this.myComponentStackFrame);
+			}
+	      «EXPAND ActionsAsCalls FOR seff.steps_Behaviour.findStart()»
+	      return resultStackFrame;   
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
+   }   
+   «IF this.hasSEFF(component)»
+	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+    	«EXPAND ActionsAsMethods FOR seff.steps_Behaviour.findStart()»      
+	«ENDLET»
+  «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR InfrastructureSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   { 
+      «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.infrastructureInterface__InfrastructureSignature.id DISABLE»
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame =
+				new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame =
+				ctx.getStack().currentStackFrame();
+			if (this.myDefaultComponentStackFrame.getContents().size() > 0) {
+				methodBodyStackFrame.addVariables(this.myDefaultComponentStackFrame);
+			}
+			if (this.myComponentStackFrame.getContents().size() > 0) {
+				methodBodyStackFrame.addVariables(this.myComponentStackFrame);
+			}
+	      «EXPAND ActionsAsCalls FOR seff.steps_Behaviour.findStart()»
+	      return resultStackFrame;   
+    	«ENDLET»
+   	  «ENDIF»
+   	  «ENDPROTECT»
+   }   
+   «IF this.hasSEFF(component)»
+	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+    	«EXPAND ActionsAsMethods FOR seff.steps_Behaviour.findStart()»      
+	«ENDLET»
+  «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ActionsAsCalls FOR AbstractAction»
+	action«javaVariableName(this.id)»(ctx, resultStackFrame, methodBodyStackFrame);
+   «IF !StopAction.isInstance(this)»
+      «EXPAND ActionsAsCalls FOR this.successor_AbstractAction»
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ActionsAsMethods FOR AbstractAction»
+	private void action«javaVariableName(this.id)»(
+			final de.uka.ipd.sdq.simucomframework.Context ctx, 
+			final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame, 
+			final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame) {
+		// EntityName = «javaString(this.entityName)», Type = «javaString(this.metaType.name)»
+	   «EXPAND m2t_transforms::seff_body::Action FOR this»
+   }
+   «EXPAND ActionsAsMethodsSubBehavior FOR this»
+   «IF this.successor_AbstractAction != null»
+      «EXPAND ActionsAsMethods FOR this.successor_AbstractAction»
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE ActionsAsMethodsSubBehavior FOR AbstractAction»
+«ENDDEFINE»
+
+«DEFINE ActionsAsMethodsSubBehavior FOR CollectionIteratorAction»
+	«EXPAND ActionsAsMethods FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+«ENDDEFINE»
+
+«DEFINE ActionsAsMethodsSubBehavior FOR LoopAction»
+       «EXPAND ActionsAsMethods FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+«ENDDEFINE»
+
+«DEFINE ActionsAsMethodsSubBehavior FOR BranchAction»
+	«FOREACH this.branches_Branch.branchBehaviour_BranchTransition AS transition SEPARATOR " "»
+		«EXPAND ActionsAsMethods FOR transition.steps_Behaviour.findStart()»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE ActionsAsMethodsSubBehavior FOR ForkAction»
+	«FOREACH this.asynchronousForkedBehaviours_ForkAction AS f SEPARATOR " "»
+		«EXPAND ActionsAsMethods FOR f.steps_Behaviour.findStart()»
+	«ENDFOREACH»
+	«FOREACH this.synchronisingBehaviours_ForkAction.synchronousForkedBehaviours_SynchronisationPoint AS f SEPARATOR " "»
+		«EXPAND ActionsAsMethods FOR f.steps_Behaviour.findStart()»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+
+

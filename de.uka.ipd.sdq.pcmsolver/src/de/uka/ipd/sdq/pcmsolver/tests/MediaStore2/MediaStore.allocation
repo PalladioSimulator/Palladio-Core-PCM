@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<pcm.allocation:Allocation xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:pcm.allocation="http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/1.0" id="_rxD2EKYVEduWZfldHy3B1Q" entityName="MediaStore_Allocation">
+  <allocationContexts_Allocation id="_ZHscUKYXEduWZfldHy3B1Q" entityName="AllCtx_WebGUI">
+    <resourceContainer_AllocationContext href="MediaStore.resourceenvironment#_2mkAAKYVEduWZfldHy3B1Q"/>
+    <assemblyContext_AllocationContext href="MediaStore.system#_Glw5kKYUEduWZfldHy3B1Q"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_bcGu8KYXEduWZfldHy3B1Q" entityName="AllCtx_MediaStore">
+    <resourceContainer_AllocationContext href="MediaStore.resourceenvironment#_2mkAAKYVEduWZfldHy3B1Q"/>
+    <assemblyContext_AllocationContext href="MediaStore.system#_Fr88sKYUEduWZfldHy3B1Q"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_b3OksKYXEduWZfldHy3B1Q" entityName="AllCtx_DigitalWatermarking">
+    <resourceContainer_AllocationContext href="MediaStore.resourceenvironment#_2mkAAKYVEduWZfldHy3B1Q"/>
+    <assemblyContext_AllocationContext href="MediaStore.system#_HChuEKYUEduWZfldHy3B1Q"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_cggLMKYXEduWZfldHy3B1Q" entityName="AllCtx_DBAdapter">
+    <resourceContainer_AllocationContext href="MediaStore.resourceenvironment#_2mkAAKYVEduWZfldHy3B1Q"/>
+    <assemblyContext_AllocationContext href="MediaStore.system#_IJmq4KYUEduWZfldHy3B1Q"/>
+  </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="_d6NJEKYXEduWZfldHy3B1Q" entityName="AllCtx_AudioDB">
+    <resourceContainer_AllocationContext href="MediaStore.resourceenvironment#_35HNAKYVEduWZfldHy3B1Q"/>
+    <assemblyContext_AllocationContext href="MediaStore.system#_IoJoEKYUEduWZfldHy3B1Q"/>
+  </allocationContexts_Allocation>
+  <targetResourceEnvironment_Allocation href="MediaStore.resourceenvironment#/"/>
+  <system_Allocation href="MediaStore.system#_01sxQKYTEduWZfldHy3B1Q"/>
+</pcm.allocation:Allocation>

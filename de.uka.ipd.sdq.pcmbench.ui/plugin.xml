@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+<extension point="org.eclipse.ui.perspectives">
+      <perspective
+            class="de.uka.ipd.sdq.pcmbench.ui.perspectives.PalladioPerspective"
+            icon="icons/palladio-icon.ico"
+            id="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
+            name="Palladio">
+      </perspective>
+   </extension>
+   <extension-point id="de.uka.ipd.sdq.pcmbench.ui.wizard.template" name="Palladio Model Template" schema="schema/de.uka.ipd.sdq.pcmbench.wizard.template.exsd"/>
+
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+            class="de.uka.ipd.sdq.pcmbench.wizard.pcm.NewPalladioProjectWizard"
+            finalPerspective="de.uka.ipd.sdq.pcmbench.perspectives.palladio"
+            hasPages="true"
+            icon="icons/palladio-icon.ico"
+            id="de.uka.ipd.sdq.pcmbench.wizard.pcm.NewPCMWizard"
+            name="New Palladio Project"
+            project="true">
+         <description>
+            Create a new Palladio project and optionally select from a list of template models.
+         </description>
+      </wizard>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.pcmbench.ui.wizard.template">
+      <model_template
+            description="Creates a Palladio project containing a minimum example project."
+            name="Minimum Example Template">
+         <model_file
+               target_file="default.allocation"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.allocation">
+         </model_file>
+         <model_file
+               target_file="default.repository"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.repository">
+         </model_file>
+         <model_file
+               target_file="default.system"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.system">
+         </model_file>
+         <model_file
+               target_file="default.usagemodel"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.usagemodel">
+         </model_file>
+         <model_file
+               target_file="My.resourceenvironment"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/My.resourceenvironment">
+         </model_file>
+         <model_file
+               target_file="default.allocation_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.allocation_diagram">
+         </model_file>
+         <model_file
+               target_file="default.repository_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.repository_diagram">
+         </model_file>
+         <model_file
+               target_file="default.system_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.system_diagram">
+         </model_file>
+         <model_file
+               target_file="default.usagemodel_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/default.usagemodel_diagram">
+         </model_file>
+         <model_file
+               target_file="My.resourceenvironment_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_example/My.resourceenvironment_diagram">
+         </model_file>
+      </model_template>
+   </extension>
+   <extension
+         point="de.uka.ipd.sdq.pcmbench.ui.wizard.template">
+      <model_template
+            description="Creates a Palladio project containing a minimum example project using a event-based communication."
+            name="Minimum Event Template">
+         <model_file
+               target_file="default.allocation"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.allocation">
+         </model_file>
+         <model_file
+               target_file="default.repository"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.repository">
+         </model_file>
+         <model_file
+               target_file="default.system"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.system">
+         </model_file>
+         <model_file
+               target_file="default.usagemodel"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.usagemodel">
+         </model_file>
+         <model_file
+               target_file="default.resourceenvironment"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.resourceenvironment">
+         </model_file>
+         <model_file
+               target_file="default.allocation_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.allocation_diagram">
+         </model_file>
+         <model_file
+               target_file="default.repository_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.repository_diagram">
+         </model_file>
+         <model_file
+               target_file="default.system_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.system_diagram">
+         </model_file>
+         <model_file
+               target_file="default.usagemodel_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.usagemodel_diagram">
+         </model_file>
+         <model_file
+               target_file="default.resourceenvironment_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/minimum_event_example/default.resourceenvironment_diagram">
+         </model_file>
+      </model_template>
+   </extension>
+
+</plugin>

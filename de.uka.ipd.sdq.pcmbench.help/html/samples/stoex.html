@@ -1,0 +1,287 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+"http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<title>Help for StoEx</title>
+</head>
+<body>
+<h1>Stochastic Expressions</h1>
+<h2>Introduction</h2>
+<p>When modelling with the Palladio Component Model, you can use stochastic expression to specify</p>
+<ul>
+<li>resource demands</li>
+<li>characterisations of variables</li>
+<li>guards on branch transitions</li>
+<li>number of loop iterations</li>
+</ul>
+<p>Stochastic Expressions can include</p>
+<ul>
+<li>probability distributions (probability mass functions, probability density functions)</li>
+<li>constants (integer, real numbers, strings)</li>
+<li>arithmetic expressions (+,-,*,/,%)</li>
+<li>boolean expressions (AND, OR, NOT)</li>
+<li>variable characterisation references (array.NUMBER_OF_ELEMENTS, x.BYTESIZE), which evaluate to probability distributions or constants</li>
+<li>a number of predefined functions (see below)</li>
+</ul>
+<h2>Examples</h2>
+<table style="width: 100%;" border="1" cellpadding="0" cellspacing="0">
+<tbody>
+<tr>
+<td style="width: 40%;"><tt>DoublePDF[(1.0;0.3)(1.5;0.2)(2.0;0.5)]</tt></td>
+<td style="width: 60%;">
+<ul>
+<li>Specifies a time interval as boxed probability density function</li>
+<li>the probability of the time being between 0 and 1 second is 30 percent (0.3)</li>
+<li>the probability of the time being between 1 and 1.5 seconds is 20 percent (0.2)</li>
+<li>the probability of the time being between 1.5 and 2 seconds is 50 percent (0.5)</li>
+<li>the probabilty of the time being longer than 2 seconds is 0 percent.</li>
+<li>all probabilities sum up to 1.0 </li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>IntPMF[(27;0.1)(28;0.2)(29;0.6)(30;0.1)]</tt></td>
+<td>
+<ul>
+<li>Specifies the number of  executing a loop as a probability mass function (PMF)</li>
+<li>the probability of executing the loop exactly 27 times is 10 percent (0.1)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>DoublePMF[(22.3;0.4)(24.8;0.6)]</tt></td>
+<td>
+<ul>
+<li>Specifies a floating point variable characterisation as a probability mass function (PMF)</li>
+<li>the probability of the variable taking the value 22.3 is 40 percent (0.4)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>EnumPMF[("circle";0.2) ("rectangle";0.3)("triangle";0.5)]</tt></td>
+<td>
+<ul>
+<li><tt>Specifies a probability mass function over the domain of a parameter</tt></li>
+<li><tt>Graphics-Objects can either be circles, rectangles, or triangles with the respective probabilities</tt></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>BoolPMF[(false;0.3)(true;0.7)]</tt></td>
+<td>
+<ul>
+<li><tt>Specifies a probability mass function for a boolean guard on a branch transition</tt></li>
+<li><tt>The guard is false with a probability of 30 percent and true with a probability of 70 percent.</tt></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>23</tt></td>
+<td>
+<ul>
+<li>An integer constant</li>
+<li>Can be used for example for loop iteration numbers, variable characterisations or resource demands</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>42.5</tt></td>
+<td>
+<ul>
+<li>An floating point number constant</li>
+<li>Can be used for variable characterisations and resource demands (not for loop iterations)</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>"Hello World!"</tt></td>
+<td>
+<ul>
+<li>A string constant</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>number.VALUE</tt></td>
+<td>
+<ul>
+<li>Characterises the value of the variable "number"</li>
+<li>You can assign a constant or probability function to a characterisation</li>
+<li>For example, number.VALUE = 762.3 or number.VALUE = <tt>DoublePMF[(22.3;0.4)(24.8;0.6)]</tt></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>graphic.TYPE</tt></td>
+<td>
+<ul>
+<li>Characterises the type of the variable "graphic"</li>
+<li>For example: graphc.TYPE = "polygon"</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>file.BYTESIZE</tt></td>
+<td>
+<ul>
+<li>Characterises the size of variable "file" in bytes</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>array.NUMBER_OF_ELEMENTS</tt></td>
+<td>
+<ul>
+<li>Characterises the number of elements in the collection variable "array"</li>
+<li>For example: <tt>array.NUMBER_OF_ELEMENTS = IntPMF[(15;0.1)(16;0.9)]</tt></li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>set.STRUCTURE</tt></td>
+<td>
+<ul>
+<li>Characterises the structure of the collection variable "set"</li>
+<li>For example: sorted, unsorted</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>2+4, 34.3-1, 88.2*1.2, 14/2, 60%12<br>
+<br>
+number.VALUE * 15, file.BYTESIZE / 2</tt></td>
+<td>
+<ul>
+<li>Arithmetic expressions can combine constants</li>
+<li>Allowed are + (addition), - (subtraction), * (multiplication), / (division), % (modulo)</li>
+<li>Arithmetic expressions may include variable characterisations</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>DoublePDF[(1.0;0.3)(1.5;0.2)(2.0;0.5)] * 15<br>
+IntPMF[(1124.0;0.3)(1125.5;0.7)] + 2.5<br>
+DoublePDF[(12.0;0.9)(15;0.1)] - DoublePDF[(128.0;0.3)(256;0.2)(512.0;0.5)]</tt></td>
+<td>
+<ul>
+<li>Arithmetic expressions can also combine probability functions</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>number.VALUE &lt; 20, foo.NUMBER_OF_ELEMENT == 12,<br>
+blah.VALUE &gt;= 108.3 AND fasel.TYPE == "mytype"</tt></td>
+<td>
+<ul>
+<li>Boolean expressions evaluate to true or false</li>
+<li>You can use them on guarded branch transitions</li>
+<li>Valid operators are &gt; (greater), &lt; (less), == (equal), &lt;&gt;(not equal), &gt;= (greater equal), &lt;= (less equal), AND, OR, NOT</li>
+</ul>
+</td>
+</tr>
+<tr>
+<td><tt>number.VALUE >= 0 ? 10 : 1000</tt></td>
+<td>
+<ul>
+<li>Conditional Expressions: evaluates the boolean condition and evaluates to either case of (if / else) expression<br>
+Syntax is: <tt>booleanConditional ? ifExpr : elseExpr</tt>
+</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<h2>Predefined Functions</h2>
+A number of predefined functions can be used in the stochastic expressions. There are two types of functions: Predefined probability functions and auxiliary functions. The functions are listed in the following by their keyword in the stochastic expression.
+<h3>Predefined probability functions</h3>
+All functions are evaluated internally with the umontreal.iro.lecuyer.randvar and umontreal.iro.lecuyer.probdist packages. The passed parameters must be double values or be evaluated to double values.
+<ul>
+<li><tt>Exp</tt>: The exponential distribution with one rate parameter lambda &gt; 0. Note that the mean of this function is 1/lambda.</li>
+<li><tt>Norm</tt>: The normal distribution with two parameters mean mu and standard deviation sigma.</li>
+<li><tt>UniDouble</tt>: The (continuous) uniform distribution over the interval ]a, b[, where a and b are real numbers with a &gt; b.</li>
+<li><tt>UniInt</tt>: The uniform distribution over integers, over the interval [i, j ].</li>
+<li><tt>Pois</tt>: The Poisson distribution with one parameter lambda &gt; 0 equal to the mean.</li>
+<li><tt>Binom</tt>: The binomial distribution with parameters n and p. n is a positive integer, and 0 &lt;= p &lt;= 1.</li>
+<li><tt>Lognorm</tt>: The lognormal distribution with parameters mu and sigma. The parameter sigma &gt; 0.</li>
+<li><tt>LognormMoments</tt>: An alternative way of writing the lognormal distribution. The parameters are the mean mu and the standard deviation stdev.</li>
+<li><tt>Gamma:</tt> The gamma distribution with shape parameter alpha &gt; 0 and scale parameter theta &gt; 0.</li>
+<li><tt>GammaMoments:</tt> An alternative way of writing the Gamma distribution. The parameters are the mean mu and the coefficient of variance c.</li>
+</ul>
+<h3>Auxiliary functions</h3>
+<ul>
+<li><tt>Trunc:</tt> This function rounds off its argument as defined by java.lang.Math.floor. If the argument is a DoublePDF, this results in an IntPMF. This function is supported by all solvers if the argument is a DoublePDF or a double value. Only the SimuCom simulation supports arbitrary arguments.</li>
+<li><tt>Round:</tt> This functions rounds its argument as defined by java.lang.Math.round. If the argument is a DoublePDF, this results in an IntPMF. This function is only supported in the SimuCom simulation.</li>
+</ul>
+<h3>Examples</h3>
+<ul>
+<li><tt>Exp(0.3)</tt></li>
+<li><tt>Lognorm(0.3,c.VALUE)</tt> Note that c.VALUE must evaluate to a double value.</li>
+<li><tt>Trunc(DoublePDF[(12.0;0.9)(15;0.1)])</tt></li>
+</ul>
+<h2>BNF-Grammar</h2>
+<h3>Parser:</h3>
+<p>
+<tt>
+expression : ifElseExpr;  <br>
+ifElseExpr : boolAndExpr ( QMARK boolAndExpr COLON boolAndExpr)?; <br>
+boolAndExpr : boolOrExpr ( AND boolOrExpr)*; <br>
+boolOrExpr : compareExpr ( (OR | XOR) compareExpr)*; <br>
+compareExpr : sumExpr( ( GREATER | LESS | EQUAL | NOTEQUAL | GREATEREQUAL | LESSEQUAL) sumExpr | );<br>
+sumExpr : prodExpr ( ( PLUS | MINUS ) prodExpr )*;<br>
+prodExpr : powExpr ( ( MUL | DIV | MOD ) powExpr )*;<br>
+powExpr : atom( POW atom|);<br>
+atom: ( NUMBER | scoped_id | definition | STRING_LITERAL | boolean_keywords | LPAREN compareExpr RPAREN);<br>
+scoped_id : ID ( DOT ( ID | "INNER") )*;<br>
+<br>
+definition : "IntPMF" SQUARE_PAREN_L ( numeric_int_sample )+ SQUARE_PAREN_R<br>
+| "DoublePMF" SQUARE_PAREN_L ( numeric_real_sample )+ SQUARE_PAREN_R<br>
+| "EnumPMF" SQUARE_PAREN_L ( stringsample )+ SQUARE_PAREN_R<br>
+| "DoublePDF" SQUARE_PAREN_L( real_pdf_sample )+ SQUARE_PAREN_R<br>
+| "BoolPMF" SQUARE_PAREN_L ( boolsample )+ SQUARE_PAREN_R;
+</tt></p>
+
+<p><tt>
+boolean_keywords: ( "false"| "true");<br>
+numeric_int_sample: LPAREN NUMBER SEMI NUMBER RPAREN;<br>
+numeric_real_sample: LPAREN NUMBER SEMI NUMBER RPAREN;<br>
+stringsample: LPAREN STRING_LITERAL SEMI NUMBER RPAREN;<br>
+real_pdf_sample: LPAREN NUMBER SEMI NUMBER RPAREN;<br>
+boolsample: LPAREN boolean_keywords SEMI NUMBER RPAREN<br>
+characterisation_keywords: ( "BYTESIZE" | "STRUCTURE" | "NUMBER_OF_ELEMENTS" | TYPE" | "VALUE");
+</tt></p>
+
+<h3>Lexer:</h3>
+
+<tt><p>
+mPLUS | mMINUS | mMUL | mDIV | mMOD | mPOW | mLPAREN | mRPAREN | mSEMI | mDEFINITION | mEQUAL | mSQUARE_PAREN_L | mSQUARE_PAREN_R | mNUMBER | mNOTEQUAL | mGREATER | mLESS | mGREATEREQUAL | mLESSEQUAL | mSTRING_LITERAL | mDOT | mID | mWS </p>
+mPLUS : &rsquo;+&rsquo;; <br>
+mMINUS : &rsquo;-&rsquo;; <br>
+mMUL : &rsquo;*&rsquo;; <br>
+mDIV : &rsquo;/&rsquo;;  <br>
+mMOD : &rsquo;%&rsquo;; <br>
+mPOW : &rsquo;&circ;&rsquo;;
+mLPAREN : &rsquo;(&rsquo;; <br>
+mRPAREN : &rsquo;)&rsquo;; <br>
+mSEMI : &rsquo;;&rsquo;; <br>
+DEFINITION : &rsquo;=&rsquo;; <br>
+mEQUAL : "=="; <br>
+mSQUARE_PAREN_L : &rsquo;[&rsquo;; <br>
+mSQUARE_PAREN_R : &rsquo;]&rsquo;;<br>
+ </p>
+mDIGIT : &rsquo;0&rsquo;..&rsquo;9&rsquo;; <br>
+mNUMBER : ( mDIGIT )+( &rsquo;.&rsquo; ( mDIGIT )+ | );<br>
+mALPHA : &rsquo;a&rsquo;..&rsquo;z&rsquo;| &rsquo;A&rsquo;..&rsquo;Z&rsquo;;<br>
+</p>
+mNOTEQUAL : "&lt;&gt;"; <br>
+mGREATER : "&gt;"; <br>
+mLESS : "&lt;"; <br>
+mGREATEREQUAL : "&gt;="; <br>
+mLESSEQUAL : "&lt;="; <br>
+mSTRING_LITERAL : "\""( mALPHA | &rsquo;_&rsquo; )+ "\""; <br>
+mDOT : &rsquo;.&rsquo;; <br>
+mID : ( mALPHA | &rsquo;_&rsquo;)+;             // variable ids<br>
+mWS : ( &rsquo; &rsquo;| &rsquo;\t&rsquo;| &rsquo;\r&rsquo;| &rsquo;\n&rsquo;);    // whitespace</p>
+
+<p></tt>
+</body>
+</html>

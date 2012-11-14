@@ -1,0 +1,120 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Interface Structure</TITLE>
+<META NAME="description" CONTENT="Interface Structure">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node76.html">
+<LINK REL="previous" HREF="node70.html">
+<LINK REL="up" HREF="node69.html">
+<LINK REL="next" HREF="node72.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html1543"
+  HREF="node72.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html1537"
+  HREF="node69.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html1531"
+  HREF="node70.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html1539"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html1541"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html1544"
+  HREF="node72.html">Signatures</A>
+<B> Up:</B> <A NAME="tex2html1538"
+  HREF="node69.html">Component Developer (OLD)</A>
+<B> Previous:</B> <A NAME="tex2html1532"
+  HREF="node70.html">Interfaces</A>
+ &nbsp; <B>  <A NAME="tex2html1540"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html1542"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H2><A NAME="SECTION00422000000000000000"></A>
+<A NAME="sec:Interfaces:Interface_Structure"></A>
+<BR>
+Interface Structure
+</H2>
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:cm-interfaces-signature-protocol-01"></A><A NAME="1346"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.2:</STRONG>
+Example for interfaces with signature lists and protocol informations, represented as finite state machine</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">		<IMG
+  WIDTH="845" HEIGHT="580" ALIGN="BOTTOM" BORDER="0"
+ SRC="./cm-interfaces-signature-protocol-01.gif"
+ ALT="Image cm-interfaces-signature-protocol-01">
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+So far the internals and the internal structure of interfaces have not been discussed. Important properties of interfaces originate from their signatures and protocols. Interfaces have a list of signatures that define services, as well as a protocol that defines correct service call sequences.
+
+<P>
+<P>
+<DIV><I>Example  3.1</I> (Interfaces)  &nbsp; 
+The example from figure <A HREF="#fig:cm-interfaces-signature-protocol-01">3.2</A> shows the component <TT>ReaderWriter Component</TT>. It provides the interfaces <TT>IReaderWriter</TT> and requires <TT>ILogging</TT> and <TT>ICache</TT>. For every interface an example of a signature list and a protocol (visualised as finite state machine) is given.</DIV><P></P>
+
+<P>
+Interface protocols rise implications for object states. Object states implied by protocols are discussed in detail in Nierstra&#223; [<A
+ HREF="node177.html#Nierstrasz1995">17</A>].
+
+<P>
+<BR><HR>
+<!--Table of Child-Links-->
+<A NAME="CHILD_LINKS"><STRONG>Subsections</STRONG></A>
+
+<UL>
+<LI><A NAME="tex2html1545"
+  HREF="node72.html">Signatures</A>
+<LI><A NAME="tex2html1546"
+  HREF="node73.html">Protocols</A>
+<LI><A NAME="tex2html1547"
+  HREF="node74.html">Limitations of protocols and component state</A>
+<LI><A NAME="tex2html1548"
+  HREF="node75.html">Limitations of protocol state changes</A>
+</UL>
+<!--End of Table of Child-Links-->
+<BR><HR>
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

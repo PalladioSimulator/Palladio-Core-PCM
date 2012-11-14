@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<!--
+ <copyright>
+ </copyright>
+
+ $Id$
+-->
+
+<plugin>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.fzi.se.quality.presentation.QualityModelWizardID"
+            name="%_UI_QualityModelWizard_label"
+            class="de.fzi.se.quality.presentation.QualityModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/QualityModelFile.gif">
+         <description>%_UI_QualityModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.fzi.se.quality.presentation.QualityEditorID"
+            name="%_UI_QualityEditor_label"
+            icon="icons/full/obj16/QualityModelFile.gif"
+            extensions="quality"
+            class="de.fzi.se.quality.presentation.QualityEditor"
+            contributorClass="de.fzi.se.quality.presentation.QualityActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.fzi.se.quality.qualityannotation.presentation.QualityAnnotationModelWizardID"
+            name="%_UI_QualityAnnotationModelWizard_label"
+            class="de.fzi.se.quality.qualityannotation.presentation.QualityAnnotationModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/QualityAnnotationModelFile.gif">
+         <description>%_UI_QualityAnnotationModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.fzi.se.quality.qualityannotation.presentation.QualityAnnotationEditorID"
+            name="%_UI_QualityAnnotationEditor_label"
+            icon="icons/full/obj16/QualityAnnotationModelFile.gif"
+            extensions="qualityannotation"
+            class="de.fzi.se.quality.qualityannotation.presentation.QualityAnnotationEditor"
+            contributorClass="de.fzi.se.quality.qualityannotation.presentation.QualityAnnotationActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.fzi.se.quality.parameters.presentation.ParametersModelWizardID"
+            name="%_UI_ParametersModelWizard_label"
+            class="de.fzi.se.quality.parameters.presentation.ParametersModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/ParametersModelFile.gif">
+         <description>%_UI_ParametersModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.fzi.se.quality.parameters.presentation.ParametersEditorID"
+            name="%_UI_ParametersEditor_label"
+            icon="icons/full/obj16/ParametersModelFile.gif"
+            extensions="parameters"
+            class="de.fzi.se.quality.parameters.presentation.ParametersEditor"
+            contributorClass="de.fzi.se.quality.parameters.presentation.ParametersActionBarContributor">
+      </editor>
+   </extension>
+
+   <extension point="org.eclipse.ui.newWizards">
+      <category
+            id="org.eclipse.emf.ecore.Wizard.category.ID"
+            name="%_UI_Wizard_category"/>
+      <wizard
+            id="de.fzi.se.quality.parameters.pcm.presentation.PCMModelWizardID"
+            name="%_UI_PCMModelWizard_label"
+            class="de.fzi.se.quality.parameters.pcm.presentation.PCMModelWizard"
+            category="org.eclipse.emf.ecore.Wizard.category.ID"
+            icon="icons/full/obj16/PCMModelFile.gif">
+         <description>%_UI_PCMModelWizard_description</description>
+         <selection class="org.eclipse.core.resources.IResource"/>
+      </wizard>
+   </extension>
+
+   <extension point="org.eclipse.ui.editors">
+      <editor
+            id="de.fzi.se.quality.parameters.pcm.presentation.PCMEditorID"
+            name="%_UI_PCMEditor_label"
+            icon="icons/full/obj16/PCMModelFile.gif"
+            extensions="pcm"
+            class="de.fzi.se.quality.parameters.pcm.presentation.PCMEditor"
+            contributorClass="de.fzi.se.quality.parameters.pcm.presentation.PCMActionBarContributor">
+      </editor>
+   </extension>
+   <extension
+         point="org.eclipse.ui.newWizards">
+      <wizard
+            category="de.uka.ipd.sdq.pcmbench.palladio_modeling_category"
+            class="de.fzi.se.quality.presentation.DefaultQualityModelWizard"
+            icon="icons/full/obj16/QualityModelFile.gif"
+            id="de.fzi.se.quality.presentation.DefaultQualityModelWizardID"
+            name="%_UI_DefaultQualityModelWizard_label">
+         <description>
+            %_UI_DefaultQualityModelWizard_description
+         </description>
+         <selection
+               class="org.eclipse.core.resources.IResource">
+         </selection>
+      </wizard>
+   </extension>
+
+</plugin>
