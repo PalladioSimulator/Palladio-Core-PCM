@@ -95,6 +95,9 @@
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_ONNVofDCEd-kFeqitXR7Sg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_ONNVoPDCEd-kFeqitXR7Sg" value="1"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_w9G70C6AEeKYbrQlAsai6A" name="qualifiedElementName" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_YUBqEPDBEd-kFeqitXR7Sg" name="CharacterisedPCMParameterPartitionInterval">
         <ownedComment xmi:id="_qy-u8A3cEeCtUuAB3P-fBw" annotatedElement="_YUBqEPDBEd-kFeqitXR7Sg">

@@ -68,6 +68,7 @@ public class CharacterisedPCMParameterPartitionItemProvider
 			super.getPropertyDescriptors(object);
 
 			addForCharacterisationPropertyDescriptor(object);
+			addQualifiedElementNamePropertyDescriptor(object);
 		}
 		return itemPropertyDescriptors;
 	}
@@ -86,6 +87,28 @@ public class CharacterisedPCMParameterPartitionItemProvider
 				 getString("_UI_CharacterisedPCMParameterPartition_forCharacterisation_feature"),
 				 getString("_UI_PropertyDescriptor_description", "_UI_CharacterisedPCMParameterPartition_forCharacterisation_feature", "_UI_CharacterisedPCMParameterPartition_type"),
 				 QualityAnnotationPackage.Literals.CHARACTERISED_PCM_PARAMETER_PARTITION__FOR_CHARACTERISATION,
+				 true,
+				 false,
+				 false,
+				 ItemPropertyDescriptor.GENERIC_VALUE_IMAGE,
+				 null,
+				 null));
+	}
+
+	/**
+	 * This adds a property descriptor for the Qualified Element Name feature.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected void addQualifiedElementNamePropertyDescriptor(Object object) {
+		itemPropertyDescriptors.add
+			(createItemPropertyDescriptor
+				(((ComposeableAdapterFactory)adapterFactory).getRootAdapterFactory(),
+				 getResourceLocator(),
+				 getString("_UI_CharacterisedPCMParameterPartition_qualifiedElementName_feature"),
+				 getString("_UI_PropertyDescriptor_description", "_UI_CharacterisedPCMParameterPartition_qualifiedElementName_feature", "_UI_CharacterisedPCMParameterPartition_type"),
+				 QualityAnnotationPackage.Literals.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME,
 				 true,
 				 false,
 				 false,
@@ -121,6 +144,7 @@ public class CharacterisedPCMParameterPartitionItemProvider
 
 		switch (notification.getFeatureID(CharacterisedPCMParameterPartition.class)) {
 			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__FOR_CHARACTERISATION:
+			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), false, true));
 				return;
 		}

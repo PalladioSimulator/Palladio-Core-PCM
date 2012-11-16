@@ -572,13 +572,22 @@ public interface QualityAnnotationPackage extends EPackage {
 	int CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 1;
 
 	/**
+	 * The feature id for the '<em><b>Qualified Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+
+	/**
 	 * The number of structural features of the '<em>Characterised PCM Parameter Partition</em>' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int CHARACTERISED_PCM_PARAMETER_PARTITION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 2;
+	int CHARACTERISED_PCM_PARAMETER_PARTITION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -663,6 +672,15 @@ public interface QualityAnnotationPackage extends EPackage {
 	int CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__PCM_PARAMETER_PARTITION = CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION;
 
 	/**
+	 * The feature id for the '<em><b>Qualified Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL__QUALIFIED_ELEMENT_NAME = CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME;
+
+	/**
 	 * The feature id for the '<em><b>From</b></em>' containment reference.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -725,6 +743,15 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @ordered
 	 */
 	int CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE__PCM_PARAMETER_PARTITION = CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION;
+
+	/**
+	 * The feature id for the '<em><b>Qualified Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE__QUALIFIED_ELEMENT_NAME = CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME;
 
 	/**
 	 * The feature id for the '<em><b>Values</b></em>' containment reference list.
@@ -2409,6 +2436,17 @@ public interface QualityAnnotationPackage extends EPackage {
 	EReference getCharacterisedPCMParameterPartition_PcmParameterPartition();
 
 	/**
+	 * Returns the meta object for the attribute '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getQualifiedElementName <em>Qualified Element Name</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the attribute '<em>Qualified Element Name</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getQualifiedElementName()
+	 * @see #getCharacterisedPCMParameterPartition()
+	 * @generated
+	 */
+	EAttribute getCharacterisedPCMParameterPartition_QualifiedElementName();
+
+	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval <em>Characterised PCM Parameter Partition Interval</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -3167,6 +3205,14 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION = eINSTANCE.getCharacterisedPCMParameterPartition_PcmParameterPartition();
+
+		/**
+		 * The meta object literal for the '<em><b>Qualified Element Name</b></em>' attribute feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EAttribute CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME = eINSTANCE.getCharacterisedPCMParameterPartition_QualifiedElementName();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionIntervalImpl <em>Characterised PCM Parameter Partition Interval</em>}' class.

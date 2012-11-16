@@ -33,6 +33,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionImpl#getForCharacterisation <em>For Characterisation</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionImpl#getPcmParameterPartition <em>Pcm Parameter Partition</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionImpl#getQualifiedElementName <em>Qualified Element Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -58,6 +59,26 @@ public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierI
 	 * @ordered
 	 */
 	protected VariableCharacterisationType forCharacterisation = FOR_CHARACTERISATION_EDEFAULT;
+
+	/**
+	 * The default value of the '{@link #getQualifiedElementName() <em>Qualified Element Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualifiedElementName()
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String QUALIFIED_ELEMENT_NAME_EDEFAULT = null;
+
+	/**
+	 * The cached value of the '{@link #getQualifiedElementName() <em>Qualified Element Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getQualifiedElementName()
+	 * @generated
+	 * @ordered
+	 */
+	protected String qualifiedElementName = QUALIFIED_ELEMENT_NAME_EDEFAULT;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -145,6 +166,27 @@ public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierI
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public String getQualifiedElementName() {
+		return qualifiedElementName;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public void setQualifiedElementName(String newQualifiedElementName) {
+		String oldQualifiedElementName = qualifiedElementName;
+		qualifiedElementName = newQualifiedElementName;
+		if (eNotificationRequired())
+			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME, oldQualifiedElementName, qualifiedElementName));
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
@@ -196,6 +238,8 @@ public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierI
 				return getForCharacterisation();
 			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION:
 				return getPcmParameterPartition();
+			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME:
+				return getQualifiedElementName();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -213,6 +257,9 @@ public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierI
 				return;
 			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION:
 				setPcmParameterPartition((PCMParameterPartition)newValue);
+				return;
+			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME:
+				setQualifiedElementName((String)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -232,6 +279,9 @@ public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierI
 			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION:
 				setPcmParameterPartition((PCMParameterPartition)null);
 				return;
+			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME:
+				setQualifiedElementName(QUALIFIED_ELEMENT_NAME_EDEFAULT);
+				return;
 		}
 		super.eUnset(featureID);
 	}
@@ -248,6 +298,8 @@ public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierI
 				return forCharacterisation != FOR_CHARACTERISATION_EDEFAULT;
 			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION:
 				return getPcmParameterPartition() != null;
+			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME:
+				return QUALIFIED_ELEMENT_NAME_EDEFAULT == null ? qualifiedElementName != null : !QUALIFIED_ELEMENT_NAME_EDEFAULT.equals(qualifiedElementName);
 		}
 		return super.eIsSet(featureID);
 	}
@@ -264,6 +316,8 @@ public abstract class CharacterisedPCMParameterPartitionImpl extends IdentifierI
 		StringBuffer result = new StringBuffer(super.toString());
 		result.append(" (forCharacterisation: ");
 		result.append(forCharacterisation);
+		result.append(", qualifiedElementName: ");
+		result.append(qualifiedElementName);
 		result.append(')');
 		return result.toString();
 	}

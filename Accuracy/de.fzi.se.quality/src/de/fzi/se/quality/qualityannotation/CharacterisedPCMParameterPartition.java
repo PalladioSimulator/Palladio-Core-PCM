@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
  * <ul>
  *   <li>{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getForCharacterisation <em>For Characterisation</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getPcmParameterPartition <em>Pcm Parameter Partition</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getQualifiedElementName <em>Qualified Element Name</em>}</li>
  * </ul>
  * </p>
  *
@@ -84,5 +85,31 @@ public interface CharacterisedPCMParameterPartition extends Identifier {
 	 * @generated
 	 */
 	void setPcmParameterPartition(PCMParameterPartition value);
+
+	/**
+	 * Returns the value of the '<em><b>Qualified Element Name</b></em>' attribute.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Qualified Element Name</em>' attribute isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Qualified Element Name</em>' attribute.
+	 * @see #setQualifiedElementName(String)
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartition_QualifiedElementName()
+	 * @model required="true" ordered="false"
+	 * @generated
+	 */
+	String getQualifiedElementName();
+
+	/**
+	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition#getQualifiedElementName <em>Qualified Element Name</em>}' attribute.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Qualified Element Name</em>' attribute.
+	 * @see #getQualifiedElementName()
+	 * @generated
+	 */
+	void setQualifiedElementName(String value);
 
 } // CharacterisedPCMParameterPartition

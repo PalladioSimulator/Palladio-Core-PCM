@@ -748,6 +748,15 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EAttribute getCharacterisedPCMParameterPartition_QualifiedElementName() {
+		return (EAttribute)characterisedPCMParameterPartitionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EClass getCharacterisedPCMParameterPartitionInterval() {
 		return characterisedPCMParameterPartitionIntervalEClass;
 	}
@@ -1159,6 +1168,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		characterisedPCMParameterPartitionEClass = createEClass(CHARACTERISED_PCM_PARAMETER_PARTITION);
 		createEAttribute(characterisedPCMParameterPartitionEClass, CHARACTERISED_PCM_PARAMETER_PARTITION__FOR_CHARACTERISATION);
 		createEReference(characterisedPCMParameterPartitionEClass, CHARACTERISED_PCM_PARAMETER_PARTITION__PCM_PARAMETER_PARTITION);
+		createEAttribute(characterisedPCMParameterPartitionEClass, CHARACTERISED_PCM_PARAMETER_PARTITION__QUALIFIED_ELEMENT_NAME);
 
 		pcmParameterPartitionEClass = createEClass(PCM_PARAMETER_PARTITION);
 		createEReference(pcmParameterPartitionEClass, PCM_PARAMETER_PARTITION__CHARACERISED_PARAMETER_PARTITIONS);
@@ -1346,6 +1356,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		initEClass(characterisedPCMParameterPartitionEClass, CharacterisedPCMParameterPartition.class, "CharacterisedPCMParameterPartition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCharacterisedPCMParameterPartition_ForCharacterisation(), theParameterPackage.getVariableCharacterisationType(), "forCharacterisation", null, 1, 1, CharacterisedPCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getCharacterisedPCMParameterPartition_PcmParameterPartition(), this.getPCMParameterPartition(), this.getPCMParameterPartition_CharacerisedParameterPartitions(), "pcmParameterPartition", null, 1, 1, CharacterisedPCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getCharacterisedPCMParameterPartition_QualifiedElementName(), ecorePackage.getEString(), "qualifiedElementName", null, 1, 1, CharacterisedPCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(pcmParameterPartitionEClass, PCMParameterPartition.class, "PCMParameterPartition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEReference(getPCMParameterPartition_CharacerisedParameterPartitions(), this.getCharacterisedPCMParameterPartition(), this.getCharacterisedPCMParameterPartition_PcmParameterPartition(), "characerisedParameterPartitions", null, 1, -1, PCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);

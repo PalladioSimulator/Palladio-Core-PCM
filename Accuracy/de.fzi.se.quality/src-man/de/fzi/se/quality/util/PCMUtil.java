@@ -75,6 +75,9 @@ public class PCMUtil {
 	 * @return The qualified name, e.g. name.space.variableName.
 	 */
 	public static String getQualifiedName(AbstractNamedReference reference) {
+		if (reference == null) {
+			return "";
+		}
 		return anr2qnConverter.doSwitch(reference);
 	}
 	

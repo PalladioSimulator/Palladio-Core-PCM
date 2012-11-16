@@ -121,6 +121,7 @@
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/CharacterisedPCMParameterPartition/forCharacterisation"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
             createChild="false" ecoreFeature="ecore:EReference quality.ecore#//qualityannotation/CharacterisedPCMParameterPartition/pcmParameterPartition"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute quality.ecore#//qualityannotation/CharacterisedPCMParameterPartition/qualifiedElementName"/>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="quality.ecore#//qualityannotation/PCMParameterPartition">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"

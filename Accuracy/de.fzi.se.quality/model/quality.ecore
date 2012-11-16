@@ -139,6 +139,8 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="pcmParameterPartition"
           ordered="false" lowerBound="1" eType="#//qualityannotation/PCMParameterPartition"
           eOpposite="#//qualityannotation/PCMParameterPartition/characerisedParameterPartitions"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="qualifiedElementName"
+          ordered="false" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="PCMParameterPartition" eSuperTypes="#//parameters/ParameterPartition">
       <eOperations name="APCMParameterPartitionMustReferenceAPCMParameterReference"
