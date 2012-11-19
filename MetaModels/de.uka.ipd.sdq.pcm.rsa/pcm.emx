@@ -16162,6 +16162,12 @@ check if the signature&#xD;
             <body>self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)</body>
           </specification>
         </ownedRule>
+        <ownedRule xmi:id="_7xyucDJGEeKKwfV0ekHKjA" name="OperationRequiredRoleMustBeReferencedByContainer" constrainedElement="_vEMNwODjEdq8ysXH3gTiEg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_7xyucTJGEeKKwfV0ekHKjA">
+            <language>OCL</language>
+            <body>self.oclAsType(ocl::OclElement)->closure(oclContainer())->select( entity : pcm::core::entity::InterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).requiredRole__InfrastructureCall->includes(self.role_ExternalService)</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="_w9VgsODjEdq8ysXH3gTiEg" general="_6qnlsODgEdq8ysXH3gTiEg"/>
         <generalization xmi:id="_Pi1kMLGREd673PT6cWw0Kw" general="_3WRtoHSgEd-1jbVkuJ9Llg"/>
         <generalization xmi:id="_FPQ5cDqHEd-LPs9iafFs9w" general="_NBzeIDqGEd-LPs9iafFs9w"/>
@@ -17103,6 +17109,12 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <body>signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole</body>
             </specification>
           </ownedRule>
+          <ownedRule xmi:id="_ULuDgDJDEeKKwfV0ekHKjA" name="ReferencedRequiredRoleMustBeRequiredByComponent" constrainedElement="_aOLa8AhtEeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_ULuDgTJDEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.oclAsType(ocl::OclElement)->closure(oclContainer())->select( entity : pcm::core::entity::InterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).requiredRole__InfrastructureCall->includes(self.requiredRole__InfrastructureCall)</body>
+            </specification>
+          </ownedRule>
           <generalization xmi:id="_fPGXIAhtEeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
           <ownedAttribute xmi:id="_17f2kAhtEeCQFc0YYtBKsw" name="signature__InfrastructureCall" visibility="public" type="_lug2oHSpEd-1jbVkuJ9Llg" association="_17eBYAhtEeCQFc0YYtBKsw">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17gdoQhtEeCQFc0YYtBKsw" value="1"/>
@@ -17133,6 +17145,12 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_ac8bIE5HEeCssfo5iOjFPg">
               <language>OCL</language>
               <body>self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_U27cUDJGEeKKwfV0ekHKjA" name="ResourceRequiredRolesIsReferencedByContainer" constrainedElement="_Qcl2AAh2EeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_U27cUTJGEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.oclAsType(ocl::OclElement)->closure(oclContainer())->select( entity : ResourceInterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).resourceRequiredRole__ResourceCall->includes(self.resourceRequiredRole__ResourceCall)</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_UCha4Ah2EeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
