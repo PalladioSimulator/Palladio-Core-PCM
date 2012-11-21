@@ -16165,7 +16165,7 @@ check if the signature&#xD;
         <ownedRule xmi:id="_7xyucDJGEeKKwfV0ekHKjA" name="OperationRequiredRoleMustBeReferencedByContainer" constrainedElement="_vEMNwODjEdq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_7xyucTJGEeKKwfV0ekHKjA">
             <language>OCL</language>
-            <body>self.oclAsType(ocl::OclElement)->closure(oclContainer())->select( entity : pcm::core::entity::InterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).requiredRole__InfrastructureCall->includes(self.role_ExternalService)</body>
+            <body>self->closure(oclContainer())->select( entity : pcm::core::entity::InterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).requiredRole__InfrastructureCall->includes(self.role_ExternalService)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_w9VgsODjEdq8ysXH3gTiEg" general="_6qnlsODgEdq8ysXH3gTiEg"/>
@@ -17112,7 +17112,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
           <ownedRule xmi:id="_ULuDgDJDEeKKwfV0ekHKjA" name="ReferencedRequiredRoleMustBeRequiredByComponent" constrainedElement="_aOLa8AhtEeCQFc0YYtBKsw">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_ULuDgTJDEeKKwfV0ekHKjA">
               <language>OCL</language>
-              <body>self.oclAsType(ocl::OclElement)->closure(oclContainer())->select( entity : pcm::core::entity::InterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).requiredRole__InfrastructureCall->includes(self.requiredRole__InfrastructureCall)</body>
+              <body>self->closure(oclContainer())->select( entity : pcm::core::entity::InterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).requiredRole__InfrastructureCall->includes(self.requiredRole__InfrastructureCall)</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_fPGXIAhtEeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
@@ -17150,7 +17150,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
           <ownedRule xmi:id="_U27cUDJGEeKKwfV0ekHKjA" name="ResourceRequiredRolesIsReferencedByContainer" constrainedElement="_Qcl2AAh2EeCQFc0YYtBKsw">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_U27cUTJGEeKKwfV0ekHKjA">
               <language>OCL</language>
-              <body>self.oclAsType(ocl::OclElement)->closure(oclContainer())->select( entity : ResourceInterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).resourceRequiredRole__ResourceCall->includes(self.resourceRequiredRole__ResourceCall)</body>
+              <body>self->closure(oclContainer())->select( entity : ResourceInterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).resourceRequiredRole__ResourceCall->includes(self.resourceRequiredRole__ResourceCall)</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_UCha4Ah2EeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
