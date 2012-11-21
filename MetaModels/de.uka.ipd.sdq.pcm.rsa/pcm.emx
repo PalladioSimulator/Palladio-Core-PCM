@@ -16165,7 +16165,7 @@ check if the signature&#xD;
         <ownedRule xmi:id="_7xyucDJGEeKKwfV0ekHKjA" name="OperationRequiredRoleMustBeReferencedByContainer" constrainedElement="_vEMNwODjEdq8ysXH3gTiEg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_7xyucTJGEeKKwfV0ekHKjA">
             <language>OCL</language>
-            <body>self->closure(oclContainer())->select( entity : pcm::core::entity::InterfaceRequiringEntity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).requiredRole__InfrastructureCall->includes(self.role_ExternalService)</body>
+            <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_w9VgsODjEdq8ysXH3gTiEg" general="_6qnlsODgEdq8ysXH3gTiEg"/>
