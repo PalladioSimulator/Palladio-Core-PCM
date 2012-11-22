@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.seff.*;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
@@ -145,7 +146,7 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int INTERNAL_ACTION__MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED = 11;
+	public static final int INTERNAL_ACTION__MULTIPLE_INTERNAL_OCCURRENCE_DESCRIPTIONS_PER_FAILURE_TYPE_NOT_ALLOWED = 12;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Sum Of Internal Action Failure Probabilities Must Not Exceed1' of 'Internal Action'.
@@ -153,7 +154,7 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int INTERNAL_ACTION__SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1 = 12;
+	public static final int INTERNAL_ACTION__SUM_OF_INTERNAL_ACTION_FAILURE_PROBABILITIES_MUST_NOT_EXCEED1 = 13;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Signature Belongs To Role' of 'External Call Action'.
@@ -164,12 +165,20 @@ public class SeffValidator extends EObjectValidator {
 	public static final int EXTERNAL_CALL_ACTION__SIGNATURE_BELONGS_TO_ROLE = 9;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Operation Required Role Must Be Referenced By Container' of 'External Call Action'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int EXTERNAL_CALL_ACTION__OPERATION_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_CONTAINER = 10;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Timeout Value Of Acquire Action Must Not Be Negative' of 'Acquire Action'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int ACQUIRE_ACTION__TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE = 10;
+	public static final int ACQUIRE_ACTION__TIMEOUT_VALUE_OF_ACQUIRE_ACTION_MUST_NOT_BE_NEGATIVE = 11;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -177,7 +186,7 @@ public class SeffValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 12;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 13;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -703,6 +712,7 @@ public class SeffValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(externalCallAction, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(externalCallAction, diagnostics, context);
 		if (result || diagnostics != null) result &= validateExternalCallAction_SignatureBelongsToRole(externalCallAction, diagnostics, context);
+		if (result || diagnostics != null) result &= validateExternalCallAction_OperationRequiredRoleMustBeReferencedByContainer(externalCallAction, diagnostics, context);
 		return result;
 	}
 
@@ -714,6 +724,16 @@ public class SeffValidator extends EObjectValidator {
 	 */
 	public boolean validateExternalCallAction_SignatureBelongsToRole(ExternalCallAction externalCallAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return externalCallAction.SignatureBelongsToRole(diagnostics, context);
+	}
+
+	/**
+	 * Validates the OperationRequiredRoleMustBeReferencedByContainer constraint of '<em>External Call Action</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateExternalCallAction_OperationRequiredRoleMustBeReferencedByContainer(ExternalCallAction externalCallAction, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return externalCallAction.OperationRequiredRoleMustBeReferencedByContainer(diagnostics, context);
 	}
 
 	/**

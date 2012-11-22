@@ -14,6 +14,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.EValidator;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
+import org.eclipse.uml2.types.TypesPackage;
 import de.uka.ipd.sdq.identifier.IdentifierPackage;
 import de.uka.ipd.sdq.pcm.PcmPackage;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
@@ -241,6 +242,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		// Initialize simple dependencies
 		IdentifierPackage.eINSTANCE.eClass();
 		StoexPackage.eINSTANCE.eClass();
+		TypesPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		PcmPackageImpl thePcmPackage = (PcmPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) instanceof PcmPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(PcmPackage.eNS_URI) : PcmPackage.eINSTANCE);
@@ -484,7 +486,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * @generated
 	 */
 	public EReference getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall() {
-		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(3);
+		return (EReference)entryLevelSystemCallEClass.getEStructuralFeatures().get(4);
 	}
 
 	/**
@@ -493,7 +495,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 	 * @generated
 	 */
 	public EAttribute getEntryLevelSystemCall_Priority() {
-		return (EAttribute)entryLevelSystemCallEClass.getEStructuralFeatures().get(4);
+		return (EAttribute)entryLevelSystemCallEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -788,8 +790,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PROVIDED_ROLE_ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__OPERATION_SIGNATURE_ENTRY_LEVEL_SYSTEM_CALL);
 		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
-		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
 		createEAttribute(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__PRIORITY);
+		createEReference(entryLevelSystemCallEClass, ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL);
 
 		abstractUserActionEClass = createEClass(ABSTRACT_USER_ACTION);
 		createEReference(abstractUserActionEClass, ABSTRACT_USER_ACTION__SUCCESSOR);
@@ -857,6 +859,7 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		CompositionPackage theCompositionPackage = (CompositionPackage)EPackage.Registry.INSTANCE.getEPackage(CompositionPackage.eNS_URI);
 		ParameterPackage theParameterPackage = (ParameterPackage)EPackage.Registry.INSTANCE.getEPackage(ParameterPackage.eNS_URI);
 		RepositoryPackage theRepositoryPackage = (RepositoryPackage)EPackage.Registry.INSTANCE.getEPackage(RepositoryPackage.eNS_URI);
+		TypesPackage theTypesPackage = (TypesPackage)EPackage.Registry.INSTANCE.getEPackage(TypesPackage.eNS_URI);
 		CorePackage theCorePackage = (CorePackage)EPackage.Registry.INSTANCE.getEPackage(CorePackage.eNS_URI);
 
 		// Create type parameters
@@ -898,8 +901,8 @@ public class UsagemodelPackageImpl extends EPackageImpl implements UsagemodelPac
 		initEReference(getEntryLevelSystemCall_ProvidedRole_EntryLevelSystemCall(), theRepositoryPackage.getOperationProvidedRole(), null, "providedRole_EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getEntryLevelSystemCall_OperationSignature__EntryLevelSystemCall(), theRepositoryPackage.getOperationSignature(), null, "operationSignature__EntryLevelSystemCall", null, 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getEntryLevelSystemCall_OutputParameterUsages_EntryLevelSystemCall(), theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_EntryLevelSystemCall_OutputParameterUsage(), "outputParameterUsages_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEAttribute(getEntryLevelSystemCall_Priority(), theTypesPackage.getInteger(), "priority", "0", 1, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getEntryLevelSystemCall_InputParameterUsages_EntryLevelSystemCall(), theParameterPackage.getVariableUsage(), theParameterPackage.getVariableUsage_EntryLevelSystemCall_InputParameterUsage(), "inputParameterUsages_EntryLevelSystemCall", null, 0, -1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEAttribute(getEntryLevelSystemCall_Priority(), ecorePackage.getEInt(), "priority", null, 0, 1, EntryLevelSystemCall.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
 		EOperation op = addEOperation(entryLevelSystemCallEClass, ecorePackage.getEBoolean(), "EntryLevelSystemCallMustReferenceProvidedRoleOfASystem", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);

@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;

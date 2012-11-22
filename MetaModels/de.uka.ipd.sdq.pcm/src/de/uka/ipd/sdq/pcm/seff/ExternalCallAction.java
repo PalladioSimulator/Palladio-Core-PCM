@@ -109,7 +109,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 	 * @return the value of the '<em>Retry Count</em>' attribute.
 	 * @see #setRetryCount(int)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_RetryCount()
-	 * @model default="0" required="true" ordered="false"
+	 * @model default="0" dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
 	 * @generated
 	 */
 	int getRetryCount();
@@ -140,5 +140,17 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 	 * @generated
 	 */
 	boolean SignatureBelongsToRole(DiagnosticChain diagnostics, Map<Object, Object> context);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)'"
+	 * @generated
+	 */
+	boolean OperationRequiredRoleMustBeReferencedByContainer(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ExternalCallAction

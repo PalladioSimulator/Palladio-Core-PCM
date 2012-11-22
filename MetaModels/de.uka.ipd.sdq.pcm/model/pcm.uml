@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/1" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/2.1.0/UML" xsi:schemaLocation="http:///schemas/Default/1 Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
+<xmi:XMI xmi:version="2.1" xmlns:xmi="http://schema.omg.org/spec/XMI/2.1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:Default="http:///schemas/Default/_fNm3AAqoEd6-N_NOT9vsCA/2" xmlns:Ecore="http://www.eclipse.org/uml2/schemas/Ecore/5" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:uml="http://www.eclipse.org/uml2/3.0.0/UML" xsi:schemaLocation="http:///schemas/Default/_fNm3AAqoEd6-N_NOT9vsCA/2 Default.profile.uml#_fNwoAAqoEd6-N_NOT9vsCA http://www.eclipse.org/uml2/schemas/Ecore/5 pathmap://UML_PROFILES/Ecore.profile.uml#_z1OFcHjqEdy8S4Cr8Rc_NA">
   <uml:Model xmi:id="_wQr8YCh8Edue7oeC4NTCGg" name="pcm" viewpoint="">
     <eAnnotations xmi:id="_2bbAUCh8Edue7oeC4NTCGg" source="http://www.eclipse.org/emf/2002/Ecore"/>
     <ownedComment xmi:id="_KQQ8oLIPEd2cRs6GwUwg9g" annotatedElement="_wQr8YCh8Edue7oeC4NTCGg">
@@ -2230,6 +2230,12 @@ TODO Anne: Constraint that ensures that the referred signature is contained in t
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_u-oDlBmrEdyaJvvdhGgDYg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u-oDkxmrEdyaJvvdhGgDYg"/>
         </ownedAttribute>
+        <ownedAttribute xmi:id="_t8jW0BbEEeKhfb0CpIG5ig" name="priority" visibility="public">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xt2eMBbEEeKhfb0CpIG5ig">
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
+          </defaultValue>
+        </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ffBwUOQQEdqeH_WIC9QRew" name="ClosedWorkload">
         <ownedComment xmi:id="_xLq84KtiEd2iPq4SbQh7ig" annotatedElement="_ffBwUOQQEdqeH_WIC9QRew">
@@ -2672,6 +2678,12 @@ check if the signature&#xD;
             <body>self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)</body>
           </specification>
         </ownedRule>
+        <ownedRule xmi:id="_7xyucDJGEeKKwfV0ekHKjA" name="OperationRequiredRoleMustBeReferencedByContainer" constrainedElement="_vEMNwODjEdq8ysXH3gTiEg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_7xyucTJGEeKKwfV0ekHKjA">
+            <language>OCL</language>
+            <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="_w9VgsODjEdq8ysXH3gTiEg" general="_6qnlsODgEdq8ysXH3gTiEg"/>
         <generalization xmi:id="_Pi1kMLGREd673PT6cWw0Kw" general="_3WRtoHSgEd-1jbVkuJ9Llg"/>
         <generalization xmi:id="_FPQ5cDqHEd-LPs9iafFs9w" general="_NBzeIDqGEd-LPs9iafFs9w"/>
@@ -3061,6 +3073,12 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <body>signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole</body>
             </specification>
           </ownedRule>
+          <ownedRule xmi:id="_ULuDgDJDEeKKwfV0ekHKjA" name="ReferencedRequiredRoleMustBeRequiredByComponent" constrainedElement="_aOLa8AhtEeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_ULuDgTJDEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__InfrastructureCall)</body>
+            </specification>
+          </ownedRule>
           <generalization xmi:id="_fPGXIAhtEeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
           <ownedAttribute xmi:id="_17f2kAhtEeCQFc0YYtBKsw" name="signature__InfrastructureCall" visibility="public" type="_lug2oHSpEd-1jbVkuJ9Llg" association="_17eBYAhtEeCQFc0YYtBKsw">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_17gdoQhtEeCQFc0YYtBKsw" value="1"/>
@@ -3091,6 +3109,12 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_ac8bIE5HEeCssfo5iOjFPg">
               <language>OCL</language>
               <body>self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_U27cUDJGEeKKwfV0ekHKjA" name="ResourceRequiredRoleMustBeReferencedByComponent" constrainedElement="_Qcl2AAh2EeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_U27cUTJGEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_UCha4Ah2EeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
@@ -4004,7 +4028,7 @@ the &quot;timeout&quot; attribute of the &quot;AcquireAction&quot; for further i
     </profileApplication>
     <profileApplication xmi:id="_wQr8bSh8Edue7oeC4NTCGg">
       <eAnnotations xmi:id="_wQr8bih8Edue7oeC4NTCGg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
+        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_fNwoAAqoEd6-N_NOT9vsCA"/>
       </eAnnotations>
       <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
     </profileApplication>

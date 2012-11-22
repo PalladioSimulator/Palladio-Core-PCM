@@ -43,8 +43,8 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getOperationSignature__EntryLevelSystemCall <em>Operation Signature Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getOutputParameterUsages_EntryLevelSystemCall <em>Output Parameter Usages Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getInputParameterUsages_EntryLevelSystemCall <em>Input Parameter Usages Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getPriority <em>Priority</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.EntryLevelSystemCallImpl#getInputParameterUsages_EntryLevelSystemCall <em>Input Parameter Usages Entry Level System Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -89,16 +89,6 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	protected EList<VariableUsage> outputParameterUsages_EntryLevelSystemCall;
 
 	/**
-	 * The cached value of the '{@link #getInputParameterUsages_EntryLevelSystemCall() <em>Input Parameter Usages Entry Level System Call</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @see #getInputParameterUsages_EntryLevelSystemCall()
-	 * @generated
-	 * @ordered
-	 */
-	protected EList<VariableUsage> inputParameterUsages_EntryLevelSystemCall;
-
-	/**
 	 * The default value of the '{@link #getPriority() <em>Priority</em>}' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -117,6 +107,16 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 	 * @ordered
 	 */
 	protected int priority = PRIORITY_EDEFAULT;
+
+	/**
+	 * The cached value of the '{@link #getInputParameterUsages_EntryLevelSystemCall() <em>Input Parameter Usages Entry Level System Call</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getInputParameterUsages_EntryLevelSystemCall()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<VariableUsage> inputParameterUsages_EntryLevelSystemCall;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -409,10 +409,10 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 				return basicGetOperationSignature__EntryLevelSystemCall();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
 				return getOutputParameterUsages_EntryLevelSystemCall();
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
-				return getInputParameterUsages_EntryLevelSystemCall();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PRIORITY:
 				return getPriority();
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
+				return getInputParameterUsages_EntryLevelSystemCall();
 		}
 		return super.eGet(featureID, resolve, coreType);
 	}
@@ -436,12 +436,12 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 				getOutputParameterUsages_EntryLevelSystemCall().clear();
 				getOutputParameterUsages_EntryLevelSystemCall().addAll((Collection<? extends VariableUsage>)newValue);
 				return;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PRIORITY:
+				setPriority((Integer)newValue);
+				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
 				getInputParameterUsages_EntryLevelSystemCall().clear();
 				getInputParameterUsages_EntryLevelSystemCall().addAll((Collection<? extends VariableUsage>)newValue);
-				return;
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PRIORITY:
-				setPriority((Integer)newValue);
 				return;
 		}
 		super.eSet(featureID, newValue);
@@ -464,11 +464,11 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
 				getOutputParameterUsages_EntryLevelSystemCall().clear();
 				return;
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
-				getInputParameterUsages_EntryLevelSystemCall().clear();
-				return;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PRIORITY:
 				setPriority(PRIORITY_EDEFAULT);
+				return;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
+				getInputParameterUsages_EntryLevelSystemCall().clear();
 				return;
 		}
 		super.eUnset(featureID);
@@ -488,10 +488,10 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
 				return operationSignature__EntryLevelSystemCall != null;
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
 				return outputParameterUsages_EntryLevelSystemCall != null && !outputParameterUsages_EntryLevelSystemCall.isEmpty();
-			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
-				return inputParameterUsages_EntryLevelSystemCall != null && !inputParameterUsages_EntryLevelSystemCall.isEmpty();
 			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__PRIORITY:
 				return priority != PRIORITY_EDEFAULT;
+			case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL:
+				return inputParameterUsages_EntryLevelSystemCall != null && !inputParameterUsages_EntryLevelSystemCall.isEmpty();
 		}
 		return super.eIsSet(featureID);
 	}

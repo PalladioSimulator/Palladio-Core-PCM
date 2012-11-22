@@ -13,6 +13,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.qosannotations.*;
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;

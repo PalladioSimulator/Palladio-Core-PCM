@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_performance.util;
 
+import de.uka.ipd.sdq.pcm.seff.seff_performance.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -57,12 +58,28 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	public static final int INFRASTRUCTURE_CALL__SIGNATURE_MUST_BELONG_TO_USED_REQUIRED_ROLE = 1;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Referenced Required Role Must Be Required By Component' of 'Infrastructure Call'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int INFRASTRUCTURE_CALL__REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT = 2;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Resource Signature Belongs To Resource Required Role' of 'Resource Call'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE = 2;
+	public static final int RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE = 3;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Resource Required Role Must Be Referenced By Component' of 'Resource Call'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT = 4;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -70,7 +87,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 2;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -136,6 +153,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(infrastructureCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(infrastructureCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInfrastructureCall_SignatureMustBelongToUsedRequiredRole(infrastructureCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInfrastructureCall_ReferencedRequiredRoleMustBeRequiredByComponent(infrastructureCall, diagnostics, context);
 		return result;
 	}
 
@@ -147,6 +165,16 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	 */
 	public boolean validateInfrastructureCall_SignatureMustBelongToUsedRequiredRole(InfrastructureCall infrastructureCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return infrastructureCall.SignatureMustBelongToUsedRequiredRole(diagnostics, context);
+	}
+
+	/**
+	 * Validates the ReferencedRequiredRoleMustBeRequiredByComponent constraint of '<em>Infrastructure Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInfrastructureCall_ReferencedRequiredRoleMustBeRequiredByComponent(InfrastructureCall infrastructureCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return infrastructureCall.ReferencedRequiredRoleMustBeRequiredByComponent(diagnostics, context);
 	}
 
 	/**
@@ -164,6 +192,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceCall_ResourceSignatureBelongsToResourceRequiredRole(resourceCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(resourceCall, diagnostics, context);
 		return result;
 	}
 
@@ -175,6 +204,16 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	 */
 	public boolean validateResourceCall_ResourceSignatureBelongsToResourceRequiredRole(ResourceCall resourceCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return resourceCall.ResourceSignatureBelongsToResourceRequiredRole(diagnostics, context);
+	}
+
+	/**
+	 * Validates the ResourceRequiredRoleMustBeReferencedByComponent constraint of '<em>Resource Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(ResourceCall resourceCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return resourceCall.ResourceRequiredRoleMustBeReferencedByComponent(diagnostics, context);
 	}
 
 	/**

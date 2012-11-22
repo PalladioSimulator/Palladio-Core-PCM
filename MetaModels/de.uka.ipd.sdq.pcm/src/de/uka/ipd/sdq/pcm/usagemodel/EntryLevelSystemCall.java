@@ -44,8 +44,8 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getProvidedRole_EntryLevelSystemCall <em>Provided Role Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOperationSignature__EntryLevelSystemCall <em>Operation Signature Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getOutputParameterUsages_EntryLevelSystemCall <em>Output Parameter Usages Entry Level System Call</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall <em>Input Parameter Usages Entry Level System Call</em>}</li>
  *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getPriority <em>Priority</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall#getInputParameterUsages_EntryLevelSystemCall <em>Input Parameter Usages Entry Level System Call</em>}</li>
  * </ul>
  * </p>
  *
@@ -81,6 +81,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' attribute.
+	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Priority</em>' attribute isn't clear,
@@ -90,7 +91,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	 * @return the value of the '<em>Priority</em>' attribute.
 	 * @see #setPriority(int)
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_Priority()
-	 * @model
+	 * @model default="0" dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
 	 * @generated
 	 */
 	int getPriority();

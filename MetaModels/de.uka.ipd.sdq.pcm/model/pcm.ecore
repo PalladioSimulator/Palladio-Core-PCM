@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm"
-    nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/5.0" nsPrefix="pcm">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="pcm" nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/5.0"
+    nsPrefix="pcm">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="This package is the root package of all packages of the Palladio Component Model (PCM)."/>
   </eAnnotations>
@@ -166,7 +165,7 @@
           <details key="documentation" value="The NamedElement meta class is inherited by all PCM classes whose instances bear a name. Thus, the semantic of &quot;bearing a name&quot; is given to all inheriting classes, so that the name can be used in visualisations, for example. "/>
         </eAnnotations>
         <eStructuralFeatures xsi:type="ecore:EAttribute" name="entityName" ordered="false"
-            lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+            lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String"
             defaultValueLiteral="aName"/>
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceProvidingRequiringEntity"
@@ -687,10 +686,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="outputParameterUsages_EntryLevelSystemCall"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
           eOpposite="#//parameter/VariableUsage/entryLevelSystemCall_OutputParameterUsage"/>
+      <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" ordered="false"
+          lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Integer"
+          defaultValueLiteral="0"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="inputParameterUsages_EntryLevelSystemCall"
           ordered="false" upperBound="-1" eType="#//parameter/VariableUsage" containment="true"
           eOpposite="#//parameter/VariableUsage/entryLevelSystemCall_InputParameterUsage"/>
-      <eStructuralFeatures xsi:type="ecore:EAttribute" name="priority" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="AbstractUserAction" abstract="true"
         eSuperTypes="#//core/entity/Entity">
@@ -1206,7 +1207,7 @@
         <details key="documentation" value="The repository entity allows storing components, data types, and interfaces to be fetched and reused for construction of component instances as well as new component types."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="repositoryDescription"
-          ordered="false" unique="false" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString">
+          ordered="false" unique="false" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//String">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="This property represents a description of the repository."/>
         </eAnnotations>
@@ -2415,12 +2416,31 @@
           </eGenericType>
         </eParameters>
       </eOperations>
+      <eOperations name="OperationRequiredRoleMustBeReferencedByContainer" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="calledService_ExternalService"
           ordered="false" lowerBound="1" eType="#//repository/OperationSignature"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="role_ExternalService"
           ordered="false" lowerBound="1" eType="#//repository/OperationRequiredRole"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="retryCount" ordered="false"
-          lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"
+          lowerBound="1" eType="ecore:EDataType platform:/plugin/org.eclipse.uml2.types/model/Types.ecore#//Integer"
           defaultValueLiteral="0">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Specifies&amp;nbsp;the&amp;nbsp;number of&amp;nbsp;retries this ExternalCallAction shoul be re-executed&amp;nbsp; in case of failure&#xD;&#xA;occurence."/>
@@ -2591,6 +2611,25 @@
             </eGenericType>
           </eParameters>
         </eOperations>
+        <eOperations name="ReferencedRequiredRoleMustBeRequiredByComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__InfrastructureCall)"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="signature__InfrastructureCall"
             ordered="false" lowerBound="1" eType="#//repository/InfrastructureSignature"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfCalls__InfrastructureCall"
@@ -2606,6 +2645,25 @@
         <eOperations name="ResourceSignatureBelongsToResourceRequiredRole" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
           <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
             <details key="body" value="self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
+        <eOperations name="ResourceRequiredRoleMustBeReferencedByComponent" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)"/>
           </eAnnotations>
           <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
             <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

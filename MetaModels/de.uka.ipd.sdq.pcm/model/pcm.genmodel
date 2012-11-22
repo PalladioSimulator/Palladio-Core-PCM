@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel" copyrightText="Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany"
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:genmodel="http://www.eclipse.org/uml2/2.2.0/GenModel"
+    copyrightText="Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany"
     modelDirectory="/de.uka.ipd.sdq.pcm/src" modelPluginID="de.uka.ipd.sdq.pcm" templateDirectory="/de.uka.ipd.sdq.pcm/templates"
     dynamicTemplates="true" redirection="" modelName="PalladioComponentModel" editPluginClass="de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin"
     editorPluginClass="de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" runtimeVersion="2.5"
-    language="en" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" runtimeVersion="2.5"
+    language="en" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/org.eclipse.uml2.types/model/Types.genmodel#//types platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
     <details key="UNION_PROPERTIES" value="REPORT"/>
@@ -25,7 +25,11 @@
     <details key="SUPER_CLASS_ORDER" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>pcm.ecore</foreignModel>
+  <foreignModel>identifier.uml</foreignModel>
+  <foreignModel>pcm.uml</foreignModel>
+  <foreignModel>ProbabilityFunction.uml</foreignModel>
+  <foreignModel>stoex.uml</foreignModel>
+  <foreignModel>Units.uml</foreignModel>
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="de.uka.ipd.sdq"
@@ -342,9 +346,9 @@
             propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/operationSignature__EntryLevelSystemCall"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/outputParameterUsages_EntryLevelSystemCall"/>
+        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/EntryLevelSystemCall/priority"/>
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
             createChild="true" ecoreFeature="ecore:EReference pcm.ecore#//usagemodel/EntryLevelSystemCall/inputParameterUsages_EntryLevelSystemCall"/>
-        <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//usagemodel/EntryLevelSystemCall/priority"/>
         <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//usagemodel/EntryLevelSystemCall/EntryLevelSystemCallMustReferenceProvidedRoleOfASystem">
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//usagemodel/EntryLevelSystemCall/EntryLevelSystemCallMustReferenceProvidedRoleOfASystem/diagnostics"/>
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//usagemodel/EntryLevelSystemCall/EntryLevelSystemCallMustReferenceProvidedRoleOfASystem/context"/>
@@ -975,6 +979,10 @@
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/ExternalCallAction/SignatureBelongsToRole/diagnostics"/>
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/ExternalCallAction/SignatureBelongsToRole/context"/>
         </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/ExternalCallAction/OperationRequiredRoleMustBeReferencedByContainer">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/ExternalCallAction/OperationRequiredRoleMustBeReferencedByContainer/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/ExternalCallAction/OperationRequiredRoleMustBeReferencedByContainer/context"/>
+        </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/CallReturnAction">
         <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -1042,6 +1050,10 @@
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/SignatureMustBelongToUsedRequiredRole/diagnostics"/>
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/SignatureMustBelongToUsedRequiredRole/context"/>
           </genOperations>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_performance/InfrastructureCall/ReferencedRequiredRoleMustBeRequiredByComponent">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/ReferencedRequiredRoleMustBeRequiredByComponent/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/ReferencedRequiredRoleMustBeRequiredByComponent/context"/>
+          </genOperations>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_performance/ResourceCall">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
@@ -1055,6 +1067,10 @@
           <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceSignatureBelongsToResourceRequiredRole">
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceSignatureBelongsToResourceRequiredRole/diagnostics"/>
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceSignatureBelongsToResourceRequiredRole/context"/>
+          </genOperations>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceRequiredRoleMustBeReferencedByComponent">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceRequiredRoleMustBeReferencedByComponent/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceRequiredRoleMustBeReferencedByComponent/context"/>
           </genOperations>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_performance/ParametricResourceDemand">

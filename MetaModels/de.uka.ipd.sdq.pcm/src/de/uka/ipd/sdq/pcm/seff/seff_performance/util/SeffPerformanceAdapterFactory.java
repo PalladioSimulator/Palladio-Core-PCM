@@ -9,6 +9,7 @@ import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.seff.CallAction;
+import de.uka.ipd.sdq.pcm.seff.seff_performance.*;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall;

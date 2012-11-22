@@ -562,22 +562,22 @@ public interface UsagemodelPackage extends EPackage {
 	int ENTRY_LEVEL_SYSTEM_CALL__OUTPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Input Parameter Usages Entry Level System Call</b></em>' containment reference list.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
-
-	/**
 	 * The feature id for the '<em><b>Priority</b></em>' attribute.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int ENTRY_LEVEL_SYSTEM_CALL__PRIORITY = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
+	int ENTRY_LEVEL_SYSTEM_CALL__PRIORITY = ABSTRACT_USER_ACTION_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Input Parameter Usages Entry Level System Call</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int ENTRY_LEVEL_SYSTEM_CALL__INPUT_PARAMETER_USAGES_ENTRY_LEVEL_SYSTEM_CALL = ABSTRACT_USER_ACTION_FEATURE_COUNT + 4;
 
 	/**
 	 * The number of structural features of the '<em>Entry Level System Call</em>' class.

@@ -318,6 +318,57 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 	}
 
 	/**
+	 * The cached OCL expression body for the '{@link #ReferencedRequiredRoleMustBeRequiredByComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Referenced Required Role Must Be Required By Component</em>}' operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ReferencedRequiredRoleMustBeRequiredByComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static final String REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__InfrastructureCall)";
+
+	/**
+	 * The cached OCL invariant for the '{@link #ReferencedRequiredRoleMustBeRequiredByComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Referenced Required Role Must Be Required By Component</em>}' invariant operation.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #ReferencedRequiredRoleMustBeRequiredByComponent(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+	 * @generated
+	 * @ordered
+	 */
+	protected static Constraint REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean ReferencedRequiredRoleMustBeRequiredByComponent(DiagnosticChain diagnostics, Map<Object, Object> context) {
+		if (REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+			OCL.Helper helper = EOCL_ENV.createOCLHelper();
+			helper.setContext(SeffPerformancePackage.Literals.INFRASTRUCTURE_CALL);
+			try {
+				REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+			}
+			catch (ParserException pe) {
+				throw new UnsupportedOperationException(pe.getLocalizedMessage());
+			}
+		}
+		if (!EOCL_ENV.createQuery(REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+			if (diagnostics != null) {
+				diagnostics.add
+					(new BasicDiagnostic
+						(Diagnostic.ERROR,
+						 SeffPerformanceValidator.DIAGNOSTIC_SOURCE,
+						 SeffPerformanceValidator.INFRASTRUCTURE_CALL__REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT,
+						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ReferencedRequiredRoleMustBeRequiredByComponent", EObjectValidator.getObjectLabel(this, context) }),
+						 new Object [] { this }));
+			}
+			return false;
+		}
+		return true;
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
