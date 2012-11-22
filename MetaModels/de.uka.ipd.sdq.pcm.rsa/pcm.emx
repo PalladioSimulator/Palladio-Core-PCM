@@ -17147,7 +17147,7 @@ Solving the stochastic expression, which can be a function involving arithmetic 
               <body>self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)</body>
             </specification>
           </ownedRule>
-          <ownedRule xmi:id="_U27cUDJGEeKKwfV0ekHKjA" name="ResourceRequiredRolesIsReferencedByContainer" constrainedElement="_Qcl2AAh2EeCQFc0YYtBKsw">
+          <ownedRule xmi:id="_U27cUDJGEeKKwfV0ekHKjA" name="ResourceRequiredRoleMustBeReferencedByComponent" constrainedElement="_Qcl2AAh2EeCQFc0YYtBKsw">
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_U27cUTJGEeKKwfV0ekHKjA">
               <language>OCL</language>
               <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)</body>
