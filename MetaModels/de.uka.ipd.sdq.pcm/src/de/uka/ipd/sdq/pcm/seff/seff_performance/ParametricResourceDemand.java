@@ -10,6 +10,8 @@ import org.eclipse.emf.ecore.EObject;
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
+import java.util.Map;
+import org.eclipse.emf.common.util.DiagnosticChain;
 
 /**
  * <!-- begin-user-doc -->
@@ -162,5 +164,17 @@ public interface ParametricResourceDemand extends EObject {
 	 * @generated
 	 */
 	void setAction_ParametricResourceDemand(AbstractInternalControlFlowAction value);
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * <!-- begin-model-doc -->
+	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
+	 * @param context The cache of context-specific information.
+	 * <!-- end-model-doc -->
+	 * @model annotation="http://www.eclipse.org/uml2/1.1.0/GenModel body='self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1'"
+	 * @generated
+	 */
+	boolean DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ParametricResourceDemand

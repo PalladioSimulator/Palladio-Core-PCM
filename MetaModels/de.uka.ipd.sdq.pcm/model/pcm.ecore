@@ -2630,6 +2630,26 @@
             </eGenericType>
           </eParameters>
         </eOperations>
+        <eOperations name="SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.action__InfrastructureCall.infrastructureCall__Action->select(call | call.requiredRole__InfrastructureCall = self.requiredRole__InfrastructureCall and call.signature__InfrastructureCall=self.signature__InfrastructureCall)->size() = 1"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="signature__InfrastructureCall"
             ordered="false" lowerBound="1" eType="#//repository/InfrastructureSignature"/>
         <eStructuralFeatures xsi:type="ecore:EReference" name="numberOfCalls__InfrastructureCall"
@@ -2680,6 +2700,26 @@
             </eGenericType>
           </eParameters>
         </eOperations>
+        <eOperations name="SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.action__ResourceCall.resourceCall__Action->select(call | call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="action__ResourceCall"
             ordered="false" lowerBound="1" eType="#//seff/AbstractInternalControlFlowAction"
             eOpposite="#//seff/AbstractInternalControlFlowAction/resourceCall__Action"/>
@@ -2695,6 +2735,26 @@
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="TODO&amp;nbsp;(Überarbeitung&amp;nbsp;durch&amp;nbsp;MH)&lt;br />&#xD;&#xA;Parametric&amp;nbsp;Resource&amp;nbsp;Demand&amp;nbsp;Specifies&amp;nbsp;the&amp;nbsp;amount&amp;nbsp;of&amp;nbsp;processing&amp;nbsp;requested&amp;nbsp;from&amp;nbsp;a&amp;nbsp;certain&amp;nbsp;type&amp;nbsp;of&amp;nbsp;resource&amp;nbsp;in&amp;nbsp;a&amp;nbsp;parametrised&amp;nbsp;way.&amp;nbsp;It&amp;nbsp;assigns&amp;nbsp;the&amp;nbsp;demand&amp;nbsp;specified&amp;nbsp;as&amp;nbsp;a&amp;nbsp;Random-Variable&amp;nbsp;to&amp;nbsp;an&amp;nbsp;abstract&amp;nbsp;ProcessingResourceType&amp;nbsp;(e.g.,&amp;nbsp;CPU,&amp;nbsp;hard&amp;nbsp;disk)&amp;nbsp;instead&amp;nbsp;of&amp;nbsp;a&amp;nbsp;concrete&amp;nbsp;ProcessingResourceSpecification&amp;nbsp;(e.g.,&amp;nbsp;5&amp;nbsp;Ghz&amp;nbsp;CPU,&amp;nbsp;20&amp;nbsp;MByte/s&amp;nbsp;hard&amp;nbsp;disk).&amp;nbsp;This&amp;nbsp;keeps&amp;nbsp;the&amp;nbsp;RDSEFF&amp;nbsp;independent&amp;nbsp;from&amp;nbsp;a&amp;nbsp;specific&amp;nbsp;resource&amp;nbsp;environment,&amp;nbsp;and&amp;nbsp;makes&amp;nbsp;the&amp;nbsp;concrete&amp;nbsp;resources&amp;nbsp;replaceable&amp;nbsp;to&amp;nbsp;answer&amp;nbsp;sizing&amp;nbsp;questions.&lt;br />&#xD;&#xA;The&amp;nbsp;demand's&amp;nbsp;unit&amp;nbsp;is&amp;nbsp;equal&amp;nbsp;for&amp;nbsp;all&amp;nbsp;ProcessingResourceSpecifications&amp;nbsp;referencing&lt;br />&#xD;&#xA;the&amp;nbsp;same&amp;nbsp;ProcessingResourceType.&amp;nbsp;It&amp;nbsp;can&amp;nbsp;for&amp;nbsp;example&amp;nbsp;be&amp;nbsp;&quot;WorkUnits&quot;&lt;br />&#xD;&#xA;for&amp;nbsp;CPUs&amp;nbsp;[Smi02]&amp;nbsp;or&amp;nbsp;&quot;BytesRead&quot;&amp;nbsp;for&amp;nbsp;hard&amp;nbsp;disks.&amp;nbsp;Each&amp;nbsp;ProcessingResource-&lt;br />&#xD;&#xA;Specification&amp;nbsp;contains&amp;nbsp;a&amp;nbsp;processing&amp;nbsp;rate&amp;nbsp;for&amp;nbsp;demands&amp;nbsp;(e.g.,&amp;nbsp;1000&amp;nbsp;WorkUnits/s,&amp;nbsp;20&lt;br />&#xD;&#xA;MB/s),&amp;nbsp;which&amp;nbsp;analysis&amp;nbsp;tools&amp;nbsp;use&amp;nbsp;to&amp;nbsp;compute&amp;nbsp;an&amp;nbsp;actual&amp;nbsp;timing&amp;nbsp;value&amp;nbsp;in&amp;nbsp;seconds.&amp;nbsp;They&lt;br />&#xD;&#xA;use&amp;nbsp;this&amp;nbsp;timing&amp;nbsp;value&amp;nbsp;for&amp;nbsp;example&amp;nbsp;as&amp;nbsp;the&amp;nbsp;service&amp;nbsp;demand&amp;nbsp;on&amp;nbsp;a&amp;nbsp;service&amp;nbsp;center&amp;nbsp;in&amp;nbsp;a&amp;nbsp;queueing&lt;br />&#xD;&#xA;network&amp;nbsp;or&amp;nbsp;the&amp;nbsp;firing&amp;nbsp;delay&amp;nbsp;of&amp;nbsp;a&amp;nbsp;transition&amp;nbsp;in&amp;nbsp;a&amp;nbsp;Petri&amp;nbsp;net.&amp;nbsp;As&amp;nbsp;multiple&amp;nbsp;component&amp;nbsp;services&lt;br />&#xD;&#xA;might&amp;nbsp;request&amp;nbsp;processing&amp;nbsp;on&amp;nbsp;the&amp;nbsp;same&amp;nbsp;resource,&amp;nbsp;these&amp;nbsp;analytical&amp;nbsp;or&amp;nbsp;simulation&amp;nbsp;models&lt;br />&#xD;&#xA;allow&amp;nbsp;determining&amp;nbsp;the&amp;nbsp;waiting&amp;nbsp;delay&amp;nbsp;induced&amp;nbsp;by&amp;nbsp;this&amp;nbsp;contention&amp;nbsp;effect.&lt;br />&#xD;&#xA;Besides&amp;nbsp;this&amp;nbsp;parameterisation&amp;nbsp;over&amp;nbsp;different&amp;nbsp;resource&amp;nbsp;environments,&amp;nbsp;Parametric-&lt;br />&#xD;&#xA;ResourceDemands&amp;nbsp;also&amp;nbsp;parameterise&amp;nbsp;over&amp;nbsp;the&amp;nbsp;usage&amp;nbsp;profile.&amp;nbsp;For&amp;nbsp;this,&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression&lt;br />&#xD;&#xA;specifying&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand&amp;nbsp;can&amp;nbsp;contain&amp;nbsp;references&amp;nbsp;to&amp;nbsp;the&amp;nbsp;service's&amp;nbsp;input&lt;br />&#xD;&#xA;parameters&amp;nbsp;or&amp;nbsp;the&amp;nbsp;component&amp;nbsp;parameters.&amp;nbsp;Upon&amp;nbsp;evaluating&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand,&amp;nbsp;analysis&lt;br />&#xD;&#xA;tools&amp;nbsp;use&amp;nbsp;the&amp;nbsp;current&amp;nbsp;characterisation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;referenced&amp;nbsp;input&amp;nbsp;or&amp;nbsp;component&amp;nbsp;parameter&lt;br />&#xD;&#xA;and&amp;nbsp;substitute&amp;nbsp;the&amp;nbsp;reference&amp;nbsp;with&amp;nbsp;this&amp;nbsp;characterisation&amp;nbsp;in&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression.&lt;br />&#xD;&#xA;Solving&amp;nbsp;the&amp;nbsp;stochastic&amp;nbsp;expression,&amp;nbsp;which&amp;nbsp;can&amp;nbsp;be&amp;nbsp;a&amp;nbsp;function&amp;nbsp;involving&amp;nbsp;arithmetic&amp;nbsp;operators&lt;br />&#xD;&#xA;(Chapter&amp;nbsp;3.3.6),&amp;nbsp;then&amp;nbsp;yields&amp;nbsp;a&amp;nbsp;constant&amp;nbsp;or&amp;nbsp;probability&amp;nbsp;function&amp;nbsp;for&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;demand.&lt;br />&#xD;&#xA;As&amp;nbsp;an&amp;nbsp;example&amp;nbsp;for&amp;nbsp;solving&amp;nbsp;the&amp;nbsp;parameterisation&amp;nbsp;over&amp;nbsp;resource&amp;nbsp;environment&amp;nbsp;and&amp;nbsp;usage&lt;br />&#xD;&#xA;profile,&amp;nbsp;consider&amp;nbsp;an&amp;nbsp;RDSEFF&amp;nbsp;for&amp;nbsp;a&amp;nbsp;service&amp;nbsp;implementing&amp;nbsp;the&amp;nbsp;bubblesort&amp;nbsp;algorithm.&amp;nbsp;It&lt;br />&#xD;&#xA;might&amp;nbsp;include&amp;nbsp;a&amp;nbsp;CPU&amp;nbsp;demand&amp;nbsp;specification&amp;nbsp;of&amp;nbsp;n22000WorkUnits&amp;nbsp;derived&amp;nbsp;from&amp;nbsp;complexity&lt;br />&#xD;&#xA;theory&amp;nbsp;(n2)&amp;nbsp;and&amp;nbsp;empirical&amp;nbsp;measurements&amp;nbsp;(2000).&amp;nbsp;In&amp;nbsp;this&amp;nbsp;case&amp;nbsp;n&amp;nbsp;refers&amp;nbsp;to&amp;nbsp;the&amp;nbsp;length&amp;nbsp;of&lt;br />&#xD;&#xA;the&amp;nbsp;list&amp;nbsp;the&amp;nbsp;algorithm&amp;nbsp;shall&amp;nbsp;sort,&amp;nbsp;which&amp;nbsp;is&amp;nbsp;an&amp;nbsp;input&amp;nbsp;parameter&amp;nbsp;of&amp;nbsp;the&amp;nbsp;service.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;current&lt;br />&#xD;&#xA;characterisation&amp;nbsp;of&amp;nbsp;the&amp;nbsp;list's&amp;nbsp;length&amp;nbsp;is&amp;nbsp;100&amp;nbsp;(as&amp;nbsp;the&amp;nbsp;modelled&amp;nbsp;usage&amp;nbsp;profile),&amp;nbsp;analysis&amp;nbsp;tools&lt;br />&#xD;&#xA;derive&amp;nbsp;1002&amp;nbsp;&amp;nbsp;2000&amp;nbsp;&amp;nbsp;12000&amp;nbsp;WorkUnits&amp;nbsp;from&amp;nbsp;the&amp;nbsp;specification,&amp;nbsp;thus&amp;nbsp;resolving&amp;nbsp;the&amp;nbsp;usage&lt;br />&#xD;&#xA;profile&amp;nbsp;dependency.&amp;nbsp;If&amp;nbsp;the&amp;nbsp;CPU&amp;nbsp;ProcessingResourceSpecification&amp;nbsp;the&amp;nbsp;service's&lt;br />&#xD;&#xA;126&lt;br />&#xD;&#xA;4.3.&amp;nbsp;Resource&amp;nbsp;Demanding&amp;nbsp;Service&amp;nbsp;Effect&amp;nbsp;Specification&lt;br />&#xD;&#xA;component&amp;nbsp;is&amp;nbsp;allocated&amp;nbsp;on&amp;nbsp;then&amp;nbsp;contains&amp;nbsp;a&amp;nbsp;processing&amp;nbsp;rate&amp;nbsp;of&amp;nbsp;10000WorkUnits/s,&amp;nbsp;analysis&lt;br />&#xD;&#xA;tools&amp;nbsp;derive&amp;nbsp;an&amp;nbsp;execution&amp;nbsp;time&amp;nbsp;of&amp;nbsp;12000&amp;nbsp;WorkUnits&amp;nbsp;{10000&amp;nbsp;WorkUnits/s&amp;nbsp;=&amp;nbsp;1:2&amp;nbsp;s&amp;nbsp;from&amp;nbsp;the&lt;br />&#xD;&#xA;specification,&amp;nbsp;thus&amp;nbsp;resolving&amp;nbsp;the&amp;nbsp;resource&amp;nbsp;environment&amp;nbsp;dependency.&lt;br />&#xD;&#xA;The&amp;nbsp;stochastic&amp;nbsp;expression&amp;nbsp;for&amp;nbsp;a&amp;nbsp;ParametricResourceDemand&amp;nbsp;depends&amp;nbsp;on&amp;nbsp;the&amp;nbsp;implementation&lt;br />&#xD;&#xA;of&amp;nbsp;the&amp;nbsp;service.&amp;nbsp;Component&amp;nbsp;developers&amp;nbsp;can&amp;nbsp;specify&amp;nbsp;it&amp;nbsp;using&amp;nbsp;complexity&amp;nbsp;theory,&lt;br />&#xD;&#xA;estimations,&amp;nbsp;or&amp;nbsp;measurements.&amp;nbsp;However,&amp;nbsp;how&amp;nbsp;to&amp;nbsp;get&amp;nbsp;data&amp;nbsp;to&amp;nbsp;define&amp;nbsp;such&amp;nbsp;expressions&lt;br />&#xD;&#xA;accurately&amp;nbsp;is&amp;nbsp;beyond&amp;nbsp;of&amp;nbsp;the&amp;nbsp;scope&amp;nbsp;of&amp;nbsp;this&amp;nbsp;thesis.&amp;nbsp;Woodside&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[WVCB01]&amp;nbsp;and&amp;nbsp;Krogmann&lt;br />&#xD;&#xA;[Kro07]&amp;nbsp;present&amp;nbsp;approaches&amp;nbsp;for&amp;nbsp;measuring&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;in&amp;nbsp;dependency&amp;nbsp;to&amp;nbsp;input&amp;nbsp;parameters.&lt;br />&#xD;&#xA;Meyerhoefer&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[ML05]&amp;nbsp;and&amp;nbsp;Kuperberg&amp;nbsp;et&amp;nbsp;al.&amp;nbsp;[KB07]&amp;nbsp;propose&amp;nbsp;methods&amp;nbsp;to&lt;br />&#xD;&#xA;establish&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;independent&amp;nbsp;from&amp;nbsp;concrete&amp;nbsp;resources.&amp;nbsp;For&amp;nbsp;the&amp;nbsp;scope&amp;nbsp;of&amp;nbsp;this&lt;br />&#xD;&#xA;thesis,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed&amp;nbsp;that&amp;nbsp;these&amp;nbsp;methods&amp;nbsp;have&amp;nbsp;been&amp;nbsp;applied&amp;nbsp;and&amp;nbsp;an&amp;nbsp;accurate&amp;nbsp;specification&lt;br />&#xD;&#xA;of&amp;nbsp;the&amp;nbsp;ParametricResourceDemand&amp;nbsp;is&amp;nbsp;available."/>
         </eAnnotations>
+        <eOperations name="DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction"
+            eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+          <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+            <details key="body" value="self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1"/>
+          </eAnnotations>
+          <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+            </eAnnotations>
+          </eParameters>
+          <eParameters name="context">
+            <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+              <details key="documentation" value="The cache of context-specific information."/>
+            </eAnnotations>
+            <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+              <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            </eGenericType>
+          </eParameters>
+        </eOperations>
         <eStructuralFeatures xsi:type="ecore:EReference" name="specification_ParametericResourceDemand"
             ordered="false" lowerBound="1" eType="#//core/PCMRandomVariable" containment="true"
             eOpposite="#//core/PCMRandomVariable/parametricResourceDemand_PCMRandomVariable"/>

@@ -66,12 +66,20 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	public static final int INFRASTRUCTURE_CALL__REFERENCED_REQUIRED_ROLE_MUST_BE_REQUIRED_BY_COMPONENT = 2;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action' of 'Infrastructure Call'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int INFRASTRUCTURE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION = 3;
+
+	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Resource Signature Belongs To Resource Required Role' of 'Resource Call'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE = 3;
+	public static final int RESOURCE_CALL__RESOURCE_SIGNATURE_BELONGS_TO_RESOURCE_REQUIRED_ROLE = 4;
 
 	/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Resource Required Role Must Be Referenced By Component' of 'Resource Call'.
@@ -79,7 +87,23 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public static final int RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT = 4;
+	public static final int RESOURCE_CALL__RESOURCE_REQUIRED_ROLE_MUST_BE_REFERENCED_BY_COMPONENT = 5;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Signature Role Combination Must Be Unique Within Abstract Internal Control Flow Action' of 'Resource Call'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int RESOURCE_CALL__SIGNATURE_ROLE_COMBINATION_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION = 6;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Demanded Processing Resource Must Be Unique Within Abstract Internal Control Flow Action' of 'Parametric Resource Demand'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PARAMETRIC_RESOURCE_DEMAND__DEMANDED_PROCESSING_RESOURCE_MUST_BE_UNIQUE_WITHIN_ABSTRACT_INTERNAL_CONTROL_FLOW_ACTION = 7;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
@@ -87,7 +111,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 4;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 7;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -154,6 +178,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(infrastructureCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInfrastructureCall_SignatureMustBelongToUsedRequiredRole(infrastructureCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validateInfrastructureCall_ReferencedRequiredRoleMustBeRequiredByComponent(infrastructureCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validateInfrastructureCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(infrastructureCall, diagnostics, context);
 		return result;
 	}
 
@@ -178,6 +203,16 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction constraint of '<em>Infrastructure Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateInfrastructureCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(InfrastructureCall infrastructureCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return infrastructureCall.SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(diagnostics, context);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
@@ -193,6 +228,7 @@ public class SeffPerformanceValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceCall_ResourceSignatureBelongsToResourceRequiredRole(resourceCall, diagnostics, context);
 		if (result || diagnostics != null) result &= validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(resourceCall, diagnostics, context);
+		if (result || diagnostics != null) result &= validateResourceCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(resourceCall, diagnostics, context);
 		return result;
 	}
 
@@ -217,12 +253,41 @@ public class SeffPerformanceValidator extends EObjectValidator {
 	}
 
 	/**
+	 * Validates the SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction constraint of '<em>Resource Call</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateResourceCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(ResourceCall resourceCall, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return resourceCall.SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(diagnostics, context);
+	}
+
+	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
 	public boolean validateParametricResourceDemand(ParametricResourceDemand parametricResourceDemand, DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return validate_EveryDefaultConstraint(parametricResourceDemand, diagnostics, context);
+		if (!validate_NoCircularContainment(parametricResourceDemand, diagnostics, context)) return false;
+		boolean result = validate_EveryMultiplicityConforms(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parametricResourceDemand, diagnostics, context);
+		if (result || diagnostics != null) result &= validateParametricResourceDemand_DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(parametricResourceDemand, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction constraint of '<em>Parametric Resource Demand</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateParametricResourceDemand_DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(ParametricResourceDemand parametricResourceDemand, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return parametricResourceDemand.DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(diagnostics, context);
 	}
 
 	/**

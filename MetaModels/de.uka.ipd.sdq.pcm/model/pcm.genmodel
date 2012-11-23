@@ -1054,6 +1054,10 @@
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/ReferencedRequiredRoleMustBeRequiredByComponent/diagnostics"/>
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/ReferencedRequiredRoleMustBeRequiredByComponent/context"/>
           </genOperations>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_performance/InfrastructureCall/SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/InfrastructureCall/SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction/context"/>
+          </genOperations>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_performance/ResourceCall">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
@@ -1072,6 +1076,10 @@
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceRequiredRoleMustBeReferencedByComponent/diagnostics"/>
             <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/ResourceRequiredRoleMustBeReferencedByComponent/context"/>
           </genOperations>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_performance/ResourceCall/SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ResourceCall/SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction/context"/>
+          </genOperations>
         </genClasses>
         <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//seff/seff_performance/ParametricResourceDemand">
           <genFeatures xsi:type="genmodel:GenFeature" property="None" children="true"
@@ -1080,6 +1088,10 @@
               propertySortChoices="true" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_performance/ParametricResourceDemand/requiredResource_ParametricResourceDemand"/>
           <genFeatures xsi:type="genmodel:GenFeature" property="None" notify="false"
               createChild="false" ecoreFeature="ecore:EReference pcm.ecore#//seff/seff_performance/ParametricResourceDemand/action_ParametricResourceDemand"/>
+          <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//seff/seff_performance/ParametricResourceDemand/DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction">
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ParametricResourceDemand/DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction/diagnostics"/>
+            <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//seff/seff_performance/ParametricResourceDemand/DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction/context"/>
+          </genOperations>
         </genClasses>
       </nestedGenPackages>
       <nestedGenPackages xsi:type="genmodel:GenPackage" prefix="SeffReliability" basePackage="de.uka.ipd.sdq.pcm.seff"
