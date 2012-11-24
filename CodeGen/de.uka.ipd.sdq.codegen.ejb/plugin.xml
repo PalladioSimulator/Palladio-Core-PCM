@@ -19,5 +19,13 @@
             type="de.uka.ipd.sdq.codegen.ejb.launchConfigurationType">
       </launchConfigurationTabGroup>
    </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="de.uka.ipd.sdq.codegen.ejb.launchConfigurationType"
+            icon="icon/app_protocom.png"
+            id="de.uka.ipd.sdq.codegen.ejb.launchConfigurationTypeImage">
+      </launchConfigurationTypeImage>
+   </extension>
 
 </plugin>
