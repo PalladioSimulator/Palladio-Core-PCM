@@ -131,3 +131,6 @@ context ResourceContainer ERROR 'A ResourceContainer with a HDD must also contai
    	this.activeResourceSpecifications_ResourceContainer.exists(res2|res2.activeResourceType_ActiveResourceSpecification.entityName.toString() == "CPU") 
    else
    	true;
+
+context UsageModel ERROR 'All usage scenarios of the usage model must have unique names.':
+	this.usageScenario_UsageModel.forAll(usageScenario|this.usageScenario_UsageModel.forAll(otherUsageScenario | otherUsageScenario == usageScenario || otherUsageScenario.entityName != usageScenario.entityName));
