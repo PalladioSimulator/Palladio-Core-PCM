@@ -52,7 +52,7 @@ public interface Repository extends Entity {
 	 * @return the value of the '<em>Repository Description</em>' attribute.
 	 * @see #setRepositoryDescription(String)
 	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepository_RepositoryDescription()
-	 * @model unique="false" dataType="org.eclipse.uml2.types.String" ordered="false"
+	 * @model unique="false" ordered="false"
 	 * @generated
 	 */
 	String getRepositoryDescription();

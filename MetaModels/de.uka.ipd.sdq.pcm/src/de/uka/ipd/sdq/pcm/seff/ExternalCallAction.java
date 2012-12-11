@@ -99,7 +99,6 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 
 	/**
 	 * Returns the value of the '<em><b>Retry Count</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * <!-- begin-model-doc -->
@@ -109,7 +108,7 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
 	 * @return the value of the '<em>Retry Count</em>' attribute.
 	 * @see #setRetryCount(int)
 	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getExternalCallAction_RetryCount()
-	 * @model default="0" dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	int getRetryCount();

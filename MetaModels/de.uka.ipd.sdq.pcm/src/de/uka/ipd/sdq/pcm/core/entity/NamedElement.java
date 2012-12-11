@@ -47,7 +47,7 @@ public interface NamedElement extends EObject {
 	 * @return the value of the '<em>Entity Name</em>' attribute.
 	 * @see #setEntityName(String)
 	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement_EntityName()
-	 * @model default="aName" dataType="org.eclipse.uml2.types.String" required="true" ordered="false"
+	 * @model default="aName" required="true" ordered="false"
 	 * @generated
 	 */
 	String getEntityName();

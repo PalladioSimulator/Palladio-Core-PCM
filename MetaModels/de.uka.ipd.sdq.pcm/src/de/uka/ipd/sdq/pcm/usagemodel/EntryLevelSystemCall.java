@@ -81,7 +81,6 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 
 	/**
 	 * Returns the value of the '<em><b>Priority</b></em>' attribute.
-	 * The default value is <code>"0"</code>.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Priority</em>' attribute isn't clear,
@@ -91,7 +90,7 @@ public interface EntryLevelSystemCall extends AbstractUserAction {
 	 * @return the value of the '<em>Priority</em>' attribute.
 	 * @see #setPriority(int)
 	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getEntryLevelSystemCall_Priority()
-	 * @model default="0" dataType="org.eclipse.uml2.types.Integer" required="true" ordered="false"
+	 * @model required="true" ordered="false"
 	 * @generated
 	 */
 	int getPriority();
