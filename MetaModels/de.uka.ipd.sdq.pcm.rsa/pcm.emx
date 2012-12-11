@@ -1246,9 +1246,9 @@ The relationship of Entities and Interfaces is described with the three meta cla
             <body>The NamedElement meta class is inherited by all PCM classes whose instances bear a name. Thus, the semantic of &quot;bearing a name&quot; is given to all inheriting classes, so that the name can be used in visualisations, for example. </body>
           </ownedComment>
           <ownedAttribute xmi:id="_au_Wl2A_EdqdHZdhXRxKVg" name="entityName">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
             <defaultValue xmi:type="uml:OpaqueExpression" xmi:id="_yv8Y8OfuEdu3wqV8TelBYw">
-              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+              <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
               <body>aName</body>
             </defaultValue>
           </ownedAttribute>
@@ -8114,7 +8114,7 @@ documentation of the &quot;timeout&quot; attribute of the &quot;AcquireAction&qu
           <ownedComment xmi:id="_xc7BUITIEd2vDt35AcA8Pg" annotatedElement="_MlJl8JcREdq38OEoBK_ByQ">
             <body>This property represents a description of the repository.</body>
           </ownedComment>
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#String"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EString"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_RWl8sefwEdu3wqV8TelBYw" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_RWl8sOfwEdu3wqV8TelBYw"/>
         </ownedAttribute>
@@ -11982,10 +11982,7 @@ TODO Anne: Constraint that ensures that the referred signature is contained in t
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_u-oDkxmrEdyaJvvdhGgDYg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_t8jW0BbEEeKhfb0CpIG5ig" name="priority" visibility="public">
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_xt2eMBbEEeKhfb0CpIG5ig">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </defaultValue>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_ffBwUOQQEdqeH_WIC9QRew" name="ClosedWorkload">
@@ -16181,10 +16178,7 @@ check if the signature&#xD;
             <body>Specifies&amp;nbsp;the&amp;nbsp;number of&amp;nbsp;retries this ExternalCallAction shoul be re-executed&amp;nbsp; in case of failure&#xD;
 occurence.</body>
           </ownedComment>
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          <defaultValue xmi:type="uml:LiteralInteger" xmi:id="_hPSlcHOkEd6z6tywRVl4hg">
-            <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/UMLPrimitiveTypes.library.uml#Integer"/>
-          </defaultValue>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Class" xmi:id="_MWqoAOTDEdq49qz7R-l1Hg" name="ProbabilisticBranchTransition">
