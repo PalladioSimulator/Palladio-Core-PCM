@@ -912,7 +912,7 @@ An instance in which final is used is a result for code which spawns threads. In
               <children xmi:type="notation:ListCompartment" xmi:id="_wnVM0DveEd-PZ70lu-zpYg" type="FromConstraintCompartment"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_wnUlxTveEd-PZ70lu-zpYg" y="1058"/>
             </children>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wnQ7YjveEd-PZ70lu-zpYg" points="[-2381, 1180, -170, -5526]$[-2381, 6207, -170, -499]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_wnQ7YjveEd-PZ70lu-zpYg" points="[-1327, 1494, 1071, -5277]$[-1327, 6138, 1071, -633]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_RQ2SUDwDEd-Dc9Rw_97E5Q" id="(0.80700535,0.18113466)"/>
           </edges>
           <edges xmi:type="umlnotation:UMLConnector" xmi:id="_MyX74DwDEd-Dc9Rw_97E5Q" source="_MyU4kDwDEd-Dc9Rw_97E5Q" target="_MyU4kDwDEd-Dc9Rw_97E5Q" fontName="Segoe UI" routing="Rectilinear" lineColor="8421504" lineWidth="1" showStereotype="Text">
@@ -1487,7 +1487,7 @@ An instance in which final is used is a result for code which spawns threads. In
               <children xmi:type="notation:ListCompartment" xmi:id="_hYjM8zfwEeKlhsE4mwL0FQ" type="FromConstraintCompartment"/>
               <layoutConstraint xmi:type="notation:Location" xmi:id="_hYjM8jfwEeKlhsE4mwL0FQ" y="839"/>
             </children>
-            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hYW_sTfwEeKlhsE4mwL0FQ" points="[112, 721, 733, -5526]$[112, 5748, 733, -499]"/>
+            <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_hYW_sTfwEeKlhsE4mwL0FQ" points="[270, 124, -6939, -3162]$[270, 2118, -6939, -1168]$[7248, 2118, 39, -1168]$[7248, 2653, 39, -633]"/>
             <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_-_tzwD1OEeKKYt-OcT_rCg" id="(0.6565143824027073,0.9687402313222883)"/>
           </edges>
         </contents>
@@ -1844,7 +1844,7 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
         </ownedAttribute>
         <ownedAttribute xmi:id="_wmb08DveEd-PZ70lu-zpYg" name="executionProfile" visibility="public" type="_cJTAAPXoEeGJyMxspERnIw" association="_wmYKkDveEd-PZ70lu-zpYg">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_wmdDEDveEd-PZ70lu-zpYg" value="1"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wmccADveEd-PZ70lu-zpYg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_wmccADveEd-PZ70lu-zpYg"/>
         </ownedAttribute>
       </packagedElement>
       <packagedElement xmi:type="uml:Association" xmi:id="_-vze8EZIEd-sOu4vtdvMEA" memberEnd="_-v17MEZIEd-sOu4vtdvMEA _-v4-gEZIEd-sOu4vtdvMEA">
@@ -1950,7 +1950,7 @@ When false, only the counts for operations done in the method itself - not those
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
           </defaultValue>
         </ownedAttribute>
-        <ownedAttribute xmi:id="_rSudQPXoEeGJyMxspERnIw" name="waitForThreadsToFinnish" visibility="public">
+        <ownedAttribute xmi:id="_rSudQPXoEeGJyMxspERnIw" name="waitForThreadsToFinish" visibility="public">
           <ownedComment xmi:id="_HJSUcPXpEeGJyMxspERnIw" annotatedElement="_rSudQPXoEeGJyMxspERnIw">
             <body>When true, execution tries to wait for all threads from instrumented methods to finish before returning.</body>
           </ownedComment>
@@ -1972,7 +1972,7 @@ When false, only the counts for operations done in the method itself - not those
       <packagedElement xmi:type="uml:Association" xmi:id="_hUmhEDfwEeKlhsE4mwL0FQ" memberEnd="_hVD0EDfwEeKlhsE4mwL0FQ _hVKhwDfwEeKlhsE4mwL0FQ">
         <ownedEnd xmi:id="_hVKhwDfwEeKlhsE4mwL0FQ" name="instrumentationProfile" visibility="public" type="_X45kMDveEd-PZ70lu-zpYg" association="_hUmhEDfwEeKlhsE4mwL0FQ">
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_hVLv4DfwEeKlhsE4mwL0FQ" value="1"/>
-          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hVLI0DfwEeKlhsE4mwL0FQ" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_hVLI0DfwEeKlhsE4mwL0FQ"/>
         </ownedEnd>
       </packagedElement>
     </packagedElement>
