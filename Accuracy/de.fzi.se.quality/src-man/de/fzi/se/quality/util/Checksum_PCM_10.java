@@ -169,9 +169,11 @@ public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 								+ dataTypeConverter.doSwitch(parameter
 										.getDataType__Parameter()));
 			}
-			updateChecksum(checksum,
-					dataTypeConverter.doSwitch(operationSignature
-							.getReturnType__OperationSignature()));
+			if (operationSignature.getReturnType__OperationSignature() != null) {
+				updateChecksum(checksum,
+						dataTypeConverter.doSwitch(operationSignature
+								.getReturnType__OperationSignature()));
+			}
 		} else if (signature instanceof InfrastructureSignature) {
 			for (Parameter parameter : ((InfrastructureSignature) signature)
 					.getParameters__InfrastructureSignature()) {
