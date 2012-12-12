@@ -11,10 +11,14 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
+import de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -155,4 +159,40 @@ public class PCMUtil {
 	public static String prettyPrint(RepositoryComponent component) {
 		return component.getEntityName() + "#" + component.getId() + " <" + component.eClass().getName() + ">";
 	}
+
+	/**Provides a textual identifier in order to help humans to identify the required signature.  
+	 * @param signature The operation signature.
+	 * @return The textual identifer.
+	 */
+	public static String prettyPrint(OperationSignature signature) {
+		return prettyPrint(signature.getReturnType__OperationSignature()) + " " + signature.getInterface__OperationSignature().getEntityName() + "::" + signature.getEntityName() + "(...)" + " #" + signature.getId();
+	}
+	
+	/**Provides a textual identifier in order to help humans to identify the data type.
+	 * @param dataType the data type.
+	 * @return The textual identifier.
+	 */
+	public static String prettyPrint(DataType dataType) {
+		return new RepositorySwitch<String>() {
+			@Override
+			public String caseCollectionDataType(CollectionDataType object) {
+				return object.getEntityName() + " #" + object.getId();
+			}
+			@Override
+			public String caseCompositeDataType(CompositeDataType object) {
+				return object.getEntityName() + " #" + object.getId();
+			}
+			@Override
+			public String casePrimitiveDataType(PrimitiveDataType object) {
+				return object.getType().getName();
+			}
+			@Override
+			public String caseDataType(DataType object) {
+				String msg = "Unknown data type experienced. eType was: " + object.eClass().getName();
+				logger.severe(msg);
+				throw new IllegalArgumentException(msg);
+			}
+		}.doSwitch(dataType);
+	}
+
 }
