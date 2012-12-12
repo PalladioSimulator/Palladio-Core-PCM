@@ -2678,6 +2678,12 @@ check if the signature&#xD;
             <body>self.role_ExternalService.requiredInterface__OperationRequiredRole.signatures__OperationInterface->includes(self.calledService_ExternalService)</body>
           </specification>
         </ownedRule>
+        <ownedRule xmi:id="_7xyucDJGEeKKwfV0ekHKjA" name="OperationRequiredRoleMustBeReferencedByContainer" constrainedElement="_vEMNwODjEdq8ysXH3gTiEg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_7xyucTJGEeKKwfV0ekHKjA">
+            <language>OCL</language>
+            <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.role_ExternalService)</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="_w9VgsODjEdq8ysXH3gTiEg" general="_6qnlsODgEdq8ysXH3gTiEg"/>
         <generalization xmi:id="_Pi1kMLGREd673PT6cWw0Kw" general="_3WRtoHSgEd-1jbVkuJ9Llg"/>
         <generalization xmi:id="_FPQ5cDqHEd-LPs9iafFs9w" general="_NBzeIDqGEd-LPs9iafFs9w"/>
@@ -3038,6 +3044,12 @@ establish&amp;nbsp;resource&amp;nbsp;demands&amp;nbsp;independent&amp;nbsp;from&
 thesis,&amp;nbsp;it&amp;nbsp;is&amp;nbsp;assumed&amp;nbsp;that&amp;nbsp;these&amp;nbsp;methods&amp;nbsp;have&amp;nbsp;been&amp;nbsp;applied&amp;nbsp;and&amp;nbsp;an&amp;nbsp;accurate&amp;nbsp;specification&lt;br />&#xD;
 of&amp;nbsp;the&amp;nbsp;ParametricResourceDemand&amp;nbsp;is&amp;nbsp;available.</body>
           </ownedComment>
+          <ownedRule xmi:id="_DN2UQDVQEeKKwfV0ekHKjA" name="DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction" constrainedElement="_Y8AekOD3Edq8ysXH3gTiEg">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_DN2UQTVQEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.action_ParametricResourceDemand.resourceDemand_Action->select(prd | prd.requiredResource_ParametricResourceDemand=self.requiredResource_ParametricResourceDemand)->size() = 1</body>
+            </specification>
+          </ownedRule>
           <ownedAttribute xmi:id="_fT2xcuD3Edq8ysXH3gTiEg" name="action_ParametricResourceDemand" type="_kmntkODhEdq8ysXH3gTiEg" association="_fT2xcOD3Edq8ysXH3gTiEg"/>
           <ownedAttribute xmi:id="_2wRHoUpCEdyyNsXlb1tNsw" name="specification_ParametericResourceDemand" type="_GIDLsPdxEdqB_7dkOscBPA" aggregation="composite" association="_2wRHoEpCEdyyNsXlb1tNsw">
             <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_2wRHpEpCEdyyNsXlb1tNsw" value="1"/>
@@ -3065,6 +3077,18 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_Ul0JEFYxEeCkSqh_fyFJpw">
               <language>OCL</language>
               <body>signature__InfrastructureCall.infrastructureInterface__InfrastructureSignature = requiredRole__InfrastructureCall.requiredInterface__InfrastructureRequiredRole</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_ULuDgDJDEeKKwfV0ekHKjA" name="ReferencedRequiredRoleMustBeRequiredByComponent" constrainedElement="_aOLa8AhtEeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_ULuDgTJDEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::InterfaceRequiringEntity)).oclAsType(pcm::core::entity::InterfaceRequiringEntity).requiredRoles_InterfaceRequiringEntity->includes(self.requiredRole__InfrastructureCall)</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_RRfDkDVPEeKKwfV0ekHKjA" name="SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction" constrainedElement="_aOLa8AhtEeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_RShlYDVPEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.action__InfrastructureCall.infrastructureCall__Action->select(call | call.requiredRole__InfrastructureCall = self.requiredRole__InfrastructureCall and call.signature__InfrastructureCall=self.signature__InfrastructureCall)->size() = 1</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_fPGXIAhtEeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
@@ -3097,6 +3121,18 @@ Solving the stochastic expression, which can be a function involving arithmetic 
             <specification xmi:type="uml:OpaqueExpression" xmi:id="_ac8bIE5HEeCssfo5iOjFPg">
               <language>OCL</language>
               <body>self.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.resourceSignatures__ResourceInterface->includes(self.signature__ResourceCall)</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_U27cUDJGEeKKwfV0ekHKjA" name="ResourceRequiredRoleMustBeReferencedByComponent" constrainedElement="_Qcl2AAh2EeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_U27cUTJGEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.oclAsType(ecore::EObject)->closure(eContainer())->select( entity | entity.oclIsKindOf(pcm::core::entity::ResourceInterfaceRequiringEntity)).oclAsType(pcm::core::entity::ResourceInterfaceRequiringEntity).resourceRequiredRoles__ResourceInterfaceRequiringEntity->includes(self.resourceRequiredRole__ResourceCall)</body>
+            </specification>
+          </ownedRule>
+          <ownedRule xmi:id="_k1Nh4DVPEeKKwfV0ekHKjA" name="SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction" constrainedElement="_Qcl2AAh2EeCQFc0YYtBKsw">
+            <specification xmi:type="uml:OpaqueExpression" xmi:id="_k1Nh4TVPEeKKwfV0ekHKjA">
+              <language>OCL</language>
+              <body>self.action__ResourceCall.resourceCall__Action->select(call | call.resourceRequiredRole__ResourceCall=self.resourceRequiredRole__ResourceCall and call.signature__ResourceCall=self.signature__ResourceCall)->size() = 1</body>
             </specification>
           </ownedRule>
           <generalization xmi:id="_UCha4Ah2EeCQFc0YYtBKsw" general="_hT19ILGQEd673PT6cWw0Kw"/>
