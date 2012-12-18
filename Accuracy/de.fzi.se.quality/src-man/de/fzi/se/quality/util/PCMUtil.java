@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
+import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.repository.util.RepositorySwitch;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
@@ -166,6 +167,14 @@ public class PCMUtil {
 	 */
 	public static String prettyPrint(OperationSignature signature) {
 		return prettyPrint(signature.getReturnType__OperationSignature()) + " " + signature.getInterface__OperationSignature().getEntityName() + "::" + signature.getEntityName() + "(...)" + " #" + signature.getId();
+	}
+
+	/**Provides a textual identifier in order to help humans to identify the required role.  
+	 * @param requiredRole The required role.
+	 * @return The textual identifer.
+	 */
+	public static String prettyPrint(RequiredRole requiredRole) {
+		return requiredRole.getEntityName() + " #" + requiredRole.getId();
 	}
 	
 	/**Provides a textual identifier in order to help humans to identify the data type.
