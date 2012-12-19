@@ -25,6 +25,9 @@ public class QualityCharacterisedPCMParameterPartitionIntervalItemProvider exten
 		if (object != null) {
 			if (object instanceof CharacterisedPCMParameterPartitionInterval) {
 				CharacterisedPCMParameterPartitionInterval c = (CharacterisedPCMParameterPartitionInterval) object;
+				if (c.getQualifiedElementName() != null && c.getQualifiedElementName().length() > 0) {
+					text.append(c.getQualifiedElementName() + ".");
+				}
 				text.append(c.getForCharacterisation().getName());
 				if (c.getFrom() != null && c.getTo() != null) {
 					text.append(" = ");

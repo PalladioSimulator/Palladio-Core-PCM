@@ -25,6 +25,9 @@ public class QualityCharacterisedPCMParameterPartitionRangeItemProvider extends
 		if (object != null) {
 			if (object instanceof CharacterisedPCMParameterPartitionRange) {
 				CharacterisedPCMParameterPartitionRange c = (CharacterisedPCMParameterPartitionRange) object;
+				if (c.getQualifiedElementName() != null && c.getQualifiedElementName().length() > 0) {
+					text.append(c.getQualifiedElementName() + ".");
+				}
 				text.append(c.getForCharacterisation().getName() + " = ");
 				for (int i =0; i < c.getValues().size(); i++) {
 					text.append(c.getValues().get(i).getSpecification());
