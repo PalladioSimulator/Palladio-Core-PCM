@@ -204,4 +204,23 @@ public class PCMUtil {
 		}.doSwitch(dataType);
 	}
 
+	/**Provides textual information for the given variable usages. Does not shows the specification values themselves.
+	 * @param usages The variable usages.
+	 * @return The textual information.
+	 */
+	public static String prettyPrint(
+			List<VariableUsage> usages) {
+		String result = "";
+		for (VariableUsage vu : usages) {
+			result += getQualifiedName(vu) + "(";
+			for (VariableCharacterisation vc  : vu.getVariableCharacterisation_VariableUsage()) {
+				result += vc.getType().getName() + ",";
+			}
+			result.substring(0, result.length()-2);
+			result += ")";
+		}
+		return result;
+	}
+
+	
 }
