@@ -53,11 +53,12 @@ for /f %%a IN ('dir /b *.system') do (
 
 for /f %%a IN ('dir /b *.resourceenvironment') do (
  
-sed -i "s/name=\"[a-zA-Z_]*\">/><!-- deleted name -->/g" %%a
+sed -i "s/name=\"[a-zA-Z_0-9]*\">/><!-- deleted name -->/g" %%a
 rem \">/><!-- deleted name \1 -->
 
 sed -i "s/sdq.ipd.uka.de\/PalladioComponentModel\/ResourceEnvironment\/..0/sdq.ipd.uka.de\/PalladioComponentModel\/ResourceEnvironment\/5.0/g" %%a
 
+rem does not work if schedulingPolify is not the last attribute (e.g. if numberOfReplicas is used, too).
 sed -i "s/schedulingPolicy=\"PROCESSOR_SHARING\">/> <schedulingPolicy href=\"pathmap:\/\/PCM_MODELS\/Palladio.resourcetype#ProcessorSharing\"\/>/g" %%a
 sed -i "s/schedulingPolicy=\"DELAY\">/> <schedulingPolicy href=\"pathmap:\/\/PCM_MODELS\/Palladio.resourcetype#Delay\"\/>/g" %%a 
 sed -i "s/schedulingPolicy=\"FCFS\">/> <schedulingPolicy href=\"pathmap:\/\/PCM_MODELS\/Palladio.resourcetype#FCFS\"\/>/g" %%a
@@ -85,6 +86,8 @@ for /f "delims=" %%a IN ('dir /b *.designdecision') do (
  
  sed -i "s/changeableEntity/primaryChanged/g" %%a
  sed -i "s/domainOfEntities/classDesignOptions/g" %%a
+ 
+ sed -i "s/domainOfAllowedSchedulingPolicies/classDesignOptions/g" %%a
  
  sed -i "s/:Problem/:DecisionSpace/g" %%a
 )
