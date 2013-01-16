@@ -150,7 +150,7 @@ public class PCMUtil {
 		if (action == null) {
 			return "<null>";
 		}
-		return action.getEntityName() + "#" + action.getId() + " <" + action.eClass().getName() + ">"; 
+		return action.getEntityName() + " [ID:" + action.getId() + "] <" + action.eClass().getName() + ">"; 
 	}
 	
 	/**Provides a textual identifier in order to help humans to identify the component.  
@@ -158,7 +158,7 @@ public class PCMUtil {
 	 * @return The textual identifer.
 	 */
 	public static String prettyPrint(RepositoryComponent component) {
-		return component.getEntityName() + "#" + component.getId() + " <" + component.eClass().getName() + ">";
+		return component.getEntityName() + "[ID:" + component.getId() + "] <" + component.eClass().getName() + ">";
 	}
 
 	/**Provides a textual identifier in order to help humans to identify the required signature.  
@@ -166,7 +166,27 @@ public class PCMUtil {
 	 * @return The textual identifer.
 	 */
 	public static String prettyPrint(OperationSignature signature) {
-		return prettyPrint(signature.getReturnType__OperationSignature()) + " " + signature.getInterface__OperationSignature().getEntityName() + "::" + signature.getEntityName() + "(...)" + " #" + signature.getId();
+		String result = prettyPrint(signature.getReturnType__OperationSignature()) + " " + signature.getInterface__OperationSignature().getEntityName() + "::" + signature.getEntityName() + "(";
+		for (Parameter parameter : signature.getParameters__OperationSignature()) {
+			result += parameter.getDataType__Parameter() + " " + parameter.getParameterName() + ", ";
+		}
+		result.substring(0,result.length()-2);
+		result += ")" + " [ID: " + signature.getId() + "]";
+		return result;
+	}
+
+	/**Provides a textual identifier in order to help humans to identify the required signature.  
+	 * @param signature The operation signature.
+	 * @return The textual identifer.
+	 */
+	public static String prettyPrint(InfrastructureSignature signature) {
+		String result = signature.getInfrastructureInterface__InfrastructureSignature().getEntityName() + "::" + signature.getEntityName() + "(";
+		for (Parameter parameter : signature.getParameters__InfrastructureSignature()) {
+			result += parameter.getDataType__Parameter() + " " + parameter.getParameterName() + ", ";
+		}
+		result.substring(0,result.length()-2);
+		result += ")" + " [ID: " + signature.getId() + "]";
+		return result;
 	}
 
 	/**Provides a textual identifier in order to help humans to identify the required role.  
@@ -174,7 +194,7 @@ public class PCMUtil {
 	 * @return The textual identifer.
 	 */
 	public static String prettyPrint(RequiredRole requiredRole) {
-		return requiredRole.getEntityName() + " #" + requiredRole.getId();
+		return requiredRole.getEntityName() + " [ID:" + requiredRole.getId() + "]";
 	}
 	
 	/**Provides a textual identifier in order to help humans to identify the data type.
@@ -185,11 +205,11 @@ public class PCMUtil {
 		return new RepositorySwitch<String>() {
 			@Override
 			public String caseCollectionDataType(CollectionDataType object) {
-				return object.getEntityName() + " #" + object.getId();
+				return object.getEntityName() + " [ID:" + object.getId() + "]";
 			}
 			@Override
 			public String caseCompositeDataType(CompositeDataType object) {
-				return object.getEntityName() + " #" + object.getId();
+				return object.getEntityName() + " [ID:" + object.getId() + "]";
 			}
 			@Override
 			public String casePrimitiveDataType(PrimitiveDataType object) {
