@@ -701,7 +701,7 @@ public class QualityEditor
 		adapterFactory.addAdapterFactory(new DetailedParameterItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new ReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QualityPalladioItemProviderAdapterFactory(new SeffItemProviderAdapterFactory()));
-		adapterFactory.addAdapterFactory(new SeffPerformanceItemProviderAdapterFactory());
+		adapterFactory.addAdapterFactory(new QualityPalladioItemProviderAdapterFactory(new SeffPerformanceItemProviderAdapterFactory()));
 		adapterFactory.addAdapterFactory(new SeffReliabilityItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QosannotationsItemProviderAdapterFactory());
 		adapterFactory.addAdapterFactory(new QosPerformanceItemProviderAdapterFactory());
