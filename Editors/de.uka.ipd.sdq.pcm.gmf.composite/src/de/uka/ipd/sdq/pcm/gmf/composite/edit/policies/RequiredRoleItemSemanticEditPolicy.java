@@ -45,6 +45,7 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
      * @return the destroy element command
      * @generated
      */
+    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -69,6 +70,7 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
      * @return the creates the relationship command
      * @generated not
      */
+    @Override
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
             return req.getTarget() == null ? getCreateStartOutgoingAssemblyConnector_4001Command(req) : null;
@@ -89,7 +91,7 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
      */
     protected Command getCreateStartOutgoingAssemblyConnector_4001Command(CreateRelationshipRequest req) {
         EObject sourceEObject = req.getSource();
-        if (false == sourceEObject instanceof OperationRequiredRole) {
+        if (!(sourceEObject instanceof OperationRequiredRole)) {
             return UnexecutableCommand.INSTANCE;
         }
         OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
@@ -117,7 +119,7 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
      */
     protected Command getCreateStartOutgoingRequiredDelegationConnector_4002Command(CreateRelationshipRequest req) {
         EObject sourceEObject = req.getSource();
-        if (false == sourceEObject instanceof OperationRequiredRole) {
+        if (!(sourceEObject instanceof OperationRequiredRole)) {
             return UnexecutableCommand.INSTANCE;
         }
         OperationRequiredRole source = (OperationRequiredRole) sourceEObject;

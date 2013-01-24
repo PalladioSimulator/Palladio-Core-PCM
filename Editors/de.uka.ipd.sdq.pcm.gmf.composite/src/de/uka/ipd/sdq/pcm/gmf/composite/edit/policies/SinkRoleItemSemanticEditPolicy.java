@@ -132,7 +132,7 @@ public class SinkRoleItemSemanticEditPolicy extends
 	protected Command getStartCreateRelationshipCommandEventConnectors(
 			CreateRelationshipRequest req) {
 		EObject sinkEObject = req.getSource();
-		if (false == sinkEObject instanceof SinkRole) {
+		if (!(sinkEObject instanceof SinkRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		SinkRole source = (SinkRole) sinkEObject;

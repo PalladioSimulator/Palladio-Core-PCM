@@ -54,7 +54,8 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	 * @return the destroy element command
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+	@Override
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
@@ -111,7 +112,8 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	 * 
 	 * @generated not
 	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+	@Override
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
 				.getElementType()) {
 			return req.getTarget() == null ? getStartCreateRelationshipCommandAssemblyConnector(req)
@@ -159,7 +161,7 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	protected Command getStartCreateRelationshipCommandAssemblyConnector(
 			CreateRelationshipRequest req) {
 		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof OperationRequiredRole) {
+		if (!(sourceEObject instanceof OperationRequiredRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
@@ -191,7 +193,7 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	protected Command getStartCreateRelationshipCommandRequiredDelegationConnector(
 			CreateRelationshipRequest req) {
 		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof OperationRequiredRole) {
+		if (!(sourceEObject instanceof OperationRequiredRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
@@ -241,7 +243,8 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends
 	 * @return the reorient relationship command
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
+	@Override
+    protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AssemblyConnectorEditPart.VISUAL_ID:

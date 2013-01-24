@@ -54,7 +54,8 @@ public class SourceRoleItemSemanticEditPolicy extends
 	 * @return the destroy element command
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+	@Override
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
@@ -100,7 +101,8 @@ public class SourceRoleItemSemanticEditPolicy extends
 	 * 
 	 * @generated not
 	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+	@Override
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req
 				.getElementType()) {
 			return req.getTarget() == null ? getStartCreateRelationshipCommandEventConnectors(req)
@@ -125,7 +127,7 @@ public class SourceRoleItemSemanticEditPolicy extends
 	protected Command getStartCreateRelationshipCommandEventConnectors(
 			CreateRelationshipRequest req) {
 		EObject sourceEObject = req.getSource();
-		if (false == sourceEObject instanceof SourceRole) {
+		if (!(sourceEObject instanceof SourceRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		SourceRole source = (SourceRole) sourceEObject;
@@ -200,7 +202,8 @@ public class SourceRoleItemSemanticEditPolicy extends
 	 * @return the reorient relationship command
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
+	@Override
+    protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case EventChannelSourceConnectorEditPart.VISUAL_ID:

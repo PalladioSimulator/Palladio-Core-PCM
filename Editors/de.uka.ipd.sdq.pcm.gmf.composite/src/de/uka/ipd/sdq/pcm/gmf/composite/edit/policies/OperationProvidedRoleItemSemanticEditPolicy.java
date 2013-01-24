@@ -57,7 +57,8 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	 * @return the destroy element command
 	 * @generated
 	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
+	@Override
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
 		View view = (View) getHost().getModel();
 		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
 				getEditingDomain(), null);
@@ -112,7 +113,8 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	 * @return the creates the relationship command
 	 * @generated not
 	 */
-	protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+	@Override
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
 		if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
 				.getElementType()) {
 			return req.getTarget() == null ? null
@@ -140,8 +142,8 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 			CreateRelationshipRequest req) {
 		EObject sourceEObject = req.getSource();
 		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof OperationRequiredRole
-				|| false == targetEObject instanceof OperationProvidedRole) {
+		if (!(sourceEObject instanceof OperationRequiredRole)
+				|| !(targetEObject instanceof OperationProvidedRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
@@ -180,8 +182,8 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 			CreateRelationshipRequest req) {
 		EObject sourceEObject = req.getSource();
 		EObject targetEObject = req.getTarget();
-		if (false == sourceEObject instanceof OperationProvidedRole
-				|| false == targetEObject instanceof OperationProvidedRole) {
+		if (!(sourceEObject instanceof OperationProvidedRole)
+				|| !(targetEObject instanceof OperationProvidedRole)) {
 			return UnexecutableCommand.INSTANCE;
 		}
 		OperationProvidedRole source = (OperationProvidedRole) sourceEObject;
@@ -258,7 +260,8 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends
 	 * @return the reorient relationship command
 	 * @generated
 	 */
-	protected Command getReorientRelationshipCommand(
+	@Override
+    protected Command getReorientRelationshipCommand(
 			ReorientRelationshipRequest req) {
 		switch (getVisualID(req)) {
 		case AssemblyConnectorEditPart.VISUAL_ID:

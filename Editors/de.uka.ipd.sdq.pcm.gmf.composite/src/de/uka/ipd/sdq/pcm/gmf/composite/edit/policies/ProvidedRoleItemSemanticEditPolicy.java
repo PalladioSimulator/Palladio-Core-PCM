@@ -47,6 +47,7 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
      * @return the destroy element command
      * @generated
      */
+    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
@@ -71,6 +72,7 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
      * @return the creates the relationship command
      * @generated not
      */
+    @Override
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
             return req.getTarget() == null ? null : getCreateCompleteIncomingAssemblyConnector_4001Command(req);
@@ -93,8 +95,8 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     protected Command getCreateCompleteIncomingAssemblyConnector_4001Command(CreateRelationshipRequest req) {
         EObject sourceEObject = req.getSource();
         EObject targetEObject = req.getTarget();
-        if (false == sourceEObject instanceof OperationRequiredRole
-                || false == targetEObject instanceof OperationProvidedRole) {
+        if (!(sourceEObject instanceof OperationRequiredRole)
+                || !(targetEObject instanceof OperationProvidedRole)) {
             return UnexecutableCommand.INSTANCE;
         }
         OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
@@ -126,8 +128,8 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     protected Command getCreateCompleteIncomingProvidedDelegationConnector_4003Command(CreateRelationshipRequest req) {
         EObject sourceEObject = req.getSource();
         EObject targetEObject = req.getTarget();
-        if (false == sourceEObject instanceof OperationProvidedRole
-                || false == targetEObject instanceof OperationProvidedRole) {
+        if (!(sourceEObject instanceof OperationProvidedRole)
+                || !(targetEObject instanceof OperationProvidedRole)) {
             return UnexecutableCommand.INSTANCE;
         }
         OperationProvidedRole source = (OperationProvidedRole) sourceEObject;

@@ -18,9 +18,7 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;
 import de.uka.ipd.sdq.pcm.repository.EventGroup;
 import de.uka.ipd.sdq.pcm.repository.Interface;
-import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.Repository;
-import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * @generated NOT
@@ -43,10 +41,13 @@ public class EventChannelEditHelper extends
 						.getElementToConfigure().eResource().getResourceSet());
 		dialog.setProvidedService(EventGroup.class);
 		dialog.open();
-		if (dialog.getResult() == null)
-			return new CanceledCommand();
-		if (!(dialog.getResult() instanceof Interface))
-			return new CanceledCommand();
+		if (dialog.getResult() == null) {
+		    return new CanceledCommand();
+		}
+			
+		if (!(dialog.getResult() instanceof Interface)) {
+            return new CanceledCommand();
+        }
 		resource = (EventGroup) dialog.getResult();
 
 		ICommand cmd = new SetValueCommand(new SetRequest(request

@@ -107,7 +107,7 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends
 		if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req
 				.getElementType()) {
 			EObject sourceEObject = req.getSource();
-			if (false == sourceEObject instanceof InfrastructureRequiredRole) {
+			if (!(sourceEObject instanceof InfrastructureRequiredRole)) {
 				return UnexecutableCommand.INSTANCE;
 			}
 			InfrastructureRequiredRole source = (InfrastructureRequiredRole) sourceEObject;
