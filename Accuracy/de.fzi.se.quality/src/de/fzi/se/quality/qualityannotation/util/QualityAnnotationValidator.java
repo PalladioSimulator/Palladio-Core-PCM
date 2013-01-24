@@ -301,12 +301,36 @@ public class QualityAnnotationValidator extends EObjectValidator {
 	public static final int PCMRE_INFRASTRUCTURE_SIGNATURE__EACH_RE_TARGET_MUST_BE_REFERENCED_ONLY_FROM_ONE_RE = 32;
 
 	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Topmost Level Must Be PCMPE All Decisions' of 'PCMPE'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMPE__TOPMOST_LEVEL_MUST_BE_PCMPE_ALL_DECISIONS = 33;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Next Lower Hierarchy Level Must Be Decision' of 'PCMPE All Decisions'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMPE_ALL_DECISIONS__NEXT_LOWER_HIERARCHY_LEVEL_MUST_BE_DECISION = 34;
+
+	/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'This Is The Lowest Decision Hierarchy Level' of 'PCMPE Decision'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int PCMPE_DECISION__THIS_IS_THE_LOWEST_DECISION_HIERARCHY_LEVEL = 35;
+
+	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 32;
+	private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 35;
 
 	/**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -371,6 +395,8 @@ public class QualityAnnotationValidator extends EObjectValidator {
 				return validatePrecision((Precision)value, diagnostics, context);
 			case QualityAnnotationPackage.RE_PRECISION:
 				return validateREPrecision((REPrecision)value, diagnostics, context);
+			case QualityAnnotationPackage.PROBABILISTIC_ELEMENT:
+				return validateProbabilisticElement((ProbabilisticElement)value, diagnostics, context);
 			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION:
 				return validateCharacterisedPCMParameterPartition((CharacterisedPCMParameterPartition)value, diagnostics, context);
 			case QualityAnnotationPackage.PCM_PARAMETER_PARTITION:
@@ -413,6 +439,12 @@ public class QualityAnnotationValidator extends EObjectValidator {
 				return validatePCMREInfrastructureRole((PCMREInfrastructureRole)value, diagnostics, context);
 			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE:
 				return validatePCMREInfrastructureSignature((PCMREInfrastructureSignature)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMPE:
+				return validatePCMPE((PCMPE)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMPE_ALL_DECISIONS:
+				return validatePCMPEAllDecisions((PCMPEAllDecisions)value, diagnostics, context);
+			case QualityAnnotationPackage.PCMPE_DECISION:
+				return validatePCMPEDecision((PCMPEDecision)value, diagnostics, context);
 			case QualityAnnotationPackage.PCMRE_REQUEST_CATEGORY:
 				return validatePCMRERequestCategory((PCMRERequestCategory)value, diagnostics, context);
 			default:
@@ -532,6 +564,15 @@ public class QualityAnnotationValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(rePrecision, diagnostics, context);
 		if (result || diagnostics != null) result &= identifierValidator.validateIdentifier_idHasToBeUnique(rePrecision, diagnostics, context);
 		return result;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateProbabilisticElement(ProbabilisticElement probabilisticElement, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return validate_EveryDefaultConstraint(probabilisticElement, diagnostics, context);
 	}
 
 	/**
@@ -1272,6 +1313,89 @@ public class QualityAnnotationValidator extends EObjectValidator {
 	 */
 	public boolean validatePCMREInfrastructureSignature_EachRETargetMustBeReferencedOnlyFromOneRE(PCMREInfrastructureSignature pcmreInfrastructureSignature, DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return pcmreInfrastructureSignature.EachRETargetMustBeReferencedOnlyFromOneRE(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMPE(PCMPE pcmpe, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmpe, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmpe, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmpe, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmpe, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmpe, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmpe, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmpe, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMPE_TopmostLevelMustBePCMPEAllDecisions(pcmpe, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the TopmostLevelMustBePCMPEAllDecisions constraint of '<em>PCMPE</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMPE_TopmostLevelMustBePCMPEAllDecisions(PCMPE pcmpe, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmpe.TopmostLevelMustBePCMPEAllDecisions(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMPEAllDecisions(PCMPEAllDecisions pcmpeAllDecisions, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMPE_TopmostLevelMustBePCMPEAllDecisions(pcmpeAllDecisions, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMPEAllDecisions_NextLowerHierarchyLevelMustBeDecision(pcmpeAllDecisions, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the NextLowerHierarchyLevelMustBeDecision constraint of '<em>PCMPE All Decisions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMPEAllDecisions_NextLowerHierarchyLevelMustBeDecision(PCMPEAllDecisions pcmpeAllDecisions, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmpeAllDecisions.NextLowerHierarchyLevelMustBeDecision(diagnostics, context);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMPEDecision(PCMPEDecision pcmpeDecision, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		boolean result = validate_EveryMultiplicityConforms(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_UniqueID(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMPE_TopmostLevelMustBePCMPEAllDecisions(pcmpeDecision, diagnostics, context);
+		if (result || diagnostics != null) result &= validatePCMPEDecision_ThisIsTheLowestDecisionHierarchyLevel(pcmpeDecision, diagnostics, context);
+		return result;
+	}
+
+	/**
+	 * Validates the ThisIsTheLowestDecisionHierarchyLevel constraint of '<em>PCMPE Decision</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validatePCMPEDecision_ThisIsTheLowestDecisionHierarchyLevel(PCMPEDecision pcmpeDecision, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return pcmpeDecision.ThisIsTheLowestDecisionHierarchyLevel(diagnostics, context);
 	}
 
 	/**

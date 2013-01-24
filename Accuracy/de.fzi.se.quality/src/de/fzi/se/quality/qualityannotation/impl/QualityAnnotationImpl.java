@@ -12,6 +12,7 @@ import de.fzi.se.quality.parameters.ParameterPartition;
 import de.fzi.se.quality.parameters.ParametersPackage;
 
 import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
+import de.fzi.se.quality.qualityannotation.ProbabilisticElement;
 import de.fzi.se.quality.qualityannotation.QualityAnnotation;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.fzi.se.quality.qualityannotation.RequiredElement;
@@ -42,7 +43,8 @@ import org.eclipse.emf.ecore.util.InternalEList;
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl#isValid <em>Is Valid</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl#getForServiceSpecification <em>For Service Specification</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl#getStipulatedREPrecisions <em>Stipulated RE Precisions</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl#getInternalStateInfluenceAnalysisResult <em>Internal State Influence Analysis Result</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl#getInternalStateInfluenceAnalysisResults <em>Internal State Influence Analysis Results</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl#getProbabilisticElements <em>Probabilistic Elements</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.impl.QualityAnnotationImpl#getValidForParameterPartitions <em>Valid For Parameter Partitions</em>}</li>
  * </ul>
  * </p>
@@ -91,14 +93,24 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 	protected EList<RequiredElement> stipulatedREPrecisions;
 
 	/**
-	 * The cached value of the '{@link #getInternalStateInfluenceAnalysisResult() <em>Internal State Influence Analysis Result</em>}' containment reference list.
+	 * The cached value of the '{@link #getInternalStateInfluenceAnalysisResults() <em>Internal State Influence Analysis Results</em>}' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getInternalStateInfluenceAnalysisResult()
+	 * @see #getInternalStateInfluenceAnalysisResults()
 	 * @generated
 	 * @ordered
 	 */
-	protected EList<InternalStateInfluenceAnalysisAggregation> internalStateInfluenceAnalysisResult;
+	protected EList<InternalStateInfluenceAnalysisAggregation> internalStateInfluenceAnalysisResults;
+
+	/**
+	 * The cached value of the '{@link #getProbabilisticElements() <em>Probabilistic Elements</em>}' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see #getProbabilisticElements()
+	 * @generated
+	 * @ordered
+	 */
+	protected EList<ProbabilisticElement> probabilisticElements;
 
 	/**
 	 * The cached value of the '{@link #getValidForParameterPartitions() <em>Valid For Parameter Partitions</em>}' containment reference list.
@@ -210,11 +222,23 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EList<InternalStateInfluenceAnalysisAggregation> getInternalStateInfluenceAnalysisResult() {
-		if (internalStateInfluenceAnalysisResult == null) {
-			internalStateInfluenceAnalysisResult = new EObjectContainmentWithInverseEList<InternalStateInfluenceAnalysisAggregation>(InternalStateInfluenceAnalysisAggregation.class, this, QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT, QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION);
+	public EList<InternalStateInfluenceAnalysisAggregation> getInternalStateInfluenceAnalysisResults() {
+		if (internalStateInfluenceAnalysisResults == null) {
+			internalStateInfluenceAnalysisResults = new EObjectContainmentWithInverseEList<InternalStateInfluenceAnalysisAggregation>(InternalStateInfluenceAnalysisAggregation.class, this, QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS, QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION);
 		}
-		return internalStateInfluenceAnalysisResult;
+		return internalStateInfluenceAnalysisResults;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EList<ProbabilisticElement> getProbabilisticElements() {
+		if (probabilisticElements == null) {
+			probabilisticElements = new EObjectContainmentWithInverseEList<ProbabilisticElement>(ProbabilisticElement.class, this, QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS, QualityAnnotationPackage.PROBABILISTIC_ELEMENT__QUALITY_ANNOTATION);
+		}
+		return probabilisticElements;
 	}
 
 	/**
@@ -244,8 +268,10 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 				return basicSetForServiceSpecification((ServiceSpecification)otherEnd, msgs);
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getStipulatedREPrecisions()).basicAdd(otherEnd, msgs);
-			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInternalStateInfluenceAnalysisResult()).basicAdd(otherEnd, msgs);
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getInternalStateInfluenceAnalysisResults()).basicAdd(otherEnd, msgs);
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getProbabilisticElements()).basicAdd(otherEnd, msgs);
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
 				return ((InternalEList<InternalEObject>)(InternalEList<?>)getValidForParameterPartitions()).basicAdd(otherEnd, msgs);
 		}
@@ -264,8 +290,10 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 				return basicSetForServiceSpecification(null, msgs);
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS:
 				return ((InternalEList<?>)getStipulatedREPrecisions()).basicRemove(otherEnd, msgs);
-			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT:
-				return ((InternalEList<?>)getInternalStateInfluenceAnalysisResult()).basicRemove(otherEnd, msgs);
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
+				return ((InternalEList<?>)getInternalStateInfluenceAnalysisResults()).basicRemove(otherEnd, msgs);
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
+				return ((InternalEList<?>)getProbabilisticElements()).basicRemove(otherEnd, msgs);
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
 				return ((InternalEList<?>)getValidForParameterPartitions()).basicRemove(otherEnd, msgs);
 		}
@@ -286,8 +314,10 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 				return getForServiceSpecification();
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS:
 				return getStipulatedREPrecisions();
-			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT:
-				return getInternalStateInfluenceAnalysisResult();
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
+				return getInternalStateInfluenceAnalysisResults();
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
+				return getProbabilisticElements();
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
 				return getValidForParameterPartitions();
 		}
@@ -313,9 +343,13 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 				getStipulatedREPrecisions().clear();
 				getStipulatedREPrecisions().addAll((Collection<? extends RequiredElement>)newValue);
 				return;
-			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT:
-				getInternalStateInfluenceAnalysisResult().clear();
-				getInternalStateInfluenceAnalysisResult().addAll((Collection<? extends InternalStateInfluenceAnalysisAggregation>)newValue);
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
+				getInternalStateInfluenceAnalysisResults().clear();
+				getInternalStateInfluenceAnalysisResults().addAll((Collection<? extends InternalStateInfluenceAnalysisAggregation>)newValue);
+				return;
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
+				getProbabilisticElements().clear();
+				getProbabilisticElements().addAll((Collection<? extends ProbabilisticElement>)newValue);
 				return;
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
 				getValidForParameterPartitions().clear();
@@ -342,8 +376,11 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS:
 				getStipulatedREPrecisions().clear();
 				return;
-			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT:
-				getInternalStateInfluenceAnalysisResult().clear();
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
+				getInternalStateInfluenceAnalysisResults().clear();
+				return;
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
+				getProbabilisticElements().clear();
 				return;
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
 				getValidForParameterPartitions().clear();
@@ -366,8 +403,10 @@ public class QualityAnnotationImpl extends QualityStatementImpl implements Quali
 				return forServiceSpecification != null;
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS:
 				return stipulatedREPrecisions != null && !stipulatedREPrecisions.isEmpty();
-			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT:
-				return internalStateInfluenceAnalysisResult != null && !internalStateInfluenceAnalysisResult.isEmpty();
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
+				return internalStateInfluenceAnalysisResults != null && !internalStateInfluenceAnalysisResults.isEmpty();
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
+				return probabilisticElements != null && !probabilisticElements.isEmpty();
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
 				return validForParameterPartitions != null && !validForParameterPartitions.isEmpty();
 		}

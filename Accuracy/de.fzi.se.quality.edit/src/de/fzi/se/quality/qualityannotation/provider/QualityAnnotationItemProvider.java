@@ -110,7 +110,8 @@ public class QualityAnnotationItemProvider
 			super.getChildrenFeatures(object);
 			childrenFeatures.add(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION);
 			childrenFeatures.add(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS);
-			childrenFeatures.add(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT);
+			childrenFeatures.add(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS);
+			childrenFeatures.add(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS);
 			childrenFeatures.add(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS);
 		}
 		return childrenFeatures;
@@ -171,7 +172,8 @@ public class QualityAnnotationItemProvider
 				return;
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION:
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS:
-			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT:
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS:
+			case QualityAnnotationPackage.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS:
 			case QualityAnnotationPackage.QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS:
 				fireNotifyChanged(new ViewerNotification(notification, notification.getNotifier(), true, false));
 				return;
@@ -257,8 +259,18 @@ public class QualityAnnotationItemProvider
 
 		newChildDescriptors.add
 			(createChildParameter
-				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT,
+				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS,
 				 QualityAnnotationFactory.eINSTANCE.createInternalStateInfluenceAnalysisAggregation()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS,
+				 QualityAnnotationFactory.eINSTANCE.createPCMPEAllDecisions()));
+
+		newChildDescriptors.add
+			(createChildParameter
+				(QualityAnnotationPackage.Literals.QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS,
+				 QualityAnnotationFactory.eINSTANCE.createPCMPEDecision()));
 
 		newChildDescriptors.add
 			(createChildParameter

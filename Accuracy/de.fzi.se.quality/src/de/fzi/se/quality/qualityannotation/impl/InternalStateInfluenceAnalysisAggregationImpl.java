@@ -120,7 +120,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 			if (eInternalContainer() != null)
 				msgs = eBasicRemoveFromContainer(msgs);
 			if (newQualityAnnotation != null)
-				msgs = ((InternalEObject)newQualityAnnotation).eInverseAdd(this, QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT, QualityAnnotation.class, msgs);
+				msgs = ((InternalEObject)newQualityAnnotation).eInverseAdd(this, QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS, QualityAnnotation.class, msgs);
 			msgs = basicSetQualityAnnotation(newQualityAnnotation, msgs);
 			if (msgs != null) msgs.dispatch();
 		}
@@ -200,7 +200,7 @@ public class InternalStateInfluenceAnalysisAggregationImpl extends IdentifierImp
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
 		switch (eContainerFeatureID()) {
 			case QualityAnnotationPackage.INTERNAL_STATE_INFLUENCE_ANALYSIS_AGGREGATION__QUALITY_ANNOTATION:
-				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT, QualityAnnotation.class, msgs);
+				return eInternalContainer().eInverseRemove(this, QualityAnnotationPackage.QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS, QualityAnnotation.class, msgs);
 		}
 		return super.eBasicRemoveFromContainerFeature(msgs);
 	}

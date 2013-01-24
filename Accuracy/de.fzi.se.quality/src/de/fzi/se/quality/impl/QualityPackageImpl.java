@@ -94,7 +94,6 @@ public class QualityPackageImpl extends EPackageImpl implements QualityPackage {
 
 		// Initialize simple dependencies
 		PcmPackage.eINSTANCE.eClass();
-		TypesPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		QualityAnnotationPackageImpl theQualityAnnotationPackage = (QualityAnnotationPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) instanceof QualityAnnotationPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityAnnotationPackage.eNS_URI) : QualityAnnotationPackage.eINSTANCE);

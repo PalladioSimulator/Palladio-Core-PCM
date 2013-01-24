@@ -110,6 +110,10 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 				return createREPrecisionAdapter();
 			}
 			@Override
+			public Adapter caseProbabilisticElement(ProbabilisticElement object) {
+				return createProbabilisticElementAdapter();
+			}
+			@Override
 			public Adapter caseCharacterisedPCMParameterPartition(CharacterisedPCMParameterPartition object) {
 				return createCharacterisedPCMParameterPartitionAdapter();
 			}
@@ -192,6 +196,18 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 			@Override
 			public Adapter casePCMREInfrastructureSignature(PCMREInfrastructureSignature object) {
 				return createPCMREInfrastructureSignatureAdapter();
+			}
+			@Override
+			public Adapter casePCMPE(PCMPE object) {
+				return createPCMPEAdapter();
+			}
+			@Override
+			public Adapter casePCMPEAllDecisions(PCMPEAllDecisions object) {
+				return createPCMPEAllDecisionsAdapter();
+			}
+			@Override
+			public Adapter casePCMPEDecision(PCMPEDecision object) {
+				return createPCMPEDecisionAdapter();
 			}
 			@Override
 			public Adapter caseIdentifier(Identifier object) {
@@ -320,6 +336,20 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createREPrecisionAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement <em>Probabilistic Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement
+	 * @generated
+	 */
+	public Adapter createProbabilisticElementAdapter() {
 		return null;
 	}
 
@@ -628,6 +658,48 @@ public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 	 * @generated
 	 */
 	public Adapter createPCMREInfrastructureSignatureAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPE <em>PCMPE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.fzi.se.quality.qualityannotation.PCMPE
+	 * @generated
+	 */
+	public Adapter createPCMPEAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions <em>PCMPE All Decisions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.fzi.se.quality.qualityannotation.PCMPEAllDecisions
+	 * @generated
+	 */
+	public Adapter createPCMPEAllDecisionsAdapter() {
+		return null;
+	}
+
+	/**
+	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPEDecision <em>PCMPE Decision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * This default implementation returns null so that we can easily ignore cases;
+	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
+	 * <!-- end-user-doc -->
+	 * @return the new adapter.
+	 * @see de.fzi.se.quality.qualityannotation.PCMPEDecision
+	 * @generated
+	 */
+	public Adapter createPCMPEDecisionAdapter() {
 		return null;
 	}
 

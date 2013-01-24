@@ -31,7 +31,7 @@ import org.eclipse.emf.common.util.EList;
 public interface InternalStateInfluenceAnalysisAggregation extends Identifier {
 	/**
 	 * Returns the value of the '<em><b>Quality Annotation</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResult <em>Internal State Influence Analysis Result</em>}'.
+	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResults <em>Internal State Influence Analysis Results</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Quality Annotation</em>' container reference isn't clear,
@@ -41,8 +41,8 @@ public interface InternalStateInfluenceAnalysisAggregation extends Identifier {
 	 * @return the value of the '<em>Quality Annotation</em>' container reference.
 	 * @see #setQualityAnnotation(QualityAnnotation)
 	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getInternalStateInfluenceAnalysisAggregation_QualityAnnotation()
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResult
-	 * @model opposite="internalStateInfluenceAnalysisResult" required="true" transient="false" ordered="false"
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResults
+	 * @model opposite="internalStateInfluenceAnalysisResults" required="true" transient="false" ordered="false"
 	 * @generated
 	 */
 	QualityAnnotation getQualityAnnotation();

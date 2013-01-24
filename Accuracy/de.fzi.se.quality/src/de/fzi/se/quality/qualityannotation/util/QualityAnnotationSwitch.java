@@ -148,6 +148,12 @@ public class QualityAnnotationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QualityAnnotationPackage.PROBABILISTIC_ELEMENT: {
+				ProbabilisticElement probabilisticElement = (ProbabilisticElement)theEObject;
+				T result = caseProbabilisticElement(probabilisticElement);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			case QualityAnnotationPackage.CHARACTERISED_PCM_PARAMETER_PARTITION: {
 				CharacterisedPCMParameterPartition characterisedPCMParameterPartition = (CharacterisedPCMParameterPartition)theEObject;
 				T result = caseCharacterisedPCMParameterPartition(characterisedPCMParameterPartition);
@@ -327,6 +333,29 @@ public class QualityAnnotationSwitch<T> {
 				if (result == null) result = defaultCase(theEObject);
 				return result;
 			}
+			case QualityAnnotationPackage.PCMPE: {
+				PCMPE pcmpe = (PCMPE)theEObject;
+				T result = casePCMPE(pcmpe);
+				if (result == null) result = caseProbabilisticElement(pcmpe);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMPE_ALL_DECISIONS: {
+				PCMPEAllDecisions pcmpeAllDecisions = (PCMPEAllDecisions)theEObject;
+				T result = casePCMPEAllDecisions(pcmpeAllDecisions);
+				if (result == null) result = casePCMPE(pcmpeAllDecisions);
+				if (result == null) result = caseProbabilisticElement(pcmpeAllDecisions);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
+			case QualityAnnotationPackage.PCMPE_DECISION: {
+				PCMPEDecision pcmpeDecision = (PCMPEDecision)theEObject;
+				T result = casePCMPEDecision(pcmpeDecision);
+				if (result == null) result = casePCMPE(pcmpeDecision);
+				if (result == null) result = caseProbabilisticElement(pcmpeDecision);
+				if (result == null) result = defaultCase(theEObject);
+				return result;
+			}
 			default: return defaultCase(theEObject);
 		}
 	}
@@ -433,6 +462,21 @@ public class QualityAnnotationSwitch<T> {
 	 * @generated
 	 */
 	public T caseREPrecision(REPrecision object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>Probabilistic Element</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>Probabilistic Element</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T caseProbabilisticElement(ProbabilisticElement object) {
 		return null;
 	}
 
@@ -763,6 +807,51 @@ public class QualityAnnotationSwitch<T> {
 	 * @generated
 	 */
 	public T casePCMREInfrastructureSignature(PCMREInfrastructureSignature object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMPE</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMPE</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMPE(PCMPE object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMPE All Decisions</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMPE All Decisions</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMPEAllDecisions(PCMPEAllDecisions object) {
+		return null;
+	}
+
+	/**
+	 * Returns the result of interpreting the object as an instance of '<em>PCMPE Decision</em>'.
+	 * <!-- begin-user-doc -->
+	 * This implementation returns null;
+	 * returning a non-null result will terminate the switch.
+	 * <!-- end-user-doc -->
+	 * @param object the target of the switch.
+	 * @return the result of interpreting the object as an instance of '<em>PCMPE Decision</em>'.
+	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+	 * @generated
+	 */
+	public T casePCMPEDecision(PCMPEDecision object) {
 		return null;
 	}
 

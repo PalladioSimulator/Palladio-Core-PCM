@@ -177,13 +177,22 @@ public interface QualityAnnotationPackage extends EPackage {
 	int QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 2;
 
 	/**
-	 * The feature id for the '<em><b>Internal State Influence Analysis Result</b></em>' containment reference list.
+	 * The feature id for the '<em><b>Internal State Influence Analysis Results</b></em>' containment reference list.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
 	 */
-	int QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 3;
+	int QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 3;
+
+	/**
+	 * The feature id for the '<em><b>Probabilistic Elements</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 4;
 
 	/**
 	 * The feature id for the '<em><b>Valid For Parameter Partitions</b></em>' containment reference list.
@@ -192,7 +201,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 4;
+	int QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 5;
 
 	/**
 	 * The number of structural features of the '<em>Quality Annotation</em>' class.
@@ -201,7 +210,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 * @ordered
 	 */
-	int QUALITY_ANNOTATION_FEATURE_COUNT = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 5;
+	int QUALITY_ANNOTATION_FEATURE_COUNT = QualityPackage.QUALITY_STATEMENT_FEATURE_COUNT + 6;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.ServiceSpecificationImpl <em>Service Specification</em>}' class.
@@ -525,6 +534,61 @@ public interface QualityAnnotationPackage extends EPackage {
 	int RE_PRECISION_FEATURE_COUNT = IdentifierPackage.IDENTIFIER_FEATURE_COUNT + 3;
 
 	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.ProbabilisticElementImpl <em>Probabilistic Element</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.ProbabilisticElementImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getProbabilisticElement()
+	 * @generated
+	 */
+	int PROBABILISTIC_ELEMENT = 8;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILISTIC_ELEMENT__PRECISION = 0;
+
+	/**
+	 * The feature id for the '<em><b>Child PEs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILISTIC_ELEMENT__CHILD_PES = 1;
+
+	/**
+	 * The feature id for the '<em><b>Parent PE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILISTIC_ELEMENT__PARENT_PE = 2;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILISTIC_ELEMENT__QUALITY_ANNOTATION = 3;
+
+	/**
+	 * The number of structural features of the '<em>Probabilistic Element</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PROBABILISTIC_ELEMENT_FEATURE_COUNT = 4;
+
+	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMParameterPartitionImpl <em>PCM Parameter Partition</em>}' class.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -532,7 +596,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMParameterPartition()
 	 * @generated
 	 */
-	int PCM_PARAMETER_PARTITION = 9;
+	int PCM_PARAMETER_PARTITION = 10;
 
 	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.CharacterisedPCMParameterPartitionImpl <em>Characterised PCM Parameter Partition</em>}' class.
@@ -542,7 +606,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getCharacterisedPCMParameterPartition()
 	 * @generated
 	 */
-	int CHARACTERISED_PCM_PARAMETER_PARTITION = 8;
+	int CHARACTERISED_PCM_PARAMETER_PARTITION = 9;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -642,7 +706,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getCharacterisedPCMParameterPartitionInterval()
 	 * @generated
 	 */
-	int CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL = 10;
+	int CHARACTERISED_PCM_PARAMETER_PARTITION_INTERVAL = 11;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -715,7 +779,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getCharacterisedPCMParameterPartitionRange()
 	 * @generated
 	 */
-	int CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE = 11;
+	int CHARACTERISED_PCM_PARAMETER_PARTITION_RANGE = 12;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -779,7 +843,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getExactlyAsSpecifiedPrecision()
 	 * @generated
 	 */
-	int EXACTLY_AS_SPECIFIED_PRECISION = 12;
+	int EXACTLY_AS_SPECIFIED_PRECISION = 13;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -807,7 +871,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getLimitedDeviationPrecision()
 	 * @generated
 	 */
-	int LIMITED_DEVIATION_PRECISION = 13;
+	int LIMITED_DEVIATION_PRECISION = 14;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -853,7 +917,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getNoPrecision()
 	 * @generated
 	 */
-	int NO_PRECISION = 14;
+	int NO_PRECISION = 15;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -881,7 +945,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRE()
 	 * @generated
 	 */
-	int PCMRE = 16;
+	int PCMRE = 17;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -954,7 +1018,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRECategory()
 	 * @generated
 	 */
-	int PCMRE_CATEGORY = 15;
+	int PCMRE_CATEGORY = 16;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1036,7 +1100,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInterface()
 	 * @generated
 	 */
-	int PCMRE_INTERFACE = 17;
+	int PCMRE_INTERFACE = 18;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1118,7 +1182,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRERole()
 	 * @generated
 	 */
-	int PCMRE_ROLE = 18;
+	int PCMRE_ROLE = 19;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1200,7 +1264,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRESignature()
 	 * @generated
 	 */
-	int PCMRE_SIGNATURE = 19;
+	int PCMRE_SIGNATURE = 20;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1282,7 +1346,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMServiceSpecification()
 	 * @generated
 	 */
-	int PCM_SERVICE_SPECIFICATION = 20;
+	int PCM_SERVICE_SPECIFICATION = 21;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1346,7 +1410,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResourceInterface()
 	 * @generated
 	 */
-	int PCMRE_RESOURCE_INTERFACE = 21;
+	int PCMRE_RESOURCE_INTERFACE = 22;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1428,7 +1492,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResourceSignature()
 	 * @generated
 	 */
-	int PCMRE_RESOURCE_SIGNATURE = 22;
+	int PCMRE_RESOURCE_SIGNATURE = 23;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1510,7 +1574,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResource()
 	 * @generated
 	 */
-	int PCMRE_RESOURCE = 23;
+	int PCMRE_RESOURCE = 24;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1592,7 +1656,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREResourceRole()
 	 * @generated
 	 */
-	int PCMRE_RESOURCE_ROLE = 24;
+	int PCMRE_RESOURCE_ROLE = 25;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1674,7 +1738,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRECIBehavior()
 	 * @generated
 	 */
-	int PCMRECI_BEHAVIOR = 25;
+	int PCMRECI_BEHAVIOR = 26;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1756,7 +1820,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureInterface()
 	 * @generated
 	 */
-	int PCMRE_INFRASTRUCTURE_INTERFACE = 26;
+	int PCMRE_INFRASTRUCTURE_INTERFACE = 27;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1838,7 +1902,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureRole()
 	 * @generated
 	 */
-	int PCMRE_INFRASTRUCTURE_ROLE = 27;
+	int PCMRE_INFRASTRUCTURE_ROLE = 28;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1920,7 +1984,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMREInfrastructureSignature()
 	 * @generated
 	 */
-	int PCMRE_INFRASTRUCTURE_SIGNATURE = 28;
+	int PCMRE_INFRASTRUCTURE_SIGNATURE = 29;
 
 	/**
 	 * The feature id for the '<em><b>Id</b></em>' attribute.
@@ -1995,6 +2059,180 @@ public interface QualityAnnotationPackage extends EPackage {
 	int PCMRE_INFRASTRUCTURE_SIGNATURE_FEATURE_COUNT = PCMRE_FEATURE_COUNT + 1;
 
 	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMPEImpl <em>PCMPE</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMPEImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMPE()
+	 * @generated
+	 */
+	int PCMPE = 30;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE__PRECISION = PROBABILISTIC_ELEMENT__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Child PEs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE__CHILD_PES = PROBABILISTIC_ELEMENT__CHILD_PES;
+
+	/**
+	 * The feature id for the '<em><b>Parent PE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE__PARENT_PE = PROBABILISTIC_ELEMENT__PARENT_PE;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE__QUALITY_ANNOTATION = PROBABILISTIC_ELEMENT__QUALITY_ANNOTATION;
+
+	/**
+	 * The number of structural features of the '<em>PCMPE</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_FEATURE_COUNT = PROBABILISTIC_ELEMENT_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMPEAllDecisionsImpl <em>PCMPE All Decisions</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMPEAllDecisionsImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMPEAllDecisions()
+	 * @generated
+	 */
+	int PCMPE_ALL_DECISIONS = 31;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_ALL_DECISIONS__PRECISION = PCMPE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Child PEs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_ALL_DECISIONS__CHILD_PES = PCMPE__CHILD_PES;
+
+	/**
+	 * The feature id for the '<em><b>Parent PE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_ALL_DECISIONS__PARENT_PE = PCMPE__PARENT_PE;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_ALL_DECISIONS__QUALITY_ANNOTATION = PCMPE__QUALITY_ANNOTATION;
+
+	/**
+	 * The number of structural features of the '<em>PCMPE All Decisions</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_ALL_DECISIONS_FEATURE_COUNT = PCMPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMPEDecisionImpl <em>PCMPE Decision</em>}' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @see de.fzi.se.quality.qualityannotation.impl.PCMPEDecisionImpl
+	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMPEDecision()
+	 * @generated
+	 */
+	int PCMPE_DECISION = 32;
+
+	/**
+	 * The feature id for the '<em><b>Precision</b></em>' containment reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_DECISION__PRECISION = PCMPE__PRECISION;
+
+	/**
+	 * The feature id for the '<em><b>Child PEs</b></em>' containment reference list.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_DECISION__CHILD_PES = PCMPE__CHILD_PES;
+
+	/**
+	 * The feature id for the '<em><b>Parent PE</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_DECISION__PARENT_PE = PCMPE__PARENT_PE;
+
+	/**
+	 * The feature id for the '<em><b>Quality Annotation</b></em>' container reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_DECISION__QUALITY_ANNOTATION = PCMPE__QUALITY_ANNOTATION;
+
+	/**
+	 * The feature id for the '<em><b>Branch Action</b></em>' reference.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_DECISION__BRANCH_ACTION = PCMPE_FEATURE_COUNT + 0;
+
+	/**
+	 * The number of structural features of the '<em>PCMPE Decision</em>' class.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 * @ordered
+	 */
+	int PCMPE_DECISION_FEATURE_COUNT = PCMPE_FEATURE_COUNT + 1;
+
+	/**
 	 * The meta object id for the '{@link de.fzi.se.quality.qualityannotation.PCMRERequestCategory <em>PCMRE Request Category</em>}' enum.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2002,7 +2240,7 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMRERequestCategory()
 	 * @generated
 	 */
-	int PCMRE_REQUEST_CATEGORY = 29;
+	int PCMRE_REQUEST_CATEGORY = 33;
 
 
 	/**
@@ -2103,15 +2341,26 @@ public interface QualityAnnotationPackage extends EPackage {
 	EReference getQualityAnnotation_StipulatedREPrecisions();
 
 	/**
-	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResult <em>Internal State Influence Analysis Result</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResults <em>Internal State Influence Analysis Results</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the meta object for the containment reference list '<em>Internal State Influence Analysis Result</em>'.
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResult()
+	 * @return the meta object for the containment reference list '<em>Internal State Influence Analysis Results</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResults()
 	 * @see #getQualityAnnotation()
 	 * @generated
 	 */
-	EReference getQualityAnnotation_InternalStateInfluenceAnalysisResult();
+	EReference getQualityAnnotation_InternalStateInfluenceAnalysisResults();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getProbabilisticElements <em>Probabilistic Elements</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Probabilistic Elements</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotation#getProbabilisticElements()
+	 * @see #getQualityAnnotation()
+	 * @generated
+	 */
+	EReference getQualityAnnotation_ProbabilisticElements();
 
 	/**
 	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getValidForParameterPartitions <em>Valid For Parameter Partitions</em>}'.
@@ -2371,6 +2620,60 @@ public interface QualityAnnotationPackage extends EPackage {
 	 * @generated
 	 */
 	EReference getREPrecision_RequiredElement();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement <em>Probabilistic Element</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>Probabilistic Element</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement
+	 * @generated
+	 */
+	EClass getProbabilisticElement();
+
+	/**
+	 * Returns the meta object for the containment reference '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement#getPrecision <em>Precision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference '<em>Precision</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement#getPrecision()
+	 * @see #getProbabilisticElement()
+	 * @generated
+	 */
+	EReference getProbabilisticElement_Precision();
+
+	/**
+	 * Returns the meta object for the containment reference list '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement#getChildPEs <em>Child PEs</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the containment reference list '<em>Child PEs</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement#getChildPEs()
+	 * @see #getProbabilisticElement()
+	 * @generated
+	 */
+	EReference getProbabilisticElement_ChildPEs();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement#getParentPE <em>Parent PE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Parent PE</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement#getParentPE()
+	 * @see #getProbabilisticElement()
+	 * @generated
+	 */
+	EReference getProbabilisticElement_ParentPE();
+
+	/**
+	 * Returns the meta object for the container reference '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement#getQualityAnnotation <em>Quality Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the container reference '<em>Quality Annotation</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement#getQualityAnnotation()
+	 * @see #getProbabilisticElement()
+	 * @generated
+	 */
+	EReference getProbabilisticElement_QualityAnnotation();
 
 	/**
 	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.Precision <em>Precision</em>}'.
@@ -2835,6 +3138,47 @@ public interface QualityAnnotationPackage extends EPackage {
 	EReference getPCMREInfrastructureSignature_Signature();
 
 	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMPE <em>PCMPE</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMPE</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMPE
+	 * @generated
+	 */
+	EClass getPCMPE();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions <em>PCMPE All Decisions</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMPE All Decisions</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMPEAllDecisions
+	 * @generated
+	 */
+	EClass getPCMPEAllDecisions();
+
+	/**
+	 * Returns the meta object for class '{@link de.fzi.se.quality.qualityannotation.PCMPEDecision <em>PCMPE Decision</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for class '<em>PCMPE Decision</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMPEDecision
+	 * @generated
+	 */
+	EClass getPCMPEDecision();
+
+	/**
+	 * Returns the meta object for the reference '{@link de.fzi.se.quality.qualityannotation.PCMPEDecision#getBranchAction <em>Branch Action</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return the meta object for the reference '<em>Branch Action</em>'.
+	 * @see de.fzi.se.quality.qualityannotation.PCMPEDecision#getBranchAction()
+	 * @see #getPCMPEDecision()
+	 * @generated
+	 */
+	EReference getPCMPEDecision_BranchAction();
+
+	/**
 	 * Returns the meta object for enum '{@link de.fzi.se.quality.qualityannotation.PCMRERequestCategory <em>PCMRE Request Category</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -2943,12 +3287,20 @@ public interface QualityAnnotationPackage extends EPackage {
 		EReference QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS = eINSTANCE.getQualityAnnotation_StipulatedREPrecisions();
 
 		/**
-		 * The meta object literal for the '<em><b>Internal State Influence Analysis Result</b></em>' containment reference list feature.
+		 * The meta object literal for the '<em><b>Internal State Influence Analysis Results</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc -->
 		 * <!-- end-user-doc -->
 		 * @generated
 		 */
-		EReference QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT = eINSTANCE.getQualityAnnotation_InternalStateInfluenceAnalysisResult();
+		EReference QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS = eINSTANCE.getQualityAnnotation_InternalStateInfluenceAnalysisResults();
+
+		/**
+		 * The meta object literal for the '<em><b>Probabilistic Elements</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS = eINSTANCE.getQualityAnnotation_ProbabilisticElements();
 
 		/**
 		 * The meta object literal for the '<em><b>Valid For Parameter Partitions</b></em>' containment reference list feature.
@@ -3151,6 +3503,48 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference RE_PRECISION__REQUIRED_ELEMENT = eINSTANCE.getREPrecision_RequiredElement();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.ProbabilisticElementImpl <em>Probabilistic Element</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.ProbabilisticElementImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getProbabilisticElement()
+		 * @generated
+		 */
+		EClass PROBABILISTIC_ELEMENT = eINSTANCE.getProbabilisticElement();
+
+		/**
+		 * The meta object literal for the '<em><b>Precision</b></em>' containment reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROBABILISTIC_ELEMENT__PRECISION = eINSTANCE.getProbabilisticElement_Precision();
+
+		/**
+		 * The meta object literal for the '<em><b>Child PEs</b></em>' containment reference list feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROBABILISTIC_ELEMENT__CHILD_PES = eINSTANCE.getProbabilisticElement_ChildPEs();
+
+		/**
+		 * The meta object literal for the '<em><b>Parent PE</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROBABILISTIC_ELEMENT__PARENT_PE = eINSTANCE.getProbabilisticElement_ParentPE();
+
+		/**
+		 * The meta object literal for the '<em><b>Quality Annotation</b></em>' container reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PROBABILISTIC_ELEMENT__QUALITY_ANNOTATION = eINSTANCE.getProbabilisticElement_QualityAnnotation();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PrecisionImpl <em>Precision</em>}' class.
@@ -3547,6 +3941,44 @@ public interface QualityAnnotationPackage extends EPackage {
 		 * @generated
 		 */
 		EReference PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE = eINSTANCE.getPCMREInfrastructureSignature_Signature();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMPEImpl <em>PCMPE</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMPEImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMPE()
+		 * @generated
+		 */
+		EClass PCMPE = eINSTANCE.getPCMPE();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMPEAllDecisionsImpl <em>PCMPE All Decisions</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMPEAllDecisionsImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMPEAllDecisions()
+		 * @generated
+		 */
+		EClass PCMPE_ALL_DECISIONS = eINSTANCE.getPCMPEAllDecisions();
+
+		/**
+		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.impl.PCMPEDecisionImpl <em>PCMPE Decision</em>}' class.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @see de.fzi.se.quality.qualityannotation.impl.PCMPEDecisionImpl
+		 * @see de.fzi.se.quality.qualityannotation.impl.QualityAnnotationPackageImpl#getPCMPEDecision()
+		 * @generated
+		 */
+		EClass PCMPE_DECISION = eINSTANCE.getPCMPEDecision();
+
+		/**
+		 * The meta object literal for the '<em><b>Branch Action</b></em>' reference feature.
+		 * <!-- begin-user-doc -->
+		 * <!-- end-user-doc -->
+		 * @generated
+		 */
+		EReference PCMPE_DECISION__BRANCH_ACTION = eINSTANCE.getPCMPEDecision_BranchAction();
 
 		/**
 		 * The meta object literal for the '{@link de.fzi.se.quality.qualityannotation.PCMRERequestCategory <em>PCMRE Request Category</em>}' enum.

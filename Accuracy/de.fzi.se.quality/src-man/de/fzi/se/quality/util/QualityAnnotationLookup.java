@@ -5,6 +5,9 @@ package de.fzi.se.quality.util;
 
 import java.util.logging.Logger;
 
+import de.fzi.se.quality.qualityannotation.PCMPE;
+import de.fzi.se.quality.qualityannotation.PCMPEAllDecisions;
+import de.fzi.se.quality.qualityannotation.PCMPEDecision;
 import de.fzi.se.quality.qualityannotation.PCMRE;
 import de.fzi.se.quality.qualityannotation.PCMRECategory;
 import de.fzi.se.quality.qualityannotation.PCMREInterface;
@@ -14,6 +17,7 @@ import de.fzi.se.quality.qualityannotation.PCMREResourceSignature;
 import de.fzi.se.quality.qualityannotation.PCMRERole;
 import de.fzi.se.quality.qualityannotation.PCMRESignature;
 import de.fzi.se.quality.qualityannotation.Precision;
+import de.fzi.se.quality.qualityannotation.ProbabilisticElement;
 import de.fzi.se.quality.qualityannotation.QualityAnnotation;
 import de.fzi.se.quality.qualityannotation.REPrecision;
 import de.fzi.se.quality.qualityannotation.RequiredElement;
@@ -29,6 +33,7 @@ import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
+import de.uka.ipd.sdq.pcm.seff.BranchAction;
 
 /**Lookup functions for elements in QualityAnnotation instances.
  * @author groenda
@@ -44,7 +49,42 @@ public class QualityAnnotationLookup {
 	public QualityAnnotationLookup(QualityAnnotation qualityAnnotation) {
 		this.qualityAnnotation = qualityAnnotation;
 	}
+	
+	/**Retrieves the probabilistic element for the given PCM entity.
+	 * @param branchAction The PCM entity.
+	 * @return The probabilistic element description. <code>null</code> if no matching element was found.
+	 */
+	public PCMPE getPCMPE(final BranchAction branchAction) {
+		for (ProbabilisticElement pe : qualityAnnotation.getProbabilisticElements()) {
+			if (pe instanceof PCMPEAllDecisions) {
+				PCMPEAllDecisions allDecisions = (PCMPEAllDecisions) pe;
+				for (ProbabilisticElement peLevel2 : allDecisions.getChildPEs()) {
+					if (peLevel2 instanceof PCMPEDecision) {
+						PCMPEDecision decision = (PCMPEDecision) peLevel2;
+						if (decision.getBranchAction().equals(branchAction)) {
+							return decision;
+						}
+					}
+				}
+				return allDecisions;
+			}
+		}
+		return null;
+	}
 
+	/**Retrieves the precision for the given PCM entity.
+	 * @param branchAction The PCM entity.
+	 * @return The precision. <code>null</code> if no matching element was found.
+	 */
+	public Precision getPCMPEPrecision(final BranchAction branchAction) {
+		PCMPE pcmpe = getPCMPE(branchAction);
+		if (pcmpe == null) {
+			return null;
+		} else {
+			return pcmpe.getPrecision();
+		}
+	}
+	
 	/**Retrieves a required element for the given PCM entity.
 	 * @param category The category for which the required element is requested.
 	 * @return The required element. {@code null} if no matching element was found.
@@ -328,4 +368,12 @@ public class QualityAnnotationLookup {
 		}
 		return current;
 	}
+	
+	/**
+	 * @return the qualityAnnotation
+	 */
+	public QualityAnnotation getQualityAnnotation() {
+		return qualityAnnotation;
+	}
+	
 }

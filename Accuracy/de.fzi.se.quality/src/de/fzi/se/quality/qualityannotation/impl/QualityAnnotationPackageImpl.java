@@ -26,6 +26,8 @@ import de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision;
 import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
 import de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision;
 import de.fzi.se.quality.qualityannotation.NoPrecision;
+import de.fzi.se.quality.qualityannotation.PCMPEAllDecisions;
+import de.fzi.se.quality.qualityannotation.PCMPEDecision;
 import de.fzi.se.quality.qualityannotation.NumberOfCallsDeviation;
 import de.fzi.se.quality.qualityannotation.PCMParameterPartition;
 import de.fzi.se.quality.qualityannotation.PCMRECIBehavior;
@@ -44,6 +46,7 @@ import de.fzi.se.quality.qualityannotation.PCMRESignature;
 import de.fzi.se.quality.qualityannotation.PCMServiceSpecification;
 import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
 import de.fzi.se.quality.qualityannotation.Precision;
+import de.fzi.se.quality.qualityannotation.ProbabilisticElement;
 import de.fzi.se.quality.qualityannotation.QualityAnnotation;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationFactory;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
@@ -136,6 +139,13 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * @generated
 	 */
 	private EClass rePrecisionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass probabilisticElementEClass = null;
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -296,6 +306,27 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	private EClass pcmpeEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmpeAllDecisionsEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	private EClass pcmpeDecisionEClass = null;
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	private EEnum pcmreRequestCategoryEEnum = null;
 
 	/**
@@ -346,7 +377,6 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
 		// Initialize simple dependencies
 		PcmPackage.eINSTANCE.eClass();
-		TypesPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		QualityPackageImpl theQualityPackage = (QualityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);
@@ -469,7 +499,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQualityAnnotation_InternalStateInfluenceAnalysisResult() {
+	public EReference getQualityAnnotation_InternalStateInfluenceAnalysisResults() {
 		return (EReference)qualityAnnotationEClass.getEStructuralFeatures().get(3);
 	}
 
@@ -478,8 +508,17 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
-	public EReference getQualityAnnotation_ValidForParameterPartitions() {
+	public EReference getQualityAnnotation_ProbabilisticElements() {
 		return (EReference)qualityAnnotationEClass.getEStructuralFeatures().get(4);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getQualityAnnotation_ValidForParameterPartitions() {
+		return (EReference)qualityAnnotationEClass.getEStructuralFeatures().get(5);
 	}
 
 	/**
@@ -687,6 +726,51 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 */
 	public EReference getREPrecision_RequiredElement() {
 		return (EReference)rePrecisionEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getProbabilisticElement() {
+		return probabilisticElementEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProbabilisticElement_Precision() {
+		return (EReference)probabilisticElementEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProbabilisticElement_ChildPEs() {
+		return (EReference)probabilisticElementEClass.getEStructuralFeatures().get(1);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProbabilisticElement_ParentPE() {
+		return (EReference)probabilisticElementEClass.getEStructuralFeatures().get(2);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getProbabilisticElement_QualityAnnotation() {
+		return (EReference)probabilisticElementEClass.getEStructuralFeatures().get(3);
 	}
 
 	/**
@@ -1090,6 +1174,42 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 	 * <!-- end-user-doc -->
 	 * @generated
 	 */
+	public EClass getPCMPE() {
+		return pcmpeEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMPEAllDecisions() {
+		return pcmpeAllDecisionsEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EClass getPCMPEDecision() {
+		return pcmpeDecisionEClass;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public EReference getPCMPEDecision_BranchAction() {
+		return (EReference)pcmpeDecisionEClass.getEStructuralFeatures().get(0);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
 	public EEnum getPCMRERequestCategory() {
 		return pcmreRequestCategoryEEnum;
 	}
@@ -1132,7 +1252,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		createEAttribute(qualityAnnotationEClass, QUALITY_ANNOTATION__IS_VALID);
 		createEReference(qualityAnnotationEClass, QUALITY_ANNOTATION__FOR_SERVICE_SPECIFICATION);
 		createEReference(qualityAnnotationEClass, QUALITY_ANNOTATION__STIPULATED_RE_PRECISIONS);
-		createEReference(qualityAnnotationEClass, QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULT);
+		createEReference(qualityAnnotationEClass, QUALITY_ANNOTATION__INTERNAL_STATE_INFLUENCE_ANALYSIS_RESULTS);
+		createEReference(qualityAnnotationEClass, QUALITY_ANNOTATION__PROBABILISTIC_ELEMENTS);
 		createEReference(qualityAnnotationEClass, QUALITY_ANNOTATION__VALID_FOR_PARAMETER_PARTITIONS);
 
 		serviceSpecificationEClass = createEClass(SERVICE_SPECIFICATION);
@@ -1164,6 +1285,12 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		createEReference(rePrecisionEClass, RE_PRECISION__DEFAULT_PRECISION_NUMBER_OF_CALLS);
 		createEReference(rePrecisionEClass, RE_PRECISION__DEFAULT_PRECISION_CALL_PARAMETER);
 		createEReference(rePrecisionEClass, RE_PRECISION__REQUIRED_ELEMENT);
+
+		probabilisticElementEClass = createEClass(PROBABILISTIC_ELEMENT);
+		createEReference(probabilisticElementEClass, PROBABILISTIC_ELEMENT__PRECISION);
+		createEReference(probabilisticElementEClass, PROBABILISTIC_ELEMENT__CHILD_PES);
+		createEReference(probabilisticElementEClass, PROBABILISTIC_ELEMENT__PARENT_PE);
+		createEReference(probabilisticElementEClass, PROBABILISTIC_ELEMENT__QUALITY_ANNOTATION);
 
 		characterisedPCMParameterPartitionEClass = createEClass(CHARACTERISED_PCM_PARAMETER_PARTITION);
 		createEAttribute(characterisedPCMParameterPartitionEClass, CHARACTERISED_PCM_PARAMETER_PARTITION__FOR_CHARACTERISATION);
@@ -1228,6 +1355,13 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 
 		pcmreInfrastructureSignatureEClass = createEClass(PCMRE_INFRASTRUCTURE_SIGNATURE);
 		createEReference(pcmreInfrastructureSignatureEClass, PCMRE_INFRASTRUCTURE_SIGNATURE__SIGNATURE);
+
+		pcmpeEClass = createEClass(PCMPE);
+
+		pcmpeAllDecisionsEClass = createEClass(PCMPE_ALL_DECISIONS);
+
+		pcmpeDecisionEClass = createEClass(PCMPE_DECISION);
+		createEReference(pcmpeDecisionEClass, PCMPE_DECISION__BRANCH_ACTION);
 
 		// Create enums
 		pcmreRequestCategoryEEnum = createEEnum(PCMRE_REQUEST_CATEGORY);
@@ -1299,6 +1433,9 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		pcmreInfrastructureInterfaceEClass.getESuperTypes().add(this.getPCMRE());
 		pcmreInfrastructureRoleEClass.getESuperTypes().add(this.getPCMRE());
 		pcmreInfrastructureSignatureEClass.getESuperTypes().add(this.getPCMRE());
+		pcmpeEClass.getESuperTypes().add(this.getProbabilisticElement());
+		pcmpeAllDecisionsEClass.getESuperTypes().add(this.getPCMPE());
+		pcmpeDecisionEClass.getESuperTypes().add(this.getPCMPE());
 
 		// Initialize classes and features; add operations and parameters
 		initEClass(parameterValueDeviationEClass, ParameterValueDeviation.class, "ParameterValueDeviation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1311,7 +1448,8 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		initEAttribute(getQualityAnnotation_IsValid(), ecorePackage.getEBoolean(), "isValid", "false", 1, 1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getQualityAnnotation_ForServiceSpecification(), this.getServiceSpecification(), this.getServiceSpecification_QualityAnnotation(), "forServiceSpecification", null, 1, 1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getQualityAnnotation_StipulatedREPrecisions(), this.getRequiredElement(), this.getRequiredElement_QualityAnnotation(), "stipulatedREPrecisions", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
-		initEReference(getQualityAnnotation_InternalStateInfluenceAnalysisResult(), this.getInternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation_QualityAnnotation(), "internalStateInfluenceAnalysisResult", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getQualityAnnotation_InternalStateInfluenceAnalysisResults(), this.getInternalStateInfluenceAnalysisAggregation(), this.getInternalStateInfluenceAnalysisAggregation_QualityAnnotation(), "internalStateInfluenceAnalysisResults", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getQualityAnnotation_ProbabilisticElements(), this.getProbabilisticElement(), this.getProbabilisticElement_QualityAnnotation(), "probabilisticElements", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getQualityAnnotation_ValidForParameterPartitions(), theParametersPackage.getParameterPartition(), theParametersPackage.getParameterPartition_QualityAnnotation(), "validForParameterPartitions", null, 0, -1, QualityAnnotation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(serviceSpecificationEClass, ServiceSpecification.class, "ServiceSpecification", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1342,7 +1480,7 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		initEReference(getRequiredElementDeviation_RequiredElement(), this.getRequiredElement(), this.getRequiredElement_RequiredElementDeviation(), "requiredElement", null, 1, 1, RequiredElementDeviation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(internalStateInfluenceAnalysisAggregationEClass, InternalStateInfluenceAnalysisAggregation.class, "InternalStateInfluenceAnalysisAggregation", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
-		initEReference(getInternalStateInfluenceAnalysisAggregation_QualityAnnotation(), this.getQualityAnnotation(), this.getQualityAnnotation_InternalStateInfluenceAnalysisResult(), "qualityAnnotation", null, 1, 1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getInternalStateInfluenceAnalysisAggregation_QualityAnnotation(), this.getQualityAnnotation(), this.getQualityAnnotation_InternalStateInfluenceAnalysisResults(), "qualityAnnotation", null, 1, 1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getInternalStateInfluenceAnalysisAggregation_ParameterValueDeviations(), this.getParameterValueDeviation(), this.getParameterValueDeviation_InternalStateInfluenceAnalysisAggregation(), "parameterValueDeviations", null, 0, -1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 		initEReference(getInternalStateInfluenceAnalysisAggregation_RequiredElementDeviations(), this.getRequiredElementDeviation(), this.getRequiredElementDeviation_InternalStateInfluenceAnalysisAggregation(), "requiredElementDeviations", null, 0, -1, InternalStateInfluenceAnalysisAggregation.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
@@ -1352,6 +1490,12 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		initEReference(getREPrecision_DefaultPrecisionNumberOfCalls(), this.getPrecision(), null, "defaultPrecisionNumberOfCalls", null, 1, 1, REPrecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getREPrecision_DefaultPrecisionCallParameter(), this.getPrecision(), null, "defaultPrecisionCallParameter", null, 1, 1, REPrecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 		initEReference(getREPrecision_RequiredElement(), this.getRequiredElement(), this.getRequiredElement_Precision(), "requiredElement", null, 1, 1, REPrecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		initEClass(probabilisticElementEClass, ProbabilisticElement.class, "ProbabilisticElement", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getProbabilisticElement_Precision(), this.getPrecision(), null, "precision", null, 1, 1, ProbabilisticElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProbabilisticElement_ChildPEs(), this.getProbabilisticElement(), this.getProbabilisticElement_ParentPE(), "childPEs", null, 0, -1, ProbabilisticElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProbabilisticElement_ParentPE(), this.getProbabilisticElement(), this.getProbabilisticElement_ChildPEs(), "parentPE", null, 0, 1, ProbabilisticElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+		initEReference(getProbabilisticElement_QualityAnnotation(), this.getQualityAnnotation(), this.getQualityAnnotation_ProbabilisticElements(), "qualityAnnotation", null, 0, 1, ProbabilisticElement.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
 
 		initEClass(characterisedPCMParameterPartitionEClass, CharacterisedPCMParameterPartition.class, "CharacterisedPCMParameterPartition", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 		initEAttribute(getCharacterisedPCMParameterPartition_ForCharacterisation(), theParameterPackage.getVariableCharacterisationType(), "forCharacterisation", null, 1, 1, CharacterisedPCMParameterPartition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
@@ -1688,6 +1832,40 @@ public class QualityAnnotationPackageImpl extends EPackageImpl implements Qualit
 		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
 
 		op = addEOperation(pcmreInfrastructureSignatureEClass, ecorePackage.getEBoolean(), "EachRETargetMustBeReferencedOnlyFromOneRE", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmpeEClass, de.fzi.se.quality.qualityannotation.PCMPE.class, "PCMPE", IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(pcmpeEClass, ecorePackage.getEBoolean(), "TopmostLevelMustBePCMPEAllDecisions", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmpeAllDecisionsEClass, PCMPEAllDecisions.class, "PCMPEAllDecisions", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+		op = addEOperation(pcmpeAllDecisionsEClass, ecorePackage.getEBoolean(), "NextLowerHierarchyLevelMustBeDecision", 0, 1, IS_UNIQUE, IS_ORDERED);
+		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
+		g1 = createEGenericType(ecorePackage.getEMap());
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		g2 = createEGenericType(ecorePackage.getEJavaObject());
+		g1.getETypeArguments().add(g2);
+		addEParameter(op, g1, "context", 0, 1, IS_UNIQUE, IS_ORDERED);
+
+		initEClass(pcmpeDecisionEClass, PCMPEDecision.class, "PCMPEDecision", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+		initEReference(getPCMPEDecision_BranchAction(), theSeffPackage.getBranchAction(), null, "branchAction", null, 1, 1, PCMPEDecision.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, !IS_ORDERED);
+
+		op = addEOperation(pcmpeDecisionEClass, ecorePackage.getEBoolean(), "ThisIsTheLowestDecisionHierarchyLevel", 0, 1, IS_UNIQUE, IS_ORDERED);
 		addEParameter(op, ecorePackage.getEDiagnosticChain(), "diagnostics", 0, 1, IS_UNIQUE, IS_ORDERED);
 		g1 = createEGenericType(ecorePackage.getEMap());
 		g2 = createEGenericType(ecorePackage.getEJavaObject());

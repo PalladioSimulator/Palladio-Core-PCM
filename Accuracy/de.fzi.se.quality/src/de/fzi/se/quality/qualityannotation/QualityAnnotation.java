@@ -23,7 +23,8 @@ import org.eclipse.emf.common.util.EList;
  *   <li>{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#isValid <em>Is Valid</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getForServiceSpecification <em>For Service Specification</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getStipulatedREPrecisions <em>Stipulated RE Precisions</em>}</li>
- *   <li>{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResult <em>Internal State Influence Analysis Result</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getInternalStateInfluenceAnalysisResults <em>Internal State Influence Analysis Results</em>}</li>
+ *   <li>{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getProbabilisticElements <em>Probabilistic Elements</em>}</li>
  *   <li>{@link de.fzi.se.quality.qualityannotation.QualityAnnotation#getValidForParameterPartitions <em>Valid For Parameter Partitions</em>}</li>
  * </ul>
  * </p>
@@ -107,22 +108,40 @@ public interface QualityAnnotation extends QualityStatement {
 	EList<RequiredElement> getStipulatedREPrecisions();
 
 	/**
-	 * Returns the value of the '<em><b>Internal State Influence Analysis Result</b></em>' containment reference list.
+	 * Returns the value of the '<em><b>Internal State Influence Analysis Results</b></em>' containment reference list.
 	 * The list contents are of type {@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation}.
 	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getQualityAnnotation <em>Quality Annotation</em>}'.
 	 * <!-- begin-user-doc -->
 	 * <p>
-	 * If the meaning of the '<em>Internal State Influence Analysis Result</em>' containment reference list isn't clear,
+	 * If the meaning of the '<em>Internal State Influence Analysis Results</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Internal State Influence Analysis Result</em>' containment reference list.
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_InternalStateInfluenceAnalysisResult()
+	 * @return the value of the '<em>Internal State Influence Analysis Results</em>' containment reference list.
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_InternalStateInfluenceAnalysisResults()
 	 * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation#getQualityAnnotation
 	 * @model opposite="qualityAnnotation" containment="true" ordered="false"
 	 * @generated
 	 */
-	EList<InternalStateInfluenceAnalysisAggregation> getInternalStateInfluenceAnalysisResult();
+	EList<InternalStateInfluenceAnalysisAggregation> getInternalStateInfluenceAnalysisResults();
+
+	/**
+	 * Returns the value of the '<em><b>Probabilistic Elements</b></em>' containment reference list.
+	 * The list contents are of type {@link de.fzi.se.quality.qualityannotation.ProbabilisticElement}.
+	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement#getQualityAnnotation <em>Quality Annotation</em>}'.
+	 * <!-- begin-user-doc -->
+	 * <p>
+	 * If the meaning of the '<em>Probabilistic Elements</em>' containment reference list isn't clear,
+	 * there really should be more of a description here...
+	 * </p>
+	 * <!-- end-user-doc -->
+	 * @return the value of the '<em>Probabilistic Elements</em>' containment reference list.
+	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getQualityAnnotation_ProbabilisticElements()
+	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement#getQualityAnnotation
+	 * @model opposite="qualityAnnotation" containment="true" ordered="false"
+	 * @generated
+	 */
+	EList<ProbabilisticElement> getProbabilisticElements();
 
 	/**
 	 * Returns the value of the '<em><b>Valid For Parameter Partitions</b></em>' containment reference list.

@@ -628,6 +628,52 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 	}
 
 	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMPEAllDecisionsItemProvider pcmpeAllDecisionsItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMPEAllDecisionsAdapter() {
+		if (pcmpeAllDecisionsItemProvider == null) {
+			pcmpeAllDecisionsItemProvider = new PCMPEAllDecisionsItemProvider(this);
+		}
+
+		return pcmpeAllDecisionsItemProvider;
+	}
+
+	/**
+	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMPEDecision} instances.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected PCMPEDecisionItemProvider pcmpeDecisionItemProvider;
+
+	/**
+	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMPEDecision}.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	@Override
+	public Adapter createPCMPEDecisionAdapter() {
+		if (pcmpeDecisionItemProvider == null) {
+			pcmpeDecisionItemProvider = new PCMPEDecisionItemProvider(this);
+		}
+
+		return pcmpeDecisionItemProvider;
+	}
+
+	/**
 	 * This returns the root adapter factory that contains this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -750,6 +796,8 @@ public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotati
 		if (pcmreInfrastructureInterfaceItemProvider != null) pcmreInfrastructureInterfaceItemProvider.dispose();
 		if (pcmreInfrastructureRoleItemProvider != null) pcmreInfrastructureRoleItemProvider.dispose();
 		if (pcmreInfrastructureSignatureItemProvider != null) pcmreInfrastructureSignatureItemProvider.dispose();
+		if (pcmpeAllDecisionsItemProvider != null) pcmpeAllDecisionsItemProvider.dispose();
+		if (pcmpeDecisionItemProvider != null) pcmpeDecisionItemProvider.dispose();
 	}
 
 }

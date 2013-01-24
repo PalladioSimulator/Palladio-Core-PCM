@@ -41,9 +41,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="stipulatedREPrecisions"
           ordered="false" upperBound="-1" eType="#//qualityannotation/RequiredElement"
           containment="true" eOpposite="#//qualityannotation/RequiredElement/qualityAnnotation"/>
-      <eStructuralFeatures xsi:type="ecore:EReference" name="internalStateInfluenceAnalysisResult"
+      <eStructuralFeatures xsi:type="ecore:EReference" name="internalStateInfluenceAnalysisResults"
           ordered="false" upperBound="-1" eType="#//qualityannotation/InternalStateInfluenceAnalysisAggregation"
           containment="true" eOpposite="#//qualityannotation/InternalStateInfluenceAnalysisAggregation/qualityAnnotation"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="probabilisticElements"
+          ordered="false" upperBound="-1" eType="#//qualityannotation/ProbabilisticElement"
+          containment="true" eOpposite="#//qualityannotation/ProbabilisticElement/qualityAnnotation"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="validForParameterPartitions"
           ordered="false" upperBound="-1" eType="#//parameters/ParameterPartition"
           containment="true" eOpposite="#//parameters/ParameterPartition/qualityAnnotation"/>
@@ -105,7 +108,7 @@
     <eClassifiers xsi:type="ecore:EClass" name="InternalStateInfluenceAnalysisAggregation"
         eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eStructuralFeatures xsi:type="ecore:EReference" name="qualityAnnotation" ordered="false"
-          lowerBound="1" eType="#//qualityannotation/QualityAnnotation" eOpposite="#//qualityannotation/QualityAnnotation/internalStateInfluenceAnalysisResult"/>
+          lowerBound="1" eType="#//qualityannotation/QualityAnnotation" eOpposite="#//qualityannotation/QualityAnnotation/internalStateInfluenceAnalysisResults"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameterValueDeviations"
           upperBound="-1" eType="#//qualityannotation/ParameterValueDeviation" containment="true"
           eOpposite="#//qualityannotation/ParameterValueDeviation/internalStateInfluenceAnalysisAggregation"/>
@@ -124,6 +127,17 @@
           ordered="false" lowerBound="1" eType="#//qualityannotation/Precision" containment="true"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="requiredElement" ordered="false"
           lowerBound="1" eType="#//qualityannotation/RequiredElement" eOpposite="#//qualityannotation/RequiredElement/precision"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="ProbabilisticElement" abstract="true">
+      <eStructuralFeatures xsi:type="ecore:EReference" name="precision" ordered="false"
+          lowerBound="1" eType="#//qualityannotation/Precision" containment="true"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="childPEs" ordered="false"
+          upperBound="-1" eType="#//qualityannotation/ProbabilisticElement" containment="true"
+          eOpposite="#//qualityannotation/ProbabilisticElement/parentPE"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="parentPE" ordered="false"
+          eType="#//qualityannotation/ProbabilisticElement" eOpposite="#//qualityannotation/ProbabilisticElement/childPEs"/>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="qualityAnnotation" ordered="false"
+          eType="#//qualityannotation/QualityAnnotation" eOpposite="#//qualityannotation/QualityAnnotation/probabilisticElements"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EEnum" name="PCMRERequestCategory">
       <eLiterals name="Resource" value="1"/>
@@ -823,6 +837,71 @@
       </eOperations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="signature" ordered="false"
           lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//repository/InfrastructureSignature"/>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMPE" abstract="true" eSuperTypes="#//qualityannotation/ProbabilisticElement">
+      <eOperations name="TopmostLevelMustBePCMPEAllDecisions" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.parentPE.oclIsUndefined() implies self.oclIsKindOf(PCMPEAllDecisions)"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMPEAllDecisions" eSuperTypes="#//qualityannotation/PCMPE">
+      <eOperations name="NextLowerHierarchyLevelMustBeDecision" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.childPEs->forAll(child | child.oclIsKindOf(PCMPEDecision))"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+    </eClassifiers>
+    <eClassifiers xsi:type="ecore:EClass" name="PCMPEDecision" eSuperTypes="#//qualityannotation/PCMPE">
+      <eOperations name="ThisIsTheLowestDecisionHierarchyLevel" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
+        <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
+          <details key="body" value="self.childPEs->size() = 0"/>
+        </eAnnotations>
+        <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The chain of diagnostics to which problems are to be appended."/>
+          </eAnnotations>
+        </eParameters>
+        <eParameters name="context">
+          <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
+            <details key="documentation" value="The cache of context-specific information."/>
+          </eAnnotations>
+          <eGenericType eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EMap">
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+            <eTypeArguments eClassifier="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EJavaObject"/>
+          </eGenericType>
+        </eParameters>
+      </eOperations>
+      <eStructuralFeatures xsi:type="ecore:EReference" name="branchAction" ordered="false"
+          lowerBound="1" eType="ecore:EClass platform:/plugin/de.uka.ipd.sdq.pcm/model/pcm.ecore#//seff/BranchAction"/>
     </eClassifiers>
   </eSubpackages>
   <eSubpackages name="parameters" nsURI="http://fzi.de/PalladioComponentModel/Quality/Parameters/0.2"

@@ -85,6 +85,8 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_INTERFACE: return createPCMREInfrastructureInterface();
 			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_ROLE: return createPCMREInfrastructureRole();
 			case QualityAnnotationPackage.PCMRE_INFRASTRUCTURE_SIGNATURE: return createPCMREInfrastructureSignature();
+			case QualityAnnotationPackage.PCMPE_ALL_DECISIONS: return createPCMPEAllDecisions();
+			case QualityAnnotationPackage.PCMPE_DECISION: return createPCMPEDecision();
 			default:
 				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
 		}
@@ -358,6 +360,26 @@ public class QualityAnnotationFactoryImpl extends EFactoryImpl implements Qualit
 	public PCMREInfrastructureSignature createPCMREInfrastructureSignature() {
 		PCMREInfrastructureSignatureImpl pcmreInfrastructureSignature = new PCMREInfrastructureSignatureImpl();
 		return pcmreInfrastructureSignature;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMPEAllDecisions createPCMPEAllDecisions() {
+		PCMPEAllDecisionsImpl pcmpeAllDecisions = new PCMPEAllDecisionsImpl();
+		return pcmpeAllDecisions;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public PCMPEDecision createPCMPEDecision() {
+		PCMPEDecisionImpl pcmpeDecision = new PCMPEDecisionImpl();
+		return pcmpeDecision;
 	}
 
 	/**

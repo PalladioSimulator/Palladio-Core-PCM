@@ -242,6 +242,24 @@ public interface QualityAnnotationFactory extends EFactory {
 	PCMREInfrastructureSignature createPCMREInfrastructureSignature();
 
 	/**
+	 * Returns a new object of class '<em>PCMPE All Decisions</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMPE All Decisions</em>'.
+	 * @generated
+	 */
+	PCMPEAllDecisions createPCMPEAllDecisions();
+
+	/**
+	 * Returns a new object of class '<em>PCMPE Decision</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @return a new object of class '<em>PCMPE Decision</em>'.
+	 * @generated
+	 */
+	PCMPEDecision createPCMPEDecision();
+
+	/**
 	 * Returns the package supported by this factory.
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->

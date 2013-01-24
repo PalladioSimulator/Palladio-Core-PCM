@@ -154,7 +154,6 @@ public class ParametersPackageImpl extends EPackageImpl implements ParametersPac
 
 		// Initialize simple dependencies
 		PcmPackage.eINSTANCE.eClass();
-		TypesPackage.eINSTANCE.eClass();
 
 		// Obtain or create and register interdependencies
 		QualityPackageImpl theQualityPackage = (QualityPackageImpl)(EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) instanceof QualityPackageImpl ? EPackage.Registry.INSTANCE.getEPackage(QualityPackage.eNS_URI) : QualityPackage.eINSTANCE);

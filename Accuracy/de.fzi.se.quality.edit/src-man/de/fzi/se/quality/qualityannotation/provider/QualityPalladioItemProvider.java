@@ -38,6 +38,9 @@ public class QualityPalladioItemProvider extends PalladioItemProvider {
 
 	@Override
 	public String getText(Object object) {
+		if (object == null) {
+			return "";
+		}
 		String result = "";
 		if (object instanceof Parameter) {
 			Parameter p = (Parameter) object;
@@ -67,8 +70,10 @@ public class QualityPalladioItemProvider extends PalladioItemProvider {
 						+ p.getInfrastructureSignature__Parameter()
 								.getEntityName();
 			}
-			result = result + ":" + super.getText(p.getDataType__Parameter())
-					+ " " + p.getParameterName();
+			if (p.getDataType__Parameter()!= null) {
+				result = result + ":" + super.getText(p.getDataType__Parameter())
+						+ " " + p.getParameterName();
+			}
 	} else if (object instanceof Entity) {
 			result = ((Entity) object).getEntityName();
 		} else if (object instanceof ResourceDemandingSEFF) {
