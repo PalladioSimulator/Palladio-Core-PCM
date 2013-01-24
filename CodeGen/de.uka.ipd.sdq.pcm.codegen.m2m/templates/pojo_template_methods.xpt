@@ -194,28 +194,28 @@
 // ----------------------------
 // Actions Dispatcher ---> SEFF
 // ----------------------------
-«AROUND m2t_transforms::seff::Action FOR StartAction»
+«AROUND m2t_transforms::seff_body::Action FOR StartAction»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR StopAction»
+«AROUND m2t_transforms::seff_body::Action FOR StopAction»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR SetVariableAction»
+«AROUND m2t_transforms::seff_body::Action FOR SetVariableAction»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
+«AROUND m2t_transforms::seff_body::Action FOR CollectionIteratorAction»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR LoopAction»
+«AROUND m2t_transforms::seff_body::Action FOR LoopAction»
 «ENDAROUND»
  
-«AROUND m2t_transforms::seff::Action FOR BranchAction»
+«AROUND m2t_transforms::seff_body::Action FOR BranchAction»
 «ENDAROUND»
 
-«AROUND m2t_transforms::seff::Action FOR AcquireAction»
+«AROUND m2t_transforms::seff_body::Action FOR AcquireAction»
 «ENDAROUND»
 
-«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
+«AROUND m2t_transforms::seff_body::Action FOR ReleaseAction»
 «ENDAROUND»
 
 «AROUND m2t_transforms::seff_body::Action FOR ExternalCallAction»

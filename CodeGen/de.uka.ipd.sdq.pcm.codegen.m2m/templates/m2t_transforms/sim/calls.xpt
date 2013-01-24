@@ -28,7 +28,7 @@
 				break;
 			}
 
-					«EXPAND m2t_transforms::seff::InitFailureHandling(id) FOR externalCall»
+					«EXPAND m2t_transforms::seff_body::InitFailureHandling(id) FOR externalCall»
 			try { // needs to be closed after the call in PostCall
 				«ENDLET»
 			«ENDLET»
@@ -163,7 +163,7 @@
     	«LET (ExternalCallAction)call AS externalCall»
     		«LET externalCall.id.javaVariableName() AS id»
     			«LET javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature()) AS triesVar»
-    				«EXPAND m2t_transforms::seff::CatchFailureExceptions(id) FOR externalCall-»
+    				«EXPAND m2t_transforms::seff_body::CatchFailureExceptions(id) FOR externalCall-»
     	«LET "Call "+this.interface__OperationSignature.entityName+"."+this.javaSignature()+" <Component: "+((ExternalCallAction)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">" AS callName»
     	de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.recordExternalCallResult(
     		"«callName»",
@@ -175,7 +175,7 @@
  		if(failureException_«id» != null) { // failure occurred
 
  			// Check if we handle this failure-on-demand occurrence:
- 			if(!«EXPAND m2t_transforms::seff::CheckIfExceptionIsHandled(id) FOR externalCall») { // is this failure type handled?
+ 			if(!«EXPAND m2t_transforms::seff_body::CheckIfExceptionIsHandled(id) FOR externalCall») { // is this failure type handled?
  				throw failureException_«id»;
  			}
 			if(retries == «triesVar»-1) { // retry count exceeded?

@@ -12,7 +12,7 @@
 // ----------------------------
 «DEFINE Action FOR AbstractAction»
    // Unknown Action found «this.entityName»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: Abstract Action Unknown: "+this.metaType.toString()»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: Abstract Action Unknown: "+this.metaType.toString()»
 «ENDDEFINE»
 
 «DEFINE Action FOR StartAction»
@@ -22,11 +22,11 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR CollectionIteratorAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: CollectionIterationAction is a template method and must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: CollectionIterationAction is a template method and must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Action FOR LoopAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: LoopAction is a template method and must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: LoopAction is a template method and must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Action FOR ExternalCallAction»
@@ -91,7 +91,7 @@
 «ENDDEFINE»
 
 «DEFINE CheckFailureTypeMatch(String id) FOR FailureType»
-«ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: Unknown FailureType "+this.entityName»
+«ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: Unknown FailureType "+this.entityName»
 «ENDDEFINE»
 
 «DEFINE CheckFailureTypeMatch(String id) FOR SoftwareInducedFailureType»
@@ -182,7 +182,7 @@
 «ENDDEFINE»
 
 «DEFINE Action FOR DelegatingExternalCallAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: Action is a template method and must be overridden for DelegatingExternalCallAction"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: Action is a template method and must be overridden for DelegatingExternalCallAction"»
 «ENDDEFINE»
 
 «DEFINE Action FOR InternalAction»
@@ -201,21 +201,21 @@
 «ENDDEFINE»
  
 «DEFINE Action FOR BranchAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: BranchAction is a template method and must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: BranchAction is a template method and must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Action FOR AcquireAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: AquireAction is a template method and must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: AquireAction is a template method and must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Action FOR ReleaseAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: ReleaseAction is a template method and must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: ReleaseAction is a template method and must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Action FOR SetVariableAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: SetVariableAction is a template method and must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: SetVariableAction is a template method and must be overridden"»
 «ENDDEFINE»
 
 «DEFINE Action FOR ForkAction»
-   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_methods.xpt]: ForkAction is a template method and must be overridden"»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: ForkAction is a template method and must be overridden"»
 «ENDDEFINE»

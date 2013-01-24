@@ -76,23 +76,23 @@
 // ----------------------------
 // Actions Dispatcher ---> SEFF
 // ----------------------------
-«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
+«AROUND m2t_transforms::seff_body::Action FOR CollectionIteratorAction»
 	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR LoopAction»
+«AROUND m2t_transforms::seff_body::Action FOR LoopAction»
 	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
  
-«AROUND m2t_transforms::seff::Action FOR BranchAction»
+«AROUND m2t_transforms::seff_body::Action FOR BranchAction»
 	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::seff::Action FOR AcquireAction»
+«AROUND m2t_transforms::seff_body::Action FOR AcquireAction»
 	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
+«AROUND m2t_transforms::seff_body::Action FOR ReleaseAction»
 	«EXPAND m2t_transforms::pojo::seff::Action FOR this»
 «ENDAROUND»
 // ----------------------------

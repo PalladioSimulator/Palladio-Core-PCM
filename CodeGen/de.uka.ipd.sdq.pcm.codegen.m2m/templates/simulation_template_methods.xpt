@@ -161,8 +161,8 @@
 // Software Failures
 //-------------------------
 
-«AROUND m2t_transforms::seff::FailureInternalActionPreTM FOR InternalAction»
-	«EXPAND m2t_transforms::sim::seff::FailureInternalActionPreTM FOR this»
+«AROUND m2t_transforms::seff_body::FailureInternalActionPreTM FOR InternalAction»
+	«EXPAND m2t_transforms::sim::seff_body::FailureInternalActionPreTM FOR this»
 «ENDAROUND» 
 
 // ----------------------------
@@ -178,53 +178,6 @@
 
 // ----------------------------
 // Actions Dispatcher ---> SEFF
-// ----------------------------
-«AROUND m2t_transforms::seff::Action FOR StartAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND» 
-
-«AROUND m2t_transforms::seff::Action FOR StopAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND» 
-
-«AROUND m2t_transforms::seff::Action FOR SetVariableAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND» 
-
-«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND» 
-
-«AROUND m2t_transforms::seff::Action FOR LoopAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND»
- 
-«AROUND m2t_transforms::seff::Action FOR BranchAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND»
-
-«AROUND FailureInternalActionPreTM FOR InternalAction»
-	«EXPAND m2t_transforms::sim::seff::FailureInternalActionPreTM FOR this»
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR AcquireAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR ForkAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND»
-
-«AROUND m2t_transforms::seff::Action FOR DelegatingExternalCallAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
-«ENDAROUND»
-
-// ----------------------------
-// Separate each mapped action to an own method.
 // ----------------------------
 «AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR OperationSignature»
 	«EXPAND m2t_transforms::sim::java_core::ComponentService(component) FOR this»

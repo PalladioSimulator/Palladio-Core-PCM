@@ -89,7 +89,7 @@ public class «this.javaName()»
 «ENDDEFINE»
 
 «DEFINE Actions FOR AbstractAction»
-   «EXPAND m2t_transforms::seff::Action FOR this»
+   «EXPAND m2t_transforms::seff_body::Action FOR this»
    «IF !StopAction.isInstance(this)»
       «EXPAND Actions FOR this.successor_AbstractAction»
    «ENDIF»

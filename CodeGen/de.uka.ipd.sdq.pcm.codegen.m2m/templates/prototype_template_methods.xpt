@@ -172,37 +172,37 @@
 // ----------------------------
 // Actions Dispatcher ---> SEFF
 // ----------------------------
-«AROUND m2t_transforms::seff::Action FOR StartAction»
+«AROUND m2t_transforms::seff_body::Action FOR StartAction»
     «EXPAND m2t_transforms::prototype::seff::Action FOR this»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR StopAction»
+«AROUND m2t_transforms::seff_body::Action FOR StopAction»
 	«EXPAND m2t_transforms::prototype::seff::Action FOR this»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR SetVariableAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«AROUND m2t_transforms::seff_body::Action FOR SetVariableAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR CollectionIteratorAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«AROUND m2t_transforms::seff_body::Action FOR CollectionIteratorAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND» 
 
-«AROUND m2t_transforms::seff::Action FOR LoopAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«AROUND m2t_transforms::seff_body::Action FOR LoopAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND»
  
-«AROUND m2t_transforms::seff::Action FOR BranchAction»
-	«EXPAND m2t_transforms::sim::seff::Action FOR this»
+«AROUND m2t_transforms::seff_body::Action FOR BranchAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::seff::Action FOR AcquireAction»
+«AROUND m2t_transforms::seff_body::Action FOR AcquireAction»
 	«EXPAND m2t_transforms::prototype::seff::Action FOR this»
 «ENDAROUND»
 
-«AROUND m2t_transforms::seff::Action FOR ReleaseAction»
+«AROUND m2t_transforms::seff_body::Action FOR ReleaseAction»
 	«EXPAND m2t_transforms::prototype::seff::Action FOR this»
 «ENDAROUND»
 // ----------------------------
