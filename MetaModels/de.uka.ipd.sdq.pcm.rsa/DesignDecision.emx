@@ -3920,7 +3920,7 @@ All of the above mentioned elements are abstract and are subclassed for the diff
 TODO constraint:  The degreeOfFreedom of this Choice must be an DiscreteRangeDegree</body>
       </ownedComment>
       <generalization xmi:id="_USYmEPzzEd2sBa2PoI_LqA" general="_BHSOsPzpEd2sBa2PoI_LqA"/>
-      <ownedAttribute xmi:id="_Uuq5cPzzEd2sBa2PoI_LqA" name="chosenValue" visibility="public">
+      <ownedAttribute xmi:id="_Uuq5cPzzEd2sBa2PoI_LqA" name="chosenValue" visibility="public" isDerived="true">
         <ownedComment xmi:id="_fZqmULEKEd6XDa9JyFGB5Q" annotatedElement="_Uuq5cPzzEd2sBa2PoI_LqA">
           <body>The value chosen from the DegreeOfFreedom. &#xD;
 &#xD;
@@ -3950,7 +3950,7 @@ The domain is defined in subclasses, because it may be either a set of PCM Entit
         <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_4DHLQWPgEeKcHurOtHxxFg" value="1"/>
       </ownedAttribute>
     </packagedElement>
-    <packagedElement xmi:type="uml:Class" xmi:id="_BHSOsPzpEd2sBa2PoI_LqA" name="Choice" isAbstract="true">
+    <packagedElement xmi:type="uml:Class" xmi:id="_BHSOsPzpEd2sBa2PoI_LqA" name="Choice">
       <ownedComment xmi:id="_1CgHELD2Ed6XDa9JyFGB5Q" annotatedElement="_BHSOsPzpEd2sBa2PoI_LqA">
         <body>A Choice represents the choice of one value from the domain of a DegreeOfFreedom. The Choice links the DegreeOfFreedom for which it makes the choice. Additionally, it links one element of the domain of the DegreeOfFreedom. This linking is realised in subclasses of Choice, as it may be either PCM Entities or numbers. </body>
       </ownedComment>
@@ -3960,7 +3960,7 @@ The domain is defined in subclasses, because it may be either a set of PCM Entit
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/JavaPrimitiveTypes.library.uml#boolean"/>
         </defaultValue>
       </ownedAttribute>
-      <ownedAttribute xmi:id="_zO1FENr1EeGCM4O_kVKszQ" name="value" visibility="public" isDerived="true">
+      <ownedAttribute xmi:id="_zO1FENr1EeGCM4O_kVKszQ" name="value" visibility="public">
         <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EJavaObject"/>
       </ownedAttribute>
       <ownedAttribute xmi:id="_Cr1KofzpEd2sBa2PoI_LqA" name="degreeOfFreedomInstance" visibility="private" type="_khi9UPzoEd2sBa2PoI_LqA" association="_Cr1KoPzpEd2sBa2PoI_LqA"/>
@@ -3977,7 +3977,7 @@ TODO constraint:  The degreeOfFreedom of this Choice must be an EnumerationDegre
 </body>
       </ownedComment>
       <generalization xmi:id="_tNhuoPzrEd2sBa2PoI_LqA" general="_BHSOsPzpEd2sBa2PoI_LqA"/>
-      <ownedAttribute xmi:id="_EbeOcLDyEd6XDa9JyFGB5Q" name="chosenValue" visibility="private" association="_EbZ9ALDyEd6XDa9JyFGB5Q">
+      <ownedAttribute xmi:id="_EbeOcLDyEd6XDa9JyFGB5Q" name="chosenValue" visibility="private" isDerived="true" association="_EbZ9ALDyEd6XDa9JyFGB5Q">
         <ownedComment xmi:id="_mwxWwLEKEd6XDa9JyFGB5Q" annotatedElement="_EbeOcLDyEd6XDa9JyFGB5Q">
           <body>TODO: constraint: Chosen entity must be in the domain of the EnumerationDegree;</body>
         </ownedComment>
@@ -3994,7 +3994,7 @@ TODO constraint:  The degreeOfFreedom of this Choice must be an EnumerationDegre
 TODO constraint:  The degreeOfFreedom of this Choice must be an ContinuousRangeDegree</body>
       </ownedComment>
       <generalization xmi:id="_mxY_YPzwEd2sBa2PoI_LqA" general="_BHSOsPzpEd2sBa2PoI_LqA"/>
-      <ownedAttribute xmi:id="_8nmoQPzxEd2sBa2PoI_LqA" name="chosenValue" visibility="public">
+      <ownedAttribute xmi:id="_8nmoQPzxEd2sBa2PoI_LqA" name="chosenValue" visibility="public" isDerived="true">
         <ownedComment xmi:id="_j5C7sLEKEd6XDa9JyFGB5Q" annotatedElement="_8nmoQPzxEd2sBa2PoI_LqA">
           <body>The double value chosen from the range of the DegreeOfFreedom. &#xD;
 &#xD;
@@ -8717,6 +8717,8 @@ If PCM is changed, put AssemblyContext as changeable entity and add a ref to Pas
   <Default:Documentation xmi:id="_kFgd0C37EeCCDMFbLBj3cg" base_Comment="_kFdagC37EeCCDMFbLBj3cg"/>
   <Default:Documentation xmi:id="_eNUykMgDEeC9M6n9JKFGgw" base_Comment="_eNRvQMgDEeC9M6n9JKFGgw"/>
   <Ecore:EPackage xmi:id="_BfzXsNrzEeGCM4O_kVKszQ" base_Package="_9PjDcNryEeGCM4O_kVKszQ" packageName="specific" nsPrefix="specific" nsURI="http://sdq.ipd.uka.de/DesignDecision/Specific/2.0" basePackage="de.uka.ipd.sdq.pcm.designdecision" prefix="specific"/>
-  <Ecore:EAttribute xmi:id="_EaoCsNr2EeGCM4O_kVKszQ" isTransient="true" isVolatile="true" xmlNamespace="" base_Property="_zO1FENr1EeGCM4O_kVKszQ"/>
   <Default:Documentation xmi:id="_iP0ooGPhEeKcHurOtHxxFg" base_Comment="_iPresGPhEeKcHurOtHxxFg"/>
+  <Ecore:EAttribute xmi:id="_qTLNMGfVEeKQHNytJSTv1g" isTransient="true" isVolatile="true" base_Property="_Uuq5cPzzEd2sBa2PoI_LqA"/>
+  <Ecore:EAttribute xmi:id="_sfhwAGfVEeKQHNytJSTv1g" isTransient="true" isVolatile="true" base_Property="_8nmoQPzxEd2sBa2PoI_LqA"/>
+  <Ecore:EAttribute xmi:id="_OwwvIGfXEeKQHNytJSTv1g" isTransient="true" isVolatile="true" base_Property="_EbeOcLDyEd6XDa9JyFGB5Q"/>
 </xmi:XMI>
