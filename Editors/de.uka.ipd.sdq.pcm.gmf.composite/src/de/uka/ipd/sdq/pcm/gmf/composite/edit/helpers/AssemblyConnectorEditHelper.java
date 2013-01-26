@@ -18,34 +18,31 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  * 
  * @generated
  */
-public class AssemblyConnectorEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class AssemblyConnectorEditHelper extends PalladioComponentModelBaseEditHelper {
 
-	/**
-	 * Get the configuration command for an AssemblyConnector.
-	 * 
-	 * This is modified manually to create the assumed name for the new connector.
-	 *
-	 * @param req the req
-	 * @return the configure command
-	 * @generated not
-	 */
-	@Override
-	protected ICommand getConfigureCommand(ConfigureRequest req) {
-		AssemblyConnector con = (AssemblyConnector) req.getElementToConfigure();
-		String name = "Connector ";
-		name += con.getRequiringAssemblyContext_AssemblyConnector() == null ? ""
-				: con.getRequiringAssemblyContext_AssemblyConnector()
-						.getEntityName();
-		name += " -> ";
-		name += con.getProvidingAssemblyContext_AssemblyConnector() == null ? ""
-				: con.getProvidingAssemblyContext_AssemblyConnector()
-						.getEntityName();
+    /**
+     * Get the configuration command for an AssemblyConnector.
+     * 
+     * This is modified manually to create the assumed name for the new connector.
+     * 
+     * @param req
+     *            the req
+     * @return the configure command
+     * @generated not
+     */
+    @Override
+    protected ICommand getConfigureCommand(ConfigureRequest req) {
+        AssemblyConnector con = (AssemblyConnector) req.getElementToConfigure();
+        String name = "Connector ";
+        name += con.getRequiringAssemblyContext_AssemblyConnector() == null ? "" : con
+                .getRequiringAssemblyContext_AssemblyConnector().getEntityName();
+        name += " -> ";
+        name += con.getProvidingAssemblyContext_AssemblyConnector() == null ? "" : con
+                .getProvidingAssemblyContext_AssemblyConnector().getEntityName();
 
-		ICommand cmd2 = new SetValueCommand(new SetRequest(req
-				.getElementToConfigure(), EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), name));
-		return cmd2;
-	}
+        ICommand cmd2 = new SetValueCommand(new SetRequest(req.getElementToConfigure(),
+                EntityPackage.eINSTANCE.getNamedElement_EntityName(), name));
+        return cmd2;
+    }
 
 }

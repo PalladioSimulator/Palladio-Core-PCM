@@ -23,15 +23,16 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 /**
  * The Class ProvidedRoleCreateCommand.
- *
+ * 
  * @generated
  */
 public class ProvidedRoleCreateCommand extends EditElementCommand {
 
     /**
      * Instantiates a new provided role create command.
-     *
-     * @param req the req
+     * 
+     * @param req
+     *            the req
      * @generated
      */
     public ProvidedRoleCreateCommand(CreateElementRequest req) {
@@ -40,7 +41,7 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
 
     /**
      * Gets the element to edit.
-     *
+     * 
      * @return the element to edit
      * @generated
      */
@@ -54,7 +55,7 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
 
     /**
      * Can execute.
-     *
+     * 
      * @return true, if successful
      * @generated
      */
@@ -65,11 +66,14 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
 
     /**
      * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
      * @return the command result
-     * @throws ExecutionException the execution exception
+     * @throws ExecutionException
+     *             the execution exception
      * @generated not
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -90,11 +94,15 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
 
     /**
      * Do configure.
-     *
-     * @param newElement the new element
-     * @param monitor the monitor
-     * @param info the info
-     * @throws ExecutionException the execution exception
+     * 
+     * @param newElement
+     *            the new element
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @throws ExecutionException
+     *             the execution exception
      * @generated
      */
     protected void doConfigure(ProvidedRole newElement, IProgressMonitor monitor, IAdaptable info)

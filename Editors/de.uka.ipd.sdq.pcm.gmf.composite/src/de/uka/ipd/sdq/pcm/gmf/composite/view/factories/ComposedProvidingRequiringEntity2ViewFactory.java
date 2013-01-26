@@ -22,15 +22,16 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 
 /**
  * A factory for creating ComposedProvidingRequiringEntity2View objects.
- *
+ * 
  * @generated
  */
 public class ComposedProvidingRequiringEntity2ViewFactory extends AbstractShapeViewFactory {
 
     /**
      * Creates a new ComposedProvidingRequiringEntity2View object.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      * @return the list
      * @generated
      */
@@ -45,13 +46,19 @@ public class ComposedProvidingRequiringEntity2ViewFactory extends AbstractShapeV
 
     /**
      * Decorate view.
-     *
-     * @param containerView the container view
-     * @param view the view
-     * @param semanticAdapter the semantic adapter
-     * @param semanticHint the semantic hint
-     * @param index the index
-     * @param persisted the persisted
+     * 
+     * @param containerView
+     *            the container view
+     * @param view
+     *            the view
+     * @param semanticAdapter
+     *            the semantic adapter
+     * @param semanticHint
+     *            the semantic hint
+     * @param index
+     *            the index
+     * @param persisted
+     *            the persisted
      * @generated
      */
     protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,

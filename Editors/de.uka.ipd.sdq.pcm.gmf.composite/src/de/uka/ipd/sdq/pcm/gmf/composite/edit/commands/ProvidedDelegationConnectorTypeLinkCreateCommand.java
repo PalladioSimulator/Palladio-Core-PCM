@@ -16,7 +16,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 
 /**
  * The Class ProvidedDelegationConnectorTypeLinkCreateCommand.
- *
+ * 
  * @generated
  */
 public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRelationshipCommand {
@@ -32,11 +32,15 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
 
     /**
      * Instantiates a new provided delegation connector type link create command.
-     *
-     * @param req the req
-     * @param container the container
-     * @param source the source
-     * @param target the target
+     * 
+     * @param req
+     *            the req
+     * @param container
+     *            the container
+     * @param source
+     *            the source
+     * @param target
+     *            the target
      * @generated
      */
     public ProvidedDelegationConnectorTypeLinkCreateCommand(CreateRelationshipRequest req, ComposedStructure container,
@@ -50,7 +54,7 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
 
     /**
      * Gets the container.
-     *
+     * 
      * @return the container
      * @generated
      */
@@ -60,7 +64,7 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
 
     /**
      * Gets the source.
-     *
+     * 
      * @return the source
      * @generated
      */
@@ -70,7 +74,7 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
 
     /**
      * Gets the target.
-     *
+     * 
      * @return the target
      * @generated
      */
@@ -80,7 +84,7 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
 
     /**
      * Gets the e class to edit.
-     *
+     * 
      * @return the e class to edit
      * @generated
      */
@@ -90,8 +94,9 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
 
     /**
      * Sets the element to edit.
-     *
-     * @param element the new element to edit
+     * 
+     * @param element
+     *            the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -100,7 +105,7 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
 
     /**
      * Do default element creation.
-     *
+     * 
      * @return the e object
      * @generated not
      */

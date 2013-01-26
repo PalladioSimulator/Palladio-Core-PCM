@@ -19,33 +19,32 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiring
  */
 public class ComposedProvidingRequiringEntityEditPart extends DiagramEditPart {
 
-	/** The Constant MODEL_ID. @generated */
-	public final static String MODEL_ID = "CompositeModel"; //$NON-NLS-1$
+    /** The Constant MODEL_ID. @generated */
+    public final static String MODEL_ID = "CompositeModel"; //$NON-NLS-1$
 
-	/** The Constant VISUAL_ID. @generated */
-	public static final int VISUAL_ID = 1000;
+    /** The Constant VISUAL_ID. @generated */
+    public static final int VISUAL_ID = 1000;
 
-	/**
-	 * Instantiates a new composed providing requiring entity edit part.
-	 *
-	 * @param view the view
-	 * @generated
-	 */
-	public ComposedProvidingRequiringEntityEditPart(View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new composed providing requiring entity edit part.
+     * 
+     * @param view
+     *            the view
+     * @generated
+     */
+    public ComposedProvidingRequiringEntityEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * Creates the default edit policies.
-	 *
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ComposedProvidingRequiringEntityItemSemanticEditPolicy());
-		installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
-				new ComposedProvidingRequiringEntityCanonicalEditPolicy());
-		// removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
-	}
+    /**
+     * Creates the default edit policies.
+     * 
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ComposedProvidingRequiringEntityItemSemanticEditPolicy());
+        installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new ComposedProvidingRequiringEntityCanonicalEditPolicy());
+        // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.POPUPBAR_ROLE);
+    }
 }

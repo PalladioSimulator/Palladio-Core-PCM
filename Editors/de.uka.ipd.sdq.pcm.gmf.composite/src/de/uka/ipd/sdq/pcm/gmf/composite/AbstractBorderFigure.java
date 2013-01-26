@@ -12,7 +12,7 @@ import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 
 /**
  * Baseclass for both --( and --() type UML style border figures.
- *
+ * 
  * @author Philipp Meier
  */
 public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
@@ -22,7 +22,7 @@ public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
      * towards the outside external means the figure is connected towards the inside
      */
     public static enum POSITION_TYPE {
-        
+
         /** conntected towards the outside. */
         POS_INTERNAL,
 
@@ -40,9 +40,11 @@ public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
 
     /**
      * Instantiates a new abstract border figure.
-     *
-     * @param logicalSize the logical size
-     * @param posType the pos type
+     * 
+     * @param logicalSize
+     *            the logical size
+     * @param posType
+     *            the pos type
      */
     public AbstractBorderFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, logicalSize);
@@ -65,7 +67,7 @@ public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
 
     /**
      * Helper function to get the parent's border item locator.
-     *
+     * 
      * @return the parent's border item locator
      */
     protected IBorderItemLocator getBorderItemLocator() {
@@ -81,19 +83,21 @@ public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
 
     /**
      * factory method for the anchor to be used when figure is in an internal position.
-     *
+     * 
      * @return a reference to the new anchor. must not be null
      */
     protected abstract ConnectionAnchor createAnchorInternal();
 
     /**
      * factory method for the anchor to be used when figure is in an external position.
-     *
+     * 
      * @return a reference to the new anchor. must not be null
      */
     protected abstract ConnectionAnchor createAnchorExternal();
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure#getConnectionAnchor(java.lang.String)
      */
     @Override
@@ -114,7 +118,7 @@ public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
 
     /**
      * Gets the stem position.
-     *
+     * 
      * @return the end position of the -- part of the figure relative to the position of the figure
      */
     private Point getStemPosition() {
@@ -148,14 +152,17 @@ public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
 
         /**
          * Instantiates a new stem anchor.
-         *
-         * @param owner the owner
+         * 
+         * @param owner
+         *            the owner
          */
         public StemAnchor(final IFigure owner) {
             super(owner);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
          */
         @Override

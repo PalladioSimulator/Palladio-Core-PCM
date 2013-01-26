@@ -18,16 +18,22 @@ public class SourceFigure extends AbstractBorderFigure {
 
     /**
      * Instantiates a new source figure.
-     *
-     * @param logicalSize the logical size
-     * @param posType position type of the figure
+     * 
+     * @param logicalSize
+     *            the logical size
+     * @param posType
+     *            position type of the figure
      */
     public SourceFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics
+     * )
      */
     @Override
     protected void paintFigure(final Graphics graphics) {
@@ -135,14 +141,17 @@ public class SourceFigure extends AbstractBorderFigure {
 
         /**
          * Instantiates a new source anchor.
-         *
-         * @param owner the owner
+         * 
+         * @param owner
+         *            the owner
          */
         public SourceAnchor(final IFigure owner) {
             super(owner);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
          */
         @Override
@@ -153,7 +162,9 @@ public class SourceFigure extends AbstractBorderFigure {
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
      */
     @Override
@@ -161,7 +172,9 @@ public class SourceFigure extends AbstractBorderFigure {
         return new SourceAnchor(this);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
      */
     @Override

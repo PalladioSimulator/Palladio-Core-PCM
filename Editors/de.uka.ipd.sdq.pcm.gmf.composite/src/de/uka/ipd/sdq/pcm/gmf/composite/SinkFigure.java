@@ -18,16 +18,22 @@ public class SinkFigure extends AbstractBorderFigure {
 
     /**
      * Instantiates a new sink figure.
-     *
-     * @param logicalSize the logical size
-     * @param posType position type of the figure
+     * 
+     * @param logicalSize
+     *            the logical size
+     * @param posType
+     *            position type of the figure
      */
     public SinkFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics
+     * )
      */
     @Override
     protected void paintFigure(final Graphics graphics) {
@@ -159,7 +165,7 @@ public class SinkFigure extends AbstractBorderFigure {
 
     /**
      * Gets the sink center.
-     *
+     * 
      * @return the center between the ( part of the figure relative to the position of the figure
      */
     private Point getSinkCenter() {
@@ -193,14 +199,17 @@ public class SinkFigure extends AbstractBorderFigure {
 
         /**
          * Instantiates a new sink anchor.
-         *
-         * @param owner the owner
+         * 
+         * @param owner
+         *            the owner
          */
         public SinkAnchor(final IFigure owner) {
             super(owner);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
          */
         @Override

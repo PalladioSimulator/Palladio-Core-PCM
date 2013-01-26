@@ -23,49 +23,45 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 /**
  * @generated NOT
  */
-public class EventChannelEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class EventChannelEditHelper extends PalladioComponentModelBaseEditHelper {
 
-	@Override
-	protected ICommand getConfigureCommand(ConfigureRequest request) {
-		EventGroup resource = null;
+    @Override
+    protected ICommand getConfigureCommand(ConfigureRequest request) {
+        EventGroup resource = null;
 
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		filterList.add(EventGroup.class);
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(Repository.class);
+        filterList.add(EventGroup.class);
 
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, request
-						.getElementToConfigure().eResource().getResourceSet());
-		dialog.setProvidedService(EventGroup.class);
-		dialog.open();
-		if (dialog.getResult() == null) {
-		    return new CanceledCommand();
-		}
-			
-		if (!(dialog.getResult() instanceof Interface)) {
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request
+                .getElementToConfigure().eResource().getResourceSet());
+        dialog.setProvidedService(EventGroup.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
         }
-		resource = (EventGroup) dialog.getResult();
 
-		ICommand cmd = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), CompositionPackage.eINSTANCE
-				.getEventChannel_EventGroup__EventChannel(), resource));
+        if (!(dialog.getResult() instanceof Interface)) {
+            return new CanceledCommand();
+        }
+        resource = (EventGroup) dialog.getResult();
 
-		String name = resource.getEntityName();
+        ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                CompositionPackage.eINSTANCE.getEventChannel_EventGroup__EventChannel(), resource));
 
-		ICommand cmd2 = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), name));
+        String name = resource.getEntityName();
 
-		CompositeCommand cc = new CompositeCommand("Configure Event Channel");
-		cc.add(cmd);
-		cc.add(cmd2);
+        ICommand cmd2 = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                EntityPackage.eINSTANCE.getNamedElement_EntityName(), name));
 
-		return cc;
+        CompositeCommand cc = new CompositeCommand("Configure Event Channel");
+        cc.add(cmd);
+        cc.add(cmd2);
 
-	}
+        return cc;
+
+    }
 
 }

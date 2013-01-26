@@ -23,13 +23,17 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * The Class RequiredRoleEditHelper.
- *
+ * 
  * @generated not
  */
 public class RequiredRoleEditHelper extends PalladioComponentModelBaseEditHelper {
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org
+     * .eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     @Override
     protected ICommand getConfigureCommand(ConfigureRequest request) {

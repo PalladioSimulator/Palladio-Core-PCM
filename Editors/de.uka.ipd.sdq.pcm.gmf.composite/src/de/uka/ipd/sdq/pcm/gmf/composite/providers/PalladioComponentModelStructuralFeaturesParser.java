@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
 
 /**
  * The Class PalladioComponentModelStructuralFeaturesParser.
- *
+ * 
  * @generated
  */
 public class PalladioComponentModelStructuralFeaturesParser extends PalladioComponentModelAbstractParser {
@@ -35,8 +35,9 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
 
     /**
      * Instantiates a new palladio component model structural features parser.
-     *
-     * @param features the features
+     * 
+     * @param features
+     *            the features
      * @generated
      */
     public PalladioComponentModelStructuralFeaturesParser(List features) {
@@ -45,11 +46,15 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
 
     /**
      * Gets the string by pattern.
-     *
-     * @param adapter the adapter
-     * @param flags the flags
-     * @param pattern the pattern
-     * @param processor the processor
+     * 
+     * @param adapter
+     *            the adapter
+     * @param flags
+     *            the flags
+     * @param pattern
+     *            the pattern
+     * @param processor
+     *            the processor
      * @return the string by pattern
      * @generated
      */
@@ -68,8 +73,9 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
 
     /**
      * Validate values.
-     *
-     * @param values the values
+     * 
+     * @param values
+     *            the values
      * @return the i parser edit status
      * @generated
      */
@@ -89,9 +95,11 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
 
     /**
      * Gets the parses the command.
-     *
-     * @param adapter the adapter
-     * @param values the values
+     * 
+     * @param adapter
+     *            the adapter
+     * @param values
+     *            the values
      * @return the parses the command
      * @generated
      */
@@ -114,9 +122,11 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
 
     /**
      * Checks if is affecting event.
-     *
-     * @param event the event
-     * @param flags the flags
+     * 
+     * @param event
+     *            the event
+     * @param flags
+     *            the flags
      * @return true, if is affecting event
      * @generated
      */

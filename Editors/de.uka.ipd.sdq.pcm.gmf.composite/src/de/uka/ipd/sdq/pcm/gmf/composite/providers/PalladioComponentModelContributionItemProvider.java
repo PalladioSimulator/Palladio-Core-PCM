@@ -12,16 +12,18 @@ import org.eclipse.jface.action.IAction;
 
 /**
  * The Class PalladioComponentModelContributionItemProvider.
- *
+ * 
  * @generated
  */
 public class PalladioComponentModelContributionItemProvider extends AbstractContributionItemProvider {
 
     /**
      * Creates the action.
-     *
-     * @param actionId the action id
-     * @param partDescriptor the part descriptor
+     * 
+     * @param actionId
+     *            the action id
+     * @param partDescriptor
+     *            the part descriptor
      * @return the i action
      * @generated
      */

@@ -24,14 +24,14 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
  * The Class ProvidedRoleItemSemanticEditPolicy.
- *
+ * 
  * @generated
  */
 public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
      * Instantiates a new provided role item semantic edit policy.
-     *
+     * 
      * @generated
      */
     public ProvidedRoleItemSemanticEditPolicy() {
@@ -42,8 +42,9 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
 
     /**
      * Gets the destroy element command.
-     *
-     * @param req the req
+     * 
+     * @param req
+     *            the req
      * @return the destroy element command
      * @generated
      */
@@ -67,8 +68,9 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     // TODO: write javadoc and annotations
     /**
      * Gets the creates the relationship command.
-     *
-     * @param req the req
+     * 
+     * @param req
+     *            the req
      * @return the creates the relationship command
      * @generated not
      */
@@ -87,16 +89,16 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     // TODO: write javadoc and annotations
     /**
      * Gets the creates the complete incoming assembly connector_4001 command.
-     *
-     * @param req the req
+     * 
+     * @param req
+     *            the req
      * @return the creates the complete incoming assembly connector_4001 command
      * @generated not
      */
     protected Command getCreateCompleteIncomingAssemblyConnector_4001Command(CreateRelationshipRequest req) {
         EObject sourceEObject = req.getSource();
         EObject targetEObject = req.getTarget();
-        if (!(sourceEObject instanceof OperationRequiredRole)
-                || !(targetEObject instanceof OperationProvidedRole)) {
+        if (!(sourceEObject instanceof OperationRequiredRole) || !(targetEObject instanceof OperationProvidedRole)) {
             return UnexecutableCommand.INSTANCE;
         }
         OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
@@ -120,16 +122,16 @@ public class ProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     // TODO: write javadoc and annotations
     /**
      * Gets the creates the complete incoming provided delegation connector_4003 command.
-     *
-     * @param req the req
+     * 
+     * @param req
+     *            the req
      * @return the creates the complete incoming provided delegation connector_4003 command
      * @generated not
      */
     protected Command getCreateCompleteIncomingProvidedDelegationConnector_4003Command(CreateRelationshipRequest req) {
         EObject sourceEObject = req.getSource();
         EObject targetEObject = req.getTarget();
-        if (!(sourceEObject instanceof OperationProvidedRole)
-                || !(targetEObject instanceof OperationProvidedRole)) {
+        if (!(sourceEObject instanceof OperationProvidedRole) || !(targetEObject instanceof OperationProvidedRole)) {
             return UnexecutableCommand.INSTANCE;
         }
         OperationProvidedRole source = (OperationProvidedRole) sourceEObject;

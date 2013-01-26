@@ -21,56 +21,55 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 
 /**
  * The Class AssemblyContextEditHelper.
- *
+ * 
  * @generated not
  */
-public class AssemblyContextEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class AssemblyContextEditHelper extends PalladioComponentModelBaseEditHelper {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getConfigureCommand(ConfigureRequest request) {
-		RepositoryComponent resource = null;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org
+     * .eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getConfigureCommand(ConfigureRequest request) {
+        RepositoryComponent resource = null;
 
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		// filterList.add(ProvidesComponentType.class); // <- what is/was it for?
-		filterList.add(RepositoryComponent.class);
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(Repository.class);
+        // filterList.add(ProvidesComponentType.class); // <- what is/was it for?
+        filterList.add(RepositoryComponent.class);
 
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, request
-						.getElementToConfigure().eResource().getResourceSet());
-		dialog.setProvidedService(RepositoryComponent.class);
-		dialog.open();
-		if (dialog.getResult() == null) {
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request
+                .getElementToConfigure().eResource().getResourceSet());
+        dialog.setProvidedService(RepositoryComponent.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
         }
-		if (!(dialog.getResult() instanceof RepositoryComponent)) {
+        if (!(dialog.getResult() instanceof RepositoryComponent)) {
             return new CanceledCommand();
         }
-		resource = (RepositoryComponent) dialog.getResult();
+        resource = (RepositoryComponent) dialog.getResult();
 
-		ICommand cmd = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), CompositionPackage.eINSTANCE
-				.getAssemblyContext_EncapsulatedComponent__AssemblyContext(),
-				resource));
+        ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                CompositionPackage.eINSTANCE.getAssemblyContext_EncapsulatedComponent__AssemblyContext(), resource));
 
-		String allocationName = "Assembly_" + resource.getEntityName();
-		allocationName += " <" + resource.getEntityName() + ">";
+        String allocationName = "Assembly_" + resource.getEntityName();
+        allocationName += " <" + resource.getEntityName() + ">";
 
-		ICommand cmd2 = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), allocationName));
+        ICommand cmd2 = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                EntityPackage.eINSTANCE.getNamedElement_EntityName(), allocationName));
 
-		CompositeCommand cc = new CompositeCommand("Configure Assembly Context");
-		cc.add(cmd);
-		cc.add(cmd2);
+        CompositeCommand cc = new CompositeCommand("Configure Assembly Context");
+        cc.add(cmd);
+        cc.add(cmd2);
 
-		return cc;
-	}
+        return cc;
+    }
 
 }

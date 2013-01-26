@@ -21,56 +21,53 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
  * The Class InfrastructureRequiredRoleEditHelper.
- *
+ * 
  * @generated not
  */
-public class InfrastructureRequiredRoleEditHelper extends
-		PalladioComponentModelBaseEditHelper {
-	
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getConfigureCommand(ConfigureRequest request) {
-		InfrastructureInterface resource = null;
+public class InfrastructureRequiredRoleEditHelper extends PalladioComponentModelBaseEditHelper {
 
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		filterList.add(InfrastructureInterface.class);
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org
+     * .eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getConfigureCommand(ConfigureRequest request) {
+        InfrastructureInterface resource = null;
 
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, request
-						.getElementToConfigure().eResource().getResourceSet());
-		dialog.setProvidedService(InfrastructureInterface.class);
-		dialog.open();
-		if (dialog.getResult() == null) {
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(Repository.class);
+        filterList.add(InfrastructureInterface.class);
+
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request
+                .getElementToConfigure().eResource().getResourceSet());
+        dialog.setProvidedService(InfrastructureInterface.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
         }
-		if (!(dialog.getResult() instanceof InfrastructureInterface)) {
+        if (!(dialog.getResult() instanceof InfrastructureInterface)) {
             return new CanceledCommand();
         }
-		resource = (InfrastructureInterface) dialog.getResult();
+        resource = (InfrastructureInterface) dialog.getResult();
 
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(
-						request.getElementToConfigure(),
-						RepositoryPackage.eINSTANCE
-								.getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole(),
-						resource));
+        ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                RepositoryPackage.eINSTANCE
+                        .getInfrastructureRequiredRole_RequiredInterface__InfrastructureRequiredRole(), resource));
 
-		String name = "Required_" + resource.getEntityName();
+        String name = "Required_" + resource.getEntityName();
 
-		ICommand cmd2 = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), name));
+        ICommand cmd2 = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                EntityPackage.eINSTANCE.getNamedElement_EntityName(), name));
 
-		CompositeCommand cc = new CompositeCommand(
-				"Configure Infrastructure Required Role Context");
-		cc.add(cmd);
-		cc.add(cmd2);
+        CompositeCommand cc = new CompositeCommand("Configure Infrastructure Required Role Context");
+        cc.add(cmd);
+        cc.add(cmd2);
 
-		return cc;
-	}
+        return cc;
+    }
 }

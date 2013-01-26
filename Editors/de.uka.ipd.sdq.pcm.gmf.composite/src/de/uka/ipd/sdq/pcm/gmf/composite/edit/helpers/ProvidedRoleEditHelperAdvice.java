@@ -7,7 +7,7 @@ import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice
 
 /**
  * The Class ProvidedRoleEditHelperAdvice.
- *
+ * 
  * @generated
  */
 public class ProvidedRoleEditHelperAdvice extends AbstractEditHelperAdvice {

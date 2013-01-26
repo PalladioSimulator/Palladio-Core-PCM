@@ -9,18 +9,18 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
 
 /**
  * The Class DiagramConnectionsPreferencePage.
- *
+ * 
  * @generated
  */
 public class DiagramConnectionsPreferencePage extends ConnectionsPreferencePage {
 
-	/**
-	 * Instantiates a new diagram connections preference page.
-	 *
-	 * @generated
-	 */
-	public DiagramConnectionsPreferencePage() {
-		setPreferenceStore(PalladioComponentModelComposedStructureDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * Instantiates a new diagram connections preference page.
+     * 
+     * @generated
+     */
+    public DiagramConnectionsPreferencePage() {
+        setPreferenceStore(PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance()
+                .getPreferenceStore());
+    }
 }

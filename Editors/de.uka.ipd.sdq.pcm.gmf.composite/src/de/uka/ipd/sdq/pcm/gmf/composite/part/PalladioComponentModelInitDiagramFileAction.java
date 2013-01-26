@@ -25,90 +25,86 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEnt
 
 /**
  * The Class PalladioComponentModelInitDiagramFileAction.
- *
+ * 
  * @generated
  */
-public class PalladioComponentModelInitDiagramFileAction implements
-		IObjectActionDelegate {
+public class PalladioComponentModelInitDiagramFileAction implements IObjectActionDelegate {
 
-	/** The target part. @generated */
-	private IWorkbenchPart targetPart;
+    /** The target part. @generated */
+    private IWorkbenchPart targetPart;
 
-	/** The domain model uri. @generated */
-	private URI domainModelURI;
+    /** The domain model uri. @generated */
+    private URI domainModelURI;
 
-	/**
-	 * Sets the active part.
-	 *
-	 * @param action the action
-	 * @param targetPart the target part
-	 * @generated
-	 */
-	public void setActivePart(IAction action, IWorkbenchPart targetPart) {
-		this.targetPart = targetPart;
-	}
+    /**
+     * Sets the active part.
+     * 
+     * @param action
+     *            the action
+     * @param targetPart
+     *            the target part
+     * @generated
+     */
+    public void setActivePart(IAction action, IWorkbenchPart targetPart) {
+        this.targetPart = targetPart;
+    }
 
-	/**
-	 * Selection changed.
-	 *
-	 * @param action the action
-	 * @param selection the selection
-	 * @generated
-	 */
-	public void selectionChanged(IAction action, ISelection selection) {
-		domainModelURI = null;
-		action.setEnabled(false);
-		if (selection instanceof IStructuredSelection == false
-				|| selection.isEmpty()) {
-			return;
-		}
-		IFile file = (IFile) ((IStructuredSelection) selection)
-				.getFirstElement();
-		domainModelURI = URI.createPlatformResourceURI(file.getFullPath()
-				.toString(), true);
-		action.setEnabled(true);
-	}
+    /**
+     * Selection changed.
+     * 
+     * @param action
+     *            the action
+     * @param selection
+     *            the selection
+     * @generated
+     */
+    public void selectionChanged(IAction action, ISelection selection) {
+        domainModelURI = null;
+        action.setEnabled(false);
+        if (selection instanceof IStructuredSelection == false || selection.isEmpty()) {
+            return;
+        }
+        IFile file = (IFile) ((IStructuredSelection) selection).getFirstElement();
+        domainModelURI = URI.createPlatformResourceURI(file.getFullPath().toString(), true);
+        action.setEnabled(true);
+    }
 
-	/**
-	 * Gets the shell.
-	 *
-	 * @return the shell
-	 * @generated
-	 */
-	private Shell getShell() {
-		return targetPart.getSite().getShell();
-	}
+    /**
+     * Gets the shell.
+     * 
+     * @return the shell
+     * @generated
+     */
+    private Shell getShell() {
+        return targetPart.getSite().getShell();
+    }
 
-	/**
-	 * Run.
-	 *
-	 * @param action the action
-	 * @generated
-	 */
-	public void run(IAction action) {
-		TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE
-				.createEditingDomain();
-		ResourceSet resourceSet = editingDomain.getResourceSet();
-		EObject diagramRoot = null;
-		try {
-			Resource resource = resourceSet.getResource(domainModelURI, true);
-			diagramRoot = (EObject) resource.getContents().get(0);
-		} catch (WrappedException ex) {
-			PalladioComponentModelComposedStructureDiagramEditorPlugin
-					.getInstance().logError(
-							"Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
-		}
-		if (diagramRoot == null) {
-			MessageDialog.openError(getShell(),
-					Messages.InitDiagramFile_ResourceErrorDialogTitle,
-					Messages.InitDiagramFile_ResourceErrorDialogMessage);
-			return;
-		}
-		Wizard wizard = new PalladioComponentModelNewDiagramFileWizard(
-				domainModelURI, diagramRoot, editingDomain);
-		wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle,
-				ComposedProvidingRequiringEntityEditPart.MODEL_ID));
-		PalladioComponentModelDiagramEditorUtil.runWizard(getShell(), wizard,
-				"InitDiagramFile"); //$NON-NLS-1$
-	}
+    /**
+     * Run.
+     * 
+     * @param action
+     *            the action
+     * @generated
+     */
+    public void run(IAction action) {
+        TransactionalEditingDomain editingDomain = GMFEditingDomainFactory.INSTANCE.createEditingDomain();
+        ResourceSet resourceSet = editingDomain.getResourceSet();
+        EObject diagramRoot = null;
+        try {
+            Resource resource = resourceSet.getResource(domainModelURI, true);
+            diagramRoot = (EObject) resource.getContents().get(0);
+        } catch (WrappedException ex) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Unable to load resource: " + domainModelURI, ex); //$NON-NLS-1$
+        }
+        if (diagramRoot == null) {
+            MessageDialog.openError(getShell(), Messages.InitDiagramFile_ResourceErrorDialogTitle,
+                    Messages.InitDiagramFile_ResourceErrorDialogMessage);
+            return;
+        }
+        Wizard wizard = new PalladioComponentModelNewDiagramFileWizard(domainModelURI, diagramRoot, editingDomain);
+        wizard.setWindowTitle(NLS.bind(Messages.InitDiagramFile_WizardTitle,
+                ComposedProvidingRequiringEntityEditPart.MODEL_ID));
+        PalladioComponentModelDiagramEditorUtil.runWizard(getShell(), wizard, "InitDiagramFile"); //$NON-NLS-1$
+    }
 }

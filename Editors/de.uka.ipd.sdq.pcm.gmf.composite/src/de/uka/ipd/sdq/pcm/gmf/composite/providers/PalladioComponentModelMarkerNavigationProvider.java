@@ -21,96 +21,90 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditor
 
 /**
  * The Class PalladioComponentModelMarkerNavigationProvider.
- *
+ * 
  * @generated
  */
-public class PalladioComponentModelMarkerNavigationProvider extends
-		AbstractModelMarkerNavigationProvider {
+public class PalladioComponentModelMarkerNavigationProvider extends AbstractModelMarkerNavigationProvider {
 
-	/** The Constant MARKER_TYPE. @generated */
-	public static final String MARKER_TYPE = PalladioComponentModelComposedStructureDiagramEditorPlugin.ID
-			+ ".diagnostic"; //$NON-NLS-1$
+    /** The Constant MARKER_TYPE. @generated */
+    public static final String MARKER_TYPE = PalladioComponentModelComposedStructureDiagramEditorPlugin.ID
+            + ".diagnostic"; //$NON-NLS-1$
 
-	/**
-	 * Do goto marker.
-	 *
-	 * @param marker the marker
-	 * @generated
-	 */
-	protected void doGotoMarker(IMarker marker) {
-		String elementId = marker
-				.getAttribute(
-						org.eclipse.gmf.runtime.common.core.resources.IMarker.ELEMENT_ID,
-						null);
-		if (elementId == null || !(getEditor() instanceof DiagramEditor)) {
-			return;
-		}
-		DiagramEditor editor = (DiagramEditor) getEditor();
-		Map editPartRegistry = editor.getDiagramGraphicalViewer()
-				.getEditPartRegistry();
-		EObject targetView = editor.getDiagram().eResource().getEObject(
-				elementId);
-		if (targetView == null) {
-			return;
-		}
-		EditPart targetEditPart = (EditPart) editPartRegistry.get(targetView);
-		if (targetEditPart != null) {
-			PalladioComponentModelDiagramEditorUtil.selectElementsInDiagram(
-					editor, Arrays.asList(new EditPart[] { targetEditPart }));
-		}
-	}
+    /**
+     * Do goto marker.
+     * 
+     * @param marker
+     *            the marker
+     * @generated
+     */
+    protected void doGotoMarker(IMarker marker) {
+        String elementId = marker.getAttribute(org.eclipse.gmf.runtime.common.core.resources.IMarker.ELEMENT_ID, null);
+        if (elementId == null || !(getEditor() instanceof DiagramEditor)) {
+            return;
+        }
+        DiagramEditor editor = (DiagramEditor) getEditor();
+        Map editPartRegistry = editor.getDiagramGraphicalViewer().getEditPartRegistry();
+        EObject targetView = editor.getDiagram().eResource().getEObject(elementId);
+        if (targetView == null) {
+            return;
+        }
+        EditPart targetEditPart = (EditPart) editPartRegistry.get(targetView);
+        if (targetEditPart != null) {
+            PalladioComponentModelDiagramEditorUtil.selectElementsInDiagram(editor,
+                    Arrays.asList(new EditPart[] { targetEditPart }));
+        }
+    }
 
-	/**
-	 * Delete markers.
-	 *
-	 * @param resource the resource
-	 * @generated
-	 */
-	public static void deleteMarkers(IResource resource) {
-		try {
-			resource.deleteMarkers(MARKER_TYPE, true, IResource.DEPTH_ZERO);
-		} catch (CoreException e) {
-			PalladioComponentModelComposedStructureDiagramEditorPlugin
-					.getInstance().logError(
-							"Failed to delete validation markers", e); //$NON-NLS-1$
-		}
-	}
+    /**
+     * Delete markers.
+     * 
+     * @param resource
+     *            the resource
+     * @generated
+     */
+    public static void deleteMarkers(IResource resource) {
+        try {
+            resource.deleteMarkers(MARKER_TYPE, true, IResource.DEPTH_ZERO);
+        } catch (CoreException e) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Failed to delete validation markers", e); //$NON-NLS-1$
+        }
+    }
 
-	/**
-	 * Adds the marker.
-	 *
-	 * @param file the file
-	 * @param elementId the element id
-	 * @param location the location
-	 * @param message the message
-	 * @param statusSeverity the status severity
-	 * @return the i marker
-	 * @generated
-	 */
-	public static IMarker addMarker(IFile file, String elementId,
-			String location, String message, int statusSeverity) {
-		IMarker marker = null;
-		try {
-			marker = file.createMarker(MARKER_TYPE);
-			marker.setAttribute(IMarker.MESSAGE, message);
-			marker.setAttribute(IMarker.LOCATION, location);
-			marker
-					.setAttribute(
-							org.eclipse.gmf.runtime.common.ui.resources.IMarker.ELEMENT_ID,
-							elementId);
-			int markerSeverity = IMarker.SEVERITY_INFO;
-			if (statusSeverity == IStatus.WARNING) {
-				markerSeverity = IMarker.SEVERITY_WARNING;
-			} else if (statusSeverity == IStatus.ERROR
-					|| statusSeverity == IStatus.CANCEL) {
-				markerSeverity = IMarker.SEVERITY_ERROR;
-			}
-			marker.setAttribute(IMarker.SEVERITY, markerSeverity);
-		} catch (CoreException e) {
-			PalladioComponentModelComposedStructureDiagramEditorPlugin
-					.getInstance().logError(
-							"Failed to create validation marker", e); //$NON-NLS-1$
-		}
-		return marker;
-	}
+    /**
+     * Adds the marker.
+     * 
+     * @param file
+     *            the file
+     * @param elementId
+     *            the element id
+     * @param location
+     *            the location
+     * @param message
+     *            the message
+     * @param statusSeverity
+     *            the status severity
+     * @return the i marker
+     * @generated
+     */
+    public static IMarker addMarker(IFile file, String elementId, String location, String message, int statusSeverity) {
+        IMarker marker = null;
+        try {
+            marker = file.createMarker(MARKER_TYPE);
+            marker.setAttribute(IMarker.MESSAGE, message);
+            marker.setAttribute(IMarker.LOCATION, location);
+            marker.setAttribute(org.eclipse.gmf.runtime.common.ui.resources.IMarker.ELEMENT_ID, elementId);
+            int markerSeverity = IMarker.SEVERITY_INFO;
+            if (statusSeverity == IStatus.WARNING) {
+                markerSeverity = IMarker.SEVERITY_WARNING;
+            } else if (statusSeverity == IStatus.ERROR || statusSeverity == IStatus.CANCEL) {
+                markerSeverity = IMarker.SEVERITY_ERROR;
+            }
+            marker.setAttribute(IMarker.SEVERITY, markerSeverity);
+        } catch (CoreException e) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Failed to create validation marker", e); //$NON-NLS-1$
+        }
+        return marker;
+    }
 }

@@ -21,94 +21,94 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 /**
  * The Class InfrastructureProvidedRoleCreateCommand.
- *
+ * 
  * @generated
  */
 public class InfrastructureProvidedRoleCreateCommand extends EditElementCommand {
 
-	/**
-	 * Instantiates a new infrastructure provided role create command.
-	 *
-	 * @param req the req
-	 * @generated
-	 */
-	public InfrastructureProvidedRoleCreateCommand(CreateElementRequest req) {
-		super(req.getLabel(), null, req);
-	}
+    /**
+     * Instantiates a new infrastructure provided role create command.
+     * 
+     * @param req
+     *            the req
+     * @generated
+     */
+    public InfrastructureProvidedRoleCreateCommand(CreateElementRequest req) {
+        super(req.getLabel(), null, req);
+    }
 
-	/**
-	 * FIXME: replace with setElementToEdit().
-	 *
-	 * @return the element to edit
-	 * @generated
-	 */
-	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest())
-				.getContainer();
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    /**
+     * FIXME: replace with setElementToEdit().
+     * 
+     * @return the element to edit
+     * @generated
+     */
+    protected EObject getElementToEdit() {
+        EObject container = ((CreateElementRequest) getRequest()).getContainer();
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 
-	/**
-	 * Can execute.
-	 *
-	 * @return true, if successful
-	 * @generated
-	 */
-	public boolean canExecute() {
-		return true;
+    /**
+     * Can execute.
+     * 
+     * @return true, if successful
+     * @generated
+     */
+    public boolean canExecute() {
+        return true;
 
-	}
+    }
 
-	/**
-	 * Do execute with result.
-	 *
-	 * @param monitor the monitor
-	 * @param info the info
-	 * @return the command result
-	 * @throws ExecutionException the execution exception
-	 * @generated
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		InfrastructureProvidedRole newElement = RepositoryFactory.eINSTANCE
-				.createInfrastructureProvidedRole();
+    /**
+     * Do execute with result.
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        InfrastructureProvidedRole newElement = RepositoryFactory.eINSTANCE.createInfrastructureProvidedRole();
 
-		InterfaceProvidingEntity owner = (InterfaceProvidingEntity) getElementToEdit();
-		owner.getProvidedRoles_InterfaceProvidingEntity().add(newElement);
+        InterfaceProvidingEntity owner = (InterfaceProvidingEntity) getElementToEdit();
+        owner.getProvidedRoles_InterfaceProvidingEntity().add(newElement);
 
-		doConfigure(newElement, monitor, info);
+        doConfigure(newElement, monitor, info);
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
-	}
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+    }
 
-	/**
-	 * Do configure.
-	 *
-	 * @param newElement the new element
-	 * @param monitor the monitor
-	 * @param info the info
-	 * @throws ExecutionException the execution exception
-	 * @generated
-	 */
-	protected void doConfigure(InfrastructureProvidedRole newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
-		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
-		if (configureCommand != null && configureCommand.canExecute()) {
-			configureCommand.execute(monitor, info);
-		}
-	}
+    /**
+     * Do configure.
+     * 
+     * @param newElement
+     *            the new element
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @throws ExecutionException
+     *             the execution exception
+     * @generated
+     */
+    protected void doConfigure(InfrastructureProvidedRole newElement, IProgressMonitor monitor, IAdaptable info)
+            throws ExecutionException {
+        IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+        ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+        configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+        configureRequest.addParameters(getRequest().getParameters());
+        ICommand configureCommand = elementType.getEditCommand(configureRequest);
+        if (configureCommand != null && configureCommand.canExecute()) {
+            configureCommand.execute(monitor, info);
+        }
+    }
 
 }

@@ -24,95 +24,94 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 
 /**
  * The Class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy.
- *
+ * 
  * @generated
  */
-public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy
-		extends CanonicalEditPolicy {
+public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy extends
+        CanonicalEditPolicy {
 
-	/** The my features to synchronize. @generated */
-	Set myFeaturesToSynchronize;
+    /** The my features to synchronize. @generated */
+    Set myFeaturesToSynchronize;
 
-	/**
-	 * Gets the semantic children list.
-	 *
-	 * @return the semantic children list
-	 * @generated not
-	 */
-	protected List getSemanticChildrenList() {
-		View viewObject = (View) getHost().getModel();
-		EObject modelObject = viewObject.getElement();
-		List result = new LinkedList();
+    /**
+     * Gets the semantic children list.
+     * 
+     * @return the semantic children list
+     * @generated not
+     */
+    protected List getSemanticChildrenList() {
+        View viewObject = (View) getHost().getModel();
+        EObject modelObject = viewObject.getElement();
+        List result = new LinkedList();
 
-		if (modelObject != null && modelObject instanceof ComposedStructure) {
-			for (AssemblyContext assemblyContext : ((ComposedStructure) modelObject)
-					.getAssemblyContexts__ComposedStructure()) {
+        if (modelObject != null && modelObject instanceof ComposedStructure) {
+            for (AssemblyContext assemblyContext : ((ComposedStructure) modelObject)
+                    .getAssemblyContexts__ComposedStructure()) {
 
-				int assemblyNodeVID = PalladioComponentModelVisualIDRegistry
-						.getNodeVisualID(viewObject, assemblyContext);
-				if (AssemblyContextEditPart.VISUAL_ID == assemblyNodeVID) {
-					result.add(assemblyContext);
-				}
-			}
-			for (EventChannel eventChannel : ((ComposedStructure) modelObject)
-					.getEventChannel__ComposedStructure()) {
+                int assemblyNodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(viewObject,
+                        assemblyContext);
+                if (AssemblyContextEditPart.VISUAL_ID == assemblyNodeVID) {
+                    result.add(assemblyContext);
+                }
+            }
+            for (EventChannel eventChannel : ((ComposedStructure) modelObject).getEventChannel__ComposedStructure()) {
 
-				int channelNodeVID = PalladioComponentModelVisualIDRegistry
-						.getNodeVisualID(viewObject, eventChannel);
-				if (EventChannelEditPart.VISUAL_ID == channelNodeVID) {
-					result.add(eventChannel);
-				}
-			}
-		}
-		return result;
-	}
+                int channelNodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(viewObject, eventChannel);
+                if (EventChannelEditPart.VISUAL_ID == channelNodeVID) {
+                    result.add(eventChannel);
+                }
+            }
+        }
+        return result;
+    }
 
-	/**
-	 * Checks if is orphaned.
-	 *
-	 * @param semanticChildren the semantic children
-	 * @param view the view
-	 * @return true, if is orphaned
-	 * @generated
-	 */
-	protected boolean isOrphaned(Collection semanticChildren, final View view) {
-		int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
-		switch (visualID) {
-		case AssemblyContextEditPart.VISUAL_ID:
-		case EventChannelEditPart.VISUAL_ID:
-			if (!semanticChildren.contains(view.getElement())) {
-				return true;
-			}
-		}
-		return false;
-	}
+    /**
+     * Checks if is orphaned.
+     * 
+     * @param semanticChildren
+     *            the semantic children
+     * @param view
+     *            the view
+     * @return true, if is orphaned
+     * @generated
+     */
+    protected boolean isOrphaned(Collection semanticChildren, final View view) {
+        int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        switch (visualID) {
+        case AssemblyContextEditPart.VISUAL_ID:
+        case EventChannelEditPart.VISUAL_ID:
+            if (!semanticChildren.contains(view.getElement())) {
+                return true;
+            }
+        }
+        return false;
+    }
 
-	/**
-	 * Gets the default factory hint.
-	 *
-	 * @return the default factory hint
-	 * @generated
-	 */
-	protected String getDefaultFactoryHint() {
-		return null;
-	}
+    /**
+     * Gets the default factory hint.
+     * 
+     * @return the default factory hint
+     * @generated
+     */
+    protected String getDefaultFactoryHint() {
+        return null;
+    }
 
-	/**
-	 * Gets the features to synchronize.
-	 *
-	 * @return the features to synchronize
-	 * @generated
-	 */
-	protected Set getFeaturesToSynchronize() {
-		if (myFeaturesToSynchronize == null) {
-			myFeaturesToSynchronize = new HashSet();
-			myFeaturesToSynchronize
-					.add(EntityPackage.eINSTANCE
-							.getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
-			myFeaturesToSynchronize.add(CompositionPackage.eINSTANCE
-					.getComposedStructure_EventChannel__ComposedStructure());
-		}
-		return myFeaturesToSynchronize;
-	}
+    /**
+     * Gets the features to synchronize.
+     * 
+     * @return the features to synchronize
+     * @generated
+     */
+    protected Set getFeaturesToSynchronize() {
+        if (myFeaturesToSynchronize == null) {
+            myFeaturesToSynchronize = new HashSet();
+            myFeaturesToSynchronize.add(EntityPackage.eINSTANCE
+                    .getInterfaceProvidingEntity_ProvidedRoles_InterfaceProvidingEntity());
+            myFeaturesToSynchronize.add(CompositionPackage.eINSTANCE
+                    .getComposedStructure_EventChannel__ComposedStructure());
+        }
+        return myFeaturesToSynchronize;
+    }
 
 }

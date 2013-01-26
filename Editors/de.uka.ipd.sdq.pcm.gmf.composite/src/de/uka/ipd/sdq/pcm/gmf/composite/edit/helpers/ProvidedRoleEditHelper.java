@@ -22,13 +22,17 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 // TODO: decide whether this file is obsolete
 /**
  * The Class ProvidedRoleEditHelper.
- *
+ * 
  * @generated not
  */
 public class ProvidedRoleEditHelper extends PalladioComponentModelBaseEditHelper {
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org
+     * .eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */
     @Override
     protected ICommand getConfigureCommand(ConfigureRequest request) {

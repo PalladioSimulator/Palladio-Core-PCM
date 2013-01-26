@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
  * The Class AssemblyConnectorTypeLinkCreateCommand.
- *
+ * 
  * @generated
  */
 public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCommand {
@@ -33,11 +33,15 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
 
     /**
      * Instantiates a new assembly connector type link create command.
-     *
-     * @param req the req
-     * @param container the container
-     * @param source the source
-     * @param target the target
+     * 
+     * @param req
+     *            the req
+     * @param container
+     *            the container
+     * @param source
+     *            the source
+     * @param target
+     *            the target
      * @generated
      */
     public AssemblyConnectorTypeLinkCreateCommand(CreateRelationshipRequest req, ComposedStructure container,
@@ -51,7 +55,7 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
 
     /**
      * Gets the container.
-     *
+     * 
      * @return the container
      * @generated
      */
@@ -61,7 +65,7 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
 
     /**
      * Gets the source.
-     *
+     * 
      * @return the source
      * @generated
      */
@@ -71,7 +75,7 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
 
     /**
      * Gets the target.
-     *
+     * 
      * @return the target
      * @generated
      */
@@ -81,7 +85,7 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
 
     /**
      * Gets the e class to edit.
-     *
+     * 
      * @return the e class to edit
      * @generated
      */
@@ -91,8 +95,9 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
 
     /**
      * Sets the element to edit.
-     *
-     * @param element the new element to edit
+     * 
+     * @param element
+     *            the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -101,7 +106,7 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
 
     /**
      * Do default element creation.
-     *
+     * 
      * @return the e object
      * @generated not
      */

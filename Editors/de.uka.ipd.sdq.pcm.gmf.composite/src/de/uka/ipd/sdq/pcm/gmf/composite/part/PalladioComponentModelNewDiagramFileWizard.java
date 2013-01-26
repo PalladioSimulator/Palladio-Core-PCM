@@ -36,195 +36,173 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEnt
 
 /**
  * The Class PalladioComponentModelNewDiagramFileWizard.
- *
+ * 
  * @generated
  */
 public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
-	/** The my file creation page. @generated */
-	private WizardNewFileCreationPage myFileCreationPage;
+    /** The my file creation page. @generated */
+    private WizardNewFileCreationPage myFileCreationPage;
 
-	/** The diagram root element selection page. @generated */
-	private ModelElementSelectionPage diagramRootElementSelectionPage;
+    /** The diagram root element selection page. @generated */
+    private ModelElementSelectionPage diagramRootElementSelectionPage;
 
-	/** The my editing domain. @generated */
-	private TransactionalEditingDomain myEditingDomain;
+    /** The my editing domain. @generated */
+    private TransactionalEditingDomain myEditingDomain;
 
-	/**
-	 * Instantiates a new palladio component model new diagram file wizard.
-	 *
-	 * @param domainModelURI the domain model uri
-	 * @param diagramRoot the diagram root
-	 * @param editingDomain the editing domain
-	 * @generated
-	 */
-	public PalladioComponentModelNewDiagramFileWizard(URI domainModelURI,
-			EObject diagramRoot, TransactionalEditingDomain editingDomain) {
-		assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
-		assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
-		assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
+    /**
+     * Instantiates a new palladio component model new diagram file wizard.
+     * 
+     * @param domainModelURI
+     *            the domain model uri
+     * @param diagramRoot
+     *            the diagram root
+     * @param editingDomain
+     *            the editing domain
+     * @generated
+     */
+    public PalladioComponentModelNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot,
+            TransactionalEditingDomain editingDomain) {
+        assert domainModelURI != null : "Domain model uri must be specified"; //$NON-NLS-1$
+        assert diagramRoot != null : "Doagram root element must be specified"; //$NON-NLS-1$
+        assert editingDomain != null : "Editing domain must be specified"; //$NON-NLS-1$
 
-		myFileCreationPage = new WizardNewFileCreationPage(
-				Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageName,
-				StructuredSelection.EMPTY);
-		myFileCreationPage
-				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageTitle);
-		myFileCreationPage
-				.setDescription(NLS
-						.bind(
-								Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
-								ComposedProvidingRequiringEntityEditPart.MODEL_ID));
-		IPath filePath;
-		String fileName = URI.decode(domainModelURI.trimFileExtension()
-				.lastSegment());
-		if (domainModelURI.isPlatformResource()) {
-			filePath = new Path(domainModelURI.trimSegments(1)
-					.toPlatformString(true));
-		} else if (domainModelURI.isFile()) {
-			filePath = new Path(domainModelURI.trimSegments(1).toFileString());
-		} else {
-			// TODO : use some default path
-			throw new IllegalArgumentException(
-					"Unsupported URI: " + domainModelURI); //$NON-NLS-1$
-		}
-		myFileCreationPage.setContainerFullPath(filePath);
-		myFileCreationPage.setFileName(PalladioComponentModelDiagramEditorUtil
-				.getUniqueFileName(filePath, fileName, "composite_diagram")); //$NON-NLS-1$
+        myFileCreationPage = new WizardNewFileCreationPage(
+                Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageName, StructuredSelection.EMPTY);
+        myFileCreationPage.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageTitle);
+        myFileCreationPage.setDescription(NLS.bind(
+                Messages.PalladioComponentModelNewDiagramFileWizard_CreationPageDescription,
+                ComposedProvidingRequiringEntityEditPart.MODEL_ID));
+        IPath filePath;
+        String fileName = URI.decode(domainModelURI.trimFileExtension().lastSegment());
+        if (domainModelURI.isPlatformResource()) {
+            filePath = new Path(domainModelURI.trimSegments(1).toPlatformString(true));
+        } else if (domainModelURI.isFile()) {
+            filePath = new Path(domainModelURI.trimSegments(1).toFileString());
+        } else {
+            // TODO : use some default path
+            throw new IllegalArgumentException("Unsupported URI: " + domainModelURI); //$NON-NLS-1$
+        }
+        myFileCreationPage.setContainerFullPath(filePath);
+        myFileCreationPage.setFileName(PalladioComponentModelDiagramEditorUtil.getUniqueFileName(filePath, fileName,
+                "composite_diagram")); //$NON-NLS-1$
 
-		diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
-				Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName);
-		diagramRootElementSelectionPage
-				.setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle);
-		diagramRootElementSelectionPage
-				.setDescription(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription);
-		diagramRootElementSelectionPage.setModelElement(diagramRoot);
+        diagramRootElementSelectionPage = new DiagramRootElementSelectionPage(
+                Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageName);
+        diagramRootElementSelectionPage
+                .setTitle(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageTitle);
+        diagramRootElementSelectionPage
+                .setDescription(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageDescription);
+        diagramRootElementSelectionPage.setModelElement(diagramRoot);
 
-		myEditingDomain = editingDomain;
-	}
+        myEditingDomain = editingDomain;
+    }
 
-	/**
-	 * Adds the pages.
-	 *
-	 * @generated
-	 */
-	public void addPages() {
-		addPage(myFileCreationPage);
-		addPage(diagramRootElementSelectionPage);
-	}
+    /**
+     * Adds the pages.
+     * 
+     * @generated
+     */
+    public void addPages() {
+        addPage(myFileCreationPage);
+        addPage(diagramRootElementSelectionPage);
+    }
 
-	/**
-	 * Perform finish.
-	 *
-	 * @return true, if successful
-	 * @generated
-	 */
-	public boolean performFinish() {
-		List affectedFiles = new LinkedList();
-		IFile diagramFile = myFileCreationPage.createNewFile();
-		PalladioComponentModelDiagramEditorUtil.setCharset(diagramFile);
-		affectedFiles.add(diagramFile);
-		URI diagramModelURI = URI.createPlatformResourceURI(diagramFile
-				.getFullPath().toString(), true);
-		ResourceSet resourceSet = myEditingDomain.getResourceSet();
-		final Resource diagramResource = resourceSet
-				.createResource(diagramModelURI);
-		AbstractTransactionalCommand command = new AbstractTransactionalCommand(
-				myEditingDomain,
-				Messages.PalladioComponentModelNewDiagramFileWizard_InitDiagramCommand,
-				affectedFiles) {
+    /**
+     * Perform finish.
+     * 
+     * @return true, if successful
+     * @generated
+     */
+    public boolean performFinish() {
+        List affectedFiles = new LinkedList();
+        IFile diagramFile = myFileCreationPage.createNewFile();
+        PalladioComponentModelDiagramEditorUtil.setCharset(diagramFile);
+        affectedFiles.add(diagramFile);
+        URI diagramModelURI = URI.createPlatformResourceURI(diagramFile.getFullPath().toString(), true);
+        ResourceSet resourceSet = myEditingDomain.getResourceSet();
+        final Resource diagramResource = resourceSet.createResource(diagramModelURI);
+        AbstractTransactionalCommand command = new AbstractTransactionalCommand(myEditingDomain,
+                Messages.PalladioComponentModelNewDiagramFileWizard_InitDiagramCommand, affectedFiles) {
 
-			protected CommandResult doExecuteWithResult(
-					IProgressMonitor monitor, IAdaptable info)
-					throws ExecutionException {
-				int diagramVID = PalladioComponentModelVisualIDRegistry
-						.getDiagramVisualID(diagramRootElementSelectionPage
-								.getModelElement());
-				if (diagramVID != ComposedProvidingRequiringEntityEditPart.VISUAL_ID) {
-					return CommandResult
-							.newErrorCommandResult(Messages.PalladioComponentModelNewDiagramFileWizard_IncorrectRootError);
-				}
-				Diagram diagram = ViewService
-						.createDiagram(
-								diagramRootElementSelectionPage
-										.getModelElement(),
-								ComposedProvidingRequiringEntityEditPart.MODEL_ID,
-								PalladioComponentModelComposedStructureDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
-				diagramResource.getContents().add(diagram);
-				return CommandResult.newOKCommandResult();
-			}
-		};
-		try {
-			OperationHistoryFactory.getOperationHistory().execute(command,
-					new NullProgressMonitor(), null);
-			diagramResource.save(PalladioComponentModelDiagramEditorUtil
-					.getSaveOptions());
-			PalladioComponentModelDiagramEditorUtil
-					.openDiagram(diagramResource);
-		} catch (ExecutionException e) {
-			PalladioComponentModelComposedStructureDiagramEditorPlugin
-					.getInstance().logError(
-							"Unable to create model and diagram", e); //$NON-NLS-1$
-		} catch (IOException ex) {
-			PalladioComponentModelComposedStructureDiagramEditorPlugin
-					.getInstance()
-					.logError(
-							"Save operation failed for: " + diagramModelURI, ex); //$NON-NLS-1$
-		} catch (PartInitException ex) {
-			PalladioComponentModelComposedStructureDiagramEditorPlugin
-					.getInstance().logError("Unable to open editor", ex); //$NON-NLS-1$
-		}
-		return true;
-	}
+            protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
+                    throws ExecutionException {
+                int diagramVID = PalladioComponentModelVisualIDRegistry
+                        .getDiagramVisualID(diagramRootElementSelectionPage.getModelElement());
+                if (diagramVID != ComposedProvidingRequiringEntityEditPart.VISUAL_ID) {
+                    return CommandResult
+                            .newErrorCommandResult(Messages.PalladioComponentModelNewDiagramFileWizard_IncorrectRootError);
+                }
+                Diagram diagram = ViewService.createDiagram(diagramRootElementSelectionPage.getModelElement(),
+                        ComposedProvidingRequiringEntityEditPart.MODEL_ID,
+                        PalladioComponentModelComposedStructureDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT);
+                diagramResource.getContents().add(diagram);
+                return CommandResult.newOKCommandResult();
+            }
+        };
+        try {
+            OperationHistoryFactory.getOperationHistory().execute(command, new NullProgressMonitor(), null);
+            diagramResource.save(PalladioComponentModelDiagramEditorUtil.getSaveOptions());
+            PalladioComponentModelDiagramEditorUtil.openDiagram(diagramResource);
+        } catch (ExecutionException e) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Unable to create model and diagram", e); //$NON-NLS-1$
+        } catch (IOException ex) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Save operation failed for: " + diagramModelURI, ex); //$NON-NLS-1$
+        } catch (PartInitException ex) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Unable to open editor", ex); //$NON-NLS-1$
+        }
+        return true;
+    }
 
-	/**
-	 * The Class DiagramRootElementSelectionPage.
-	 *
-	 * @generated
-	 */
-	private static class DiagramRootElementSelectionPage extends
-			ModelElementSelectionPage {
+    /**
+     * The Class DiagramRootElementSelectionPage.
+     * 
+     * @generated
+     */
+    private static class DiagramRootElementSelectionPage extends ModelElementSelectionPage {
 
-		/**
-		 * Instantiates a new diagram root element selection page.
-		 *
-		 * @param pageName the page name
-		 * @generated
-		 */
-		protected DiagramRootElementSelectionPage(String pageName) {
-			super(pageName);
-		}
+        /**
+         * Instantiates a new diagram root element selection page.
+         * 
+         * @param pageName
+         *            the page name
+         * @generated
+         */
+        protected DiagramRootElementSelectionPage(String pageName) {
+            super(pageName);
+        }
 
-		/**
-		 * Gets the selection title.
-		 *
-		 * @return the selection title
-		 * @generated
-		 */
-		protected String getSelectionTitle() {
-			return Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageSelectionTitle;
-		}
+        /**
+         * Gets the selection title.
+         * 
+         * @return the selection title
+         * @generated
+         */
+        protected String getSelectionTitle() {
+            return Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageSelectionTitle;
+        }
 
-		/**
-		 * Validate page.
-		 *
-		 * @return true, if successful
-		 * @generated
-		 */
-		protected boolean validatePage() {
-			if (selectedModelElement == null) {
-				setErrorMessage(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageNoSelectionMessage);
-				return false;
-			}
-			boolean result = ViewService
-					.getInstance()
-					.provides(
-							new CreateDiagramViewOperation(
-									new EObjectAdapter(selectedModelElement),
-									ComposedProvidingRequiringEntityEditPart.MODEL_ID,
-									PalladioComponentModelComposedStructureDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
-			setErrorMessage(result ? null
-					: Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
-			return result;
-		}
-	}
+        /**
+         * Validate page.
+         * 
+         * @return true, if successful
+         * @generated
+         */
+        protected boolean validatePage() {
+            if (selectedModelElement == null) {
+                setErrorMessage(Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageNoSelectionMessage);
+                return false;
+            }
+            boolean result = ViewService.getInstance().provides(
+                    new CreateDiagramViewOperation(new EObjectAdapter(selectedModelElement),
+                            ComposedProvidingRequiringEntityEditPart.MODEL_ID,
+                            PalladioComponentModelComposedStructureDiagramEditorPlugin.DIAGRAM_PREFERENCES_HINT));
+            setErrorMessage(result ? null
+                    : Messages.PalladioComponentModelNewDiagramFileWizard_RootSelectionPageInvalidSelectionMessage);
+            return result;
+        }
+    }
 }

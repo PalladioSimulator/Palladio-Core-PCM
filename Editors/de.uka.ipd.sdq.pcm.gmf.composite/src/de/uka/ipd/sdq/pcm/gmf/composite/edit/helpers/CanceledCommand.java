@@ -18,8 +18,12 @@ public class CanceledCommand extends AbstractCommand {
         super("Canceled Command");
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doExecuteWithResult(org.eclipse
+     * .core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor progressMonitor, IAdaptable info)
@@ -27,8 +31,12 @@ public class CanceledCommand extends AbstractCommand {
         return CommandResult.newCancelledCommandResult();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doRedoWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doRedoWithResult(org.eclipse.
+     * core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doRedoWithResult(IProgressMonitor progressMonitor, IAdaptable info)
@@ -36,8 +44,12 @@ public class CanceledCommand extends AbstractCommand {
         return CommandResult.newCancelledCommandResult();
     }
 
-    /* (non-Javadoc)
-     * @see org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doUndoWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.common.core.command.AbstractCommand#doUndoWithResult(org.eclipse.
+     * core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doUndoWithResult(IProgressMonitor progressMonitor, IAdaptable info)

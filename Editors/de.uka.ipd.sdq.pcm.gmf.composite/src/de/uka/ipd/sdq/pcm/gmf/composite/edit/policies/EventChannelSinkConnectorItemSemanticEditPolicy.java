@@ -12,21 +12,20 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 /**
  * @generated
  */
-public class EventChannelSinkConnectorItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class EventChannelSinkConnectorItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * @generated
-	 */
-	public EventChannelSinkConnectorItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.EventChannelSinkConnector_4010);
-	}
+    /**
+     * @generated
+     */
+    public EventChannelSinkConnectorItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.EventChannelSinkConnector_4010);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		return getGEFWrapper(new DestroyElementCommand(req));
-	}
+    /**
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        return getGEFWrapper(new DestroyElementCommand(req));
+    }
 
 }

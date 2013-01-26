@@ -9,18 +9,18 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
 
 /**
  * The Class DiagramAppearancePreferencePage.
- *
+ * 
  * @generated
  */
 public class DiagramAppearancePreferencePage extends AppearancePreferencePage {
 
-	/**
-	 * Instantiates a new diagram appearance preference page.
-	 *
-	 * @generated
-	 */
-	public DiagramAppearancePreferencePage() {
-		setPreferenceStore(PalladioComponentModelComposedStructureDiagramEditorPlugin
-				.getInstance().getPreferenceStore());
-	}
+    /**
+     * Instantiates a new diagram appearance preference page.
+     * 
+     * @generated
+     */
+    public DiagramAppearancePreferencePage() {
+        setPreferenceStore(PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance()
+                .getPreferenceStore());
+    }
 }

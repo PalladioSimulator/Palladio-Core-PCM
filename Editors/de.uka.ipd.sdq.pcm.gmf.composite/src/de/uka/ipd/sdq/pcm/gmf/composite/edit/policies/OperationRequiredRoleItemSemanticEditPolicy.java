@@ -35,225 +35,199 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
  * 
  * @generated
  */
-public class OperationRequiredRoleItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * Instantiates a new operation required role item semantic edit policy.
-	 *
-	 * @generated
-	 */
-	public OperationRequiredRoleItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.OperationRequiredRole_3008);
-	}
+    /**
+     * Instantiates a new operation required role item semantic edit policy.
+     * 
+     * @generated
+     */
+    public OperationRequiredRoleItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.OperationRequiredRole_3008);
+    }
 
-	/**
-	 * Gets the destroy element command.
-	 *
-	 * @param req the req
-	 * @return the destroy element command
-	 * @generated
-	 */
-	@Override
+    /**
+     * Gets the destroy element command.
+     * 
+     * @param req
+     *            the req
+     * @return the destroy element command
+     * @generated
+     */
+    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		View view = (View) getHost().getModel();
-		CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(
-				getEditingDomain(), null);
-		cmd.setTransactionNestingEnabled(false);
-		for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
-			Edge incomingLink = (Edge) it.next();
-			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(incomingLink) == RequiredDelegationConnectorEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						incomingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
-				continue;
-			}
-		}
-		for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
-			Edge outgoingLink = (Edge) it.next();
-			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(outgoingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-			if (PalladioComponentModelVisualIDRegistry
-					.getVisualID(outgoingLink) == RequiredDelegationConnectorEditPart.VISUAL_ID) {
-				DestroyElementRequest r = new DestroyElementRequest(
-						outgoingLink.getElement(), false);
-				cmd.add(new DestroyElementCommand(r));
-				cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
-				continue;
-			}
-		}
-		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
-		if (annotation == null) {
-			// there are indirectly referenced children, need extra commands: false
-			addDestroyShortcutsCommand(cmd, view);
-			// delete host element
-			cmd.add(new DestroyElementCommand(req));
-		} else {
-			cmd.add(new DeleteCommand(getEditingDomain(), view));
-		}
-		return getGEFWrapper(cmd.reduce());
-	}
+        View view = (View) getHost().getModel();
+        CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
+        cmd.setTransactionNestingEnabled(false);
+        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+            Edge incomingLink = (Edge) it.next();
+            if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == RequiredDelegationConnectorEditPart.VISUAL_ID) {
+                DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
+                cmd.add(new DestroyElementCommand(r));
+                cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+                continue;
+            }
+        }
+        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+            Edge outgoingLink = (Edge) it.next();
+            if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
+                DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
+                cmd.add(new DestroyElementCommand(r));
+                cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+                continue;
+            }
+            if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == RequiredDelegationConnectorEditPart.VISUAL_ID) {
+                DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
+                cmd.add(new DestroyElementCommand(r));
+                cmd.add(new DeleteCommand(getEditingDomain(), outgoingLink));
+                continue;
+            }
+        }
+        EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+        if (annotation == null) {
+            // there are indirectly referenced children, need extra commands: false
+            addDestroyShortcutsCommand(cmd, view);
+            // delete host element
+            cmd.add(new DestroyElementCommand(req));
+        } else {
+            cmd.add(new DeleteCommand(getEditingDomain(), view));
+        }
+        return getGEFWrapper(cmd.reduce());
+    }
 
-	/**
-	 * Get the create relationship command or null / UnexecutableCommand instance if this is not an
-	 * valid end for the connector creation.
-	 * 
-	 * @param req
-	 *            The request object to create the command
-	 * @return The prepared creation command object
-	 * 
-	 * @generated not
-	 */
-	@Override
+    /**
+     * Get the create relationship command or null / UnexecutableCommand instance if this is not an
+     * valid end for the connector creation.
+     * 
+     * @param req
+     *            The request object to create the command
+     * @return The prepared creation command object
+     * 
+     * @generated not
+     */
+    @Override
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
-				.getElementType()) {
-			return req.getTarget() == null ? getStartCreateRelationshipCommandAssemblyConnector(req)
-					: null;
-		}
-		if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req
-				.getElementType()) {
-			return req.getTarget() == null ? getStartCreateRelationshipCommandRequiredDelegationConnector(req)
-					: null;
-		}
-		return super.getCreateRelationshipCommand(req);
-	}
+        if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
+            return req.getTarget() == null ? getStartCreateRelationshipCommandAssemblyConnector(req) : null;
+        }
+        if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req.getElementType()) {
+            return req.getTarget() == null ? getStartCreateRelationshipCommandRequiredDelegationConnector(req) : null;
+        }
+        return super.getCreateRelationshipCommand(req);
+    }
 
-	/**
-	 * Gets the start create relationship command.
-	 *
-	 * @param req the req
-	 * @return the start create relationship command
-	 * @generated
-	 */
-	protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
-				.getElementType()) {
-			return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req
-					.getSource(), req.getTarget()));
-		}
-		if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req
-				.getElementType()) {
-			return getGEFWrapper(new RequiredDelegationConnectorCreateCommand(
-					req, req.getSource(), req.getTarget()));
-		}
-		return null;
-	}
+    /**
+     * Gets the start create relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the start create relationship command
+     * @generated
+     */
+    protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
+            return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req.getElementType()) {
+            return getGEFWrapper(new RequiredDelegationConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        return null;
+    }
 
-	/**
-	 * Helper to create an instance of an outgoing assembly connector.
-	 * 
-	 * @param req
-	 *            The request describing the command to be created.
-	 * @return The prepared command to create an AssemblyConnector
-	 * 
-	 * @generated not
-	 */
-	protected Command getStartCreateRelationshipCommandAssemblyConnector(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (!(sourceEObject instanceof OperationRequiredRole)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
-		ComposedStructure container = (ComposedStructure) getRelationshipContainer(
-				source, CompositionPackage.eINSTANCE.getComposedStructure(),
-				req.getElementType());
-		if (container == null) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateAssemblyConnector_4004(container, source, null)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		req.setParameter("REQ_CHILD_CONTEXT", ((View) getHost().getParent()
-				.getModel()).getElement());
-		return new Command() {
-		};
-	}
+    /**
+     * Helper to create an instance of an outgoing assembly connector.
+     * 
+     * @param req
+     *            The request describing the command to be created.
+     * @return The prepared command to create an AssemblyConnector
+     * 
+     * @generated not
+     */
+    protected Command getStartCreateRelationshipCommandAssemblyConnector(CreateRelationshipRequest req) {
+        EObject sourceEObject = req.getSource();
+        if (!(sourceEObject instanceof OperationRequiredRole)) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
+        ComposedStructure container = (ComposedStructure) getRelationshipContainer(source,
+                CompositionPackage.eINSTANCE.getComposedStructure(), req.getElementType());
+        if (container == null) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateAssemblyConnector_4004(
+                container, source, null)) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        req.setParameter("REQ_CHILD_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
+        return new Command() {
+        };
+    }
 
-	/**
-	 * Get a command to create a required delegation connector.
-	 * 
-	 * @param req
-	 *            The request object to build up the command.
-	 * @return The prepared command.
-	 * 
-	 * @generated not
-	 */
-	protected Command getStartCreateRelationshipCommandRequiredDelegationConnector(
-			CreateRelationshipRequest req) {
-		EObject sourceEObject = req.getSource();
-		if (!(sourceEObject instanceof OperationRequiredRole)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
-		ComposedStructure container = (ComposedStructure) getRelationshipContainer(
-				source, CompositionPackage.eINSTANCE.getComposedStructure(),
-				req.getElementType());
-		if (container == null) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		req.setParameter("CHILD_CONTEXT", ((View) getHost().getParent()
-				.getModel()).getElement());
-		if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateRequiredDelegationConnector_4005(container, source,
-						null)) {
-			return UnexecutableCommand.INSTANCE;
-		}
-		return new Command() {
-		};
-	}
+    /**
+     * Get a command to create a required delegation connector.
+     * 
+     * @param req
+     *            The request object to build up the command.
+     * @return The prepared command.
+     * 
+     * @generated not
+     */
+    protected Command getStartCreateRelationshipCommandRequiredDelegationConnector(CreateRelationshipRequest req) {
+        EObject sourceEObject = req.getSource();
+        if (!(sourceEObject instanceof OperationRequiredRole)) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        OperationRequiredRole source = (OperationRequiredRole) sourceEObject;
+        ComposedStructure container = (ComposedStructure) getRelationshipContainer(source,
+                CompositionPackage.eINSTANCE.getComposedStructure(), req.getElementType());
+        if (container == null) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        req.setParameter("CHILD_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
+        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                .canCreateRequiredDelegationConnector_4005(container, source, null)) {
+            return UnexecutableCommand.INSTANCE;
+        }
+        return new Command() {
+        };
+    }
 
-	/**
-	 * Gets the complete create relationship command.
-	 *
-	 * @param req the req
-	 * @return the complete create relationship command
-	 * @generated
-	 */
-	protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
-				.getElementType()) {
-			return null;
-		}
-		if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req
-				.getElementType()) {
-			return getGEFWrapper(new RequiredDelegationConnectorCreateCommand(
-					req, req.getSource(), req.getTarget()));
-		}
-		return null;
-	}
+    /**
+     * Gets the complete create relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the complete create relationship command
+     * @generated
+     */
+    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
+            return null;
+        }
+        if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req.getElementType()) {
+            return getGEFWrapper(new RequiredDelegationConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        return null;
+    }
 
-	/**
-	 * Returns command to reorient EClass based link. New link target or source should be the domain
-	 * model element associated with this node.
-	 *
-	 * @param req the req
-	 * @return the reorient relationship command
-	 * @generated
-	 */
-	@Override
-    protected Command getReorientRelationshipCommand(
-			ReorientRelationshipRequest req) {
-		switch (getVisualID(req)) {
-		case AssemblyConnectorEditPart.VISUAL_ID:
-			return getGEFWrapper(new AssemblyConnectorReorientCommand(req));
-		case RequiredDelegationConnectorEditPart.VISUAL_ID:
-			return getGEFWrapper(new RequiredDelegationConnectorReorientCommand(
-					req));
-		}
-		return super.getReorientRelationshipCommand(req);
-	}
+    /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
+     * @param req
+     *            the req
+     * @return the reorient relationship command
+     * @generated
+     */
+    @Override
+    protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
+        switch (getVisualID(req)) {
+        case AssemblyConnectorEditPart.VISUAL_ID:
+            return getGEFWrapper(new AssemblyConnectorReorientCommand(req));
+        case RequiredDelegationConnectorEditPart.VISUAL_ID:
+            return getGEFWrapper(new RequiredDelegationConnectorReorientCommand(req));
+        }
+        return super.getReorientRelationshipCommand(req);
+    }
 
 }

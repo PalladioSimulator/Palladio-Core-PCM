@@ -11,31 +11,30 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 
 /**
  * The Class RequiredDelegationConnectorItemSemanticEditPolicy.
- *
+ * 
  * @generated
  */
-public class RequiredDelegationConnectorItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class RequiredDelegationConnectorItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * Instantiates a new required delegation connector item semantic edit policy.
-	 *
-	 * @generated
-	 */
-	public RequiredDelegationConnectorItemSemanticEditPolicy() {
-		super(
-				PalladioComponentModelElementTypes.RequiredDelegationConnector_4005);
-	}
+    /**
+     * Instantiates a new required delegation connector item semantic edit policy.
+     * 
+     * @generated
+     */
+    public RequiredDelegationConnectorItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.RequiredDelegationConnector_4005);
+    }
 
-	/**
-	 * Gets the destroy element command.
-	 *
-	 * @param req the req
-	 * @return the destroy element command
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		return getGEFWrapper(new DestroyElementCommand(req));
-	}
+    /**
+     * Gets the destroy element command.
+     * 
+     * @param req
+     *            the req
+     * @return the destroy element command
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        return getGEFWrapper(new DestroyElementCommand(req));
+    }
 
 }

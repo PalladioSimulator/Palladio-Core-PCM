@@ -6,6 +6,5 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers;
 /**
  * @generated
  */
-public class EventChannelSinkConnectorEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class EventChannelSinkConnectorEditHelper extends PalladioComponentModelBaseEditHelper {
 }

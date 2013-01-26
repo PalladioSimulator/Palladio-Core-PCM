@@ -12,35 +12,37 @@ import org.eclipse.swt.graphics.Image;
 
 /**
  * The Class PalladioComponentModelIconProvider.
- *
+ * 
  * @generated
  */
-public class PalladioComponentModelIconProvider extends AbstractProvider
-		implements IIconProvider {
+public class PalladioComponentModelIconProvider extends AbstractProvider implements IIconProvider {
 
-	/**
-	 * Gets the icon.
-	 *
-	 * @param hint the hint
-	 * @param flags the flags
-	 * @return the icon
-	 * @generated
-	 */
-	public Image getIcon(IAdaptable hint, int flags) {
-		return PalladioComponentModelElementTypes.getImage(hint);
-	}
+    /**
+     * Gets the icon.
+     * 
+     * @param hint
+     *            the hint
+     * @param flags
+     *            the flags
+     * @return the icon
+     * @generated
+     */
+    public Image getIcon(IAdaptable hint, int flags) {
+        return PalladioComponentModelElementTypes.getImage(hint);
+    }
 
-	/**
-	 * Provides.
-	 *
-	 * @param operation the operation
-	 * @return true, if successful
-	 * @generated
-	 */
-	public boolean provides(IOperation operation) {
-		if (operation instanceof GetIconOperation) {
-			return ((GetIconOperation) operation).execute(this) != null;
-		}
-		return false;
-	}
+    /**
+     * Provides.
+     * 
+     * @param operation
+     *            the operation
+     * @return true, if successful
+     * @generated
+     */
+    public boolean provides(IOperation operation) {
+        if (operation instanceof GetIconOperation) {
+            return ((GetIconOperation) operation).execute(this) != null;
+        }
+        return false;
+    }
 }

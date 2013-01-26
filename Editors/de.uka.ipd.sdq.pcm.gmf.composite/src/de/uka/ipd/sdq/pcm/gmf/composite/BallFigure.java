@@ -18,16 +18,22 @@ public class BallFigure extends AbstractBorderFigure {
 
     /**
      * Instantiates a new ball figure.
-     *
-     * @param logicalSize the logical size
-     * @param posType position type of the figure
+     * 
+     * @param logicalSize
+     *            the logical size
+     * @param posType
+     *            position type of the figure
      */
     public BallFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics
+     * )
      */
     @Override
     protected void paintFigure(final Graphics graphics) {
@@ -77,9 +83,9 @@ public class BallFigure extends AbstractBorderFigure {
 
     /**
      * Gets the ball bounds.
-     *
+     * 
      * @return the rectangle surrounding the ( ) part of the figure relative to the position of the
-     * figure
+     *         figure
      */
     private Rectangle getBallBounds() {
         final int side = (this.getBorderItemLocator() == null ? PositionConstants.WEST : this.getBorderItemLocator()
@@ -117,14 +123,17 @@ public class BallFigure extends AbstractBorderFigure {
 
         /**
          * Instantiates a new ball anchor.
-         *
-         * @param owner the owner
+         * 
+         * @param owner
+         *            the owner
          */
         public BallAnchor(final IFigure owner) {
             super(owner);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
          */
         @Override
@@ -135,8 +144,9 @@ public class BallFigure extends AbstractBorderFigure {
 
         /**
          * Gets the anchor point.
-         *
-         * @param reference the reference
+         * 
+         * @param reference
+         *            the reference
          * @return the anchor point
          */
         private Point getAnchorPoint(final Point reference) {
@@ -169,7 +179,9 @@ public class BallFigure extends AbstractBorderFigure {
 
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
      */
     @Override
@@ -177,7 +189,9 @@ public class BallFigure extends AbstractBorderFigure {
         return new BallAnchor(this);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
      */
     @Override

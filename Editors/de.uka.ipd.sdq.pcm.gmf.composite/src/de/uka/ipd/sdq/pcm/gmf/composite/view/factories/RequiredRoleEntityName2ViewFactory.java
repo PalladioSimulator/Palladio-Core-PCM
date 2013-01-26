@@ -17,20 +17,26 @@ import org.eclipse.gmf.runtime.notation.View;
 
 /**
  * A factory for creating RequiredRoleEntityName2View objects.
- *
+ * 
  * @generated
  */
 public class RequiredRoleEntityName2ViewFactory extends AbstractLabelViewFactory {
 
     /**
      * Creates a new RequiredRoleEntityName2View object.
-     *
-     * @param semanticAdapter the semantic adapter
-     * @param containerView the container view
-     * @param semanticHint the semantic hint
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
+     * 
+     * @param semanticAdapter
+     *            the semantic adapter
+     * @param containerView
+     *            the container view
+     * @param semanticHint
+     *            the semantic hint
+     * @param index
+     *            the index
+     * @param persisted
+     *            the persisted
+     * @param preferencesHint
+     *            the preferences hint
      * @return the view
      * @generated
      */
@@ -47,8 +53,9 @@ public class RequiredRoleEntityName2ViewFactory extends AbstractLabelViewFactory
 
     /**
      * Creates a new RequiredRoleEntityName2View object.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      * @return the list
      * @generated
      */

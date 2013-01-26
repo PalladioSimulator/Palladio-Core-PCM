@@ -26,167 +26,153 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 /**
  * @generated
  */
-public class EventChannelSourceConnectorCreateCommand extends
-		EditElementCommand {
+public class EventChannelSourceConnectorCreateCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
-	private final EObject source;
+    /**
+     * @generated
+     */
+    private final EObject source;
 
-	/**
-	 * @generated
-	 */
-	private final EObject target;
+    /**
+     * @generated
+     */
+    private final EObject target;
 
-	/**
-	 * @generated
-	 */
-	private final ComposedStructure container;
+    /**
+     * @generated
+     */
+    private final ComposedStructure container;
 
-	/**
-	 * @generated
-	 */
-	public EventChannelSourceConnectorCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
-		super(request.getLabel(), null, request);
-		this.source = source;
-		this.target = target;
-		container = deduceContainer(source, target);
-	}
+    /**
+     * @generated
+     */
+    public EventChannelSourceConnectorCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
+        super(request.getLabel(), null, request);
+        this.source = source;
+        this.target = target;
+        container = deduceContainer(source, target);
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		if (source == null && target == null) {
-			return false;
-		}
-		if (source != null && false == source instanceof SourceRole) {
-			return false;
-		}
-		if (target != null && false == target instanceof EventChannel) {
-			return false;
-		}
-		if (getSource() == null) {
-			return true; // link creation is in progress; source is not defined yet
-		}
-		// target may be null here but it's possible to check constraint
-		if (getContainer() == null) {
-			return false;
-		}
-		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateEventChannelSourceConnector_4009(getContainer(),
-						getSource(), getTarget());
-	}
+    /**
+     * @generated
+     */
+    public boolean canExecute() {
+        if (source == null && target == null) {
+            return false;
+        }
+        if (source != null && false == source instanceof SourceRole) {
+            return false;
+        }
+        if (target != null && false == target instanceof EventChannel) {
+            return false;
+        }
+        if (getSource() == null) {
+            return true; // link creation is in progress; source is not defined yet
+        }
+        // target may be null here but it's possible to check constraint
+        if (getContainer() == null) {
+            return false;
+        }
+        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                .canCreateEventChannelSourceConnector_4009(getContainer(), getSource(), getTarget());
+    }
 
-	/**
-	 * @generated not
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in create link command"); //$NON-NLS-1$
-		}
+    /**
+     * @generated not
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        if (!canExecute()) {
+            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+        }
 
-		EventChannelSourceConnector newElement = CompositionFactory.eINSTANCE
-				.createEventChannelSourceConnector();
-		getContainer().getConnectors__ComposedStructure().add(newElement);
-		newElement.setSourceRole__EventChannelSourceRole(getSource());
-		newElement.setEventChannel__EventChannelSourceConnector(getTarget());
+        EventChannelSourceConnector newElement = CompositionFactory.eINSTANCE.createEventChannelSourceConnector();
+        getContainer().getConnectors__ComposedStructure().add(newElement);
+        newElement.setSourceRole__EventChannelSourceRole(getSource());
+        newElement.setEventChannel__EventChannelSourceConnector(getTarget());
 
-		// set the assembly contexts.
-		CreateRelationshipRequest req = (CreateRelationshipRequest) this
-				.getRequest();
-		newElement
-				.setAssemblyContext__EventChannelSourceConnector((AssemblyContext) req
-						.getParameter("SOURCE_CONTEXT"));
+        // set the assembly contexts.
+        CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
+        newElement
+                .setAssemblyContext__EventChannelSourceConnector((AssemblyContext) req.getParameter("SOURCE_CONTEXT"));
 
-		doConfigure(newElement, monitor, info);
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
+        doConfigure(newElement, monitor, info);
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
 
-	}
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void doConfigure(EventChannelSourceConnector newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
-		configureRequest.addParameters(getRequest().getParameters());
-		configureRequest.setParameter(CreateRelationshipRequest.SOURCE,
-				getSource());
-		configureRequest.setParameter(CreateRelationshipRequest.TARGET,
-				getTarget());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
-		if (configureCommand != null && configureCommand.canExecute()) {
-			configureCommand.execute(monitor, info);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void doConfigure(EventChannelSourceConnector newElement, IProgressMonitor monitor, IAdaptable info)
+            throws ExecutionException {
+        IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+        ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+        configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+        configureRequest.addParameters(getRequest().getParameters());
+        configureRequest.setParameter(CreateRelationshipRequest.SOURCE, getSource());
+        configureRequest.setParameter(CreateRelationshipRequest.TARGET, getTarget());
+        ICommand configureCommand = elementType.getEditCommand(configureRequest);
+        if (configureCommand != null && configureCommand.canExecute()) {
+            configureCommand.execute(monitor, info);
+        }
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void setElementToEdit(EObject element) {
-		throw new UnsupportedOperationException();
-	}
+    /**
+     * @generated
+     */
+    protected void setElementToEdit(EObject element) {
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * @generated
-	 */
-	protected SourceRole getSource() {
-		return (SourceRole) source;
-	}
+    /**
+     * @generated
+     */
+    protected SourceRole getSource() {
+        return (SourceRole) source;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected EventChannel getTarget() {
-		return (EventChannel) target;
-	}
+    /**
+     * @generated
+     */
+    protected EventChannel getTarget() {
+        return (EventChannel) target;
+    }
 
-	/**
-	 * @generated
-	 */
-	public ComposedStructure getContainer() {
-		return container;
-	}
+    /**
+     * @generated
+     */
+    public ComposedStructure getContainer() {
+        return container;
+    }
 
-	/**
-	 * Default approach is to traverse ancestors of the source to find instance of container.
-	 * Modify with appropriate logic.
-	 * 
-	 * Modified to used the target element as starting point, since this is the EventChannel contained in the composed structure
-	 * 
-	 * @generated not
-	 */
-	private static ComposedStructure deduceContainer(EObject source,
-			EObject target) {
-		// Find container element for the new link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = target; element != null; element = element
-				.eContainer()) {
-			if (element instanceof ComposedStructure) {
-				return (ComposedStructure) element;
-			}
-		}
-		for (EObject element = source; element != null; element = element
-				.eContainer()) {
-			if (element instanceof ComposedStructure) {
-				return (ComposedStructure) element;
-			}
-		}
-		return null;
-	}
+    /**
+     * Default approach is to traverse ancestors of the source to find instance of container. Modify
+     * with appropriate logic.
+     * 
+     * Modified to used the target element as starting point, since this is the EventChannel
+     * contained in the composed structure
+     *
+     * @param source the source
+     * @param target the target
+     * @return the composed structure
+     * @generated not
+     */
+    private static ComposedStructure deduceContainer(EObject source, EObject target) {
+        // Find container element for the new link.
+        // Climb up by containment hierarchy starting from the source
+        // and return the first element that is instance of the container class.
+        for (EObject element = target; element != null; element = element.eContainer()) {
+            if (element instanceof ComposedStructure) {
+                return (ComposedStructure) element;
+            }
+        }
+        for (EObject element = source; element != null; element = element.eContainer()) {
+            if (element instanceof ComposedStructure) {
+                return (ComposedStructure) element;
+            }
+        }
+        return null;
+    }
 
 }

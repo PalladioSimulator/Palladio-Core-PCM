@@ -34,172 +34,167 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 
 /**
  * The Class PalladioComponentModelNavigatorActionProvider.
- *
+ * 
  * @generated
  */
-public class PalladioComponentModelNavigatorActionProvider extends
-		CommonActionProvider {
+public class PalladioComponentModelNavigatorActionProvider extends CommonActionProvider {
 
-	/** The my contribute. @generated */
-	private boolean myContribute;
+    /** The my contribute. @generated */
+    private boolean myContribute;
 
-	/** The my open diagram action. @generated */
-	private OpenDiagramAction myOpenDiagramAction;
+    /** The my open diagram action. @generated */
+    private OpenDiagramAction myOpenDiagramAction;
 
-	/**
-	 * Inits the.
-	 *
-	 * @param aSite the a site
-	 * @generated
-	 */
-	public void init(ICommonActionExtensionSite aSite) {
-		super.init(aSite);
-		if (aSite.getViewSite() instanceof ICommonViewerWorkbenchSite) {
-			myContribute = true;
-			makeActions((ICommonViewerWorkbenchSite) aSite.getViewSite());
-		} else {
-			myContribute = false;
-		}
-	}
+    /**
+     * Inits the.
+     * 
+     * @param aSite
+     *            the a site
+     * @generated
+     */
+    public void init(ICommonActionExtensionSite aSite) {
+        super.init(aSite);
+        if (aSite.getViewSite() instanceof ICommonViewerWorkbenchSite) {
+            myContribute = true;
+            makeActions((ICommonViewerWorkbenchSite) aSite.getViewSite());
+        } else {
+            myContribute = false;
+        }
+    }
 
-	/**
-	 * Make actions.
-	 *
-	 * @param viewerSite the viewer site
-	 * @generated
-	 */
-	private void makeActions(ICommonViewerWorkbenchSite viewerSite) {
-		myOpenDiagramAction = new OpenDiagramAction(viewerSite);
-	}
+    /**
+     * Make actions.
+     * 
+     * @param viewerSite
+     *            the viewer site
+     * @generated
+     */
+    private void makeActions(ICommonViewerWorkbenchSite viewerSite) {
+        myOpenDiagramAction = new OpenDiagramAction(viewerSite);
+    }
 
-	/**
-	 * Fill action bars.
-	 *
-	 * @param actionBars the action bars
-	 * @generated
-	 */
-	public void fillActionBars(IActionBars actionBars) {
-		if (!myContribute) {
-			return;
-		}
-		IStructuredSelection selection = (IStructuredSelection) getContext()
-				.getSelection();
-		myOpenDiagramAction.selectionChanged(selection);
-		if (myOpenDiagramAction.isEnabled()) {
-			actionBars.setGlobalActionHandler(ICommonActionConstants.OPEN,
-					myOpenDiagramAction);
-		}
-	}
+    /**
+     * Fill action bars.
+     * 
+     * @param actionBars
+     *            the action bars
+     * @generated
+     */
+    public void fillActionBars(IActionBars actionBars) {
+        if (!myContribute) {
+            return;
+        }
+        IStructuredSelection selection = (IStructuredSelection) getContext().getSelection();
+        myOpenDiagramAction.selectionChanged(selection);
+        if (myOpenDiagramAction.isEnabled()) {
+            actionBars.setGlobalActionHandler(ICommonActionConstants.OPEN, myOpenDiagramAction);
+        }
+    }
 
-	/**
-	 * Fill context menu.
-	 *
-	 * @param menu the menu
-	 * @generated
-	 */
-	public void fillContextMenu(IMenuManager menu) {
-	}
+    /**
+     * Fill context menu.
+     * 
+     * @param menu
+     *            the menu
+     * @generated
+     */
+    public void fillContextMenu(IMenuManager menu) {
+    }
 
-	/**
-	 * The Class OpenDiagramAction.
-	 *
-	 * @generated
-	 */
-	private class OpenDiagramAction extends Action {
+    /**
+     * The Class OpenDiagramAction.
+     * 
+     * @generated
+     */
+    private class OpenDiagramAction extends Action {
 
-		/** The my diagram. @generated */
-		private Diagram myDiagram;
+        /** The my diagram. @generated */
+        private Diagram myDiagram;
 
-		/** The my viewer site. @generated */
-		private ICommonViewerWorkbenchSite myViewerSite;
+        /** The my viewer site. @generated */
+        private ICommonViewerWorkbenchSite myViewerSite;
 
-		/**
-		 * Instantiates a new open diagram action.
-		 *
-		 * @param viewerSite the viewer site
-		 * @generated
-		 */
-		public OpenDiagramAction(ICommonViewerWorkbenchSite viewerSite) {
-			super(Messages.NavigatorActionProvider_OpenDiagramActionName);
-			myViewerSite = viewerSite;
-		}
+        /**
+         * Instantiates a new open diagram action.
+         * 
+         * @param viewerSite
+         *            the viewer site
+         * @generated
+         */
+        public OpenDiagramAction(ICommonViewerWorkbenchSite viewerSite) {
+            super(Messages.NavigatorActionProvider_OpenDiagramActionName);
+            myViewerSite = viewerSite;
+        }
 
-		/**
-		 * Selection changed.
-		 *
-		 * @param selection the selection
-		 * @generated
-		 */
-		public final void selectionChanged(IStructuredSelection selection) {
-			myDiagram = null;
-			if (selection.size() == 1) {
-				Object selectedElement = selection.getFirstElement();
-				if (selectedElement instanceof PalladioComponentModelNavigatorItem) {
-					selectedElement = ((PalladioComponentModelNavigatorItem) selectedElement)
-							.getView();
-				} else if (selectedElement instanceof IAdaptable) {
-					selectedElement = ((IAdaptable) selectedElement)
-							.getAdapter(View.class);
-				}
-				if (selectedElement instanceof Diagram) {
-					Diagram diagram = (Diagram) selectedElement;
-					if (ComposedProvidingRequiringEntityEditPart.MODEL_ID
-							.equals(PalladioComponentModelVisualIDRegistry
-									.getModelID(diagram))) {
-						myDiagram = diagram;
-					}
-				}
-			}
-			setEnabled(myDiagram != null);
-		}
+        /**
+         * Selection changed.
+         * 
+         * @param selection
+         *            the selection
+         * @generated
+         */
+        public final void selectionChanged(IStructuredSelection selection) {
+            myDiagram = null;
+            if (selection.size() == 1) {
+                Object selectedElement = selection.getFirstElement();
+                if (selectedElement instanceof PalladioComponentModelNavigatorItem) {
+                    selectedElement = ((PalladioComponentModelNavigatorItem) selectedElement).getView();
+                } else if (selectedElement instanceof IAdaptable) {
+                    selectedElement = ((IAdaptable) selectedElement).getAdapter(View.class);
+                }
+                if (selectedElement instanceof Diagram) {
+                    Diagram diagram = (Diagram) selectedElement;
+                    if (ComposedProvidingRequiringEntityEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry
+                            .getModelID(diagram))) {
+                        myDiagram = diagram;
+                    }
+                }
+            }
+            setEnabled(myDiagram != null);
+        }
 
-		/**
-		 * Run.
-		 *
-		 * @generated
-		 */
-		public void run() {
-			if (myDiagram == null || myDiagram.eResource() == null) {
-				return;
-			}
+        /**
+         * Run.
+         * 
+         * @generated
+         */
+        public void run() {
+            if (myDiagram == null || myDiagram.eResource() == null) {
+                return;
+            }
 
-			IEditorInput editorInput = getEditorInput();
-			IWorkbenchPage page = myViewerSite.getPage();
-			try {
-				page.openEditor(editorInput,
-						PalladioComponentModelDiagramEditor.ID);
-			} catch (PartInitException e) {
-				PalladioComponentModelComposedStructureDiagramEditorPlugin
-						.getInstance().logError(
-								"Exception while openning diagram", e); //$NON-NLS-1$
-			}
-		}
+            IEditorInput editorInput = getEditorInput();
+            IWorkbenchPage page = myViewerSite.getPage();
+            try {
+                page.openEditor(editorInput, PalladioComponentModelDiagramEditor.ID);
+            } catch (PartInitException e) {
+                PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                        "Exception while openning diagram", e); //$NON-NLS-1$
+            }
+        }
 
-		/**
-		 * Gets the editor input.
-		 *
-		 * @return the editor input
-		 * @generated
-		 */
-		private IEditorInput getEditorInput() {
-			for (Iterator it = myDiagram.eResource().getContents().iterator(); it
-					.hasNext();) {
-				EObject nextEObject = (EObject) it.next();
-				if (nextEObject == myDiagram) {
-					return new FileEditorInput(WorkspaceSynchronizer
-							.getFile(myDiagram.eResource()));
-				}
-				if (nextEObject instanceof Diagram) {
-					break;
-				}
-			}
-			URI uri = EcoreUtil.getURI(myDiagram);
-			String editorName = uri.lastSegment()
-					+ "#" + myDiagram.eResource().getContents().indexOf(myDiagram); //$NON-NLS-1$
-			IEditorInput editorInput = new URIEditorInput(uri, editorName);
-			return editorInput;
-		}
+        /**
+         * Gets the editor input.
+         * 
+         * @return the editor input
+         * @generated
+         */
+        private IEditorInput getEditorInput() {
+            for (Iterator it = myDiagram.eResource().getContents().iterator(); it.hasNext();) {
+                EObject nextEObject = (EObject) it.next();
+                if (nextEObject == myDiagram) {
+                    return new FileEditorInput(WorkspaceSynchronizer.getFile(myDiagram.eResource()));
+                }
+                if (nextEObject instanceof Diagram) {
+                    break;
+                }
+            }
+            URI uri = EcoreUtil.getURI(myDiagram);
+            String editorName = uri.lastSegment() + "#" + myDiagram.eResource().getContents().indexOf(myDiagram); //$NON-NLS-1$
+            IEditorInput editorInput = new URIEditorInput(uri, editorName);
+            return editorInput;
+        }
 
-	}
+    }
 
 }

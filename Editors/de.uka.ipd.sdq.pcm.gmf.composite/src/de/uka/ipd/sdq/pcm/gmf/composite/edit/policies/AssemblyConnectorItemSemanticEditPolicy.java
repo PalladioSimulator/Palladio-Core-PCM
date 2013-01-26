@@ -11,30 +11,30 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 
 /**
  * The Class AssemblyConnectorItemSemanticEditPolicy.
- *
+ * 
  * @generated
  */
-public class AssemblyConnectorItemSemanticEditPolicy extends
-		PalladioComponentModelBaseItemSemanticEditPolicy {
+public class AssemblyConnectorItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
-	/**
-	 * Instantiates a new assembly connector item semantic edit policy.
-	 *
-	 * @generated
-	 */
-	public AssemblyConnectorItemSemanticEditPolicy() {
-		super(PalladioComponentModelElementTypes.AssemblyConnector_4004);
-	}
+    /**
+     * Instantiates a new assembly connector item semantic edit policy.
+     * 
+     * @generated
+     */
+    public AssemblyConnectorItemSemanticEditPolicy() {
+        super(PalladioComponentModelElementTypes.AssemblyConnector_4004);
+    }
 
-	/**
-	 * Gets the destroy element command.
-	 *
-	 * @param req the req
-	 * @return the destroy element command
-	 * @generated
-	 */
-	protected Command getDestroyElementCommand(DestroyElementRequest req) {
-		return getGEFWrapper(new DestroyElementCommand(req));
-	}
+    /**
+     * Gets the destroy element command.
+     * 
+     * @param req
+     *            the req
+     * @return the destroy element command
+     * @generated
+     */
+    protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        return getGEFWrapper(new DestroyElementCommand(req));
+    }
 
 }

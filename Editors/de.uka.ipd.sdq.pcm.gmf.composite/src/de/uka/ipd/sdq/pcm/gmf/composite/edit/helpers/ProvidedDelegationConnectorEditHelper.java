@@ -13,31 +13,30 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * The Class ProvidedDelegationConnectorEditHelper.
- *
+ * 
  * @generated not
  */
-public class ProvidedDelegationConnectorEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class ProvidedDelegationConnectorEditHelper extends PalladioComponentModelBaseEditHelper {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getConfigureCommand(ConfigureRequest req) {
-		ProvidedDelegationConnector con = (ProvidedDelegationConnector) req
-				.getElementToConfigure();
-		String name = "ProvDelegation ";
-		name += con.getOuterProvidedRole_ProvidedDelegationConnector() == null ? ""
-				: con.getOuterProvidedRole_ProvidedDelegationConnector()
-						.getEntityName();
-		name += " -> ";
-		name += con.getInnerProvidedRole_ProvidedDelegationConnector() == null ? ""
-				: con.getInnerProvidedRole_ProvidedDelegationConnector()
-						.getEntityName();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org
+     * .eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getConfigureCommand(ConfigureRequest req) {
+        ProvidedDelegationConnector con = (ProvidedDelegationConnector) req.getElementToConfigure();
+        String name = "ProvDelegation ";
+        name += con.getOuterProvidedRole_ProvidedDelegationConnector() == null ? "" : con
+                .getOuterProvidedRole_ProvidedDelegationConnector().getEntityName();
+        name += " -> ";
+        name += con.getInnerProvidedRole_ProvidedDelegationConnector() == null ? "" : con
+                .getInnerProvidedRole_ProvidedDelegationConnector().getEntityName();
 
-		ICommand cmd2 = new SetValueCommand(new SetRequest(req
-				.getElementToConfigure(), EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), name));
-		return cmd2;
-	}
+        ICommand cmd2 = new SetValueCommand(new SetRequest(req.getElementToConfigure(),
+                EntityPackage.eINSTANCE.getNamedElement_EntityName(), name));
+        return cmd2;
+    }
 }

@@ -18,16 +18,22 @@ public class SocketFigure extends AbstractBorderFigure {
 
     /**
      * Instantiates a new socket figure.
-     *
-     * @param logicalSize the logical size
-     * @param posType position type of the figure
+     * 
+     * @param logicalSize
+     *            the logical size
+     * @param posType
+     *            position type of the figure
      */
     public SocketFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics
+     * )
      */
     @Override
     protected void paintFigure(final Graphics graphics) {
@@ -75,7 +81,7 @@ public class SocketFigure extends AbstractBorderFigure {
 
     /**
      * Gets the arc center.
-     *
+     * 
      * @return the center between the ( part of the figure relative to the position of the figure
      */
     private Point getArcCenter() {
@@ -109,14 +115,17 @@ public class SocketFigure extends AbstractBorderFigure {
 
         /**
          * Instantiates a new socket anchor.
-         *
-         * @param owner the owner
+         * 
+         * @param owner
+         *            the owner
          */
         public SocketAnchor(final IFigure owner) {
             super(owner);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see org.eclipse.draw2d.ConnectionAnchor#getLocation(org.eclipse.draw2d.geometry.Point)
          */
         @Override
@@ -127,7 +136,9 @@ public class SocketFigure extends AbstractBorderFigure {
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
      */
     @Override
@@ -135,7 +146,9 @@ public class SocketFigure extends AbstractBorderFigure {
         return new SocketAnchor(this);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
      */
     @Override

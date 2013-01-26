@@ -23,56 +23,53 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 // TODO: write javadoc and annotations
 /**
  * The Class OperationProvidedRoleEditHelper.
- *
+ * 
  * @generated NOT
  */
-public class OperationProvidedRoleEditHelper extends
-		PalladioComponentModelBaseEditHelper {
+public class OperationProvidedRoleEditHelper extends PalladioComponentModelBaseEditHelper {
 
-	/* (non-Javadoc)
-	 * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
-	 */
-	@Override
-	protected ICommand getConfigureCommand(ConfigureRequest request) {
-		OperationInterface resource = null;
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelper#getConfigureCommand(org
+     * .eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
+    @Override
+    protected ICommand getConfigureCommand(ConfigureRequest request) {
+        OperationInterface resource = null;
 
-		ArrayList<Object> filterList = new ArrayList<Object>();
-		filterList.add(Repository.class);
-		filterList.add(OperationInterface.class);
+        ArrayList<Object> filterList = new ArrayList<Object>();
+        filterList.add(Repository.class);
+        filterList.add(OperationInterface.class);
 
-		ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
-		PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(
-				PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell(),
-				filterList, additionalReferences, request
-						.getElementToConfigure().eResource().getResourceSet());
-		dialog.setProvidedService(OperationInterface.class);
-		dialog.open();
-		if (dialog.getResult() == null) {
+        ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
+        PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
+                .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request
+                .getElementToConfigure().eResource().getResourceSet());
+        dialog.setProvidedService(OperationInterface.class);
+        dialog.open();
+        if (dialog.getResult() == null) {
             return new CanceledCommand();
         }
-		if (!(dialog.getResult() instanceof Interface)) {
+        if (!(dialog.getResult() instanceof Interface)) {
             return new CanceledCommand();
         }
-		resource = (OperationInterface) dialog.getResult();
+        resource = (OperationInterface) dialog.getResult();
 
-		ICommand cmd = new SetValueCommand(
-				new SetRequest(
-						request.getElementToConfigure(),
-						RepositoryPackage.eINSTANCE
-								.getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(),
-						resource));
+        ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                RepositoryPackage.eINSTANCE.getOperationProvidedRole_ProvidedInterface__OperationProvidedRole(),
+                resource));
 
-		String name = "Provided_" + resource.getEntityName();
+        String name = "Provided_" + resource.getEntityName();
 
-		ICommand cmd2 = new SetValueCommand(new SetRequest(request
-				.getElementToConfigure(), EntityPackage.eINSTANCE
-				.getNamedElement_EntityName(), name));
+        ICommand cmd2 = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
+                EntityPackage.eINSTANCE.getNamedElement_EntityName(), name));
 
-		CompositeCommand cc = new CompositeCommand(
-				"Configure Provided Role Context");
-		cc.add(cmd);
-		cc.add(cmd2);
+        CompositeCommand cc = new CompositeCommand("Configure Provided Role Context");
+        cc.add(cmd);
+        cc.add(cmd2);
 
-		return cc;
-	}
+        return cc;
+    }
 }

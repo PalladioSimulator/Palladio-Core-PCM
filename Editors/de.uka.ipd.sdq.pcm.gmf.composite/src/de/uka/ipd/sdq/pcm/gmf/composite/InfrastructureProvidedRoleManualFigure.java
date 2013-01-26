@@ -17,16 +17,22 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
 
     /**
      * Instantiates a new infrastructure provided role manual figure.
-     *
-     * @param logicalSize the logical size
-     * @param posType position type of the figure
+     * 
+     * @param logicalSize
+     *            the logical size
+     * @param posType
+     *            position type of the figure
      */
     public InfrastructureProvidedRoleManualFigure(final int logicalSize, final POSITION_TYPE posType) {
         super(logicalSize, posType);
     }
 
-    /* (non-Javadoc)
-     * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics)
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#paintFigure(org.eclipse.draw2d.Graphics
+     * )
      */
     @Override
     protected void paintFigure(final Graphics graphics) {
@@ -75,9 +81,9 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
 
     /**
      * Gets the target connection figure bounds.
-     *
+     * 
      * @return the rectangle surrounding the [] part of the figure relative to the position of the
-     * figure
+     *         figure
      */
     private Rectangle getTargetConnectionFigureBounds() {
         final int side = (this.getBorderItemLocator() == null ? PositionConstants.WEST : this.getBorderItemLocator()
@@ -109,22 +115,26 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
 
     /**
      * Anchor providing a connection point to the rectangular connection part of.
-     *
+     * 
      * {@link InfrastructureProvidedRoleManualFigure}.
+     * 
      * @author groenda
      */
     private class RectangleAnchor extends ChopboxAnchor {
-        
+
         /**
          * Instantiates a new rectangle anchor.
-         *
-         * @param owner the owner
+         * 
+         * @param owner
+         *            the owner
          */
         public RectangleAnchor(final IFigure owner) {
             super(owner);
         }
 
-        /* (non-Javadoc)
+        /*
+         * (non-Javadoc)
+         * 
          * @see org.eclipse.draw2d.ChopboxAnchor#getBox()
          */
         @Override
@@ -133,7 +143,9 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
         }
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorInternal()
      */
     @Override
@@ -141,7 +153,9 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
         return new RectangleAnchor(this);
     }
 
-    /* (non-Javadoc)
+    /*
+     * (non-Javadoc)
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure#createAnchorExternal()
      */
     @Override

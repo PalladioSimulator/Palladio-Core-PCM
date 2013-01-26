@@ -14,72 +14,69 @@ import org.eclipse.ui.IWorkbenchPart;
 
 /**
  * The Class DiagramEditorContextMenuProvider.
- *
+ * 
  * @generated
  */
-public class DiagramEditorContextMenuProvider extends
-		DiagramContextMenuProvider {
+public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider {
 
-	/** The part. @generated */
-	private IWorkbenchPart part;
+    /** The part. @generated */
+    private IWorkbenchPart part;
 
-	/** The delete action. @generated */
-	private DeleteElementAction deleteAction;
+    /** The delete action. @generated */
+    private DeleteElementAction deleteAction;
 
-	/**
-	 * Instantiates a new diagram editor context menu provider.
-	 *
-	 * @param part the part
-	 * @param viewer the viewer
-	 * @generated
-	 */
-	public DiagramEditorContextMenuProvider(IWorkbenchPart part,
-			EditPartViewer viewer) {
-		super(part, viewer);
-		this.part = part;
-		deleteAction = new DeleteElementAction(part);
-		deleteAction.init();
-	}
+    /**
+     * Instantiates a new diagram editor context menu provider.
+     * 
+     * @param part
+     *            the part
+     * @param viewer
+     *            the viewer
+     * @generated
+     */
+    public DiagramEditorContextMenuProvider(IWorkbenchPart part, EditPartViewer viewer) {
+        super(part, viewer);
+        this.part = part;
+        deleteAction = new DeleteElementAction(part);
+        deleteAction.init();
+    }
 
-	/**
-	 * Dispose.
-	 *
-	 * @generated
-	 */
-	public void dispose() {
-		if (deleteAction != null) {
-			deleteAction.dispose();
-			deleteAction = null;
-		}
-		super.dispose();
-	}
+    /**
+     * Dispose.
+     * 
+     * @generated
+     */
+    public void dispose() {
+        if (deleteAction != null) {
+            deleteAction.dispose();
+            deleteAction = null;
+        }
+        super.dispose();
+    }
 
-	/**
-	 * Builds the context menu.
-	 *
-	 * @param menu the menu
-	 * @generated
-	 */
-	public void buildContextMenu(final IMenuManager menu) {
-		getViewer().flush();
-		try {
-			TransactionUtil.getEditingDomain(
-					(EObject) getViewer().getContents().getModel())
-					.runExclusive(new Runnable() {
+    /**
+     * Builds the context menu.
+     * 
+     * @param menu
+     *            the menu
+     * @generated
+     */
+    public void buildContextMenu(final IMenuManager menu) {
+        getViewer().flush();
+        try {
+            TransactionUtil.getEditingDomain((EObject) getViewer().getContents().getModel()).runExclusive(
+                    new Runnable() {
 
-						public void run() {
-							ContributionItemService
-									.getInstance()
-									.contributeToPopupMenu(
-											DiagramEditorContextMenuProvider.this,
-											part);
-							menu.remove(ActionIds.ACTION_DELETE_FROM_MODEL);
-							menu.appendToGroup("editGroup", deleteAction);
-						}
-					});
-		} catch (Exception e) {
-			PalladioComponentModelComposedStructureDiagramEditorPlugin
-					.getInstance().logError("Error building context menu", e);
-		}
-	}
+                        public void run() {
+                            ContributionItemService.getInstance().contributeToPopupMenu(
+                                    DiagramEditorContextMenuProvider.this, part);
+                            menu.remove(ActionIds.ACTION_DELETE_FROM_MODEL);
+                            menu.appendToGroup("editGroup", deleteAction);
+                        }
+                    });
+        } catch (Exception e) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Error building context menu", e);
+        }
+    }
 }

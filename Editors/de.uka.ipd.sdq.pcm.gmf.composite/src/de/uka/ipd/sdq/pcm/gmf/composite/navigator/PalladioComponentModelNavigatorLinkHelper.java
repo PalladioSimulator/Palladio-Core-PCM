@@ -31,117 +31,109 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
 
 /**
  * The Class PalladioComponentModelNavigatorLinkHelper.
- *
+ * 
  * @generated
  */
 public class PalladioComponentModelNavigatorLinkHelper implements ILinkHelper {
 
-	/**
-	 * Gets the editor input.
-	 *
-	 * @param diagram the diagram
-	 * @return the editor input
-	 * @generated
-	 */
-	private static IEditorInput getEditorInput(Diagram diagram) {
-		Resource diagramResource = diagram.eResource();
-		for (Iterator it = diagramResource.getContents().iterator(); it
-				.hasNext();) {
-			EObject nextEObject = (EObject) it.next();
-			if (nextEObject == diagram) {
-				return new FileEditorInput(WorkspaceSynchronizer
-						.getFile(diagramResource));
-			}
-			if (nextEObject instanceof Diagram) {
-				break;
-			}
-		}
-		URI uri = EcoreUtil.getURI(diagram);
-		String editorName = uri.lastSegment()
-				+ "#" + diagram.eResource().getContents().indexOf(diagram); //$NON-NLS-1$
-		IEditorInput editorInput = new URIEditorInput(uri, editorName);
-		return editorInput;
-	}
+    /**
+     * Gets the editor input.
+     * 
+     * @param diagram
+     *            the diagram
+     * @return the editor input
+     * @generated
+     */
+    private static IEditorInput getEditorInput(Diagram diagram) {
+        Resource diagramResource = diagram.eResource();
+        for (Iterator it = diagramResource.getContents().iterator(); it.hasNext();) {
+            EObject nextEObject = (EObject) it.next();
+            if (nextEObject == diagram) {
+                return new FileEditorInput(WorkspaceSynchronizer.getFile(diagramResource));
+            }
+            if (nextEObject instanceof Diagram) {
+                break;
+            }
+        }
+        URI uri = EcoreUtil.getURI(diagram);
+        String editorName = uri.lastSegment() + "#" + diagram.eResource().getContents().indexOf(diagram); //$NON-NLS-1$
+        IEditorInput editorInput = new URIEditorInput(uri, editorName);
+        return editorInput;
+    }
 
-	/**
-	 * Find selection.
-	 *
-	 * @param anInput the an input
-	 * @return the i structured selection
-	 * @generated
-	 */
-	public IStructuredSelection findSelection(IEditorInput anInput) {
-		IDiagramDocument document = PalladioComponentModelComposedStructureDiagramEditorPlugin
-				.getInstance().getDocumentProvider()
-				.getDiagramDocument(anInput);
-		if (document == null) {
-			return StructuredSelection.EMPTY;
-		}
-		Diagram diagram = document.getDiagram();
-		IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
-		if (file != null) {
-			PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(
-					diagram, file, false);
-			return new StructuredSelection(item);
-		}
-		return StructuredSelection.EMPTY;
-	}
+    /**
+     * Find selection.
+     * 
+     * @param anInput
+     *            the an input
+     * @return the i structured selection
+     * @generated
+     */
+    public IStructuredSelection findSelection(IEditorInput anInput) {
+        IDiagramDocument document = PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance()
+                .getDocumentProvider().getDiagramDocument(anInput);
+        if (document == null) {
+            return StructuredSelection.EMPTY;
+        }
+        Diagram diagram = document.getDiagram();
+        IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
+        if (file != null) {
+            PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(diagram, file, false);
+            return new StructuredSelection(item);
+        }
+        return StructuredSelection.EMPTY;
+    }
 
-	/**
-	 * Activate editor.
-	 *
-	 * @param aPage the a page
-	 * @param aSelection the a selection
-	 * @generated
-	 */
-	public void activateEditor(IWorkbenchPage aPage,
-			IStructuredSelection aSelection) {
-		if (aSelection == null || aSelection.isEmpty()) {
-			return;
-		}
-		if (false == aSelection.getFirstElement() instanceof PalladioComponentModelAbstractNavigatorItem) {
-			return;
-		}
+    /**
+     * Activate editor.
+     * 
+     * @param aPage
+     *            the a page
+     * @param aSelection
+     *            the a selection
+     * @generated
+     */
+    public void activateEditor(IWorkbenchPage aPage, IStructuredSelection aSelection) {
+        if (aSelection == null || aSelection.isEmpty()) {
+            return;
+        }
+        if (false == aSelection.getFirstElement() instanceof PalladioComponentModelAbstractNavigatorItem) {
+            return;
+        }
 
-		PalladioComponentModelAbstractNavigatorItem abstractNavigatorItem = (PalladioComponentModelAbstractNavigatorItem) aSelection
-				.getFirstElement();
-		View navigatorView = null;
-		if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorItem) {
-			navigatorView = ((PalladioComponentModelNavigatorItem) abstractNavigatorItem)
-					.getView();
-		} else if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorGroup) {
-			PalladioComponentModelNavigatorGroup navigatorGroup = (PalladioComponentModelNavigatorGroup) abstractNavigatorItem;
-			if (navigatorGroup.getParent() instanceof PalladioComponentModelNavigatorItem) {
-				navigatorView = ((PalladioComponentModelNavigatorItem) navigatorGroup
-						.getParent()).getView();
-			}
-		}
-		if (navigatorView == null) {
-			return;
-		}
-		IEditorInput editorInput = getEditorInput(navigatorView.getDiagram());
-		IEditorPart editor = aPage.findEditor(editorInput);
-		if (editor == null) {
-			return;
-		}
-		aPage.bringToTop(editor);
-		if (editor instanceof DiagramEditor) {
-			DiagramEditor diagramEditor = (DiagramEditor) editor;
-			ResourceSet diagramEditorResourceSet = diagramEditor
-					.getEditingDomain().getResourceSet();
-			EObject selectedView = diagramEditorResourceSet.getEObject(
-					EcoreUtil.getURI(navigatorView), true);
-			if (selectedView == null) {
-				return;
-			}
-			GraphicalViewer graphicalViewer = (GraphicalViewer) diagramEditor
-					.getAdapter(GraphicalViewer.class);
-			EditPart selectedEditPart = (EditPart) graphicalViewer
-					.getEditPartRegistry().get(selectedView);
-			if (selectedEditPart != null) {
-				graphicalViewer.select(selectedEditPart);
-			}
-		}
-	}
+        PalladioComponentModelAbstractNavigatorItem abstractNavigatorItem = (PalladioComponentModelAbstractNavigatorItem) aSelection
+                .getFirstElement();
+        View navigatorView = null;
+        if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorItem) {
+            navigatorView = ((PalladioComponentModelNavigatorItem) abstractNavigatorItem).getView();
+        } else if (abstractNavigatorItem instanceof PalladioComponentModelNavigatorGroup) {
+            PalladioComponentModelNavigatorGroup navigatorGroup = (PalladioComponentModelNavigatorGroup) abstractNavigatorItem;
+            if (navigatorGroup.getParent() instanceof PalladioComponentModelNavigatorItem) {
+                navigatorView = ((PalladioComponentModelNavigatorItem) navigatorGroup.getParent()).getView();
+            }
+        }
+        if (navigatorView == null) {
+            return;
+        }
+        IEditorInput editorInput = getEditorInput(navigatorView.getDiagram());
+        IEditorPart editor = aPage.findEditor(editorInput);
+        if (editor == null) {
+            return;
+        }
+        aPage.bringToTop(editor);
+        if (editor instanceof DiagramEditor) {
+            DiagramEditor diagramEditor = (DiagramEditor) editor;
+            ResourceSet diagramEditorResourceSet = diagramEditor.getEditingDomain().getResourceSet();
+            EObject selectedView = diagramEditorResourceSet.getEObject(EcoreUtil.getURI(navigatorView), true);
+            if (selectedView == null) {
+                return;
+            }
+            GraphicalViewer graphicalViewer = (GraphicalViewer) diagramEditor.getAdapter(GraphicalViewer.class);
+            EditPart selectedEditPart = (EditPart) graphicalViewer.getEditPartRegistry().get(selectedView);
+            if (selectedEditPart != null) {
+                graphicalViewer.select(selectedEditPart);
+            }
+        }
+    }
 
 }

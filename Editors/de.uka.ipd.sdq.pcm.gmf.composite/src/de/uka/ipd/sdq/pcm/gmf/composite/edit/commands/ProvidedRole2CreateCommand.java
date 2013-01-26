@@ -15,15 +15,16 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
  * The Class ProvidedRole2CreateCommand.
- *
+ * 
  * @generated
  */
 public class ProvidedRole2CreateCommand extends CreateElementCommand {
 
     /**
      * Instantiates a new provided role2 create command.
-     *
-     * @param req the req
+     * 
+     * @param req
+     *            the req
      * @generated
      */
     public ProvidedRole2CreateCommand(CreateElementRequest req) {
@@ -32,7 +33,7 @@ public class ProvidedRole2CreateCommand extends CreateElementCommand {
 
     /**
      * Gets the e class to edit.
-     *
+     * 
      * @return the e class to edit
      * @generated
      */
@@ -42,7 +43,7 @@ public class ProvidedRole2CreateCommand extends CreateElementCommand {
 
     /**
      * Gets the element to edit.
-     *
+     * 
      * @return the element to edit
      * @generated
      */

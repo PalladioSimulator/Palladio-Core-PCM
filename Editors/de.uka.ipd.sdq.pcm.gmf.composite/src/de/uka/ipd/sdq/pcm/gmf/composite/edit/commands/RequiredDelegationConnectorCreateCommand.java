@@ -25,200 +25,194 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
  * The Class RequiredDelegationConnectorCreateCommand.
- *
+ * 
  * @generated
  */
-public class RequiredDelegationConnectorCreateCommand extends
-		EditElementCommand {
+public class RequiredDelegationConnectorCreateCommand extends EditElementCommand {
 
-	/** The source. @generated */
-	private final EObject source;
+    /** The source. @generated */
+    private final EObject source;
 
-	/** The target. @generated */
-	private final EObject target;
+    /** The target. @generated */
+    private final EObject target;
 
-	/** The container. @generated */
-	private final ComposedStructure container;
+    /** The container. @generated */
+    private final ComposedStructure container;
 
-	/**
-	 * Instantiates a new required delegation connector create command.
-	 *
-	 * @param request the request
-	 * @param source the source
-	 * @param target the target
-	 * @generated
-	 */
-	public RequiredDelegationConnectorCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
-		super(request.getLabel(), null, request);
-		this.source = source;
-		this.target = target;
-		container = deduceContainer(source, target);
-	}
+    /**
+     * Instantiates a new required delegation connector create command.
+     * 
+     * @param request
+     *            the request
+     * @param source
+     *            the source
+     * @param target
+     *            the target
+     * @generated
+     */
+    public RequiredDelegationConnectorCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
+        super(request.getLabel(), null, request);
+        this.source = source;
+        this.target = target;
+        container = deduceContainer(source, target);
+    }
 
-	/**
-	 * Can execute.
-	 *
-	 * @return true, if successful
-	 * @generated
-	 */
-	@Override
+    /**
+     * Can execute.
+     * 
+     * @return true, if successful
+     * @generated
+     */
+    @Override
     public boolean canExecute() {
-		if (source == null && target == null) {
-			return false;
-		}
-		if (source != null && false == source instanceof OperationRequiredRole) {
-			return false;
-		}
-		if (target != null && false == target instanceof OperationRequiredRole) {
-			return false;
-		}
-		if (getSource() == null) {
-			return true; // link creation is in progress; source is not defined yet
-		}
-		// target may be null here but it's possible to check constraint
-		if (getContainer() == null) {
-			return false;
-		}
-		return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-				.canCreateRequiredDelegationConnector_4005(getContainer(),
-						getSource(), getTarget());
-	}
+        if (source == null && target == null) {
+            return false;
+        }
+        if (source != null && false == source instanceof OperationRequiredRole) {
+            return false;
+        }
+        if (target != null && false == target instanceof OperationRequiredRole) {
+            return false;
+        }
+        if (getSource() == null) {
+            return true; // link creation is in progress; source is not defined yet
+        }
+        // target may be null here but it's possible to check constraint
+        if (getContainer() == null) {
+            return false;
+        }
+        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+                .canCreateRequiredDelegationConnector_4005(getContainer(), getSource(), getTarget());
+    }
 
-	/**
-	 * Create a new RequiredDelegationConnector.
-	 * 
-	 * This method has been adopted manually, to set the source assembly context in the required
-	 * delegation connector.
-	 *
-	 * @param monitor the monitor
-	 * @param info the info
-	 * @return the command result
-	 * @throws ExecutionException the execution exception
-	 * @generated not
-	 */
-	@Override
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		if (!canExecute()) {
-			throw new ExecutionException(
-					"Invalid arguments in create link command"); //$NON-NLS-1$
-		}
+    /**
+     * Create a new RequiredDelegationConnector.
+     * 
+     * This method has been adopted manually, to set the source assembly context in the required
+     * delegation connector.
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
+     * @generated not
+     */
+    @Override
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        if (!canExecute()) {
+            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+        }
 
-		RequiredDelegationConnector newElement = CompositionFactory.eINSTANCE
-				.createRequiredDelegationConnector();
-		getContainer().getConnectors__ComposedStructure().add(newElement);
-		newElement
-				.setInnerRequiredRole_RequiredDelegationConnector(getSource());
-		newElement
-				.setOuterRequiredRole_RequiredDelegationConnector(getTarget());
+        RequiredDelegationConnector newElement = CompositionFactory.eINSTANCE.createRequiredDelegationConnector();
+        getContainer().getConnectors__ComposedStructure().add(newElement);
+        newElement.setInnerRequiredRole_RequiredDelegationConnector(getSource());
+        newElement.setOuterRequiredRole_RequiredDelegationConnector(getTarget());
 
-		// get the assembly context out of the request
-		// it has been set in the OperationRequiredRoleItemSemanticEditPolicy previously
-		IEditCommandRequest request = getRequest();
-		AssemblyContext assemblyContext = (AssemblyContext) request
-				.getParameter("CHILD_CONTEXT");
-		newElement
-				.setAssemblyContext_RequiredDelegationConnector(assemblyContext);
+        // get the assembly context out of the request
+        // it has been set in the OperationRequiredRoleItemSemanticEditPolicy previously
+        IEditCommandRequest request = getRequest();
+        AssemblyContext assemblyContext = (AssemblyContext) request.getParameter("CHILD_CONTEXT");
+        newElement.setAssemblyContext_RequiredDelegationConnector(assemblyContext);
 
-		doConfigure(newElement, monitor, info);
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
+        doConfigure(newElement, monitor, info);
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
 
-	}
+    }
 
-	/**
-	 * Do configure.
-	 *
-	 * @param newElement the new element
-	 * @param monitor the monitor
-	 * @param info the info
-	 * @throws ExecutionException the execution exception
-	 * @generated
-	 */
-	protected void doConfigure(RequiredDelegationConnector newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
-		configureRequest.addParameters(getRequest().getParameters());
-		configureRequest.setParameter(CreateRelationshipRequest.SOURCE,
-				getSource());
-		configureRequest.setParameter(CreateRelationshipRequest.TARGET,
-				getTarget());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
-		if (configureCommand != null && configureCommand.canExecute()) {
-			configureCommand.execute(monitor, info);
-		}
-	}
+    /**
+     * Do configure.
+     * 
+     * @param newElement
+     *            the new element
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @throws ExecutionException
+     *             the execution exception
+     * @generated
+     */
+    protected void doConfigure(RequiredDelegationConnector newElement, IProgressMonitor monitor, IAdaptable info)
+            throws ExecutionException {
+        IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+        ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+        configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+        configureRequest.addParameters(getRequest().getParameters());
+        configureRequest.setParameter(CreateRelationshipRequest.SOURCE, getSource());
+        configureRequest.setParameter(CreateRelationshipRequest.TARGET, getTarget());
+        ICommand configureCommand = elementType.getEditCommand(configureRequest);
+        if (configureCommand != null && configureCommand.canExecute()) {
+            configureCommand.execute(monitor, info);
+        }
+    }
 
-	/**
-	 * Sets the element to edit.
-	 *
-	 * @param element the new element to edit
-	 * @generated
-	 */
-	@Override
+    /**
+     * Sets the element to edit.
+     * 
+     * @param element
+     *            the new element to edit
+     * @generated
+     */
+    @Override
     protected void setElementToEdit(EObject element) {
-		throw new UnsupportedOperationException();
-	}
+        throw new UnsupportedOperationException();
+    }
 
-	/**
-	 * Gets the source.
-	 *
-	 * @return the source
-	 * @generated
-	 */
-	protected OperationRequiredRole getSource() {
-		return (OperationRequiredRole) source;
-	}
+    /**
+     * Gets the source.
+     * 
+     * @return the source
+     * @generated
+     */
+    protected OperationRequiredRole getSource() {
+        return (OperationRequiredRole) source;
+    }
 
-	/**
-	 * Gets the target.
-	 *
-	 * @return the target
-	 * @generated
-	 */
-	protected OperationRequiredRole getTarget() {
-		return (OperationRequiredRole) target;
-	}
+    /**
+     * Gets the target.
+     * 
+     * @return the target
+     * @generated
+     */
+    protected OperationRequiredRole getTarget() {
+        return (OperationRequiredRole) target;
+    }
 
-	/**
-	 * Gets the container.
-	 *
-	 * @return the container
-	 * @generated
-	 */
-	public ComposedStructure getContainer() {
-		return container;
-	}
+    /**
+     * Gets the container.
+     * 
+     * @return the container
+     * @generated
+     */
+    public ComposedStructure getContainer() {
+        return container;
+    }
 
-	/**
-	 * Default approach is to traverse ancestors of the source to find instance of container. Modify
-	 * with appropriate logic.
-	 *
-	 * @param source the source
-	 * @param target the target
-	 * @return the composed structure
-	 * @generated not
-	 */
-	private static ComposedStructure deduceContainer(EObject source,
-			EObject target) {
-		// Find container element for the new link.
-		// Climb up by containment hierarchy starting from the source
-		// and return the first element that is instance of the container class.
-		for (EObject element = target; element != null; element = element
-				.eContainer()) {
-			if (element instanceof ComposedStructure) {
-				return (ComposedStructure) element;
-			}
-		}
-		return null;
-	}
+    /**
+     * Default approach is to traverse ancestors of the source to find instance of container. Modify
+     * with appropriate logic.
+     * 
+     * @param source
+     *            the source
+     * @param target
+     *            the target
+     * @return the composed structure
+     * @generated not
+     */
+    private static ComposedStructure deduceContainer(EObject source, EObject target) {
+        // Find container element for the new link.
+        // Climb up by containment hierarchy starting from the source
+        // and return the first element that is instance of the container class.
+        for (EObject element = target; element != null; element = element.eContainer()) {
+            if (element instanceof ComposedStructure) {
+                return (ComposedStructure) element;
+            }
+        }
+        return null;
+    }
 
 }

@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
 
 /**
  * The Class PalladioComponentModelStructuralFeatureParser.
- *
+ * 
  * @generated
  */
 public class PalladioComponentModelStructuralFeatureParser extends PalladioComponentModelAbstractParser {
@@ -36,8 +36,9 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Instantiates a new palladio component model structural feature parser.
-     *
-     * @param feature the feature
+     * 
+     * @param feature
+     *            the feature
      * @generated
      */
     public PalladioComponentModelStructuralFeatureParser(EStructuralFeature feature) {
@@ -46,7 +47,7 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Gets the view processor.
-     *
+     * 
      * @return the view processor
      * @generated
      */
@@ -57,7 +58,7 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Gets the edits the processor.
-     *
+     * 
      * @return the edits the processor
      * @generated
      */
@@ -68,8 +69,9 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Gets the domain element.
-     *
-     * @param element the element
+     * 
+     * @param element
+     *            the element
      * @return the domain element
      * @generated
      */
@@ -79,11 +81,15 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Gets the string by pattern.
-     *
-     * @param adapter the adapter
-     * @param flags the flags
-     * @param pattern the pattern
-     * @param processor the processor
+     * 
+     * @param adapter
+     *            the adapter
+     * @param flags
+     *            the flags
+     * @param pattern
+     *            the pattern
+     * @param processor
+     *            the processor
      * @return the string by pattern
      * @generated
      */
@@ -95,10 +101,13 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Gets the string by pattern.
-     *
-     * @param element the element
-     * @param feature the feature
-     * @param processor the processor
+     * 
+     * @param element
+     *            the element
+     * @param feature
+     *            the feature
+     * @param processor
+     *            the processor
      * @return the string by pattern
      * @generated
      */
@@ -110,8 +119,9 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Validate values.
-     *
-     * @param values the values
+     * 
+     * @param values
+     *            the values
      * @return the i parser edit status
      * @generated
      */
@@ -130,9 +140,11 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Gets the parses the command.
-     *
-     * @param adapter the adapter
-     * @param values the values
+     * 
+     * @param adapter
+     *            the adapter
+     * @param values
+     *            the values
      * @return the parses the command
      * @generated
      */
@@ -153,9 +165,11 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Checks if is affecting event.
-     *
-     * @param event the event
-     * @param flags the flags
+     * 
+     * @param event
+     *            the event
+     * @param flags
+     *            the flags
      * @return true, if is affecting event
      * @generated
      */
@@ -168,8 +182,9 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
 
     /**
      * Checks if is affecting feature.
-     *
-     * @param eventFeature the event feature
+     * 
+     * @param eventFeature
+     *            the event feature
      * @return true, if is affecting feature
      * @generated
      */

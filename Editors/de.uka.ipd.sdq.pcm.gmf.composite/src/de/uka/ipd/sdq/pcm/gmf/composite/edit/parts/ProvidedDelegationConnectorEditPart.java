@@ -17,96 +17,94 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ProvidedDelegationConnecto
 
 /**
  * The Class ProvidedDelegationConnectorEditPart.
- *
+ * 
  * @generated
  */
-public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart
-		implements ITreeBranchEditPart {
+public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-	/** The Constant VISUAL_ID. @generated */
-	public static final int VISUAL_ID = 4006;
+    /** The Constant VISUAL_ID. @generated */
+    public static final int VISUAL_ID = 4006;
 
-	/**
-	 * Instantiates a new provided delegation connector edit part.
-	 *
-	 * @param view the view
-	 * @generated
-	 */
-	public ProvidedDelegationConnectorEditPart(View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new provided delegation connector edit part.
+     * 
+     * @param view
+     *            the view
+     * @generated
+     */
+    public ProvidedDelegationConnectorEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * Creates the default edit policies.
-	 *
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
-				new ProvidedDelegationConnectorItemSemanticEditPolicy());
-	}
+    /**
+     * Creates the default edit policies.
+     * 
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ProvidedDelegationConnectorItemSemanticEditPolicy());
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model so you may safely remove
-	 * <i>generated</i> tag and modify it.
-	 *
-	 * @return the connection
-	 * @generated
-	 */
-	protected Connection createConnectionFigure() {
-		return new OperationProvidedDelegationConnectorFigure();
-	}
+    /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @return the connection
+     * @generated
+     */
+    protected Connection createConnectionFigure() {
+        return new OperationProvidedDelegationConnectorFigure();
+    }
 
-	/**
-	 * Gets the primary shape.
-	 *
-	 * @return the primary shape
-	 * @generated
-	 */
-	public OperationProvidedDelegationConnectorFigure getPrimaryShape() {
-		return (OperationProvidedDelegationConnectorFigure) getFigure();
-	}
+    /**
+     * Gets the primary shape.
+     * 
+     * @return the primary shape
+     * @generated
+     */
+    public OperationProvidedDelegationConnectorFigure getPrimaryShape() {
+        return (OperationProvidedDelegationConnectorFigure) getFigure();
+    }
 
-	/**
-	 * The Class OperationProvidedDelegationConnectorFigure.
-	 *
-	 * @generated
-	 */
-	public class OperationProvidedDelegationConnectorFigure extends
-			PolylineConnectionEx {
+    /**
+     * The Class OperationProvidedDelegationConnectorFigure.
+     * 
+     * @generated
+     */
+    public class OperationProvidedDelegationConnectorFigure extends PolylineConnectionEx {
 
-		/**
-		 * Instantiates a new operation provided delegation connector figure.
-		 *
-		 * @generated
-		 */
-		public OperationProvidedDelegationConnectorFigure() {
-			this.setLineWidth(1);
+        /**
+         * Instantiates a new operation provided delegation connector figure.
+         * 
+         * @generated
+         */
+        public OperationProvidedDelegationConnectorFigure() {
+            this.setLineWidth(1);
 
-			setTargetDecoration(createTargetDecoration());
-		}
+            setTargetDecoration(createTargetDecoration());
+        }
 
-		/**
-		 * Creates the target decoration.
-		 *
-		 * @return the rotatable decoration
-		 * @generated
-		 */
-		private RotatableDecoration createTargetDecoration() {
-			PolylineDecoration df = new PolylineDecoration();
-			df.setLineWidth(1);
-			PointList pl = new PointList();
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
-			pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
-			pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
-			df.setTemplate(pl);
-			df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
-			return df;
-		}
+        /**
+         * Creates the target decoration.
+         * 
+         * @return the rotatable decoration
+         * @generated
+         */
+        private RotatableDecoration createTargetDecoration() {
+            PolylineDecoration df = new PolylineDecoration();
+            df.setLineWidth(1);
+            PointList pl = new PointList();
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(-1));
+            pl.addPoint(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0));
+            pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
+            df.setTemplate(pl);
+            df.setScale(getMapMode().DPtoLP(7), getMapMode().DPtoLP(3));
+            return df;
+        }
 
-	}
+    }
 
 }
