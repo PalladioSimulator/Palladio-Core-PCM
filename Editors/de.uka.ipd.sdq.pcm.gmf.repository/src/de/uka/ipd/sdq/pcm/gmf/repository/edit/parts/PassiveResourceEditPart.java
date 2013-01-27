@@ -55,7 +55,6 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.dialogs.repository.OpenCapacityDialog;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PassiveResourceItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
@@ -238,8 +237,9 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements ITex
                 stoex = new PCMStoExPrettyPrintVisitor().prettyPrint(pr.getCapacity_PassiveResource().getExpression());
             }
             text = pr.getEntityName();
-            if (stoex == null)
+            if (stoex == null) {
                 stoex = "not set";
+            }
             text += " <Capacity: " + stoex + ">";
 
         }
@@ -374,7 +374,7 @@ public class PassiveResourceEditPart extends CompartmentEditPart implements ITex
     private void performDirectEdit(char initialCharacter) {
         if (getManager() instanceof TextDirectEditManager) {
             ((TextDirectEditManager) getManager()).show(initialCharacter);
-        } else // 
+        } else //
         if (getManager() instanceof TextDirectEditManager2) {
             ((TextDirectEditManager2) getManager()).show(initialCharacter);
         } else //

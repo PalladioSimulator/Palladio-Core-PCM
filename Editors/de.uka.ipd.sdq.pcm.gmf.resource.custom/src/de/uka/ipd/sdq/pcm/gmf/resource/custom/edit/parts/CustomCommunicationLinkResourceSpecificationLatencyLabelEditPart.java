@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.dialogs.resource.OpenLatencyDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationLatencyLabelEditPart;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part.
  */
@@ -31,6 +32,7 @@ public class CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart ex
         CommunicationLinkResourceSpecificationLatencyLabelEditPart {
 
     /**
+     * Instantiates a new custom communication link resource specification latency label edit part.
      * 
      * @param view
      *            a View
@@ -39,6 +41,12 @@ public class CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart ex
         super(view);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * CommunicationLinkResourceSpecificationLatencyLabelEditPart#createDefaultEditPolicies()
+     */
     @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
@@ -62,11 +70,23 @@ public class CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart ex
         installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenLatencyDialog());
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * CommunicationLinkResourceSpecificationLatencyLabelEditPart#getLabelIcon()
+     */
     @Override
     protected Image getLabelIcon() {
         return null;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * CommunicationLinkResourceSpecificationLatencyLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -80,6 +100,12 @@ public class CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart ex
         return text;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * CommunicationLinkResourceSpecificationLatencyLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
@@ -87,11 +113,24 @@ public class CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart ex
 
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * CommunicationLinkResourceSpecificationLatencyLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * CommunicationLinkResourceSpecificationLatencyLabelEditPart
+     * #handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

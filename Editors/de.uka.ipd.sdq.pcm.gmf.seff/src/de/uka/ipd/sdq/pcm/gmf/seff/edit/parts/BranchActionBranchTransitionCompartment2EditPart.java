@@ -17,19 +17,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.BranchActionBranchTransitionCom
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class BranchActionBranchTransitionCompartment2EditPart.
- *
  * @generated
  */
 public class BranchActionBranchTransitionCompartment2EditPart extends ShapeCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7011;
 
     /**
-     * Instantiates a new branch action branch transition compartment2 edit part.
-     *
-     * @param view the view
      * @generated
      */
     public BranchActionBranchTransitionCompartment2EditPart(View view) {
@@ -37,9 +34,6 @@ public class BranchActionBranchTransitionCompartment2EditPart extends ShapeCompa
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -47,9 +41,6 @@ public class BranchActionBranchTransitionCompartment2EditPart extends ShapeCompa
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -59,8 +50,6 @@ public class BranchActionBranchTransitionCompartment2EditPart extends ShapeCompa
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -74,9 +63,6 @@ public class BranchActionBranchTransitionCompartment2EditPart extends ShapeCompa
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

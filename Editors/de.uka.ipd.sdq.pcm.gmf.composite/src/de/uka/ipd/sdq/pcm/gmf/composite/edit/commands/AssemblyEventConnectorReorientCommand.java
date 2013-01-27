@@ -18,26 +18,26 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * The Class AssemblyEventConnectorReorientCommand.
- * 
  * @generated
  */
 public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
 
-    /** The reorient direction. @generated */
+    /**
+     * @generated
+     */
     private final int reorientDirection;
 
-    /** The old end. @generated */
+    /**
+     * @generated
+     */
     private final EObject oldEnd;
 
-    /** The new end. @generated */
+    /**
+     * @generated
+     */
     private final EObject newEnd;
 
     /**
-     * Instantiates a new assembly event connector reorient command.
-     * 
-     * @param request
-     *            the request
      * @generated
      */
     public AssemblyEventConnectorReorientCommand(ReorientRelationshipRequest request) {
@@ -48,9 +48,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -67,9 +64,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Can reorient source.
-     * 
-     * @return true, if successful
      * @generated
      */
     protected boolean canReorientSource() {
@@ -86,9 +80,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Can reorient target.
-     * 
-     * @return true, if successful
      * @generated
      */
     protected boolean canReorientTarget() {
@@ -105,15 +96,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -130,11 +112,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Reorient source.
-     * 
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult reorientSource() throws ExecutionException {
@@ -143,11 +120,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Reorient target.
-     * 
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult reorientTarget() throws ExecutionException {
@@ -156,9 +128,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the link.
-     * 
-     * @return the link
      * @generated
      */
     protected AssemblyEventConnector getLink() {
@@ -166,9 +135,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the old source.
-     * 
-     * @return the old source
      * @generated
      */
     protected SourceRole getOldSource() {
@@ -176,9 +142,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the new source.
-     * 
-     * @return the new source
      * @generated
      */
     protected SourceRole getNewSource() {
@@ -186,9 +149,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the old target.
-     * 
-     * @return the old target
      * @generated
      */
     protected SinkRole getOldTarget() {
@@ -196,9 +156,6 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the new target.
-     * 
-     * @return the new target
      * @generated
      */
     protected SinkRole getNewTarget() {

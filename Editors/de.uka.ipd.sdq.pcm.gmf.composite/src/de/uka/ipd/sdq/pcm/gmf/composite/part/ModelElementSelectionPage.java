@@ -21,23 +21,21 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
 /**
- * Wizard page that allows to select element from model.
- * 
  * @generated
  */
 public class ModelElementSelectionPage extends WizardPage {
 
-    /** The selected model element. @generated */
+    /**
+     * @generated
+     */
     protected EObject selectedModelElement;
 
-    /** The model viewer. @generated */
+    /**
+     * @generated
+     */
     private TreeViewer modelViewer;
 
     /**
-     * Instantiates a new model element selection page.
-     * 
-     * @param pageName
-     *            the page name
      * @generated
      */
     public ModelElementSelectionPage(String pageName) {
@@ -45,9 +43,6 @@ public class ModelElementSelectionPage extends WizardPage {
     }
 
     /**
-     * Gets the model element.
-     * 
-     * @return the model element
      * @generated
      */
     public EObject getModelElement() {
@@ -55,10 +50,6 @@ public class ModelElementSelectionPage extends WizardPage {
     }
 
     /**
-     * Sets the model element.
-     * 
-     * @param modelElement
-     *            the new model element
      * @generated
      */
     public void setModelElement(EObject modelElement) {
@@ -75,10 +66,6 @@ public class ModelElementSelectionPage extends WizardPage {
     }
 
     /**
-     * Creates the control.
-     * 
-     * @param parent
-     *            the parent
      * @generated
      */
     public void createControl(Composite parent) {
@@ -120,9 +107,6 @@ public class ModelElementSelectionPage extends WizardPage {
     }
 
     /**
-     * Override to provide custom model element description.
-     * 
-     * @return the selection title
      * @generated
      */
     protected String getSelectionTitle() {
@@ -130,10 +114,6 @@ public class ModelElementSelectionPage extends WizardPage {
     }
 
     /**
-     * Update selection.
-     * 
-     * @param selection
-     *            the selection
      * @generated
      */
     protected void updateSelection(IStructuredSelection selection) {
@@ -154,9 +134,6 @@ public class ModelElementSelectionPage extends WizardPage {
     }
 
     /**
-     * Override to provide specific validation of the selected model element.
-     * 
-     * @return true, if successful
      * @generated
      */
     protected boolean validatePage() {

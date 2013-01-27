@@ -15,32 +15,26 @@ import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 
 /**
- * The Class ProvidedDelegationConnectorTypeLinkCreateCommand.
- * 
  * @generated
  */
 public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRelationshipCommand {
 
-    /** The my container. @generated */
+    /**
+     * @generated
+     */
     private ComposedStructure myContainer;
 
-    /** The my source. @generated */
+    /**
+     * @generated
+     */
     private OperationProvidedRole mySource;
 
-    /** The my target. @generated */
+    /**
+     * @generated
+     */
     private OperationProvidedRole myTarget;
 
     /**
-     * Instantiates a new provided delegation connector type link create command.
-     * 
-     * @param req
-     *            the req
-     * @param container
-     *            the container
-     * @param source
-     *            the source
-     * @param target
-     *            the target
      * @generated
      */
     public ProvidedDelegationConnectorTypeLinkCreateCommand(CreateRelationshipRequest req, ComposedStructure container,
@@ -53,9 +47,6 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
     }
 
     /**
-     * Gets the container.
-     * 
-     * @return the container
      * @generated
      */
     public ComposedStructure getContainer() {
@@ -63,9 +54,6 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
     }
 
     /**
-     * Gets the source.
-     * 
-     * @return the source
      * @generated
      */
     public EObject getSource() {
@@ -73,9 +61,6 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
     }
 
     /**
-     * Gets the target.
-     * 
-     * @return the target
      * @generated
      */
     public EObject getTarget() {
@@ -83,9 +68,6 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
     }
 
     /**
-     * Gets the e class to edit.
-     * 
-     * @return the e class to edit
      * @generated
      */
     protected EClass getEClassToEdit() {
@@ -93,10 +75,6 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
     }
 
     /**
-     * Sets the element to edit.
-     * 
-     * @param element
-     *            the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {

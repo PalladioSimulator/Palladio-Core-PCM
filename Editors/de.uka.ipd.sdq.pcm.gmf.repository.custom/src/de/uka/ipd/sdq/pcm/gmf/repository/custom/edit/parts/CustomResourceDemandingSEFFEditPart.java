@@ -23,7 +23,9 @@ public class CustomResourceDemandingSEFFEditPart extends ResourceDemandingSEFFEd
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomResourceDemandingSEFFEditPart(View view) {
         super(view);
@@ -39,7 +41,6 @@ public class CustomResourceDemandingSEFFEditPart extends ResourceDemandingSEFFEd
         installEditPolicy(EditPolicyRoles.OPEN_ROLE, new CustomOpenSeffDiagramEditPolicy());
     }
 
-    
     @Override
     protected String getLabelText() {
         String text = "SEFF <";

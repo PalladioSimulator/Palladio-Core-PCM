@@ -299,8 +299,6 @@ public class PalladioComponentModelElementTypes {
     }
 
     /**
-     * Returns 'type' of the ecore object associated with the hint.
-     * 
      * @generated
      */
     public static ENamedElement getElement(IAdaptable hint) {

@@ -4,14 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.allocation.providers;
 
 import org.eclipse.gmf.runtime.common.ui.services.action.contributionitem.AbstractContributionItemProvider;
-
 import org.eclipse.gmf.runtime.common.ui.util.IWorkbenchPartDescriptor;
-
 import org.eclipse.gmf.runtime.diagram.ui.printing.actions.PrintPreviewAction;
-
 import org.eclipse.gmf.runtime.diagram.ui.printing.render.actions.EnhancedPrintActionHelper;
 import org.eclipse.gmf.runtime.diagram.ui.printing.render.actions.RenderedPrintPreviewAction;
-
 import org.eclipse.jface.action.IAction;
 
 /**

@@ -32,17 +32,17 @@ public class PcmNewAllocationDiagramFileWizard extends PalladioComponentModelNew
      * The diagram root.
      */
     private Allocation myDiagramRoot;
-    
+
     /**
      * The EditingDomain.
      */
     private TransactionalEditingDomain myEditingDomain;
-    
+
     /**
      * the resource environment selector page.
      */
     private ResourceEnvironmentSelectorPage myResourceEnvironmentSelectorPage;
-    
+
     /**
      * a system selector page.
      */
@@ -50,9 +50,13 @@ public class PcmNewAllocationDiagramFileWizard extends PalladioComponentModelNew
 
     /**
      * The constructor.
-     * @param domainModelURI The domain model URI
-     * @param diagramRoot the diagram's root.
-     * @param editingDomain The editing domnain
+     * 
+     * @param domainModelURI
+     *            The domain model URI
+     * @param diagramRoot
+     *            the diagram's root.
+     * @param editingDomain
+     *            The editing domnain
      */
     public PcmNewAllocationDiagramFileWizard(org.eclipse.emf.common.util.URI domainModelURI, EObject diagramRoot,
             TransactionalEditingDomain editingDomain) {

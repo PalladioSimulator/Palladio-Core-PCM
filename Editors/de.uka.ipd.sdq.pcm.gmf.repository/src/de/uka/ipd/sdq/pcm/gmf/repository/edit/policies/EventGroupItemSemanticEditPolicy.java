@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.policies;
 
 import java.util.Iterator;
+
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
@@ -113,8 +114,11 @@ public class EventGroupItemSemanticEditPolicy extends PalladioComponentModelBase
                     case EventTypeEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would
+                        // clean child views as well
+                        // cmd.add(new
+                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                        // cnode));
                         break;
                     }
                 }
@@ -167,9 +171,6 @@ public class EventGroupItemSemanticEditPolicy extends PalladioComponentModelBase
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
      * @generated
      */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
@@ -183,9 +184,6 @@ public class EventGroupItemSemanticEditPolicy extends PalladioComponentModelBase
     }
 
     /**
-     * Returns command to reorient EReference based link. New link target or source
-     * should be the domain model element associated with this node.
-     * 
      * @generated
      */
     protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {

@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage5CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class InfrastructureCallInfrastructureCallInputVariableUsagesItemSemanticEditPolicy.
- *
  * @generated
  */
 public class InfrastructureCallInfrastructureCallInputVariableUsagesItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new infrastructure call infrastructure call input variable usages item semantic edit policy.
-     *
      * @generated
      */
     public InfrastructureCallInfrastructureCallInputVariableUsagesItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class InfrastructureCallInfrastructureCallInputVariableUsagesItemSemantic
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

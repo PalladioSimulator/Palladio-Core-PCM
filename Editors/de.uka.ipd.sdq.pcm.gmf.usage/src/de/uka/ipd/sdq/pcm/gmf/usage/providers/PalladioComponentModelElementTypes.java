@@ -41,84 +41,117 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
- * The Class PalladioComponentModelElementTypes.
- *
  * @generated
  */
 public class PalladioComponentModelElementTypes extends ElementInitializers {
 
     /**
-     * Instantiates a new palladio component model element types.
-     *
      * @generated
      */
     private PalladioComponentModelElementTypes() {
     }
 
-    /** The elements. @generated */
+    /**
+     * @generated
+     */
     private static Map elements;
 
-    /** The image registry. @generated */
+    /**
+     * @generated
+     */
     private static ImageRegistry imageRegistry;
 
-    /** The known element types. @generated */
+    /**
+     * @generated
+     */
     private static Set KNOWN_ELEMENT_TYPES;
 
-    /** The Constant UsageModel_1000. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType UsageModel_1000 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.UsageModel_1000"); //$NON-NLS-1$
 
-    /** The Constant UsageScenario_2004. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType UsageScenario_2004 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.UsageScenario_2004"); //$NON-NLS-1$
 
-    /** The Constant ScenarioBehaviour_3014. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ScenarioBehaviour_3014 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3014"); //$NON-NLS-1$
 
-    /** The Constant Start_3001. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType Start_3001 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.Start_3001"); //$NON-NLS-1$
 
-    /** The Constant Stop_3002. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType Stop_3002 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.Stop_3002"); //$NON-NLS-1$
 
-    /** The Constant EntryLevelSystemCall_3003. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType EntryLevelSystemCall_3003 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.EntryLevelSystemCall_3003"); //$NON-NLS-1$
 
-    /** The Constant VariableUsage_3012. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableUsage_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.VariableUsage_3012"); //$NON-NLS-1$
 
-    /** The Constant VariableCharacterisation_3013. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableCharacterisation_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.VariableCharacterisation_3013"); //$NON-NLS-1$
 
-    /** The Constant Loop_3005. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType Loop_3005 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.Loop_3005"); //$NON-NLS-1$
 
-    /** The Constant ScenarioBehaviour_3007. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ScenarioBehaviour_3007 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3007"); //$NON-NLS-1$
 
-    /** The Constant Branch_3008. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType Branch_3008 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.Branch_3008"); //$NON-NLS-1$
 
-    /** The Constant BranchTransition_3009. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType BranchTransition_3009 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.BranchTransition_3009"); //$NON-NLS-1$
 
-    /** The Constant ScenarioBehaviour_3010. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ScenarioBehaviour_3010 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.ScenarioBehaviour_3010"); //$NON-NLS-1$
 
-    /** The Constant Delay_3017. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType Delay_3017 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.Delay_3017"); //$NON-NLS-1$
 
-    /** The Constant ClosedWorkload_3015. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ClosedWorkload_3015 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.ClosedWorkload_3015"); //$NON-NLS-1$
 
-    /** The Constant OpenWorkload_3016. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType OpenWorkload_3016 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.OpenWorkload_3016"); //$NON-NLS-1$
 
-    /** The Constant AbstractUserActionSuccessor_4002. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType AbstractUserActionSuccessor_4002 = getElementType("de.uka.ipd.sdq.pcm.gmf.usage.AbstractUserActionSuccessor_4002"); //$NON-NLS-1$
 
     /**
-     * Gets the image registry.
-     *
-     * @return the image registry
      * @generated
      */
     private static ImageRegistry getImageRegistry() {
@@ -129,10 +162,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image registry key.
-     *
-     * @param element the element
-     * @return the image registry key
      * @generated
      */
     private static String getImageRegistryKey(ENamedElement element) {
@@ -140,10 +169,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the provided image descriptor.
-     *
-     * @param element the element
-     * @return the provided image descriptor
      * @generated
      */
     private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
@@ -169,10 +194,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image descriptor.
-     *
-     * @param element the element
-     * @return the image descriptor
      * @generated
      */
     public static ImageDescriptor getImageDescriptor(ENamedElement element) {
@@ -189,10 +210,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image.
-     *
-     * @param element the element
-     * @return the image
      * @generated
      */
     public static Image getImage(ENamedElement element) {
@@ -210,10 +227,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image descriptor.
-     *
-     * @param hint the hint
-     * @return the image descriptor
      * @generated
      */
     public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
@@ -225,10 +238,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image.
-     *
-     * @param hint the hint
-     * @return the image
      * @generated
      */
     public static Image getImage(IAdaptable hint) {
@@ -240,10 +249,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Returns 'type' of the ecore object associated with the hint.
-     *
-     * @param hint the hint
-     * @return the element
      * @generated
      */
     public static ENamedElement getElement(IAdaptable hint) {
@@ -290,10 +295,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the element type.
-     *
-     * @param id the id
-     * @return the element type
      * @generated
      */
     private static IElementType getElementType(String id) {
@@ -301,10 +302,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Checks if is known element type.
-     *
-     * @param elementType the element type
-     * @return true, if is known element type
      * @generated
      */
     public static boolean isKnownElementType(IElementType elementType) {
@@ -332,10 +329,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the element type.
-     *
-     * @param visualID the visual id
-     * @return the element type
      * @generated
      */
     public static IElementType getElementType(int visualID) {

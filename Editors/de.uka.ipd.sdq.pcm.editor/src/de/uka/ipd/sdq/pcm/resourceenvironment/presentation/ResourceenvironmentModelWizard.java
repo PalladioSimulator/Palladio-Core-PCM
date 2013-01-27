@@ -64,22 +64,15 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
- * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc
- * -->
- * 
  * @generated
  */
 public class ResourceenvironmentModelWizard extends Wizard implements INewWizard {
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays
@@ -87,69 +80,48 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
                     "_UI_ResourceenvironmentEditorFilenameExtensions").split("\\s*,\\s*")));
 
     /**
-     * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final String FORMATTED_FILE_EXTENSIONS = PalladioComponentModelEditorPlugin.INSTANCE.getString(
             "_UI_ResourceenvironmentEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
     /**
-     * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ResourceenvironmentPackage resourceenvironmentPackage = ResourceenvironmentPackage.eINSTANCE;
 
     /**
-     * This caches an instance of the model factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ResourceenvironmentFactory resourceenvironmentFactory = resourceenvironmentPackage
             .getResourceenvironmentFactory();
 
     /**
-     * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ResourceenvironmentModelWizardNewFileCreationPage newFileCreationPage;
 
     /**
-     * This is the initial object creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected ResourceenvironmentModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
     /**
-     * Remember the selection during initialization for populating the default container. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IStructuredSelection selection;
 
     /**
-     * Remember the workbench during initialization. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IWorkbench workbench;
 
     /**
-     * Caches the names of the types that can be created as the root object. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected List<String> initialObjectNames;
 
     /**
-     * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void init(IWorkbench workbench, IStructuredSelection selection) {
@@ -162,9 +134,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     }
 
     /**
-     * Returns the names of the types that can be created as the root object. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Collection<String> getInitialObjectNames() {
@@ -184,8 +153,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     }
 
     /**
-     * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected EObject createInitialModel() {
@@ -196,8 +163,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     }
 
     /**
-     * Do the work after everything is specified. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -281,14 +246,10 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     }
 
     /**
-     * This is the one page of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public class ResourceenvironmentModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
         /**
-         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public ResourceenvironmentModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
@@ -296,9 +257,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         * 
          * @generated
          */
         @Override
@@ -317,8 +275,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public IFile getModelFile() {
@@ -327,34 +283,25 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     }
 
     /**
-     * This is the page where the type of object to create is selected. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
      * @generated
      */
     public class ResourceenvironmentModelWizardInitialObjectCreationPage extends WizardPage {
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Combo initialObjectField;
 
         /**
-         * @generated <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
          */
         protected List<String> encodings;
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Combo encodingField;
 
         /**
-         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public ResourceenvironmentModelWizardInitialObjectCreationPage(String pageId) {
@@ -362,8 +309,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public void createControl(Composite parent) {
@@ -435,8 +380,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected ModifyListener validator = new ModifyListener() {
@@ -446,8 +389,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         };
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected boolean validatePage() {
@@ -455,8 +396,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
@@ -474,8 +413,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public String getInitialObjectName() {
@@ -490,8 +427,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public String getEncoding() {
@@ -499,9 +434,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
-         * 
          * @generated
          */
         protected String getLabel(String typeName) {
@@ -514,8 +446,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Collection<String> getEncodings() {
@@ -532,9 +462,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     }
 
     /**
-     * The framework calls this to create the contents of the wizard. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -593,8 +520,6 @@ public class ResourceenvironmentModelWizard extends Wizard implements INewWizard
     }
 
     /**
-     * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public IFile getModelFile() {

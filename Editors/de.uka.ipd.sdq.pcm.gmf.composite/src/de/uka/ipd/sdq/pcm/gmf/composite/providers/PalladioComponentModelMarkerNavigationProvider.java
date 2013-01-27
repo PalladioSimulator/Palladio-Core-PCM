@@ -20,21 +20,17 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStruc
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditorUtil;
 
 /**
- * The Class PalladioComponentModelMarkerNavigationProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelMarkerNavigationProvider extends AbstractModelMarkerNavigationProvider {
 
-    /** The Constant MARKER_TYPE. @generated */
+    /**
+     * @generated
+     */
     public static final String MARKER_TYPE = PalladioComponentModelComposedStructureDiagramEditorPlugin.ID
             + ".diagnostic"; //$NON-NLS-1$
 
     /**
-     * Do goto marker.
-     * 
-     * @param marker
-     *            the marker
      * @generated
      */
     protected void doGotoMarker(IMarker marker) {
@@ -56,10 +52,6 @@ public class PalladioComponentModelMarkerNavigationProvider extends AbstractMode
     }
 
     /**
-     * Delete markers.
-     * 
-     * @param resource
-     *            the resource
      * @generated
      */
     public static void deleteMarkers(IResource resource) {
@@ -72,19 +64,6 @@ public class PalladioComponentModelMarkerNavigationProvider extends AbstractMode
     }
 
     /**
-     * Adds the marker.
-     * 
-     * @param file
-     *            the file
-     * @param elementId
-     *            the element id
-     * @param location
-     *            the location
-     * @param message
-     *            the message
-     * @param statusSeverity
-     *            the status severity
-     * @return the i marker
      * @generated
      */
     public static IMarker addMarker(IFile file, String elementId, String location, String message, int statusSeverity) {

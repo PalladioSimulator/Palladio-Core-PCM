@@ -16,105 +16,99 @@ import org.eclipse.ui.views.properties.IPropertySourceProvider;
  */
 public class PalladioComponentModelDomainNavigatorItem extends PlatformObject {
 
-	/**
-	 * @generated
-	 */
-	static {
-		final Class[] supportedTypes = new Class[] { EObject.class,
-				IPropertySource.class };
-		Platform.getAdapterManager().registerAdapters(
-				new IAdapterFactory() {
+    /**
+     * @generated
+     */
+    static {
+        final Class[] supportedTypes = new Class[] { EObject.class, IPropertySource.class };
+        Platform.getAdapterManager().registerAdapters(new IAdapterFactory() {
 
-					public Object getAdapter(Object adaptableObject,
-							Class adapterType) {
-						if (adaptableObject instanceof de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) {
-							de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem domainNavigatorItem = (de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) adaptableObject;
-							EObject eObject = domainNavigatorItem.getEObject();
-							if (adapterType == EObject.class) {
-								return eObject;
-							}
-							if (adapterType == IPropertySource.class) {
-								return domainNavigatorItem
-										.getPropertySourceProvider()
-										.getPropertySource(eObject);
-							}
-						}
+            public Object getAdapter(Object adaptableObject, Class adapterType) {
+                if (adaptableObject instanceof de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) {
+                    de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem domainNavigatorItem = (de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) adaptableObject;
+                    EObject eObject = domainNavigatorItem.getEObject();
+                    if (adapterType == EObject.class) {
+                        return eObject;
+                    }
+                    if (adapterType == IPropertySource.class) {
+                        return domainNavigatorItem.getPropertySourceProvider().getPropertySource(eObject);
+                    }
+                }
 
-						return null;
-					}
+                return null;
+            }
 
-					public Class[] getAdapterList() {
-						return supportedTypes;
-					}
-				},
-				de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem.class);
-	}
+            public Class[] getAdapterList() {
+                return supportedTypes;
+            }
+        }, de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem.class);
+    }
 
-	/**
-	 * @generated
-	 */
-	private Object myParent;
+    /**
+     * @generated
+     */
+    private Object myParent;
 
-	/**
-	 * @generated
-	 */
-	private EObject myEObject;
+    /**
+     * @generated
+     */
+    private EObject myEObject;
 
-	/**
-	 * @generated
-	 */
-	private IPropertySourceProvider myPropertySourceProvider;
+    /**
+     * @generated
+     */
+    private IPropertySourceProvider myPropertySourceProvider;
 
-	/**
-	 * @generated
-	 */
-	public PalladioComponentModelDomainNavigatorItem(EObject eObject,
-			Object parent, IPropertySourceProvider propertySourceProvider) {
-		myParent = parent;
-		myEObject = eObject;
-		myPropertySourceProvider = propertySourceProvider;
-	}
+    /**
+     * @generated
+     */
+    public PalladioComponentModelDomainNavigatorItem(EObject eObject, Object parent,
+            IPropertySourceProvider propertySourceProvider) {
+        myParent = parent;
+        myEObject = eObject;
+        myPropertySourceProvider = propertySourceProvider;
+    }
 
-	/**
-	 * @generated
-	 */
-	public Object getParent() {
-		return myParent;
-	}
+    /**
+     * @generated
+     */
+    public Object getParent() {
+        return myParent;
+    }
 
-	/**
-	 * @generated
-	 */
-	public EObject getEObject() {
-		return myEObject;
-	}
+    /**
+     * @generated
+     */
+    public EObject getEObject() {
+        return myEObject;
+    }
 
-	/**
-	 * @generated
-	 */
-	public IPropertySourceProvider getPropertySourceProvider() {
-		return myPropertySourceProvider;
-	}
+    /**
+     * @generated
+     */
+    public IPropertySourceProvider getPropertySourceProvider() {
+        return myPropertySourceProvider;
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean equals(Object obj) {
-		if (obj instanceof de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) {
-			return EcoreUtil
-					.getURI(getEObject())
-					.equals(EcoreUtil
-							.getURI(((de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) obj)
-									.getEObject()));
-		}
-		return super.equals(obj);
-	}
+    /**
+     * @generated
+     */
+    public boolean equals(Object obj) {
+        if (obj instanceof de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) {
+            return EcoreUtil
+                    .getURI(getEObject())
+                    .equals(EcoreUtil
+                            .getURI(((de.uka.ipd.sdq.pcm.gmf.resource.navigator.PalladioComponentModelDomainNavigatorItem) obj)
+                                    .getEObject()));
+        }
+        return super.equals(obj);
+    }
 
-	/**
-	 * @generated
-	 */
-	public int hashCode() {
-		return EcoreUtil.getURI(getEObject()).hashCode();
-	}
+    /**
+     * @generated
+     */
+    public int hashCode() {
+        return EcoreUtil.getURI(getEObject()).hashCode();
+    }
 
 }

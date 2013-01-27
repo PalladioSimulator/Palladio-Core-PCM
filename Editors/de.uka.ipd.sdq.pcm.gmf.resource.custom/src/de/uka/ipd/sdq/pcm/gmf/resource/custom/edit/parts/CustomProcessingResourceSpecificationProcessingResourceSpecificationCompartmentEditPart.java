@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part.
  */
@@ -16,6 +17,8 @@ public class CustomProcessingResourceSpecificationProcessingResourceSpecificatio
         ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart {
 
     /**
+     * Instantiates a new custom processing resource specification processing resource specification
+     * compartment edit part.
      * 
      * @param view
      *            a View
@@ -24,6 +27,13 @@ public class CustomProcessingResourceSpecificationProcessingResourceSpecificatio
         super(view);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart
+     * #createFigure()
+     */
     @Override
     public IFigure createFigure() {
         ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();

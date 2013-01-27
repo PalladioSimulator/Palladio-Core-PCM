@@ -18,19 +18,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ExternalCallActionInputVariable
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class ExternalCallActionInputVariableUsage2EditPart.
- *
  * @generated
  */
 public class ExternalCallActionInputVariableUsage2EditPart extends ListCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7010;
 
     /**
-     * Instantiates a new external call action input variable usage2 edit part.
-     *
-     * @param view the view
      * @generated
      */
     public ExternalCallActionInputVariableUsage2EditPart(View view) {
@@ -38,10 +35,6 @@ public class ExternalCallActionInputVariableUsage2EditPart extends ListCompartme
     }
 
     /**
-     * Checks for model children changed.
-     *
-     * @param evt the evt
-     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -49,9 +42,6 @@ public class ExternalCallActionInputVariableUsage2EditPart extends ListCompartme
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -59,8 +49,6 @@ public class ExternalCallActionInputVariableUsage2EditPart extends ListCompartme
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -75,9 +63,6 @@ public class ExternalCallActionInputVariableUsage2EditPart extends ListCompartme
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

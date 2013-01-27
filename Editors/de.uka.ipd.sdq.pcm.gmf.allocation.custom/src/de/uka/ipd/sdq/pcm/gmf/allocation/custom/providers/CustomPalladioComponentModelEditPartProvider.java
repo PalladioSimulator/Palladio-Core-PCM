@@ -55,6 +55,7 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * gets the EditPart factory.
+     * 
      * @return the EditPart factory
      */
     public final EditPartFactory getFactory() {
@@ -63,7 +64,9 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * Sets the EditPart factory.
-     * @param factory the factory
+     * 
+     * @param factory
+     *            the factory
      */
     protected void setFactory(EditPartFactory factory) {
         this.factory = factory;
@@ -71,6 +74,7 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * Returns if caching is allowed.
+     * 
      * @return a boolean value
      */
     public final boolean isAllowCaching() {
@@ -79,7 +83,9 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * Sets if caching is allowed.
-     * @param allowCaching a boolean value.
+     * 
+     * @param allowCaching
+     *            a boolean value.
      */
     protected synchronized void setAllowCaching(boolean allowCaching) {
         this.allowCaching = allowCaching;
@@ -91,7 +97,9 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * Creates an EditPart.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      * @return the created EditPart
      */
     protected IGraphicalEditPart createEditPart(View view) {
@@ -104,7 +112,9 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * Gets the cached EditPart.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      * @return the EditPart
      */
     protected IGraphicalEditPart getCachedPart(View view) {
@@ -116,7 +126,9 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * Creates a graphic EditPart.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      * @return a EditPart
      */
     public synchronized IGraphicalEditPart createGraphicEditPart(View view) {
@@ -133,7 +145,9 @@ public class CustomPalladioComponentModelEditPartProvider extends AbstractEditPa
 
     /**
      * Returns a boolean value.
-     * @param operation an IOperation
+     * 
+     * @param operation
+     *            an IOperation
      * @return a boolean value
      */
     public synchronized boolean provides(IOperation operation) {

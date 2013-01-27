@@ -35,7 +35,7 @@ public class CustomCollectionIteratorParameterLabelEditPart extends CollectionIt
      */
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#getLabelText()
      */
@@ -61,7 +61,7 @@ public class CustomCollectionIteratorParameterLabelEditPart extends CollectionIt
      */
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#addSemanticListeners()
      */
     @Override
@@ -78,7 +78,7 @@ public class CustomCollectionIteratorParameterLabelEditPart extends CollectionIt
      */
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#removeSemanticListeners()
      */
     @Override
@@ -94,8 +94,9 @@ public class CustomCollectionIteratorParameterLabelEditPart extends CollectionIt
      */
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorParameterLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

@@ -25,19 +25,16 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
- * The Class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPolicy.
- *
  * @generated
  */
 public class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPolicy extends CanonicalEditPolicy {
 
-    /** The my features to synchronize. @generated */
+    /**
+     * @generated
+     */
     Set myFeaturesToSynchronize;
 
     /**
-     * Gets the semantic children list.
-     *
-     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -52,11 +49,6 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPol
     }
 
     /**
-     * Checks if is orphaned.
-     *
-     * @param semanticChildren the semantic children
-     * @param view the view
-     * @return true, if is orphaned
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -76,9 +68,6 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPol
     }
 
     /**
-     * Gets the default factory hint.
-     *
-     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {
@@ -86,9 +75,6 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment3CanonicalEditPol
     }
 
     /**
-     * Gets the features to synchronize.
-     *
-     * @return the features to synchronize
      * @generated
      */
     protected Set getFeaturesToSynchronize() {

@@ -9,24 +9,24 @@ import org.antlr.runtime.TokenStream;
 
 public class MyPCMStoExParser extends PCMStoExParser {
 
-	private ArrayList<ErrorEntry> list;
+    private ArrayList<ErrorEntry> list;
 
-	public MyPCMStoExParser(TokenStream input) {
-		super(input);
-		list = new ArrayList<ErrorEntry>();
-	}
+    public MyPCMStoExParser(TokenStream input) {
+        super(input);
+        list = new ArrayList<ErrorEntry>();
+    }
 
-	@Override
-	public void reportError(RecognitionException arg0) {
-		String errorText = this.getErrorMessage(arg0, this.getTokenNames());
-		list.add(new ErrorEntry(arg0,errorText));
-	}
-	
-	public boolean hasErrors(){
-		return list.size() > 0;
-	}
+    @Override
+    public void reportError(RecognitionException arg0) {
+        String errorText = this.getErrorMessage(arg0, this.getTokenNames());
+        list.add(new ErrorEntry(arg0, errorText));
+    }
 
-	public Collection<ErrorEntry> getErrors() {
-		return Collections.unmodifiableCollection(list);
-	}
+    public boolean hasErrors() {
+        return list.size() > 0;
+    }
+
+    public Collection<ErrorEntry> getErrors() {
+        return Collections.unmodifiableCollection(list);
+    }
 }

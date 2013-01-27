@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
 import java.util.Collections;
-import java.util.Iterator;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.IFile;

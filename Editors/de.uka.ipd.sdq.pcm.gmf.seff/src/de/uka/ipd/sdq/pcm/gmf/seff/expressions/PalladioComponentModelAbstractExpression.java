@@ -19,20 +19,16 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 
 /**
- * The Class PalladioComponentModelAbstractExpression.
- *
  * @generated
  */
 public abstract class PalladioComponentModelAbstractExpression {
-    
-    /** The status. @generated */
+
+    /**
+     * @generated
+     */
     private IStatus status = Status.OK_STATUS;
 
     /**
-     * Instantiates a new palladio component model abstract expression.
-     *
-     * @param body the body
-     * @param context the context
      * @generated
      */
     protected PalladioComponentModelAbstractExpression(String body, EClassifier context) {
@@ -41,11 +37,6 @@ public abstract class PalladioComponentModelAbstractExpression {
     }
 
     /**
-     * Sets the status.
-     *
-     * @param severity the severity
-     * @param message the message
-     * @param throwable the throwable
      * @generated
      */
     protected void setStatus(int severity, String message, Throwable throwable) {
@@ -58,20 +49,11 @@ public abstract class PalladioComponentModelAbstractExpression {
     }
 
     /**
-     * Do evaluate.
-     *
-     * @param context the context
-     * @param env the env
-     * @return the object
      * @generated
      */
     protected abstract Object doEvaluate(Object context, Map env);
 
     /**
-     * Evaluate.
-     *
-     * @param context the context
-     * @return the object
      * @generated
      */
     public Object evaluate(Object context) {
@@ -79,11 +61,6 @@ public abstract class PalladioComponentModelAbstractExpression {
     }
 
     /**
-     * Evaluate.
-     *
-     * @param context the context
-     * @param env the env
-     * @return the object
      * @generated
      */
     public Object evaluate(Object context, Map env) {
@@ -99,13 +76,6 @@ public abstract class PalladioComponentModelAbstractExpression {
     }
 
     /**
-     * Expression may return number value which is not directly compatible with feature type (e.g.
-     * Double when Integer is expected), or EEnumLiteral meta-object when literal instance is
-     * expected
-     *
-     * @param value the value
-     * @param targetType the target type
-     * @return the object
      * @generated
      */
     public static Object performCast(Object value, EDataType targetType) {
@@ -150,35 +120,30 @@ public abstract class PalladioComponentModelAbstractExpression {
     }
 
     /**
-     * Gets the status.
-     *
-     * @return the status
      * @generated
      */
     public IStatus getStatus() {
         return status;
     }
 
-    /** The my body. @generated */
+    /**
+     * @generated
+     */
     private final String myBody;
 
     /**
-     * Body.
-     *
-     * @return the string
      * @generated
      */
     public String body() {
         return myBody;
     }
 
-    /** The my context. @generated */
+    /**
+     * @generated
+     */
     private final EClassifier myContext;
 
     /**
-     * Context.
-     *
-     * @return the e classifier
      * @generated
      */
     public EClassifier context() {

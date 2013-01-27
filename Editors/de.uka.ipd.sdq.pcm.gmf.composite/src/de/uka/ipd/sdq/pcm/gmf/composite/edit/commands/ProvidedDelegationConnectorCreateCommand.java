@@ -22,30 +22,26 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBase
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 
 /**
- * The Class ProvidedDelegationConnectorCreateCommand.
- * 
  * @generated
  */
 public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand {
 
-    /** The source. @generated */
+    /**
+     * @generated
+     */
     private final EObject source;
 
-    /** The target. @generated */
+    /**
+     * @generated
+     */
     private final EObject target;
 
-    /** The container. @generated */
+    /**
+     * @generated
+     */
     private final ComposedStructure container;
 
     /**
-     * Instantiates a new provided delegation connector create command.
-     * 
-     * @param request
-     *            the request
-     * @param source
-     *            the source
-     * @param target
-     *            the target
      * @generated
      */
     public ProvidedDelegationConnectorCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
@@ -56,9 +52,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -83,15 +76,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -110,16 +94,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(ProvidedDelegationConnector newElement, IProgressMonitor monitor, IAdaptable info)
@@ -137,10 +111,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Sets the element to edit.
-     * 
-     * @param element
-     *            the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -148,9 +118,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Gets the source.
-     * 
-     * @return the source
      * @generated
      */
     protected OperationProvidedRole getSource() {
@@ -158,9 +125,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Gets the target.
-     * 
-     * @return the target
      * @generated
      */
     protected OperationProvidedRole getTarget() {
@@ -168,9 +132,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Gets the container.
-     * 
-     * @return the container
      * @generated
      */
     public ComposedStructure getContainer() {
@@ -178,14 +139,6 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Default approach is to traverse ancestors of the source to find instance of container. Modify
-     * with appropriate logic.
-     * 
-     * @param source
-     *            the source
-     * @param target
-     *            the target
-     * @return the composed structure
      * @generated
      */
     private static ComposedStructure deduceContainer(EObject source, EObject target) {

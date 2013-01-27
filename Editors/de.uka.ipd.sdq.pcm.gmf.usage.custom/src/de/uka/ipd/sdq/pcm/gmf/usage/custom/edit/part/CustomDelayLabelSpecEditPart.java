@@ -18,8 +18,9 @@ public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
     /**
      * Instantiates a new custom delay label spec edit part.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      */
     public CustomDelayLabelSpecEditPart(View view) {
         super(view);
@@ -27,7 +28,7 @@ public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#getLabelText()
      */
@@ -49,7 +50,7 @@ public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#addSemanticListeners()
      */
     @Override
@@ -60,7 +61,7 @@ public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#removeSemanticListeners()
      */
     @Override
@@ -70,8 +71,9 @@ public class CustomDelayLabelSpecEditPart extends DelayLabelSpecEditPart {
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.DelayLabelSpecEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

@@ -15,24 +15,21 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemS
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 
 /**
- * The Class AbstractActionSuccessor_AbstractActionCreateCommand.
- *
  * @generated
  */
 public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditElementCommand {
 
-    /** The source. @generated */
+    /**
+     * @generated
+     */
     private final EObject source;
 
-    /** The target. @generated */
+    /**
+     * @generated
+     */
     private final EObject target;
 
     /**
-     * Instantiates a new abstract action successor_ abstract action create command.
-     *
-     * @param request the request
-     * @param source the source
-     * @param target the target
      * @generated
      */
     public AbstractActionSuccessor_AbstractActionCreateCommand(CreateRelationshipRequest request, EObject source,
@@ -43,9 +40,6 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -67,12 +61,6 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -88,9 +76,6 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     }
 
     /**
-     * Sets the element to edit.
-     *
-     * @param element the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -98,9 +83,6 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     }
 
     /**
-     * Gets the source.
-     *
-     * @return the source
      * @generated
      */
     protected AbstractAction getSource() {
@@ -108,9 +90,6 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
     }
 
     /**
-     * Gets the target.
-     *
-     * @return the target
      * @generated
      */
     protected AbstractAction getTarget() {

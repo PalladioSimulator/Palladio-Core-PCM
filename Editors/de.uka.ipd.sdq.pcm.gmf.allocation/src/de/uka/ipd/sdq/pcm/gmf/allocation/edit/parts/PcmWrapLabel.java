@@ -19,7 +19,8 @@ public class PcmWrapLabel extends WrapLabel {
     }
 
     /**
-     * @param i an Image
+     * @param i
+     *            an Image
      */
     public PcmWrapLabel(Image i) {
         super(i);
@@ -27,8 +28,10 @@ public class PcmWrapLabel extends WrapLabel {
     }
 
     /**
-     * @param s a String
-     * @param i an Image
+     * @param s
+     *            a String
+     * @param i
+     *            an Image
      */
     public PcmWrapLabel(String s, Image i) {
         super(s, i);
@@ -36,7 +39,8 @@ public class PcmWrapLabel extends WrapLabel {
     }
 
     /**
-     * @param s a String
+     * @param s
+     *            a String
      */
     public PcmWrapLabel(String s) {
         super(s);

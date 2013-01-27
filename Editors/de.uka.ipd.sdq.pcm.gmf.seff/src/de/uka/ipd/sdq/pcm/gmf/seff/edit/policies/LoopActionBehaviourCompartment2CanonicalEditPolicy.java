@@ -15,16 +15,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.seff.AbstractLoopAction;
 
 /**
- * The Class LoopActionBehaviourCompartment2CanonicalEditPolicy.
- *
  * @generated
  */
 public class LoopActionBehaviourCompartment2CanonicalEditPolicy extends CanonicalEditPolicy {
 
     /**
-     * Gets the semantic children list.
-     *
-     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -42,10 +37,6 @@ public class LoopActionBehaviourCompartment2CanonicalEditPolicy extends Canonica
     }
 
     /**
-     * Should delete view.
-     *
-     * @param view the view
-     * @return true, if successful
      * @generated
      */
     protected boolean shouldDeleteView(View view) {
@@ -61,9 +52,6 @@ public class LoopActionBehaviourCompartment2CanonicalEditPolicy extends Canonica
     }
 
     /**
-     * Gets the default factory hint.
-     *
-     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {

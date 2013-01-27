@@ -8,8 +8,8 @@ import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentComponentParameterCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.BasicComponentEntityNameEditPart;
@@ -67,9 +67,6 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
 
 /**
- * This registry is used to determine which type of visual object should be created for the
- * corresponding Diagram, Node, ChildNode or Link represented by a domain model object.
- * 
  * @generated
  */
 public class PalladioComponentModelVisualIDRegistry {
@@ -460,9 +457,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * User can change implementation of this method to handle some specific situations not covered
-     * by default logic.
-     * 
      * @generated
      */
     private static boolean isDiagram(Repository element) {
@@ -474,7 +468,7 @@ public class PalladioComponentModelVisualIDRegistry {
      */
     public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
         if (candidate == -1) {
-            //unrecognized id is always bad
+            // unrecognized id is always bad
             return false;
         }
         int basic = getNodeVisualID(containerView, domainElement);

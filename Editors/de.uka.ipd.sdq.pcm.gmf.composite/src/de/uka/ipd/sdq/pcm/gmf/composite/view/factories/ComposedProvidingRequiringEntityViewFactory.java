@@ -13,18 +13,11 @@ import org.eclipse.gmf.runtime.notation.NotationFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
- * A factory for creating ComposedProvidingRequiringEntityView objects.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntityViewFactory extends DiagramViewFactory {
 
     /**
-     * Creates a new ComposedProvidingRequiringEntityView object.
-     * 
-     * @param view
-     *            the view
-     * @return the list
      * @generated
      */
     protected List createStyles(View view) {
@@ -36,14 +29,6 @@ public class ComposedProvidingRequiringEntityViewFactory extends DiagramViewFact
     }
 
     /**
-     * Decorate view.
-     * 
-     * @param view
-     *            the view
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param diagramKind
-     *            the diagram kind
      * @generated
      */
     protected void decorateView(View view, IAdaptable semanticAdapter, String diagramKind) {
@@ -51,9 +36,6 @@ public class ComposedProvidingRequiringEntityViewFactory extends DiagramViewFact
     }
 
     /**
-     * Gets the measurement unit.
-     * 
-     * @return the measurement unit
      * @generated
      */
     protected MeasurementUnit getMeasurementUnit() {

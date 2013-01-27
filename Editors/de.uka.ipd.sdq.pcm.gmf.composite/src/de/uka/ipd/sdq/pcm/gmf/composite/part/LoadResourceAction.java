@@ -13,20 +13,11 @@ import org.eclipse.ui.IEditorPart;
 import org.eclipse.ui.handlers.HandlerUtil;
 
 /**
- * The Class LoadResourceAction.
- * 
  * @generated
  */
 public class LoadResourceAction extends AbstractHandler {
 
     /**
-     * Execute.
-     * 
-     * @param event
-     *            the event
-     * @return the object
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     public Object execute(ExecutionEvent event) throws ExecutionException {

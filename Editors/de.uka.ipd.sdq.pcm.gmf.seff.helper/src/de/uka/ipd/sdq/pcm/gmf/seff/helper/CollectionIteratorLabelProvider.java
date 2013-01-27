@@ -31,8 +31,9 @@ public class CollectionIteratorLabelProvider extends ItemProviderDecorator imple
      */
     /**
      * Gets the text.
-     *
-     * @param object the object
+     * 
+     * @param object
+     *            the object
      * @return the text
      * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getText(java.lang.Object)
      */

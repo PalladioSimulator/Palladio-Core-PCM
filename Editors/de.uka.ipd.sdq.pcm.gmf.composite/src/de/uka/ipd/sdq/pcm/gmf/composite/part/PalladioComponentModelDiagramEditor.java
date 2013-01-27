@@ -47,21 +47,21 @@ import org.eclipse.ui.part.ShowInContext;
 import de.uka.ipd.sdq.pcm.gmf.composite.navigator.PalladioComponentModelNavigatorItem;
 
 /**
- * The Class PalladioComponentModelDiagramEditor.
- * 
  * @generated
  */
 public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor implements IGotoMarker {
 
-    /** The Constant ID. @generated */
+    /**
+     * @generated
+     */
     public static final String ID = "de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditorID"; //$NON-NLS-1$
 
-    /** The Constant CONTEXT_ID. @generated */
+    /**
+     * @generated
+     */
     public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.composite.ui.diagramContext"; //$NON-NLS-1$
 
     /**
-     * Instantiates a new palladio component model diagram editor.
-     * 
      * @generated
      */
     public PalladioComponentModelDiagramEditor() {
@@ -69,9 +69,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the context id.
-     * 
-     * @return the context id
      * @generated
      */
     protected String getContextID() {
@@ -79,11 +76,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Creates the palette root.
-     * 
-     * @param existingPaletteRoot
-     *            the existing palette root
-     * @return the palette root
      * @generated
      */
     protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
@@ -93,9 +85,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the preferences hint.
-     * 
-     * @return the preferences hint
      * @generated
      */
     protected PreferencesHint getPreferencesHint() {
@@ -103,9 +92,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the contributor id.
-     * 
-     * @return the contributor id
      * @generated
      */
     public String getContributorId() {
@@ -113,11 +99,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the adapter.
-     * 
-     * @param type
-     *            the type
-     * @return the adapter
      * @generated
      */
     public Object getAdapter(Class type) {
@@ -132,11 +113,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the document provider.
-     * 
-     * @param input
-     *            the input
-     * @return the document provider
      * @generated
      */
     protected IDocumentProvider getDocumentProvider(IEditorInput input) {
@@ -147,9 +123,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the editing domain.
-     * 
-     * @return the editing domain
      * @generated
      */
     public TransactionalEditingDomain getEditingDomain() {
@@ -161,10 +134,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Sets the document provider.
-     * 
-     * @param input
-     *            the new document provider
      * @generated
      */
     protected void setDocumentProvider(IEditorInput input) {
@@ -177,10 +146,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Goto marker.
-     * 
-     * @param marker
-     *            the marker
      * @generated
      */
     public void gotoMarker(IMarker marker) {
@@ -188,9 +153,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Checks if is save as allowed.
-     * 
-     * @return true, if is save as allowed
      * @generated
      */
     public boolean isSaveAsAllowed() {
@@ -198,8 +160,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Do save as.
-     * 
      * @generated
      */
     public void doSaveAs() {
@@ -207,10 +167,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Perform save as.
-     * 
-     * @param progressMonitor
-     *            the progress monitor
      * @generated
      */
     protected void performSaveAs(IProgressMonitor progressMonitor) {
@@ -284,9 +240,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the show in context.
-     * 
-     * @return the show in context
      * @generated
      */
     public ShowInContext getShowInContext() {
@@ -294,9 +247,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Gets the navigator selection.
-     * 
-     * @return the navigator selection
      * @generated
      */
     private ISelection getNavigatorSelection() {
@@ -314,8 +264,6 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     }
 
     /**
-     * Configure graphical viewer.
-     * 
      * @generated
      */
     protected void configureGraphicalViewer() {

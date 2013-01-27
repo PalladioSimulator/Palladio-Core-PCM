@@ -60,12 +60,16 @@ public class ExternalCallActionConfigureCommand extends ConfigureElementCommand 
      */
     /**
      * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
      * @return the command result
-     * @throws ExecutionException the execution exception
-     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     * @throws ExecutionException
+     *             the execution exception
+     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor,
+     *      org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doExecuteWithResult(final IProgressMonitor monitor, final IAdaptable info)

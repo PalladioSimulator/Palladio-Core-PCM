@@ -20,18 +20,11 @@ import org.eclipse.swt.widgets.Text;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * A factory for creating PalladioComponentModelEditPart objects.
- *
  * @generated
  */
 public class PalladioComponentModelEditPartFactory implements EditPartFactory {
 
     /**
-     * Creates a new PalladioComponentModelEditPart object.
-     *
-     * @param context the context
-     * @param model the model
-     * @return the edits the part
      * @generated
      */
     public EditPart createEditPart(EditPart context, Object model) {
@@ -150,11 +143,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
     }
 
     /**
-     * Creates a new PalladioComponentModelEditPart object.
-     *
-     * @param context the context
-     * @param model the model
-     * @return the edits the part
      * @generated
      */
     private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
@@ -163,10 +151,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
     }
 
     /**
-     * Gets the text cell editor locator.
-     *
-     * @param source the source
-     * @return the text cell editor locator
      * @generated
      */
     public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
@@ -178,19 +162,16 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
     }
 
     /**
-     * The Class TextCellEditorLocator.
-     *
      * @generated
      */
     static private class TextCellEditorLocator implements CellEditorLocator {
 
-        /** The wrap label. @generated */
+        /**
+         * @generated
+         */
         private WrappingLabel wrapLabel;
 
         /**
-         * Instantiates a new text cell editor locator.
-         *
-         * @param wrapLabel the wrap label
          * @generated
          */
         public TextCellEditorLocator(WrappingLabel wrapLabel) {
@@ -198,9 +179,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
         }
 
         /**
-         * Gets the wrap label.
-         *
-         * @return the wrap label
          * @generated
          */
         public WrappingLabel getWrapLabel() {
@@ -208,9 +186,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
         }
 
         /**
-         * Relocate.
-         *
-         * @param celleditor the celleditor
          * @generated
          */
         public void relocate(CellEditor celleditor) {
@@ -231,19 +206,16 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
     }
 
     /**
-     * The Class LabelCellEditorLocator.
-     *
      * @generated
      */
     private static class LabelCellEditorLocator implements CellEditorLocator {
 
-        /** The label. @generated */
+        /**
+         * @generated
+         */
         private Label label;
 
         /**
-         * Instantiates a new label cell editor locator.
-         *
-         * @param label the label
          * @generated
          */
         public LabelCellEditorLocator(Label label) {
@@ -251,9 +223,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
         }
 
         /**
-         * Gets the label.
-         *
-         * @return the label
          * @generated
          */
         public Label getLabel() {
@@ -261,9 +230,6 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
         }
 
         /**
-         * Relocate.
-         *
-         * @param celleditor the celleditor
          * @generated
          */
         public void relocate(CellEditor celleditor) {

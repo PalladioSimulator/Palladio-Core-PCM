@@ -20,19 +20,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InfrastructureCallInfrastructur
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class InfrastructureCallInfrastructureCallInputVariableUsagesEditPart.
- *
  * @generated
  */
 public class InfrastructureCallInfrastructureCallInputVariableUsagesEditPart extends ListCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7049;
 
     /**
-     * Instantiates a new infrastructure call infrastructure call input variable usages edit part.
-     *
-     * @param view the view
      * @generated
      */
     public InfrastructureCallInfrastructureCallInputVariableUsagesEditPart(View view) {
@@ -40,10 +37,6 @@ public class InfrastructureCallInfrastructureCallInputVariableUsagesEditPart ext
     }
 
     /**
-     * Checks for model children changed.
-     *
-     * @param evt the evt
-     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -51,9 +44,6 @@ public class InfrastructureCallInfrastructureCallInputVariableUsagesEditPart ext
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -61,9 +51,6 @@ public class InfrastructureCallInfrastructureCallInputVariableUsagesEditPart ext
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -73,8 +60,6 @@ public class InfrastructureCallInfrastructureCallInputVariableUsagesEditPart ext
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -89,9 +74,6 @@ public class InfrastructureCallInfrastructureCallInputVariableUsagesEditPart ext
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

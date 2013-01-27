@@ -35,7 +35,7 @@ public class CustomVariableCharacterisation2EditPart extends VariableCharacteris
      */
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#getLabelText()
      */
@@ -69,7 +69,7 @@ public class CustomVariableCharacterisation2EditPart extends VariableCharacteris
      */
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#addSemanticListeners()
      */
     @Override
@@ -88,7 +88,7 @@ public class CustomVariableCharacterisation2EditPart extends VariableCharacteris
      */
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#removeSemanticListeners()
      */
     @Override
@@ -106,8 +106,9 @@ public class CustomVariableCharacterisation2EditPart extends VariableCharacteris
      */
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

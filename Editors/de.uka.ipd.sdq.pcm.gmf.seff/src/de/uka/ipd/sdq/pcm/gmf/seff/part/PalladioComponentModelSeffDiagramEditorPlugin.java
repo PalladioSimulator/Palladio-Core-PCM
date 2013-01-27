@@ -47,40 +47,40 @@ import de.uka.ipd.sdq.stoex.provider.StoexItemProviderAdapterFactory;
 import de.uka.ipd.sdq.units.provider.UnitsItemProviderAdapterFactory;
 
 /**
- * The Class PalladioComponentModelSeffDiagramEditorPlugin.
- *
  * @generated
  */
 public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlugin {
 
-    /** The Constant ID. @generated */
+    /**
+     * @generated
+     */
     public static final String ID = "de.uka.ipd.sdq.pcm.gmf.seff"; //$NON-NLS-1$
 
-    /** The Constant DIAGRAM_PREFERENCES_HINT. @generated */
+    /**
+     * @generated
+     */
     public static final PreferencesHint DIAGRAM_PREFERENCES_HINT = new PreferencesHint(ID);
 
-    /** The instance. @generated */
+    /**
+     * @generated
+     */
     private static PalladioComponentModelSeffDiagramEditorPlugin instance;
 
     /** The adapter factory. @generated not */
     private AdapterFactory adapterFactory;
 
-    /** The document provider. @generated */
+    /**
+     * @generated
+     */
     private PalladioComponentModelDocumentProvider documentProvider;
 
     /**
-     * Instantiates a new palladio component model seff diagram editor plugin.
-     *
      * @generated
      */
     public PalladioComponentModelSeffDiagramEditorPlugin() {
     }
 
     /**
-     * Start.
-     *
-     * @param context the context
-     * @throws Exception the exception
      * @generated
      */
     public void start(BundleContext context) throws Exception {
@@ -92,9 +92,11 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
 
     /**
      * Stop.
-     *
-     * @param context the context
-     * @throws Exception the exception
+     * 
+     * @param context
+     *            the context
+     * @throws Exception
+     *             the exception
      * @generated not
      */
     public void stop(BundleContext context) throws Exception {
@@ -105,9 +107,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Gets the single instance of PalladioComponentModelSeffDiagramEditorPlugin.
-     *
-     * @return single instance of PalladioComponentModelSeffDiagramEditorPlugin
      * @generated
      */
     public static PalladioComponentModelSeffDiagramEditorPlugin getInstance() {
@@ -116,7 +115,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
 
     /**
      * Creates the adapter factory.
-     *
+     * 
      * @return the adapter factory
      * @generated not
      */
@@ -136,9 +135,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Fill item provider factories.
-     *
-     * @param factories the factories
      * @generated
      */
     protected void fillItemProviderFactories(List factories) {
@@ -175,9 +171,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Gets the item providers adapter factory.
-     *
-     * @return the item providers adapter factory
      * @generated
      */
     public AdapterFactory getItemProvidersAdapterFactory() {
@@ -185,10 +178,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Gets the item image descriptor.
-     *
-     * @param item the item
-     * @return the item image descriptor
      * @generated
      */
     public ImageDescriptor getItemImageDescriptor(Object item) {
@@ -200,10 +189,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Returns an image descriptor for the image file at the given plug-in relative path.
-     *
-     * @param path the path
-     * @return the image descriptor
      * @generated
      */
     public static ImageDescriptor getBundledImageDescriptor(String path) {
@@ -211,13 +196,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Respects images residing in any plug-in. If path is relative, then this bundle is looked up
-     * for the image, otherwise, for absolute path, first segment is taken as id of plug-in with
-     * image
-     *
-     * @param path the path to image, either absolute (with plug-in id as first segment), or relative
-     * for bundled images
-     * @return the image descriptor
      * @generated
      */
     public static ImageDescriptor findImageDescriptor(String path) {
@@ -231,10 +209,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Returns string from plug-in's resource bundle.
-     *
-     * @param key the key
-     * @return the string
      * @generated
      */
     public static String getString(String key) {
@@ -242,11 +216,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Returns an image for the image file at the given plug-in relative path. Client do not need to
-     * dispose this image. Images will be disposed automatically.
-     *
-     * @param path the path
-     * @return image instance
      * @generated
      */
     public Image getBundledImage(String path) {
@@ -259,9 +228,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Gets the document provider.
-     *
-     * @return the document provider
      * @generated
      */
     public PalladioComponentModelDocumentProvider getDocumentProvider() {
@@ -272,9 +238,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Log error.
-     *
-     * @param error the error
      * @generated
      */
     public void logError(String error) {
@@ -282,10 +245,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Log error.
-     *
-     * @param error the error
-     * @param throwable actual error or null could be passed
      * @generated
      */
     public void logError(String error, Throwable throwable) {
@@ -299,9 +258,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Log info.
-     *
-     * @param message the message
      * @generated
      */
     public void logInfo(String message) {
@@ -309,10 +265,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Log info.
-     *
-     * @param message the message
-     * @param throwable actual error or null could be passed
      * @generated
      */
     public void logInfo(String message, Throwable throwable) {
@@ -326,10 +278,6 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     }
 
     /**
-     * Debug.
-     *
-     * @param message the message
-     * @param throwable the throwable
      * @generated
      */
     private void debug(String message, Throwable throwable) {

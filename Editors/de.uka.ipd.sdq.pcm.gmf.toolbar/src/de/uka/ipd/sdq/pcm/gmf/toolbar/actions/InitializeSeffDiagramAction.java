@@ -12,7 +12,7 @@ public class InitializeSeffDiagramAction extends BaseInitializeDiagramAction {
 
     /**
      * Gets the inits the action.
-     *
+     * 
      * @return the inits the action
      * @see de.uka.ipd.sdq.pcm.gmf.toolbar.BaseInitializeDiagramAction#getInitAction()
      */

@@ -34,25 +34,26 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.StartItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class StartEditPart.
- *
  * @generated
  */
 public class StartEditPart extends ShapeNodeEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3001;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new start edit part.
-     *
-     * @param view the view
      * @generated
      */
     public StartEditPart(View view) {
@@ -60,8 +61,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -74,9 +73,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     *
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -102,9 +98,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node shape.
-     *
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -113,9 +106,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     *
-     * @return the primary shape
      * @generated
      */
     public StartFigure getPrimaryShape() {
@@ -123,9 +113,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node plate.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -134,9 +121,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary drag edit policy.
-     *
-     * @return the primary drag edit policy
      * @generated
      */
     public EditPolicy getPrimaryDragEditPolicy() {
@@ -149,12 +133,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -167,11 +145,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     *
-     * @param nodeShape instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -179,9 +152,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane.
-     *
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -192,9 +162,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     *
-     * @param color the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -204,9 +171,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the background color.
-     *
-     * @param color the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -216,9 +180,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line width.
-     *
-     * @param width the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -228,9 +189,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line type.
-     *
-     * @param style the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -240,9 +198,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on source.
-     *
-     * @return the mA rel types on source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
@@ -262,10 +217,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on source and target.
-     *
-     * @param targetEditPart the target edit part
-     * @return the mA rel types on source and target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
@@ -303,10 +254,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA types for target.
-     *
-     * @param relationshipType the relationship type
-     * @return the mA types for target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
@@ -344,9 +291,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on target.
-     *
-     * @return the mA rel types on target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
@@ -366,10 +310,6 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA types for source.
-     *
-     * @param relationshipType the relationship type
-     * @return the mA types for source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
@@ -407,15 +347,11 @@ public class StartEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * The Class StartFigure.
-     *
      * @generated
      */
     public class StartFigure extends Ellipse {
-        
+
         /**
-         * Instantiates a new start figure.
-         *
          * @generated
          */
         public StartFigure() {
@@ -425,13 +361,12 @@ public class StartEditPart extends ShapeNodeEditPart {
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         *
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -439,9 +374,6 @@ public class StartEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         *
-         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

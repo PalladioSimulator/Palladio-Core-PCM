@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.pcm.gmf.resource.custom;
 import org.eclipse.core.runtime.Plugin;
 import org.osgi.framework.BundleContext;
 
+// TODO: Auto-generated Javadoc
 /**
  * The activator class controls the plug-in life cycle.
  */
@@ -25,12 +26,13 @@ public class Activator extends Plugin {
     }
 
     /**
+     * Start.
      * 
-     * @see org.eclipse.core.runtime.Plugins#start(org.osgi.framework.BundleContext)
      * @param context
      *            a BundleContext
      * @throws Exception
      *             an exception
+     * @see org.eclipse.core.runtime.Plugins#start(org.osgi.framework.BundleContext)
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
@@ -38,12 +40,13 @@ public class Activator extends Plugin {
     }
 
     /**
+     * Stop.
      * 
-     * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
      * @param context
      *            a BundleContext
      * @throws Exception
      *             an exception
+     * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
      */
     public void stop(BundleContext context) throws Exception {
         plugin = null;

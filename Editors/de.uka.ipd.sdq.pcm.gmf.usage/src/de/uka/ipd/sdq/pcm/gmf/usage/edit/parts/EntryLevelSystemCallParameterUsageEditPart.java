@@ -18,19 +18,16 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.EntryLevelSystemCallParameterU
 import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
 
 /**
- * The Class EntryLevelSystemCallParameterUsageEditPart.
- *
  * @generated
  */
 public class EntryLevelSystemCallParameterUsageEditPart extends ListCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7002;
 
     /**
-     * Instantiates a new entry level system call parameter usage edit part.
-     *
-     * @param view the view
      * @generated
      */
     public EntryLevelSystemCallParameterUsageEditPart(View view) {
@@ -38,10 +35,6 @@ public class EntryLevelSystemCallParameterUsageEditPart extends ListCompartmentE
     }
 
     /**
-     * Checks for model children changed.
-     *
-     * @param evt the evt
-     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -49,9 +42,6 @@ public class EntryLevelSystemCallParameterUsageEditPart extends ListCompartmentE
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -59,9 +49,6 @@ public class EntryLevelSystemCallParameterUsageEditPart extends ListCompartmentE
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -71,8 +58,6 @@ public class EntryLevelSystemCallParameterUsageEditPart extends ListCompartmentE
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -84,9 +69,6 @@ public class EntryLevelSystemCallParameterUsageEditPart extends ListCompartmentE
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

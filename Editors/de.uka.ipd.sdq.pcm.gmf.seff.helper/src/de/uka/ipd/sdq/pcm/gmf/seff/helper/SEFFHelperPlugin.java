@@ -27,9 +27,11 @@ public class SEFFHelperPlugin extends AbstractUIPlugin {
      */
     /**
      * Start.
-     *
-     * @param context the context
-     * @throws Exception the exception
+     * 
+     * @param context
+     *            the context
+     * @throws Exception
+     *             the exception
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
      */
     @Override
@@ -45,9 +47,11 @@ public class SEFFHelperPlugin extends AbstractUIPlugin {
      */
     /**
      * Stop.
-     *
-     * @param context the context
-     * @throws Exception the exception
+     * 
+     * @param context
+     *            the context
+     * @throws Exception
+     *             the exception
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
      */
     @Override

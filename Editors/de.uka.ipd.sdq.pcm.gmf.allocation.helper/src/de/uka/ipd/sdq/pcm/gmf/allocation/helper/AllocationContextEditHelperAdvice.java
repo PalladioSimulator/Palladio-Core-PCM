@@ -70,16 +70,15 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
         if (!(dialog.getResult() instanceof AssemblyContext) && !(dialog.getResult() instanceof EventChannel)) {
             return new CanceledCommand();
         }
-        if (dialog.getResult() instanceof AssemblyContext){
-        	AssemblyContext resource = (AssemblyContext) dialog.getResult();
-        	final CompositeCommand cc = this.constructInitializationAssemblyContextCommand(request, resource);
-        	return cc;
-        
-        }
-        else if (dialog.getResult() instanceof EventChannel){
-        	EventChannel resource= (EventChannel) dialog.getResult();
-        	final CompositeCommand cc = this.constructInitializationEventChannelCommand(request, resource);
-        	return cc;
+        if (dialog.getResult() instanceof AssemblyContext) {
+            AssemblyContext resource = (AssemblyContext) dialog.getResult();
+            final CompositeCommand cc = this.constructInitializationAssemblyContextCommand(request, resource);
+            return cc;
+
+        } else if (dialog.getResult() instanceof EventChannel) {
+            EventChannel resource = (EventChannel) dialog.getResult();
+            final CompositeCommand cc = this.constructInitializationEventChannelCommand(request, resource);
+            return cc;
         }
 
         return new CanceledCommand();
@@ -112,7 +111,7 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
         cc.add(cmd2);
         return cc;
     }
-    
+
     private CompositeCommand constructInitializationEventChannelCommand(final ConfigureRequest request,
             final EventChannel resource) {
         final ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),
@@ -127,5 +126,5 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
         cc.add(cmd2);
         return cc;
     }
-    
+
 }

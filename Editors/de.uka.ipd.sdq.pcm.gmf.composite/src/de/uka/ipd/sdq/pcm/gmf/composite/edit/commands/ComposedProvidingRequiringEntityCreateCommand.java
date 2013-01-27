@@ -20,17 +20,11 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 
 /**
- * The Class ComposedProvidingRequiringEntityCreateCommand.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new composed providing requiring entity create command.
-     * 
-     * @param req
-     *            the req
      * @generated
      */
     public ComposedProvidingRequiringEntityCreateCommand(CreateElementRequest req) {
@@ -38,9 +32,6 @@ public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCo
     }
 
     /**
-     * FIXME: replace with setElementToEdit().
-     * 
-     * @return the element to edit
      * @generated
      */
     @Override
@@ -53,9 +44,6 @@ public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCo
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     @Override
@@ -96,16 +84,6 @@ public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCo
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(ComposedProvidingRequiringEntity newElement, IProgressMonitor monitor, IAdaptable info)

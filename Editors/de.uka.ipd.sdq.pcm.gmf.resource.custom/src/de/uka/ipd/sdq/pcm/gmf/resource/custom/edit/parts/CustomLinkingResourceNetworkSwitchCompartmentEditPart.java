@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part.
  */
@@ -16,6 +17,7 @@ public class CustomLinkingResourceNetworkSwitchCompartmentEditPart extends
         LinkingResourceNetworkSwitchCompartmentEditPart {
 
     /**
+     * Instantiates a new custom linking resource network switch compartment edit part.
      * 
      * @param view
      *            a View
@@ -24,6 +26,13 @@ public class CustomLinkingResourceNetworkSwitchCompartmentEditPart extends
         super(view);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceNetworkSwitchCompartmentEditPart
+     * #createFigure()
+     */
     @Override
     public IFigure createFigure() {
         ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();

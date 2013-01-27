@@ -16,20 +16,16 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ProvidedDelegationConnectorItemSemanticEditPolicy;
 
 /**
- * The Class ProvidedDelegationConnectorEditPart.
- * 
  * @generated
  */
 public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 4006;
 
     /**
-     * Instantiates a new provided delegation connector edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public ProvidedDelegationConnectorEditPart(View view) {
@@ -37,8 +33,6 @@ public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -47,12 +41,6 @@ public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * @return the connection
      * @generated
      */
     protected Connection createConnectionFigure() {
@@ -60,9 +48,6 @@ public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * Gets the primary shape.
-     * 
-     * @return the primary shape
      * @generated
      */
     public OperationProvidedDelegationConnectorFigure getPrimaryShape() {
@@ -70,15 +55,11 @@ public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * The Class OperationProvidedDelegationConnectorFigure.
-     * 
      * @generated
      */
     public class OperationProvidedDelegationConnectorFigure extends PolylineConnectionEx {
 
         /**
-         * Instantiates a new operation provided delegation connector figure.
-         * 
          * @generated
          */
         public OperationProvidedDelegationConnectorFigure() {
@@ -88,9 +69,6 @@ public class ProvidedDelegationConnectorEditPart extends ConnectionNodeEditPart 
         }
 
         /**
-         * Creates the target decoration.
-         * 
-         * @return the rotatable decoration
          * @generated
          */
         private RotatableDecoration createTargetDecoration() {

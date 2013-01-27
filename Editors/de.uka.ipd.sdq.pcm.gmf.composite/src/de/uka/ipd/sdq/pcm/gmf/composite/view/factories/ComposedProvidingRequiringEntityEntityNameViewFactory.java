@@ -11,27 +11,11 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
- * A factory for creating ComposedProvidingRequiringEntityEntityNameView objects.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntityEntityNameViewFactory extends BasicNodeViewFactory {
 
     /**
-     * Decorate view.
-     * 
-     * @param containerView
-     *            the container view
-     * @param view
-     *            the view
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param semanticHint
-     *            the semantic hint
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
      * @generated
      */
     protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,
@@ -40,11 +24,6 @@ public class ComposedProvidingRequiringEntityEntityNameViewFactory extends Basic
     }
 
     /**
-     * Creates a new ComposedProvidingRequiringEntityEntityNameView object.
-     * 
-     * @param view
-     *            the view
-     * @return the list
      * @generated
      */
     protected List createStyles(View view) {

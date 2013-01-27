@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InternalFailureOccurrenceDescri
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class InternalActionFailureOccurrenceDescriptions2ItemSemanticEditPolicy.
- *
  * @generated
  */
 public class InternalActionFailureOccurrenceDescriptions2ItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new internal action failure occurrence descriptions2 item semantic edit policy.
-     *
      * @generated
      */
     public InternalActionFailureOccurrenceDescriptions2ItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class InternalActionFailureOccurrenceDescriptions2ItemSemanticEditPolicy 
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

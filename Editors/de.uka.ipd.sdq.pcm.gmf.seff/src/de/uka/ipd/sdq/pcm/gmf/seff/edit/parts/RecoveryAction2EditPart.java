@@ -38,25 +38,26 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class RecoveryAction2EditPart.
- *
  * @generated
  */
 public class RecoveryAction2EditPart extends ShapeNodeEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3057;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new recovery action2 edit part.
-     *
-     * @param view the view
      * @generated
      */
     public RecoveryAction2EditPart(View view) {
@@ -64,8 +65,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -78,9 +77,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     *
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -106,9 +102,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node shape.
-     *
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -117,9 +110,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     *
-     * @return the primary shape
      * @generated
      */
     public RecoveryActionFigure getPrimaryShape() {
@@ -127,10 +117,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
@@ -150,10 +136,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
@@ -171,10 +153,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the child visual.
-     *
-     * @param childEditPart the child edit part
-     * @param index the index
      * @generated
      */
     protected void addChildVisual(EditPart childEditPart, int index) {
@@ -185,9 +163,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the child visual.
-     *
-     * @param childEditPart the child edit part
      * @generated
      */
     protected void removeChildVisual(EditPart childEditPart) {
@@ -198,10 +173,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane for.
-     *
-     * @param editPart the edit part
-     * @return the content pane for
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
@@ -212,9 +183,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node plate.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -223,12 +191,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -241,11 +203,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     *
-     * @param nodeShape instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -258,9 +215,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane.
-     *
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -271,9 +225,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     *
-     * @param color the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -283,9 +234,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the background color.
-     *
-     * @param color the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -295,9 +243,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line width.
-     *
-     * @param width the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -307,9 +252,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line type.
-     *
-     * @param style the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -319,9 +261,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary child edit part.
-     *
-     * @return the primary child edit part
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
@@ -330,9 +269,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on source.
-     *
-     * @return the mA rel types on source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
@@ -352,10 +288,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on source and target.
-     *
-     * @param targetEditPart the target edit part
-     * @return the mA rel types on source and target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
@@ -453,10 +385,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA types for target.
-     *
-     * @param relationshipType the relationship type
-     * @return the mA types for target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
@@ -554,9 +482,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on target.
-     *
-     * @return the mA rel types on target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
@@ -576,10 +501,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA types for source.
-     *
-     * @param relationshipType the relationship type
-     * @return the mA types for source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
@@ -677,21 +598,21 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * The Class RecoveryActionFigure.
-     *
      * @generated
      */
     public class RecoveryActionFigure extends RoundedRectangle {
 
-        /** The figure recovery action name label. @generated */
+        /**
+         * @generated
+         */
         private WrappingLabel fFigureRecoveryActionNameLabel;
-        
-        /** The figure recovery action compartment. @generated */
+
+        /**
+         * @generated
+         */
         private RectangleFigure fFigureRecoveryActionCompartment;
 
         /**
-         * Instantiates a new recovery action figure.
-         *
          * @generated
          */
         public RecoveryActionFigure() {
@@ -712,8 +633,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Creates the contents.
-         *
          * @generated
          */
         private void createContents() {
@@ -767,13 +686,12 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
 
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         *
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -781,9 +699,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         *
-         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
@@ -791,9 +706,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure recovery action name label.
-         *
-         * @return the figure recovery action name label
          * @generated
          */
         public WrappingLabel getFigureRecoveryActionNameLabel() {
@@ -801,9 +713,6 @@ public class RecoveryAction2EditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure recovery action compartment.
-         *
-         * @return the figure recovery action compartment
          * @generated
          */
         public RectangleFigure getFigureRecoveryActionCompartment() {

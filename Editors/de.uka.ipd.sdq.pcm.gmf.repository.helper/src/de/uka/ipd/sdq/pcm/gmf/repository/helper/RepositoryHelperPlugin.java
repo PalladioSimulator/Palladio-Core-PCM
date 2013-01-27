@@ -9,12 +9,12 @@ import org.osgi.framework.BundleContext;
 public class RepositoryHelperPlugin extends AbstractUIPlugin {
 
     /**
-     *  The plug-in ID.
+     * The plug-in ID.
      */
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.repository.helper";
 
     /**
-     *  The shared instance.
+     * The shared instance.
      */
     private static RepositoryHelperPlugin plugin;
 
@@ -35,8 +35,10 @@ public class RepositoryHelperPlugin extends AbstractUIPlugin {
 
     /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#start(org.osgi.framework.BundleContext)
-     * @param context a BundleContext
-     * @throws Exception an Exception
+     * @param context
+     *            a BundleContext
+     * @throws Exception
+     *             an Exception
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
@@ -45,8 +47,10 @@ public class RepositoryHelperPlugin extends AbstractUIPlugin {
 
     /**
      * @see org.eclipse.ui.plugin.AbstractUIPlugin#stop(org.osgi.framework.BundleContext)
-     * @param context a BundleContext
-     * @throws Exception an Exception
+     * @param context
+     *            a BundleContext
+     * @throws Exception
+     *             an Exception
      */
     public void stop(BundleContext context) throws Exception {
         plugin = null;

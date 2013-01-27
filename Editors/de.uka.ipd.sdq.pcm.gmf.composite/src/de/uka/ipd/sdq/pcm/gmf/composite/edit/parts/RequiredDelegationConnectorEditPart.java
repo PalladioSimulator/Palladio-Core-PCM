@@ -16,20 +16,16 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.RequiredDelegationConnectorItemSemanticEditPolicy;
 
 /**
- * The Class RequiredDelegationConnectorEditPart.
- * 
  * @generated
  */
 public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 4005;
 
     /**
-     * Instantiates a new required delegation connector edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public RequiredDelegationConnectorEditPart(View view) {
@@ -37,8 +33,6 @@ public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -47,12 +41,6 @@ public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * @return the connection
      * @generated
      */
     protected Connection createConnectionFigure() {
@@ -60,9 +48,6 @@ public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * Gets the primary shape.
-     * 
-     * @return the primary shape
      * @generated
      */
     public OperationRequiredDelegationConnectorFigure getPrimaryShape() {
@@ -70,15 +55,11 @@ public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart 
     }
 
     /**
-     * The Class OperationRequiredDelegationConnectorFigure.
-     * 
      * @generated
      */
     public class OperationRequiredDelegationConnectorFigure extends PolylineConnectionEx {
 
         /**
-         * Instantiates a new operation required delegation connector figure.
-         * 
          * @generated
          */
         public OperationRequiredDelegationConnectorFigure() {
@@ -88,9 +69,6 @@ public class RequiredDelegationConnectorEditPart extends ConnectionNodeEditPart 
         }
 
         /**
-         * Creates the target decoration.
-         * 
-         * @return the rotatable decoration
          * @generated
          */
         private RotatableDecoration createTargetDecoration() {

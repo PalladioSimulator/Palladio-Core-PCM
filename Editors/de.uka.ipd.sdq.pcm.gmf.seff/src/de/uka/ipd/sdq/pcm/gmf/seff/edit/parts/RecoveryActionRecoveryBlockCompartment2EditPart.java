@@ -17,19 +17,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.RecoveryActionRecoveryBlockComp
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class RecoveryActionRecoveryBlockCompartment2EditPart.
- *
  * @generated
  */
 public class RecoveryActionRecoveryBlockCompartment2EditPart extends ShapeCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7056;
 
     /**
-     * Instantiates a new recovery action recovery block compartment2 edit part.
-     *
-     * @param view the view
      * @generated
      */
     public RecoveryActionRecoveryBlockCompartment2EditPart(View view) {
@@ -37,9 +34,6 @@ public class RecoveryActionRecoveryBlockCompartment2EditPart extends ShapeCompar
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -47,9 +41,6 @@ public class RecoveryActionRecoveryBlockCompartment2EditPart extends ShapeCompar
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -59,8 +50,6 @@ public class RecoveryActionRecoveryBlockCompartment2EditPart extends ShapeCompar
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -74,9 +63,6 @@ public class RecoveryActionRecoveryBlockCompartment2EditPart extends ShapeCompar
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

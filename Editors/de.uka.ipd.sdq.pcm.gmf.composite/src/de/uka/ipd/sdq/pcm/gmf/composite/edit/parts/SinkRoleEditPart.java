@@ -41,8 +41,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * The edit part to draw an internal sink role for an assembly context.
- * 
  * @generated
  */
 public class SinkRoleEditPart extends BorderedBorderItemEditPart {
@@ -50,20 +48,22 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3014;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new sink role edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public SinkRoleEditPart(View view) {
@@ -71,8 +71,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -86,9 +84,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     * 
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -126,9 +121,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Creates the node shape.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -137,9 +129,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     * 
-     * @return the primary shape
      * @generated
      */
     public SinkRoleFigure getPrimaryShape() {
@@ -147,12 +136,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Adds the border item.
-     * 
-     * @param borderItemContainer
-     *            the border item container
-     * @param borderItemEditPart
-     *            the border item edit part
      * @generated
      */
     protected void addBorderItem(IFigure borderItemContainer, IBorderItemEditPart borderItemEditPart) {
@@ -166,9 +149,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Create the node shape. This is manually adopted to trigger
-     * 
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -198,12 +178,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -211,9 +185,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the content pane.
-     * 
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -224,10 +195,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     * 
-     * @param color
-     *            the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -237,10 +204,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the background color.
-     * 
-     * @param color
-     *            the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -250,10 +213,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the line width.
-     * 
-     * @param width
-     *            the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -263,10 +222,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the line type.
-     * 
-     * @param style
-     *            the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -276,9 +231,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the primary child edit part.
-     * 
-     * @return the primary child edit part
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
@@ -287,9 +239,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA rel types on Source.
-     * 
-     * @return the mA rel types on S—urce
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
@@ -353,9 +302,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA rel types on target.
-     * 
-     * @return the mA rel types on target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
@@ -375,11 +321,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA types for source.
-     * 
-     * @param relationshipType
-     *            the relationship type
-     * @return the mA types for source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
@@ -402,15 +343,11 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * The Class SinkRoleFigure.
-     * 
      * @generated
      */
     public class SinkRoleFigure extends RectangleFigure {
 
         /**
-         * Instantiates a new sink role figure.
-         * 
          * @generated
          */
         public SinkRoleFigure() {
@@ -420,13 +357,12 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
             this.setLocation(new Point(getMapMode().DPtoLP(40), getMapMode().DPtoLP(40)));
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         * 
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -434,10 +370,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         * 
-         * @param useLocalCoordinates
-         *            the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

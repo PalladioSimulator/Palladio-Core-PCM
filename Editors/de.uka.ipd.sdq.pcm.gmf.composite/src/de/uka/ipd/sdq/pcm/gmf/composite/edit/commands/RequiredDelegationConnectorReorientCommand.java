@@ -17,26 +17,26 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBase
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
- * The Class RequiredDelegationConnectorReorientCommand.
- * 
  * @generated
  */
 public class RequiredDelegationConnectorReorientCommand extends EditElementCommand {
 
-    /** The reorient direction. @generated */
+    /**
+     * @generated
+     */
     private final int reorientDirection;
 
-    /** The old end. @generated */
+    /**
+     * @generated
+     */
     private final EObject oldEnd;
 
-    /** The new end. @generated */
+    /**
+     * @generated
+     */
     private final EObject newEnd;
 
     /**
-     * Instantiates a new required delegation connector reorient command.
-     * 
-     * @param request
-     *            the request
      * @generated
      */
     public RequiredDelegationConnectorReorientCommand(ReorientRelationshipRequest request) {
@@ -47,9 +47,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -66,9 +63,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Can reorient source.
-     * 
-     * @return true, if successful
      * @generated
      */
     protected boolean canReorientSource() {
@@ -85,9 +79,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Can reorient target.
-     * 
-     * @return true, if successful
      * @generated
      */
     protected boolean canReorientTarget() {
@@ -104,15 +95,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -129,11 +111,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Reorient source.
-     * 
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult reorientSource() throws ExecutionException {
@@ -142,11 +119,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Reorient target.
-     * 
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult reorientTarget() throws ExecutionException {
@@ -155,9 +127,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Gets the link.
-     * 
-     * @return the link
      * @generated
      */
     protected RequiredDelegationConnector getLink() {
@@ -165,9 +134,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Gets the old source.
-     * 
-     * @return the old source
      * @generated
      */
     protected OperationRequiredRole getOldSource() {
@@ -175,9 +141,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Gets the new source.
-     * 
-     * @return the new source
      * @generated
      */
     protected OperationRequiredRole getNewSource() {
@@ -185,9 +148,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Gets the old target.
-     * 
-     * @return the old target
      * @generated
      */
     protected OperationRequiredRole getOldTarget() {
@@ -195,9 +155,6 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
     }
 
     /**
-     * Gets the new target.
-     * 
-     * @return the new target
      * @generated
      */
     protected OperationRequiredRole getNewTarget() {

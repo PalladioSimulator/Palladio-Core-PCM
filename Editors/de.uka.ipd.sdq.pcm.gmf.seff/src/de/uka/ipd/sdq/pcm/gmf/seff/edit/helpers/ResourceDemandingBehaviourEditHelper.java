@@ -4,8 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers;
 
 /**
- * The Class ResourceDemandingBehaviourEditHelper.
- *
  * @generated
  */
 public class ResourceDemandingBehaviourEditHelper extends PalladioComponentModelBaseEditHelper {

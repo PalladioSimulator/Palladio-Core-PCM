@@ -33,8 +33,9 @@ public class CustomInternalActionInfrastructureCallsCompartment2ItemSemanticEdit
      */
     /**
      * Gets the creates the command.
-     *
-     * @param req the req
+     * 
+     * @param req
+     *            the req
      * @return the creates the command
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionInfrastructureCallsCompartment2ItemSemanticEditPolicy#getCreateCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest)
      */

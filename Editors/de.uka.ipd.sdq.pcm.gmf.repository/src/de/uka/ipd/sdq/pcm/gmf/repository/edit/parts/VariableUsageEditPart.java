@@ -3,10 +3,8 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
-import org.eclipse.draw2d.GridData;
 import org.eclipse.draw2d.GridLayout;
 import org.eclipse.draw2d.IFigure;
-import org.eclipse.draw2d.MarginBorder;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
 import org.eclipse.draw2d.StackLayout;
@@ -21,7 +19,6 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -76,7 +73,8 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new VariableUsageItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children
+        // add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -177,11 +175,6 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -194,11 +187,6 @@ public class VariableUsageEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {

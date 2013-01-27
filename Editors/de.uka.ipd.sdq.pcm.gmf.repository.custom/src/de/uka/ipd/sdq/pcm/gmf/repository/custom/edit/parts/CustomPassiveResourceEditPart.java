@@ -21,7 +21,7 @@ public class CustomPassiveResourceEditPart extends PassiveResourceEditPart {
      * The changeListener.
      */
     private EContentAdapter changeListener = null;
-    
+
     /**
      * An adaptedElement.
      */
@@ -29,13 +29,14 @@ public class CustomPassiveResourceEditPart extends PassiveResourceEditPart {
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomPassiveResourceEditPart(View view) {
         super(view);
     }
 
-    
     @Override
     protected String getLabelText() {
         String stoex = null, text = null;

@@ -28,8 +28,9 @@ public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
 
     /**
      * Instantiates a new configure minimal seff command.
-     *
-     * @param request the request
+     * 
+     * @param request
+     *            the request
      */
     public ConfigureMinimalSeffCommand(ConfigureRequest request) {
         super(request);
@@ -38,12 +39,16 @@ public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
 
     /**
      * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
      * @return the command result
-     * @throws ExecutionException the execution exception
-     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     * @throws ExecutionException
+     *             the execution exception
+     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor,
+     *      org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -72,10 +77,13 @@ public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
 
     /**
      * Creates the control flow.
-     *
-     * @param start the start
-     * @param stop the stop
-     * @param monitor the monitor
+     * 
+     * @param start
+     *            the start
+     * @param stop
+     *            the stop
+     * @param monitor
+     *            the monitor
      * @return the command result
      */
     private CommandResult createControlFlow(Start start, Stop stop, IProgressMonitor monitor) {
@@ -93,11 +101,14 @@ public class ConfigureMinimalSeffCommand extends ConfigureElementCommand {
 
     /**
      * Creates the seff action.
-     *
-     * @param typeId the type id
-     * @param monitor the monitor
+     * 
+     * @param typeId
+     *            the type id
+     * @param monitor
+     *            the monitor
      * @return the command result
-     * @throws ExecutionException the execution exception
+     * @throws ExecutionException
+     *             the execution exception
      */
     private CommandResult createSEFFAction(IElementType typeId, IProgressMonitor monitor) throws ExecutionException {
         CreateElementRequest startRequest = new CreateElementRequest(myRequest.getElementToConfigure(), typeId,

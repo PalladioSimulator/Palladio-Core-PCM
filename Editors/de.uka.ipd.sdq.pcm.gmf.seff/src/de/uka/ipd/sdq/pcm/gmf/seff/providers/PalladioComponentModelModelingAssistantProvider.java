@@ -78,17 +78,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 
 /**
- * The Class PalladioComponentModelModelingAssistantProvider.
- *
  * @generated
  */
 public class PalladioComponentModelModelingAssistantProvider extends ModelingAssistantProvider {
 
     /**
-     * Gets the types for popup bar.
-     *
-     * @param host the host
-     * @return the types for popup bar
      * @generated
      */
     public List getTypesForPopupBar(IAdaptable host) {
@@ -375,10 +369,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Gets the rel types on source.
-     *
-     * @param source the source
-     * @return the rel types on source
      * @generated
      */
     public List getRelTypesOnSource(IAdaptable source) {
@@ -468,10 +458,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Gets the rel types on target.
-     *
-     * @param target the target
-     * @return the rel types on target
      * @generated
      */
     public List getRelTypesOnTarget(IAdaptable target) {
@@ -561,11 +547,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Gets the rel types on source and target.
-     *
-     * @param source the source
-     * @param target the target
-     * @return the rel types on source and target
      * @generated
      */
     public List getRelTypesOnSourceAndTarget(IAdaptable source, IAdaptable target) {
@@ -656,11 +637,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Gets the types for source.
-     *
-     * @param target the target
-     * @param relationshipType the relationship type
-     * @return the types for source
      * @generated
      */
     public List getTypesForSource(IAdaptable target, IElementType relationshipType) {
@@ -750,11 +726,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Gets the types for target.
-     *
-     * @param source the source
-     * @param relationshipType the relationship type
-     * @return the types for target
      * @generated
      */
     public List getTypesForTarget(IAdaptable source, IElementType relationshipType) {
@@ -844,11 +815,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Select existing element for source.
-     *
-     * @param target the target
-     * @param relationshipType the relationship type
-     * @return the e object
      * @generated
      */
     public EObject selectExistingElementForSource(IAdaptable target, IElementType relationshipType) {
@@ -856,11 +822,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Select existing element for target.
-     *
-     * @param source the source
-     * @param relationshipType the relationship type
-     * @return the e object
      * @generated
      */
     public EObject selectExistingElementForTarget(IAdaptable source, IElementType relationshipType) {
@@ -868,11 +829,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Select existing element.
-     *
-     * @param host the host
-     * @param types the types
-     * @return the e object
      * @generated
      */
     protected EObject selectExistingElement(IAdaptable host, Collection types) {
@@ -898,11 +854,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Checks if is applicable element.
-     *
-     * @param element the element
-     * @param types the types
-     * @return true, if is applicable element
      * @generated
      */
     protected boolean isApplicableElement(EObject element, Collection types) {
@@ -911,10 +862,6 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     }
 
     /**
-     * Select element.
-     *
-     * @param elements the elements
-     * @return the e object
      * @generated
      */
     protected EObject selectElement(EObject[] elements) {

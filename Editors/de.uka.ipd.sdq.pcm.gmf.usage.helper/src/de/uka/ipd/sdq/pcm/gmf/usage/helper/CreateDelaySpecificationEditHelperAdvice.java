@@ -14,7 +14,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * The Class CreateDelaySpecificationEditHelperAdvice.
- *
+ * 
  * @author christophrathfelder
  */
 
@@ -27,8 +27,9 @@ public class CreateDelaySpecificationEditHelperAdvice extends AbstractEditHelper
      */
     /**
      * Gets the after configure command.
-     *
-     * @param request the request
+     * 
+     * @param request
+     *            the request
      * @return the after configure command
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getAfterConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */

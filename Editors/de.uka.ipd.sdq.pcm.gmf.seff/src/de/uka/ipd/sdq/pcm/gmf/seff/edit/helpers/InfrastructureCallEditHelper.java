@@ -4,8 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers;
 
 /**
- * The Class InfrastructureCallEditHelper.
- *
  * @generated
  */
 public class InfrastructureCallEditHelper extends PalladioComponentModelBaseEditHelper {

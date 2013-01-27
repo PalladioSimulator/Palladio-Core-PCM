@@ -16,18 +16,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class PalladioComponentModelSheetLabelProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelSheetLabelProvider extends BaseLabelProvider implements ILabelProvider {
 
     /**
-     * Gets the text.
-     * 
-     * @param element
-     *            the element
-     * @return the text
      * @generated
      */
     public String getText(Object element) {
@@ -40,11 +33,6 @@ public class PalladioComponentModelSheetLabelProvider extends BaseLabelProvider 
     }
 
     /**
-     * Gets the image.
-     * 
-     * @param element
-     *            the element
-     * @return the image
      * @generated
      */
     public Image getImage(Object element) {
@@ -53,11 +41,6 @@ public class PalladioComponentModelSheetLabelProvider extends BaseLabelProvider 
     }
 
     /**
-     * Unwrap.
-     * 
-     * @param element
-     *            the element
-     * @return the object
      * @generated
      */
     private Object unwrap(Object element) {
@@ -68,11 +51,6 @@ public class PalladioComponentModelSheetLabelProvider extends BaseLabelProvider 
     }
 
     /**
-     * Gets the view.
-     * 
-     * @param element
-     *            the element
-     * @return the view
      * @generated
      */
     private View getView(Object element) {
@@ -86,11 +64,6 @@ public class PalladioComponentModelSheetLabelProvider extends BaseLabelProvider 
     }
 
     /**
-     * Gets the element type.
-     * 
-     * @param view
-     *            the view
-     * @return the element type
      * @generated
      */
     private IElementType getElementType(View view) {

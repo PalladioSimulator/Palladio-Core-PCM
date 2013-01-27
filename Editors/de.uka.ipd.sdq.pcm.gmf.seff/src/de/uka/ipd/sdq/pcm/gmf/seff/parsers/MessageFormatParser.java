@@ -20,34 +20,42 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 
 /**
- * The Class MessageFormatParser.
- *
  * @generated
  */
 public class MessageFormatParser extends AbstractParser {
 
-    /** The default pattern. @generated */
+    /**
+     * @generated
+     */
     private String defaultPattern;
 
-    /** The default editable pattern. @generated */
+    /**
+     * @generated
+     */
     private String defaultEditablePattern;
 
-    /** The international locale. @generated not Stores the current Locale, needed to ensure correct display of decimal values. */
+    /**
+     * The international locale. @generated not Stores the current Locale, needed to ensure correct
+     * display of decimal values.
+     */
     private final Locale internationalLocale = Locale.US;
 
-    /** The view processor. @generated */
+    /**
+     * @generated
+     */
     private MessageFormat viewProcessor;
 
-    /** The editor processor. @generated */
+    /**
+     * @generated
+     */
     private MessageFormat editorProcessor;
 
-    /** The edit processor. @generated */
+    /**
+     * @generated
+     */
     private MessageFormat editProcessor;
 
     /**
-     * Instantiates a new message format parser.
-     *
-     * @param features the features
      * @generated
      */
     public MessageFormatParser(EAttribute[] features) {
@@ -55,10 +63,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Instantiates a new message format parser.
-     *
-     * @param features the features
-     * @param editableFeatures the editable features
      * @generated
      */
     public MessageFormatParser(EAttribute[] features, EAttribute[] editableFeatures) {
@@ -66,9 +70,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Gets the default pattern.
-     *
-     * @return the default pattern
      * @generated
      */
     protected String getDefaultPattern() {
@@ -88,9 +89,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Sets the view pattern.
-     *
-     * @param viewPattern the new view pattern
      * @generated
      */
     public void setViewPattern(String viewPattern) {
@@ -100,10 +98,10 @@ public class MessageFormatParser extends AbstractParser {
 
     /**
      * Gets the view processor.
-     *
+     * 
      * @return the view processor
      * @generated not Changes made to generated Method: Added internationalLocale to ensure correct
-     * display of decimal values.
+     *            display of decimal values.
      */
     protected MessageFormat getViewProcessor() {
         if (viewProcessor == null) {
@@ -114,9 +112,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Sets the editor pattern.
-     *
-     * @param editorPattern the new editor pattern
      * @generated
      */
     public void setEditorPattern(String editorPattern) {
@@ -126,10 +121,10 @@ public class MessageFormatParser extends AbstractParser {
 
     /**
      * Gets the editor processor.
-     *
+     * 
      * @return the editor processor
      * @generated not Changes made to generated Method: Added internationalLocale to ensure correct
-     * display of decimal values.
+     *            display of decimal values.
      */
     protected MessageFormat getEditorProcessor() {
         if (editorProcessor == null) {
@@ -140,9 +135,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Gets the default editable pattern.
-     *
-     * @return the default editable pattern
      * @generated
      */
     protected String getDefaultEditablePattern() {
@@ -162,9 +154,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Sets the edits the pattern.
-     *
-     * @param editPattern the new edits the pattern
      * @generated
      */
     public void setEditPattern(String editPattern) {
@@ -174,10 +163,10 @@ public class MessageFormatParser extends AbstractParser {
 
     /**
      * Gets the edits the processor.
-     *
+     * 
      * @return the edits the processor
      * @generated not Changes made to generated Method: Added internationalLocale to ensure correct
-     * display of decimal values.
+     *            display of decimal values.
      */
     protected MessageFormat getEditProcessor() {
         if (editProcessor == null) {
@@ -188,11 +177,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Gets the prints the string.
-     *
-     * @param adapter the adapter
-     * @param flags the flags
-     * @return the prints the string
      * @generated
      */
     public String getPrintString(IAdaptable adapter, int flags) {
@@ -201,11 +185,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Gets the edits the string.
-     *
-     * @param adapter the adapter
-     * @param flags the flags
-     * @return the edits the string
      * @generated
      */
     public String getEditString(IAdaptable adapter, int flags) {
@@ -215,11 +194,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Checks if is valid edit string.
-     *
-     * @param adapter the adapter
-     * @param editString the edit string
-     * @return the i parser edit status
      * @generated
      */
     public IParserEditStatus isValidEditString(IAdaptable adapter, String editString) {
@@ -233,12 +207,6 @@ public class MessageFormatParser extends AbstractParser {
     }
 
     /**
-     * Gets the parses the command.
-     *
-     * @param adapter the adapter
-     * @param newString the new string
-     * @param flags the flags
-     * @return the parses the command
      * @generated
      */
     public ICommand getParseCommand(IAdaptable adapter, String newString, int flags) {

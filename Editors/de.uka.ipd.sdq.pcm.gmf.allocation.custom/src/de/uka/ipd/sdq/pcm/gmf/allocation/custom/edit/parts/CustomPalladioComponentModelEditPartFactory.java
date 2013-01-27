@@ -32,8 +32,10 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
     /**
      * creates an EditPart.
      * 
-     * @param context an EditPart
-     * @param model an Object
+     * @param context
+     *            an EditPart
+     * @param model
+     *            an Object
      * @return an EditPart
      */
     public EditPart createEditPart(EditPart context, Object model) {
@@ -70,8 +72,11 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
 
     /**
      * Creates an unrecognized edit Part.
-     * @param context an EditPart
-     * @param model an Object
+     * 
+     * @param context
+     *            an EditPart
+     * @param model
+     *            an Object
      * @return an EditPart
      */
     private EditPart createUnrecognizedEditPart(EditPart context, Object model) {
@@ -81,7 +86,9 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
 
     /**
      * Gets the text CellEditorLocator.
-     * @param source an ITextAwareEditPart
+     * 
+     * @param source
+     *            an ITextAwareEditPart
      * @return a CellEdotprLocator
      */
     public static CellEditorLocator getTextCellEditorLocator(ITextAwareEditPart source) {
@@ -104,7 +111,9 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
 
         /**
          * The constructor.
-         * @param wrapLabel a WrappingLabel.
+         * 
+         * @param wrapLabel
+         *            a WrappingLabel.
          */
         public TextCellEditorLocator(WrappingLabel wrapLabel) {
             this.wrapLabel = wrapLabel;
@@ -112,6 +121,7 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
 
         /**
          * Gets the wrap label.
+         * 
          * @return a WrappingLabel.
          */
         public WrappingLabel getWrapLabel() {
@@ -120,7 +130,9 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
 
         /**
          * relocates the cell editor.
-         * @param celleditor the CellEditor
+         * 
+         * @param celleditor
+         *            the CellEditor
          */
         public void relocate(CellEditor celleditor) {
             Text text = (Text) celleditor.getControl();
@@ -150,7 +162,9 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
 
         /**
          * The constructor.
-         * @param label a Label.
+         * 
+         * @param label
+         *            a Label.
          */
         public LabelCellEditorLocator(Label label) {
             this.label = label;
@@ -158,6 +172,7 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
 
         /**
          * gets the label.
+         * 
          * @return the label
          */
         public Label getLabel() {
@@ -167,7 +182,8 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
         /**
          * Relocates the CellEditor.
          * 
-         * @param celleditor a CellEditor
+         * @param celleditor
+         *            a CellEditor
          */
         public void relocate(CellEditor celleditor) {
             Text text = (Text) celleditor.getControl();

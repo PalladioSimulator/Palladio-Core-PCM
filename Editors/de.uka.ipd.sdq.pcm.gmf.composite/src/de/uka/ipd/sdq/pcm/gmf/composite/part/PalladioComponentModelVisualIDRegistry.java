@@ -46,22 +46,16 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 
 /**
- * This registry is used to determine which type of visual object should be created for the
- * corresponding Diagram, Node, ChildNode or Link represented by a domain model object.
- * 
  * @generated
  */
 public class PalladioComponentModelVisualIDRegistry {
 
-    /** The Constant DEBUG_KEY. @generated */
+    /**
+     * @generated
+     */
     private static final String DEBUG_KEY = "de.uka.ipd.sdq.pcm.gmf.composite/debug/visualID"; //$NON-NLS-1$
 
     /**
-     * Gets the visual id.
-     * 
-     * @param view
-     *            the view
-     * @return the visual id
      * @generated
      */
     public static int getVisualID(View view) {
@@ -76,11 +70,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * Gets the model id.
-     * 
-     * @param view
-     *            the view
-     * @return the model id
      * @generated
      */
     public static String getModelID(View view) {
@@ -96,11 +85,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * Gets the visual id.
-     * 
-     * @param type
-     *            the type
-     * @return the visual id
      * @generated
      */
     public static int getVisualID(String type) {
@@ -116,11 +100,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * Gets the type.
-     * 
-     * @param visualID
-     *            the visual id
-     * @return the type
      * @generated
      */
     public static String getType(int visualID) {
@@ -128,11 +107,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * Gets the diagram visual id.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @return the diagram visual id
      * @generated
      */
     public static int getDiagramVisualID(EObject domainElement) {
@@ -147,13 +121,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * Gets the node visual id.
-     * 
-     * @param containerView
-     *            the container view
-     * @param domainElement
-     *            the domain element
-     * @return the node visual id
      * @generated
      */
     public static int getNodeVisualID(View containerView, EObject domainElement) {
@@ -223,13 +190,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * Can create node.
-     * 
-     * @param containerView
-     *            the container view
-     * @param nodeVisualID
-     *            the node visual id
-     * @return true, if successful
      * @generated
      */
     public static boolean canCreateNode(View containerView, int nodeVisualID) {
@@ -350,11 +310,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * Gets the link with class visual id.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @return the link with class visual id
      * @generated
      */
     public static int getLinkWithClassVisualID(EObject domainElement) {
@@ -386,12 +341,6 @@ public class PalladioComponentModelVisualIDRegistry {
     }
 
     /**
-     * User can change implementation of this method to handle some specific situations not covered
-     * by default logic.
-     * 
-     * @param element
-     *            the element
-     * @return true, if is diagram
      * @generated
      */
     private static boolean isDiagram(ComposedProvidingRequiringEntity element) {

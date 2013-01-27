@@ -31,15 +31,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.SinkRole;
 
 /**
- * The Class SinkRoleItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new sink role item semantic edit policy.
-     * 
      * @generated
      */
     public SinkRoleItemSemanticEditPolicy() {
@@ -47,11 +43,6 @@ public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseIt
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     @Override
@@ -143,11 +134,6 @@ public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseIt
     }
 
     /**
-     * Gets the start create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the start create relationship command
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -206,12 +192,6 @@ public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseIt
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
-     * @param req
-     *            the req
-     * @return the reorient relationship command
      * @generated
      */
     @Override

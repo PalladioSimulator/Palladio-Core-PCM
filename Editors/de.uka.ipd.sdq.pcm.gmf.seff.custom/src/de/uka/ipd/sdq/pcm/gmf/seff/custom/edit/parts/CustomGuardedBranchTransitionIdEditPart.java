@@ -46,7 +46,7 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      */
     /**
      * Creates the default edit policies.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#createDefaultEditPolicies()
      */
     @Override
@@ -82,7 +82,7 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      */
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#getLabelText()
      */
@@ -109,7 +109,7 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      */
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#addSemanticListeners()
      */
     @Override
@@ -127,7 +127,7 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      */
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#removeSemanticListeners()
      */
     @Override
@@ -144,8 +144,9 @@ public class CustomGuardedBranchTransitionIdEditPart extends GuardedBranchTransi
      */
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionIdEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

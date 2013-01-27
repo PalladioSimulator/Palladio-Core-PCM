@@ -47,21 +47,21 @@ import org.eclipse.ui.part.ShowInContext;
 import de.uka.ipd.sdq.pcm.gmf.usage.navigator.PalladioComponentModelNavigatorItem;
 
 /**
- * The Class PalladioComponentModelUsageDiagramEditor.
- *
  * @generated
  */
 public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEditor implements IGotoMarker {
 
-    /** The Constant ID. @generated */
+    /**
+     * @generated
+     */
     public static final String ID = "de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorID"; //$NON-NLS-1$
 
-    /** The Constant CONTEXT_ID. @generated */
+    /**
+     * @generated
+     */
     public static final String CONTEXT_ID = "de.uka.ipd.sdq.pcm.gmf.usage.ui.diagramContext"; //$NON-NLS-1$
 
     /**
-     * Instantiates a new palladio component model usage diagram editor.
-     *
      * @generated
      */
     public PalladioComponentModelUsageDiagramEditor() {
@@ -69,9 +69,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the context id.
-     *
-     * @return the context id
      * @generated
      */
     protected String getContextID() {
@@ -79,10 +76,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Creates the palette root.
-     *
-     * @param existingPaletteRoot the existing palette root
-     * @return the palette root
      * @generated
      */
     protected PaletteRoot createPaletteRoot(PaletteRoot existingPaletteRoot) {
@@ -92,9 +85,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the preferences hint.
-     *
-     * @return the preferences hint
      * @generated
      */
     protected PreferencesHint getPreferencesHint() {
@@ -102,9 +92,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the contributor id.
-     *
-     * @return the contributor id
      * @generated
      */
     public String getContributorId() {
@@ -112,10 +99,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the adapter.
-     *
-     * @param type the type
-     * @return the adapter
      * @generated
      */
     public Object getAdapter(Class type) {
@@ -130,10 +113,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the document provider.
-     *
-     * @param input the input
-     * @return the document provider
      * @generated
      */
     protected IDocumentProvider getDocumentProvider(IEditorInput input) {
@@ -144,9 +123,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the editing domain.
-     *
-     * @return the editing domain
      * @generated
      */
     public TransactionalEditingDomain getEditingDomain() {
@@ -158,9 +134,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Sets the document provider.
-     *
-     * @param input the new document provider
      * @generated
      */
     protected void setDocumentProvider(IEditorInput input) {
@@ -172,9 +145,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Goto marker.
-     *
-     * @param marker the marker
      * @generated
      */
     public void gotoMarker(IMarker marker) {
@@ -182,9 +152,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Checks if is save as allowed.
-     *
-     * @return true, if is save as allowed
      * @generated
      */
     public boolean isSaveAsAllowed() {
@@ -192,8 +159,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Do save as.
-     *
      * @generated
      */
     public void doSaveAs() {
@@ -201,9 +166,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Perform save as.
-     *
-     * @param progressMonitor the progress monitor
      * @generated
      */
     protected void performSaveAs(IProgressMonitor progressMonitor) {
@@ -277,9 +239,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the show in context.
-     *
-     * @return the show in context
      * @generated
      */
     public ShowInContext getShowInContext() {
@@ -287,9 +246,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Gets the navigator selection.
-     *
-     * @return the navigator selection
      * @generated
      */
     private ISelection getNavigatorSelection() {
@@ -307,8 +263,6 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     }
 
     /**
-     * Configure graphical viewer.
-     *
      * @generated
      */
     protected void configureGraphicalViewer() {

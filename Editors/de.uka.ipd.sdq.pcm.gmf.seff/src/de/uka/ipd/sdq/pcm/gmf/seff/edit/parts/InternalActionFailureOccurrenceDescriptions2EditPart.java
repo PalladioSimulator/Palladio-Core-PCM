@@ -18,19 +18,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionFailureOccurrence
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class InternalActionFailureOccurrenceDescriptions2EditPart.
- *
  * @generated
  */
 public class InternalActionFailureOccurrenceDescriptions2EditPart extends ListCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7046;
 
     /**
-     * Instantiates a new internal action failure occurrence descriptions2 edit part.
-     *
-     * @param view the view
      * @generated
      */
     public InternalActionFailureOccurrenceDescriptions2EditPart(View view) {
@@ -38,10 +35,6 @@ public class InternalActionFailureOccurrenceDescriptions2EditPart extends ListCo
     }
 
     /**
-     * Checks for model children changed.
-     *
-     * @param evt the evt
-     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -49,9 +42,6 @@ public class InternalActionFailureOccurrenceDescriptions2EditPart extends ListCo
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -59,8 +49,6 @@ public class InternalActionFailureOccurrenceDescriptions2EditPart extends ListCo
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -75,9 +63,6 @@ public class InternalActionFailureOccurrenceDescriptions2EditPart extends ListCo
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

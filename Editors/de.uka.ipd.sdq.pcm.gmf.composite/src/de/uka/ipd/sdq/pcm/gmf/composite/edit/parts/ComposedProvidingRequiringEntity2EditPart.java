@@ -39,27 +39,26 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiring
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The edit part for the inner containment rectangle. It is mapped with the composed providing
- * requiring entity as the outer part. For this, the index "2" has been added to the name.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedShapeEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 2002;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new composed providing requiring entity2 edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public ComposedProvidingRequiringEntity2EditPart(View view) {
@@ -67,8 +66,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -84,9 +81,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Creates the layout edit policy.
-     * 
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -118,9 +112,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Creates the node shape.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -129,9 +120,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Gets the primary shape.
-     * 
-     * @return the primary shape
      * @generated
      */
     public CompositeStructureFigure getPrimaryShape() {
@@ -139,11 +127,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Adds the fixed child.
-     * 
-     * @param childEditPart
-     *            the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
@@ -176,11 +159,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Removes the fixed child.
-     * 
-     * @param childEditPart
-     *            the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
@@ -209,12 +187,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Adds the child visual.
-     * 
-     * @param childEditPart
-     *            the child edit part
-     * @param index
-     *            the index
      * @generated
      */
     protected void addChildVisual(EditPart childEditPart, int index) {
@@ -225,10 +197,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Removes the child visual.
-     * 
-     * @param childEditPart
-     *            the child edit part
      * @generated
      */
     protected void removeChildVisual(EditPart childEditPart) {
@@ -268,9 +236,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Creates the node plate.
-     * 
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -279,12 +244,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createMainFigure() {
@@ -297,12 +256,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -315,9 +268,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Gets the content pane.
-     * 
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -328,10 +278,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Sets the foreground color.
-     * 
-     * @param color
-     *            the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -341,10 +287,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Sets the background color.
-     * 
-     * @param color
-     *            the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -354,10 +296,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Sets the line width.
-     * 
-     * @param width
-     *            the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -367,10 +305,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Sets the line type.
-     * 
-     * @param style
-     *            the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -380,9 +314,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * Gets the primary child edit part.
-     * 
-     * @return the primary child edit part
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
@@ -391,21 +322,21 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
-     * The Class CompositeStructureFigure.
-     * 
      * @generated
      */
     public class CompositeStructureFigure extends RectangleFigure {
 
-        /** The figure composite structure name label figure. @generated */
+        /**
+         * @generated
+         */
         private WrappingLabel fFigureCompositeStructureNameLabelFigure;
 
-        /** The figure composite structure internals. @generated */
+        /**
+         * @generated
+         */
         private RectangleFigure fFigureCompositeStructureInternals;
 
         /**
-         * Instantiates a new composite structure figure.
-         * 
          * @generated
          */
         public CompositeStructureFigure() {
@@ -427,8 +358,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
         }
 
         /**
-         * Creates the contents.
-         * 
          * @generated
          */
         private void createContents() {
@@ -483,9 +412,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
         }
 
         /**
-         * Gets the figure composite structure name label figure.
-         * 
-         * @return the figure composite structure name label figure
          * @generated
          */
         public WrappingLabel getFigureCompositeStructureNameLabelFigure() {
@@ -493,22 +419,18 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
         }
 
         /**
-         * Gets the figure composite structure internals.
-         * 
-         * @return the figure composite structure internals
          * @generated
          */
         public RectangleFigure getFigureCompositeStructureInternals() {
             return fFigureCompositeStructureInternals;
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         * 
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -516,10 +438,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
         }
 
         /**
-         * Sets the use local coordinates.
-         * 
-         * @param useLocalCoordinates
-         *            the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

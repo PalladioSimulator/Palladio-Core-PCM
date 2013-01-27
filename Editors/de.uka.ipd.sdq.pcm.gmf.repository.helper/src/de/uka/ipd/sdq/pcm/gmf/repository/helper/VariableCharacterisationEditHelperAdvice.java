@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.pcm.dialogs.stoex.StochasticExpressionEditDialog;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
-
 /**
  * A variable character EditHelperAdvice.
  */

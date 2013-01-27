@@ -18,8 +18,9 @@ public class CustomComponentExternalCallNameLabelEditPart extends ComponentExter
 
     /**
      * Instantiates a new custom component external call name label edit part.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      */
     public CustomComponentExternalCallNameLabelEditPart(View view) {
         super(view);
@@ -27,7 +28,7 @@ public class CustomComponentExternalCallNameLabelEditPart extends ComponentExter
 
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart#getLabelText()
      */
@@ -50,8 +51,9 @@ public class CustomComponentExternalCallNameLabelEditPart extends ComponentExter
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ComponentExternalCallNameLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

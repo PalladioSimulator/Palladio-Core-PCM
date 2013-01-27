@@ -14,8 +14,8 @@ import org.eclipse.gef.palette.PaletteRoot;
 import org.eclipse.gef.palette.ToolEntry;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeConnectionTool;
 import org.eclipse.gmf.runtime.diagram.ui.tools.UnspecifiedTypeCreationTool;
-
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 
 /**
@@ -34,8 +34,6 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "Basic Model Elements" palette tool group
-     * 
      * @generated
      */
     private PaletteContainer createBasicModelElements1Group() {
@@ -55,8 +53,6 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "Internal Elements" palette tool group
-     * 
      * @generated
      */
     private PaletteContainer createInternalElements2Group() {
@@ -72,8 +68,6 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "Component Types" palette tool group
-     * 
      * @generated
      */
     private PaletteContainer createComponentTypes3Group() {
@@ -88,8 +82,6 @@ public class PalladioComponentModelPaletteFactory {
     }
 
     /**
-     * Creates "Event-Based Communication" palette tool group
-     * 
      * @generated
      */
     private PaletteContainer createEventBasedCommunication4Group() {

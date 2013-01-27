@@ -12,21 +12,16 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.ui.dialogs.WizardNewFileCreationPage;
 
 /**
- * The Class PalladioComponentModelCreationWizardPage.
- *
  * @generated
  */
 public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreationPage {
 
-    /** The file extension. @generated */
+    /**
+     * @generated
+     */
     private final String fileExtension;
 
     /**
-     * Instantiates a new palladio component model creation wizard page.
-     *
-     * @param pageName the page name
-     * @param selection the selection
-     * @param fileExtension the file extension
      * @generated
      */
     public PalladioComponentModelCreationWizardPage(String pageName, IStructuredSelection selection,
@@ -36,9 +31,6 @@ public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreat
     }
 
     /**
-     * Override to create files with this extension.
-     *
-     * @return the extension
      * @generated
      */
     protected String getExtension() {
@@ -46,9 +38,6 @@ public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreat
     }
 
     /**
-     * Gets the uri.
-     *
-     * @return the uri
      * @generated
      */
     public URI getURI() {
@@ -56,9 +45,6 @@ public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreat
     }
 
     /**
-     * Gets the file path.
-     *
-     * @return the file path
      * @generated
      */
     protected IPath getFilePath() {
@@ -74,9 +60,6 @@ public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreat
     }
 
     /**
-     * Creates the control.
-     *
-     * @param parent the parent
      * @generated
      */
     public void createControl(Composite parent) {
@@ -87,9 +70,6 @@ public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreat
     }
 
     /**
-     * Validate page.
-     *
-     * @return true, if successful
      * @generated
      */
     protected boolean validatePage() {

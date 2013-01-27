@@ -12,8 +12,6 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
- * The Class AssemblyInfrastructureConnectorEditHelper.
- * 
  * @generated
  */
 public class AssemblyInfrastructureConnectorEditHelper extends PalladioComponentModelBaseEditHelper {

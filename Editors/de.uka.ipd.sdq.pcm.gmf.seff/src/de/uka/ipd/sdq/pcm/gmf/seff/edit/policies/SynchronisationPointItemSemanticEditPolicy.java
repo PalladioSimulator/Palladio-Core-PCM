@@ -21,15 +21,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class SynchronisationPointItemSemanticEditPolicy.
- *
  * @generated
  */
 public class SynchronisationPointItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new synchronisation point item semantic edit policy.
-     *
      * @generated
      */
     public SynchronisationPointItemSemanticEditPolicy() {
@@ -37,10 +33,6 @@ public class SynchronisationPointItemSemanticEditPolicy extends PalladioComponen
     }
 
     /**
-     * Gets the destroy element command.
-     *
-     * @param req the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -61,9 +53,6 @@ public class SynchronisationPointItemSemanticEditPolicy extends PalladioComponen
     }
 
     /**
-     * Adds the destroy child nodes command.
-     *
-     * @param cmd the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

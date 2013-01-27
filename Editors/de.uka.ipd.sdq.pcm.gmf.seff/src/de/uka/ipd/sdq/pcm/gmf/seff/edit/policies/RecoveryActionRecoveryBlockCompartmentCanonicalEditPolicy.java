@@ -19,19 +19,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelNodeDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy.
- *
  * @generated
  */
 public class RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy extends CanonicalEditPolicy {
 
-    /** The my features to synchronize. @generated */
+    /**
+     * @generated
+     */
     Set myFeaturesToSynchronize;
 
     /**
-     * Gets the semantic children list.
-     *
-     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -45,11 +42,6 @@ public class RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy extends C
     }
 
     /**
-     * Checks if is orphaned.
-     *
-     * @param semanticChildren the semantic children
-     * @param view the view
-     * @return true, if is orphaned
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -64,9 +56,6 @@ public class RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy extends C
     }
 
     /**
-     * Gets the default factory hint.
-     *
-     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {
@@ -74,9 +63,6 @@ public class RecoveryActionRecoveryBlockCompartmentCanonicalEditPolicy extends C
     }
 
     /**
-     * Gets the features to synchronize.
-     *
-     * @return the features to synchronize
      * @generated
      */
     protected Set getFeaturesToSynchronize() {

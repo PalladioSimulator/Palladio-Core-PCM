@@ -16,28 +16,11 @@ import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
- * A factory for creating ProvidedRoleEntityName2View objects.
- * 
  * @generated
  */
 public class ProvidedRoleEntityName2ViewFactory extends AbstractLabelViewFactory {
 
     /**
-     * Creates a new ProvidedRoleEntityName2View object.
-     * 
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param containerView
-     *            the container view
-     * @param semanticHint
-     *            the semantic hint
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the view
      * @generated
      */
     public View createView(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -52,11 +35,6 @@ public class ProvidedRoleEntityName2ViewFactory extends AbstractLabelViewFactory
     }
 
     /**
-     * Creates a new ProvidedRoleEntityName2View object.
-     * 
-     * @param view
-     *            the view
-     * @return the list
      * @generated
      */
     protected List createStyles(View view) {

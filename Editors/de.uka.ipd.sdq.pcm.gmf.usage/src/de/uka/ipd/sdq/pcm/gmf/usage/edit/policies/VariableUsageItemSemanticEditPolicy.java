@@ -21,15 +21,11 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class VariableUsageItemSemanticEditPolicy.
- *
  * @generated
  */
 public class VariableUsageItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new variable usage item semantic edit policy.
-     *
      * @generated
      */
     public VariableUsageItemSemanticEditPolicy() {
@@ -37,10 +33,6 @@ public class VariableUsageItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the destroy element command.
-     *
-     * @param req the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -61,9 +53,6 @@ public class VariableUsageItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Adds the destroy child nodes command.
-     *
-     * @param cmd the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

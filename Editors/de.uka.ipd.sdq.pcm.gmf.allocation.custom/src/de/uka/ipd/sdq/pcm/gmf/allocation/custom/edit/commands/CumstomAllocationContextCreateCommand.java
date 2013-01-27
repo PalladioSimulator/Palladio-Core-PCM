@@ -1,13 +1,12 @@
 package de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.commands;
 
-import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -27,8 +26,11 @@ public class CumstomAllocationContextCreateCommand extends AllocationContextCrea
 
     /**
      * The constructor.
-     * @param req a CreateElementRequst
-     * @param a an Allocation
+     * 
+     * @param req
+     *            a CreateElementRequst
+     * @param a
+     *            an Allocation
      */
     public CumstomAllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
         super(req);
@@ -43,25 +45,24 @@ public class CumstomAllocationContextCreateCommand extends AllocationContextCrea
         }
         return container;
     }
-    
-/**
- * Extended to automatically set the ressourceContainer Reference
- */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		AllocationContext newElement = AllocationFactory.eINSTANCE
-				.createAllocationContext();
 
-		newElement				.setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this
-						.getRequest()).getContainer());
+    /**
+     * Extended to automatically set the ressourceContainer Reference
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        AllocationContext newElement = AllocationFactory.eINSTANCE.createAllocationContext();
 
-		Allocation owner = (Allocation) getElementToEdit();
-		owner.getAllocationContexts_Allocation().add(newElement);
+        newElement
+                .setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this.getRequest())
+                        .getContainer());
 
-		doConfigure(newElement, monitor, info);
+        Allocation owner = (Allocation) getElementToEdit();
+        owner.getAllocationContexts_Allocation().add(newElement);
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
-	}
+        doConfigure(newElement, monitor, info);
+
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+    }
 
 }

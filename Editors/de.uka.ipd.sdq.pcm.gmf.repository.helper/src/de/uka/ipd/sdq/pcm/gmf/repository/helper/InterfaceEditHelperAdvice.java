@@ -49,7 +49,7 @@ class CreateLinkedSeffCommand extends ConfigureElementCommand {
      * A service signature.
      */
     private final Signature service;
-    
+
     /**
      * A configuration request.
      */
@@ -77,8 +77,9 @@ class CreateLinkedSeffCommand extends ConfigureElementCommand {
      *            The monitor to report the progress to
      * @param info
      *            Adaptable object for the environment
-     *            
-     * @throws ExecutionException An Exception
+     * 
+     * @throws ExecutionException
+     *             An Exception
      * 
      * @return a CommandResult
      */
@@ -139,7 +140,8 @@ class CreateLinkedSeffCommand extends ConfigureElementCommand {
      * @param monitor
      *            The monitor to report the progress.
      * @return The Seff creation result information.
-     * @throws ExecutionException An Exception
+     * @throws ExecutionException
+     *             An Exception
      */
     private CommandResult createSEFF(IElementType typeId, IProgressMonitor monitor) throws ExecutionException {
         CreateElementRequest seffRequest = new CreateElementRequest(myRequest.getElementToConfigure(), typeId,
@@ -181,10 +183,11 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
                     }
                 }
             }
-        }
-
-        // create seff for event group
-        else if (request.getTarget() != null && request.getTarget() instanceof EventGroup) {
+        } else if (request.getTarget() != null && request.getTarget() instanceof EventGroup) { // create
+                                                                                               // seff
+                                                                                               // for
+                                                                                               // event
+                                                                                               // group
             if (request.getElementType().getEClass() == RepositoryPackage.eINSTANCE.getSinkRole()) {
                 EventGroup target = (EventGroup) request.getTarget();
                 if (target.getEventTypes__EventGroup().size() > 0) {
@@ -199,10 +202,11 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
                     return createSEFFs;
                 }
             }
-        }
-
-        // create SEFF for infrastructure interface
-        else if (request.getTarget() != null && request.getTarget() instanceof InfrastructureInterface) {
+        } else if (request.getTarget() != null && request.getTarget() instanceof InfrastructureInterface) { // create
+                                                                                                            // SEFF
+                                                                                                            // for
+                                                                                                            // infrastructure
+                                                                                                            // interface
             if (request.getElementType().getEClass() == RepositoryPackage.eINSTANCE.getInfrastructureProvidedRole()) {
                 InfrastructureInterface target = (InfrastructureInterface) request.getTarget();
                 if (target.getInfrastructureSignatures__InfrastructureInterface().size() > 0) {
@@ -222,11 +226,14 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
         }
         return super.getAfterCreateRelationshipCommand(request);
     }
-    
+
     /**
      * creates an operation SEFF.
-     * @param target an Operation Interface
-     * @param source a Basic Component
+     * 
+     * @param target
+     *            an Operation Interface
+     * @param source
+     *            a Basic Component
      * @return a Composite Command
      */
     private CompositeCommand createOperationSEFFsForOperationInterface(OperationInterface target, BasicComponent source) {
@@ -234,8 +241,8 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
         List<OperationSignature> signatures = new ArrayList<OperationSignature>();
         signatures.addAll(extractSignatures(target));
         for (OperationSignature s : signatures) {
-            ConfigureRequest ceRequest = new ConfigureRequest(source, ElementTypeRegistry.getInstance()
-                    .getType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"));
+            ConfigureRequest ceRequest = new ConfigureRequest(source, ElementTypeRegistry.getInstance().getType(
+                    "de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"));
             CreateLinkedSeffCommand cmd = new CreateLinkedSeffCommand(ceRequest, s);
             createSEFFs.add(cmd);
         }
@@ -244,7 +251,9 @@ public class InterfaceEditHelperAdvice extends AbstractEditHelperAdvice implemen
 
     /**
      * Extracts signatures.
-     * @param target an Operation Interface
+     * 
+     * @param target
+     *            an Operation Interface
      * @return a List of Operation Interfaces
      */
     private List<OperationSignature> extractSignatures(OperationInterface target) {

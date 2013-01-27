@@ -32,17 +32,13 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPoli
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.label.ILabelDelegate;
 import org.eclipse.gmf.runtime.diagram.ui.label.WrappingLabelDelegate;
-import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
 import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
-import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
-import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.gmf.tooling.runtime.directedit.ComboDirectEditManager;
-import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
 import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
@@ -55,7 +51,6 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.VariableCharacterisationItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
@@ -237,8 +232,9 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart implem
         if (vc != null && vc.getSpecification_VariableCharacterisation() != null) {
             text = vc.getType().getLiteral() + " = ";
             Expression expression = vc.getSpecification_VariableCharacterisation().getExpression();
-            if (expression != null)
+            if (expression != null) {
                 text += new PCMStoExPrettyPrintVisitor().prettyPrint(expression);
+            }
         }
         if (text == null || text.length() == 0) {
             text = defaultText;
@@ -553,7 +549,8 @@ public class VariableCharacterisationEditPart extends CompartmentEditPart implem
     /**
      * @generated not
      * 
-     * @param event a Notification
+     * @param event
+     *            a Notification
      */
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

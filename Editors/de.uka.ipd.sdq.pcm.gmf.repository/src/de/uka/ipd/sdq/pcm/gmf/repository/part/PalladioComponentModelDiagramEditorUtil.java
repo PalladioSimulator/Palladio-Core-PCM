@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.repository.part;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -128,8 +127,6 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
-     * Runs the wizard in a dialog.
-     * 
      * @generated
      */
     public static void runWizard(Shell shell, Wizard wizard, String settingsKey) {
@@ -147,8 +144,6 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
-     * This method should be called within a workspace modify operation since it creates resources.
-     * 
      * @generated
      */
     public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
@@ -215,8 +210,6 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
-     * Store model element in the resource.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     private static void attachModelToResource(Repository model, Resource resource) {
@@ -340,12 +333,14 @@ public class PalladioComponentModelDiagramEditorUtil {
         public final Map<EObject, View> getElement2ViewMap() {
             if (element2ViewMap == null) {
                 element2ViewMap = new HashMap<EObject, View>();
-                // map possible notation elements to itself as these can't be found by view.getElement()
+                // map possible notation elements to itself as these can't be found by
+                // view.getElement()
                 for (EObject element : elementSet) {
                     if (element instanceof View) {
                         View view = (View) element;
                         if (view.getDiagram() == scope.getDiagram()) {
-                            element2ViewMap.put(element, view); // take only those that part of our diagram
+                            element2ViewMap.put(element, view); // take only those that part of our
+                                                                // diagram
                         }
                     }
                 }

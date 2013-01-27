@@ -6,16 +6,11 @@ package de.uka.ipd.sdq.pcm.gmf.usage.part;
 import org.eclipse.gmf.runtime.diagram.ui.parts.DiagramActionBarContributor;
 
 /**
- * The Class PalladioComponentModelUsageDiagramActionBarContributor.
- *
  * @generated
  */
 public class PalladioComponentModelUsageDiagramActionBarContributor extends DiagramActionBarContributor {
 
     /**
-     * Gets the editor class.
-     *
-     * @return the editor class
      * @generated
      */
     protected Class getEditorClass() {
@@ -23,9 +18,6 @@ public class PalladioComponentModelUsageDiagramActionBarContributor extends Diag
     }
 
     /**
-     * Gets the editor id.
-     *
-     * @return the editor id
      * @generated
      */
     protected String getEditorId() {

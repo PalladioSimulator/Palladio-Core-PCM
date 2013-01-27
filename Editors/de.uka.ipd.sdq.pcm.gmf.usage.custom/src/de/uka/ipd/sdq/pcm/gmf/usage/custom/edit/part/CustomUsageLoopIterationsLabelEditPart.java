@@ -20,14 +20,15 @@ public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsL
 
     /** The change listener. */
     private EContentAdapter changeListener = null;
-    
+
     /** The adapted element. */
     private EObject adaptedElement = null;
 
     /**
      * Instantiates a new custom usage loop iterations label edit part.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      */
     public CustomUsageLoopIterationsLabelEditPart(View view) {
         super(view);
@@ -35,7 +36,7 @@ public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsL
 
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#getLabelText()
      */
@@ -59,7 +60,7 @@ public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsL
 
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#addSemanticListeners()
      */
     @Override
@@ -81,7 +82,7 @@ public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsL
 
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#removeSemanticListeners()
      */
     @Override
@@ -92,8 +93,9 @@ public class CustomUsageLoopIterationsLabelEditPart extends UsageLoopIterationsL
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageLoopIterationsLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

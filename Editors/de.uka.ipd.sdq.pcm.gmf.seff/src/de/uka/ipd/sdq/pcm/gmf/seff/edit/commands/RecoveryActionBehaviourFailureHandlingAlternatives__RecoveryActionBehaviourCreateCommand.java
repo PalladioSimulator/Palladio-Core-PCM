@@ -14,25 +14,22 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
 
 /**
- * The Class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand.
- *
  * @generated
  */
 public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand extends
         EditElementCommand {
 
-    /** The source. @generated */
+    /**
+     * @generated
+     */
     private final EObject source;
 
-    /** The target. @generated */
+    /**
+     * @generated
+     */
     private final EObject target;
 
     /**
-     * Instantiates a new recovery action behaviour failure handling alternatives__ recovery action behaviour create command.
-     *
-     * @param request the request
-     * @param source the source
-     * @param target the target
      * @generated
      */
     public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourCreateCommand(
@@ -43,9 +40,6 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -70,12 +64,6 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -91,9 +79,6 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
-     * Sets the element to edit.
-     *
-     * @param element the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -101,9 +86,6 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
-     * Gets the source.
-     *
-     * @return the source
      * @generated
      */
     protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getSource() {
@@ -111,9 +93,6 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
-     * Gets the target.
-     *
-     * @return the target
      * @generated
      */
     protected de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour getTarget() {

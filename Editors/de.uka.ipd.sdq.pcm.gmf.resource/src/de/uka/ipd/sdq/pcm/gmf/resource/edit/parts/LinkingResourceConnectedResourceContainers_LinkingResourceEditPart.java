@@ -15,49 +15,42 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.policies.LinkingResourceConnectedRes
 /**
  * @generated
  */
-public class LinkingResourceConnectedResourceContainers_LinkingResourceEditPart
-		extends ConnectionNodeEditPart implements ITreeBranchEditPart {
+public class LinkingResourceConnectedResourceContainers_LinkingResourceEditPart extends ConnectionNodeEditPart
+        implements ITreeBranchEditPart {
 
-	/**
-	 * @generated
-	 */
-	public static final int VISUAL_ID = 4003;
+    /**
+     * @generated
+     */
+    public static final int VISUAL_ID = 4003;
 
-	/**
-	 * @generated
-	 */
-	public LinkingResourceConnectedResourceContainers_LinkingResourceEditPart(
-			View view) {
-		super(view);
-	}
+    /**
+     * @generated
+     */
+    public LinkingResourceConnectedResourceContainers_LinkingResourceEditPart(View view) {
+        super(view);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void createDefaultEditPolicies() {
-		super.createDefaultEditPolicies();
-		installEditPolicy(
-				EditPolicyRoles.SEMANTIC_ROLE,
-				new LinkingResourceConnectedResourceContainers_LinkingResourceItemSemanticEditPolicy());
-	}
+    /**
+     * @generated
+     */
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
+                new LinkingResourceConnectedResourceContainers_LinkingResourceItemSemanticEditPolicy());
+    }
 
-	/**
-	 * Creates figure for this edit part.
-	 * 
-	 * Body of this method does not depend on settings in generation model so you may safely remove
-	 * <i>generated</i> tag and modify it.
-	 * 
-	 * @generated
-	 */
-	protected Connection createConnectionFigure() {
-		return new PolylineConnectionEx();
-	}
+    /**
+     * @generated
+     */
+    protected Connection createConnectionFigure() {
+        return new PolylineConnectionEx();
+    }
 
-	/**
-	 * @generated
-	 */
-	public PolylineConnectionEx getPrimaryShape() {
-		return (PolylineConnectionEx) getFigure();
-	}
+    /**
+     * @generated
+     */
+    public PolylineConnectionEx getPrimaryShape() {
+        return (PolylineConnectionEx) getFigure();
+    }
 
 }

@@ -41,25 +41,26 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class EntryLevelSystemCallEditPart.
- *
  * @generated
  */
 public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3003;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new entry level system call edit part.
-     *
-     * @param view the view
      * @generated
      */
     public EntryLevelSystemCallEditPart(View view) {
@@ -67,8 +68,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -82,9 +81,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     *
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -110,9 +106,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node shape.
-     *
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -121,9 +114,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     *
-     * @return the primary shape
      * @generated
      */
     public SystemCallFigure getPrimaryShape() {
@@ -131,10 +121,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
@@ -154,10 +140,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
@@ -175,10 +157,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the child visual.
-     *
-     * @param childEditPart the child edit part
-     * @param index the index
      * @generated
      */
     protected void addChildVisual(EditPart childEditPart, int index) {
@@ -189,9 +167,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the child visual.
-     *
-     * @param childEditPart the child edit part
      * @generated
      */
     protected void removeChildVisual(EditPart childEditPart) {
@@ -202,10 +177,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane for.
-     *
-     * @param editPart the edit part
-     * @return the content pane for
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
@@ -216,9 +187,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node plate.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -227,12 +195,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -245,11 +207,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     *
-     * @param nodeShape instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -262,9 +219,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane.
-     *
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -275,9 +229,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     *
-     * @param color the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -287,9 +238,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the background color.
-     *
-     * @param color the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -299,9 +247,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line width.
-     *
-     * @param width the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -311,9 +256,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line type.
-     *
-     * @param style the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -323,9 +265,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary child edit part.
-     *
-     * @return the primary child edit part
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
@@ -334,9 +273,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on source.
-     *
-     * @return the mA rel types on source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
@@ -356,10 +292,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on source and target.
-     *
-     * @param targetEditPart the target edit part
-     * @return the mA rel types on source and target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
@@ -397,10 +329,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA types for target.
-     *
-     * @param relationshipType the relationship type
-     * @return the mA types for target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
@@ -438,9 +366,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA rel types on target.
-     *
-     * @return the mA rel types on target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
@@ -460,10 +385,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the mA types for source.
-     *
-     * @param relationshipType the relationship type
-     * @return the mA types for source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
@@ -501,10 +422,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the target edit part.
-     *
-     * @param request the request
-     * @return the target edit part
      * @generated
      */
     public EditPart getTargetEditPart(Request request) {
@@ -521,21 +438,21 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * The Class SystemCallFigure.
-     *
      * @generated
      */
     public class SystemCallFigure extends RoundedRectangle {
-        
-        /** The figure system call name label figure. @generated */
+
+        /**
+         * @generated
+         */
         private WrappingLabel fFigureSystemCallNameLabelFigure;
 
-        /** The figure system call compartment. @generated */
+        /**
+         * @generated
+         */
         private RectangleFigure fFigureSystemCallCompartment;
 
         /**
-         * Instantiates a new system call figure.
-         *
          * @generated
          */
         public SystemCallFigure() {
@@ -556,8 +473,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Creates the contents.
-         *
          * @generated
          */
         private void createContents() {
@@ -611,9 +526,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure system call name label figure.
-         *
-         * @return the figure system call name label figure
          * @generated
          */
         public WrappingLabel getFigureSystemCallNameLabelFigure() {
@@ -621,22 +533,18 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure system call compartment.
-         *
-         * @return the figure system call compartment
          * @generated
          */
         public RectangleFigure getFigureSystemCallCompartment() {
             return fFigureSystemCallCompartment;
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         *
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -644,9 +552,6 @@ public class EntryLevelSystemCallEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         *
-         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

@@ -15,7 +15,9 @@ class ResourceEnvironmentSelectorPage extends ResourceSelectorPage {
 
     /**
      * Creates the resource environment selector page.
-     * @param selectedResourceEnvironment the resource environment
+     * 
+     * @param selectedResourceEnvironment
+     *            the resource environment
      */
     protected ResourceEnvironmentSelectorPage(ResourceEnvironment selectedResourceEnvironment) {
         super("Select resource environment", selectedResourceEnvironment);
@@ -26,6 +28,7 @@ class ResourceEnvironmentSelectorPage extends ResourceSelectorPage {
 
     /**
      * Gets the resource environment.
+     * 
      * @return the resource environment
      */
     protected ResourceEnvironment getSelectedResourceEnvironment() {

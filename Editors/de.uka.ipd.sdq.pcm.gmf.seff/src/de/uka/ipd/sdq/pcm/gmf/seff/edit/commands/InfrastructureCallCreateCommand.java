@@ -20,8 +20,6 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 
 /**
- * The Class InfrastructureCallCreateCommand.
- *
  * @generated
  */
 public class InfrastructureCallCreateCommand extends EditElementCommand {
@@ -34,9 +32,6 @@ public class InfrastructureCallCreateCommand extends EditElementCommand {
     private static final String DEFAULT_NUMBER_OF_CALLS = "1";
 
     /**
-     * Instantiates a new infrastructure call create command.
-     *
-     * @param req the req
      * @generated
      */
     public InfrastructureCallCreateCommand(CreateElementRequest req) {
@@ -44,9 +39,6 @@ public class InfrastructureCallCreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit().
-     *
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -58,9 +50,6 @@ public class InfrastructureCallCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -70,11 +59,14 @@ public class InfrastructureCallCreateCommand extends EditElementCommand {
 
     /**
      * Additionally adds number of calls to the element.
-     *
-     * @param monitor the monitor
-     * @param info the info
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
      * @return the command result
-     * @throws ExecutionException the execution exception
+     * @throws ExecutionException
+     *             the execution exception
      * @generated not
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -95,12 +87,6 @@ public class InfrastructureCallCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     *
-     * @param newElement the new element
-     * @param monitor the monitor
-     * @param info the info
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement,

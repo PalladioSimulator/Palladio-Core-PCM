@@ -22,17 +22,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 // TODO: decide whether this file is obsolete
 
 /**
- * The Class ProvidedRoleCreateCommand.
- * 
  * @generated
  */
 public class ProvidedRoleCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new provided role create command.
-     * 
-     * @param req
-     *            the req
      * @generated
      */
     public ProvidedRoleCreateCommand(CreateElementRequest req) {
@@ -40,9 +34,6 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the element to edit.
-     * 
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -54,9 +45,6 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -93,16 +81,6 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(ProvidedRole newElement, IProgressMonitor monitor, IAdaptable info)

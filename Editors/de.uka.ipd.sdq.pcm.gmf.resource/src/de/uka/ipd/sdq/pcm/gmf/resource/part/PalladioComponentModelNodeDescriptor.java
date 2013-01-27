@@ -11,12 +11,11 @@ import org.eclipse.gmf.tooling.runtime.update.UpdaterNodeDescriptor;
  */
 public class PalladioComponentModelNodeDescriptor extends UpdaterNodeDescriptor {
 
-	/**
-	 * @generated
-	 */
-	public PalladioComponentModelNodeDescriptor(EObject modelElement,
-			int visualID) {
-		super(modelElement, visualID);
-	}
+    /**
+     * @generated
+     */
+    public PalladioComponentModelNodeDescriptor(EObject modelElement, int visualID) {
+        super(modelElement, visualID);
+    }
 
 }

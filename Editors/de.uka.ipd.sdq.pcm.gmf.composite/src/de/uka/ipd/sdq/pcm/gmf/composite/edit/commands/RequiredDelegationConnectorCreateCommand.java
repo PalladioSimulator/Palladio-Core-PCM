@@ -24,30 +24,26 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBase
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
- * The Class RequiredDelegationConnectorCreateCommand.
- * 
  * @generated
  */
 public class RequiredDelegationConnectorCreateCommand extends EditElementCommand {
 
-    /** The source. @generated */
+    /**
+     * @generated
+     */
     private final EObject source;
 
-    /** The target. @generated */
+    /**
+     * @generated
+     */
     private final EObject target;
 
-    /** The container. @generated */
+    /**
+     * @generated
+     */
     private final ComposedStructure container;
 
     /**
-     * Instantiates a new required delegation connector create command.
-     * 
-     * @param request
-     *            the request
-     * @param source
-     *            the source
-     * @param target
-     *            the target
      * @generated
      */
     public RequiredDelegationConnectorCreateCommand(CreateRelationshipRequest request, EObject source, EObject target) {
@@ -58,9 +54,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     @Override
@@ -124,16 +117,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(RequiredDelegationConnector newElement, IProgressMonitor monitor, IAdaptable info)
@@ -151,10 +134,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Sets the element to edit.
-     * 
-     * @param element
-     *            the new element to edit
      * @generated
      */
     @Override
@@ -163,9 +142,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Gets the source.
-     * 
-     * @return the source
      * @generated
      */
     protected OperationRequiredRole getSource() {
@@ -173,9 +149,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Gets the target.
-     * 
-     * @return the target
      * @generated
      */
     protected OperationRequiredRole getTarget() {
@@ -183,9 +156,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Gets the container.
-     * 
-     * @return the container
      * @generated
      */
     public ComposedStructure getContainer() {

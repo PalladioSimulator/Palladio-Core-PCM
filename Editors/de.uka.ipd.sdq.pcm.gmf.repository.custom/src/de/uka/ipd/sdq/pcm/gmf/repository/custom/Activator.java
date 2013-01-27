@@ -9,12 +9,12 @@ import org.osgi.framework.BundleContext;
 public class Activator extends Plugin {
 
     /**
-     *  The plug-in ID.
+     * The plug-in ID.
      */
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.gmf.repository.custom";
 
     /**
-     *  The shared instance.
+     * The shared instance.
      */
     private static Activator plugin;
 
@@ -27,8 +27,10 @@ public class Activator extends Plugin {
     /**
      * @see org.eclipse.core.runtime.Plugins#start(org.osgi.framework.BundleContext)
      * 
-     * @param context a BundleContext
-     * @throws Exception an Exception
+     * @param context
+     *            a BundleContext
+     * @throws Exception
+     *             an Exception
      */
     public void start(BundleContext context) throws Exception {
         super.start(context);
@@ -38,8 +40,10 @@ public class Activator extends Plugin {
     /**
      * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
      * 
-     * @param context a BundleContext
-     * @throws Exception an Exception
+     * @param context
+     *            a BundleContext
+     * @throws Exception
+     *             an Exception
      */
     public void stop(BundleContext context) throws Exception {
         plugin = null;

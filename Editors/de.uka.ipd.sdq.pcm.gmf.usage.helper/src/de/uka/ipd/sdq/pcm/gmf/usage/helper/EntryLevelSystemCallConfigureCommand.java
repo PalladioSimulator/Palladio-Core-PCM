@@ -19,26 +19,29 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
  * The Class EntryLevelSystemCallConfigureCommand.
- *
+ * 
  * @author admin
  */
 public class EntryLevelSystemCallConfigureCommand extends ConfigureElementCommand {
 
     /** The request. */
     private ConfigureRequest request = null;
-    
+
     /** The signature. */
     private Signature signature = null;
-    
+
     /** The provided role. */
     private ProvidedRole providedRole = null;
 
     /**
      * Instantiates a new entry level system call configure command.
-     *
-     * @param request the request
-     * @param signature the signature
-     * @param providedRole the provided role
+     * 
+     * @param request
+     *            the request
+     * @param signature
+     *            the signature
+     * @param providedRole
+     *            the provided role
      */
     public EntryLevelSystemCallConfigureCommand(ConfigureRequest request, Signature signature, ProvidedRole providedRole) {
         super(request);
@@ -56,12 +59,16 @@ public class EntryLevelSystemCallConfigureCommand extends ConfigureElementComman
      */
     /**
      * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
      * @return the command result
-     * @throws ExecutionException the execution exception
-     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor, org.eclipse.core.runtime.IAdaptable)
+     * @throws ExecutionException
+     *             the execution exception
+     * @see org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand#doExecuteWithResult(org.eclipse.core.runtime.IProgressMonitor,
+     *      org.eclipse.core.runtime.IAdaptable)
      */
     @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -79,11 +86,14 @@ public class EntryLevelSystemCallConfigureCommand extends ConfigureElementComman
 
     /**
      * Sets the signature entry level system call.
-     *
-     * @param monitor the monitor
-     * @param info the info
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
      * @return the command result
-     * @throws ExecutionException the execution exception
+     * @throws ExecutionException
+     *             the execution exception
      */
     private CommandResult setSignatureEntryLevelSystemCall(IProgressMonitor monitor, IAdaptable info)
             throws ExecutionException {
@@ -99,11 +109,14 @@ public class EntryLevelSystemCallConfigureCommand extends ConfigureElementComman
 
     /**
      * Sets the provided role entry level system call.
-     *
-     * @param monitor the monitor
-     * @param info the info
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
      * @return the command result
-     * @throws ExecutionException the execution exception
+     * @throws ExecutionException
+     *             the execution exception
      */
     private CommandResult setProvidedRoleEntryLevelSystemCall(IProgressMonitor monitor, IAdaptable info)
             throws ExecutionException {

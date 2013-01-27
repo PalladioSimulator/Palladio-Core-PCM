@@ -31,8 +31,6 @@ public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreat
     }
 
     /**
-     * Override to create files with this extension.
-     * 
      * @generated
      */
     protected String getExtension() {

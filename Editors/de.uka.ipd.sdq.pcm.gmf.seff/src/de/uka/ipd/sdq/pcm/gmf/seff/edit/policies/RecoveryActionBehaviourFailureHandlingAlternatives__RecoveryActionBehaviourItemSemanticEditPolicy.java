@@ -10,16 +10,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy.
- *
  * @generated
  */
 public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new recovery action behaviour failure handling alternatives__ recovery action behaviour item semantic edit policy.
-     *
      * @generated
      */
     public RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviourItemSemanticEditPolicy() {
@@ -28,10 +24,6 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
     }
 
     /**
-     * Gets the destroy reference command.
-     *
-     * @param req the req
-     * @return the destroy reference command
      * @generated
      */
     protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {

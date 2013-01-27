@@ -9,15 +9,11 @@ import org.eclipse.jface.preference.IPreferenceStore;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 
 /**
- * The Class DiagramPreferenceInitializer.
- *
  * @generated
  */
 public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer {
 
     /**
-     * Initialize default preferences.
-     *
      * @generated
      */
     public void initializeDefaultPreferences() {
@@ -31,9 +27,6 @@ public class DiagramPreferenceInitializer extends AbstractPreferenceInitializer 
     }
 
     /**
-     * Gets the preference store.
-     *
-     * @return the preference store
      * @generated
      */
     protected IPreferenceStore getPreferenceStore() {

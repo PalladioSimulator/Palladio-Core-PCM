@@ -31,9 +31,11 @@ public class Activator extends Plugin {
      */
     /**
      * Start.
-     *
-     * @param context the context
-     * @throws Exception the exception
+     * 
+     * @param context
+     *            the context
+     * @throws Exception
+     *             the exception
      * @see org.eclipse.core.runtime.Plugin#start(org.osgi.framework.BundleContext)
      */
     @Override
@@ -49,9 +51,11 @@ public class Activator extends Plugin {
      */
     /**
      * Stop.
-     *
-     * @param context the context
-     * @throws Exception the exception
+     * 
+     * @param context
+     *            the context
+     * @throws Exception
+     *             the exception
      * @see org.eclipse.core.runtime.Plugin#stop(org.osgi.framework.BundleContext)
      */
     @Override

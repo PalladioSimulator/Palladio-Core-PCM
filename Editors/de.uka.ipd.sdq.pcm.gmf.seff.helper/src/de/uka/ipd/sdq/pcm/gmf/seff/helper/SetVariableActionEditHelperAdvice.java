@@ -30,8 +30,9 @@ public class SetVariableActionEditHelperAdvice extends AbstractEditHelperAdvice 
      */
     /**
      * Gets the before configure command.
-     *
-     * @param request the request
+     * 
+     * @param request
+     *            the request
      * @return the before configure command
      * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#getBeforeConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
      */

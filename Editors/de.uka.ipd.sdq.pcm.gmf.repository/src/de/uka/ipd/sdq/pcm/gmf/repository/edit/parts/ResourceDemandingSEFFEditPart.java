@@ -54,7 +54,6 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OpenSeffDiagramEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.ResourceDemandingSEFFItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
@@ -233,8 +232,9 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart implement
         String text = "SEFF <";
         Signature describedService = ((ResourceDemandingSEFF) ((View) this.getModel()).getElement())
                 .getDescribedService__SEFF();
-        if (describedService != null)
+        if (describedService != null) {
             text += describedService.getEntityName();
+        }
         return text + ">";
     }
 
@@ -365,7 +365,7 @@ public class ResourceDemandingSEFFEditPart extends CompartmentEditPart implement
     private void performDirectEdit(char initialCharacter) {
         if (getManager() instanceof TextDirectEditManager) {
             ((TextDirectEditManager) getManager()).show(initialCharacter);
-        } else // 
+        } else //
         if (getManager() instanceof TextDirectEditManager2) {
             ((TextDirectEditManager2) getManager()).show(initialCharacter);
         } else //

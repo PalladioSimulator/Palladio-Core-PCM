@@ -30,15 +30,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class BranchAction2ItemSemanticEditPolicy.
- *
  * @generated
  */
 public class BranchAction2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new branch action2 item semantic edit policy.
-     *
      * @generated
      */
     public BranchAction2ItemSemanticEditPolicy() {
@@ -46,10 +42,6 @@ public class BranchAction2ItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the destroy element command.
-     *
-     * @param req the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -90,9 +82,6 @@ public class BranchAction2ItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Adds the destroy child nodes command.
-     *
-     * @param cmd the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
@@ -130,10 +119,6 @@ public class BranchAction2ItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the creates the relationship command.
-     *
-     * @param req the req
-     * @return the creates the relationship command
      * @generated
      */
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -143,10 +128,6 @@ public class BranchAction2ItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the start create relationship command.
-     *
-     * @param req the req
-     * @return the start create relationship command
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -158,10 +139,6 @@ public class BranchAction2ItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the complete create relationship command.
-     *
-     * @param req the req
-     * @return the complete create relationship command
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -173,11 +150,6 @@ public class BranchAction2ItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Returns command to reorient EReference based link. New link target or source should be the
-     * domain model element associated with this node.
-     *
-     * @param req the req
-     * @return the reorient reference relationship command
      * @generated
      */
     protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {

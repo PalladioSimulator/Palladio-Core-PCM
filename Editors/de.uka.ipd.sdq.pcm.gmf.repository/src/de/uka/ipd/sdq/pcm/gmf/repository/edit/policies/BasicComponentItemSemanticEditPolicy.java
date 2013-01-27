@@ -144,8 +144,11 @@ public class BasicComponentItemSemanticEditPolicy extends PalladioComponentModel
                     case ResourceDemandingSEFFEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would
+                        // clean child views as well
+                        // cmd.add(new
+                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                        // cnode));
                         break;
                     }
                 }
@@ -157,8 +160,11 @@ public class BasicComponentItemSemanticEditPolicy extends PalladioComponentModel
                     case PassiveResourceEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would
+                        // clean child views as well
+                        // cmd.add(new
+                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                        // cnode));
                         break;
                     }
                 }
@@ -170,8 +176,11 @@ public class BasicComponentItemSemanticEditPolicy extends PalladioComponentModel
                     case VariableUsageEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
-                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would
+                        // clean child views as well
+                        // cmd.add(new
+                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                        // cnode));
                         break;
                     }
                 }
@@ -249,9 +258,6 @@ public class BasicComponentItemSemanticEditPolicy extends PalladioComponentModel
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
      * @generated
      */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
@@ -273,9 +279,6 @@ public class BasicComponentItemSemanticEditPolicy extends PalladioComponentModel
     }
 
     /**
-     * Returns command to reorient EReference based link. New link target or source should be the
-     * domain model element associated with this node.
-     * 
      * @generated
      */
     protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {

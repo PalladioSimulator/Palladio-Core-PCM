@@ -25,33 +25,41 @@ import org.eclipse.ui.navigator.ICommonContentProvider;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 
 /**
- * The Class PalladioComponentModelDomainNavigatorContentProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelDomainNavigatorContentProvider implements ICommonContentProvider {
 
-    /** The my adapter fctory content provier. @generated */
+    /**
+     * @generated
+     */
     private AdapterFactoryContentProvider myAdapterFctoryContentProvier;
 
-    /** The Constant EMPTY_ARRAY. @generated */
+    /**
+     * @generated
+     */
     private static final Object[] EMPTY_ARRAY = new Object[0];
 
-    /** The my viewer. @generated */
+    /**
+     * @generated
+     */
     private Viewer myViewer;
 
-    /** The my editing domain. @generated */
+    /**
+     * @generated
+     */
     private AdapterFactoryEditingDomain myEditingDomain;
 
-    /** The my workspace synchronizer. @generated */
+    /**
+     * @generated
+     */
     private WorkspaceSynchronizer myWorkspaceSynchronizer;
 
-    /** The my viewer refresh runnable. @generated */
+    /**
+     * @generated
+     */
     private Runnable myViewerRefreshRunnable;
 
     /**
-     * Instantiates a new palladio component model domain navigator content provider.
-     * 
      * @generated
      */
     public PalladioComponentModelDomainNavigatorContentProvider() {
@@ -115,8 +123,6 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements ICo
     }
 
     /**
-     * Dispose.
-     * 
      * @generated
      */
     public void dispose() {
@@ -132,14 +138,6 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements ICo
     }
 
     /**
-     * Input changed.
-     * 
-     * @param viewer
-     *            the viewer
-     * @param oldInput
-     *            the old input
-     * @param newInput
-     *            the new input
      * @generated
      */
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
@@ -147,11 +145,6 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements ICo
     }
 
     /**
-     * Gets the elements.
-     * 
-     * @param inputElement
-     *            the input element
-     * @return the elements
      * @generated
      */
     public Object[] getElements(Object inputElement) {
@@ -159,41 +152,24 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements ICo
     }
 
     /**
-     * Restore state.
-     * 
-     * @param aMemento
-     *            the a memento
      * @generated
      */
     public void restoreState(IMemento aMemento) {
     }
 
     /**
-     * Save state.
-     * 
-     * @param aMemento
-     *            the a memento
      * @generated
      */
     public void saveState(IMemento aMemento) {
     }
 
     /**
-     * Inits the.
-     * 
-     * @param aConfig
-     *            the a config
      * @generated
      */
     public void init(ICommonContentExtensionSite aConfig) {
     }
 
     /**
-     * Gets the children.
-     * 
-     * @param parentElement
-     *            the parent element
-     * @return the children
      * @generated
      */
     public Object[] getChildren(Object parentElement) {
@@ -213,13 +189,6 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements ICo
     }
 
     /**
-     * Wrap e objects.
-     * 
-     * @param objects
-     *            the objects
-     * @param parentElement
-     *            the parent element
-     * @return the object[]
      * @generated
      */
     public Object[] wrapEObjects(Object[] objects, Object parentElement) {
@@ -234,11 +203,6 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements ICo
     }
 
     /**
-     * Gets the parent.
-     * 
-     * @param element
-     *            the element
-     * @return the parent
      * @generated
      */
     public Object getParent(Object element) {
@@ -250,11 +214,6 @@ public class PalladioComponentModelDomainNavigatorContentProvider implements ICo
     }
 
     /**
-     * Checks for children.
-     * 
-     * @param element
-     *            the element
-     * @return true, if successful
      * @generated
      */
     public boolean hasChildren(Object element) {

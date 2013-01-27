@@ -78,6 +78,15 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
     }
 
     /**
+     * Do execute with result.
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
      * @generated not
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -152,9 +161,11 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
      * 
      * Modified to used the target element as starting point, since this is the EventChannel
      * contained in the composed structure
-     *
-     * @param source the source
-     * @param target the target
+     * 
+     * @param source
+     *            the source
+     * @param target
+     *            the target
      * @return the composed structure
      * @generated not
      */

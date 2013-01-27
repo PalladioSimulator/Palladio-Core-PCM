@@ -54,19 +54,16 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
- * The Class PalladioComponentModelParserProvider.
- *
  * @generated
  */
 public class PalladioComponentModelParserProvider extends AbstractProvider implements IParserProvider {
 
-    /** The external call action entity name_5002 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser externalCallActionEntityName_5002Parser;
 
     /**
-     * Gets the external call action entity name_5002 parser.
-     *
-     * @return the external call action entity name_5002 parser
      * @generated
      */
     private IParser getExternalCallActionEntityName_5002Parser() {
@@ -78,13 +75,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return externalCallActionEntityName_5002Parser;
     }
 
-    /** The emit event action entity name_5046 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser emitEventActionEntityName_5046Parser;
 
     /**
-     * Gets the emit event action entity name_5046 parser.
-     *
-     * @return the emit event action entity name_5046 parser
      * @generated
      */
     private IParser getEmitEventActionEntityName_5046Parser() {
@@ -96,13 +92,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return emitEventActionEntityName_5046Parser;
     }
 
-    /** The loop action entity name_5009 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser loopActionEntityName_5009Parser;
 
     /**
-     * Gets the loop action entity name_5009 parser.
-     *
-     * @return the loop action entity name_5009 parser
      * @generated
      */
     private IParser getLoopActionEntityName_5009Parser() {
@@ -114,13 +109,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return loopActionEntityName_5009Parser;
     }
 
-    /** The branch action entity name_5011 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser branchActionEntityName_5011Parser;
 
     /**
-     * Gets the branch action entity name_5011 parser.
-     *
-     * @return the branch action entity name_5011 parser
      * @generated
      */
     private IParser getBranchActionEntityName_5011Parser() {
@@ -132,13 +126,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return branchActionEntityName_5011Parser;
     }
 
-    /** The internal action entity name_5012 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser internalActionEntityName_5012Parser;
 
     /**
-     * Gets the internal action entity name_5012 parser.
-     *
-     * @return the internal action entity name_5012 parser
      * @generated
      */
     private IParser getInternalActionEntityName_5012Parser() {
@@ -150,13 +143,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return internalActionEntityName_5012Parser;
     }
 
-    /** The collection iterator action entity name_5015 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser collectionIteratorActionEntityName_5015Parser;
 
     /**
-     * Gets the collection iterator action entity name_5015 parser.
-     *
-     * @return the collection iterator action entity name_5015 parser
      * @generated
      */
     private IParser getCollectionIteratorActionEntityName_5015Parser() {
@@ -171,13 +163,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return collectionIteratorActionEntityName_5015Parser;
     }
 
-    /** The set variable action entity name_5023 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser setVariableActionEntityName_5023Parser;
 
     /**
-     * Gets the sets the variable action entity name_5023 parser.
-     *
-     * @return the sets the variable action entity name_5023 parser
      * @generated
      */
     private IParser getSetVariableActionEntityName_5023Parser() {
@@ -189,13 +180,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return setVariableActionEntityName_5023Parser;
     }
 
-    /** The acquire action entity name_5029 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser acquireActionEntityName_5029Parser;
 
     /**
-     * Gets the acquire action entity name_5029 parser.
-     *
-     * @return the acquire action entity name_5029 parser
      * @generated
      */
     private IParser getAcquireActionEntityName_5029Parser() {
@@ -207,13 +197,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return acquireActionEntityName_5029Parser;
     }
 
-    /** The release action entity name_5022 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser releaseActionEntityName_5022Parser;
 
     /**
-     * Gets the release action entity name_5022 parser.
-     *
-     * @return the release action entity name_5022 parser
      * @generated
      */
     private IParser getReleaseActionEntityName_5022Parser() {
@@ -225,13 +214,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return releaseActionEntityName_5022Parser;
     }
 
-    /** The fork action entity name_5024 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser forkActionEntityName_5024Parser;
 
     /**
-     * Gets the fork action entity name_5024 parser.
-     *
-     * @return the fork action entity name_5024 parser
      * @generated
      */
     private IParser getForkActionEntityName_5024Parser() {
@@ -243,13 +231,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return forkActionEntityName_5024Parser;
     }
 
-    /** The recovery action entity name_5056 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser recoveryActionEntityName_5056Parser;
 
     /**
-     * Gets the recovery action entity name_5056 parser.
-     *
-     * @return the recovery action entity name_5056 parser
      * @generated
      */
     private IParser getRecoveryActionEntityName_5056Parser() {
@@ -262,13 +249,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return recoveryActionEntityName_5056Parser;
     }
 
-    /** The variable characterisation_3033 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser variableCharacterisation_3033Parser;
 
     /**
-     * Gets the variable characterisation_3033 parser.
-     *
-     * @return the variable characterisation_3033 parser
      * @generated
      */
     private IParser getVariableCharacterisation_3033Parser() {
@@ -283,13 +269,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return variableCharacterisation_3033Parser;
     }
 
-    /** The variable characterisation_3035 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser variableCharacterisation_3035Parser;
 
     /**
-     * Gets the variable characterisation_3035 parser.
-     *
-     * @return the variable characterisation_3035 parser
      * @generated
      */
     private IParser getVariableCharacterisation_3035Parser() {
@@ -304,13 +289,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return variableCharacterisation_3035Parser;
     }
 
-    /** The loop action entity name_5003 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser loopActionEntityName_5003Parser;
 
     /**
-     * Gets the loop action entity name_5003 parser.
-     *
-     * @return the loop action entity name_5003 parser
      * @generated
      */
     private IParser getLoopActionEntityName_5003Parser() {
@@ -322,13 +306,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return loopActionEntityName_5003Parser;
     }
 
-    /** The internal action entity name_5005 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser internalActionEntityName_5005Parser;
 
     /**
-     * Gets the internal action entity name_5005 parser.
-     *
-     * @return the internal action entity name_5005 parser
      * @generated
      */
     private IParser getInternalActionEntityName_5005Parser() {
@@ -340,13 +323,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return internalActionEntityName_5005Parser;
     }
 
-    /** The branch action entity name_5008 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser branchActionEntityName_5008Parser;
 
     /**
-     * Gets the branch action entity name_5008 parser.
-     *
-     * @return the branch action entity name_5008 parser
      * @generated
      */
     private IParser getBranchActionEntityName_5008Parser() {
@@ -358,13 +340,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return branchActionEntityName_5008Parser;
     }
 
-    /** The probabilistic branch transition entity name_5007 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser probabilisticBranchTransitionEntityName_5007Parser;
 
     /**
-     * Gets the probabilistic branch transition entity name_5007 parser.
-     *
-     * @return the probabilistic branch transition entity name_5007 parser
      * @generated
      */
     private IParser getProbabilisticBranchTransitionEntityName_5007Parser() {
@@ -376,13 +357,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return probabilisticBranchTransitionEntityName_5007Parser;
     }
 
-    /** The probabilistic branch transition branch probability_5037 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser probabilisticBranchTransitionBranchProbability_5037Parser;
 
     /**
-     * Gets the probabilistic branch transition branch probability_5037 parser.
-     *
-     * @return the probabilistic branch transition branch probability_5037 parser
      * @generated
      */
     private IParser getProbabilisticBranchTransitionBranchProbability_5037Parser() {
@@ -398,13 +378,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return probabilisticBranchTransitionBranchProbability_5037Parser;
     }
 
-    /** The external call action entity name_5006 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser externalCallActionEntityName_5006Parser;
 
     /**
-     * Gets the external call action entity name_5006 parser.
-     *
-     * @return the external call action entity name_5006 parser
      * @generated
      */
     private IParser getExternalCallActionEntityName_5006Parser() {
@@ -416,13 +395,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return externalCallActionEntityName_5006Parser;
     }
 
-    /** The emit event action entity name_5044 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser emitEventActionEntityName_5044Parser;
 
     /**
-     * Gets the emit event action entity name_5044 parser.
-     *
-     * @return the emit event action entity name_5044 parser
      * @generated
      */
     private IParser getEmitEventActionEntityName_5044Parser() {
@@ -434,13 +412,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return emitEventActionEntityName_5044Parser;
     }
 
-    /** The acquire action entity name_5028 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser acquireActionEntityName_5028Parser;
 
     /**
-     * Gets the acquire action entity name_5028 parser.
-     *
-     * @return the acquire action entity name_5028 parser
      * @generated
      */
     private IParser getAcquireActionEntityName_5028Parser() {
@@ -452,13 +429,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return acquireActionEntityName_5028Parser;
     }
 
-    /** The release action entity name_5020 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser releaseActionEntityName_5020Parser;
 
     /**
-     * Gets the release action entity name_5020 parser.
-     *
-     * @return the release action entity name_5020 parser
      * @generated
      */
     private IParser getReleaseActionEntityName_5020Parser() {
@@ -470,13 +446,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return releaseActionEntityName_5020Parser;
     }
 
-    /** The fork action entity name_5026 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser forkActionEntityName_5026Parser;
 
     /**
-     * Gets the fork action entity name_5026 parser.
-     *
-     * @return the fork action entity name_5026 parser
      * @generated
      */
     private IParser getForkActionEntityName_5026Parser() {
@@ -488,13 +463,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return forkActionEntityName_5026Parser;
     }
 
-    /** The collection iterator action entity name_5013 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser collectionIteratorActionEntityName_5013Parser;
 
     /**
-     * Gets the collection iterator action entity name_5013 parser.
-     *
-     * @return the collection iterator action entity name_5013 parser
      * @generated
      */
     private IParser getCollectionIteratorActionEntityName_5013Parser() {
@@ -509,13 +483,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return collectionIteratorActionEntityName_5013Parser;
     }
 
-    /** The recovery action entity name_5055 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser recoveryActionEntityName_5055Parser;
 
     /**
-     * Gets the recovery action entity name_5055 parser.
-     *
-     * @return the recovery action entity name_5055 parser
      * @generated
      */
     private IParser getRecoveryActionEntityName_5055Parser() {
@@ -528,13 +501,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return recoveryActionEntityName_5055Parser;
     }
 
-    /** The recovery action behaviour entity name_5054 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser recoveryActionBehaviourEntityName_5054Parser;
 
     /**
-     * Gets the recovery action behaviour entity name_5054 parser.
-     *
-     * @return the recovery action behaviour entity name_5054 parser
      * @generated
      */
     private IParser getRecoveryActionBehaviourEntityName_5054Parser() {
@@ -547,13 +519,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return recoveryActionBehaviourEntityName_5054Parser;
     }
 
-    /** The set variable action entity name_5027 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser setVariableActionEntityName_5027Parser;
 
     /**
-     * Gets the sets the variable action entity name_5027 parser.
-     *
-     * @return the sets the variable action entity name_5027 parser
      * @generated
      */
     private IParser getSetVariableActionEntityName_5027Parser() {
@@ -565,13 +536,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return setVariableActionEntityName_5027Parser;
     }
 
-    /** The variable characterisation_3055 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser variableCharacterisation_3055Parser;
 
     /**
-     * Gets the variable characterisation_3055 parser.
-     *
-     * @return the variable characterisation_3055 parser
      * @generated
      */
     private IParser getVariableCharacterisation_3055Parser() {
@@ -586,13 +556,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return variableCharacterisation_3055Parser;
     }
 
-    /** The variable characterisation_3048 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser variableCharacterisation_3048Parser;
 
     /**
-     * Gets the variable characterisation_3048 parser.
-     *
-     * @return the variable characterisation_3048 parser
      * @generated
      */
     private IParser getVariableCharacterisation_3048Parser() {
@@ -607,13 +576,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return variableCharacterisation_3048Parser;
     }
 
-    /** The variable characterisation_3037 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser variableCharacterisation_3037Parser;
 
     /**
-     * Gets the variable characterisation_3037 parser.
-     *
-     * @return the variable characterisation_3037 parser
      * @generated
      */
     private IParser getVariableCharacterisation_3037Parser() {
@@ -628,13 +596,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return variableCharacterisation_3037Parser;
     }
 
-    /** The guarded branch transition entity name_5018 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser guardedBranchTransitionEntityName_5018Parser;
 
     /**
-     * Gets the guarded branch transition entity name_5018 parser.
-     *
-     * @return the guarded branch transition entity name_5018 parser
      * @generated
      */
     private IParser getGuardedBranchTransitionEntityName_5018Parser() {
@@ -647,10 +614,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Gets the parser.
-     *
-     * @param visualID the visual id
-     * @return the parser
      * @generated
      */
     protected IParser getParser(int visualID) {
@@ -722,12 +685,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Utility method that consults ParserService.
-     *
-     * @param type the type
-     * @param object the object
-     * @param parserHint the parser hint
-     * @return the parser
      * @generated
      */
     public static IParser getParser(IElementType type, EObject object, String parserHint) {
@@ -735,10 +692,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Gets the parser.
-     *
-     * @param hint the hint
-     * @return the parser
      * @generated
      */
     @Override
@@ -755,10 +708,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Provides.
-     *
-     * @param operation the operation
-     * @return true, if successful
      * @generated
      */
     @Override
@@ -775,7 +724,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
 
     /**
      * The Class HintAdapter.
-     *
+     * 
      * @generated NOT
      */
     public static class HintAdapter extends ParserHintAdapter {
@@ -785,10 +734,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
 
         /**
          * Instantiates a new hint adapter.
-         *
-         * @param type the type
-         * @param object the object
-         * @param parserHint the parser hint
+         * 
+         * @param type
+         *            the type
+         * @param object
+         *            the object
+         * @param parserHint
+         *            the parser hint
          */
         public HintAdapter(IElementType type, EObject object, String parserHint) {
             super(object, parserHint);
@@ -796,13 +748,18 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
             elementType = type;
         }
 
-        /* (non-Javadoc)
-         * @see org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter#getAdapter(java.lang.Class)
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter#getAdapter(java.lang
+         * .Class)
          */
         /**
          * Gets the adapter.
-         *
-         * @param adapter the adapter
+         * 
+         * @param adapter
+         *            the adapter
          * @return the adapter
          * @see org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter#getAdapter(java.lang.Class)
          */

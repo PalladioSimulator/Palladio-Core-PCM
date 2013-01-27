@@ -127,17 +127,11 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 /**
- * The Class PalladioComponentModelDiagramUpdater.
- *
  * @generated
  */
 public class PalladioComponentModelDiagramUpdater {
 
     /**
-     * Gets the semantic children.
-     *
-     * @param view the view
-     * @return the semantic children
      * @generated
      */
     public static List getSemanticChildren(View view) {
@@ -229,10 +223,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_2004 semantic children.
-     *
-     * @param view the view
-     * @return the loop action_2004 semantic children
      * @generated
      */
     public static List getLoopAction_2004SemanticChildren(View view) {
@@ -252,10 +242,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_2007 semantic children.
-     *
-     * @param view the view
-     * @return the collection iterator action_2007 semantic children
      * @generated
      */
     public static List getCollectionIteratorAction_2007SemanticChildren(View view) {
@@ -275,10 +261,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_3006 semantic children.
-     *
-     * @param view the view
-     * @return the loop action_3006 semantic children
      * @generated
      */
     public static List getLoopAction_3006SemanticChildren(View view) {
@@ -298,10 +280,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the probabilistic branch transition_3010 semantic children.
-     *
-     * @param view the view
-     * @return the probabilistic branch transition_3010 semantic children
      * @generated
      */
     public static List getProbabilisticBranchTransition_3010SemanticChildren(View view) {
@@ -321,10 +299,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_3013 semantic children.
-     *
-     * @param view the view
-     * @return the collection iterator action_3013 semantic children
      * @generated
      */
     public static List getCollectionIteratorAction_3013SemanticChildren(View view) {
@@ -344,10 +318,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the guarded branch transition_3017 semantic children.
-     *
-     * @param view the view
-     * @return the guarded branch transition_3017 semantic children
      * @generated
      */
     public static List getGuardedBranchTransition_3017SemanticChildren(View view) {
@@ -367,10 +337,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action input variable usage_7001 semantic children.
-     *
-     * @param view the view
-     * @return the external call action input variable usage_7001 semantic children
      * @generated
      */
     public static List getExternalCallActionInputVariableUsage_7001SemanticChildren(View view) {
@@ -395,10 +361,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action output variable usage_7021 semantic children.
-     *
-     * @param view the view
-     * @return the external call action output variable usage_7021 semantic children
      * @generated
      */
     public static List getExternalCallActionOutputVariableUsage_7021SemanticChildren(View view) {
@@ -423,10 +385,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage variable characterisation_7037 semantic children.
-     *
-     * @param view the view
-     * @return the variable usage variable characterisation_7037 semantic children
      * @generated
      */
     public static List getVariableUsageVariableCharacterisation_7037SemanticChildren(View view) {
@@ -451,10 +409,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage variable characterisation_7044 semantic children.
-     *
-     * @param view the view
-     * @return the variable usage variable characterisation_7044 semantic children
      * @generated
      */
     public static List getVariableUsageVariableCharacterisation_7044SemanticChildren(View view) {
@@ -479,10 +433,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action input variable usage event_7042 semantic children.
-     *
-     * @param view the view
-     * @return the emit event action input variable usage event_7042 semantic children
      * @generated
      */
     public static List getEmitEventActionInputVariableUsageEvent_7042SemanticChildren(View view) {
@@ -507,10 +457,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage variable characterisation_7043 semantic children.
-     *
-     * @param view the view
-     * @return the variable usage variable characterisation_7043 semantic children
      * @generated
      */
     public static List getVariableUsageVariableCharacterisation_7043SemanticChildren(View view) {
@@ -535,10 +481,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour behaviour compartment_7004 semantic children.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour behaviour compartment_7004 semantic children
      * @generated
      */
     public static List getResourceDemandingBehaviourBehaviourCompartment_7004SemanticChildren(View view) {
@@ -611,10 +553,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action resource demands_7006 semantic children.
-     *
-     * @param view the view
-     * @return the internal action resource demands_7006 semantic children
      * @generated
      */
     public static List getInternalActionResourceDemands_7006SemanticChildren(View view) {
@@ -640,10 +578,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action failure occurrence descriptions_7045 semantic children.
-     *
-     * @param view the view
-     * @return the internal action failure occurrence descriptions_7045 semantic children
      * @generated
      */
     public static List getInternalActionFailureOccurrenceDescriptions_7045SemanticChildren(View view) {
@@ -669,10 +603,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action infrastructure calls compartment_7048 semantic children.
-     *
-     * @param view the view
-     * @return the internal action infrastructure calls compartment_7048 semantic children
      * @generated
      */
     public static List getInternalActionInfrastructureCallsCompartment_7048SemanticChildren(View view) {
@@ -698,10 +628,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure call infrastructure call input variable usages_7049 semantic children.
-     *
-     * @param view the view
-     * @return the infrastructure call infrastructure call input variable usages_7049 semantic children
      * @generated
      */
     public static List getInfrastructureCallInfrastructureCallInputVariableUsages_7049SemanticChildren(View view) {
@@ -727,10 +653,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage variable characterisation_7050 semantic children.
-     *
-     * @param view the view
-     * @return the variable usage variable characterisation_7050 semantic children
      * @generated
      */
     public static List getVariableUsageVariableCharacterisation_7050SemanticChildren(View view) {
@@ -755,10 +677,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action branch transition compartment_7007 semantic children.
-     *
-     * @param view the view
-     * @return the branch action branch transition compartment_7007 semantic children
      * @generated
      */
     public static List getBranchActionBranchTransitionCompartment_7007SemanticChildren(View view) {
@@ -787,10 +705,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour behaviour compartment_7009 semantic children.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour behaviour compartment_7009 semantic children
      * @generated
      */
     public static List getResourceDemandingBehaviourBehaviourCompartment_7009SemanticChildren(View view) {
@@ -863,10 +777,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action input variable usage_7010 semantic children.
-     *
-     * @param view the view
-     * @return the external call action input variable usage_7010 semantic children
      * @generated
      */
     public static List getExternalCallActionInputVariableUsage_7010SemanticChildren(View view) {
@@ -891,10 +801,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action output variable usage_7023 semantic children.
-     *
-     * @param view the view
-     * @return the external call action output variable usage_7023 semantic children
      * @generated
      */
     public static List getExternalCallActionOutputVariableUsage_7023SemanticChildren(View view) {
@@ -919,10 +825,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action input variable usage event_7041 semantic children.
-     *
-     * @param view the view
-     * @return the emit event action input variable usage event_7041 semantic children
      * @generated
      */
     public static List getEmitEventActionInputVariableUsageEvent_7041SemanticChildren(View view) {
@@ -947,10 +849,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action forked behaviours_7024 semantic children.
-     *
-     * @param view the view
-     * @return the fork action forked behaviours_7024 semantic children
      * @generated
      */
     public static List getForkActionForkedBehaviours_7024SemanticChildren(View view) {
@@ -982,10 +880,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour behaviour compartment_7026 semantic children.
-     *
-     * @param view the view
-     * @return the forked behaviour behaviour compartment_7026 semantic children
      * @generated
      */
     public static List getForkedBehaviourBehaviourCompartment_7026SemanticChildren(View view) {
@@ -1054,10 +948,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour behaviour compartment_7014 semantic children.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour behaviour compartment_7014 semantic children
      * @generated
      */
     public static List getResourceDemandingBehaviourBehaviourCompartment_7014SemanticChildren(View view) {
@@ -1126,10 +1016,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action recovery block compartment_7054 semantic children.
-     *
-     * @param view the view
-     * @return the recovery action recovery block compartment_7054 semantic children
      * @generated
      */
     public static List getRecoveryActionRecoveryBlockCompartment_7054SemanticChildren(View view) {
@@ -1156,10 +1042,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action behaviour alternative behaviour compartment_7055 semantic children.
-     *
-     * @param view the view
-     * @return the recovery action behaviour alternative behaviour compartment_7055 semantic children
      * @generated
      */
     public static List getRecoveryActionBehaviourAlternativeBehaviourCompartment_7055SemanticChildren(View view) {
@@ -1233,10 +1115,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the synchronisation point synchronisation point_7034 semantic children.
-     *
-     * @param view the view
-     * @return the synchronisation point synchronisation point_7034 semantic children
      * @generated
      */
     public static List getSynchronisationPointSynchronisationPoint_7034SemanticChildren(View view) {
@@ -1261,10 +1139,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour behaviour compartment_7033 semantic children.
-     *
-     * @param view the view
-     * @return the forked behaviour behaviour compartment_7033 semantic children
      * @generated
      */
     public static List getForkedBehaviourBehaviourCompartment_7033SemanticChildren(View view) {
@@ -1333,10 +1207,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action variable setter_7025 semantic children.
-     *
-     * @param view the view
-     * @return the sets the variable action variable setter_7025 semantic children
      * @generated
      */
     public static List getSetVariableActionVariableSetter_7025SemanticChildren(View view) {
@@ -1361,10 +1231,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage variable characterisation_7032 semantic children.
-     *
-     * @param view the view
-     * @return the variable usage variable characterisation_7032 semantic children
      * @generated
      */
     public static List getVariableUsageVariableCharacterisation_7032SemanticChildren(View view) {
@@ -1389,10 +1255,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour behaviour compartment_7018 semantic children.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour behaviour compartment_7018 semantic children
      * @generated
      */
     public static List getResourceDemandingBehaviourBehaviourCompartment_7018SemanticChildren(View view) {
@@ -1465,10 +1327,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action branch transition compartment_7011 semantic children.
-     *
-     * @param view the view
-     * @return the branch action branch transition compartment_7011 semantic children
      * @generated
      */
     public static List getBranchActionBranchTransitionCompartment_7011SemanticChildren(View view) {
@@ -1497,10 +1355,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action resource demands_7012 semantic children.
-     *
-     * @param view the view
-     * @return the internal action resource demands_7012 semantic children
      * @generated
      */
     public static List getInternalActionResourceDemands_7012SemanticChildren(View view) {
@@ -1526,10 +1380,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action failure occurrence descriptions_7046 semantic children.
-     *
-     * @param view the view
-     * @return the internal action failure occurrence descriptions_7046 semantic children
      * @generated
      */
     public static List getInternalActionFailureOccurrenceDescriptions_7046SemanticChildren(View view) {
@@ -1555,10 +1405,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action infrastructure calls compartment_7051 semantic children.
-     *
-     * @param view the view
-     * @return the internal action infrastructure calls compartment_7051 semantic children
      * @generated
      */
     public static List getInternalActionInfrastructureCallsCompartment_7051SemanticChildren(View view) {
@@ -1584,10 +1430,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action variable setter_7016 semantic children.
-     *
-     * @param view the view
-     * @return the sets the variable action variable setter_7016 semantic children
      * @generated
      */
     public static List getSetVariableActionVariableSetter_7016SemanticChildren(View view) {
@@ -1612,10 +1454,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action forked behaviours_7019 semantic children.
-     *
-     * @param view the view
-     * @return the fork action forked behaviours_7019 semantic children
      * @generated
      */
     public static List getForkActionForkedBehaviours_7019SemanticChildren(View view) {
@@ -1647,10 +1485,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action recovery block compartment_7056 semantic children.
-     *
-     * @param view the view
-     * @return the recovery action recovery block compartment_7056 semantic children
      * @generated
      */
     public static List getRecoveryActionRecoveryBlockCompartment_7056SemanticChildren(View view) {
@@ -1677,10 +1511,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding sef f_1000 semantic children.
-     *
-     * @param view the view
-     * @return the resource demanding sef f_1000 semantic children
      * @generated
      */
     public static List getResourceDemandingSEFF_1000SemanticChildren(View view) {
@@ -1749,10 +1579,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the contained links.
-     *
-     * @param view the view
-     * @return the contained links
      * @generated
      */
     public static List getContainedLinks(View view) {
@@ -1862,10 +1688,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming links.
-     *
-     * @param view the view
-     * @return the incoming links
      * @generated
      */
     public static List getIncomingLinks(View view) {
@@ -1973,10 +1795,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing links.
-     *
-     * @param view the view
-     * @return the outgoing links
      * @generated
      */
     public static List getOutgoingLinks(View view) {
@@ -2084,10 +1902,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding sef f_1000 contained links.
-     *
-     * @param view the view
-     * @return the resource demanding sef f_1000 contained links
      * @generated
      */
     public static List getResourceDemandingSEFF_1000ContainedLinks(View view) {
@@ -2095,10 +1909,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the start action_2001 contained links.
-     *
-     * @param view the view
-     * @return the start action_2001 contained links
      * @generated
      */
     public static List getStartAction_2001ContainedLinks(View view) {
@@ -2109,10 +1919,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the stop action_2002 contained links.
-     *
-     * @param view the view
-     * @return the stop action_2002 contained links
      * @generated
      */
     public static List getStopAction_2002ContainedLinks(View view) {
@@ -2123,10 +1929,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action_2003 contained links.
-     *
-     * @param view the view
-     * @return the external call action_2003 contained links
      * @generated
      */
     public static List getExternalCallAction_2003ContainedLinks(View view) {
@@ -2137,10 +1939,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action_2013 contained links.
-     *
-     * @param view the view
-     * @return the emit event action_2013 contained links
      * @generated
      */
     public static List getEmitEventAction_2013ContainedLinks(View view) {
@@ -2151,10 +1949,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_2004 contained links.
-     *
-     * @param view the view
-     * @return the loop action_2004 contained links
      * @generated
      */
     public static List getLoopAction_2004ContainedLinks(View view) {
@@ -2165,10 +1959,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action_2005 contained links.
-     *
-     * @param view the view
-     * @return the branch action_2005 contained links
      * @generated
      */
     public static List getBranchAction_2005ContainedLinks(View view) {
@@ -2179,10 +1969,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action_2006 contained links.
-     *
-     * @param view the view
-     * @return the internal action_2006 contained links
      * @generated
      */
     public static List getInternalAction_2006ContainedLinks(View view) {
@@ -2193,10 +1979,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_2007 contained links.
-     *
-     * @param view the view
-     * @return the collection iterator action_2007 contained links
      * @generated
      */
     public static List getCollectionIteratorAction_2007ContainedLinks(View view) {
@@ -2207,10 +1989,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action_2008 contained links.
-     *
-     * @param view the view
-     * @return the sets the variable action_2008 contained links
      * @generated
      */
     public static List getSetVariableAction_2008ContainedLinks(View view) {
@@ -2221,10 +1999,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the acquire action_2012 contained links.
-     *
-     * @param view the view
-     * @return the acquire action_2012 contained links
      * @generated
      */
     public static List getAcquireAction_2012ContainedLinks(View view) {
@@ -2235,10 +2009,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the release action_2010 contained links.
-     *
-     * @param view the view
-     * @return the release action_2010 contained links
      * @generated
      */
     public static List getReleaseAction_2010ContainedLinks(View view) {
@@ -2249,10 +2019,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action_2011 contained links.
-     *
-     * @param view the view
-     * @return the fork action_2011 contained links
      * @generated
      */
     public static List getForkAction_2011ContainedLinks(View view) {
@@ -2263,10 +2029,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action_2016 contained links.
-     *
-     * @param view the view
-     * @return the recovery action_2016 contained links
      * @generated
      */
     public static List getRecoveryAction_2016ContainedLinks(View view) {
@@ -2278,10 +2040,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3042 contained links.
-     *
-     * @param view the view
-     * @return the variable usage_3042 contained links
      * @generated
      */
     public static List getVariableUsage_3042ContainedLinks(View view) {
@@ -2289,10 +2047,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3033 contained links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3033 contained links
      * @generated
      */
     public static List getVariableCharacterisation_3033ContainedLinks(View view) {
@@ -2300,10 +2054,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3049 contained links.
-     *
-     * @param view the view
-     * @return the variable usage_3049 contained links
      * @generated
      */
     public static List getVariableUsage_3049ContainedLinks(View view) {
@@ -2311,10 +2061,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3035 contained links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3035 contained links
      * @generated
      */
     public static List getVariableCharacterisation_3035ContainedLinks(View view) {
@@ -2322,10 +2068,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3047 contained links.
-     *
-     * @param view the view
-     * @return the variable usage_3047 contained links
      * @generated
      */
     public static List getVariableUsage_3047ContainedLinks(View view) {
@@ -2333,10 +2075,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3003 contained links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3003 contained links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3003ContainedLinks(View view) {
@@ -2344,10 +2082,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the start action_3004 contained links.
-     *
-     * @param view the view
-     * @return the start action_3004 contained links
      * @generated
      */
     public static List getStartAction_3004ContainedLinks(View view) {
@@ -2358,10 +2092,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the stop action_3005 contained links.
-     *
-     * @param view the view
-     * @return the stop action_3005 contained links
      * @generated
      */
     public static List getStopAction_3005ContainedLinks(View view) {
@@ -2372,10 +2102,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_3006 contained links.
-     *
-     * @param view the view
-     * @return the loop action_3006 contained links
      * @generated
      */
     public static List getLoopAction_3006ContainedLinks(View view) {
@@ -2386,10 +2112,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action_3007 contained links.
-     *
-     * @param view the view
-     * @return the internal action_3007 contained links
      * @generated
      */
     public static List getInternalAction_3007ContainedLinks(View view) {
@@ -2400,10 +2122,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the parametric resource demand_3051 contained links.
-     *
-     * @param view the view
-     * @return the parametric resource demand_3051 contained links
      * @generated
      */
     public static List getParametricResourceDemand_3051ContainedLinks(View view) {
@@ -2411,10 +2129,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal failure occurrence description_3050 contained links.
-     *
-     * @param view the view
-     * @return the internal failure occurrence description_3050 contained links
      * @generated
      */
     public static List getInternalFailureOccurrenceDescription_3050ContainedLinks(View view) {
@@ -2422,10 +2136,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure call_3053 contained links.
-     *
-     * @param view the view
-     * @return the infrastructure call_3053 contained links
      * @generated
      */
     public static List getInfrastructureCall_3053ContainedLinks(View view) {
@@ -2433,10 +2143,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3054 contained links.
-     *
-     * @param view the view
-     * @return the variable usage_3054 contained links
      * @generated
      */
     public static List getVariableUsage_3054ContainedLinks(View view) {
@@ -2444,10 +2150,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action_3009 contained links.
-     *
-     * @param view the view
-     * @return the branch action_3009 contained links
      * @generated
      */
     public static List getBranchAction_3009ContainedLinks(View view) {
@@ -2458,10 +2160,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the probabilistic branch transition_3010 contained links.
-     *
-     * @param view the view
-     * @return the probabilistic branch transition_3010 contained links
      * @generated
      */
     public static List getProbabilisticBranchTransition_3010ContainedLinks(View view) {
@@ -2469,10 +2167,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3011 contained links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3011 contained links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3011ContainedLinks(View view) {
@@ -2480,10 +2174,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action_3012 contained links.
-     *
-     * @param view the view
-     * @return the external call action_3012 contained links
      * @generated
      */
     public static List getExternalCallAction_3012ContainedLinks(View view) {
@@ -2494,10 +2184,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action_3046 contained links.
-     *
-     * @param view the view
-     * @return the emit event action_3046 contained links
      * @generated
      */
     public static List getEmitEventAction_3046ContainedLinks(View view) {
@@ -2508,10 +2194,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the acquire action_3026 contained links.
-     *
-     * @param view the view
-     * @return the acquire action_3026 contained links
      * @generated
      */
     public static List getAcquireAction_3026ContainedLinks(View view) {
@@ -2522,10 +2204,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the release action_3020 contained links.
-     *
-     * @param view the view
-     * @return the release action_3020 contained links
      * @generated
      */
     public static List getReleaseAction_3020ContainedLinks(View view) {
@@ -2536,10 +2214,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action_3023 contained links.
-     *
-     * @param view the view
-     * @return the fork action_3023 contained links
      * @generated
      */
     public static List getForkAction_3023ContainedLinks(View view) {
@@ -2550,10 +2224,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour_3027 contained links.
-     *
-     * @param view the view
-     * @return the forked behaviour_3027 contained links
      * @generated
      */
     public static List getForkedBehaviour_3027ContainedLinks(View view) {
@@ -2561,10 +2231,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_3013 contained links.
-     *
-     * @param view the view
-     * @return the collection iterator action_3013 contained links
      * @generated
      */
     public static List getCollectionIteratorAction_3013ContainedLinks(View view) {
@@ -2575,10 +2241,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3014 contained links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3014 contained links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3014ContainedLinks(View view) {
@@ -2586,10 +2248,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action_3057 contained links.
-     *
-     * @param view the view
-     * @return the recovery action_3057 contained links
      * @generated
      */
     public static List getRecoveryAction_3057ContainedLinks(View view) {
@@ -2601,10 +2259,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action behaviour_3058 contained links.
-     *
-     * @param view the view
-     * @return the recovery action behaviour_3058 contained links
      * @generated
      */
     public static List getRecoveryActionBehaviour_3058ContainedLinks(View view) {
@@ -2616,10 +2270,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the synchronisation point_3038 contained links.
-     *
-     * @param view the view
-     * @return the synchronisation point_3038 contained links
      * @generated
      */
     public static List getSynchronisationPoint_3038ContainedLinks(View view) {
@@ -2627,10 +2277,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour_3039 contained links.
-     *
-     * @param view the view
-     * @return the forked behaviour_3039 contained links
      * @generated
      */
     public static List getForkedBehaviour_3039ContainedLinks(View view) {
@@ -2638,10 +2284,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action_3024 contained links.
-     *
-     * @param view the view
-     * @return the sets the variable action_3024 contained links
      * @generated
      */
     public static List getSetVariableAction_3024ContainedLinks(View view) {
@@ -2652,10 +2294,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3036 contained links.
-     *
-     * @param view the view
-     * @return the variable usage_3036 contained links
      * @generated
      */
     public static List getVariableUsage_3036ContainedLinks(View view) {
@@ -2663,10 +2301,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3055 contained links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3055 contained links
      * @generated
      */
     public static List getVariableCharacterisation_3055ContainedLinks(View view) {
@@ -2674,10 +2308,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3048 contained links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3048 contained links
      * @generated
      */
     public static List getVariableCharacterisation_3048ContainedLinks(View view) {
@@ -2685,10 +2315,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3037 contained links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3037 contained links
      * @generated
      */
     public static List getVariableCharacterisation_3037ContainedLinks(View view) {
@@ -2696,10 +2322,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the guarded branch transition_3017 contained links.
-     *
-     * @param view the view
-     * @return the guarded branch transition_3017 contained links
      * @generated
      */
     public static List getGuardedBranchTransition_3017ContainedLinks(View view) {
@@ -2707,10 +2329,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3018 contained links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3018 contained links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3018ContainedLinks(View view) {
@@ -2718,10 +2336,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the start action_2001 incoming links.
-     *
-     * @param view the view
-     * @return the start action_2001 incoming links
      * @generated
      */
     public static List getStartAction_2001IncomingLinks(View view) {
@@ -2734,10 +2348,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the stop action_2002 incoming links.
-     *
-     * @param view the view
-     * @return the stop action_2002 incoming links
      * @generated
      */
     public static List getStopAction_2002IncomingLinks(View view) {
@@ -2750,10 +2360,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action_2003 incoming links.
-     *
-     * @param view the view
-     * @return the external call action_2003 incoming links
      * @generated
      */
     public static List getExternalCallAction_2003IncomingLinks(View view) {
@@ -2766,10 +2372,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action_2013 incoming links.
-     *
-     * @param view the view
-     * @return the emit event action_2013 incoming links
      * @generated
      */
     public static List getEmitEventAction_2013IncomingLinks(View view) {
@@ -2782,10 +2384,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_2004 incoming links.
-     *
-     * @param view the view
-     * @return the loop action_2004 incoming links
      * @generated
      */
     public static List getLoopAction_2004IncomingLinks(View view) {
@@ -2798,10 +2396,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action_2005 incoming links.
-     *
-     * @param view the view
-     * @return the branch action_2005 incoming links
      * @generated
      */
     public static List getBranchAction_2005IncomingLinks(View view) {
@@ -2814,10 +2408,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action_2006 incoming links.
-     *
-     * @param view the view
-     * @return the internal action_2006 incoming links
      * @generated
      */
     public static List getInternalAction_2006IncomingLinks(View view) {
@@ -2830,10 +2420,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_2007 incoming links.
-     *
-     * @param view the view
-     * @return the collection iterator action_2007 incoming links
      * @generated
      */
     public static List getCollectionIteratorAction_2007IncomingLinks(View view) {
@@ -2846,10 +2432,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action_2008 incoming links.
-     *
-     * @param view the view
-     * @return the sets the variable action_2008 incoming links
      * @generated
      */
     public static List getSetVariableAction_2008IncomingLinks(View view) {
@@ -2862,10 +2444,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the acquire action_2012 incoming links.
-     *
-     * @param view the view
-     * @return the acquire action_2012 incoming links
      * @generated
      */
     public static List getAcquireAction_2012IncomingLinks(View view) {
@@ -2878,10 +2456,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the release action_2010 incoming links.
-     *
-     * @param view the view
-     * @return the release action_2010 incoming links
      * @generated
      */
     public static List getReleaseAction_2010IncomingLinks(View view) {
@@ -2894,10 +2468,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action_2011 incoming links.
-     *
-     * @param view the view
-     * @return the fork action_2011 incoming links
      * @generated
      */
     public static List getForkAction_2011IncomingLinks(View view) {
@@ -2910,10 +2480,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action_2016 incoming links.
-     *
-     * @param view the view
-     * @return the recovery action_2016 incoming links
      * @generated
      */
     public static List getRecoveryAction_2016IncomingLinks(View view) {
@@ -2927,10 +2493,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3042 incoming links.
-     *
-     * @param view the view
-     * @return the variable usage_3042 incoming links
      * @generated
      */
     public static List getVariableUsage_3042IncomingLinks(View view) {
@@ -2938,10 +2500,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3033 incoming links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3033 incoming links
      * @generated
      */
     public static List getVariableCharacterisation_3033IncomingLinks(View view) {
@@ -2949,10 +2507,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3049 incoming links.
-     *
-     * @param view the view
-     * @return the variable usage_3049 incoming links
      * @generated
      */
     public static List getVariableUsage_3049IncomingLinks(View view) {
@@ -2960,10 +2514,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3035 incoming links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3035 incoming links
      * @generated
      */
     public static List getVariableCharacterisation_3035IncomingLinks(View view) {
@@ -2971,10 +2521,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3047 incoming links.
-     *
-     * @param view the view
-     * @return the variable usage_3047 incoming links
      * @generated
      */
     public static List getVariableUsage_3047IncomingLinks(View view) {
@@ -2982,10 +2528,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3003 incoming links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3003 incoming links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3003IncomingLinks(View view) {
@@ -2993,10 +2535,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the start action_3004 incoming links.
-     *
-     * @param view the view
-     * @return the start action_3004 incoming links
      * @generated
      */
     public static List getStartAction_3004IncomingLinks(View view) {
@@ -3009,10 +2547,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the stop action_3005 incoming links.
-     *
-     * @param view the view
-     * @return the stop action_3005 incoming links
      * @generated
      */
     public static List getStopAction_3005IncomingLinks(View view) {
@@ -3025,10 +2559,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_3006 incoming links.
-     *
-     * @param view the view
-     * @return the loop action_3006 incoming links
      * @generated
      */
     public static List getLoopAction_3006IncomingLinks(View view) {
@@ -3041,10 +2571,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action_3007 incoming links.
-     *
-     * @param view the view
-     * @return the internal action_3007 incoming links
      * @generated
      */
     public static List getInternalAction_3007IncomingLinks(View view) {
@@ -3057,10 +2583,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the parametric resource demand_3051 incoming links.
-     *
-     * @param view the view
-     * @return the parametric resource demand_3051 incoming links
      * @generated
      */
     public static List getParametricResourceDemand_3051IncomingLinks(View view) {
@@ -3068,10 +2590,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal failure occurrence description_3050 incoming links.
-     *
-     * @param view the view
-     * @return the internal failure occurrence description_3050 incoming links
      * @generated
      */
     public static List getInternalFailureOccurrenceDescription_3050IncomingLinks(View view) {
@@ -3079,10 +2597,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure call_3053 incoming links.
-     *
-     * @param view the view
-     * @return the infrastructure call_3053 incoming links
      * @generated
      */
     public static List getInfrastructureCall_3053IncomingLinks(View view) {
@@ -3090,10 +2604,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3054 incoming links.
-     *
-     * @param view the view
-     * @return the variable usage_3054 incoming links
      * @generated
      */
     public static List getVariableUsage_3054IncomingLinks(View view) {
@@ -3101,10 +2611,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action_3009 incoming links.
-     *
-     * @param view the view
-     * @return the branch action_3009 incoming links
      * @generated
      */
     public static List getBranchAction_3009IncomingLinks(View view) {
@@ -3117,10 +2623,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the probabilistic branch transition_3010 incoming links.
-     *
-     * @param view the view
-     * @return the probabilistic branch transition_3010 incoming links
      * @generated
      */
     public static List getProbabilisticBranchTransition_3010IncomingLinks(View view) {
@@ -3128,10 +2630,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3011 incoming links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3011 incoming links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3011IncomingLinks(View view) {
@@ -3139,10 +2637,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action_3012 incoming links.
-     *
-     * @param view the view
-     * @return the external call action_3012 incoming links
      * @generated
      */
     public static List getExternalCallAction_3012IncomingLinks(View view) {
@@ -3155,10 +2649,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action_3046 incoming links.
-     *
-     * @param view the view
-     * @return the emit event action_3046 incoming links
      * @generated
      */
     public static List getEmitEventAction_3046IncomingLinks(View view) {
@@ -3171,10 +2661,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the acquire action_3026 incoming links.
-     *
-     * @param view the view
-     * @return the acquire action_3026 incoming links
      * @generated
      */
     public static List getAcquireAction_3026IncomingLinks(View view) {
@@ -3187,10 +2673,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the release action_3020 incoming links.
-     *
-     * @param view the view
-     * @return the release action_3020 incoming links
      * @generated
      */
     public static List getReleaseAction_3020IncomingLinks(View view) {
@@ -3203,10 +2685,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action_3023 incoming links.
-     *
-     * @param view the view
-     * @return the fork action_3023 incoming links
      * @generated
      */
     public static List getForkAction_3023IncomingLinks(View view) {
@@ -3219,10 +2697,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour_3027 incoming links.
-     *
-     * @param view the view
-     * @return the forked behaviour_3027 incoming links
      * @generated
      */
     public static List getForkedBehaviour_3027IncomingLinks(View view) {
@@ -3230,10 +2704,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_3013 incoming links.
-     *
-     * @param view the view
-     * @return the collection iterator action_3013 incoming links
      * @generated
      */
     public static List getCollectionIteratorAction_3013IncomingLinks(View view) {
@@ -3246,10 +2716,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3014 incoming links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3014 incoming links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3014IncomingLinks(View view) {
@@ -3257,10 +2723,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action_3057 incoming links.
-     *
-     * @param view the view
-     * @return the recovery action_3057 incoming links
      * @generated
      */
     public static List getRecoveryAction_3057IncomingLinks(View view) {
@@ -3274,10 +2736,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action behaviour_3058 incoming links.
-     *
-     * @param view the view
-     * @return the recovery action behaviour_3058 incoming links
      * @generated
      */
     public static List getRecoveryActionBehaviour_3058IncomingLinks(View view) {
@@ -3291,10 +2749,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the synchronisation point_3038 incoming links.
-     *
-     * @param view the view
-     * @return the synchronisation point_3038 incoming links
      * @generated
      */
     public static List getSynchronisationPoint_3038IncomingLinks(View view) {
@@ -3302,10 +2756,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour_3039 incoming links.
-     *
-     * @param view the view
-     * @return the forked behaviour_3039 incoming links
      * @generated
      */
     public static List getForkedBehaviour_3039IncomingLinks(View view) {
@@ -3313,10 +2763,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action_3024 incoming links.
-     *
-     * @param view the view
-     * @return the sets the variable action_3024 incoming links
      * @generated
      */
     public static List getSetVariableAction_3024IncomingLinks(View view) {
@@ -3329,10 +2775,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3036 incoming links.
-     *
-     * @param view the view
-     * @return the variable usage_3036 incoming links
      * @generated
      */
     public static List getVariableUsage_3036IncomingLinks(View view) {
@@ -3340,10 +2782,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3055 incoming links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3055 incoming links
      * @generated
      */
     public static List getVariableCharacterisation_3055IncomingLinks(View view) {
@@ -3351,10 +2789,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3048 incoming links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3048 incoming links
      * @generated
      */
     public static List getVariableCharacterisation_3048IncomingLinks(View view) {
@@ -3362,10 +2796,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3037 incoming links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3037 incoming links
      * @generated
      */
     public static List getVariableCharacterisation_3037IncomingLinks(View view) {
@@ -3373,10 +2803,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the guarded branch transition_3017 incoming links.
-     *
-     * @param view the view
-     * @return the guarded branch transition_3017 incoming links
      * @generated
      */
     public static List getGuardedBranchTransition_3017IncomingLinks(View view) {
@@ -3384,10 +2810,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3018 incoming links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3018 incoming links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3018IncomingLinks(View view) {
@@ -3395,10 +2817,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the start action_2001 outgoing links.
-     *
-     * @param view the view
-     * @return the start action_2001 outgoing links
      * @generated
      */
     public static List getStartAction_2001OutgoingLinks(View view) {
@@ -3409,10 +2827,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the stop action_2002 outgoing links.
-     *
-     * @param view the view
-     * @return the stop action_2002 outgoing links
      * @generated
      */
     public static List getStopAction_2002OutgoingLinks(View view) {
@@ -3423,10 +2837,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action_2003 outgoing links.
-     *
-     * @param view the view
-     * @return the external call action_2003 outgoing links
      * @generated
      */
     public static List getExternalCallAction_2003OutgoingLinks(View view) {
@@ -3437,10 +2847,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action_2013 outgoing links.
-     *
-     * @param view the view
-     * @return the emit event action_2013 outgoing links
      * @generated
      */
     public static List getEmitEventAction_2013OutgoingLinks(View view) {
@@ -3451,10 +2857,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_2004 outgoing links.
-     *
-     * @param view the view
-     * @return the loop action_2004 outgoing links
      * @generated
      */
     public static List getLoopAction_2004OutgoingLinks(View view) {
@@ -3465,10 +2867,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action_2005 outgoing links.
-     *
-     * @param view the view
-     * @return the branch action_2005 outgoing links
      * @generated
      */
     public static List getBranchAction_2005OutgoingLinks(View view) {
@@ -3479,10 +2877,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action_2006 outgoing links.
-     *
-     * @param view the view
-     * @return the internal action_2006 outgoing links
      * @generated
      */
     public static List getInternalAction_2006OutgoingLinks(View view) {
@@ -3493,10 +2887,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_2007 outgoing links.
-     *
-     * @param view the view
-     * @return the collection iterator action_2007 outgoing links
      * @generated
      */
     public static List getCollectionIteratorAction_2007OutgoingLinks(View view) {
@@ -3507,10 +2897,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action_2008 outgoing links.
-     *
-     * @param view the view
-     * @return the sets the variable action_2008 outgoing links
      * @generated
      */
     public static List getSetVariableAction_2008OutgoingLinks(View view) {
@@ -3521,10 +2907,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the acquire action_2012 outgoing links.
-     *
-     * @param view the view
-     * @return the acquire action_2012 outgoing links
      * @generated
      */
     public static List getAcquireAction_2012OutgoingLinks(View view) {
@@ -3535,10 +2917,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the release action_2010 outgoing links.
-     *
-     * @param view the view
-     * @return the release action_2010 outgoing links
      * @generated
      */
     public static List getReleaseAction_2010OutgoingLinks(View view) {
@@ -3549,10 +2927,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action_2011 outgoing links.
-     *
-     * @param view the view
-     * @return the fork action_2011 outgoing links
      * @generated
      */
     public static List getForkAction_2011OutgoingLinks(View view) {
@@ -3563,10 +2937,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action_2016 outgoing links.
-     *
-     * @param view the view
-     * @return the recovery action_2016 outgoing links
      * @generated
      */
     public static List getRecoveryAction_2016OutgoingLinks(View view) {
@@ -3578,10 +2948,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3042 outgoing links.
-     *
-     * @param view the view
-     * @return the variable usage_3042 outgoing links
      * @generated
      */
     public static List getVariableUsage_3042OutgoingLinks(View view) {
@@ -3589,10 +2955,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3033 outgoing links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3033 outgoing links
      * @generated
      */
     public static List getVariableCharacterisation_3033OutgoingLinks(View view) {
@@ -3600,10 +2962,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3049 outgoing links.
-     *
-     * @param view the view
-     * @return the variable usage_3049 outgoing links
      * @generated
      */
     public static List getVariableUsage_3049OutgoingLinks(View view) {
@@ -3611,10 +2969,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3035 outgoing links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3035 outgoing links
      * @generated
      */
     public static List getVariableCharacterisation_3035OutgoingLinks(View view) {
@@ -3622,10 +2976,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3047 outgoing links.
-     *
-     * @param view the view
-     * @return the variable usage_3047 outgoing links
      * @generated
      */
     public static List getVariableUsage_3047OutgoingLinks(View view) {
@@ -3633,10 +2983,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3003 outgoing links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3003 outgoing links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3003OutgoingLinks(View view) {
@@ -3644,10 +2990,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the start action_3004 outgoing links.
-     *
-     * @param view the view
-     * @return the start action_3004 outgoing links
      * @generated
      */
     public static List getStartAction_3004OutgoingLinks(View view) {
@@ -3658,10 +3000,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the stop action_3005 outgoing links.
-     *
-     * @param view the view
-     * @return the stop action_3005 outgoing links
      * @generated
      */
     public static List getStopAction_3005OutgoingLinks(View view) {
@@ -3672,10 +3010,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the loop action_3006 outgoing links.
-     *
-     * @param view the view
-     * @return the loop action_3006 outgoing links
      * @generated
      */
     public static List getLoopAction_3006OutgoingLinks(View view) {
@@ -3686,10 +3020,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal action_3007 outgoing links.
-     *
-     * @param view the view
-     * @return the internal action_3007 outgoing links
      * @generated
      */
     public static List getInternalAction_3007OutgoingLinks(View view) {
@@ -3700,10 +3030,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the parametric resource demand_3051 outgoing links.
-     *
-     * @param view the view
-     * @return the parametric resource demand_3051 outgoing links
      * @generated
      */
     public static List getParametricResourceDemand_3051OutgoingLinks(View view) {
@@ -3711,10 +3037,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the internal failure occurrence description_3050 outgoing links.
-     *
-     * @param view the view
-     * @return the internal failure occurrence description_3050 outgoing links
      * @generated
      */
     public static List getInternalFailureOccurrenceDescription_3050OutgoingLinks(View view) {
@@ -3722,10 +3044,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure call_3053 outgoing links.
-     *
-     * @param view the view
-     * @return the infrastructure call_3053 outgoing links
      * @generated
      */
     public static List getInfrastructureCall_3053OutgoingLinks(View view) {
@@ -3733,10 +3051,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3054 outgoing links.
-     *
-     * @param view the view
-     * @return the variable usage_3054 outgoing links
      * @generated
      */
     public static List getVariableUsage_3054OutgoingLinks(View view) {
@@ -3744,10 +3058,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the branch action_3009 outgoing links.
-     *
-     * @param view the view
-     * @return the branch action_3009 outgoing links
      * @generated
      */
     public static List getBranchAction_3009OutgoingLinks(View view) {
@@ -3758,10 +3068,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the probabilistic branch transition_3010 outgoing links.
-     *
-     * @param view the view
-     * @return the probabilistic branch transition_3010 outgoing links
      * @generated
      */
     public static List getProbabilisticBranchTransition_3010OutgoingLinks(View view) {
@@ -3769,10 +3075,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3011 outgoing links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3011 outgoing links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3011OutgoingLinks(View view) {
@@ -3780,10 +3082,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the external call action_3012 outgoing links.
-     *
-     * @param view the view
-     * @return the external call action_3012 outgoing links
      * @generated
      */
     public static List getExternalCallAction_3012OutgoingLinks(View view) {
@@ -3794,10 +3092,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the emit event action_3046 outgoing links.
-     *
-     * @param view the view
-     * @return the emit event action_3046 outgoing links
      * @generated
      */
     public static List getEmitEventAction_3046OutgoingLinks(View view) {
@@ -3808,10 +3102,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the acquire action_3026 outgoing links.
-     *
-     * @param view the view
-     * @return the acquire action_3026 outgoing links
      * @generated
      */
     public static List getAcquireAction_3026OutgoingLinks(View view) {
@@ -3822,10 +3112,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the release action_3020 outgoing links.
-     *
-     * @param view the view
-     * @return the release action_3020 outgoing links
      * @generated
      */
     public static List getReleaseAction_3020OutgoingLinks(View view) {
@@ -3836,10 +3122,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the fork action_3023 outgoing links.
-     *
-     * @param view the view
-     * @return the fork action_3023 outgoing links
      * @generated
      */
     public static List getForkAction_3023OutgoingLinks(View view) {
@@ -3850,10 +3132,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour_3027 outgoing links.
-     *
-     * @param view the view
-     * @return the forked behaviour_3027 outgoing links
      * @generated
      */
     public static List getForkedBehaviour_3027OutgoingLinks(View view) {
@@ -3861,10 +3139,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the collection iterator action_3013 outgoing links.
-     *
-     * @param view the view
-     * @return the collection iterator action_3013 outgoing links
      * @generated
      */
     public static List getCollectionIteratorAction_3013OutgoingLinks(View view) {
@@ -3875,10 +3149,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3014 outgoing links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3014 outgoing links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3014OutgoingLinks(View view) {
@@ -3886,10 +3156,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action_3057 outgoing links.
-     *
-     * @param view the view
-     * @return the recovery action_3057 outgoing links
      * @generated
      */
     public static List getRecoveryAction_3057OutgoingLinks(View view) {
@@ -3901,10 +3167,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the recovery action behaviour_3058 outgoing links.
-     *
-     * @param view the view
-     * @return the recovery action behaviour_3058 outgoing links
      * @generated
      */
     public static List getRecoveryActionBehaviour_3058OutgoingLinks(View view) {
@@ -3916,10 +3178,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the synchronisation point_3038 outgoing links.
-     *
-     * @param view the view
-     * @return the synchronisation point_3038 outgoing links
      * @generated
      */
     public static List getSynchronisationPoint_3038OutgoingLinks(View view) {
@@ -3927,10 +3185,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the forked behaviour_3039 outgoing links.
-     *
-     * @param view the view
-     * @return the forked behaviour_3039 outgoing links
      * @generated
      */
     public static List getForkedBehaviour_3039OutgoingLinks(View view) {
@@ -3938,10 +3192,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sets the variable action_3024 outgoing links.
-     *
-     * @param view the view
-     * @return the sets the variable action_3024 outgoing links
      * @generated
      */
     public static List getSetVariableAction_3024OutgoingLinks(View view) {
@@ -3952,10 +3202,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable usage_3036 outgoing links.
-     *
-     * @param view the view
-     * @return the variable usage_3036 outgoing links
      * @generated
      */
     public static List getVariableUsage_3036OutgoingLinks(View view) {
@@ -3963,10 +3209,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3055 outgoing links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3055 outgoing links
      * @generated
      */
     public static List getVariableCharacterisation_3055OutgoingLinks(View view) {
@@ -3974,10 +3216,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3048 outgoing links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3048 outgoing links
      * @generated
      */
     public static List getVariableCharacterisation_3048OutgoingLinks(View view) {
@@ -3985,10 +3223,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the variable characterisation_3037 outgoing links.
-     *
-     * @param view the view
-     * @return the variable characterisation_3037 outgoing links
      * @generated
      */
     public static List getVariableCharacterisation_3037OutgoingLinks(View view) {
@@ -3996,10 +3230,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the guarded branch transition_3017 outgoing links.
-     *
-     * @param view the view
-     * @return the guarded branch transition_3017 outgoing links
      * @generated
      */
     public static List getGuardedBranchTransition_3017OutgoingLinks(View view) {
@@ -4007,10 +3237,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the resource demanding behaviour_3018 outgoing links.
-     *
-     * @param view the view
-     * @return the resource demanding behaviour_3018 outgoing links
      * @generated
      */
     public static List getResourceDemandingBehaviour_3018OutgoingLinks(View view) {
@@ -4018,11 +3244,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming feature model facet links_ abstract action_ successor_ abstract action_4001.
-     *
-     * @param target the target
-     * @param crossReferences the cross references
-     * @return the incoming feature model facet links_ abstract action_ successor_ abstract action_4001
      * @generated
      */
     private static Collection getIncomingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(
@@ -4041,11 +3262,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming feature model facet links_ recovery action behaviour_ failure handling alternatives__ recovery action behaviour_4004.
-     *
-     * @param target the target
-     * @param crossReferences the cross references
-     * @return the incoming feature model facet links_ recovery action behaviour_ failure handling alternatives__ recovery action behaviour_4004
      * @generated
      */
     private static Collection getIncomingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(
@@ -4067,10 +3283,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing feature model facet links_ abstract action_ successor_ abstract action_4001.
-     *
-     * @param source the source
-     * @return the outgoing feature model facet links_ abstract action_ successor_ abstract action_4001
      * @generated
      */
     private static Collection getOutgoingFeatureModelFacetLinks_AbstractAction_Successor_AbstractAction_4001(
@@ -4087,10 +3299,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing feature model facet links_ recovery action behaviour_ failure handling alternatives__ recovery action behaviour_4004.
-     *
-     * @param source the source
-     * @return the outgoing feature model facet links_ recovery action behaviour_ failure handling alternatives__ recovery action behaviour_4004
      * @generated
      */
     private static Collection getOutgoingFeatureModelFacetLinks_RecoveryActionBehaviour_FailureHandlingAlternatives__RecoveryActionBehaviour_4004(

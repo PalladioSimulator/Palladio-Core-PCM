@@ -24,7 +24,9 @@ public class CustomRepositoryEditPart extends RepositoryEditPart {
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomRepositoryEditPart(View view) {
         super(view);

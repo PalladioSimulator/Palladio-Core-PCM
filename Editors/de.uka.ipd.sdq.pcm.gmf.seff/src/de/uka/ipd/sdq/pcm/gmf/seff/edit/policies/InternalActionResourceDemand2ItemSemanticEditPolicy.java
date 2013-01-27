@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ParametricResourceDemandCreateC
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class InternalActionResourceDemand2ItemSemanticEditPolicy.
- *
  * @generated
  */
 public class InternalActionResourceDemand2ItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new internal action resource demand2 item semantic edit policy.
-     *
      * @generated
      */
     public InternalActionResourceDemand2ItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class InternalActionResourceDemand2ItemSemanticEditPolicy extends
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

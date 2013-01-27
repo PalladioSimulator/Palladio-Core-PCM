@@ -34,7 +34,7 @@ public class CustomExternalCallActionEntityNameEditPart extends ExternalCallActi
      */
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart#getLabelText()
      */
@@ -62,8 +62,9 @@ public class CustomExternalCallActionEntityNameEditPart extends ExternalCallActi
      */
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallActionEntityNameEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

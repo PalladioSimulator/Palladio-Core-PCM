@@ -24,70 +24,60 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentFactory;
  */
 public class LinkingResourceCreateCommand extends EditElementCommand {
 
-	/**
-	 * @generated
-	 */
-	public LinkingResourceCreateCommand(CreateElementRequest req) {
-		super(req.getLabel(), null, req);
-	}
+    /**
+     * @generated
+     */
+    public LinkingResourceCreateCommand(CreateElementRequest req) {
+        super(req.getLabel(), null, req);
+    }
 
-	/**
-	 * FIXME: replace with setElementToEdit()
-	 * 
-	 * @generated
-	 */
-	protected EObject getElementToEdit() {
-		EObject container = ((CreateElementRequest) getRequest())
-				.getContainer();
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    /**
+     * @generated
+     */
+    protected EObject getElementToEdit() {
+        EObject container = ((CreateElementRequest) getRequest()).getContainer();
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean canExecute() {
-		return true;
+    /**
+     * @generated
+     */
+    public boolean canExecute() {
+        return true;
 
-	}
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		LinkingResource newElement = ResourceenvironmentFactory.eINSTANCE
-				.createLinkingResource();
+    /**
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        LinkingResource newElement = ResourceenvironmentFactory.eINSTANCE.createLinkingResource();
 
-		ResourceEnvironment owner = (ResourceEnvironment) getElementToEdit();
-		owner.getLinkingResources__ResourceEnvironment().add(newElement);
+        ResourceEnvironment owner = (ResourceEnvironment) getElementToEdit();
+        owner.getLinkingResources__ResourceEnvironment().add(newElement);
 
-		doConfigure(newElement, monitor, info);
+        doConfigure(newElement, monitor, info);
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
-	}
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+    }
 
-	/**
-	 * @generated
-	 */
-	protected void doConfigure(LinkingResource newElement,
-			IProgressMonitor monitor, IAdaptable info)
-			throws ExecutionException {
-		IElementType elementType = ((CreateElementRequest) getRequest())
-				.getElementType();
-		ConfigureRequest configureRequest = new ConfigureRequest(
-				getEditingDomain(), newElement, elementType);
-		configureRequest.setClientContext(((CreateElementRequest) getRequest())
-				.getClientContext());
-		configureRequest.addParameters(getRequest().getParameters());
-		ICommand configureCommand = elementType
-				.getEditCommand(configureRequest);
-		if (configureCommand != null && configureCommand.canExecute()) {
-			configureCommand.execute(monitor, info);
-		}
-	}
+    /**
+     * @generated
+     */
+    protected void doConfigure(LinkingResource newElement, IProgressMonitor monitor, IAdaptable info)
+            throws ExecutionException {
+        IElementType elementType = ((CreateElementRequest) getRequest()).getElementType();
+        ConfigureRequest configureRequest = new ConfigureRequest(getEditingDomain(), newElement, elementType);
+        configureRequest.setClientContext(((CreateElementRequest) getRequest()).getClientContext());
+        configureRequest.addParameters(getRequest().getParameters());
+        ICommand configureCommand = elementType.getEditCommand(configureRequest);
+        if (configureCommand != null && configureCommand.canExecute()) {
+            configureCommand.execute(monitor, info);
+        }
+    }
 
 }

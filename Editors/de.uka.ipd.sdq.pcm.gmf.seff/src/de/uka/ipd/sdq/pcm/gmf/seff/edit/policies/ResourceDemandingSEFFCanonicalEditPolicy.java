@@ -78,19 +78,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
- * The Class ResourceDemandingSEFFCanonicalEditPolicy.
- *
  * @generated
  */
 public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
 
-    /** The my features to synchronize. @generated */
+    /**
+     * @generated
+     */
     Set myFeaturesToSynchronize;
 
     /**
-     * Gets the semantic children list.
-     *
-     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -104,10 +101,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Should delete view.
-     *
-     * @param view the view
-     * @return true, if successful
      * @generated
      */
     protected boolean shouldDeleteView(View view) {
@@ -115,11 +108,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Checks if is orphaned.
-     *
-     * @param semanticChildren the semantic children
-     * @param view the view
-     * @return true, if is orphaned
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -146,9 +134,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Gets the default factory hint.
-     *
-     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {
@@ -156,9 +141,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Gets the features to synchronize.
-     *
-     * @return the features to synchronize
      * @generated
      */
     protected Set getFeaturesToSynchronize() {
@@ -170,9 +152,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Gets the semantic connections list.
-     *
-     * @return the semantic connections list
      * @generated
      */
     protected List getSemanticConnectionsList() {
@@ -180,10 +159,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Gets the source element.
-     *
-     * @param relationship the relationship
-     * @return the source element
      * @generated
      */
     protected EObject getSourceElement(EObject relationship) {
@@ -191,10 +166,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Gets the target element.
-     *
-     * @param relationship the relationship
-     * @return the target element
      * @generated
      */
     protected EObject getTargetElement(EObject relationship) {
@@ -202,11 +173,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Should include connection.
-     *
-     * @param connector the connector
-     * @param children the children
-     * @return true, if successful
      * @generated
      */
     protected boolean shouldIncludeConnection(Edge connector, Collection children) {
@@ -214,8 +180,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Refresh semantic.
-     *
      * @generated
      */
     protected void refreshSemantic() {
@@ -236,9 +200,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Refresh connections.
-     *
-     * @return the collection
      * @generated
      */
     private Collection refreshConnections() {
@@ -275,11 +236,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Collect all links.
-     *
-     * @param view the view
-     * @param domain2NotationMap the domain2 notation map
-     * @return the collection
      * @generated
      */
     private Collection collectAllLinks(View view, Map domain2NotationMap) {
@@ -691,11 +647,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Creates the connections.
-     *
-     * @param linkDescriptors the link descriptors
-     * @param domain2NotationMap the domain2 notation map
-     * @return the collection
      * @generated
      */
     private Collection createConnections(Collection linkDescriptors, Map domain2NotationMap) {
@@ -730,11 +681,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Gets the edits the part.
-     *
-     * @param domainModelElement the domain model element
-     * @param domain2NotationMap the domain2 notation map
-     * @return the edits the part
      * @generated
      */
     private EditPart getEditPart(EObject domainModelElement, Map domain2NotationMap) {
@@ -746,9 +692,6 @@ public class ResourceDemandingSEFFCanonicalEditPolicy extends CanonicalConnectio
     }
 
     /**
-     * Gets the diagram.
-     *
-     * @return the diagram
      * @generated
      */
     private Diagram getDiagram() {

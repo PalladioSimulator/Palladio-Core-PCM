@@ -12,10 +12,6 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
 /**
- * Edit helper to create the initial naming of the new Assembly Connector.
- * 
- * @author Benjamin Klatt
- * 
  * @generated
  */
 public class AssemblyEventConnectorEditHelper extends PalladioComponentModelBaseEditHelper {

@@ -20,17 +20,11 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 
 /**
- * The Class AssemblyContextCreateCommand.
- * 
  * @generated
  */
 public class AssemblyContextCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new assembly context create command.
-     * 
-     * @param req
-     *            the req
      * @generated
      */
     public AssemblyContextCreateCommand(CreateElementRequest req) {
@@ -38,9 +32,6 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the element to edit.
-     * 
-     * @return the element to edit
      * @generated
      */
     @Override
@@ -53,9 +44,6 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     @Override
@@ -89,16 +77,6 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(AssemblyContext newElement, IProgressMonitor monitor, IAdaptable info)

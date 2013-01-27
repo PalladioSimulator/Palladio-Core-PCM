@@ -48,30 +48,36 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class PalladioComponentModelNavigatorContentProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelNavigatorContentProvider implements ICommonContentProvider {
 
-    /** The Constant EMPTY_ARRAY. @generated */
+    /**
+     * @generated
+     */
     private static final Object[] EMPTY_ARRAY = new Object[0];
 
-    /** The my viewer. @generated */
+    /**
+     * @generated
+     */
     private Viewer myViewer;
 
-    /** The my editing domain. @generated */
+    /**
+     * @generated
+     */
     private AdapterFactoryEditingDomain myEditingDomain;
 
-    /** The my workspace synchronizer. @generated */
+    /**
+     * @generated
+     */
     private WorkspaceSynchronizer myWorkspaceSynchronizer;
 
-    /** The my viewer refresh runnable. @generated */
+    /**
+     * @generated
+     */
     private Runnable myViewerRefreshRunnable;
 
     /**
-     * Instantiates a new palladio component model navigator content provider.
-     * 
      * @generated
      */
     public PalladioComponentModelNavigatorContentProvider() {
@@ -132,8 +138,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Dispose.
-     * 
      * @generated
      */
     public void dispose() {
@@ -149,14 +153,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Input changed.
-     * 
-     * @param viewer
-     *            the viewer
-     * @param oldInput
-     *            the old input
-     * @param newInput
-     *            the new input
      * @generated
      */
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
@@ -164,11 +160,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the elements.
-     * 
-     * @param inputElement
-     *            the input element
-     * @return the elements
      * @generated
      */
     public Object[] getElements(Object inputElement) {
@@ -176,41 +167,24 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Restore state.
-     * 
-     * @param aMemento
-     *            the a memento
      * @generated
      */
     public void restoreState(IMemento aMemento) {
     }
 
     /**
-     * Save state.
-     * 
-     * @param aMemento
-     *            the a memento
      * @generated
      */
     public void saveState(IMemento aMemento) {
     }
 
     /**
-     * Inits the.
-     * 
-     * @param aConfig
-     *            the a config
      * @generated
      */
     public void init(ICommonContentExtensionSite aConfig) {
     }
 
     /**
-     * Gets the children.
-     * 
-     * @param parentElement
-     *            the parent element
-     * @return the children
      * @generated
      */
     public Object[] getChildren(Object parentElement) {
@@ -242,13 +216,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the view children.
-     * 
-     * @param view
-     *            the view
-     * @param parentElement
-     *            the parent element
-     * @return the view children
      * @generated
      */
     private Object[] getViewChildren(View view, Object parentElement) {
@@ -709,13 +676,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the links source by type.
-     * 
-     * @param edges
-     *            the edges
-     * @param type
-     *            the type
-     * @return the links source by type
      * @generated
      */
     private Collection getLinksSourceByType(Collection edges, String type) {
@@ -731,13 +691,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the links target by type.
-     * 
-     * @param edges
-     *            the edges
-     * @param type
-     *            the type
-     * @return the links target by type
      * @generated
      */
     private Collection getLinksTargetByType(Collection edges, String type) {
@@ -753,13 +706,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the outgoing links by type.
-     * 
-     * @param nodes
-     *            the nodes
-     * @param type
-     *            the type
-     * @return the outgoing links by type
      * @generated
      */
     private Collection getOutgoingLinksByType(Collection nodes, String type) {
@@ -772,13 +718,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the incoming links by type.
-     * 
-     * @param nodes
-     *            the nodes
-     * @param type
-     *            the type
-     * @return the incoming links by type
      * @generated
      */
     private Collection getIncomingLinksByType(Collection nodes, String type) {
@@ -791,13 +730,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the children by type.
-     * 
-     * @param nodes
-     *            the nodes
-     * @param type
-     *            the type
-     * @return the children by type
      * @generated
      */
     private Collection getChildrenByType(Collection nodes, String type) {
@@ -810,13 +742,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the diagram links by type.
-     * 
-     * @param diagrams
-     *            the diagrams
-     * @param type
-     *            the type
-     * @return the diagram links by type
      * @generated
      */
     private Collection getDiagramLinksByType(Collection diagrams, String type) {
@@ -829,13 +754,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Select views by type.
-     * 
-     * @param views
-     *            the views
-     * @param type
-     *            the type
-     * @return the collection
      * @generated
      */
     private Collection selectViewsByType(Collection views, String type) {
@@ -850,11 +768,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Checks if is own view.
-     * 
-     * @param view
-     *            the view
-     * @return true, if is own view
      * @generated
      */
     private boolean isOwnView(View view) {
@@ -863,15 +776,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Creates the navigator items.
-     * 
-     * @param views
-     *            the views
-     * @param parent
-     *            the parent
-     * @param isLeafs
-     *            the is leafs
-     * @return the collection
      * @generated
      */
     private Collection createNavigatorItems(Collection views, Object parent, boolean isLeafs) {
@@ -883,11 +787,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Gets the parent.
-     * 
-     * @param element
-     *            the element
-     * @return the parent
      * @generated
      */
     public Object getParent(Object element) {
@@ -899,11 +798,6 @@ public class PalladioComponentModelNavigatorContentProvider implements ICommonCo
     }
 
     /**
-     * Checks for children.
-     * 
-     * @param element
-     *            the element
-     * @return true, if successful
      * @generated
      */
     public boolean hasChildren(Object element) {

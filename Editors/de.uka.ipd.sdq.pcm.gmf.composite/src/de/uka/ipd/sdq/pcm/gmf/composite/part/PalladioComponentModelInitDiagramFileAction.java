@@ -24,25 +24,21 @@ import org.eclipse.ui.IWorkbenchPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
 
 /**
- * The Class PalladioComponentModelInitDiagramFileAction.
- * 
  * @generated
  */
 public class PalladioComponentModelInitDiagramFileAction implements IObjectActionDelegate {
 
-    /** The target part. @generated */
+    /**
+     * @generated
+     */
     private IWorkbenchPart targetPart;
 
-    /** The domain model uri. @generated */
+    /**
+     * @generated
+     */
     private URI domainModelURI;
 
     /**
-     * Sets the active part.
-     * 
-     * @param action
-     *            the action
-     * @param targetPart
-     *            the target part
      * @generated
      */
     public void setActivePart(IAction action, IWorkbenchPart targetPart) {
@@ -50,12 +46,6 @@ public class PalladioComponentModelInitDiagramFileAction implements IObjectActio
     }
 
     /**
-     * Selection changed.
-     * 
-     * @param action
-     *            the action
-     * @param selection
-     *            the selection
      * @generated
      */
     public void selectionChanged(IAction action, ISelection selection) {
@@ -70,9 +60,6 @@ public class PalladioComponentModelInitDiagramFileAction implements IObjectActio
     }
 
     /**
-     * Gets the shell.
-     * 
-     * @return the shell
      * @generated
      */
     private Shell getShell() {
@@ -80,10 +67,6 @@ public class PalladioComponentModelInitDiagramFileAction implements IObjectActio
     }
 
     /**
-     * Run.
-     * 
-     * @param action
-     *            the action
      * @generated
      */
     public void run(IAction action) {

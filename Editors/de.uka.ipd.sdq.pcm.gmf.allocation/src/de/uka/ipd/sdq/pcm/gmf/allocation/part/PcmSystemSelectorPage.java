@@ -15,7 +15,9 @@ class SystemSelectorPage extends ResourceSelectorPage {
 
     /**
      * Creates the system selector page.
-     * @param selectedSystem the selected system
+     * 
+     * @param selectedSystem
+     *            the selected system
      */
     protected SystemSelectorPage(System selectedSystem) {
         super("Select system", selectedSystem);
@@ -26,6 +28,7 @@ class SystemSelectorPage extends ResourceSelectorPage {
 
     /**
      * Gets the selected system.
+     * 
      * @return the system
      */
     protected System getSelectedSystem() {

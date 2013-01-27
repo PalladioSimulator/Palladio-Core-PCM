@@ -65,7 +65,7 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
     /**
      * @generated
      */
-    private static Map/*<String, List<IDecorator>>*/allDecorators = new HashMap();
+    private static Map/* <String, List<IDecorator>> */allDecorators = new HashMap();
 
     /**
      * @generated

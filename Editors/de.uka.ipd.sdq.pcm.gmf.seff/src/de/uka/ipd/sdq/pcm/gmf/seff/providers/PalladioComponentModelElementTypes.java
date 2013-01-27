@@ -77,189 +77,292 @@ import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 
 /**
- * The Class PalladioComponentModelElementTypes.
- *
  * @generated
  */
 public class PalladioComponentModelElementTypes extends ElementInitializers {
 
     /**
-     * Instantiates a new palladio component model element types.
-     *
      * @generated
      */
     private PalladioComponentModelElementTypes() {
     }
 
-    /** The elements. @generated */
+    /**
+     * @generated
+     */
     private static Map elements;
 
-    /** The image registry. @generated */
+    /**
+     * @generated
+     */
     private static ImageRegistry imageRegistry;
 
-    /** The known element types. @generated */
+    /**
+     * @generated
+     */
     private static Set KNOWN_ELEMENT_TYPES;
 
-    /** The Constant ResourceDemandingSEFF_1000. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ResourceDemandingSEFF_1000 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingSEFF_1000"); //$NON-NLS-1$
-    
-    /** The Constant StartAction_2001. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType StartAction_2001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StartAction_2001"); //$NON-NLS-1$
-    
-    /** The Constant StopAction_2002. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType StopAction_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StopAction_2002"); //$NON-NLS-1$
-    
-    /** The Constant ExternalCallAction_2003. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType ExternalCallAction_2003 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_2003"); //$NON-NLS-1$
-    
-    /** The Constant EmitEventAction_2013. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType EmitEventAction_2013 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.EmitEventAction_2013"); //$NON-NLS-1$
 
-    /** The Constant LoopAction_2004. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType LoopAction_2004 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_2004"); //$NON-NLS-1$
-    
-    /** The Constant BranchAction_2005. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType BranchAction_2005 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_2005"); //$NON-NLS-1$
-    
-    /** The Constant InternalAction_2006. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType InternalAction_2006 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_2006"); //$NON-NLS-1$
-    
-    /** The Constant CollectionIteratorAction_2007. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType CollectionIteratorAction_2007 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_2007"); //$NON-NLS-1$
 
-    /** The Constant SetVariableAction_2008. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType SetVariableAction_2008 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_2008"); //$NON-NLS-1$
 
-    /** The Constant AcquireAction_2012. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType AcquireAction_2012 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_2012"); //$NON-NLS-1$
 
-    /** The Constant ReleaseAction_2010. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ReleaseAction_2010 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_2010"); //$NON-NLS-1$
 
-    /** The Constant ForkAction_2011. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ForkAction_2011 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_2011"); //$NON-NLS-1$
 
-    /** The Constant RecoveryAction_2016. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType RecoveryAction_2016 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2016"); //$NON-NLS-1$
 
-    /** The Constant VariableUsage_3042. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableUsage_3042 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3042"); //$NON-NLS-1$
 
-    /** The Constant VariableCharacterisation_3033. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableCharacterisation_3033 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3033"); //$NON-NLS-1$
 
-    /** The Constant VariableUsage_3049. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableUsage_3049 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3049"); //$NON-NLS-1$
 
-    /** The Constant VariableCharacterisation_3035. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableCharacterisation_3035 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3035"); //$NON-NLS-1$
 
-    /** The Constant VariableUsage_3047. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableUsage_3047 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3047"); //$NON-NLS-1$
 
-    /** The Constant ResourceDemandingBehaviour_3003. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ResourceDemandingBehaviour_3003 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3003"); //$NON-NLS-1$
-    
-    /** The Constant StartAction_3004. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType StartAction_3004 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StartAction_3004"); //$NON-NLS-1$
-    
-    /** The Constant StopAction_3005. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType StopAction_3005 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.StopAction_3005"); //$NON-NLS-1$
-    
-    /** The Constant LoopAction_3006. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType LoopAction_3006 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.LoopAction_3006"); //$NON-NLS-1$
-    
-    /** The Constant InternalAction_3007. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType InternalAction_3007 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.InternalAction_3007"); //$NON-NLS-1$
-    
-    /** The Constant ParametricResourceDemand_3051. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType ParametricResourceDemand_3051 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ParametricResourceDemand_3051"); //$NON-NLS-1$
 
-    /** The Constant InternalFailureOccurrenceDescription_3050. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType InternalFailureOccurrenceDescription_3050 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.InternalFailureOccurrenceDescription_3050"); //$NON-NLS-1$
 
-    /** The Constant InfrastructureCall_3053. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType InfrastructureCall_3053 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.InfrastructureCall_3053"); //$NON-NLS-1$
 
-    /** The Constant VariableUsage_3054. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableUsage_3054 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3054"); //$NON-NLS-1$
 
-    /** The Constant BranchAction_3009. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType BranchAction_3009 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.BranchAction_3009"); //$NON-NLS-1$
-    
-    /** The Constant ProbabilisticBranchTransition_3010. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType ProbabilisticBranchTransition_3010 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ProbabilisticBranchTransition_3010"); //$NON-NLS-1$
-    
-    /** The Constant ResourceDemandingBehaviour_3011. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType ResourceDemandingBehaviour_3011 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3011"); //$NON-NLS-1$
-    
-    /** The Constant ExternalCallAction_3012. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType ExternalCallAction_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ExternalCallAction_3012"); //$NON-NLS-1$
-    
-    /** The Constant EmitEventAction_3046. @generated */
+
+    /**
+     * @generated
+     */
     public static final IElementType EmitEventAction_3046 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.EmitEventAction_3046"); //$NON-NLS-1$
 
-    /** The Constant AcquireAction_3026. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType AcquireAction_3026 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_3026"); //$NON-NLS-1$
 
-    /** The Constant ReleaseAction_3020. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ReleaseAction_3020 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_3020"); //$NON-NLS-1$
 
-    /** The Constant ForkAction_3023. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ForkAction_3023 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_3023"); //$NON-NLS-1$
 
-    /** The Constant ForkedBehaviour_3027. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ForkedBehaviour_3027 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3027"); //$NON-NLS-1$
 
-    /** The Constant GuardedBranchTransition_3017. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType GuardedBranchTransition_3017 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.GuardedBranchTransition_3017"); //$NON-NLS-1$
 
-    /** The Constant ResourceDemandingBehaviour_3018. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ResourceDemandingBehaviour_3018 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3018"); //$NON-NLS-1$
 
-    /** The Constant CollectionIteratorAction_3013. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType CollectionIteratorAction_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"); //$NON-NLS-1$
 
-    /** The Constant ResourceDemandingBehaviour_3014. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ResourceDemandingBehaviour_3014 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014"); //$NON-NLS-1$
 
-    /** The Constant RecoveryAction_3057. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType RecoveryAction_3057 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3057"); //$NON-NLS-1$
 
-    /** The Constant RecoveryActionBehaviour_3058. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType RecoveryActionBehaviour_3058 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3058"); //$NON-NLS-1$
 
-    /** The Constant SynchronisationPoint_3038. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType SynchronisationPoint_3038 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.SynchronisationPoint_3038"); //$NON-NLS-1$
 
-    /** The Constant ForkedBehaviour_3039. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType ForkedBehaviour_3039 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3039"); //$NON-NLS-1$
 
-    /** The Constant SetVariableAction_3024. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType SetVariableAction_3024 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024"); //$NON-NLS-1$
 
-    /** The Constant VariableUsage_3036. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableUsage_3036 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3036"); //$NON-NLS-1$
 
-    /** The Constant VariableCharacterisation_3055. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableCharacterisation_3055 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3055"); //$NON-NLS-1$
 
-    /** The Constant VariableCharacterisation_3048. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableCharacterisation_3048 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3048"); //$NON-NLS-1$
 
-    /** The Constant VariableCharacterisation_3037. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType VariableCharacterisation_3037 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3037"); //$NON-NLS-1$
 
-    /** The Constant AbstractActionSuccessor_AbstractAction_4001. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType AbstractActionSuccessor_AbstractAction_4001 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.AbstractActionSuccessor_AbstractAction_4001"); //$NON-NLS-1$
 
-    /** The Constant RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004. @generated */
+    /**
+     * @generated
+     */
     public static final IElementType RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004"); //$NON-NLS-1$
 
     /**
-     * Gets the image registry.
-     *
-     * @return the image registry
      * @generated
      */
     private static ImageRegistry getImageRegistry() {
@@ -270,10 +373,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image registry key.
-     *
-     * @param element the element
-     * @return the image registry key
      * @generated
      */
     private static String getImageRegistryKey(ENamedElement element) {
@@ -281,10 +380,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the provided image descriptor.
-     *
-     * @param element the element
-     * @return the provided image descriptor
      * @generated
      */
     private static ImageDescriptor getProvidedImageDescriptor(ENamedElement element) {
@@ -310,10 +405,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image descriptor.
-     *
-     * @param element the element
-     * @return the image descriptor
      * @generated
      */
     public static ImageDescriptor getImageDescriptor(ENamedElement element) {
@@ -330,10 +421,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image.
-     *
-     * @param element the element
-     * @return the image
      * @generated
      */
     public static Image getImage(ENamedElement element) {
@@ -351,10 +438,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image descriptor.
-     *
-     * @param hint the hint
-     * @return the image descriptor
      * @generated
      */
     public static ImageDescriptor getImageDescriptor(IAdaptable hint) {
@@ -366,10 +449,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the image.
-     *
-     * @param hint the hint
-     * @return the image
      * @generated
      */
     public static Image getImage(IAdaptable hint) {
@@ -381,10 +460,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Returns 'type' of the ecore object associated with the hint.
-     *
-     * @param hint the hint
-     * @return the element
      * @generated
      */
     public static ENamedElement getElement(IAdaptable hint) {
@@ -511,10 +586,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the element type.
-     *
-     * @param id the id
-     * @return the element type
      * @generated
      */
     private static IElementType getElementType(String id) {
@@ -522,10 +593,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Checks if is known element type.
-     *
-     * @param elementType the element type
-     * @return true, if is known element type
      * @generated
      */
     public static boolean isKnownElementType(IElementType elementType) {
@@ -588,10 +655,6 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
-     * Gets the element type.
-     *
-     * @param visualID the visual id
-     * @return the element type
      * @generated
      */
     public static IElementType getElementType(int visualID) {

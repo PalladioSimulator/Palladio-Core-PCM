@@ -18,8 +18,9 @@ public class CustomOpenWorkloadSpecLabelEditPart extends OpenWorkloadSpecLabelEd
 
     /**
      * Instantiates a new custom open workload spec label edit part.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      */
     public CustomOpenWorkloadSpecLabelEditPart(View view) {
         super(view);
@@ -28,7 +29,7 @@ public class CustomOpenWorkloadSpecLabelEditPart extends OpenWorkloadSpecLabelEd
 
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#getLabelText()
      */
@@ -47,7 +48,7 @@ public class CustomOpenWorkloadSpecLabelEditPart extends OpenWorkloadSpecLabelEd
 
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#addSemanticListeners()
      */
     @Override
@@ -58,7 +59,7 @@ public class CustomOpenWorkloadSpecLabelEditPart extends OpenWorkloadSpecLabelEd
 
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#removeSemanticListeners()
      */
     @Override
@@ -68,8 +69,9 @@ public class CustomOpenWorkloadSpecLabelEditPart extends OpenWorkloadSpecLabelEd
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.OpenWorkloadSpecLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

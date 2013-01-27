@@ -33,25 +33,26 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.ClosedWorkloadItemSemanticEdit
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class ClosedWorkloadEditPart.
- *
  * @generated
  */
 public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3015;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new closed workload edit part.
-     *
-     * @param view the view
      * @generated
      */
     public ClosedWorkloadEditPart(View view) {
@@ -59,8 +60,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -73,9 +72,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     *
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -101,9 +97,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node shape.
-     *
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -112,9 +105,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     *
-     * @return the primary shape
      * @generated
      */
     public ClosedWorkloadFigure getPrimaryShape() {
@@ -122,10 +112,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
@@ -148,10 +134,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
@@ -168,10 +150,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the child visual.
-     *
-     * @param childEditPart the child edit part
-     * @param index the index
      * @generated
      */
     protected void addChildVisual(EditPart childEditPart, int index) {
@@ -182,9 +160,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the child visual.
-     *
-     * @param childEditPart the child edit part
      * @generated
      */
     protected void removeChildVisual(EditPart childEditPart) {
@@ -195,10 +170,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane for.
-     *
-     * @param editPart the edit part
-     * @return the content pane for
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
@@ -206,9 +177,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node plate.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -217,12 +185,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -235,11 +197,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     *
-     * @param nodeShape instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -252,9 +209,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane.
-     *
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -265,9 +219,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     *
-     * @param color the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -277,9 +228,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the background color.
-     *
-     * @param color the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -289,9 +237,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line width.
-     *
-     * @param width the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -301,9 +246,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line type.
-     *
-     * @param style the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -313,9 +255,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary child edit part.
-     *
-     * @return the primary child edit part
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
@@ -324,24 +263,26 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * The Class ClosedWorkloadFigure.
-     *
      * @generated
      */
     public class ClosedWorkloadFigure extends RectangleFigure {
-        
-        /** The figure closed workload title label figure. @generated */
+
+        /**
+         * @generated
+         */
         private WrappingLabel fFigureClosedWorkloadTitleLabelFigure;
-        
-        /** The figure closed workload population figure. @generated */
+
+        /**
+         * @generated
+         */
         private WrappingLabel fFigureClosedWorkloadPopulationFigure;
-        
-        /** The figure closed workload think time label figure. @generated */
+
+        /**
+         * @generated
+         */
         private WrappingLabel fFigureClosedWorkloadThinkTimeLabelFigure;
 
         /**
-         * Instantiates a new closed workload figure.
-         *
          * @generated
          */
         public ClosedWorkloadFigure() {
@@ -362,8 +303,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Creates the contents.
-         *
          * @generated
          */
         private void createContents() {
@@ -416,9 +355,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure closed workload population figure.
-         *
-         * @return the figure closed workload population figure
          * @generated
          */
         public WrappingLabel getFigureClosedWorkloadPopulationFigure() {
@@ -426,9 +362,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure closed workload think time label figure.
-         *
-         * @return the figure closed workload think time label figure
          * @generated
          */
         public WrappingLabel getFigureClosedWorkloadThinkTimeLabelFigure() {
@@ -436,22 +369,18 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure closed workload title label figure.
-         *
-         * @return the figure closed workload title label figure
          * @generated
          */
         public WrappingLabel getFigureClosedWorkloadTitleLabelFigure() {
             return fFigureClosedWorkloadTitleLabelFigure;
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         *
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -459,9 +388,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         *
-         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

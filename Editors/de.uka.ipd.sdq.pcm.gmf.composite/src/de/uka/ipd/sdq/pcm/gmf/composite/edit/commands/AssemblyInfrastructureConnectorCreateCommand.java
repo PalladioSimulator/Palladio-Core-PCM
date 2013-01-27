@@ -24,30 +24,26 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 
 /**
- * The Class AssemblyInfrastructureConnectorCreateCommand.
- * 
  * @generated
  */
 public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCommand {
 
-    /** The source. @generated */
+    /**
+     * @generated
+     */
     private final EObject source;
 
-    /** The target. @generated */
+    /**
+     * @generated
+     */
     private final EObject target;
 
-    /** The container. @generated */
+    /**
+     * @generated
+     */
     private final ComposedStructure container;
 
     /**
-     * Instantiates a new assembly infrastructure connector create command.
-     * 
-     * @param request
-     *            the request
-     * @param source
-     *            the source
-     * @param target
-     *            the target
      * @generated
      */
     public AssemblyInfrastructureConnectorCreateCommand(CreateRelationshipRequest request, EObject source,
@@ -59,9 +55,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -122,16 +115,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(AssemblyInfrastructureConnector newElement, IProgressMonitor monitor, IAdaptable info)
@@ -149,10 +132,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Sets the element to edit.
-     * 
-     * @param element
-     *            the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -160,9 +139,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Gets the source.
-     * 
-     * @return the source
      * @generated
      */
     protected InfrastructureRequiredRole getSource() {
@@ -170,9 +146,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Gets the target.
-     * 
-     * @return the target
      * @generated
      */
     protected InfrastructureProvidedRole getTarget() {
@@ -180,9 +153,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Gets the container.
-     * 
-     * @return the container
      * @generated
      */
     public ComposedStructure getContainer() {
@@ -190,14 +160,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Default approach is to traverse ancestors of the source to find instance of container. Modify
-     * with appropriate logic.
-     * 
-     * @param source
-     *            the source
-     * @param target
-     *            the target
-     * @return the composed structure
      * @generated
      */
     private static ComposedStructure deduceContainer(EObject source, EObject target) {

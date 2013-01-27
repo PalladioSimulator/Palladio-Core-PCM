@@ -61,9 +61,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.repository.Role;
 
 /**
- * Edit policy for the element represented by the canvas. This is not the root element of the system
- * model to be edited.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends CanonicalConnectionEditPolicy {
@@ -104,13 +101,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Checks if is orphaned.
-     * 
-     * @param semanticChildren
-     *            the semantic children
-     * @param view
-     *            the view
-     * @return true, if is orphaned
      * @generated
      */
     @Override
@@ -126,9 +116,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Gets the default factory hint.
-     * 
-     * @return the default factory hint
      * @generated
      */
     @Override
@@ -137,9 +124,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Gets the semantic connections list.
-     * 
-     * @return the semantic connections list
      * @generated
      */
     @Override
@@ -148,11 +132,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Gets the source element.
-     * 
-     * @param relationship
-     *            the relationship
-     * @return the source element
      * @generated
      */
     @Override
@@ -161,11 +140,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Gets the target element.
-     * 
-     * @param relationship
-     *            the relationship
-     * @return the target element
      * @generated
      */
     @Override
@@ -174,13 +148,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Should include connection.
-     * 
-     * @param connector
-     *            the connector
-     * @param children
-     *            the children
-     * @return true, if successful
      * @generated
      */
     @Override
@@ -189,8 +156,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Refresh semantic.
-     * 
      * @generated
      */
     @Override
@@ -212,9 +177,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Refresh connections.
-     * 
-     * @return the collection
      * @generated
      */
     private Collection refreshConnections() {
@@ -251,13 +213,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Collect all links.
-     * 
-     * @param view
-     *            the view
-     * @param domain2NotationMap
-     *            the domain2 notation map
-     * @return the collection
      * @generated
      */
     private Collection collectAllLinks(View view, Map domain2NotationMap) {
@@ -559,13 +514,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Gets the edits the part.
-     * 
-     * @param domainModelElement
-     *            the domain model element
-     * @param domain2NotationMap
-     *            the domain2 notation map
-     * @return the edits the part
      * @generated
      */
     private EditPart getEditPart(EObject domainModelElement, Map domain2NotationMap) {
@@ -668,9 +616,6 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     }
 
     /**
-     * Gets the diagram.
-     * 
-     * @return the diagram
      * @generated
      */
     private Diagram getDiagram() {

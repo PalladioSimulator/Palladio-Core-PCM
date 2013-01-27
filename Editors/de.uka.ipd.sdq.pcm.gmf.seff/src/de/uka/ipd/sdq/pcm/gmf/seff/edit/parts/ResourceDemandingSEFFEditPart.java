@@ -11,22 +11,21 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingSEFFCanonicalE
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingSEFFItemSemanticEditPolicy;
 
 /**
- * The Class ResourceDemandingSEFFEditPart.
- *
  * @generated
  */
 public class ResourceDemandingSEFFEditPart extends DiagramEditPart {
 
-    /** The Constant MODEL_ID. @generated */
+    /**
+     * @generated
+     */
     public final static String MODEL_ID = "PCM SEFF Model"; //$NON-NLS-1$
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 1000;
 
     /**
-     * Instantiates a new resource demanding seff edit part.
-     *
-     * @param view the view
      * @generated
      */
     public ResourceDemandingSEFFEditPart(View view) {
@@ -34,8 +33,6 @@ public class ResourceDemandingSEFFEditPart extends DiagramEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {

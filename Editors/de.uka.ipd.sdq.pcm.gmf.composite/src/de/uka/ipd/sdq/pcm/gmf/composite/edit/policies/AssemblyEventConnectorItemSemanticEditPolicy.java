@@ -10,15 +10,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyElementRequest;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class AssemblyEventConnectorItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class AssemblyEventConnectorItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new assembly event connector item semantic edit policy.
-     * 
      * @generated
      */
     public AssemblyEventConnectorItemSemanticEditPolicy() {
@@ -26,11 +22,6 @@ public class AssemblyEventConnectorItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {

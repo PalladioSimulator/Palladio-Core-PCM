@@ -18,8 +18,9 @@ public class CustomClosedWorkloadThinkTimeLabelEditPart extends ClosedWorkloadTh
 
     /**
      * Instantiates a new custom closed workload think time label edit part.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      */
     public CustomClosedWorkloadThinkTimeLabelEditPart(View view) {
         super(view);
@@ -27,7 +28,7 @@ public class CustomClosedWorkloadThinkTimeLabelEditPart extends ClosedWorkloadTh
 
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#getLabelText()
      */
@@ -46,7 +47,7 @@ public class CustomClosedWorkloadThinkTimeLabelEditPart extends ClosedWorkloadTh
 
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#addSemanticListeners()
      */
     @Override
@@ -57,7 +58,7 @@ public class CustomClosedWorkloadThinkTimeLabelEditPart extends ClosedWorkloadTh
 
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#removeSemanticListeners()
      */
     @Override
@@ -67,8 +68,9 @@ public class CustomClosedWorkloadThinkTimeLabelEditPart extends ClosedWorkloadTh
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadThinkTimeLabelEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

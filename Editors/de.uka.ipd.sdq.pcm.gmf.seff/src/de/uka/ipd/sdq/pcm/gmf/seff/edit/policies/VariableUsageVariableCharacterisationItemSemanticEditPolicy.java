@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableCharacterisationCreateC
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class VariableUsageVariableCharacterisationItemSemanticEditPolicy.
- *
  * @generated
  */
 public class VariableUsageVariableCharacterisationItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new variable usage variable characterisation item semantic edit policy.
-     *
      * @generated
      */
     public VariableUsageVariableCharacterisationItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class VariableUsageVariableCharacterisationItemSemanticEditPolicy extends
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

@@ -54,31 +54,36 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelParserProvider;
 
 /**
- * The Class ClosedWorkloadTitleLabelEditPart.
- *
  * @generated
  */
 public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 5014;
 
-    /** The manager. @generated */
+    /**
+     * @generated
+     */
     private DirectEditManager manager;
 
-    /** The parser. @generated */
+    /**
+     * @generated
+     */
     private IParser parser;
 
-    /** The parser elements. @generated */
+    /**
+     * @generated
+     */
     private List parserElements;
 
-    /** The default text. @generated */
+    /**
+     * @generated
+     */
     private String defaultText;
 
     /**
-     * Instantiates a new closed workload title label edit part.
-     *
-     * @param view the view
      * @generated
      */
     public ClosedWorkloadTitleLabelEditPart(View view) {
@@ -86,8 +91,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -114,10 +117,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the label text helper.
-     *
-     * @param figure the figure
-     * @return the label text helper
      * @generated
      */
     protected String getLabelTextHelper(IFigure figure) {
@@ -129,10 +128,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Sets the label text helper.
-     *
-     * @param figure the figure
-     * @param text the text
      * @generated
      */
     protected void setLabelTextHelper(IFigure figure, String text) {
@@ -144,10 +139,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the label icon helper.
-     *
-     * @param figure the figure
-     * @return the label icon helper
      * @generated
      */
     protected Image getLabelIconHelper(IFigure figure) {
@@ -159,10 +150,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Sets the label icon helper.
-     *
-     * @param figure the figure
-     * @param icon the icon
      * @generated
      */
     protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -174,9 +161,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Sets the label.
-     *
-     * @param figure the new label
      * @generated
      */
     public void setLabel(WrappingLabel figure) {
@@ -188,9 +172,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the model children.
-     *
-     * @return the model children
      * @generated
      */
     protected List getModelChildren() {
@@ -198,10 +179,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the child by semantic hint.
-     *
-     * @param semanticHint the semantic hint
-     * @return the child by semantic hint
      * @generated
      */
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
@@ -209,9 +186,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the parser element.
-     *
-     * @return the parser element
      * @generated
      */
     protected EObject getParserElement() {
@@ -219,9 +193,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the label icon.
-     *
-     * @return the label icon
      * @generated
      */
     protected Image getLabelIcon() {
@@ -229,9 +200,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the label text.
-     *
-     * @return the label text
      * @generated
      */
     protected String getLabelText() {
@@ -247,9 +215,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Sets the label text.
-     *
-     * @param text the new label text
      * @generated
      */
     public void setLabelText(String text) {
@@ -265,9 +230,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the edits the text.
-     *
-     * @return the edits the text
      * @generated
      */
     public String getEditText() {
@@ -278,9 +240,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Checks if is editable.
-     *
-     * @return true, if is editable
      * @generated
      */
     protected boolean isEditable() {
@@ -288,9 +247,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the edits the text validator.
-     *
-     * @return the edits the text validator
      * @generated
      */
     public ICellEditorValidator getEditTextValidator() {
@@ -321,9 +277,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the completion processor.
-     *
-     * @return the completion processor
      * @generated
      */
     public IContentAssistProcessor getCompletionProcessor() {
@@ -334,9 +287,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the parser options.
-     *
-     * @return the parser options
      * @generated
      */
     public ParserOptions getParserOptions() {
@@ -344,9 +294,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the parser.
-     *
-     * @return the parser
      * @generated
      */
     public IParser getParser() {
@@ -362,9 +309,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the manager.
-     *
-     * @return the manager
      * @generated
      */
     protected DirectEditManager getManager() {
@@ -376,9 +320,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Sets the manager.
-     *
-     * @param manager the new manager
      * @generated
      */
     protected void setManager(DirectEditManager manager) {
@@ -386,8 +327,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Perform direct edit.
-     *
      * @generated
      */
     protected void performDirectEdit() {
@@ -395,9 +334,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Perform direct edit.
-     *
-     * @param eventLocation the event location
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
@@ -407,9 +343,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Perform direct edit.
-     *
-     * @param initialCharacter the initial character
      * @generated
      */
     private void performDirectEdit(char initialCharacter) {
@@ -421,9 +354,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Perform direct edit request.
-     *
-     * @param request the request
      * @generated
      */
     protected void performDirectEditRequest(Request request) {
@@ -452,8 +382,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Refresh visuals.
-     *
      * @generated
      */
     protected void refreshVisuals() {
@@ -466,8 +394,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Refresh label.
-     *
      * @generated
      */
     protected void refreshLabel() {
@@ -484,8 +410,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Refresh underline.
-     *
      * @generated
      */
     protected void refreshUnderline() {
@@ -496,8 +420,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Refresh strike through.
-     *
      * @generated
      */
     protected void refreshStrikeThrough() {
@@ -508,8 +430,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Refresh font.
-     *
      * @generated
      */
     protected void refreshFont() {
@@ -522,9 +442,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Sets the font color.
-     *
-     * @param color the new font color
      * @generated
      */
     protected void setFontColor(Color color) {
@@ -532,8 +449,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Adds the semantic listeners.
-     *
      * @generated
      */
     protected void addSemanticListeners() {
@@ -549,8 +464,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Removes the semantic listeners.
-     *
      * @generated
      */
     protected void removeSemanticListeners() {
@@ -564,9 +477,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the accessible edit part.
-     *
-     * @return the accessible edit part
      * @generated
      */
     protected AccessibleEditPart getAccessibleEditPart() {
@@ -582,9 +492,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Gets the font style owner view.
-     *
-     * @return the font style owner view
      * @generated
      */
     private View getFontStyleOwnerView() {
@@ -592,8 +499,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Adds the notational listeners.
-     *
      * @generated
      */
     protected void addNotationalListeners() {
@@ -602,8 +507,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Removes the notational listeners.
-     *
      * @generated
      */
     protected void removeNotationalListeners() {
@@ -612,9 +515,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Handle notification event.
-     *
-     * @param event the event
      * @generated
      */
     protected void handleNotificationEvent(Notification event) {
@@ -650,9 +550,6 @@ public class ClosedWorkloadTitleLabelEditPart extends CompartmentEditPart implem
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     protected IFigure createFigure() {

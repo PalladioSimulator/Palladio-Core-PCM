@@ -23,14 +23,14 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy extends
         CanonicalEditPolicy {
 
-    /** The my features to synchronize. @generated */
+    /**
+     * @generated
+     */
     Set myFeaturesToSynchronize;
 
     /**
@@ -66,13 +66,6 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
     }
 
     /**
-     * Checks if is orphaned.
-     * 
-     * @param semanticChildren
-     *            the semantic children
-     * @param view
-     *            the view
-     * @return true, if is orphaned
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -88,9 +81,6 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
     }
 
     /**
-     * Gets the default factory hint.
-     * 
-     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {
@@ -98,9 +88,6 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
     }
 
     /**
-     * Gets the features to synchronize.
-     * 
-     * @return the features to synchronize
      * @generated
      */
     protected Set getFeaturesToSynchronize() {

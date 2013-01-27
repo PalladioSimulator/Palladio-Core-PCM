@@ -25,15 +25,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class ReleaseActionItemSemanticEditPolicy.
- *
  * @generated
  */
 public class ReleaseActionItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new release action item semantic edit policy.
-     *
      * @generated
      */
     public ReleaseActionItemSemanticEditPolicy() {
@@ -41,10 +37,6 @@ public class ReleaseActionItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the destroy element command.
-     *
-     * @param req the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -84,10 +76,6 @@ public class ReleaseActionItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the creates the relationship command.
-     *
-     * @param req the req
-     * @return the creates the relationship command
      * @generated
      */
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -97,10 +85,6 @@ public class ReleaseActionItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the start create relationship command.
-     *
-     * @param req the req
-     * @return the start create relationship command
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -112,10 +96,6 @@ public class ReleaseActionItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Gets the complete create relationship command.
-     *
-     * @param req the req
-     * @return the complete create relationship command
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -127,11 +107,6 @@ public class ReleaseActionItemSemanticEditPolicy extends PalladioComponentModelB
     }
 
     /**
-     * Returns command to reorient EReference based link. New link target or source should be the
-     * domain model element associated with this node.
-     *
-     * @param req the req
-     * @return the reorient reference relationship command
      * @generated
      */
     protected Command getReorientReferenceRelationshipCommand(ReorientReferenceRelationshipRequest req) {

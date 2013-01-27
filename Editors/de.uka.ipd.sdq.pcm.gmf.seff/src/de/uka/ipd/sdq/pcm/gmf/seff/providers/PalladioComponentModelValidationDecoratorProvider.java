@@ -46,28 +46,31 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.SeffDiagramEditor;
 
 /**
- * The Class PalladioComponentModelValidationDecoratorProvider.
- *
  * @generated
  */
 public class PalladioComponentModelValidationDecoratorProvider extends AbstractProvider implements IDecoratorProvider {
-    
-    /** The Constant KEY. @generated */
+
+    /**
+     * @generated
+     */
     private static final String KEY = "validationStatus"; //$NON-NLS-1$
-    
-    /** The Constant MARKER_TYPE. @generated */
+
+    /**
+     * @generated
+     */
     private static final String MARKER_TYPE = PalladioComponentModelSeffDiagramEditorPlugin.ID + ".diagnostic"; //$NON-NLS-1$ //$NON-NLS-2$
-    
-    /** The file observer. @generated */
+
+    /**
+     * @generated
+     */
     private static MarkerObserver fileObserver;
 
-    /** The all decorators. @generated */
+    /**
+     * @generated
+     */
     private static Map/* <String, List<IDecorator>> */allDecorators = new HashMap();
 
     /**
-     * Creates the decorators.
-     *
-     * @param decoratorTarget the decorator target
      * @generated
      */
     public void createDecorators(IDecoratorTarget decoratorTarget) {
@@ -92,10 +95,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
     }
 
     /**
-     * Provides.
-     *
-     * @param operation the operation
-     * @return true, if successful
      * @generated
      */
     public boolean provides(IOperation operation) {
@@ -110,9 +109,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
     }
 
     /**
-     * Refresh decorators.
-     *
-     * @param view the view
      * @generated
      */
     public static void refreshDecorators(View view) {
@@ -120,10 +116,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
     }
 
     /**
-     * Refresh decorators.
-     *
-     * @param viewId the view id
-     * @param diagram the diagram
      * @generated
      */
     private static void refreshDecorators(String viewId, Diagram diagram) {
@@ -154,19 +146,16 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
     }
 
     /**
-     * The Class StatusDecorator.
-     *
      * @generated
      */
     public static class StatusDecorator extends AbstractDecorator {
-        
-        /** The view id. @generated */
+
+        /**
+         * @generated
+         */
         private String viewId;
 
         /**
-         * Instantiates a new status decorator.
-         *
-         * @param decoratorTarget the decorator target
          * @generated
          */
         public StatusDecorator(IDecoratorTarget decoratorTarget) {
@@ -185,8 +174,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * Refresh.
-         *
          * @generated
          */
         public void refresh() {
@@ -269,10 +256,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * Gets the image.
-         *
-         * @param severity the severity
-         * @return the image
          * @generated
          */
         private Image getImage(int severity) {
@@ -291,8 +274,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * Activate.
-         *
          * @generated
          */
         public void activate() {
@@ -325,8 +306,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * Deactivate.
-         *
          * @generated
          */
         public void deactivate() {
@@ -353,22 +332,16 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
     }
 
     /**
-     * An asynchronous update interface for receiving notifications
-     * about Marker information as the Marker is constructed.
-     *
      * @generated
      */
     static class MarkerObserver implements IFileObserver {
-        
-        /** The diagram. @generated */
+
+        /**
+         * @generated
+         */
         private Diagram diagram;
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param diagram the diagram
          * @generated
          */
         private MarkerObserver(Diagram diagram) {
@@ -376,57 +349,30 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param oldFile the old file
-         * @param file the file
          * @generated
          */
         public void handleFileRenamed(IFile oldFile, IFile file) {
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param oldFile the old file
-         * @param file the file
          * @generated
          */
         public void handleFileMoved(IFile oldFile, IFile file) {
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param file the file
          * @generated
          */
         public void handleFileDeleted(IFile file) {
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param file the file
          * @generated
          */
         public void handleFileChanged(IFile file) {
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param marker the marker
          * @generated
          */
         public void handleMarkerAdded(IMarker marker) {
@@ -436,12 +382,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param marker the marker
-         * @param attributes the attributes
          * @generated
          */
         public void handleMarkerDeleted(IMarker marker, Map attributes) {
@@ -450,11 +390,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param marker the marker
          * @generated
          */
         public void handleMarkerChanged(IMarker marker) {
@@ -466,12 +401,6 @@ public class PalladioComponentModelValidationDecoratorProvider extends AbstractP
         }
 
         /**
-         * This method is called when information about an Marker
-         * which was previously requested using an asynchronous
-         * interface becomes available.
-         *
-         * @param marker the marker
-         * @return the type
          * @generated
          */
         private String getType(IMarker marker) {

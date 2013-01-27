@@ -20,17 +20,11 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * The Class SourceRoleCreateCommand.
- * 
  * @generated
  */
 public class SourceRoleCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new source role create command.
-     * 
-     * @param req
-     *            the req
      * @generated
      */
     public SourceRoleCreateCommand(CreateElementRequest req) {
@@ -38,9 +32,6 @@ public class SourceRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit().
-     * 
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -52,9 +43,6 @@ public class SourceRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -63,15 +51,6 @@ public class SourceRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -87,16 +66,6 @@ public class SourceRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(SourceRole newElement, IProgressMonitor monitor, IAdaptable info)

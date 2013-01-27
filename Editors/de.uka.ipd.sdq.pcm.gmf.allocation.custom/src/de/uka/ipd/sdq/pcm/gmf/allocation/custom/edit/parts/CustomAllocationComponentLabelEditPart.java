@@ -23,7 +23,9 @@ public class CustomAllocationComponentLabelEditPart extends AllocationComponentL
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomAllocationComponentLabelEditPart(View view) {
         super(view);
@@ -44,7 +46,7 @@ public class CustomAllocationComponentLabelEditPart extends AllocationComponentL
             }
         }
         if (ctx.getEventChannel__AllocationContext() != null) {
-           return PalladioComponentModelElementTypes.getImage(ctx.getEventChannel__AllocationContext().eClass());
+            return PalladioComponentModelElementTypes.getImage(ctx.getEventChannel__AllocationContext().eClass());
         }
         return PalladioComponentModelElementTypes.getImage(parserElement.eClass());
     }
@@ -61,8 +63,8 @@ public class CustomAllocationComponentLabelEditPart extends AllocationComponentL
                         + " " + text;
             }
         }
-        if (ctx.getEventChannel__AllocationContext() != null){
-        	 text += "<" + ctx.getEventChannel__AllocationContext().getEntityName() + ">";
+        if (ctx.getEventChannel__AllocationContext() != null) {
+            text += "<" + ctx.getEventChannel__AllocationContext().getEntityName() + ">";
         }
         if (text == null || text.length() == 0) {
             text = defaultText;

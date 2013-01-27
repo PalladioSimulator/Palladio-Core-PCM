@@ -77,7 +77,7 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
          * @generated
          */
         OpenDiagramCommand(HintedDiagramLinkStyle linkStyle) {
-            // editing domain is taken for original diagram, 
+            // editing domain is taken for original diagram,
             // if we open diagram from another file, we should use another editing domain
             super(TransactionUtil.getEditingDomain(linkStyle), Messages.CommandName_OpenDiagram, null);
             diagramFacet = linkStyle;
@@ -89,10 +89,13 @@ public class OpenSeffDiagramEditPolicy extends OpenEditPolicy {
         /**
          * @generated not
          * 
-         * @param monitor An IProgressMonitor
-         * @param info An IAdaptable
+         * @param monitor
+         *            An IProgressMonitor
+         * @param info
+         *            An IAdaptable
          * 
-         * @throws ExecutionException an Exception
+         * @throws ExecutionException
+         *             an Exception
          * 
          * @return a CommandResult
          */

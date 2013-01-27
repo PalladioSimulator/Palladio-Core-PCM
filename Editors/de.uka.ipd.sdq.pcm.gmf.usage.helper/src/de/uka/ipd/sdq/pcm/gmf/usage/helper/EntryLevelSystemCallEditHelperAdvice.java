@@ -21,19 +21,18 @@ import de.uka.ipd.sdq.pcm.system.System;
 
 /**
  * The Class EntryLevelSystemCallEditHelperAdvice.
- *
+ * 
  * @author roman, Christian Busch
  * @generated NOT
  */
 public class EntryLevelSystemCallEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-   
-    
     /**
      * This command opens two selection dialogs for choosing the system operation provided role and
      * interface.
-     *
-     * @param request the request
+     * 
+     * @param request
+     *            the request
      * @return the after configure command
      */
     @Override
@@ -49,10 +48,8 @@ public class EntryLevelSystemCallEditHelperAdvice extends AbstractEditHelperAdvi
         ArrayList<EReference> additionalReferences = new ArrayList<EReference>();
         additionalReferences.add(RepositoryPackage.eINSTANCE
                 .getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
-        additionalReferences.add(RepositoryPackage.eINSTANCE
-                .getInterface_ParentInterfaces__Interface());
+        additionalReferences.add(RepositoryPackage.eINSTANCE.getInterface_ParentInterfaces__Interface());
 
-        
         PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request.getEditingDomain()
                 .getResourceSet());

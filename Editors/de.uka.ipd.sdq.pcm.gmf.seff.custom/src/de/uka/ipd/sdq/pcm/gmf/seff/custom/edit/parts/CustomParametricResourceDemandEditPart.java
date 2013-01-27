@@ -50,7 +50,7 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
      */
     /**
      * Creates the default edit policies.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#createDefaultEditPolicies()
      */
     @Override
@@ -73,7 +73,7 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
      */
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#getLabelText()
      */
@@ -108,7 +108,7 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
      */
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#addSemanticListeners()
      */
     @Override
@@ -136,7 +136,7 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
      */
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart#removeSemanticListeners()
      */
     @Override

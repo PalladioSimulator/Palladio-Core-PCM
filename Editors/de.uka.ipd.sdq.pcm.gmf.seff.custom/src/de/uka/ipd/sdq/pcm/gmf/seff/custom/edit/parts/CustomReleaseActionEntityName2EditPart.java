@@ -32,7 +32,7 @@ public class CustomReleaseActionEntityName2EditPart extends ReleaseActionEntityN
      */
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEntityName2EditPart#getLabelText()
      */

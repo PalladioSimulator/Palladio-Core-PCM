@@ -24,19 +24,16 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalC
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 
 /**
- * The Class PalladioComponentModelStructuralFeaturesParser.
- *
  * @generated
  */
 public class PalladioComponentModelStructuralFeaturesParser extends PalladioComponentModelAbstractParser {
 
-    /** The features. @generated */
+    /**
+     * @generated
+     */
     private List features;
 
     /**
-     * Instantiates a new palladio component model structural features parser.
-     *
-     * @param features the features
      * @generated
      */
     public PalladioComponentModelStructuralFeaturesParser(List features) {
@@ -44,13 +41,6 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
     }
 
     /**
-     * Gets the string by pattern.
-     *
-     * @param adapter the adapter
-     * @param flags the flags
-     * @param pattern the pattern
-     * @param processor the processor
-     * @return the string by pattern
      * @generated
      */
     protected String getStringByPattern(IAdaptable adapter, int flags, String pattern, MessageFormat processor) {
@@ -67,10 +57,6 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
     }
 
     /**
-     * Validate values.
-     *
-     * @param values the values
-     * @return the i parser edit status
      * @generated
      */
     protected IParserEditStatus validateValues(Object[] values) {
@@ -88,11 +74,6 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
     }
 
     /**
-     * Gets the parses the command.
-     *
-     * @param adapter the adapter
-     * @param values the values
-     * @return the parses the command
      * @generated
      */
     public ICommand getParseCommand(IAdaptable adapter, Object[] values) {
@@ -113,11 +94,6 @@ public class PalladioComponentModelStructuralFeaturesParser extends PalladioComp
     }
 
     /**
-     * Checks if is affecting event.
-     *
-     * @param event the event
-     * @param flags the flags
-     * @return true, if is affecting event
      * @generated
      */
     public boolean isAffectingEvent(Object event, int flags) {

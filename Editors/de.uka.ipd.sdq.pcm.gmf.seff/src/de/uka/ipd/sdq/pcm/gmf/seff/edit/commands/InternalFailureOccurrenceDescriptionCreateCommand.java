@@ -20,16 +20,11 @@ import de.uka.ipd.sdq.pcm.reliability.ReliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 
 /**
- * The Class InternalFailureOccurrenceDescriptionCreateCommand.
- *
  * @generated
  */
 public class InternalFailureOccurrenceDescriptionCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new internal failure occurrence description create command.
-     *
-     * @param req the req
      * @generated
      */
     public InternalFailureOccurrenceDescriptionCreateCommand(CreateElementRequest req) {
@@ -37,9 +32,6 @@ public class InternalFailureOccurrenceDescriptionCreateCommand extends EditEleme
     }
 
     /**
-     * FIXME: replace with setElementToEdit().
-     *
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -51,9 +43,6 @@ public class InternalFailureOccurrenceDescriptionCreateCommand extends EditEleme
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -62,12 +51,6 @@ public class InternalFailureOccurrenceDescriptionCreateCommand extends EditEleme
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -84,12 +67,6 @@ public class InternalFailureOccurrenceDescriptionCreateCommand extends EditEleme
     }
 
     /**
-     * Do configure.
-     *
-     * @param newElement the new element
-     * @param monitor the monitor
-     * @param info the info
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(InternalFailureOccurrenceDescription newElement, IProgressMonitor monitor,

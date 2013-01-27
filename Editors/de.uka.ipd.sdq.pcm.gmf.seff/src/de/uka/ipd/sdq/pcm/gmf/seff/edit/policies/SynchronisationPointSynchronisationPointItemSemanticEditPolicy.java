@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ForkedBehaviour2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class SynchronisationPointSynchronisationPointItemSemanticEditPolicy.
- *
  * @generated
  */
 public class SynchronisationPointSynchronisationPointItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new synchronisation point synchronisation point item semantic edit policy.
-     *
      * @generated
      */
     public SynchronisationPointSynchronisationPointItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class SynchronisationPointSynchronisationPointItemSemanticEditPolicy exte
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

@@ -28,19 +28,16 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 
 /**
- * The Class PalladioComponentModelParserProvider.
- *
  * @generated
  */
 public class PalladioComponentModelParserProvider extends AbstractProvider implements IParserProvider {
 
-    /** The usage scenario entity name_5017 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser usageScenarioEntityName_5017Parser;
 
     /**
-     * Gets the usage scenario entity name_5017 parser.
-     *
-     * @return the usage scenario entity name_5017 parser
      * @generated
      */
     private IParser getUsageScenarioEntityName_5017Parser() {
@@ -52,13 +49,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return usageScenarioEntityName_5017Parser;
     }
 
-    /** The variable characterisation_3013 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser variableCharacterisation_3013Parser;
 
     /**
-     * Gets the variable characterisation_3013 parser.
-     *
-     * @return the variable characterisation_3013 parser
      * @generated
      */
     private IParser getVariableCharacterisation_3013Parser() {
@@ -73,13 +69,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return variableCharacterisation_3013Parser;
     }
 
-    /** The branch transition branch probability_5007 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser branchTransitionBranchProbability_5007Parser;
 
     /**
-     * Gets the branch transition branch probability_5007 parser.
-     *
-     * @return the branch transition branch probability_5007 parser
      * @generated
      */
     private IParser getBranchTransitionBranchProbability_5007Parser() {
@@ -92,13 +87,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return branchTransitionBranchProbability_5007Parser;
     }
 
-    /** The delay entity name_5018 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser delayEntityName_5018Parser;
 
     /**
-     * Gets the delay entity name_5018 parser.
-     *
-     * @return the delay entity name_5018 parser
      * @generated
      */
     private IParser getDelayEntityName_5018Parser() {
@@ -110,13 +104,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         return delayEntityName_5018Parser;
     }
 
-    /** The closed workload population_5013 parser. @generated */
+    /**
+     * @generated
+     */
     private IParser closedWorkloadPopulation_5013Parser;
 
     /**
-     * Gets the closed workload population_5013 parser.
-     *
-     * @return the closed workload population_5013 parser
      * @generated
      */
     private IParser getClosedWorkloadPopulation_5013Parser() {
@@ -132,10 +125,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Gets the parser.
-     *
-     * @param visualID the visual id
-     * @return the parser
      * @generated
      */
     protected IParser getParser(int visualID) {
@@ -155,12 +144,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Utility method that consults ParserService.
-     *
-     * @param type the type
-     * @param object the object
-     * @param parserHint the parser hint
-     * @return the parser
      * @generated
      */
     public static IParser getParser(IElementType type, EObject object, String parserHint) {
@@ -168,10 +151,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Gets the parser.
-     *
-     * @param hint the hint
-     * @return the parser
      * @generated
      */
     public IParser getParser(IAdaptable hint) {
@@ -187,10 +166,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * Provides.
-     *
-     * @param operation the operation
-     * @return true, if successful
      * @generated
      */
     public boolean provides(IOperation operation) {
@@ -205,8 +180,6 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
-     * The Class HintAdapter.
-     *
      * @generated
      */
     private static class HintAdapter extends ParserHintAdapter {
@@ -216,10 +189,13 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
 
         /**
          * Instantiates a new hint adapter.
-         *
-         * @param type the type
-         * @param object the object
-         * @param parserHint the parser hint
+         * 
+         * @param type
+         *            the type
+         * @param object
+         *            the object
+         * @param parserHint
+         *            the parser hint
          */
         public HintAdapter(IElementType type, EObject object, String parserHint) {
             super(object, parserHint);
@@ -229,8 +205,9 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
 
         /**
          * Gets the adapter.
-         *
-         * @param adapter the adapter
+         * 
+         * @param adapter
+         *            the adapter
          * @return the adapter
          * @see org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter#getAdapter(java.lang.Class)
          */

@@ -17,19 +17,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ForkedBehaviourSynchronisationP
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class ForkedBehaviourSynchronisationPointForkedBehavioursEditPart.
- *
  * @generated
  */
 public class ForkedBehaviourSynchronisationPointForkedBehavioursEditPart extends ShapeCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7033;
 
     /**
-     * Instantiates a new forked behaviour synchronisation point forked behaviours edit part.
-     *
-     * @param view the view
      * @generated
      */
     public ForkedBehaviourSynchronisationPointForkedBehavioursEditPart(View view) {
@@ -37,9 +34,6 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursEditPart extends
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -47,9 +41,6 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursEditPart extends
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -59,8 +50,6 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursEditPart extends
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -74,9 +63,6 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursEditPart extends
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

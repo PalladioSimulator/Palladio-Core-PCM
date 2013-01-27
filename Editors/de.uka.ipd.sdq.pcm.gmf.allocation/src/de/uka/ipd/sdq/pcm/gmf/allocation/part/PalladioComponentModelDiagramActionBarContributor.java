@@ -15,34 +15,31 @@ import org.eclipse.ui.IWorkbenchPage;
 /**
  * @generated
  */
-public class PalladioComponentModelDiagramActionBarContributor extends
-		DiagramActionBarContributor {
+public class PalladioComponentModelDiagramActionBarContributor extends DiagramActionBarContributor {
 
-	/**
-	 * @generated
-	 */
-	protected Class getEditorClass() {
-		return PalladioComponentModelAllocationDiagramEditor.class;
-	}
+    /**
+     * @generated
+     */
+    protected Class getEditorClass() {
+        return PalladioComponentModelAllocationDiagramEditor.class;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected String getEditorId() {
-		return PalladioComponentModelAllocationDiagramEditor.ID;
-	}
+    /**
+     * @generated
+     */
+    protected String getEditorId() {
+        return PalladioComponentModelAllocationDiagramEditor.ID;
+    }
 
-	/**
-	 * @generated
-	 */
-	public void init(IActionBars bars, IWorkbenchPage page) {
-		super.init(bars, page);
-		// print preview
-		IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(
-				IWorkbenchActionConstants.M_FILE);
-		assert fileMenu != null;
-		IAction printPreviewAction = new RenderedPrintPreviewAction(
-				new EnhancedPrintActionHelper());
-		fileMenu.insertBefore("print", printPreviewAction); //$NON-NLS-1$
-	}
+    /**
+     * @generated
+     */
+    public void init(IActionBars bars, IWorkbenchPage page) {
+        super.init(bars, page);
+        // print preview
+        IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_FILE);
+        assert fileMenu != null;
+        IAction printPreviewAction = new RenderedPrintPreviewAction(new EnhancedPrintActionHelper());
+        fileMenu.insertBefore("print", printPreviewAction); //$NON-NLS-1$
+    }
 }

@@ -41,7 +41,7 @@ public class CustomInternalFailureOccurrenceDescriptionEditPart extends Internal
      */
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart#getLabelText()
      */
@@ -73,7 +73,7 @@ public class CustomInternalFailureOccurrenceDescriptionEditPart extends Internal
      */
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart#addSemanticListeners()
      */
     @Override
@@ -101,7 +101,7 @@ public class CustomInternalFailureOccurrenceDescriptionEditPart extends Internal
      */
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart#removeSemanticListeners()
      */
     @Override

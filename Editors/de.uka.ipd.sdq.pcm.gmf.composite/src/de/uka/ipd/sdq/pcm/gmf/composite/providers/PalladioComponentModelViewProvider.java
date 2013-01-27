@@ -80,18 +80,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class PalladioComponentModelViewProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelViewProvider extends AbstractProvider implements IViewProvider {
 
     /**
-     * Provides.
-     * 
-     * @param operation
-     *            the operation
-     * @return true, if successful
      * @generated
      */
     public final boolean provides(IOperation operation) {
@@ -110,11 +103,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     * 
-     * @param op
-     *            the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateViewForKindOperation op) {
@@ -128,11 +116,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     * 
-     * @param op
-     *            the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateDiagramViewOperation op) {
@@ -142,11 +125,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     * 
-     * @param op
-     *            the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateNodeViewOperation op) {
@@ -221,11 +199,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     * 
-     * @param op
-     *            the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateEdgeViewOperation op) {
@@ -249,15 +222,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the diagram.
-     * 
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param diagramKind
-     *            the diagram kind
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the diagram
      * @generated
      */
     public Diagram createDiagram(IAdaptable semanticAdapter, String diagramKind, PreferencesHint preferencesHint) {
@@ -270,21 +234,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the node.
-     * 
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param containerView
-     *            the container view
-     * @param semanticHint
-     *            the semantic hint
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createNode(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -328,21 +277,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the edge.
-     * 
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param containerView
-     *            the container view
-     * @param semanticHint
-     *            the semantic hint
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createEdge(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -377,19 +311,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the composed providing requiring entity_2002.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createComposedProvidingRequiringEntity_2002(EObject domainElement, View containerView, int index,
@@ -434,19 +355,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the assembly context_3006.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createAssemblyContext_3006(EObject domainElement, View containerView, int index, boolean persisted,
@@ -484,19 +392,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the operation provided role_3007.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createOperationProvidedRole_3007(EObject domainElement, View containerView, int index,
@@ -538,19 +433,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the operation required role_3008.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createOperationRequiredRole_3008(EObject domainElement, View containerView, int index,
@@ -592,19 +474,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the source role_3013.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createSourceRole_3013(EObject domainElement, View containerView, int index, boolean persisted,
@@ -646,19 +515,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the sink role_3014.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createSinkRole_3014(EObject domainElement, View containerView, int index, boolean persisted,
@@ -700,19 +556,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the infrastructure provided role_3015.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createInfrastructureProvidedRole_3015(EObject domainElement, View containerView, int index,
@@ -754,19 +597,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the infrastructure required role_3016.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createInfrastructureRequiredRole_3016(EObject domainElement, View containerView, int index,
@@ -808,19 +638,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the operation provided role_3011.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createOperationProvidedRole_3011(EObject domainElement, View containerView, int index,
@@ -862,19 +679,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the operation required role_3012.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the node
      * @generated
      */
     public Node createOperationRequiredRole_3012(EObject domainElement, View containerView, int index,
@@ -916,19 +720,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the assembly connector_4004.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the edge
      * @generated
      */
     public Node createEventChannel_3017(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1089,19 +880,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the assembly event connector_4007.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createAssemblyEventConnector_4007(EObject domainElement, View containerView, int index,
@@ -1143,19 +921,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the required delegation connector_4005.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createRequiredDelegationConnector_4005(EObject domainElement, View containerView, int index,
@@ -1197,19 +962,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the provided delegation connector_4006.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createProvidedDelegationConnector_4006(EObject domainElement, View containerView, int index,
@@ -1251,19 +1003,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the assembly infrastructure connector_4008.
-     * 
-     * @param domainElement
-     *            the domain element
-     * @param containerView
-     *            the container view
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
-     * @param preferencesHint
-     *            the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createAssemblyInfrastructureConnector_4008(EObject domainElement, View containerView, int index,
@@ -1305,12 +1044,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Stamp shortcut.
-     * 
-     * @param containerView
-     *            the container view
-     * @param target
-     *            the target
      * @generated
      */
     private void stampShortcut(View containerView, Node target) {
@@ -1324,13 +1057,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the label.
-     * 
-     * @param owner
-     *            the owner
-     * @param hint
-     *            the hint
-     * @return the node
      * @generated
      */
     private Node createLabel(View owner, String hint) {
@@ -1341,21 +1067,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the compartment.
-     * 
-     * @param owner
-     *            the owner
-     * @param hint
-     *            the hint
-     * @param canCollapse
-     *            the can collapse
-     * @param hasTitle
-     *            the has title
-     * @param canSort
-     *            the can sort
-     * @param canFilter
-     *            the can filter
-     * @return the node
      * @generated
      */
     private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
@@ -1386,11 +1097,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Gets the semantic element.
-     * 
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @return the semantic element
      * @generated
      */
     private EObject getSemanticElement(IAdaptable semanticAdapter) {
@@ -1405,11 +1111,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Gets the semantic element type.
-     * 
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @return the semantic element type
      * @generated
      */
     private IElementType getSemanticElementType(IAdaptable semanticAdapter) {

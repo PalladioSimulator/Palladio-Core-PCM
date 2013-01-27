@@ -35,7 +35,9 @@ public class CustomResourceContainerAllocationCompartmentEditPart extends
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomResourceContainerAllocationCompartmentEditPart(View view) {
         super(view);

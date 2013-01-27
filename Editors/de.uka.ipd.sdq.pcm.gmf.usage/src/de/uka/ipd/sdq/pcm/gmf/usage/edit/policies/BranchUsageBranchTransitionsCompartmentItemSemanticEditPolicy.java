@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.usage.edit.commands.BranchTransitionCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class BranchUsageBranchTransitionsCompartmentItemSemanticEditPolicy.
- *
  * @generated
  */
 public class BranchUsageBranchTransitionsCompartmentItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new branch usage branch transitions compartment item semantic edit policy.
-     *
      * @generated
      */
     public BranchUsageBranchTransitionsCompartmentItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class BranchUsageBranchTransitionsCompartmentItemSemanticEditPolicy exten
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

@@ -55,7 +55,6 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.OperationSignatureItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
@@ -240,8 +239,9 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements I
         if (resolveSemanticElement() instanceof OperationSignature) {
             OperationSignature sig = (OperationSignature) resolveSemanticElement();
             text = new SignaturePrinter().doSwitch(sig);
-            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
+            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH) {
                 text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH - 1) + "...";
+            }
         }
         if (text == null || text.length() == 0) {
             text = defaultText;
@@ -376,7 +376,7 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements I
     private void performDirectEdit(char initialCharacter) {
         if (getManager() instanceof TextDirectEditManager) {
             ((TextDirectEditManager) getManager()).show(initialCharacter);
-        } else // 
+        } else //
         if (getManager() instanceof TextDirectEditManager2) {
             ((TextDirectEditManager2) getManager()).show(initialCharacter);
         } else //
@@ -498,12 +498,13 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements I
         OperationSignature element = (OperationSignature) resolveSemanticElement();
         addListenerFilter("SemanticModel", this, element); //$NON-NLS-1$
         DataType returnType = element.getReturnType__OperationSignature();
-        if (returnType != null)
+        if (returnType != null) {
             addListenerFilter("SemanticModel-RT", this, returnType); //$NON-NLS-1$
+        }
 
         EList<Parameter> params = element.getParameters__OperationSignature();
         for (int i = 0; i < params.size(); i++) {
-            addListenerFilter("SemanticModel-Param" + i, this, (EObject) params.get(i)); //$NON-NLS-1$
+            addListenerFilter("SemanticModel-Param" + i, this, params.get(i)); //$NON-NLS-1$
         }
 
     }
@@ -516,8 +517,9 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements I
         OperationSignature element = (OperationSignature) resolveSemanticElement();
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
         DataType returnType = element.getReturnType__OperationSignature();
-        if (returnType != null)
+        if (returnType != null) {
             removeListenerFilter("SemanticModel-RT"); //$NON-NLS-1$
+        }
 
         EList<Parameter> params = element.getParameters__OperationSignature();
         for (int i = 0; i < params.size(); i++) {
@@ -593,7 +595,8 @@ public class OperationSignatureEditPart extends CompartmentEditPart implements I
     /**
      * @generated not
      * 
-     * @param event a Notification
+     * @param event
+     *            a Notification
      */
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

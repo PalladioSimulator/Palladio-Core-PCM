@@ -21,11 +21,19 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part factory.
  */
 public class CustomPalladioComponentModelEditPartFactory extends PalladioComponentModelEditPartFactory {
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.PalladioComponentModelEditPartFactory#createEditPart
+     * (org.eclipse.gef.EditPart, java.lang.Object)
+     */
     @Override
     public EditPart createEditPart(EditPart context, Object model) {
         if (model instanceof View) {
@@ -99,6 +107,7 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
     }
 
     /**
+     * Creates a new CustomPalladioComponentModelEditPart object.
      * 
      * @param context
      *            an edit part

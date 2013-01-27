@@ -54,8 +54,6 @@ import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 
 /**
- * The Class PalladioComponentModelNavigatorLabelProvider.
- *
  * @generated
  */
 public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider,
@@ -72,10 +70,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Update label.
-     *
-     * @param label the label
-     * @param elementPath the element path
      * @generated
      */
     public void updateLabel(ViewerLabel label, TreePath elementPath) {
@@ -89,10 +83,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the image.
-     *
-     * @param element the element
-     * @return the image
      * @generated
      */
     public Image getImage(Object element) {
@@ -113,10 +103,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the image.
-     *
-     * @param view the view
-     * @return the image
      * @generated
      */
     public Image getImage(View view) {
@@ -177,11 +163,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the image.
-     *
-     * @param key the key
-     * @param elementType the element type
-     * @return the image
      * @generated
      */
     private Image getImage(String key, IElementType elementType) {
@@ -200,10 +181,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the text.
-     *
-     * @param element the element
-     * @return the text
      * @generated
      */
     public String getText(Object element) {
@@ -224,10 +201,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the text.
-     *
-     * @param view the view
-     * @return the text
      * @generated
      */
     public String getText(View view) {
@@ -274,10 +247,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the usage model_1000 text.
-     *
-     * @param view the view
-     * @return the usage model_1000 text
      * @generated
      */
     private String getUsageModel_1000Text(View view) {
@@ -285,10 +254,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the usage scenario_2004 text.
-     *
-     * @param view the view
-     * @return the usage scenario_2004 text
      * @generated
      */
     private String getUsageScenario_2004Text(View view) {
@@ -306,10 +271,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the scenario behaviour_3014 text.
-     *
-     * @param view the view
-     * @return the scenario behaviour_3014 text
      * @generated
      */
     private String getScenarioBehaviour_3014Text(View view) {
@@ -324,10 +285,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the start_3001 text.
-     *
-     * @param view the view
-     * @return the start_3001 text
      * @generated
      */
     private String getStart_3001Text(View view) {
@@ -342,10 +299,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the stop_3002 text.
-     *
-     * @param view the view
-     * @return the stop_3002 text
      * @generated
      */
     private String getStop_3002Text(View view) {
@@ -360,10 +313,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the entry level system call_3003 text.
-     *
-     * @param view the view
-     * @return the entry level system call_3003 text
      * @generated
      */
     private String getEntryLevelSystemCall_3003Text(View view) {
@@ -382,10 +331,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the variable usage_3012 text.
-     *
-     * @param view the view
-     * @return the variable usage_3012 text
      * @generated
      */
     private String getVariableUsage_3012Text(View view) {
@@ -403,10 +348,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the variable characterisation_3013 text.
-     *
-     * @param view the view
-     * @return the variable characterisation_3013 text
      * @generated
      */
     private String getVariableCharacterisation_3013Text(View view) {
@@ -425,10 +366,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the loop_3005 text.
-     *
-     * @param view the view
-     * @return the loop_3005 text
      * @generated
      */
     private String getLoop_3005Text(View view) {
@@ -446,10 +383,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the scenario behaviour_3007 text.
-     *
-     * @param view the view
-     * @return the scenario behaviour_3007 text
      * @generated
      */
     private String getScenarioBehaviour_3007Text(View view) {
@@ -464,10 +397,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the branch_3008 text.
-     *
-     * @param view the view
-     * @return the branch_3008 text
      * @generated
      */
     private String getBranch_3008Text(View view) {
@@ -482,10 +411,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the branch transition_3009 text.
-     *
-     * @param view the view
-     * @return the branch transition_3009 text
      * @generated
      */
     private String getBranchTransition_3009Text(View view) {
@@ -504,10 +429,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the scenario behaviour_3010 text.
-     *
-     * @param view the view
-     * @return the scenario behaviour_3010 text
      * @generated
      */
     private String getScenarioBehaviour_3010Text(View view) {
@@ -522,10 +443,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the delay_3017 text.
-     *
-     * @param view the view
-     * @return the delay_3017 text
      * @generated
      */
     private String getDelay_3017Text(View view) {
@@ -543,10 +460,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the closed workload_3015 text.
-     *
-     * @param view the view
-     * @return the closed workload_3015 text
      * @generated
      */
     private String getClosedWorkload_3015Text(View view) {
@@ -565,10 +478,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the open workload_3016 text.
-     *
-     * @param view the view
-     * @return the open workload_3016 text
      * @generated
      */
     private String getOpenWorkload_3016Text(View view) {
@@ -587,10 +496,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the abstract user action successor_4002 text.
-     *
-     * @param view the view
-     * @return the abstract user action successor_4002 text
      * @generated
      */
     private String getAbstractUserActionSuccessor_4002Text(View view) {
@@ -598,10 +503,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the unknown element text.
-     *
-     * @param view the view
-     * @return the unknown element text
      * @generated
      */
     private String getUnknownElementText(View view) {
@@ -609,10 +510,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the unresolved domain element proxy text.
-     *
-     * @param view the view
-     * @return the unresolved domain element proxy text
      * @generated
      */
     private String getUnresolvedDomainElementProxyText(View view) {
@@ -620,37 +517,24 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Inits the.
-     *
-     * @param aConfig the a config
      * @generated
      */
     public void init(ICommonContentExtensionSite aConfig) {
     }
 
     /**
-     * Restore state.
-     *
-     * @param aMemento the a memento
      * @generated
      */
     public void restoreState(IMemento aMemento) {
     }
 
     /**
-     * Save state.
-     *
-     * @param aMemento the a memento
      * @generated
      */
     public void saveState(IMemento aMemento) {
     }
 
     /**
-     * Gets the description.
-     *
-     * @param anElement the an element
-     * @return the description
      * @generated
      */
     public String getDescription(Object anElement) {
@@ -658,10 +542,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Checks if is own view.
-     *
-     * @param view the view
-     * @return true, if is own view
      * @generated
      */
     private boolean isOwnView(View view) {

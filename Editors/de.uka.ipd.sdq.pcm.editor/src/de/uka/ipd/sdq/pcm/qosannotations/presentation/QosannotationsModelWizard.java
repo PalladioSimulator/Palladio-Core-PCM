@@ -64,22 +64,15 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsFactory;
 import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 
 /**
- * This is a simple wizard for creating a new model file. <!-- begin-user-doc --> <!-- end-user-doc
- * -->
- * 
  * @generated
  */
 public class QosannotationsModelWizard extends Wizard implements INewWizard {
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The supported extensions for created files. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final List<String> FILE_EXTENSIONS = Collections.unmodifiableList(Arrays
@@ -87,68 +80,47 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
                     .split("\\s*,\\s*")));
 
     /**
-     * A formatted list of supported file extensions, suitable for display. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final String FORMATTED_FILE_EXTENSIONS = PalladioComponentModelEditorPlugin.INSTANCE.getString(
             "_UI_QosannotationsEditorFilenameExtensions").replaceAll("\\s*,\\s*", ", ");
 
     /**
-     * This caches an instance of the model package. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected QosannotationsPackage qosannotationsPackage = QosannotationsPackage.eINSTANCE;
 
     /**
-     * This caches an instance of the model factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected QosannotationsFactory qosannotationsFactory = qosannotationsPackage.getQosannotationsFactory();
 
     /**
-     * This is the file creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected QosannotationsModelWizardNewFileCreationPage newFileCreationPage;
 
     /**
-     * This is the initial object creation page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected QosannotationsModelWizardInitialObjectCreationPage initialObjectCreationPage;
 
     /**
-     * Remember the selection during initialization for populating the default container. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IStructuredSelection selection;
 
     /**
-     * Remember the workbench during initialization. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected IWorkbench workbench;
 
     /**
-     * Caches the names of the types that can be created as the root object. <!-- begin-user-doc -->
-     * <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected List<String> initialObjectNames;
 
     /**
-     * This just records the information. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public void init(IWorkbench workbench, IStructuredSelection selection) {
@@ -161,9 +133,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * Returns the names of the types that can be created as the root object. <!-- begin-user-doc
-     * --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected Collection<String> getInitialObjectNames() {
@@ -183,8 +152,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * Create a new model. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     protected EObject createInitialModel() {
@@ -194,8 +161,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * Do the work after everything is specified. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -279,14 +244,10 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * This is the one page of the wizard. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public class QosannotationsModelWizardNewFileCreationPage extends WizardNewFileCreationPage {
         /**
-         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public QosannotationsModelWizardNewFileCreationPage(String pageId, IStructuredSelection selection) {
@@ -294,9 +255,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * The framework calls this to see if the file is correct. <!-- begin-user-doc --> <!--
-         * end-user-doc -->
-         * 
          * @generated
          */
         @Override
@@ -315,8 +273,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public IFile getModelFile() {
@@ -325,34 +281,25 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * This is the page where the type of object to create is selected. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
      * @generated
      */
     public class QosannotationsModelWizardInitialObjectCreationPage extends WizardPage {
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Combo initialObjectField;
 
         /**
-         * @generated <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
          */
         protected List<String> encodings;
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Combo encodingField;
 
         /**
-         * Pass in the selection. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public QosannotationsModelWizardInitialObjectCreationPage(String pageId) {
@@ -360,8 +307,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public void createControl(Composite parent) {
@@ -433,8 +378,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected ModifyListener validator = new ModifyListener() {
@@ -444,8 +387,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         };
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected boolean validatePage() {
@@ -453,8 +394,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         @Override
@@ -472,8 +411,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public String getInitialObjectName() {
@@ -488,8 +425,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public String getEncoding() {
@@ -497,9 +432,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * Returns the label for the specified type name. <!-- begin-user-doc --> <!-- end-user-doc
-         * -->
-         * 
          * @generated
          */
         protected String getLabel(String typeName) {
@@ -512,8 +444,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
         }
 
         /**
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         protected Collection<String> getEncodings() {
@@ -530,9 +460,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * The framework calls this to create the contents of the wizard. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
      * @generated
      */
     @Override
@@ -591,8 +518,6 @@ public class QosannotationsModelWizard extends Wizard implements INewWizard {
     }
 
     /**
-     * Get the file from the page. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public IFile getModelFile() {

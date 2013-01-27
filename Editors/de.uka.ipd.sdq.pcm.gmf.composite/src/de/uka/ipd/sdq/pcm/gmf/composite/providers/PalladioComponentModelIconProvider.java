@@ -11,20 +11,11 @@ import org.eclipse.gmf.runtime.common.ui.services.icon.IIconProvider;
 import org.eclipse.swt.graphics.Image;
 
 /**
- * The Class PalladioComponentModelIconProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelIconProvider extends AbstractProvider implements IIconProvider {
 
     /**
-     * Gets the icon.
-     * 
-     * @param hint
-     *            the hint
-     * @param flags
-     *            the flags
-     * @return the icon
      * @generated
      */
     public Image getIcon(IAdaptable hint, int flags) {
@@ -32,11 +23,6 @@ public class PalladioComponentModelIconProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     * 
-     * @param operation
-     *            the operation
-     * @return true, if successful
      * @generated
      */
     public boolean provides(IOperation operation) {

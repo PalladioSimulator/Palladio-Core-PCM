@@ -33,7 +33,7 @@ public class CustomStartActionEditPart extends StartActionEditPart {
      */
     /**
      * Creates the node plate.
-     *
+     * 
      * @return the node figure
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartActionEditPart#createNodePlate()
      */

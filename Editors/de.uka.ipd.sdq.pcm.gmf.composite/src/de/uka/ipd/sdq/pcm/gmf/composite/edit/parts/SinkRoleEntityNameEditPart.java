@@ -51,25 +51,33 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelParserProvider;
 
 /**
- * The Class SinkRoleEntityNameEditPart.
- * 
  * @generated
  */
 public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAwareEditPart, IBorderItemEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 5016;
 
-    /** The manager. @generated */
+    /**
+     * @generated
+     */
     private DirectEditManager manager;
 
-    /** The parser. @generated */
+    /**
+     * @generated
+     */
     private IParser parser;
 
-    /** The parser elements. @generated */
+    /**
+     * @generated
+     */
     private List parserElements;
 
-    /** The default text. @generated */
+    /**
+     * @generated
+     */
     private String defaultText;
 
     /**
@@ -83,10 +91,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Instantiates a new sink role entity name edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public SinkRoleEntityNameEditPart(View view) {
@@ -94,8 +98,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -105,9 +107,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the border item locator.
-     * 
-     * @return the border item locator
      * @generated
      */
     public IBorderItemLocator getBorderItemLocator() {
@@ -120,8 +119,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Refresh bounds.
-     * 
      * @generated
      */
     public void refreshBounds() {
@@ -133,11 +130,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the label text helper.
-     * 
-     * @param figure
-     *            the figure
-     * @return the label text helper
      * @generated
      */
     protected String getLabelTextHelper(IFigure figure) {
@@ -149,12 +141,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Sets the label text helper.
-     * 
-     * @param figure
-     *            the figure
-     * @param text
-     *            the text
      * @generated
      */
     protected void setLabelTextHelper(IFigure figure, String text) {
@@ -166,11 +152,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the label icon helper.
-     * 
-     * @param figure
-     *            the figure
-     * @return the label icon helper
      * @generated
      */
     protected Image getLabelIconHelper(IFigure figure) {
@@ -182,12 +163,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Sets the label icon helper.
-     * 
-     * @param figure
-     *            the figure
-     * @param icon
-     *            the icon
      * @generated
      */
     protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -199,10 +174,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Sets the label.
-     * 
-     * @param figure
-     *            the new label
      * @generated
      */
     public void setLabel(IFigure figure) {
@@ -214,9 +185,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the model children.
-     * 
-     * @return the model children
      * @generated
      */
     protected List getModelChildren() {
@@ -224,11 +192,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the child by semantic hint.
-     * 
-     * @param semanticHint
-     *            the semantic hint
-     * @return the child by semantic hint
      * @generated
      */
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
@@ -236,9 +199,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the parser element.
-     * 
-     * @return the parser element
      * @generated
      */
     protected EObject getParserElement() {
@@ -246,9 +206,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the label icon.
-     * 
-     * @return the label icon
      * @generated
      */
     protected Image getLabelIcon() {
@@ -256,9 +213,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the label text.
-     * 
-     * @return the label text
      * @generated
      */
     protected String getLabelText() {
@@ -274,10 +228,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Sets the label text.
-     * 
-     * @param text
-     *            the new label text
      * @generated
      */
     public void setLabelText(String text) {
@@ -293,9 +243,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the edits the text.
-     * 
-     * @return the edits the text
      * @generated
      */
     public String getEditText() {
@@ -306,9 +253,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Checks if is editable.
-     * 
-     * @return true, if is editable
      * @generated
      */
     protected boolean isEditable() {
@@ -316,9 +260,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the edits the text validator.
-     * 
-     * @return the edits the text validator
      * @generated
      */
     public ICellEditorValidator getEditTextValidator() {
@@ -349,9 +290,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the completion processor.
-     * 
-     * @return the completion processor
      * @generated
      */
     public IContentAssistProcessor getCompletionProcessor() {
@@ -362,9 +300,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the parser options.
-     * 
-     * @return the parser options
      * @generated
      */
     public ParserOptions getParserOptions() {
@@ -372,9 +307,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the parser.
-     * 
-     * @return the parser
      * @generated
      */
     public IParser getParser() {
@@ -387,9 +319,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the manager.
-     * 
-     * @return the manager
      * @generated
      */
     protected DirectEditManager getManager() {
@@ -401,10 +330,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Sets the manager.
-     * 
-     * @param manager
-     *            the new manager
      * @generated
      */
     protected void setManager(DirectEditManager manager) {
@@ -412,8 +337,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Perform direct edit.
-     * 
      * @generated
      */
     protected void performDirectEdit() {
@@ -421,10 +344,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Perform direct edit.
-     * 
-     * @param eventLocation
-     *            the event location
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
@@ -434,10 +353,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Perform direct edit.
-     * 
-     * @param initialCharacter
-     *            the initial character
      * @generated
      */
     private void performDirectEdit(char initialCharacter) {
@@ -449,10 +364,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Perform direct edit request.
-     * 
-     * @param request
-     *            the request
      * @generated
      */
     protected void performDirectEditRequest(Request request) {
@@ -481,8 +392,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Refresh visuals.
-     * 
      * @generated
      */
     protected void refreshVisuals() {
@@ -495,8 +404,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Refresh label.
-     * 
      * @generated
      */
     protected void refreshLabel() {
@@ -513,8 +420,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Refresh underline.
-     * 
      * @generated
      */
     protected void refreshUnderline() {
@@ -525,8 +430,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Refresh strike through.
-     * 
      * @generated
      */
     protected void refreshStrikeThrough() {
@@ -537,8 +440,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Refresh font.
-     * 
      * @generated
      */
     protected void refreshFont() {
@@ -551,10 +452,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Sets the font color.
-     * 
-     * @param color
-     *            the new font color
      * @generated
      */
     protected void setFontColor(Color color) {
@@ -562,8 +459,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Adds the semantic listeners.
-     * 
      * @generated
      */
     protected void addSemanticListeners() {
@@ -579,8 +474,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Removes the semantic listeners.
-     * 
      * @generated
      */
     protected void removeSemanticListeners() {
@@ -594,9 +487,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the accessible edit part.
-     * 
-     * @return the accessible edit part
      * @generated
      */
     protected AccessibleEditPart getAccessibleEditPart() {
@@ -612,9 +502,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Gets the font style owner view.
-     * 
-     * @return the font style owner view
      * @generated
      */
     private View getFontStyleOwnerView() {
@@ -622,10 +509,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Handle notification event.
-     * 
-     * @param event
-     *            the event
      * @generated
      */
     protected void handleNotificationEvent(Notification event) {
@@ -661,9 +544,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Creates the figure.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createFigure() {
@@ -673,9 +553,6 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * Creates the figure prim.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createFigurePrim() {
@@ -683,15 +560,11 @@ public class SinkRoleEntityNameEditPart extends LabelEditPart implements ITextAw
     }
 
     /**
-     * The Class RoleLabelFigure.
-     * 
      * @generated
      */
     public class RoleLabelFigure extends WrappingLabel {
 
         /**
-         * Instantiates a new role label figure.
-         * 
          * @generated
          */
         public RoleLabelFigure() {

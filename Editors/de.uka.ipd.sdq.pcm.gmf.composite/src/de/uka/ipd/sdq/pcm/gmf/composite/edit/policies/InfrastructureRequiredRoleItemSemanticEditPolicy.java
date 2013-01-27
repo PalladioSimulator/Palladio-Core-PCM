@@ -27,15 +27,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 
 /**
- * The Class InfrastructureRequiredRoleItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new infrastructure required role item semantic edit policy.
-     * 
      * @generated
      */
     public InfrastructureRequiredRoleItemSemanticEditPolicy() {
@@ -43,11 +39,6 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     @Override
@@ -77,11 +68,6 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
-     * Gets the creates the relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the relationship command
      * @generated
      */
     @Override
@@ -125,11 +111,6 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
-     * Gets the complete create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the complete create relationship command
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -140,12 +121,6 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
-     * @param req
-     *            the req
-     * @return the reorient relationship command
      * @generated
      */
     @Override

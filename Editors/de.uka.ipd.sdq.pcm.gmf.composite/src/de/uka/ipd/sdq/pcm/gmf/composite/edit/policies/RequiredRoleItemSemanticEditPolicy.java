@@ -20,15 +20,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
- * The Class RequiredRoleItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new required role item semantic edit policy.
-     * 
      * @generated
      */
     public RequiredRoleItemSemanticEditPolicy() {
@@ -39,11 +35,6 @@ public class RequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBa
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     @Override

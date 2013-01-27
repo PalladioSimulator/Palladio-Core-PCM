@@ -49,17 +49,11 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.*;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class PalladioComponentModelViewProvider.
- *
  * @generated
  */
 public class PalladioComponentModelViewProvider extends AbstractProvider implements IViewProvider {
 
     /**
-     * Provides.
-     *
-     * @param operation the operation
-     * @return true, if successful
      * @generated
      */
     public final boolean provides(IOperation operation) {
@@ -78,10 +72,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     *
-     * @param op the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateViewForKindOperation op) {
@@ -95,10 +85,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     *
-     * @param op the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateDiagramViewOperation op) {
@@ -108,10 +94,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     *
-     * @param op the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateNodeViewOperation op) {
@@ -252,10 +234,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Provides.
-     *
-     * @param op the op
-     * @return true, if successful
      * @generated
      */
     protected boolean provides(CreateEdgeViewOperation op) {
@@ -279,12 +257,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the diagram.
-     *
-     * @param semanticAdapter the semantic adapter
-     * @param diagramKind the diagram kind
-     * @param preferencesHint the preferences hint
-     * @return the diagram
      * @generated
      */
     public Diagram createDiagram(IAdaptable semanticAdapter, String diagramKind, PreferencesHint preferencesHint) {
@@ -297,15 +269,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the node.
-     *
-     * @param semanticAdapter the semantic adapter
-     * @param containerView the container view
-     * @param semanticHint the semantic hint
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createNode(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -428,15 +391,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the edge.
-     *
-     * @param semanticAdapter the semantic adapter
-     * @param containerView the container view
-     * @param semanticHint the semantic hint
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createEdge(IAdaptable semanticAdapter, View containerView, String semanticHint, int index,
@@ -455,14 +409,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the start action_2001.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createStartAction_2001(EObject domainElement, View containerView, int index, boolean persisted,
@@ -498,14 +444,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the stop action_2002.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createStopAction_2002(EObject domainElement, View containerView, int index, boolean persisted,
@@ -542,14 +480,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the external call action_2003.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createExternalCallAction_2003(EObject domainElement, View containerView, int index, boolean persisted,
@@ -595,14 +525,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the emit event action_2013.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createEmitEventAction_2013(EObject domainElement, View containerView, int index, boolean persisted,
@@ -644,14 +566,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the loop action_2004.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createLoopAction_2004(EObject domainElement, View containerView, int index, boolean persisted,
@@ -692,14 +606,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the branch action_2005.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createBranchAction_2005(EObject domainElement, View containerView, int index, boolean persisted,
@@ -742,14 +648,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the internal action_2006.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createInternalAction_2006(EObject domainElement, View containerView, int index, boolean persisted,
@@ -799,14 +697,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the collection iterator action_2007.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createCollectionIteratorAction_2007(EObject domainElement, View containerView, int index,
@@ -847,14 +737,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the set variable action_2008.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createSetVariableAction_2008(EObject domainElement, View containerView, int index, boolean persisted,
@@ -896,14 +778,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the acquire action_2012.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createAcquireAction_2012(EObject domainElement, View containerView, int index, boolean persisted,
@@ -942,14 +816,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the release action_2010.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createReleaseAction_2010(EObject domainElement, View containerView, int index, boolean persisted,
@@ -988,14 +854,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the fork action_2011.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createForkAction_2011(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1037,14 +895,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the recovery action_2016.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createRecoveryAction_2016(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1086,14 +936,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable usage_3042.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableUsage_3042(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1134,14 +976,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable characterisation_3033.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableCharacterisation_3033(EObject domainElement, View containerView, int index,
@@ -1155,14 +989,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable usage_3049.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableUsage_3049(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1202,14 +1028,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable characterisation_3035.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableCharacterisation_3035(EObject domainElement, View containerView, int index,
@@ -1223,14 +1041,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable usage_3047.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableUsage_3047(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1270,14 +1080,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the resource demanding behaviour_3003.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createResourceDemandingBehaviour_3003(EObject domainElement, View containerView, int index,
@@ -1317,14 +1119,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the start action_3004.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createStartAction_3004(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1359,14 +1153,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the stop action_3005.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createStopAction_3005(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1402,14 +1188,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the loop action_3006.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createLoopAction_3006(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1449,14 +1227,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the internal action_3007.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createInternalAction_3007(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1504,14 +1274,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the parametric resource demand_3051.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createParametricResourceDemand_3051(EObject domainElement, View containerView, int index,
@@ -1525,14 +1287,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the internal failure occurrence description_3050.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createInternalFailureOccurrenceDescription_3050(EObject domainElement, View containerView, int index,
@@ -1547,14 +1301,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the infrastructure call_3053.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createInfrastructureCall_3053(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1598,14 +1344,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable usage_3054.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableUsage_3054(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1645,14 +1383,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the branch action_3009.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createBranchAction_3009(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1693,14 +1423,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the probabilistic branch transition_3010.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createProbabilisticBranchTransition_3010(EObject domainElement, View containerView, int index,
@@ -1742,14 +1464,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the resource demanding behaviour_3011.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createResourceDemandingBehaviour_3011(EObject domainElement, View containerView, int index,
@@ -1789,14 +1503,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the external call action_3012.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createExternalCallAction_3012(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1841,14 +1547,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the emit event action_3046.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createEmitEventAction_3046(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1889,14 +1587,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the acquire action_3026.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createAcquireAction_3026(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1934,14 +1624,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the release action_3020.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createReleaseAction_3020(EObject domainElement, View containerView, int index, boolean persisted,
@@ -1979,14 +1661,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the fork action_3023.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createForkAction_3023(EObject domainElement, View containerView, int index, boolean persisted,
@@ -2027,14 +1701,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the forked behaviour_3027.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createForkedBehaviour_3027(EObject domainElement, View containerView, int index, boolean persisted,
@@ -2073,14 +1739,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the collection iterator action_3013.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createCollectionIteratorAction_3013(EObject domainElement, View containerView, int index,
@@ -2120,14 +1778,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the resource demanding behaviour_3014.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createResourceDemandingBehaviour_3014(EObject domainElement, View containerView, int index,
@@ -2167,14 +1817,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the recovery action_3057.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createRecoveryAction_3057(EObject domainElement, View containerView, int index, boolean persisted,
@@ -2215,14 +1857,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the recovery action behaviour_3058.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createRecoveryActionBehaviour_3058(EObject domainElement, View containerView, int index,
@@ -2264,14 +1898,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the synchronisation point_3038.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createSynchronisationPoint_3038(EObject domainElement, View containerView, int index,
@@ -2311,14 +1937,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the forked behaviour_3039.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createForkedBehaviour_3039(EObject domainElement, View containerView, int index, boolean persisted,
@@ -2358,14 +1976,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the set variable action_3024.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createSetVariableAction_3024(EObject domainElement, View containerView, int index, boolean persisted,
@@ -2406,14 +2016,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable usage_3036.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableUsage_3036(EObject domainElement, View containerView, int index, boolean persisted,
@@ -2453,14 +2055,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable characterisation_3055.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableCharacterisation_3055(EObject domainElement, View containerView, int index,
@@ -2474,14 +2068,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable characterisation_3048.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableCharacterisation_3048(EObject domainElement, View containerView, int index,
@@ -2495,14 +2081,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the variable characterisation_3037.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createVariableCharacterisation_3037(EObject domainElement, View containerView, int index,
@@ -2516,14 +2094,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the guarded branch transition_3017.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createGuardedBranchTransition_3017(EObject domainElement, View containerView, int index,
@@ -2563,14 +2133,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the resource demanding behaviour_3018.
-     *
-     * @param domainElement the domain element
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the node
      * @generated
      */
     public Node createResourceDemandingBehaviour_3018(EObject domainElement, View containerView, int index,
@@ -2610,13 +2172,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the abstract action successor_ abstract action_4001.
-     *
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createAbstractActionSuccessor_AbstractAction_4001(View containerView, int index, boolean persisted,
@@ -2659,13 +2214,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the recovery action behaviour failure handling alternatives__ recovery action behaviour_4004.
-     *
-     * @param containerView the container view
-     * @param index the index
-     * @param persisted the persisted
-     * @param preferencesHint the preferences hint
-     * @return the edge
      * @generated
      */
     public Edge createRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
@@ -2708,10 +2256,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Stamp shortcut.
-     *
-     * @param containerView the container view
-     * @param target the target
      * @generated
      */
     private void stampShortcut(View containerView, Node target) {
@@ -2725,11 +2269,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the label.
-     *
-     * @param owner the owner
-     * @param hint the hint
-     * @return the node
      * @generated
      */
     private Node createLabel(View owner, String hint) {
@@ -2740,15 +2279,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Creates the compartment.
-     *
-     * @param owner the owner
-     * @param hint the hint
-     * @param canCollapse the can collapse
-     * @param hasTitle the has title
-     * @param canSort the can sort
-     * @param canFilter the can filter
-     * @return the node
      * @generated
      */
     private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
@@ -2779,10 +2309,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Gets the semantic element.
-     *
-     * @param semanticAdapter the semantic adapter
-     * @return the semantic element
      * @generated
      */
     private EObject getSemanticElement(IAdaptable semanticAdapter) {
@@ -2797,10 +2323,6 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     }
 
     /**
-     * Gets the semantic element type.
-     *
-     * @param semanticAdapter the semantic adapter
-     * @return the semantic element type
      * @generated
      */
     private IElementType getSemanticElementType(IAdaptable semanticAdapter) {

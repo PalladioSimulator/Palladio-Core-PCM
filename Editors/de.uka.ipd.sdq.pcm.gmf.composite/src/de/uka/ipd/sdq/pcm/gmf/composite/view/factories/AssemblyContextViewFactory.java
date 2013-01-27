@@ -20,18 +20,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEnt
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * A factory for creating AssemblyContextView objects.
- * 
  * @generated
  */
 public class AssemblyContextViewFactory extends AbstractShapeViewFactory {
 
     /**
-     * Creates a new AssemblyContextView object.
-     * 
-     * @param view
-     *            the view
-     * @return the list
      * @generated
      */
     protected List createStyles(View view) {
@@ -44,20 +37,6 @@ public class AssemblyContextViewFactory extends AbstractShapeViewFactory {
     }
 
     /**
-     * Decorate view.
-     * 
-     * @param containerView
-     *            the container view
-     * @param view
-     *            the view
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param semanticHint
-     *            the semantic hint
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
      * @generated
      */
     protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,

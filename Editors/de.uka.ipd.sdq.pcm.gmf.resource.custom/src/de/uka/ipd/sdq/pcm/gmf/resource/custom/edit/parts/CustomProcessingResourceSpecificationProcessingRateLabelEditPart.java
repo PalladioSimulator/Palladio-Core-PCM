@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.dialogs.resource.OpenProcessingRateDialog;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part.
  */
@@ -30,6 +31,7 @@ public class CustomProcessingResourceSpecificationProcessingRateLabelEditPart ex
         ProcessingResourceSpecificationProcessingRateLabelEditPart {
 
     /**
+     * Instantiates a new custom processing resource specification processing rate label edit part.
      * 
      * @param view
      *            a View
@@ -38,6 +40,12 @@ public class CustomProcessingResourceSpecificationProcessingRateLabelEditPart ex
         super(view);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationProcessingRateLabelEditPart#createDefaultEditPolicies()
+     */
     @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
@@ -61,6 +69,12 @@ public class CustomProcessingResourceSpecificationProcessingRateLabelEditPart ex
         installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenProcessingRateDialog());
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationProcessingRateLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -74,6 +88,12 @@ public class CustomProcessingResourceSpecificationProcessingRateLabelEditPart ex
         return "Processing Rate: " + text; // custom code
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationProcessingRateLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
@@ -81,11 +101,24 @@ public class CustomProcessingResourceSpecificationProcessingRateLabelEditPart ex
 
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationProcessingRateLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationProcessingRateLabelEditPart
+     * #handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

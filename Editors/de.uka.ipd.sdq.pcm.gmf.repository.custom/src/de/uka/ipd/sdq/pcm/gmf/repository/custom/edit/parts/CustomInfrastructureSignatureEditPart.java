@@ -22,13 +22,14 @@ public class CustomInfrastructureSignatureEditPart extends InfrastructureSignatu
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomInfrastructureSignatureEditPart(View view) {
         super(view);
     }
 
-    
     @Override
     protected String getLabelText() {
         String text = "";

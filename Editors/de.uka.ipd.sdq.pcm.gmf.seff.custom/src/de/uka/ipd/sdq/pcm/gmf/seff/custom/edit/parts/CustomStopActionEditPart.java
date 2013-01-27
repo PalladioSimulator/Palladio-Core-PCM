@@ -33,7 +33,7 @@ public class CustomStopActionEditPart extends StopActionEditPart {
      */
     /**
      * Creates the node plate.
-     *
+     * 
      * @return the node figure
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopActionEditPart#createNodePlate()
      */

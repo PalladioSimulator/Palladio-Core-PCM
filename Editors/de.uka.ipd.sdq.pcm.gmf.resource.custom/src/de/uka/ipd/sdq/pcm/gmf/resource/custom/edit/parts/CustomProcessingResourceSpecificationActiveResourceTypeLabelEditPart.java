@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificatio
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.impl.ProcessingResourceSpecificationImpl;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part.
  */
@@ -19,6 +20,8 @@ public class CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPar
         ProcessingResourceSpecificationActiveResourceTypeLabelEditPart {
 
     /**
+     * Instantiates a new custom processing resource specification active resource type label edit
+     * part.
      * 
      * @param view
      *            a View
@@ -27,6 +30,12 @@ public class CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPar
         super(view);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationActiveResourceTypeLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         ProcessingResourceSpecificationImpl specification = (ProcessingResourceSpecificationImpl) this
@@ -39,6 +48,12 @@ public class CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPar
         return text;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationActiveResourceTypeLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
@@ -46,11 +61,24 @@ public class CustomProcessingResourceSpecificationActiveResourceTypeLabelEditPar
 
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationActiveResourceTypeLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationActiveResourceTypeLabelEditPart
+     * #handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

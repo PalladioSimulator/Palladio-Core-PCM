@@ -56,31 +56,36 @@ import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelParserProvid
 import de.uka.ipd.sdq.pcm.usagemodel.Delay;
 
 /**
- * The Class DelayLabelSpecEditPart.
- *
  * @generated
  */
 public class DelayLabelSpecEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 5019;
 
-    /** The manager. @generated */
+    /**
+     * @generated
+     */
     private DirectEditManager manager;
 
-    /** The parser. @generated */
+    /**
+     * @generated
+     */
     private IParser parser;
 
-    /** The parser elements. @generated */
+    /**
+     * @generated
+     */
     private List parserElements;
 
-    /** The default text. @generated */
+    /**
+     * @generated
+     */
     private String defaultText;
 
     /**
-     * Instantiates a new delay label spec edit part.
-     *
-     * @param view the view
      * @generated
      */
     public DelayLabelSpecEditPart(View view) {
@@ -88,8 +93,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -117,10 +120,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the label text helper.
-     *
-     * @param figure the figure
-     * @return the label text helper
      * @generated
      */
     protected String getLabelTextHelper(IFigure figure) {
@@ -132,10 +131,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Sets the label text helper.
-     *
-     * @param figure the figure
-     * @param text the text
      * @generated
      */
     protected void setLabelTextHelper(IFigure figure, String text) {
@@ -147,10 +142,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the label icon helper.
-     *
-     * @param figure the figure
-     * @return the label icon helper
      * @generated
      */
     protected Image getLabelIconHelper(IFigure figure) {
@@ -162,10 +153,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Sets the label icon helper.
-     *
-     * @param figure the figure
-     * @param icon the icon
      * @generated
      */
     protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -177,9 +164,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Sets the label.
-     *
-     * @param figure the new label
      * @generated
      */
     public void setLabel(WrappingLabel figure) {
@@ -191,9 +175,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the model children.
-     *
-     * @return the model children
      * @generated
      */
     protected List getModelChildren() {
@@ -201,10 +182,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the child by semantic hint.
-     *
-     * @param semanticHint the semantic hint
-     * @return the child by semantic hint
      * @generated
      */
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
@@ -212,9 +189,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the parser element.
-     *
-     * @return the parser element
      * @generated
      */
     protected EObject getParserElement() {
@@ -222,9 +196,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the label icon.
-     *
-     * @return the label icon
      * @generated
      */
     protected Image getLabelIcon() {
@@ -237,7 +208,7 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
 
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @generated not
      */
@@ -257,9 +228,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Sets the label text.
-     *
-     * @param text the new label text
      * @generated
      */
     public void setLabelText(String text) {
@@ -275,9 +243,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the edits the text.
-     *
-     * @return the edits the text
      * @generated
      */
     public String getEditText() {
@@ -288,9 +253,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Checks if is editable.
-     *
-     * @return true, if is editable
      * @generated
      */
     protected boolean isEditable() {
@@ -298,9 +260,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the edits the text validator.
-     *
-     * @return the edits the text validator
      * @generated
      */
     public ICellEditorValidator getEditTextValidator() {
@@ -331,9 +290,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the completion processor.
-     *
-     * @return the completion processor
      * @generated
      */
     public IContentAssistProcessor getCompletionProcessor() {
@@ -344,9 +300,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the parser options.
-     *
-     * @return the parser options
      * @generated
      */
     public ParserOptions getParserOptions() {
@@ -354,9 +307,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the parser.
-     *
-     * @return the parser
      * @generated
      */
     public IParser getParser() {
@@ -369,9 +319,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the manager.
-     *
-     * @return the manager
      * @generated
      */
     protected DirectEditManager getManager() {
@@ -383,9 +330,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Sets the manager.
-     *
-     * @param manager the new manager
      * @generated
      */
     protected void setManager(DirectEditManager manager) {
@@ -393,8 +337,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Perform direct edit.
-     *
      * @generated
      */
     protected void performDirectEdit() {
@@ -402,9 +344,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Perform direct edit.
-     *
-     * @param eventLocation the event location
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
@@ -414,9 +353,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Perform direct edit.
-     *
-     * @param initialCharacter the initial character
      * @generated
      */
     private void performDirectEdit(char initialCharacter) {
@@ -428,9 +364,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Perform direct edit request.
-     *
-     * @param request the request
      * @generated
      */
     protected void performDirectEditRequest(Request request) {
@@ -459,8 +392,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Refresh visuals.
-     *
      * @generated
      */
     protected void refreshVisuals() {
@@ -473,8 +404,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Refresh label.
-     *
      * @generated
      */
     protected void refreshLabel() {
@@ -491,8 +420,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Refresh underline.
-     *
      * @generated
      */
     protected void refreshUnderline() {
@@ -503,8 +430,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Refresh strike through.
-     *
      * @generated
      */
     protected void refreshStrikeThrough() {
@@ -515,8 +440,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Refresh font.
-     *
      * @generated
      */
     protected void refreshFont() {
@@ -529,9 +452,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Sets the font color.
-     *
-     * @param color the new font color
      * @generated
      */
     protected void setFontColor(Color color) {
@@ -540,7 +460,7 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
 
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @generated not
      */
     protected void addSemanticListeners() {
@@ -550,7 +470,7 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
 
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @generated not
      */
     protected void removeSemanticListeners() {
@@ -558,9 +478,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the accessible edit part.
-     *
-     * @return the accessible edit part
      * @generated
      */
     protected AccessibleEditPart getAccessibleEditPart() {
@@ -576,9 +493,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Gets the font style owner view.
-     *
-     * @return the font style owner view
      * @generated
      */
     private View getFontStyleOwnerView() {
@@ -586,8 +500,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Adds the notational listeners.
-     *
      * @generated
      */
     protected void addNotationalListeners() {
@@ -596,8 +508,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Removes the notational listeners.
-     *
      * @generated
      */
     protected void removeNotationalListeners() {
@@ -607,8 +517,9 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @generated not
      */
     protected void handleNotificationEvent(Notification event) {
@@ -632,9 +543,6 @@ public class DelayLabelSpecEditPart extends CompartmentEditPart implements IText
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     protected IFigure createFigure() {

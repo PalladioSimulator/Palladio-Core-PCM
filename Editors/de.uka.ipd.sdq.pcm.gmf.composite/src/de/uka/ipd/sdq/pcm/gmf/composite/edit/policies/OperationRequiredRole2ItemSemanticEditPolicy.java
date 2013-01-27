@@ -25,16 +25,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * The semantic edit policy for outer system operation required roles.
- * 
- * 
  * @generated
  */
 public class OperationRequiredRole2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new operation required role2 item semantic edit policy.
-     * 
      * @generated
      */
     public OperationRequiredRole2ItemSemanticEditPolicy() {
@@ -42,11 +37,6 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -90,11 +80,6 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Gets the creates the relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the relationship command
      * @generated
      */
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -120,11 +105,6 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Gets the complete create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the complete create relationship command
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -138,12 +118,6 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
-     * @param req
-     *            the req
-     * @return the reorient relationship command
      * @generated
      */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {

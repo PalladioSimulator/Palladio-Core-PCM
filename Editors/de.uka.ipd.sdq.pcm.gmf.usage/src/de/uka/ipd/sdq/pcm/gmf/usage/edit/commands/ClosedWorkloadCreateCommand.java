@@ -20,16 +20,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 
 /**
- * The Class ClosedWorkloadCreateCommand.
- *
  * @generated
  */
 public class ClosedWorkloadCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new closed workload create command.
-     *
-     * @param req the req
      * @generated
      */
     public ClosedWorkloadCreateCommand(CreateElementRequest req) {
@@ -37,9 +32,6 @@ public class ClosedWorkloadCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the element to edit.
-     *
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -51,9 +43,6 @@ public class ClosedWorkloadCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -66,12 +55,6 @@ public class ClosedWorkloadCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -87,12 +70,6 @@ public class ClosedWorkloadCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     *
-     * @param newElement the new element
-     * @param monitor the monitor
-     * @param info the info
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(ClosedWorkload newElement, IProgressMonitor monitor, IAdaptable info)

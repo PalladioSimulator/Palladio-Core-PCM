@@ -20,16 +20,11 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
 
 /**
- * The Class UsageScenarioCreateCommand.
- *
  * @generated
  */
 public class UsageScenarioCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new usage scenario create command.
-     *
-     * @param req the req
      * @generated
      */
     public UsageScenarioCreateCommand(CreateElementRequest req) {
@@ -37,9 +32,6 @@ public class UsageScenarioCreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit().
-     *
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -51,9 +43,6 @@ public class UsageScenarioCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -62,12 +51,6 @@ public class UsageScenarioCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -83,12 +66,6 @@ public class UsageScenarioCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     *
-     * @param newElement the new element
-     * @param monitor the monitor
-     * @param info the info
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(UsageScenario newElement, IProgressMonitor monitor, IAdaptable info)

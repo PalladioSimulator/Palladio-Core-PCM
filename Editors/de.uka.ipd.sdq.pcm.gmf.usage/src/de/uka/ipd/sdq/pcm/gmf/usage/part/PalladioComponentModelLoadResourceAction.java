@@ -14,23 +14,21 @@ import org.eclipse.ui.IWorkbenchPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.UsageScenarioEditPart;
 
 /**
- * The Class PalladioComponentModelLoadResourceAction.
- *
  * @generated
  */
 public class PalladioComponentModelLoadResourceAction implements IObjectActionDelegate {
 
-    /** The my selected element. @generated */
+    /**
+     * @generated
+     */
     private UsageScenarioEditPart mySelectedElement;
 
-    /** The my shell. @generated */
+    /**
+     * @generated
+     */
     private Shell myShell;
 
     /**
-     * Sets the active part.
-     *
-     * @param action the action
-     * @param targetPart the target part
      * @generated
      */
     public void setActivePart(IAction action, IWorkbenchPart targetPart) {
@@ -38,9 +36,6 @@ public class PalladioComponentModelLoadResourceAction implements IObjectActionDe
     }
 
     /**
-     * Run.
-     *
-     * @param action the action
      * @generated
      */
     public void run(IAction action) {
@@ -50,10 +45,6 @@ public class PalladioComponentModelLoadResourceAction implements IObjectActionDe
     }
 
     /**
-     * Selection changed.
-     *
-     * @param action the action
-     * @param selection the selection
      * @generated
      */
     public void selectionChanged(IAction action, ISelection selection) {
@@ -69,9 +60,6 @@ public class PalladioComponentModelLoadResourceAction implements IObjectActionDe
     }
 
     /**
-     * Checks if is enabled.
-     *
-     * @return true, if is enabled
      * @generated
      */
     private boolean isEnabled() {

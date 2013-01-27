@@ -12,7 +12,7 @@ public class NewResourceDiagramAction extends BaseNewDiagramAction {
 
     /**
      * Gets the new wizard.
-     *
+     * 
      * @return the new wizard
      * @see de.uka.ipd.sdq.pcm.gmf.toolbar.BaseNewDiagramAction#getNewWizard()
      */

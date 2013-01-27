@@ -50,7 +50,8 @@ public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
     /**
      * Gets an OpenCommand.
      * 
-     * @param request a Request
+     * @param request
+     *            a Request
      * @return a Command
      */
     protected Command getOpenCommand(Request request) {
@@ -95,10 +96,13 @@ public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
         /**
          * @generated not
          * 
-         * @param monitor an IProgressMonitor
-         * @param info an IAdaptable
+         * @param monitor
+         *            an IProgressMonitor
+         * @param info
+         *            an IAdaptable
          * 
-         * @throws ExecutionException an Exception
+         * @throws ExecutionException
+         *             an Exception
          * 
          * @return A CommandResult
          */
@@ -134,7 +138,8 @@ public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
         /**
          * @generated not
          * 
-         * @throws ExecutionException An Exception
+         * @throws ExecutionException
+         *             An Exception
          * 
          * @return a new diagram
          */
@@ -167,7 +172,7 @@ public class CustomOpenSeffDiagramEditPolicy extends OpenSeffDiagramEditPolicy {
                             throw new InvocationTargetException(ex, "Save operation failed");
                         }
                     }
-                } .run(null);
+                }.run(null);
             } catch (InvocationTargetException e) {
                 throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
             } catch (InterruptedException e) {

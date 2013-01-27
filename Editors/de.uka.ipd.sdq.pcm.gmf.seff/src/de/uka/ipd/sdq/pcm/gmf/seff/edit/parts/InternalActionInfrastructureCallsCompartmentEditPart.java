@@ -20,19 +20,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalActionInfrastructureCal
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class InternalActionInfrastructureCallsCompartmentEditPart.
- *
  * @generated
  */
 public class InternalActionInfrastructureCallsCompartmentEditPart extends ListCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7048;
 
     /**
-     * Instantiates a new internal action infrastructure calls compartment edit part.
-     *
-     * @param view the view
      * @generated
      */
     public InternalActionInfrastructureCallsCompartmentEditPart(View view) {
@@ -40,10 +37,6 @@ public class InternalActionInfrastructureCallsCompartmentEditPart extends ListCo
     }
 
     /**
-     * Checks for model children changed.
-     *
-     * @param evt the evt
-     * @return true, if successful
      * @generated
      */
     protected boolean hasModelChildrenChanged(Notification evt) {
@@ -51,9 +44,6 @@ public class InternalActionInfrastructureCallsCompartmentEditPart extends ListCo
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -61,9 +51,6 @@ public class InternalActionInfrastructureCallsCompartmentEditPart extends ListCo
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -73,8 +60,6 @@ public class InternalActionInfrastructureCallsCompartmentEditPart extends ListCo
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -89,9 +74,6 @@ public class InternalActionInfrastructureCallsCompartmentEditPart extends ListCo
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

@@ -52,8 +52,7 @@ import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegi
 /**
  * A custom Palladio component model EditPart factory.
  */
-public class CustomPalladioComponentModelEditPartFactory extends 
-                    PalladioComponentModelEditPartFactory {
+public class CustomPalladioComponentModelEditPartFactory extends PalladioComponentModelEditPartFactory {
 
     @Override
     public EditPart createEditPart(EditPart context, Object model) {
@@ -204,7 +203,7 @@ public class CustomPalladioComponentModelEditPartFactory extends
 
             case SourceRoleLabelEditPart.VISUAL_ID:
                 return new SourceRoleLabelEditPart(view);
-            
+
             default:
             }
         }

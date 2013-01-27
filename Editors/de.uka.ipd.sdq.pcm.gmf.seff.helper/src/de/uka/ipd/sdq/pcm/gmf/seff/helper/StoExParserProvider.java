@@ -27,8 +27,9 @@ public class StoExParserProvider extends AbstractProvider implements IParserProv
      */
     /**
      * Gets the parser.
-     *
-     * @param hint the hint
+     * 
+     * @param hint
+     *            the hint
      * @return the parser
      * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParserProvider#getParser(org.eclipse.core.runtime.IAdaptable)
      */
@@ -81,8 +82,9 @@ public class StoExParserProvider extends AbstractProvider implements IParserProv
      */
     /**
      * Provides.
-     *
-     * @param operation the operation
+     * 
+     * @param operation
+     *            the operation
      * @return true, if successful
      * @see org.eclipse.gmf.runtime.common.core.service.IProvider#provides(org.eclipse.gmf.runtime.common.core.service.IOperation)
      */

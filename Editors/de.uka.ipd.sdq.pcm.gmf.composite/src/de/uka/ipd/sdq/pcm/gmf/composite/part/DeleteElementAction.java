@@ -22,17 +22,11 @@ import org.eclipse.ui.IWorkbenchPart;
 import org.eclipse.ui.PlatformUI;
 
 /**
- * The Class DeleteElementAction.
- * 
  * @generated
  */
 public class DeleteElementAction extends AbstractDeleteFromAction {
 
     /**
-     * Instantiates a new delete element action.
-     * 
-     * @param part
-     *            the part
      * @generated
      */
     public DeleteElementAction(IWorkbenchPart part) {
@@ -40,10 +34,6 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
     }
 
     /**
-     * Instantiates a new delete element action.
-     * 
-     * @param workbenchPage
-     *            the workbench page
      * @generated
      */
     public DeleteElementAction(IWorkbenchPage workbenchPage) {
@@ -51,8 +41,6 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
     }
 
     /**
-     * Inits the.
-     * 
      * @generated
      */
     public void init() {
@@ -67,9 +55,6 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
     }
 
     /**
-     * Gets the command label.
-     * 
-     * @return the command label
      * @generated
      */
     protected String getCommandLabel() {
@@ -77,11 +62,6 @@ public class DeleteElementAction extends AbstractDeleteFromAction {
     }
 
     /**
-     * Gets the command.
-     * 
-     * @param request
-     *            the request
-     * @return the command
      * @generated
      */
     protected Command getCommand(Request request) {

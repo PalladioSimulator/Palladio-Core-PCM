@@ -11,16 +11,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.ProbabilisticBranchTransitionCr
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class BranchActionBranchTransitionCompartmentItemSemanticEditPolicy.
- *
  * @generated
  */
 public class BranchActionBranchTransitionCompartmentItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new branch action branch transition compartment item semantic edit policy.
-     *
      * @generated
      */
     public BranchActionBranchTransitionCompartmentItemSemanticEditPolicy() {
@@ -28,10 +24,6 @@ public class BranchActionBranchTransitionCompartmentItemSemanticEditPolicy exten
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

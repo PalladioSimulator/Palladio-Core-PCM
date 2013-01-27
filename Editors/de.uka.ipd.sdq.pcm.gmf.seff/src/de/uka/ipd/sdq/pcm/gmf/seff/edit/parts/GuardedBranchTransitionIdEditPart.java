@@ -55,31 +55,36 @@ import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvide
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 
 /**
- * The Class GuardedBranchTransitionIdEditPart.
- *
  * @generated
  */
 public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 5036;
 
-    /** The manager. @generated */
+    /**
+     * @generated
+     */
     private DirectEditManager manager;
 
-    /** The parser. @generated */
+    /**
+     * @generated
+     */
     private IParser parser;
 
-    /** The parser elements. @generated */
+    /**
+     * @generated
+     */
     private List parserElements;
 
-    /** The default text. @generated */
+    /**
+     * @generated
+     */
     private String defaultText;
 
     /**
-     * Instantiates a new guarded branch transition id edit part.
-     *
-     * @param view the view
      * @generated
      */
     public GuardedBranchTransitionIdEditPart(View view) {
@@ -88,7 +93,7 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
 
     /**
      * Creates the default edit policies.
-     *
+     * 
      * @generated not
      */
     @Override
@@ -118,10 +123,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the label text helper.
-     *
-     * @param figure the figure
-     * @return the label text helper
      * @generated
      */
     protected String getLabelTextHelper(IFigure figure) {
@@ -133,10 +134,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Sets the label text helper.
-     *
-     * @param figure the figure
-     * @param text the text
      * @generated
      */
     protected void setLabelTextHelper(IFigure figure, String text) {
@@ -148,10 +145,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the label icon helper.
-     *
-     * @param figure the figure
-     * @return the label icon helper
      * @generated
      */
     protected Image getLabelIconHelper(IFigure figure) {
@@ -163,10 +156,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Sets the label icon helper.
-     *
-     * @param figure the figure
-     * @param icon the icon
      * @generated
      */
     protected void setLabelIconHelper(IFigure figure, Image icon) {
@@ -178,9 +167,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Sets the label.
-     *
-     * @param figure the new label
      * @generated
      */
     public void setLabel(WrappingLabel figure) {
@@ -192,9 +178,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the model children.
-     *
-     * @return the model children
      * @generated
      */
     @Override
@@ -203,10 +186,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the child by semantic hint.
-     *
-     * @param semanticHint the semantic hint
-     * @return the child by semantic hint
      * @generated
      */
     @Override
@@ -215,9 +194,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the parser element.
-     *
-     * @return the parser element
      * @generated
      */
     protected EObject getParserElement() {
@@ -225,9 +201,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the label icon.
-     *
-     * @return the label icon
      * @generated
      */
     protected Image getLabelIcon() {
@@ -238,10 +211,9 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
         return PalladioComponentModelElementTypes.getImage(parserElement.eClass());
     }
 
-    
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @generated not
      */
@@ -259,9 +231,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Sets the label text.
-     *
-     * @param text the new label text
      * @generated
      */
     @Override
@@ -278,9 +247,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the edits the text.
-     *
-     * @return the edits the text
      * @generated
      */
     @Override
@@ -292,9 +258,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Checks if is editable.
-     *
-     * @return true, if is editable
      * @generated
      */
     protected boolean isEditable() {
@@ -302,9 +265,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the edits the text validator.
-     *
-     * @return the edits the text validator
      * @generated
      */
     @Override
@@ -338,9 +298,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the completion processor.
-     *
-     * @return the completion processor
      * @generated
      */
     @Override
@@ -352,9 +309,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the parser options.
-     *
-     * @return the parser options
      * @generated
      */
     @Override
@@ -363,9 +317,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the parser.
-     *
-     * @return the parser
      * @generated
      */
     @Override
@@ -382,9 +333,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the manager.
-     *
-     * @return the manager
      * @generated
      */
     protected DirectEditManager getManager() {
@@ -396,9 +344,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Sets the manager.
-     *
-     * @param manager the new manager
      * @generated
      */
     protected void setManager(DirectEditManager manager) {
@@ -406,8 +351,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Perform direct edit.
-     *
      * @generated
      */
     protected void performDirectEdit() {
@@ -415,9 +358,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Perform direct edit.
-     *
-     * @param eventLocation the event location
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
@@ -427,9 +367,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Perform direct edit.
-     *
-     * @param initialCharacter the initial character
      * @generated
      */
     private void performDirectEdit(char initialCharacter) {
@@ -441,9 +378,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Perform direct edit request.
-     *
-     * @param request the request
      * @generated
      */
     @Override
@@ -474,8 +408,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Refresh visuals.
-     *
      * @generated
      */
     @Override
@@ -489,8 +421,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Refresh label.
-     *
      * @generated
      */
     protected void refreshLabel() {
@@ -507,8 +437,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Refresh underline.
-     *
      * @generated
      */
     protected void refreshUnderline() {
@@ -519,8 +447,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Refresh strike through.
-     *
      * @generated
      */
     protected void refreshStrikeThrough() {
@@ -531,8 +457,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Refresh font.
-     *
      * @generated
      */
     @Override
@@ -546,9 +470,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Sets the font color.
-     *
-     * @param color the new font color
      * @generated
      */
     @Override
@@ -558,7 +479,7 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
 
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @generated not
      */
     @Override
@@ -569,7 +490,7 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
 
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @generated not
      */
     @Override
@@ -578,9 +499,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the accessible edit part.
-     *
-     * @return the accessible edit part
      * @generated
      */
     @Override
@@ -598,9 +516,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Gets the font style owner view.
-     *
-     * @return the font style owner view
      * @generated
      */
     private View getFontStyleOwnerView() {
@@ -608,8 +523,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Adds the notational listeners.
-     *
      * @generated
      */
     @Override
@@ -619,8 +532,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Removes the notational listeners.
-     *
      * @generated
      */
     @Override
@@ -631,8 +542,9 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @generated not
      */
     @Override
@@ -657,9 +569,6 @@ public class GuardedBranchTransitionIdEditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     @Override

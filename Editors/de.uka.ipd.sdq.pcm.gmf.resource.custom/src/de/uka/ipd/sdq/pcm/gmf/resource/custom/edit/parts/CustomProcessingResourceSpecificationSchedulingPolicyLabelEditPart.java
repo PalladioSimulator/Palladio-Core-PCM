@@ -8,6 +8,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyLabelEditPart;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part.
  */
@@ -15,6 +16,8 @@ public class CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart 
         ProcessingResourceSpecificationSchedulingPolicyLabelEditPart {
 
     /**
+     * Instantiates a new custom processing resource specification scheduling policy label edit
+     * part.
      * 
      * @param view
      *            a View
@@ -24,6 +27,12 @@ public class CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart 
         // TODO Auto-generated constructor stub
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationSchedulingPolicyLabelEditPart#getLabelText()
+     */
     @Override
     protected String getLabelText() {
         String text = null;
@@ -39,17 +48,36 @@ public class CustomProcessingResourceSpecificationSchedulingPolicyLabelEditPart 
 
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationSchedulingPolicyLabelEditPart#addSemanticListeners()
+     */
     @Override
     protected void addSemanticListeners() {
         ProcessingResourceSpecification spec = (ProcessingResourceSpecification) resolveSemanticElement();
         addListenerFilter("SemanticModel", this, spec); //$NON-NLS-1$
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationSchedulingPolicyLabelEditPart#removeSemanticListeners()
+     */
     @Override
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.
+     * ProcessingResourceSpecificationSchedulingPolicyLabelEditPart
+     * #handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
+     */
     @Override
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

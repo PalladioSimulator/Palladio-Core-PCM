@@ -42,12 +42,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * Operation Required Role Edit Part for inner assembly context required roles.
- * 
- * For system operation required roles
- * 
- * @see OperationRequiredRole2EditPart
- * 
  * @generated
  */
 public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
@@ -55,20 +49,22 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3008;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new operation required role edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public OperationRequiredRoleEditPart(View view) {
@@ -76,8 +72,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -91,9 +85,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     * 
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -131,9 +122,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Creates the node shape.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -142,9 +130,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     * 
-     * @return the primary shape
      * @generated
      */
     public OperationRequiredRoleFigure getPrimaryShape() {
@@ -152,12 +137,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Adds the border item.
-     * 
-     * @param borderItemContainer
-     *            the border item container
-     * @param borderItemEditPart
-     *            the border item edit part
      * @generated
      */
     protected void addBorderItem(IFigure borderItemContainer, IBorderItemEditPart borderItemEditPart) {
@@ -171,9 +150,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Creates the node plate.
-     * 
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -185,9 +161,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the primary drag edit policy.
-     * 
-     * @return the primary drag edit policy
      * @generated
      */
     public EditPolicy getPrimaryDragEditPolicy() {
@@ -219,12 +192,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -232,9 +199,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the content pane.
-     * 
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -245,10 +209,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     * 
-     * @param color
-     *            the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -258,10 +218,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the background color.
-     * 
-     * @param color
-     *            the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -271,10 +227,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the line width.
-     * 
-     * @param width
-     *            the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -284,10 +236,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Sets the line type.
-     * 
-     * @param style
-     *            the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -297,9 +245,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the primary child edit part.
-     * 
-     * @return the primary child edit part
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
@@ -308,9 +253,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA rel types on source.
-     * 
-     * @return the mA rel types on source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
@@ -331,11 +273,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA rel types on source and target.
-     * 
-     * @param targetEditPart
-     *            the target edit part
-     * @return the mA rel types on source and target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
@@ -367,11 +304,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA types for target.
-     * 
-     * @param relationshipType
-     *            the relationship type
-     * @return the mA types for target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
@@ -403,9 +335,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA rel types on target.
-     * 
-     * @return the mA rel types on target
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
@@ -425,11 +354,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Gets the mA types for source.
-     * 
-     * @param relationshipType
-     *            the relationship type
-     * @return the mA types for source
      * @generated
      */
     public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
@@ -455,15 +379,11 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * The Class OperationRequiredRoleFigure.
-     * 
      * @generated
      */
     public class OperationRequiredRoleFigure extends Ellipse {
 
         /**
-         * Instantiates a new operation required role figure.
-         * 
          * @generated
          */
         public OperationRequiredRoleFigure() {
@@ -472,13 +392,12 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
             this.setLocation(new Point(getMapMode().DPtoLP(50), getMapMode().DPtoLP(50)));
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         * 
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -486,10 +405,6 @@ public class OperationRequiredRoleEditPart extends BorderedBorderItemEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         * 
-         * @param useLocalCoordinates
-         *            the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {

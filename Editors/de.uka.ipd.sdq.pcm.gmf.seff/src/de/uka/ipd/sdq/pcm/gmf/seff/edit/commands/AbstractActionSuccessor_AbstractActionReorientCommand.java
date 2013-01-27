@@ -16,28 +16,31 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemS
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 
 /**
- * The Class AbstractActionSuccessor_AbstractActionReorientCommand.
- *
  * @generated
  */
 public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditElementCommand {
 
-    /** The reorient direction. @generated */
+    /**
+     * @generated
+     */
     private final int reorientDirection;
 
-    /** The reference owner. @generated */
+    /**
+     * @generated
+     */
     private final EObject referenceOwner;
 
-    /** The old end. @generated */
+    /**
+     * @generated
+     */
     private final EObject oldEnd;
 
-    /** The new end. @generated */
+    /**
+     * @generated
+     */
     private final EObject newEnd;
 
     /**
-     * Instantiates a new abstract action successor_ abstract action reorient command.
-     *
-     * @param request the request
      * @generated
      */
     public AbstractActionSuccessor_AbstractActionReorientCommand(ReorientReferenceRelationshipRequest request) {
@@ -49,9 +52,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -68,9 +68,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Can reorient source.
-     *
-     * @return true, if successful
      * @generated
      */
     protected boolean canReorientSource() {
@@ -82,9 +79,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Can reorient target.
-     *
-     * @return true, if successful
      * @generated
      */
     protected boolean canReorientTarget() {
@@ -96,12 +90,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -118,10 +106,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Reorient source.
-     *
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult reorientSource() throws ExecutionException {
@@ -131,10 +115,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Reorient target.
-     *
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult reorientTarget() throws ExecutionException {
@@ -143,9 +123,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Gets the old source.
-     *
-     * @return the old source
      * @generated
      */
     protected AbstractAction getOldSource() {
@@ -153,9 +130,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Gets the new source.
-     *
-     * @return the new source
      * @generated
      */
     protected AbstractAction getNewSource() {
@@ -163,9 +137,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Gets the old target.
-     *
-     * @return the old target
      * @generated
      */
     protected AbstractAction getOldTarget() {
@@ -173,9 +144,6 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
     }
 
     /**
-     * Gets the new target.
-     *
-     * @return the new target
      * @generated
      */
     protected AbstractAction getNewTarget() {

@@ -25,18 +25,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * Semantic Edit Policy for Operation Provided Role Delegation connectors.
- * 
- * This edit policy has to ensure that operation provided delegation connectors can not connect
- * system provided roles with system provided roles again.
- * 
  * @generated
  */
 public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new operation provided role2 item semantic edit policy.
-     * 
      * @generated
      */
     public OperationProvidedRole2ItemSemanticEditPolicy() {
@@ -44,11 +37,6 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     @Override
@@ -93,11 +81,6 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Gets the creates the relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the relationship command
      * @generated
      */
     @Override
@@ -108,11 +91,6 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Gets the start create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the start create relationship command
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -149,12 +127,6 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
-     * @param req
-     *            the req
-     * @return the reorient relationship command
      * @generated
      */
     @Override

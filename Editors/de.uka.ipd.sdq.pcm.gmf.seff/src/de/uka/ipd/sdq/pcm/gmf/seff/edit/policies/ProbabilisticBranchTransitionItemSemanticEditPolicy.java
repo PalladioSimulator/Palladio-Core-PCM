@@ -22,16 +22,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class ProbabilisticBranchTransitionItemSemanticEditPolicy.
- *
  * @generated
  */
 public class ProbabilisticBranchTransitionItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new probabilistic branch transition item semantic edit policy.
-     *
      * @generated
      */
     public ProbabilisticBranchTransitionItemSemanticEditPolicy() {
@@ -39,10 +35,6 @@ public class ProbabilisticBranchTransitionItemSemanticEditPolicy extends
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
@@ -53,10 +45,6 @@ public class ProbabilisticBranchTransitionItemSemanticEditPolicy extends
     }
 
     /**
-     * Gets the destroy element command.
-     *
-     * @param req the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -77,9 +65,6 @@ public class ProbabilisticBranchTransitionItemSemanticEditPolicy extends
     }
 
     /**
-     * Adds the destroy child nodes command.
-     *
-     * @param cmd the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

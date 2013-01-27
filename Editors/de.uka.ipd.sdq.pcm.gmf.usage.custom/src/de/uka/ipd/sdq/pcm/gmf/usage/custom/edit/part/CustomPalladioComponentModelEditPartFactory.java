@@ -44,11 +44,14 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
 
     /**
      * Creates a new CustomPalladioComponentModelEditPart object.
-     *
-     * @param context the context
-     * @param model the model
+     * 
+     * @param context
+     *            the context
+     * @param model
+     *            the model
      * @return the edits the part
-     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.PalladioComponentModelEditPartFactory#createEditPart(org.eclipse.gef.EditPart, java.lang.Object)
+     * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.PalladioComponentModelEditPartFactory#createEditPart(org.eclipse.gef.EditPart,
+     *      java.lang.Object)
      */
     @Override
     public EditPart createEditPart(final EditPart context, final Object model) {
@@ -171,9 +174,11 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
 
     /**
      * Creates a new CustomPalladioComponentModelEditPart object.
-     *
-     * @param context the context
-     * @param model the model
+     * 
+     * @param context
+     *            the context
+     * @param model
+     *            the model
      * @return the edits the part
      */
     private EditPart createUnrecognizedEditPart(EditPart context, Object model) {

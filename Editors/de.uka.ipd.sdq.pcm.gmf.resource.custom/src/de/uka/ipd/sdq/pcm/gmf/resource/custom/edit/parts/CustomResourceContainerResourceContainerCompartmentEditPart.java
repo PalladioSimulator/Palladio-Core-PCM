@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 
+// TODO: Auto-generated Javadoc
 /**
  * An edit part.
  */
@@ -16,6 +17,7 @@ public class CustomResourceContainerResourceContainerCompartmentEditPart extends
         ResourceContainerResourceContainerCompartmentEditPart {
 
     /**
+     * Instantiates a new custom resource container resource container compartment edit part.
      * 
      * @param view
      *            a View
@@ -24,6 +26,13 @@ public class CustomResourceContainerResourceContainerCompartmentEditPart extends
         super(view);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart
+     * #createFigure()
+     */
     @Override
     public IFigure createFigure() {
         ResizableCompartmentFigure result = (ResizableCompartmentFigure) super.createFigure();

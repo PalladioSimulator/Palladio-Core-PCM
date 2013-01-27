@@ -33,23 +33,21 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditor
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class PalladioComponentModelNavigatorActionProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelNavigatorActionProvider extends CommonActionProvider {
 
-    /** The my contribute. @generated */
+    /**
+     * @generated
+     */
     private boolean myContribute;
 
-    /** The my open diagram action. @generated */
+    /**
+     * @generated
+     */
     private OpenDiagramAction myOpenDiagramAction;
 
     /**
-     * Inits the.
-     * 
-     * @param aSite
-     *            the a site
      * @generated
      */
     public void init(ICommonActionExtensionSite aSite) {
@@ -63,10 +61,6 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
     }
 
     /**
-     * Make actions.
-     * 
-     * @param viewerSite
-     *            the viewer site
      * @generated
      */
     private void makeActions(ICommonViewerWorkbenchSite viewerSite) {
@@ -74,10 +68,6 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
     }
 
     /**
-     * Fill action bars.
-     * 
-     * @param actionBars
-     *            the action bars
      * @generated
      */
     public void fillActionBars(IActionBars actionBars) {
@@ -92,33 +82,27 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
     }
 
     /**
-     * Fill context menu.
-     * 
-     * @param menu
-     *            the menu
      * @generated
      */
     public void fillContextMenu(IMenuManager menu) {
     }
 
     /**
-     * The Class OpenDiagramAction.
-     * 
      * @generated
      */
     private class OpenDiagramAction extends Action {
 
-        /** The my diagram. @generated */
+        /**
+         * @generated
+         */
         private Diagram myDiagram;
 
-        /** The my viewer site. @generated */
+        /**
+         * @generated
+         */
         private ICommonViewerWorkbenchSite myViewerSite;
 
         /**
-         * Instantiates a new open diagram action.
-         * 
-         * @param viewerSite
-         *            the viewer site
          * @generated
          */
         public OpenDiagramAction(ICommonViewerWorkbenchSite viewerSite) {
@@ -127,10 +111,6 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
         }
 
         /**
-         * Selection changed.
-         * 
-         * @param selection
-         *            the selection
          * @generated
          */
         public final void selectionChanged(IStructuredSelection selection) {
@@ -154,8 +134,6 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
         }
 
         /**
-         * Run.
-         * 
          * @generated
          */
         public void run() {
@@ -174,9 +152,6 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
         }
 
         /**
-         * Gets the editor input.
-         * 
-         * @return the editor input
          * @generated
          */
         private IEditorInput getEditorInput() {

@@ -10,6 +10,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.repository.custom.edit.policies.CustomOpenCompositeDiagramEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.CompositeComponentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.CompositeComponentItemSemanticEditPolicy;
+
 /**
  * A custom composite component EditPart.
  */
@@ -17,7 +18,9 @@ public class CustomCompositeComponentEditPart extends CompositeComponentEditPart
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomCompositeComponentEditPart(View view) {
         super(view);

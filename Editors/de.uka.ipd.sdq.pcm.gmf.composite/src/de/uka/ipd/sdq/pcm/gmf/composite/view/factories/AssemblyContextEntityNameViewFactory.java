@@ -11,27 +11,11 @@ import org.eclipse.gmf.runtime.diagram.ui.view.factories.BasicNodeViewFactory;
 import org.eclipse.gmf.runtime.notation.View;
 
 /**
- * A factory for creating AssemblyContextEntityNameView objects.
- * 
  * @generated
  */
 public class AssemblyContextEntityNameViewFactory extends BasicNodeViewFactory {
 
     /**
-     * Decorate view.
-     * 
-     * @param containerView
-     *            the container view
-     * @param view
-     *            the view
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param semanticHint
-     *            the semantic hint
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
      * @generated
      */
     protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,
@@ -40,11 +24,6 @@ public class AssemblyContextEntityNameViewFactory extends BasicNodeViewFactory {
     }
 
     /**
-     * Creates a new AssemblyContextEntityNameView object.
-     * 
-     * @param view
-     *            the view
-     * @return the list
      * @generated
      */
     protected List createStyles(View view) {

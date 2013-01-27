@@ -22,8 +22,9 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
 
     /**
      * Instantiates a new custom variable characterisation edit part.
-     *
-     * @param view the view
+     * 
+     * @param view
+     *            the view
      */
     public CustomVariableCharacterisationEditPart(View view) {
         super(view);
@@ -31,14 +32,13 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
 
     /** The change listener. */
     private EContentAdapter changeListener = null;
-    
+
     /** The adapted element. */
     private EObject adaptedElement = null;
 
-    
     /**
      * Gets the label text.
-     *
+     * 
      * @return the label text
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#getLabelText()
      */
@@ -65,7 +65,7 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
 
     /**
      * Adds the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#addSemanticListeners()
      */
     @Override
@@ -87,7 +87,7 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
 
     /**
      * Removes the semantic listeners.
-     *
+     * 
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#removeSemanticListeners()
      */
     @Override
@@ -98,8 +98,9 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
 
     /**
      * Handle notification event.
-     *
-     * @param event the event
+     * 
+     * @param event
+     *            the event
      * @see de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.VariableCharacterisationEditPart#handleNotificationEvent(org.eclipse.emf.common.notify.Notification)
      */
     @Override

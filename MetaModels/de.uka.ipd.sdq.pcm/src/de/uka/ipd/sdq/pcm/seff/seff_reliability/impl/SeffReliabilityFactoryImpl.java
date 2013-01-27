@@ -16,101 +16,100 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityFactory;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
- * <!-- begin-user-doc -->
- * An implementation of the model <b>Factory</b>.
- * <!-- end-user-doc -->
+ * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReliabilityFactory {
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
-	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public static SeffReliabilityFactory init() {
-		try {
-			SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"); 
-			if (theSeffReliabilityFactory != null) {
-				return theSeffReliabilityFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new SeffReliabilityFactoryImpl();
-	}
+    /**
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public static SeffReliabilityFactory init() {
+        try {
+            SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory) EPackage.Registry.INSTANCE
+                    .getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0");
+            if (theSeffReliabilityFactory != null) {
+                return theSeffReliabilityFactory;
+            }
+        } catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new SeffReliabilityFactoryImpl();
+    }
 
-	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SeffReliabilityFactoryImpl() {
-		super();
-	}
+    /**
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public SeffReliabilityFactoryImpl() {
+        super();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	@Override
-	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR: return createRecoveryActionBehaviour();
-			case SeffReliabilityPackage.RECOVERY_ACTION: return createRecoveryAction();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    @Override
+    public EObject create(EClass eClass) {
+        switch (eClass.getClassifierID()) {
+        case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR:
+            return createRecoveryActionBehaviour();
+        case SeffReliabilityPackage.RECOVERY_ACTION:
+            return createRecoveryAction();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RecoveryActionBehaviour createRecoveryActionBehaviour() {
-		RecoveryActionBehaviourImpl recoveryActionBehaviour = new RecoveryActionBehaviourImpl();
-		return recoveryActionBehaviour;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public RecoveryActionBehaviour createRecoveryActionBehaviour() {
+        RecoveryActionBehaviourImpl recoveryActionBehaviour = new RecoveryActionBehaviourImpl();
+        return recoveryActionBehaviour;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public RecoveryAction createRecoveryAction() {
-		RecoveryActionImpl recoveryAction = new RecoveryActionImpl();
-		return recoveryAction;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public RecoveryAction createRecoveryAction() {
+        RecoveryActionImpl recoveryAction = new RecoveryActionImpl();
+        return recoveryAction;
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public SeffReliabilityPackage getSeffReliabilityPackage() {
-		return (SeffReliabilityPackage)getEPackage();
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @generated
+     */
+    public SeffReliabilityPackage getSeffReliabilityPackage() {
+        return (SeffReliabilityPackage) getEPackage();
+    }
 
-	/**
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
-	@Deprecated
-	public static SeffReliabilityPackage getPackage() {
-		return SeffReliabilityPackage.eINSTANCE;
-	}
+    /**
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @deprecated
+     * @generated
+     */
+    @Deprecated
+    public static SeffReliabilityPackage getPackage() {
+        return SeffReliabilityPackage.eINSTANCE;
+    }
 
-} //SeffReliabilityFactoryImpl
+} // SeffReliabilityFactoryImpl

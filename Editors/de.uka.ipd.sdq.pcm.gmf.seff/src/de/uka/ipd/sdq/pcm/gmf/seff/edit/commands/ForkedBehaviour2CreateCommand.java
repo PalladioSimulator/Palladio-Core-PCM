@@ -20,16 +20,11 @@ import de.uka.ipd.sdq.pcm.seff.SeffFactory;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 /**
- * The Class ForkedBehaviour2CreateCommand.
- *
  * @generated
  */
 public class ForkedBehaviour2CreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new forked behaviour2 create command.
-     *
-     * @param req the req
      * @generated
      */
     public ForkedBehaviour2CreateCommand(CreateElementRequest req) {
@@ -37,9 +32,6 @@ public class ForkedBehaviour2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit().
-     *
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -51,9 +43,6 @@ public class ForkedBehaviour2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -62,12 +51,6 @@ public class ForkedBehaviour2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -83,12 +66,6 @@ public class ForkedBehaviour2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     *
-     * @param newElement the new element
-     * @param monitor the monitor
-     * @param info the info
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(ForkedBehaviour newElement, IProgressMonitor monitor, IAdaptable info)

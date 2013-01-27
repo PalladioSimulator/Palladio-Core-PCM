@@ -21,19 +21,16 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelNodeDescripto
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class ComposedProvidingRequiringEntity2CanonicalEditPolicy.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntity2CanonicalEditPolicy extends CanonicalEditPolicy {
 
-    /** The my features to synchronize. @generated */
+    /**
+     * @generated
+     */
     Set myFeaturesToSynchronize;
 
     /**
-     * Gets the semantic children list.
-     * 
-     * @return the semantic children list
      * @generated
      */
     protected List getSemanticChildrenList() {
@@ -47,13 +44,6 @@ public class ComposedProvidingRequiringEntity2CanonicalEditPolicy extends Canoni
     }
 
     /**
-     * Checks if is orphaned.
-     * 
-     * @param semanticChildren
-     *            the semantic children
-     * @param view
-     *            the view
-     * @return true, if is orphaned
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -69,9 +59,6 @@ public class ComposedProvidingRequiringEntity2CanonicalEditPolicy extends Canoni
     }
 
     /**
-     * Gets the default factory hint.
-     * 
-     * @return the default factory hint
      * @generated
      */
     protected String getDefaultFactoryHint() {
@@ -79,9 +66,6 @@ public class ComposedProvidingRequiringEntity2CanonicalEditPolicy extends Canoni
     }
 
     /**
-     * Gets the features to synchronize.
-     * 
-     * @return the features to synchronize
      * @generated
      */
     protected Set getFeaturesToSynchronize() {

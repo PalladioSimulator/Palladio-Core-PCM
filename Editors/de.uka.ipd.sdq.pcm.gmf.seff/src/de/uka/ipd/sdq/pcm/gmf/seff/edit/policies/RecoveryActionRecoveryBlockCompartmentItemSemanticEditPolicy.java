@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.RecoveryActionBehaviourCreateCo
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy.
- *
  * @generated
  */
 public class RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new recovery action recovery block compartment item semantic edit policy.
-     *
      * @generated
      */
     public RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy extend
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

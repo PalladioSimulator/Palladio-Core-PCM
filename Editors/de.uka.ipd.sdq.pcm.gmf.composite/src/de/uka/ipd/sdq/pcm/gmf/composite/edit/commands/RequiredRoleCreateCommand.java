@@ -22,17 +22,11 @@ import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 // TODO: decide whether this file is obsolete
 
 /**
- * The Class RequiredRoleCreateCommand.
- * 
  * @generated
  */
 public class RequiredRoleCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new required role create command.
-     * 
-     * @param req
-     *            the req
      * @generated
      */
     public RequiredRoleCreateCommand(CreateElementRequest req) {
@@ -40,9 +34,6 @@ public class RequiredRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the element to edit.
-     * 
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -54,9 +45,6 @@ public class RequiredRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -91,16 +79,6 @@ public class RequiredRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(RequiredRole newElement, IProgressMonitor monitor, IAdaptable info)

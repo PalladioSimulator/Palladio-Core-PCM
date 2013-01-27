@@ -21,16 +21,15 @@ import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEdito
 import de.uka.ipd.sdq.pcmbench.propertytabs.PalladioAdapterFactoryContentProvider;
 
 /**
- * The Class PalladioComponentModelPropertySection.
- *
  * @generated
  */
 public class PalladioComponentModelPropertySection extends AdvancedPropertySection implements IPropertySourceProvider {
 
     /**
      * Gets the property source.
-     *
-     * @param object the object
+     * 
+     * @param object
+     *            the object
      * @return the property source
      * @generated not
      */
@@ -49,9 +48,6 @@ public class PalladioComponentModelPropertySection extends AdvancedPropertySecti
     }
 
     /**
-     * Gets the property source provider.
-     *
-     * @return the property source provider
      * @generated
      */
     protected IPropertySourceProvider getPropertySourceProvider() {
@@ -59,10 +55,6 @@ public class PalladioComponentModelPropertySection extends AdvancedPropertySecti
     }
 
     /**
-     * Modify/unwrap selection.
-     *
-     * @param selected the selected
-     * @return the object
      * @generated
      */
     protected Object transformSelection(Object selected) {
@@ -84,10 +76,6 @@ public class PalladioComponentModelPropertySection extends AdvancedPropertySecti
     }
 
     /**
-     * Sets the input.
-     *
-     * @param part the part
-     * @param selection the selection
      * @generated
      */
     public void setInput(IWorkbenchPart part, ISelection selection) {
@@ -108,8 +96,9 @@ public class PalladioComponentModelPropertySection extends AdvancedPropertySecti
 
     /**
      * Gets the adapter factory.
-     *
-     * @param object the object
+     * 
+     * @param object
+     *            the object
      * @return the adapter factory
      * @generated not
      */

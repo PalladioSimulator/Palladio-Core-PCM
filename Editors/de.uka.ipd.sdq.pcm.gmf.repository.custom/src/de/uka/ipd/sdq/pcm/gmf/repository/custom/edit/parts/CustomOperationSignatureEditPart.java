@@ -17,14 +17,16 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.SignaturePrinter;
  */
 public class CustomOperationSignatureEditPart extends OperationSignatureEditPart {
 
-	/**
+    /**
      * An adaptedElement.
      */
     private OperationSignature adaptedElement = null;
-    
+
     /**
      * A custom operation signature EditPart.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomOperationSignatureEditPart(View view) {
         super(view);
@@ -50,18 +52,18 @@ public class CustomOperationSignatureEditPart extends OperationSignatureEditPart
         }
         return text;
     }
-    
+
     @Override
     protected void addSemanticListeners() {
-    	adaptedElement = (OperationSignature) resolveSemanticElement();
+        adaptedElement = (OperationSignature) resolveSemanticElement();
         super.addSemanticListeners();
-        
+
     }
 
     @Override
     protected void removeSemanticListeners() {
 
-        OperationSignature element =  adaptedElement;
+        OperationSignature element = adaptedElement;
         removeListenerFilter("SemanticModel"); //$NON-NLS-1$
         DataType returnType = element.getReturnType__OperationSignature();
         if (returnType != null) {

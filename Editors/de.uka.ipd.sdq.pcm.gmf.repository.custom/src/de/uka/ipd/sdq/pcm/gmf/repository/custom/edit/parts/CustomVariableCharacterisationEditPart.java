@@ -20,7 +20,9 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomVariableCharacterisationEditPart(View view) {
         super(view);
@@ -43,7 +45,6 @@ public class CustomVariableCharacterisationEditPart extends VariableCharacterisa
         return text;
     }
 
-    
     @Override
     protected void addSemanticListeners() {
         VariableCharacterisation characterisation = (VariableCharacterisation) resolveSemanticElement();

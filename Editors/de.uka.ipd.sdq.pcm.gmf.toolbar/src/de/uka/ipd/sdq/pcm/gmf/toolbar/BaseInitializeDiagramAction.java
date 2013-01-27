@@ -13,8 +13,9 @@ public abstract class BaseInitializeDiagramAction extends BaseDiagramAction {
 
     /**
      * Run.
-     *
-     * @param action the action
+     * 
+     * @param action
+     *            the action
      * @see org.eclipse.ui.IActionDelegate#run(org.eclipse.jface.action.IAction)
      */
     @Override

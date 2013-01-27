@@ -34,15 +34,11 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
- * The Class OperationProvidedRoleItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class OperationProvidedRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new operation provided role item semantic edit policy.
-     * 
      * @generated
      */
     public OperationProvidedRoleItemSemanticEditPolicy() {
@@ -50,11 +46,6 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     @Override
@@ -188,11 +179,6 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Gets the start create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the start create relationship command
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -206,11 +192,6 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Gets the complete create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the complete create relationship command
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -224,12 +205,6 @@ public class OperationProvidedRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
-     * @param req
-     *            the req
-     * @return the reorient relationship command
      * @generated
      */
     @Override

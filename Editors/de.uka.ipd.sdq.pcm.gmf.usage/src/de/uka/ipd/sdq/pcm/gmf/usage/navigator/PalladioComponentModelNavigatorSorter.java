@@ -8,20 +8,16 @@ import org.eclipse.jface.viewers.ViewerSorter;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class PalladioComponentModelNavigatorSorter.
- *
  * @generated
  */
 public class PalladioComponentModelNavigatorSorter extends ViewerSorter {
 
-    /** The Constant GROUP_CATEGORY. @generated */
+    /**
+     * @generated
+     */
     private static final int GROUP_CATEGORY = 7015;
 
     /**
-     * Category.
-     *
-     * @param element the element
-     * @return the int
      * @generated
      */
     public int category(Object element) {

@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage3CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class SetVariableActionVariableSetterItemSemanticEditPolicy.
- *
  * @generated
  */
 public class SetVariableActionVariableSetterItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new sets the variable action variable setter item semantic edit policy.
-     *
      * @generated
      */
     public SetVariableActionVariableSetterItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class SetVariableActionVariableSetterItemSemanticEditPolicy extends
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

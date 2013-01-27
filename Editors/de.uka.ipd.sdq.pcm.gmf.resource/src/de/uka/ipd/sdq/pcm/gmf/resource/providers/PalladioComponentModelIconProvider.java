@@ -13,23 +13,22 @@ import org.eclipse.swt.graphics.Image;
 /**
  * @generated
  */
-public class PalladioComponentModelIconProvider extends AbstractProvider
-		implements IIconProvider {
+public class PalladioComponentModelIconProvider extends AbstractProvider implements IIconProvider {
 
-	/**
-	 * @generated
-	 */
-	public Image getIcon(IAdaptable hint, int flags) {
-		return PalladioComponentModelElementTypes.getImage(hint);
-	}
+    /**
+     * @generated
+     */
+    public Image getIcon(IAdaptable hint, int flags) {
+        return PalladioComponentModelElementTypes.getImage(hint);
+    }
 
-	/**
-	 * @generated
-	 */
-	public boolean provides(IOperation operation) {
-		if (operation instanceof GetIconOperation) {
-			return ((GetIconOperation) operation).execute(this) != null;
-		}
-		return false;
-	}
+    /**
+     * @generated
+     */
+    public boolean provides(IOperation operation) {
+        if (operation instanceof GetIconOperation) {
+            return ((GetIconOperation) operation).execute(this) != null;
+        }
+        return false;
+    }
 }

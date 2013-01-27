@@ -5,14 +5,13 @@ package de.uka.ipd.sdq.pcm.gmf.repository.edit.parts;
 
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeCompartmentEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ResizableCompartmentEditPolicy;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentComponentParameterCompartmentCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.BasicComponentComponentParameterCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.Messages;

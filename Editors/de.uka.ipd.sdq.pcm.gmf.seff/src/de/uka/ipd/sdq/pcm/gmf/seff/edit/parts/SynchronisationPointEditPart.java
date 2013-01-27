@@ -32,25 +32,26 @@ import org.eclipse.swt.graphics.Color;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.SynchronisationPointItemSemanticEditPolicy;
 
 /**
- * The Class SynchronisationPointEditPart.
- *
  * @generated
  */
 public class SynchronisationPointEditPart extends ShapeNodeEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3038;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new synchronisation point edit part.
-     *
-     * @param view the view
      * @generated
      */
     public SynchronisationPointEditPart(View view) {
@@ -58,8 +59,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -72,9 +71,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     *
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -100,9 +96,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node shape.
-     *
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -111,9 +104,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     *
-     * @return the primary shape
      * @generated
      */
     public SynchronisationPointFigure getPrimaryShape() {
@@ -121,10 +111,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
@@ -139,10 +125,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the fixed child.
-     *
-     * @param childEditPart the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
@@ -157,10 +139,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Adds the child visual.
-     *
-     * @param childEditPart the child edit part
-     * @param index the index
      * @generated
      */
     protected void addChildVisual(EditPart childEditPart, int index) {
@@ -171,9 +149,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Removes the child visual.
-     *
-     * @param childEditPart the child edit part
      * @generated
      */
     protected void removeChildVisual(EditPart childEditPart) {
@@ -184,10 +159,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane for.
-     *
-     * @param editPart the edit part
-     * @return the content pane for
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
@@ -198,9 +169,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates the node plate.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -209,12 +177,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     *
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -227,11 +189,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     *
-     * @param nodeShape instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -244,9 +201,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Gets the content pane.
-     *
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -257,9 +211,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     *
-     * @param color the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -269,9 +220,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the background color.
-     *
-     * @param color the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -281,9 +229,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line width.
-     *
-     * @param width the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -293,9 +238,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Sets the line type.
-     *
-     * @param style the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -305,18 +247,16 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * The Class SynchronisationPointFigure.
-     *
      * @generated
      */
     public class SynchronisationPointFigure extends RectangleFigure {
 
-        /** The figure synchronisation point compartment. @generated */
+        /**
+         * @generated
+         */
         private RectangleFigure fFigureSynchronisationPointCompartment;
 
         /**
-         * Instantiates a new synchronisation point figure.
-         *
          * @generated
          */
         public SynchronisationPointFigure() {
@@ -337,8 +277,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Creates the contents.
-         *
          * @generated
          */
         private void createContents() {
@@ -378,13 +316,12 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
 
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         *
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -392,9 +329,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         *
-         * @param useLocalCoordinates the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
@@ -402,9 +336,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
         }
 
         /**
-         * Gets the figure synchronisation point compartment.
-         *
-         * @return the figure synchronisation point compartment
          * @generated
          */
         public RectangleFigure getFigureSynchronisationPointCompartment() {

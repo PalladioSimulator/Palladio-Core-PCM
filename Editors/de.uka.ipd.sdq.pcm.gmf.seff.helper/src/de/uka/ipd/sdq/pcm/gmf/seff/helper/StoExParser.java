@@ -37,8 +37,9 @@ public class StoExParser implements IParser {
      */
     /**
      * Gets the completion processor.
-     *
-     * @param element the element
+     * 
+     * @param element
+     *            the element
      * @return the completion processor
      * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getCompletionProcessor(org.eclipse.core.runtime.IAdaptable)
      */
@@ -56,11 +57,14 @@ public class StoExParser implements IParser {
      */
     /**
      * Gets the edits the string.
-     *
-     * @param element the element
-     * @param flags the flags
+     * 
+     * @param element
+     *            the element
+     * @param flags
+     *            the flags
      * @return the edits the string
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getEditString(org.eclipse.core.runtime.IAdaptable, int)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getEditString(org.eclipse.core.runtime.IAdaptable,
+     *      int)
      */
     @Override
     public String getEditString(final IAdaptable element, final int flags) {
@@ -77,12 +81,16 @@ public class StoExParser implements IParser {
      */
     /**
      * Gets the parses the command.
-     *
-     * @param element the element
-     * @param newString the new string
-     * @param flags the flags
+     * 
+     * @param element
+     *            the element
+     * @param newString
+     *            the new string
+     * @param flags
+     *            the flags
      * @return the parses the command
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getParseCommand(org.eclipse.core.runtime.IAdaptable, java.lang.String, int)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getParseCommand(org.eclipse.core.runtime.IAdaptable,
+     *      java.lang.String, int)
      */
     @Override
     public ICommand getParseCommand(final IAdaptable element, final String newString, final int flags) {
@@ -101,11 +109,14 @@ public class StoExParser implements IParser {
      */
     /**
      * Gets the prints the string.
-     *
-     * @param element the element
-     * @param flags the flags
+     * 
+     * @param element
+     *            the element
+     * @param flags
+     *            the flags
      * @return the prints the string
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getPrintString(org.eclipse.core.runtime.IAdaptable, int)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#getPrintString(org.eclipse.core.runtime.IAdaptable,
+     *      int)
      */
     @Override
     public String getPrintString(final IAdaptable element, final int flags) {
@@ -132,11 +143,14 @@ public class StoExParser implements IParser {
      */
     /**
      * Checks if is affecting event.
-     *
-     * @param event the event
-     * @param flags the flags
+     * 
+     * @param event
+     *            the event
+     * @param flags
+     *            the flags
      * @return true, if is affecting event
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isAffectingEvent(java.lang.Object, int)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isAffectingEvent(java.lang.Object,
+     *      int)
      */
     @Override
     public boolean isAffectingEvent(final Object event, final int flags) {
@@ -153,11 +167,14 @@ public class StoExParser implements IParser {
      */
     /**
      * Checks if is valid edit string.
-     *
-     * @param element the element
-     * @param editString the edit string
+     * 
+     * @param element
+     *            the element
+     * @param editString
+     *            the edit string
      * @return the i parser edit status
-     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core.runtime.IAdaptable, java.lang.String)
+     * @see org.eclipse.gmf.runtime.common.ui.services.parser.IParser#isValidEditString(org.eclipse.core.runtime.IAdaptable,
+     *      java.lang.String)
      */
     @Override
     public IParserEditStatus isValidEditString(final IAdaptable element, final String editString) {

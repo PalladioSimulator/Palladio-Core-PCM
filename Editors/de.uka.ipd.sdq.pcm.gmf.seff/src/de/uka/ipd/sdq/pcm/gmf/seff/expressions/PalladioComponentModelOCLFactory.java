@@ -23,27 +23,17 @@ import org.eclipse.ocl.utilities.AbstractVisitor;
 import org.eclipse.ocl.utilities.PredefinedType;
 
 /**
- * A factory for creating PalladioComponentModelOCL objects.
- *
  * @generated
  */
 public class PalladioComponentModelOCLFactory {
 
     /**
-     * Instantiates a new palladio component model ocl factory.
-     *
      * @generated
      */
     private PalladioComponentModelOCLFactory() {
     }
 
     /**
-     * Gets the expression.
-     *
-     * @param body the body
-     * @param context the context
-     * @param environment the environment
-     * @return the expression
      * @generated
      */
     public static PalladioComponentModelAbstractExpression getExpression(String body, EClassifier context,
@@ -52,11 +42,6 @@ public class PalladioComponentModelOCLFactory {
     }
 
     /**
-     * Gets the expression.
-     *
-     * @param body the body
-     * @param context the context
-     * @return the expression
      * @generated
      */
     public static PalladioComponentModelAbstractExpression getExpression(String body, EClassifier context) {
@@ -64,24 +49,21 @@ public class PalladioComponentModelOCLFactory {
     }
 
     /**
-     * The Class Expression.
-     *
      * @generated
      */
     private static class Expression extends PalladioComponentModelAbstractExpression {
-        
-        /** The query ref. @generated */
+
+        /**
+         * @generated
+         */
         private WeakReference queryRef;
 
-        /** The ocl instance. @generated */
+        /**
+         * @generated
+         */
         private final org.eclipse.ocl.ecore.OCL oclInstance;
 
         /**
-         * Instantiates a new expression.
-         *
-         * @param body the body
-         * @param context the context
-         * @param environment the environment
          * @generated
          */
         public Expression(String body, EClassifier context, Map environment) {
@@ -91,9 +73,6 @@ public class PalladioComponentModelOCLFactory {
         }
 
         /**
-         * Gets the query.
-         *
-         * @return the query
          * @generated
          */
         protected Query getQuery() {
@@ -117,11 +96,6 @@ public class PalladioComponentModelOCLFactory {
         }
 
         /**
-         * Do evaluate.
-         *
-         * @param context the context
-         * @param env the env
-         * @return the object
          * @generated
          */
         protected Object doEvaluate(Object context, Map env) {
@@ -146,9 +120,6 @@ public class PalladioComponentModelOCLFactory {
         }
 
         /**
-         * Inits the extent map.
-         *
-         * @param context the context
          * @generated
          */
         private void initExtentMap(Object context) {
@@ -180,10 +151,6 @@ public class PalladioComponentModelOCLFactory {
         }
 
         /**
-         * Inits the custom env.
-         *
-         * @param ecoreEnv the ecore env
-         * @param environment the environment
          * @generated
          */
         private static void initCustomEnv(Environment ecoreEnv, Map environment) {
@@ -195,12 +162,6 @@ public class PalladioComponentModelOCLFactory {
         }
 
         /**
-         * Creates the var.
-         *
-         * @param ecoreEnv the ecore env
-         * @param name the name
-         * @param type the type
-         * @return the variable
          * @generated
          */
         private static Variable createVar(Environment ecoreEnv, String name, EClassifier type) {

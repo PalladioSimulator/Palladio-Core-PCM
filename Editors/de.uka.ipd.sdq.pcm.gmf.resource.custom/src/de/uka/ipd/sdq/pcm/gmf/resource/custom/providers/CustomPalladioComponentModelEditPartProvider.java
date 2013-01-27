@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.resource.custom.providers;
 import de.uka.ipd.sdq.pcm.gmf.resource.custom.edit.parts.CustomPalladioComponentModelEditPartFactory;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelEditPartProvider;
 
+// TODO: Auto-generated Javadoc
 /**
  * Am edit part provider.
  */

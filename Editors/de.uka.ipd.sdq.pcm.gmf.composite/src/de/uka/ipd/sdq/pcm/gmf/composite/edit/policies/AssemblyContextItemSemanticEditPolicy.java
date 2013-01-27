@@ -46,15 +46,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class AssemblyContextItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new assembly context item semantic edit policy.
-     * 
      * @generated
      */
     public AssemblyContextItemSemanticEditPolicy() {
@@ -62,11 +58,6 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
     }
 
     /**
-     * Gets the creates the command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
@@ -126,10 +117,6 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
     }
 
     /**
-     * Adds the destroy child nodes command.
-     * 
-     * @param cmd
-     *            the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

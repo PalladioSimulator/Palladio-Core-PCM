@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.InfrastructureCallCreateCommand
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy.
- *
  * @generated
  */
 public class InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new internal action infrastructure calls compartment item semantic edit policy.
-     *
      * @generated
      */
     public InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class InternalActionInfrastructureCallsCompartmentItemSemanticEditPolicy 
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

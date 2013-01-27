@@ -10,16 +10,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class AbstractActionSuccessor_AbstractActionItemSemanticEditPolicy.
- *
  * @generated
  */
 public class AbstractActionSuccessor_AbstractActionItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new abstract action successor_ abstract action item semantic edit policy.
-     *
      * @generated
      */
     public AbstractActionSuccessor_AbstractActionItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class AbstractActionSuccessor_AbstractActionItemSemanticEditPolicy extend
     }
 
     /**
-     * Gets the destroy reference command.
-     *
-     * @param req the req
-     * @return the destroy reference command
      * @generated
      */
     protected Command getDestroyReferenceCommand(DestroyReferenceRequest req) {

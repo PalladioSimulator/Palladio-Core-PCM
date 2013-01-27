@@ -71,7 +71,8 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ProvidesComponentTypeItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children
+        // add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -172,11 +173,6 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
      * @generated
      */
     protected NodeFigure createNodeFigure() {
@@ -189,11 +185,6 @@ public class ProvidesComponentTypeEditPart extends ShapeNodeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {

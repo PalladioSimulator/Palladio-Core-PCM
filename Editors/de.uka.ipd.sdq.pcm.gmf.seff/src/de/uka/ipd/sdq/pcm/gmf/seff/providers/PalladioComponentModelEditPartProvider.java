@@ -19,27 +19,31 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class PalladioComponentModelEditPartProvider.
- *
  * @generated
  */
 public class PalladioComponentModelEditPartProvider extends AbstractEditPartProvider {
 
-    /** The factory. @generated */
+    /**
+     * @generated
+     */
     private EditPartFactory factory;
 
-    /** The allow caching. @generated */
+    /**
+     * @generated
+     */
     private boolean allowCaching;
 
-    /** The cached part. @generated */
+    /**
+     * @generated
+     */
     private WeakReference cachedPart;
 
-    /** The cached view. @generated */
+    /**
+     * @generated
+     */
     private WeakReference cachedView;
 
     /**
-     * Instantiates a new palladio component model edit part provider.
-     *
      * @generated
      */
     public PalladioComponentModelEditPartProvider() {
@@ -48,9 +52,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Gets the factory.
-     *
-     * @return the factory
      * @generated
      */
     public final EditPartFactory getFactory() {
@@ -58,9 +59,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Sets the factory.
-     *
-     * @param factory the new factory
      * @generated
      */
     protected void setFactory(EditPartFactory factory) {
@@ -68,9 +66,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Checks if is allow caching.
-     *
-     * @return true, if is allow caching
      * @generated
      */
     public final boolean isAllowCaching() {
@@ -78,9 +73,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Sets the allow caching.
-     *
-     * @param allowCaching the new allow caching
      * @generated
      */
     protected synchronized void setAllowCaching(boolean allowCaching) {
@@ -92,10 +84,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Creates the edit part.
-     *
-     * @param view the view
-     * @return the i graphical edit part
      * @generated
      */
     protected IGraphicalEditPart createEditPart(View view) {
@@ -107,10 +95,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Gets the cached part.
-     *
-     * @param view the view
-     * @return the cached part
      * @generated
      */
     protected IGraphicalEditPart getCachedPart(View view) {
@@ -121,10 +105,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Creates the graphic edit part.
-     *
-     * @param view the view
-     * @return the i graphical edit part
      * @generated
      */
     public synchronized IGraphicalEditPart createGraphicEditPart(View view) {
@@ -140,10 +120,6 @@ public class PalladioComponentModelEditPartProvider extends AbstractEditPartProv
     }
 
     /**
-     * Provides.
-     *
-     * @param operation the operation
-     * @return true, if successful
      * @generated
      */
     public synchronized boolean provides(IOperation operation) {

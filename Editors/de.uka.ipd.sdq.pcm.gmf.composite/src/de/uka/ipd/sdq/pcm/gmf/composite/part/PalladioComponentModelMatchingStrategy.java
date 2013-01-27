@@ -10,20 +10,11 @@ import org.eclipse.ui.IEditorReference;
 import org.eclipse.ui.PartInitException;
 
 /**
- * The Class PalladioComponentModelMatchingStrategy.
- * 
  * @generated
  */
 public class PalladioComponentModelMatchingStrategy implements IEditorMatchingStrategy {
 
     /**
-     * Matches.
-     * 
-     * @param editorRef
-     *            the editor ref
-     * @param input
-     *            the input
-     * @return true, if successful
      * @generated
      */
     public boolean matches(IEditorReference editorRef, IEditorInput input) {

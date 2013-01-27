@@ -17,19 +17,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingBehaviourBehav
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class ResourceDemandingBehaviourBehaviourCompartment4EditPart.
- *
  * @generated
  */
 public class ResourceDemandingBehaviourBehaviourCompartment4EditPart extends ShapeCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7018;
 
     /**
-     * Instantiates a new resource demanding behaviour behaviour compartment4 edit part.
-     *
-     * @param view the view
      * @generated
      */
     public ResourceDemandingBehaviourBehaviourCompartment4EditPart(View view) {
@@ -37,9 +34,6 @@ public class ResourceDemandingBehaviourBehaviourCompartment4EditPart extends Sha
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -47,9 +41,6 @@ public class ResourceDemandingBehaviourBehaviourCompartment4EditPart extends Sha
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -59,8 +50,6 @@ public class ResourceDemandingBehaviourBehaviourCompartment4EditPart extends Sha
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -74,9 +63,6 @@ public class ResourceDemandingBehaviourBehaviourCompartment4EditPart extends Sha
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

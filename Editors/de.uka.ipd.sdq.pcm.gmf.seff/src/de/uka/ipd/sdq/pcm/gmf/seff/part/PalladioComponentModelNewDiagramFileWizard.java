@@ -48,19 +48,23 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
 /**
- * The Class PalladioComponentModelNewDiagramFileWizard.
- *
  * @generated
  */
 public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
-    /** The my file creation page. @generated */
+    /**
+     * @generated
+     */
     private WizardNewFileCreationPage myFileCreationPage;
 
-    /** The diagram root element selection page. @generated */
+    /**
+     * @generated
+     */
     private ModelElementSelectionPage diagramRootElementSelectionPage;
 
-    /** The my editing domain. @generated */
+    /**
+     * @generated
+     */
     private final TransactionalEditingDomain myEditingDomain;
 
     /** The my diagram filename selection page. @generated not */
@@ -71,10 +75,13 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
     /**
      * Instantiates a new palladio component model new diagram file wizard.
-     *
-     * @param domainModelURI the domain model uri
-     * @param diagramRoot the diagram root
-     * @param editingDomain the editing domain
+     * 
+     * @param domainModelURI
+     *            the domain model uri
+     * @param diagramRoot
+     *            the diagram root
+     * @param editingDomain
+     *            the editing domain
      * @generated not
      */
     public PalladioComponentModelNewDiagramFileWizard(URI domainModelURI, EObject diagramRoot,
@@ -115,7 +122,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
     /**
      * Adds the pages.
-     *
+     * 
      * @generated not
      */
     @Override
@@ -126,7 +133,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
     /**
      * Perform finish.
-     *
+     * 
      * @return true, if successful
      * @generated not
      */
@@ -182,15 +189,12 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
     /**
      * The Class DiagramRootElementSelectionPage.
-     *
+     * 
      * @generated not
      */
     private class DiagramRootElementSelectionPage extends WizardPage {
 
         /**
-         * Instantiates a new diagram root element selection page.
-         *
-         * @param pageName the page name
          * @generated
          */
         protected DiagramRootElementSelectionPage(String pageName) {
@@ -199,21 +203,23 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
         /** The my combo. */
         private Combo myCombo;
-        
+
         /** The my found seffs. */
         private List<ResourceDemandingSEFF> myFoundSeffs;
-        
+
         /** The my diagram root. */
         private EObject myDiagramRoot;
-        
+
         /** The my seff. */
         private ResourceDemandingSEFF mySeff;
 
         /**
          * Instantiates a new diagram root element selection page.
-         *
-         * @param pageName the page name
-         * @param diagramRoot the diagram root
+         * 
+         * @param pageName
+         *            the page name
+         * @param diagramRoot
+         *            the diagram root
          * @generated not
          */
         protected DiagramRootElementSelectionPage(String pageName, EObject diagramRoot) {
@@ -224,13 +230,17 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
             mySeff = null;
         }
 
-        /* (non-Javadoc)
-         * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
+        /*
+         * (non-Javadoc)
+         * 
+         * @see
+         * org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
          */
         /**
          * Creates the control.
-         *
-         * @param parent the parent
+         * 
+         * @param parent
+         *            the parent
          * @see org.eclipse.jface.dialogs.IDialogPage#createControl(org.eclipse.swt.widgets.Composite)
          */
         @Override
@@ -247,8 +257,9 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
         /**
          * Creates the page content.
-         *
-         * @param parent the parent
+         * 
+         * @param parent
+         *            the parent
          */
         private void createPageContent(Composite parent) {
             Composite panel = new Composite(parent, SWT.NONE);
@@ -302,10 +313,11 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
         /**
          * helper function to determine the name of the service of a seff.
-         *
-         * @param seff any seff
+         * 
+         * @param seff
+         *            any seff
          * @return the name of the service the seff belongs to or "" if the seff belongs to no
-         * service
+         *         service
          * @generated not
          */
         protected String getServiceNameFromSEFF(ResourceDemandingSEFF seff) {
@@ -329,9 +341,6 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
         }
 
         /**
-         * Gets the selection title.
-         *
-         * @return the selection title
          * @generated
          */
         protected String getSelectionTitle() {
@@ -340,7 +349,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
         /**
          * Gets the seff.
-         *
+         * 
          * @return the seff
          */
         protected ResourceDemandingSEFF getSeff() {
@@ -349,7 +358,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
 
         /**
          * Validate page.
-         *
+         * 
          * @return true, if successful
          * @generated not
          */
@@ -373,25 +382,29 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
         }
 
         /**
-         * The listener interface for receiving comboSelection events.
-         * The class that is interested in processing a comboSelection
-         * event implements this interface, and the object created
-         * with that class is registered with a component using the
-         * component's <code>addComboSelectionListener<code> method. When
+         * The listener interface for receiving comboSelection events. The class that is interested
+         * in processing a comboSelection event implements this interface, and the object created
+         * with that class is registered with a component using the component's
+         * <code>addComboSelectionListener<code> method. When
          * the comboSelection event occurs, that object's appropriate
          * method is invoked.
-         *
+         * 
          * @see ComboSelectionEvent
          */
         private class ComboSelectionListener implements SelectionListener {
 
-            /* (non-Javadoc)
-             * @see org.eclipse.swt.events.SelectionListener#widgetDefaultSelected(org.eclipse.swt.events.SelectionEvent)
+            /*
+             * (non-Javadoc)
+             * 
+             * @see
+             * org.eclipse.swt.events.SelectionListener#widgetDefaultSelected(org.eclipse.swt.events
+             * .SelectionEvent)
              */
             /**
              * Widget default selected.
-             *
-             * @param e the e
+             * 
+             * @param e
+             *            the e
              * @see org.eclipse.swt.events.SelectionListener#widgetDefaultSelected(org.eclipse.swt.events.SelectionEvent)
              */
             @Override
@@ -399,13 +412,17 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
                 setPageComplete(validatePage());
             }
 
-            /* (non-Javadoc)
-             * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
+            /*
+             * (non-Javadoc)
+             * 
+             * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.
+             * SelectionEvent)
              */
             /**
              * Widget selected.
-             *
-             * @param e the e
+             * 
+             * @param e
+             *            the e
              * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent)
              */
             @Override

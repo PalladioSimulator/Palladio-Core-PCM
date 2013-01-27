@@ -55,7 +55,6 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.InfrastructureSignatureItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelParserProvider;
@@ -238,8 +237,9 @@ public class InfrastructureSignatureEditPart extends CompartmentEditPart impleme
         if (resolveSemanticElement() instanceof InfrastructureSignature) {
             InfrastructureSignature sig = (InfrastructureSignature) resolveSemanticElement();
             text = new SignaturePrinter().doSwitch(sig);
-            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH)
+            if (text.length() > MAX_SIGNATURE_DISPLAY_LENGTH) {
                 text = text.substring(0, MAX_SIGNATURE_DISPLAY_LENGTH - 1) + "...";
+            }
         } else if (getParserElement() != null && getParser() != null) {
             text = getParser().getPrintString(new EObjectAdapter(getParserElement()), getParserOptions().intValue());
         }
@@ -376,7 +376,7 @@ public class InfrastructureSignatureEditPart extends CompartmentEditPart impleme
     private void performDirectEdit(char initialCharacter) {
         if (getManager() instanceof TextDirectEditManager) {
             ((TextDirectEditManager) getManager()).show(initialCharacter);
-        } else // 
+        } else //
         if (getManager() instanceof TextDirectEditManager2) {
             ((TextDirectEditManager2) getManager()).show(initialCharacter);
         } else //
@@ -500,7 +500,7 @@ public class InfrastructureSignatureEditPart extends CompartmentEditPart impleme
 
         EList<Parameter> params = element.getParameters__InfrastructureSignature();
         for (int i = 0; i < params.size(); i++) {
-            addListenerFilter("SemanticModel-Param" + i, this, (EObject) params.get(i)); //$NON-NLS-1$
+            addListenerFilter("SemanticModel-Param" + i, this, params.get(i)); //$NON-NLS-1$
         }
 
     }
@@ -587,7 +587,8 @@ public class InfrastructureSignatureEditPart extends CompartmentEditPart impleme
     /**
      * @generated not
      * 
-     * @param event A Notification
+     * @param event
+     *            A Notification
      */
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

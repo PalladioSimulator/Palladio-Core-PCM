@@ -9,6 +9,7 @@ import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.notation.View;
+
 import de.uka.ipd.sdq.pcm.gmf.repository.edit.parts.VariableUsageEditPart;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
@@ -20,7 +21,9 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
 
     /**
      * The constructor.
-     * @param view a View
+     * 
+     * @param view
+     *            a View
      */
     public CustomVariableUsageEditPart(View view) {
         super(view);
@@ -67,7 +70,7 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
             this.setLayoutManager(layoutThis);
 
             this.setLineWidth(1);
-            //TODO: Find a better way!
+            // TODO: Find a better way!
             this.setBackgroundColor(getThisBack());
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();

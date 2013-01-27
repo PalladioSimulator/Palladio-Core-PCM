@@ -6,8 +6,6 @@ package de.uka.ipd.sdq.pcm.gmf.usage.edit.helpers;
 import org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice;
 
 /**
- * The Class AbstractUserActionSuccessorEditHelperAdvice.
- *
  * @generated
  */
 public class AbstractUserActionSuccessorEditHelperAdvice extends AbstractEditHelperAdvice {

@@ -21,24 +21,26 @@ import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 
 /**
- * The Class PalladioComponentModelTextNonResizableEditPolicy.
- * 
  * @generated
  */
 public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizableEditPolicyEx {
 
-    /** The selection feedback figure. @generated */
+    /**
+     * @generated
+     */
     private IFigure selectionFeedbackFigure;
 
-    /** The focus feedback figure. @generated */
+    /**
+     * @generated
+     */
     private IFigure focusFeedbackFigure;
 
-    /** The host position listener. @generated */
+    /**
+     * @generated
+     */
     private FigureListener hostPositionListener;
 
     /**
-     * Show primary selection.
-     * 
      * @generated
      */
     protected void showPrimarySelection() {
@@ -52,8 +54,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Show selection.
-     * 
      * @generated
      */
     protected void showSelection() {
@@ -70,8 +70,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Hide selection.
-     * 
      * @generated
      */
     protected void hideSelection() {
@@ -89,8 +87,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Show focus.
-     * 
      * @generated
      */
     protected void showFocus() {
@@ -104,8 +100,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Hide focus.
-     * 
      * @generated
      */
     protected void hideFocus() {
@@ -120,9 +114,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Gets the feedback bounds.
-     * 
-     * @return the feedback bounds
      * @generated
      */
     protected Rectangle getFeedbackBounds() {
@@ -139,9 +130,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Creates the selection feedback figure.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createSelectionFeedbackFigure() {
@@ -159,9 +147,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Creates the focus feedback figure.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createFocusFeedbackFigure() {
@@ -174,10 +159,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Update label.
-     * 
-     * @param target
-     *            the target
      * @generated
      */
     protected void updateLabel(Label target) {
@@ -188,8 +169,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Refresh selection feedback.
-     * 
      * @generated
      */
     protected void refreshSelectionFeedback() {
@@ -204,8 +183,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Refresh focus feedback.
-     * 
      * @generated
      */
     protected void refreshFocusFeedback() {
@@ -215,8 +192,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Refresh feedback.
-     * 
      * @generated
      */
     public void refreshFeedback() {
@@ -225,9 +200,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Gets the host position listener.
-     * 
-     * @return the host position listener
      * @generated
      */
     private FigureListener getHostPositionListener() {
@@ -242,9 +214,6 @@ public class PalladioComponentModelTextNonResizableEditPolicy extends NonResizab
     }
 
     /**
-     * Creates the selection handles.
-     * 
-     * @return the list
      * @generated
      */
     protected List createSelectionHandles() {

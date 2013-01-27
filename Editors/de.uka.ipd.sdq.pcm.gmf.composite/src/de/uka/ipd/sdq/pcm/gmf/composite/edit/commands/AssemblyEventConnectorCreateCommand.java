@@ -24,19 +24,23 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * The Class AssemblyEventConnectorCreateCommand.
- * 
  * @generated
  */
 public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
 
-    /** The source. @generated */
+    /**
+     * @generated
+     */
     private final EObject source;
 
-    /** The target. @generated */
+    /**
+     * @generated
+     */
     private final EObject target;
 
-    /** The container. @generated */
+    /**
+     * @generated
+     */
     private final ComposedStructure container;
 
     /**
@@ -64,9 +68,6 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -128,16 +129,6 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(AssemblyEventConnector newElement, IProgressMonitor monitor, IAdaptable info)
@@ -155,10 +146,6 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Sets the element to edit.
-     * 
-     * @param element
-     *            the new element to edit
      * @generated
      */
     protected void setElementToEdit(EObject element) {
@@ -166,9 +153,6 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the source.
-     * 
-     * @return the source
      * @generated
      */
     protected SourceRole getSource() {
@@ -176,9 +160,6 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the target.
-     * 
-     * @return the target
      * @generated
      */
     protected SinkRole getTarget() {
@@ -186,9 +167,6 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the container.
-     * 
-     * @return the container
      * @generated
      */
     public ComposedStructure getContainer() {
@@ -196,14 +174,6 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Default approach is to traverse ancestors of the source to find instance of container. Modify
-     * with appropriate logic.
-     * 
-     * @param source
-     *            the source
-     * @param target
-     *            the target
-     * @return the composed structure
      * @generated
      */
     private static ComposedStructure deduceContainer(EObject source, EObject target) {

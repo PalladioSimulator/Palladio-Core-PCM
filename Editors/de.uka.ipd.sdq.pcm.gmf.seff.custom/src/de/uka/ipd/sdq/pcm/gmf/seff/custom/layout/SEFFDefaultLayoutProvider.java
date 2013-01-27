@@ -12,13 +12,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingSEFFEditPart;
 
 /**
  * Enable topdown layout for SEFFs.
+ * 
  * @author joerg henss
  */
 public class SEFFDefaultLayoutProvider extends TopDownProvider {
 
     /**
      * Check if we have a SEFF.
-     * @param operation The layout operation to support
+     * 
+     * @param operation
+     *            The layout operation to support
      * @return true if we are in a SEFF diagram
      */
     @Override
@@ -29,12 +32,10 @@ public class SEFFDefaultLayoutProvider extends TopDownProvider {
             IAdaptable hint = op.getLayoutHint();
 
             if (hint instanceof ObjectAdapter) {
-                GraphicalEditPart part = (GraphicalEditPart) hint
-                        .getAdapter(GraphicalEditPart.class);
+                GraphicalEditPart part = (GraphicalEditPart) hint.getAdapter(GraphicalEditPart.class);
                 if (part != null) {
                     EditPart root = part.getRoot().getContents();
-                    if (part instanceof ResourceDemandingSEFFEditPart
-                            || root instanceof ResourceDemandingSEFFEditPart) {
+                    if (part instanceof ResourceDemandingSEFFEditPart || root instanceof ResourceDemandingSEFFEditPart) {
                         return true;
                     }
                 }

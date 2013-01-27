@@ -16,24 +16,21 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.DestroyReferenceRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 
 /**
- * The Class PalladioComponentModelBaseEditHelper.
- * 
  * @generated
  */
 public class PalladioComponentModelBaseEditHelper extends AbstractEditHelper {
 
-    /** The Constant EDIT_POLICY_COMMAND. @generated */
+    /**
+     * @generated
+     */
     public static final String EDIT_POLICY_COMMAND = "edit policy command"; //$NON-NLS-1$
 
-    /** The Constant CONTEXT_ELEMENT_TYPE. @generated */
+    /**
+     * @generated
+     */
     public static final String CONTEXT_ELEMENT_TYPE = "context element type"; //$NON-NLS-1$
 
     /**
-     * Gets the edits the helper advice.
-     * 
-     * @param req
-     *            the req
-     * @return the edits the helper advice
      * @generated
      */
     protected IEditHelperAdvice[] getEditHelperAdvice(IEditCommandRequest req) {
@@ -45,11 +42,6 @@ public class PalladioComponentModelBaseEditHelper extends AbstractEditHelper {
     }
 
     /**
-     * Gets the instead command.
-     * 
-     * @param req
-     *            the req
-     * @return the instead command
      * @generated
      */
     protected ICommand getInsteadCommand(IEditCommandRequest req) {
@@ -69,11 +61,6 @@ public class PalladioComponentModelBaseEditHelper extends AbstractEditHelper {
     }
 
     /**
-     * Gets the creates the command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the command
      * @generated
      */
     protected ICommand getCreateCommand(CreateElementRequest req) {
@@ -81,11 +68,6 @@ public class PalladioComponentModelBaseEditHelper extends AbstractEditHelper {
     }
 
     /**
-     * Gets the creates the relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the relationship command
      * @generated
      */
     protected ICommand getCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -93,11 +75,6 @@ public class PalladioComponentModelBaseEditHelper extends AbstractEditHelper {
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     protected ICommand getDestroyElementCommand(DestroyElementRequest req) {
@@ -105,11 +82,6 @@ public class PalladioComponentModelBaseEditHelper extends AbstractEditHelper {
     }
 
     /**
-     * Gets the destroy reference command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy reference command
      * @generated
      */
     protected ICommand getDestroyReferenceCommand(DestroyReferenceRequest req) {

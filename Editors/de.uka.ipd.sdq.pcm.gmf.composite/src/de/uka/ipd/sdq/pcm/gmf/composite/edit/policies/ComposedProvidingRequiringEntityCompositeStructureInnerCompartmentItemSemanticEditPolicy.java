@@ -11,18 +11,12 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class
- * ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new composed providing requiring entity composite structure inner compartment
-     * item semantic edit policy.
-     * 
      * @generated
      */
     public ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy() {
@@ -30,11 +24,6 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentI
     }
 
     /**
-     * Gets the creates the command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

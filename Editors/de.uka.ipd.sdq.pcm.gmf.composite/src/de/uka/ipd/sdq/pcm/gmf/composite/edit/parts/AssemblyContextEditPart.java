@@ -38,26 +38,26 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.AssemblyContextItemSemanti
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class AssemblyContextEditPart.
- * 
  * @generated
  */
 public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 3006;
 
-    /** The content pane. @generated */
+    /**
+     * @generated
+     */
     protected IFigure contentPane;
 
-    /** The primary shape. @generated */
+    /**
+     * @generated
+     */
     protected IFigure primaryShape;
 
     /**
-     * Instantiates a new assembly context edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public AssemblyContextEditPart(View view) {
@@ -65,8 +65,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -82,9 +80,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Creates the layout edit policy.
-     * 
-     * @return the layout edit policy
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
@@ -120,9 +115,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Creates the node shape.
-     * 
-     * @return the i figure
      * @generated
      */
     protected IFigure createNodeShape() {
@@ -131,9 +123,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Gets the primary shape.
-     * 
-     * @return the primary shape
      * @generated
      */
     public AssemblyContextFigure getPrimaryShape() {
@@ -141,11 +130,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Adds the fixed child.
-     * 
-     * @param childEditPart
-     *            the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
@@ -192,11 +176,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Removes the fixed child.
-     * 
-     * @param childEditPart
-     *            the child edit part
-     * @return true, if successful
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
@@ -235,12 +214,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Adds the child visual.
-     * 
-     * @param childEditPart
-     *            the child edit part
-     * @param index
-     *            the index
      * @generated
      */
     protected void addChildVisual(EditPart childEditPart, int index) {
@@ -251,10 +224,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Removes the child visual.
-     * 
-     * @param childEditPart
-     *            the child edit part
      * @generated
      */
     protected void removeChildVisual(EditPart childEditPart) {
@@ -265,11 +234,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Gets the content pane for.
-     * 
-     * @param editPart
-     *            the edit part
-     * @return the content pane for
      * @generated
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
@@ -280,9 +244,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Creates the node plate.
-     * 
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createNodePlate() {
@@ -291,12 +252,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * @return the node figure
      * @generated
      */
     protected NodeFigure createMainFigure() {
@@ -309,12 +264,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Default implementation treats passed figure as content pane. Respects layout one may have set
-     * for generated figure.
-     * 
-     * @param nodeShape
-     *            instance of generated figure class
-     * @return the i figure
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -327,9 +276,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Gets the content pane.
-     * 
-     * @return the content pane
      * @generated
      */
     public IFigure getContentPane() {
@@ -340,10 +286,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Sets the foreground color.
-     * 
-     * @param color
-     *            the new foreground color
      * @generated
      */
     protected void setForegroundColor(Color color) {
@@ -353,10 +295,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Sets the background color.
-     * 
-     * @param color
-     *            the new background color
      * @generated
      */
     protected void setBackgroundColor(Color color) {
@@ -366,10 +304,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Sets the line width.
-     * 
-     * @param width
-     *            the new line width
      * @generated
      */
     protected void setLineWidth(int width) {
@@ -379,10 +313,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Sets the line type.
-     * 
-     * @param style
-     *            the new line type
      * @generated
      */
     protected void setLineType(int style) {
@@ -392,9 +322,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * Gets the primary child edit part.
-     * 
-     * @return the primary child edit part
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
@@ -403,18 +330,16 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
     }
 
     /**
-     * The Class AssemblyContextFigure.
-     * 
      * @generated
      */
     public class AssemblyContextFigure extends RectangleFigure {
 
-        /** The figure assembly context label figure. @generated */
+        /**
+         * @generated
+         */
         private WrappingLabel fFigureAssemblyContextLabelFigure;
 
         /**
-         * Instantiates a new assembly context figure.
-         * 
          * @generated
          */
         public AssemblyContextFigure() {
@@ -427,8 +352,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
         }
 
         /**
-         * Creates the contents.
-         * 
          * @generated
          */
         private void createContents() {
@@ -440,13 +363,12 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
 
         }
 
-        /** The my use local coordinates. @generated */
+        /**
+         * @generated
+         */
         private boolean myUseLocalCoordinates = false;
 
         /**
-         * Use local coordinates.
-         * 
-         * @return true, if successful
          * @generated
          */
         protected boolean useLocalCoordinates() {
@@ -454,10 +376,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
         }
 
         /**
-         * Sets the use local coordinates.
-         * 
-         * @param useLocalCoordinates
-         *            the new use local coordinates
          * @generated
          */
         protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
@@ -465,9 +383,6 @@ public class AssemblyContextEditPart extends AbstractBorderedShapeEditPart {
         }
 
         /**
-         * Gets the figure assembly context label figure.
-         * 
-         * @return the figure assembly context label figure
          * @generated
          */
         public WrappingLabel getFigureAssemblyContextLabelFigure() {

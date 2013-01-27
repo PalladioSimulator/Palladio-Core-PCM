@@ -10,16 +10,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.VariableUsage4CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class EmitEventActionInputVariableUsageEventItemSemanticEditPolicy.
- *
  * @generated
  */
 public class EmitEventActionInputVariableUsageEventItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new emit event action input variable usage event item semantic edit policy.
-     *
      * @generated
      */
     public EmitEventActionInputVariableUsageEventItemSemanticEditPolicy() {
@@ -27,10 +23,6 @@ public class EmitEventActionInputVariableUsageEventItemSemanticEditPolicy extend
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

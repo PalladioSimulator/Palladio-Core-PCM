@@ -11,19 +11,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorP
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * The Class PalladioComponentModelValidationProvider.
- *
  * @generated
  */
 public class PalladioComponentModelValidationProvider {
-    
-    /** The constraints active. @generated */
+
+    /**
+     * @generated
+     */
     private static boolean constraintsActive = false;
 
     /**
-     * Should constraints be private.
-     *
-     * @return true, if successful
      * @generated
      */
     public static boolean shouldConstraintsBePrivate() {
@@ -31,10 +28,6 @@ public class PalladioComponentModelValidationProvider {
     }
 
     /**
-     * Run with constraints.
-     *
-     * @param editingDomain the editing domain
-     * @param operation the operation
      * @generated
      */
     public static void runWithConstraints(TransactionalEditingDomain editingDomain, Runnable operation) {
@@ -61,10 +54,6 @@ public class PalladioComponentModelValidationProvider {
     }
 
     /**
-     * Checks if is in default editor context.
-     *
-     * @param object the object
-     * @return true, if is in default editor context
      * @generated
      */
     static boolean isInDefaultEditorContext(Object object) {

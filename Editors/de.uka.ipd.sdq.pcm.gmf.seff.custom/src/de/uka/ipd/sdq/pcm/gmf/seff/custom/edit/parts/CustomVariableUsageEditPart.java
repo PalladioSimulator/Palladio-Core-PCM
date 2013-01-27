@@ -40,7 +40,7 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
      */
     /**
      * Creates the node shape.
-     *
+     * 
      * @return the i figure
      * @see de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart#createNodeShape()
      */
@@ -75,10 +75,10 @@ public class CustomVariableUsageEditPart extends VariableUsageEditPart {
                     .getFigureVariableUsageReferenceLabelFigure();
             VariableUsage variableUsage = (VariableUsage) resolveSemanticElement();
             if (variableUsage == null) {
-            	fFigureVariableUsageReferenceLabelFigure.setText("<not set>");
+                fFigureVariableUsageReferenceLabelFigure.setText("<not set>");
             } else {
                 fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
-                .prettyPrint(variableUsage.getNamedReference__VariableUsage()));
+                        .prettyPrint(variableUsage.getNamedReference__VariableUsage()));
             }
             fFigureVariableUsageReferenceLabelFigure.setBorder(new MarginBorder(CustomVariableUsageEditPart.this
                     .getMapMode().DPtoLP(2), CustomVariableUsageEditPart.this.getMapMode().DPtoLP(0),

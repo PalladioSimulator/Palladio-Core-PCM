@@ -33,16 +33,12 @@ import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegis
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new composed providing requiring entity2 item semantic edit policy.
-     * 
      * @generated
      */
     public ComposedProvidingRequiringEntity2ItemSemanticEditPolicy() {
@@ -50,11 +46,6 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
     }
 
     /**
-     * Gets the creates the command.
-     * 
-     * @param req
-     *            the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
@@ -68,11 +59,6 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
@@ -93,10 +79,6 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
     }
 
     /**
-     * Adds the destroy child nodes command.
-     * 
-     * @param cmd
-     *            the cmd
      * @generated
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {

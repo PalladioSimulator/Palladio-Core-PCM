@@ -16,58 +16,55 @@ import org.eclipse.gmf.runtime.notation.View;
 /**
  * @generated
  */
-public class PalladioComponentModelReorientConnectionViewCommand extends
-		AbstractTransactionalCommand {
+public class PalladioComponentModelReorientConnectionViewCommand extends AbstractTransactionalCommand {
 
-	/**
-	 * @generated
-	 */
-	private IAdaptable edgeAdaptor;
+    /**
+     * @generated
+     */
+    private IAdaptable edgeAdaptor;
 
-	/**
-	 * @generated
-	 */
-	public PalladioComponentModelReorientConnectionViewCommand(
-			TransactionalEditingDomain editingDomain, String label) {
-		super(editingDomain, label, null);
-	}
+    /**
+     * @generated
+     */
+    public PalladioComponentModelReorientConnectionViewCommand(TransactionalEditingDomain editingDomain, String label) {
+        super(editingDomain, label, null);
+    }
 
-	/**
-	 * @generated
-	 */
-	public List getAffectedFiles() {
-		View view = (View) edgeAdaptor.getAdapter(View.class);
-		if (view != null) {
-			return getWorkspaceFiles(view);
-		}
-		return super.getAffectedFiles();
-	}
+    /**
+     * @generated
+     */
+    public List getAffectedFiles() {
+        View view = (View) edgeAdaptor.getAdapter(View.class);
+        if (view != null) {
+            return getWorkspaceFiles(view);
+        }
+        return super.getAffectedFiles();
+    }
 
-	/**
-	 * @generated
-	 */
-	public IAdaptable getEdgeAdaptor() {
-		return edgeAdaptor;
-	}
+    /**
+     * @generated
+     */
+    public IAdaptable getEdgeAdaptor() {
+        return edgeAdaptor;
+    }
 
-	/**
-	 * @generated
-	 */
-	public void setEdgeAdaptor(IAdaptable edgeAdaptor) {
-		this.edgeAdaptor = edgeAdaptor;
-	}
+    /**
+     * @generated
+     */
+    public void setEdgeAdaptor(IAdaptable edgeAdaptor) {
+        this.edgeAdaptor = edgeAdaptor;
+    }
 
-	/**
-	 * @generated
-	 */
-	protected CommandResult doExecuteWithResult(
-			IProgressMonitor progressMonitor, IAdaptable info) {
-		assert null != edgeAdaptor : "Null child in PalladioComponentModelReorientConnectionViewCommand"; //$NON-NLS-1$
-		Edge edge = (Edge) getEdgeAdaptor().getAdapter(Edge.class);
-		assert null != edge : "Null edge in PalladioComponentModelReorientConnectionViewCommand"; //$NON-NLS-1$
-		View tempView = edge.getSource();
-		edge.setSource(edge.getTarget());
-		edge.setTarget(tempView);
-		return CommandResult.newOKCommandResult();
-	}
+    /**
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor progressMonitor, IAdaptable info) {
+        assert null != edgeAdaptor : "Null child in PalladioComponentModelReorientConnectionViewCommand"; //$NON-NLS-1$
+        Edge edge = (Edge) getEdgeAdaptor().getAdapter(Edge.class);
+        assert null != edge : "Null edge in PalladioComponentModelReorientConnectionViewCommand"; //$NON-NLS-1$
+        View tempView = edge.getSource();
+        edge.setSource(edge.getTarget());
+        edge.setTarget(tempView);
+        return CommandResult.newOKCommandResult();
+    }
 }

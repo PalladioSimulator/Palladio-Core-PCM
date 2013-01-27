@@ -60,18 +60,11 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * The Class PalladioComponentModelDiagramUpdater.
- * 
  * @generated
  */
 public class PalladioComponentModelDiagramUpdater {
 
     /**
-     * Gets the semantic children.
-     * 
-     * @param view
-     *            the view
-     * @return the semantic children
      * @generated
      */
     public static List getSemanticChildren(View view) {
@@ -89,11 +82,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the composed providing requiring entity_2002 semantic children.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_2002 semantic children
      * @generated
      */
     public static List getComposedProvidingRequiringEntity_2002SemanticChildren(View view) {
@@ -170,13 +158,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the composed providing requiring entity composite structure inner compartment_7002
-     * semantic children.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity composite structure inner compartment_7002
-     *         semantic children
      * @generated
      */
     public static List getComposedProvidingRequiringEntityCompositeStructureInnerCompartment_7002SemanticChildren(
@@ -210,11 +191,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the composed providing requiring entity_1000 semantic children.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_1000 semantic children
      * @generated
      */
     public static List getComposedProvidingRequiringEntity_1000SemanticChildren(View view) {
@@ -239,11 +215,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the phantom nodes iterator.
-     * 
-     * @param resource
-     *            the resource
-     * @return the phantom nodes iterator
      * @generated
      */
     private static Iterator getPhantomNodesIterator(Resource resource) {
@@ -251,11 +222,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the contained links
      * @generated
      */
     public static List getContainedLinks(View view) {
@@ -303,11 +269,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the incoming links
      * @generated
      */
     public static List getIncomingLinks(View view) {
@@ -353,11 +314,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the outgoing links
      * @generated
      */
     public static List getOutgoingLinks(View view) {
@@ -403,11 +359,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the composed providing requiring entity_1000 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_1000 contained links
      * @generated
      */
     public static List getComposedProvidingRequiringEntity_1000ContainedLinks(View view) {
@@ -424,11 +375,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the composed providing requiring entity_2002 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_2002 contained links
      * @generated
      */
     public static List getComposedProvidingRequiringEntity_2002ContainedLinks(View view) {
@@ -445,11 +391,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly context_3006 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly context_3006 contained links
      * @generated
      */
     public static List getAssemblyContext_3006ContainedLinks(View view) {
@@ -457,11 +398,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation provided role_3007 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3007 contained links
      * @generated
      */
     public static List getOperationProvidedRole_3007ContainedLinks(View view) {
@@ -469,11 +405,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation required role_3008 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3008 contained links
      * @generated
      */
     public static List getOperationRequiredRole_3008ContainedLinks(View view) {
@@ -481,11 +412,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the source role_3013 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the source role_3013 contained links
      * @generated
      */
     public static List getSourceRole_3013ContainedLinks(View view) {
@@ -493,11 +419,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sink role_3014 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the sink role_3014 contained links
      * @generated
      */
     public static List getSinkRole_3014ContainedLinks(View view) {
@@ -505,11 +426,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure provided role_3015 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure provided role_3015 contained links
      * @generated
      */
     public static List getInfrastructureProvidedRole_3015ContainedLinks(View view) {
@@ -517,11 +433,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure required role_3016 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure required role_3016 contained links
      * @generated
      */
     public static List getInfrastructureRequiredRole_3016ContainedLinks(View view) {
@@ -529,11 +440,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation provided role_3011 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3011 contained links
      * @generated
      */
     public static List getOperationProvidedRole_3011ContainedLinks(View view) {
@@ -541,11 +447,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation required role_3012 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3012 contained links
      * @generated
      */
     public static List getOperationRequiredRole_3012ContainedLinks(View view) {
@@ -553,11 +454,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly connector_4004 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly connector_4004 contained links
      * @generated
      */
     public static List getEventChannel_3017ContainedLinks(View view) {
@@ -586,11 +482,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly event connector_4007 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly event connector_4007 contained links
      * @generated
      */
     public static List getAssemblyEventConnector_4007ContainedLinks(View view) {
@@ -598,11 +489,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the required delegation connector_4005 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the required delegation connector_4005 contained links
      * @generated
      */
     public static List getRequiredDelegationConnector_4005ContainedLinks(View view) {
@@ -610,11 +496,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the provided delegation connector_4006 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the provided delegation connector_4006 contained links
      * @generated
      */
     public static List getProvidedDelegationConnector_4006ContainedLinks(View view) {
@@ -622,11 +503,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly infrastructure connector_4008 contained links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly infrastructure connector_4008 contained links
      * @generated
      */
     public static List getAssemblyInfrastructureConnector_4008ContainedLinks(View view) {
@@ -634,11 +510,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the composed providing requiring entity_2002 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_2002 incoming links
      * @generated
      */
     public static List getComposedProvidingRequiringEntity_2002IncomingLinks(View view) {
@@ -646,11 +517,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly context_3006 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly context_3006 incoming links
      * @generated
      */
     public static List getAssemblyContext_3006IncomingLinks(View view) {
@@ -658,11 +524,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation provided role_3007 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3007 incoming links
      * @generated
      */
     public static List getOperationProvidedRole_3007IncomingLinks(View view) {
@@ -675,11 +536,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation required role_3008 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3008 incoming links
      * @generated
      */
     public static List getOperationRequiredRole_3008IncomingLinks(View view) {
@@ -691,11 +547,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the source role_3013 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the source role_3013 incoming links
      * @generated
      */
     public static List getSourceRole_3013IncomingLinks(View view) {
@@ -703,11 +554,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sink role_3014 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the sink role_3014 incoming links
      * @generated
      */
     public static List getSinkRole_3014IncomingLinks(View view) {
@@ -719,11 +565,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure provided role_3015 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure provided role_3015 incoming links
      * @generated
      */
     public static List getInfrastructureProvidedRole_3015IncomingLinks(View view) {
@@ -735,11 +576,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure required role_3016 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure required role_3016 incoming links
      * @generated
      */
     public static List getInfrastructureRequiredRole_3016IncomingLinks(View view) {
@@ -747,11 +583,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation provided role_3011 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3011 incoming links
      * @generated
      */
     public static List getOperationProvidedRole_3011IncomingLinks(View view) {
@@ -764,11 +595,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation required role_3012 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3012 incoming links
      * @generated
      */
     public static List getOperationRequiredRole_3012IncomingLinks(View view) {
@@ -780,11 +606,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly connector_4004 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly connector_4004 incoming links
      * @generated
      */
     public static List getEventChannel_3017IncomingLinks(View view) {
@@ -818,11 +639,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly event connector_4007 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly event connector_4007 incoming links
      * @generated
      */
     public static List getAssemblyEventConnector_4007IncomingLinks(View view) {
@@ -830,11 +646,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the required delegation connector_4005 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the required delegation connector_4005 incoming links
      * @generated
      */
     public static List getRequiredDelegationConnector_4005IncomingLinks(View view) {
@@ -842,11 +653,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the provided delegation connector_4006 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the provided delegation connector_4006 incoming links
      * @generated
      */
     public static List getProvidedDelegationConnector_4006IncomingLinks(View view) {
@@ -854,11 +660,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly infrastructure connector_4008 incoming links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly infrastructure connector_4008 incoming links
      * @generated
      */
     public static List getAssemblyInfrastructureConnector_4008IncomingLinks(View view) {
@@ -866,11 +667,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the composed providing requiring entity_2002 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_2002 outgoing links
      * @generated
      */
     public static List getComposedProvidingRequiringEntity_2002OutgoingLinks(View view) {
@@ -878,11 +674,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly context_3006 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly context_3006 outgoing links
      * @generated
      */
     public static List getAssemblyContext_3006OutgoingLinks(View view) {
@@ -890,11 +681,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation provided role_3007 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3007 outgoing links
      * @generated
      */
     public static List getOperationProvidedRole_3007OutgoingLinks(View view) {
@@ -905,11 +691,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation required role_3008 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3008 outgoing links
      * @generated
      */
     public static List getOperationRequiredRole_3008OutgoingLinks(View view) {
@@ -921,11 +702,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the source role_3013 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the source role_3013 outgoing links
      * @generated
      */
     public static List getSourceRole_3013OutgoingLinks(View view) {
@@ -937,11 +713,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the sink role_3014 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the sink role_3014 outgoing links
      * @generated
      */
     public static List getSinkRole_3014OutgoingLinks(View view) {
@@ -952,11 +723,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure provided role_3015 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure provided role_3015 outgoing links
      * @generated
      */
     public static List getInfrastructureProvidedRole_3015OutgoingLinks(View view) {
@@ -964,11 +730,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the infrastructure required role_3016 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure required role_3016 outgoing links
      * @generated
      */
     public static List getInfrastructureRequiredRole_3016OutgoingLinks(View view) {
@@ -979,11 +740,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation provided role_3011 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3011 outgoing links
      * @generated
      */
     public static List getOperationProvidedRole_3011OutgoingLinks(View view) {
@@ -994,11 +750,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the operation required role_3012 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3012 outgoing links
      * @generated
      */
     public static List getOperationRequiredRole_3012OutgoingLinks(View view) {
@@ -1010,11 +761,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly connector_4004 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly connector_4004 outgoing links
      * @generated
      */
     public static List getEventChannel_3017OutgoingLinks(View view) {
@@ -1043,11 +789,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly event connector_4007 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly event connector_4007 outgoing links
      * @generated
      */
     public static List getAssemblyEventConnector_4007OutgoingLinks(View view) {
@@ -1055,11 +796,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the required delegation connector_4005 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the required delegation connector_4005 outgoing links
      * @generated
      */
     public static List getRequiredDelegationConnector_4005OutgoingLinks(View view) {
@@ -1067,11 +803,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the provided delegation connector_4006 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the provided delegation connector_4006 outgoing links
      * @generated
      */
     public static List getProvidedDelegationConnector_4006OutgoingLinks(View view) {
@@ -1079,11 +810,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the assembly infrastructure connector_4008 outgoing links.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly infrastructure connector_4008 outgoing links
      * @generated
      */
     public static List getAssemblyInfrastructureConnector_4008OutgoingLinks(View view) {
@@ -1091,11 +817,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the contained type model facet links_ assembly connector_4004.
-     * 
-     * @param container
-     *            the container
-     * @return the contained type model facet links_ assembly connector_4004
      * @generated
      */
     private static Collection getContainedTypeModelFacetLinks_EventChannelSinkConnector_4010(ComposedStructure container) {
@@ -1168,11 +889,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the contained type model facet links_ assembly event connector_4007.
-     * 
-     * @param container
-     *            the container
-     * @return the contained type model facet links_ assembly event connector_4007
      * @generated
      */
     private static Collection getContainedTypeModelFacetLinks_AssemblyEventConnector_4007(ComposedStructure container) {
@@ -1197,11 +913,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the contained type model facet links_ required delegation connector_4005.
-     * 
-     * @param container
-     *            the container
-     * @return the contained type model facet links_ required delegation connector_4005
      * @generated
      */
     private static Collection getContainedTypeModelFacetLinks_RequiredDelegationConnector_4005(
@@ -1227,11 +938,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the contained type model facet links_ provided delegation connector_4006.
-     * 
-     * @param container
-     *            the container
-     * @return the contained type model facet links_ provided delegation connector_4006
      * @generated
      */
     private static Collection getContainedTypeModelFacetLinks_ProvidedDelegationConnector_4006(
@@ -1257,11 +963,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the contained type model facet links_ assembly infrastructure connector_4008.
-     * 
-     * @param container
-     *            the container
-     * @return the contained type model facet links_ assembly infrastructure connector_4008
      * @generated
      */
     private static Collection getContainedTypeModelFacetLinks_AssemblyInfrastructureConnector_4008(
@@ -1287,13 +988,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming type model facet links_ assembly connector_4004.
-     * 
-     * @param target
-     *            the target
-     * @param crossReferences
-     *            the cross references
-     * @return the incoming type model facet links_ assembly connector_4004
      * @generated
      */
     private static Collection getIncomingTypeModelFacetLinks_EventChannelSinkConnector_4010(EventChannel target,
@@ -1374,13 +1068,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming type model facet links_ assembly event connector_4007.
-     * 
-     * @param target
-     *            the target
-     * @param crossReferences
-     *            the cross references
-     * @return the incoming type model facet links_ assembly event connector_4007
      * @generated
      */
     private static Collection getIncomingTypeModelFacetLinks_AssemblyEventConnector_4007(SinkRole target,
@@ -1408,13 +1095,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming type model facet links_ required delegation connector_4005.
-     * 
-     * @param target
-     *            the target
-     * @param crossReferences
-     *            the cross references
-     * @return the incoming type model facet links_ required delegation connector_4005
      * @generated
      */
     private static Collection getIncomingTypeModelFacetLinks_RequiredDelegationConnector_4005(
@@ -1442,13 +1122,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming type model facet links_ provided delegation connector_4006.
-     * 
-     * @param target
-     *            the target
-     * @param crossReferences
-     *            the cross references
-     * @return the incoming type model facet links_ provided delegation connector_4006
      * @generated
      */
     private static Collection getIncomingTypeModelFacetLinks_ProvidedDelegationConnector_4006(
@@ -1476,13 +1149,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the incoming type model facet links_ assembly infrastructure connector_4008.
-     * 
-     * @param target
-     *            the target
-     * @param crossReferences
-     *            the cross references
-     * @return the incoming type model facet links_ assembly infrastructure connector_4008
      * @generated
      */
     private static Collection getIncomingTypeModelFacetLinks_AssemblyInfrastructureConnector_4008(
@@ -1510,11 +1176,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing type model facet links_ assembly connector_4004.
-     * 
-     * @param source
-     *            the source
-     * @return the outgoing type model facet links_ assembly connector_4004
      * @generated
      */
     private static Collection getOutgoingTypeModelFacetLinks_EventChannelSinkConnector_4010(SinkRole source) {
@@ -1631,11 +1292,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing type model facet links_ assembly event connector_4007.
-     * 
-     * @param source
-     *            the source
-     * @return the outgoing type model facet links_ assembly event connector_4007
      * @generated
      */
     private static Collection getOutgoingTypeModelFacetLinks_AssemblyEventConnector_4007(SourceRole source) {
@@ -1675,11 +1331,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing type model facet links_ required delegation connector_4005.
-     * 
-     * @param source
-     *            the source
-     * @return the outgoing type model facet links_ required delegation connector_4005
      * @generated
      */
     private static Collection getOutgoingTypeModelFacetLinks_RequiredDelegationConnector_4005(
@@ -1720,11 +1371,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing type model facet links_ provided delegation connector_4006.
-     * 
-     * @param source
-     *            the source
-     * @return the outgoing type model facet links_ provided delegation connector_4006
      * @generated
      */
     private static Collection getOutgoingTypeModelFacetLinks_ProvidedDelegationConnector_4006(
@@ -1765,11 +1411,6 @@ public class PalladioComponentModelDiagramUpdater {
     }
 
     /**
-     * Gets the outgoing type model facet links_ assembly infrastructure connector_4008.
-     * 
-     * @param source
-     *            the source
-     * @return the outgoing type model facet links_ assembly infrastructure connector_4008
      * @generated
      */
     private static Collection getOutgoingTypeModelFacetLinks_AssemblyInfrastructureConnector_4008(

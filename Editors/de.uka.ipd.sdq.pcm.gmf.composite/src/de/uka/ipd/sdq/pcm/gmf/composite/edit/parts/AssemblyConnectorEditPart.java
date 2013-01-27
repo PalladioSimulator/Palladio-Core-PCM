@@ -16,20 +16,16 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.AssemblyConnectorItemSemanticEditPolicy;
 
 /**
- * The Class AssemblyConnectorEditPart.
- * 
  * @generated
  */
 public class AssemblyConnectorEditPart extends ConnectionNodeEditPart implements ITreeBranchEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 4004;
 
     /**
-     * Instantiates a new assembly connector edit part.
-     * 
-     * @param view
-     *            the view
      * @generated
      */
     public AssemblyConnectorEditPart(View view) {
@@ -37,8 +33,6 @@ public class AssemblyConnectorEditPart extends ConnectionNodeEditPart implements
     }
 
     /**
-     * Creates the default edit policies.
-     * 
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -47,12 +41,6 @@ public class AssemblyConnectorEditPart extends ConnectionNodeEditPart implements
     }
 
     /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * @return the connection
      * @generated
      */
     protected Connection createConnectionFigure() {
@@ -60,9 +48,6 @@ public class AssemblyConnectorEditPart extends ConnectionNodeEditPart implements
     }
 
     /**
-     * Gets the primary shape.
-     * 
-     * @return the primary shape
      * @generated
      */
     public AssemblyConnectorFigure getPrimaryShape() {
@@ -70,15 +55,11 @@ public class AssemblyConnectorEditPart extends ConnectionNodeEditPart implements
     }
 
     /**
-     * The Class AssemblyConnectorFigure.
-     * 
      * @generated
      */
     public class AssemblyConnectorFigure extends PolylineConnectionEx {
 
         /**
-         * Instantiates a new assembly connector figure.
-         * 
          * @generated
          */
         public AssemblyConnectorFigure() {
@@ -88,9 +69,6 @@ public class AssemblyConnectorEditPart extends ConnectionNodeEditPart implements
         }
 
         /**
-         * Creates the target decoration.
-         * 
-         * @return the rotatable decoration
          * @generated
          */
         private RotatableDecoration createTargetDecoration() {

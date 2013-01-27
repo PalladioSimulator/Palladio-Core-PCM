@@ -20,17 +20,11 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 /**
- * The Class OperationProvidedRole2CreateCommand.
- * 
  * @generated
  */
 public class OperationProvidedRole2CreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new operation provided role2 create command.
-     * 
-     * @param req
-     *            the req
      * @generated
      */
     public OperationProvidedRole2CreateCommand(CreateElementRequest req) {
@@ -38,9 +32,6 @@ public class OperationProvidedRole2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * FIXME: replace with setElementToEdit().
-     * 
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -52,9 +43,6 @@ public class OperationProvidedRole2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     * 
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -63,15 +51,6 @@ public class OperationProvidedRole2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -87,16 +66,6 @@ public class OperationProvidedRole2CreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     * 
-     * @param newElement
-     *            the new element
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @throws ExecutionException
-     *             the execution exception
      * @generated
      */
     protected void doConfigure(OperationProvidedRole newElement, IProgressMonitor monitor, IAdaptable info)

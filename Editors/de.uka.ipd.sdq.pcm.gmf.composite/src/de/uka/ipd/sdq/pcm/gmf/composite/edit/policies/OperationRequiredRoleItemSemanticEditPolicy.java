@@ -31,15 +31,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
- * Semantic edit policy for inner assembly context operation required roles.
- * 
  * @generated
  */
 public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new operation required role item semantic edit policy.
-     * 
      * @generated
      */
     public OperationRequiredRoleItemSemanticEditPolicy() {
@@ -47,11 +43,6 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     @Override
@@ -117,11 +108,6 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Gets the start create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the start create relationship command
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -193,11 +179,6 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Gets the complete create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the complete create relationship command
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -211,12 +192,6 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
-     * @param req
-     *            the req
-     * @return the reorient relationship command
      * @generated
      */
     @Override

@@ -22,16 +22,12 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.StopAction2CreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy.
- *
  * @generated
  */
 public class RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy extends
         PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new recovery action behaviour alternative behaviour compartment item semantic edit policy.
-     *
      * @generated
      */
     public RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy() {
@@ -39,10 +35,6 @@ public class RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticE
     }
 
     /**
-     * Gets the creates the command.
-     *
-     * @param req the req
-     * @return the creates the command
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {

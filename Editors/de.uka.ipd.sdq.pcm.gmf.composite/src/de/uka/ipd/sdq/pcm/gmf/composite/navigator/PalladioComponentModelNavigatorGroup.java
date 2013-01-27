@@ -7,30 +7,26 @@ import java.util.Collection;
 import java.util.LinkedList;
 
 /**
- * The Class PalladioComponentModelNavigatorGroup.
- * 
  * @generated
  */
 public class PalladioComponentModelNavigatorGroup extends PalladioComponentModelAbstractNavigatorItem {
 
-    /** The my group name. @generated */
+    /**
+     * @generated
+     */
     private String myGroupName;
 
-    /** The my icon. @generated */
+    /**
+     * @generated
+     */
     private String myIcon;
 
-    /** The my children. @generated */
+    /**
+     * @generated
+     */
     private Collection myChildren = new LinkedList();
 
     /**
-     * Instantiates a new palladio component model navigator group.
-     * 
-     * @param groupName
-     *            the group name
-     * @param icon
-     *            the icon
-     * @param parent
-     *            the parent
      * @generated
      */
     PalladioComponentModelNavigatorGroup(String groupName, String icon, Object parent) {
@@ -40,9 +36,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Gets the group name.
-     * 
-     * @return the group name
      * @generated
      */
     public String getGroupName() {
@@ -50,9 +43,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Gets the icon.
-     * 
-     * @return the icon
      * @generated
      */
     public String getIcon() {
@@ -60,9 +50,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Gets the children.
-     * 
-     * @return the children
      * @generated
      */
     public Object[] getChildren() {
@@ -70,10 +57,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Adds the children.
-     * 
-     * @param children
-     *            the children
      * @generated
      */
     public void addChildren(Collection children) {
@@ -81,10 +64,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Adds the child.
-     * 
-     * @param child
-     *            the child
      * @generated
      */
     public void addChild(Object child) {
@@ -92,9 +71,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Checks if is empty.
-     * 
-     * @return true, if is empty
      * @generated
      */
     public boolean isEmpty() {
@@ -102,11 +78,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Equals.
-     * 
-     * @param obj
-     *            the obj
-     * @return true, if successful
      * @generated
      */
     public boolean equals(Object obj) {
@@ -120,9 +91,6 @@ public class PalladioComponentModelNavigatorGroup extends PalladioComponentModel
     }
 
     /**
-     * Hash code.
-     * 
-     * @return the int
      * @generated
      */
     public int hashCode() {

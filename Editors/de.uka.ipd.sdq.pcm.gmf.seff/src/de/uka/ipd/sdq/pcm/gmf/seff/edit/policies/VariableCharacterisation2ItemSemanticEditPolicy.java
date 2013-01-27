@@ -14,15 +14,11 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 
 /**
- * The Class VariableCharacterisation2ItemSemanticEditPolicy.
- *
  * @generated
  */
 public class VariableCharacterisation2ItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new variable characterisation2 item semantic edit policy.
-     *
      * @generated
      */
     public VariableCharacterisation2ItemSemanticEditPolicy() {
@@ -30,10 +26,6 @@ public class VariableCharacterisation2ItemSemanticEditPolicy extends PalladioCom
     }
 
     /**
-     * Gets the destroy element command.
-     *
-     * @param req the req
-     * @return the destroy element command
      * @generated
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {

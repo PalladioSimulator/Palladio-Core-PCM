@@ -17,8 +17,9 @@ abstract class BaseDiagramAction implements IWorkbenchWindowActionDelegate {
 
     /**
      * Inits the.
-     *
-     * @param window the window
+     * 
+     * @param window
+     *            the window
      * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#init(org.eclipse.ui.IWorkbenchWindow)
      */
     @Override
@@ -29,7 +30,7 @@ abstract class BaseDiagramAction implements IWorkbenchWindowActionDelegate {
 
     /**
      * Gets the window.
-     *
+     * 
      * @return the window which was active when the action was activated
      */
     protected IWorkbenchWindow getWindow() {
@@ -38,10 +39,13 @@ abstract class BaseDiagramAction implements IWorkbenchWindowActionDelegate {
 
     /**
      * Selection changed.
-     *
-     * @param action the action
-     * @param selection the selection
-     * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction, org.eclipse.jface.viewers.ISelection)
+     * 
+     * @param action
+     *            the action
+     * @param selection
+     *            the selection
+     * @see org.eclipse.ui.IActionDelegate#selectionChanged(org.eclipse.jface.action.IAction,
+     *      org.eclipse.jface.viewers.ISelection)
      */
     @Override
     public void selectionChanged(final IAction action, final ISelection selection) {
@@ -50,7 +54,7 @@ abstract class BaseDiagramAction implements IWorkbenchWindowActionDelegate {
 
     /**
      * Dispose.
-     *
+     * 
      * @see org.eclipse.ui.IWorkbenchWindowActionDelegate#dispose()
      */
     @Override

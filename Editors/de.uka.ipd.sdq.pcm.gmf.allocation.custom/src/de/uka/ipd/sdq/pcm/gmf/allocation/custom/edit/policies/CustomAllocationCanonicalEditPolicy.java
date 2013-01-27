@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
  * a custom Allocation CanoncialEditPolicy.
- *
+ * 
  */
 public class CustomAllocationCanonicalEditPolicy extends AllocationCanonicalEditPolicy {
 

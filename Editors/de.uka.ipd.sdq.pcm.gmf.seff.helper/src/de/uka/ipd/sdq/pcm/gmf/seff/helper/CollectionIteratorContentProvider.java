@@ -34,8 +34,9 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      */
     /**
      * Gets the children.
-     *
-     * @param parent the parent
+     * 
+     * @param parent
+     *            the parent
      * @return the children
      * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
      */
@@ -69,8 +70,9 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      */
     /**
      * Gets the parent.
-     *
-     * @param element the element
+     * 
+     * @param element
+     *            the element
      * @return the parent
      * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
      */
@@ -87,8 +89,9 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      */
     /**
      * Checks for children.
-     *
-     * @param element the element
+     * 
+     * @param element
+     *            the element
      * @return true, if successful
      * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
      */
@@ -110,8 +113,9 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      */
     /**
      * Gets the elements.
-     *
-     * @param inputElement the input element
+     * 
+     * @param inputElement
+     *            the input element
      * @return the elements
      * @see org.eclipse.jface.viewers.ITreeContentProvider#getElements(java.lang.Object)
      */
@@ -130,7 +134,7 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      */
     /**
      * Dispose.
-     *
+     * 
      * @see org.eclipse.jface.viewers.IContentProvider#dispose()
      */
     @Override
@@ -148,11 +152,15 @@ public class CollectionIteratorContentProvider implements ITreeContentProvider {
      */
     /**
      * Input changed.
-     *
-     * @param viewer the viewer
-     * @param oldInput the old input
-     * @param newInput the new input
-     * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer, java.lang.Object, java.lang.Object)
+     * 
+     * @param viewer
+     *            the viewer
+     * @param oldInput
+     *            the old input
+     * @param newInput
+     *            the new input
+     * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer,
+     *      java.lang.Object, java.lang.Object)
      */
     @Override
     public void inputChanged(final Viewer viewer, final Object oldInput, final Object newInput) {

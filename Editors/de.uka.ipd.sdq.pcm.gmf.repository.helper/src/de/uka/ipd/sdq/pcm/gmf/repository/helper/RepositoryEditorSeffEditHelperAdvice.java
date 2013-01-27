@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.pcm.seff.StopAction;
  * Configure SEFF Command.
  */
 class ConfigureSEFFCommand extends ConfigureElementCommand {
-    
+
     /**
      * A configure request.
      */
@@ -41,7 +41,9 @@ class ConfigureSEFFCommand extends ConfigureElementCommand {
 
     /**
      * The constructor.
-     * @param request a ConfigureRequest
+     * 
+     * @param request
+     *            a ConfigureRequest
      */
     public ConfigureSEFFCommand(ConfigureRequest request) {
         super(request);
@@ -89,8 +91,6 @@ class ConfigureSEFFCommand extends ConfigureElementCommand {
  */
 public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvice implements IEditHelperAdvice {
 
-    
-    
     @Override
     /**
      * Sets signature of a provided role
@@ -106,9 +106,8 @@ public class RepositoryEditorSeffEditHelperAdvice extends AbstractEditHelperAdvi
         // set EReference that should be set (in this case: provided role)
         additionalReferences.add(RepositoryPackage.eINSTANCE
                 .getOperationProvidedRole_ProvidedInterface__OperationProvidedRole());
-        additionalReferences.add(RepositoryPackage.eINSTANCE
-                .getInterface_ParentInterfaces__Interface());
-        
+        additionalReferences.add(RepositoryPackage.eINSTANCE.getInterface_ParentInterfaces__Interface());
+
         PalladioSelectEObjectDialog dialog = new PalladioSelectEObjectDialog(PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getShell(), filterList, additionalReferences, request
                 .getElementToConfigure().eContainer());

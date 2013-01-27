@@ -17,19 +17,16 @@ import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ForkedBehaviourBehaviourCompart
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
 
 /**
- * The Class ForkedBehaviourBehaviourCompartmentEditPart.
- *
  * @generated
  */
 public class ForkedBehaviourBehaviourCompartmentEditPart extends ShapeCompartmentEditPart {
 
-    /** The Constant VISUAL_ID. @generated */
+    /**
+     * @generated
+     */
     public static final int VISUAL_ID = 7026;
 
     /**
-     * Instantiates a new forked behaviour behaviour compartment edit part.
-     *
-     * @param view the view
      * @generated
      */
     public ForkedBehaviourBehaviourCompartmentEditPart(View view) {
@@ -37,9 +34,6 @@ public class ForkedBehaviourBehaviourCompartmentEditPart extends ShapeCompartmen
     }
 
     /**
-     * Gets the compartment name.
-     *
-     * @return the compartment name
      * @generated
      */
     public String getCompartmentName() {
@@ -47,9 +41,6 @@ public class ForkedBehaviourBehaviourCompartmentEditPart extends ShapeCompartmen
     }
 
     /**
-     * Creates the figure.
-     *
-     * @return the i figure
      * @generated
      */
     public IFigure createFigure() {
@@ -59,8 +50,6 @@ public class ForkedBehaviourBehaviourCompartmentEditPart extends ShapeCompartmen
     }
 
     /**
-     * Creates the default edit policies.
-     *
      * @generated
      */
     protected void createDefaultEditPolicies() {
@@ -73,9 +62,6 @@ public class ForkedBehaviourBehaviourCompartmentEditPart extends ShapeCompartmen
     }
 
     /**
-     * Sets the ratio.
-     *
-     * @param ratio the new ratio
      * @generated
      */
     protected void setRatio(Double ratio) {

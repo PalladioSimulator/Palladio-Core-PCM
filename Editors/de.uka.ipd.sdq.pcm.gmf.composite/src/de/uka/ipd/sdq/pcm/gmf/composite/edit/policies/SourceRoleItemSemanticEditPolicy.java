@@ -31,15 +31,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
 /**
- * Semantic edit policy for inner assembly context source roles.
- * 
  * @generated
  */
 public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBaseItemSemanticEditPolicy {
 
     /**
-     * Instantiates a new source role item semantic edit policy.
-     * 
      * @generated
      */
     public SourceRoleItemSemanticEditPolicy() {
@@ -47,11 +43,6 @@ public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBase
     }
 
     /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
      * @generated
      */
     @Override
@@ -140,11 +131,6 @@ public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBase
     }
 
     /**
-     * Gets the start create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the start create relationship command
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -158,11 +144,6 @@ public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBase
     }
 
     /**
-     * Gets the complete create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the complete create relationship command
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -176,12 +157,6 @@ public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBase
     }
 
     /**
-     * Returns command to reorient EClass based link. New link target or source should be the domain
-     * model element associated with this node.
-     * 
-     * @param req
-     *            the req
-     * @return the reorient relationship command
      * @generated
      */
     @Override

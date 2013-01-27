@@ -22,22 +22,21 @@ import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalC
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 
 /**
- * The Class PalladioComponentModelStructuralFeatureParser.
- *
  * @generated
  */
 public class PalladioComponentModelStructuralFeatureParser extends PalladioComponentModelAbstractParser {
 
-    /** The Constant DEFAULT_PROCESSOR. @generated */
+    /**
+     * @generated
+     */
     public static final MessageFormat DEFAULT_PROCESSOR = new MessageFormat("{0}"); //$NON-NLS-1$
 
-    /** The feature. @generated */
+    /**
+     * @generated
+     */
     private EStructuralFeature feature;
 
     /**
-     * Instantiates a new palladio component model structural feature parser.
-     *
-     * @param feature the feature
      * @generated
      */
     public PalladioComponentModelStructuralFeatureParser(EStructuralFeature feature) {
@@ -45,9 +44,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Gets the view processor.
-     *
-     * @return the view processor
      * @generated
      */
     protected MessageFormat getViewProcessor() {
@@ -56,9 +52,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Gets the edits the processor.
-     *
-     * @return the edits the processor
      * @generated
      */
     protected MessageFormat getEditProcessor() {
@@ -67,10 +60,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Gets the domain element.
-     *
-     * @param element the element
-     * @return the domain element
      * @generated
      */
     protected EObject getDomainElement(EObject element) {
@@ -78,13 +67,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Gets the string by pattern.
-     *
-     * @param adapter the adapter
-     * @param flags the flags
-     * @param pattern the pattern
-     * @param processor the processor
-     * @return the string by pattern
      * @generated
      */
     protected String getStringByPattern(IAdaptable adapter, int flags, String pattern, MessageFormat processor) {
@@ -94,12 +76,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Gets the string by pattern.
-     *
-     * @param element the element
-     * @param feature the feature
-     * @param processor the processor
-     * @return the string by pattern
      * @generated
      */
     protected String getStringByPattern(EObject element, EStructuralFeature feature, MessageFormat processor) {
@@ -109,10 +85,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Validate values.
-     *
-     * @param values the values
-     * @return the i parser edit status
      * @generated
      */
     protected IParserEditStatus validateValues(Object[] values) {
@@ -129,11 +101,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Gets the parses the command.
-     *
-     * @param adapter the adapter
-     * @param values the values
-     * @return the parses the command
      * @generated
      */
     public ICommand getParseCommand(IAdaptable adapter, Object[] values) {
@@ -152,11 +119,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Checks if is affecting event.
-     *
-     * @param event the event
-     * @param flags the flags
-     * @return true, if is affecting event
      * @generated
      */
     public boolean isAffectingEvent(Object event, int flags) {
@@ -167,10 +129,6 @@ public class PalladioComponentModelStructuralFeatureParser extends PalladioCompo
     }
 
     /**
-     * Checks if is affecting feature.
-     *
-     * @param eventFeature the event feature
-     * @return true, if is affecting feature
      * @generated
      */
     protected boolean isAffectingFeature(Object eventFeature) {

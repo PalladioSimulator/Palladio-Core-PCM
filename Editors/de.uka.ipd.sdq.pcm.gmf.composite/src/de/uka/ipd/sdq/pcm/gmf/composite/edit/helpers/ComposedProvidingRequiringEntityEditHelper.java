@@ -4,8 +4,6 @@
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers;
 
 /**
- * The Class ComposedProvidingRequiringEntityEditHelper.
- * 
  * @generated
  */
 public class ComposedProvidingRequiringEntityEditHelper extends PalladioComponentModelBaseEditHelper {

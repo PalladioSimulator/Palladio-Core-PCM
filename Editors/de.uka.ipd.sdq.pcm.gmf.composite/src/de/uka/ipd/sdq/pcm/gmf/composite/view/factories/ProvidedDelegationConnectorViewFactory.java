@@ -18,18 +18,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ProvidedDelegationConnectorEd
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
- * A factory for creating ProvidedDelegationConnectorView objects.
- * 
  * @generated
  */
 public class ProvidedDelegationConnectorViewFactory extends ConnectionViewFactory {
 
     /**
-     * Creates a new ProvidedDelegationConnectorView object.
-     * 
-     * @param view
-     *            the view
-     * @return the list
      * @generated
      */
     protected List createStyles(View view) {
@@ -41,20 +34,6 @@ public class ProvidedDelegationConnectorViewFactory extends ConnectionViewFactor
     }
 
     /**
-     * Decorate view.
-     * 
-     * @param containerView
-     *            the container view
-     * @param view
-     *            the view
-     * @param semanticAdapter
-     *            the semantic adapter
-     * @param semanticHint
-     *            the semantic hint
-     * @param index
-     *            the index
-     * @param persisted
-     *            the persisted
      * @generated
      */
     protected void decorateView(View containerView, View view, IAdaptable semanticAdapter, String semanticHint,

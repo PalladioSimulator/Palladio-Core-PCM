@@ -63,8 +63,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelParserProvider;
 
 /**
- * The Class PalladioComponentModelNavigatorLabelProvider.
- * 
  * @generated
  */
 public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider implements ICommonLabelProvider,
@@ -81,12 +79,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Update label.
-     * 
-     * @param label
-     *            the label
-     * @param elementPath
-     *            the element path
      * @generated
      */
     public void updateLabel(ViewerLabel label, TreePath elementPath) {
@@ -100,11 +92,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the image.
-     * 
-     * @param element
-     *            the element
-     * @return the image
      * @generated
      */
     public Image getImage(Object element) {
@@ -126,11 +113,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the image.
-     * 
-     * @param view
-     *            the view
-     * @return the image
      * @generated
      */
     public Image getImage(View view) {
@@ -197,13 +179,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the image.
-     * 
-     * @param key
-     *            the key
-     * @param elementType
-     *            the element type
-     * @return the image
      * @generated
      */
     private Image getImage(String key, IElementType elementType) {
@@ -223,11 +198,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the text.
-     * 
-     * @param element
-     *            the element
-     * @return the text
      * @generated
      */
     public String getText(Object element) {
@@ -248,11 +218,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the text.
-     * 
-     * @param view
-     *            the view
-     * @return the text
      * @generated
      */
     public String getText(View view) {
@@ -303,11 +268,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the composed providing requiring entity_1000 text.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_1000 text
      * @generated
      */
     private String getComposedProvidingRequiringEntity_1000Text(View view) {
@@ -322,11 +282,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the composed providing requiring entity_2002 text.
-     * 
-     * @param view
-     *            the view
-     * @return the composed providing requiring entity_2002 text
      * @generated
      */
     private String getComposedProvidingRequiringEntity_2002Text(View view) {
@@ -345,11 +300,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the assembly context_3006 text.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly context_3006 text
      * @generated
      */
     private String getAssemblyContext_3006Text(View view) {
@@ -368,11 +318,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the operation provided role_3007 text.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3007 text
      * @generated
      */
     private String getOperationProvidedRole_3007Text(View view) {
@@ -391,11 +336,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the operation required role_3008 text.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3008 text
      * @generated
      */
     private String getOperationRequiredRole_3008Text(View view) {
@@ -414,11 +354,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the source role_3013 text.
-     * 
-     * @param view
-     *            the view
-     * @return the source role_3013 text
      * @generated
      */
     private String getSourceRole_3013Text(View view) {
@@ -436,11 +371,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the sink role_3014 text.
-     * 
-     * @param view
-     *            the view
-     * @return the sink role_3014 text
      * @generated
      */
     private String getSinkRole_3014Text(View view) {
@@ -458,11 +388,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the infrastructure provided role_3015 text.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure provided role_3015 text
      * @generated
      */
     private String getInfrastructureProvidedRole_3015Text(View view) {
@@ -481,11 +406,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the infrastructure required role_3016 text.
-     * 
-     * @param view
-     *            the view
-     * @return the infrastructure required role_3016 text
      * @generated
      */
     private String getInfrastructureRequiredRole_3016Text(View view) {
@@ -504,11 +424,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the operation provided role_3011 text.
-     * 
-     * @param view
-     *            the view
-     * @return the operation provided role_3011 text
      * @generated
      */
     private String getOperationProvidedRole_3011Text(View view) {
@@ -527,11 +442,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the operation required role_3012 text.
-     * 
-     * @param view
-     *            the view
-     * @return the operation required role_3012 text
      * @generated
      */
     private String getOperationRequiredRole_3012Text(View view) {
@@ -550,11 +460,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the assembly connector_4004 text.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly connector_4004 text
      * @generated
      */
     private String getEventChannel_3017Text(View view) {
@@ -615,11 +520,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the assembly event connector_4007 text.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly event connector_4007 text
      * @generated
      */
     private String getAssemblyEventConnector_4007Text(View view) {
@@ -634,11 +534,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the required delegation connector_4005 text.
-     * 
-     * @param view
-     *            the view
-     * @return the required delegation connector_4005 text
      * @generated
      */
     private String getRequiredDelegationConnector_4005Text(View view) {
@@ -653,11 +548,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the provided delegation connector_4006 text.
-     * 
-     * @param view
-     *            the view
-     * @return the provided delegation connector_4006 text
      * @generated
      */
     private String getProvidedDelegationConnector_4006Text(View view) {
@@ -672,11 +562,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the assembly infrastructure connector_4008 text.
-     * 
-     * @param view
-     *            the view
-     * @return the assembly infrastructure connector_4008 text
      * @generated
      */
     private String getAssemblyInfrastructureConnector_4008Text(View view) {
@@ -691,11 +576,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the unknown element text.
-     * 
-     * @param view
-     *            the view
-     * @return the unknown element text
      * @generated
      */
     private String getUnknownElementText(View view) {
@@ -703,11 +583,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Gets the unresolved domain element proxy text.
-     * 
-     * @param view
-     *            the view
-     * @return the unresolved domain element proxy text
      * @generated
      */
     private String getUnresolvedDomainElementProxyText(View view) {
@@ -715,41 +590,24 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Inits the.
-     * 
-     * @param aConfig
-     *            the a config
      * @generated
      */
     public void init(ICommonContentExtensionSite aConfig) {
     }
 
     /**
-     * Restore state.
-     * 
-     * @param aMemento
-     *            the a memento
      * @generated
      */
     public void restoreState(IMemento aMemento) {
     }
 
     /**
-     * Save state.
-     * 
-     * @param aMemento
-     *            the a memento
      * @generated
      */
     public void saveState(IMemento aMemento) {
     }
 
     /**
-     * Gets the description.
-     * 
-     * @param anElement
-     *            the an element
-     * @return the description
      * @generated
      */
     public String getDescription(Object anElement) {
@@ -757,11 +615,6 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     }
 
     /**
-     * Checks if is own view.
-     * 
-     * @param view
-     *            the view
-     * @return true, if is own view
      * @generated
      */
     private boolean isOwnView(View view) {

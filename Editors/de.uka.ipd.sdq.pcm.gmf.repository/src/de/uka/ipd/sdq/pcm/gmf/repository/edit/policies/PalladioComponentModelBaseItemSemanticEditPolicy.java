@@ -33,11 +33,10 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
+
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
-import de.uka.ipd.sdq.pcm.gmf.repository.edit.helpers.PalladioComponentModelBaseEditHelper;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelRepositoryDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.repository.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.repository.providers.PalladioComponentModelElementTypes;
@@ -61,8 +60,6 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 
     /**
-     * Extended request data key to hold editpart visual id.
-     * 
      * @generated
      */
     public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
@@ -80,10 +77,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
-     * Add visual id of edited editpart to extended data of the request so command switch can decide
-     * what kind of diagram element is being edited. It is done in those cases when it's not
-     * possible to deduce diagram element kind from domain element.
-     * 
      * @generated
      */
     public Command getCommand(Request request) {
@@ -98,8 +91,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
-     * Returns visual id from request parameters.
-     * 
      * @generated
      */
     protected int getVisualID(IEditCommandRequest request) {
@@ -276,8 +267,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
-     * Returns editing domain from the host edit part.
-     * 
      * @generated
      */
     protected TransactionalEditingDomain getEditingDomain() {
@@ -285,8 +274,6 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
-     * Clean all shortcuts to the host element from the same diagram
-     * 
      * @generated
      */
     protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {

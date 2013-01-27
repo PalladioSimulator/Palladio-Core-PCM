@@ -27,12 +27,12 @@ import org.eclipse.swt.widgets.Text;
  * The dialog will only succeed if a valid resource file has been selected.
  */
 class ResourceSelectorPage extends WizardPage {
-    
+
     /**
      * The selection text.
      */
     private Text mySelectionText;
-    
+
     /**
      * The resolved object.
      */
@@ -47,8 +47,11 @@ class ResourceSelectorPage extends WizardPage {
 
     /**
      * Creates the resource selector page.
-     * @param name a name
-     * @param selectedResource The selected resource
+     * 
+     * @param name
+     *            a name
+     * @param selectedResource
+     *            The selected resource
      */
     protected ResourceSelectorPage(String name, EObject selectedResource) {
         super(name);
@@ -59,7 +62,9 @@ class ResourceSelectorPage extends WizardPage {
 
     /**
      * Creates a control.
-     * @param parent a Composite
+     * 
+     * @param parent
+     *            a Composite
      */
     public void createControl(Composite parent) {
         initializeDialogUnits(parent);
@@ -74,7 +79,9 @@ class ResourceSelectorPage extends WizardPage {
 
     /**
      * creates the SWT widgets used to select and display the resource and initializes them.
-     * @param parent a Composite
+     * 
+     * @param parent
+     *            a Composite
      */
     private void createPageContent(Composite parent) {
         Composite panel = new Composite(parent, SWT.NONE);
@@ -138,6 +145,7 @@ class ResourceSelectorPage extends WizardPage {
 
     /**
      * Validates a page.
+     * 
      * @return a boolean value
      */
     protected boolean doValidatePage() {

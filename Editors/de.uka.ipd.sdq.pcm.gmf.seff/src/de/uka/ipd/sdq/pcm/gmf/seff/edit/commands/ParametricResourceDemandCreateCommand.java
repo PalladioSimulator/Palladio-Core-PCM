@@ -18,16 +18,11 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 
 /**
- * The Class ParametricResourceDemandCreateCommand.
- *
  * @generated
  */
 public class ParametricResourceDemandCreateCommand extends EditElementCommand {
 
     /**
-     * Instantiates a new parametric resource demand create command.
-     *
-     * @param req the req
      * @generated
      */
     public ParametricResourceDemandCreateCommand(CreateElementRequest req) {
@@ -35,9 +30,6 @@ public class ParametricResourceDemandCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Gets the element to edit.
-     *
-     * @return the element to edit
      * @generated
      */
     protected EObject getElementToEdit() {
@@ -49,9 +41,6 @@ public class ParametricResourceDemandCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Can execute.
-     *
-     * @return true, if successful
      * @generated
      */
     public boolean canExecute() {
@@ -60,12 +49,6 @@ public class ParametricResourceDemandCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     *
-     * @param monitor the monitor
-     * @param info the info
-     * @return the command result
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
@@ -82,12 +65,6 @@ public class ParametricResourceDemandCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do configure.
-     *
-     * @param newElement the new element
-     * @param monitor the monitor
-     * @param info the info
-     * @throws ExecutionException the execution exception
      * @generated
      */
     protected void doConfigure(de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand newElement,

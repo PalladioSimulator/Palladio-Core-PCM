@@ -15,36 +15,25 @@ import de.uka.ipd.sdq.probfunction.provider.ProbabilityFunctionEditPlugin;
 import de.uka.ipd.sdq.stoex.provider.StoexEditPlugin;
 
 /**
- * This is the central singleton for the PalladioComponentModel editor plugin. <!-- begin-user-doc
- * --> <!-- end-user-doc -->
- * 
  * @generated
  */
 public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final String copyright = "Copyright 2007 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public static final PalladioComponentModelEditorPlugin INSTANCE = new PalladioComponentModelEditorPlugin();
 
     /**
-     * Keep track of the singleton. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     private static Implementation plugin;
 
     /**
-     * Create the instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
      * @generated
      */
     public PalladioComponentModelEditorPlugin() {
@@ -53,10 +42,6 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
     }
 
     /**
-     * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @return the singleton instance.
      * @generated
      */
     @Override
@@ -65,10 +50,6 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
     }
 
     /**
-     * Returns the singleton instance of the Eclipse plugin. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
-     * @return the singleton instance.
      * @generated
      */
     public static Implementation getPlugin() {
@@ -76,15 +57,10 @@ public final class PalladioComponentModelEditorPlugin extends EMFPlugin {
     }
 
     /**
-     * The actual implementation of the Eclipse <b>Plugin</b>. <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-     * 
      * @generated
      */
     public static class Implementation extends EclipseUIPlugin {
         /**
-         * Creates an instance. <!-- begin-user-doc --> <!-- end-user-doc -->
-         * 
          * @generated
          */
         public Implementation() {

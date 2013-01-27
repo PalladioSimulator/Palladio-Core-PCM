@@ -48,7 +48,9 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
 
     /**
      * gets the OpenCommand.
-     * @param request a Request
+     * 
+     * @param request
+     *            a Request
      * @return a Command
      */
     protected Command getOpenCommand(Request request) {
@@ -92,10 +94,13 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
         /**
          * @generated not
          * 
-         * @param monitor An IProgressMonitor
-         * @param info An IAdaptable
+         * @param monitor
+         *            An IProgressMonitor
+         * @param info
+         *            An IAdaptable
          * 
-         * @throws ExecutionException an Exception
+         * @throws ExecutionException
+         *             an Exception
          * 
          * @return a CommandResult
          */
@@ -129,7 +134,8 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
         /**
          * @generated not
          * 
-         * @throws ExecutionException An Exception
+         * @throws ExecutionException
+         *             An Exception
          * 
          * @return a new diagram
          */
@@ -162,7 +168,7 @@ public class CustomOpenCompositeDiagramEditPolicy extends OpenCompositeDiagramEd
                             throw new InvocationTargetException(ex, "Save operation failed");
                         }
                     }
-                } .run(null);
+                }.run(null);
             } catch (InvocationTargetException e) {
                 throw new ExecutionException("Can't create diagram of '" + getDiagramKind() + "' kind", e);
             } catch (InterruptedException e) {
