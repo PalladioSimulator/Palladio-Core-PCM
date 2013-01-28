@@ -21,22 +21,32 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Snowball
+ * The Class StoExCompletionProcessor.
  * 
+ * @author Snowball
  */
 public class StoExCompletionProcessor implements IContentAssistProcessor {
 
+    /** The default characterisations. */
     private HashMap<String, String> defaultCharacterisations = new HashMap<String, String>();
+
+    /** The parameter names. */
     private HashMap<String, String> parameterNames = new HashMap<String, String>();
 
+    /** The template prefixes. */
     private String templatePrefixes = "+-*/%(?:";
 
+    /** The template processor. */
     private StoExTemplateCompletionProcessor templateProcessor;
 
     /**
-	 * 
-	 */
+     * Instantiates a new sto ex completion processor.
+     * 
+     * @param context
+     *            the context
+     */
     public StoExCompletionProcessor(Parameter[] context) {
         templateProcessor = new StoExTemplateCompletionProcessor();
 
@@ -50,15 +60,23 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
         for (int i = 0; i < context.length; i++) {
             String[] parameterPrefixes = getPrefixesFor(context[i]);
             for (String parameterPrefix : parameterPrefixes) {
-                if (parameterPrefix.startsWith("RETURN"))
+                if (parameterPrefix.startsWith("RETURN")) {
                     parameterNames.put(parameterPrefix, "Call Result " + context[i].getParameterName());
-                else
+                } else {
                     parameterNames.put(parameterPrefix, "Signature Parameter " + context[i].getParameterName());
+                }
             }
         }
 
     }
 
+    /**
+     * Gets the prefixes for.
+     * 
+     * @param parameter
+     *            the parameter
+     * @return the prefixes for
+     */
     private String[] getPrefixesFor(Parameter parameter) {
         ArrayList<String> prefixes = new ArrayList<String>();
         prefixes.add(parameter.getParameterName());
@@ -66,6 +84,16 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
         return prefixes.toArray(new String[] {});
     }
 
+    /**
+     * Append datatype prefixes.
+     * 
+     * @param prefixes
+     *            the prefixes
+     * @param parameterName
+     *            the parameter name
+     * @param datatype__Parameter
+     *            the datatype__ parameter
+     */
     private void appendDatatypePrefixes(ArrayList<String> prefixes, String parameterName, DataType datatype__Parameter) {
         if (datatype__Parameter instanceof CollectionDataType) {
             prefixes.add(parameterName + ".INNER");
@@ -81,12 +109,16 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
         }
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Compute completion proposals.
      * 
-     * @see
-     * org.eclipse.jface.text.contentassist.IContentAssistProcessor#computeCompletionProposals(org
-     * .eclipse.jface.text.ITextViewer, int)
+     * @param viewer
+     *            the viewer
+     * @param offset
+     *            the offset
+     * @return the i completion proposal[]
+     * @see org.eclipse.jface.text.contentassist.IContentAssistProcessor#computeCompletionProposals(org
+     *      .eclipse.jface.text.ITextViewer, int)
      */
     public ICompletionProposal[] computeCompletionProposals(ITextViewer viewer, int offset) {
         ArrayList<ICompletionProposal> resultList = new ArrayList<ICompletionProposal>();
@@ -120,17 +152,19 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
     }
 
     /**
-     * Checks, whether the user is characterising a variable (i.e., typed a dot)
+     * Checks, whether the user is characterising a variable (i.e., typed a dot).
      * 
      * @param offset
+     *            the offset
      * @param currentText
-     * @return
+     *            the current text
+     * @return true, if is charactersation completion applicable
      */
     private boolean isCharactersationCompletionApplicable(int offset, String currentText) {
         // Is letter or underscore
-        if (offset - 1 >= 0 && offset - 1 < currentText.length() && isIDChar(currentText.charAt(offset - 1), 0))
+        if (offset - 1 >= 0 && offset - 1 < currentText.length() && isIDChar(currentText.charAt(offset - 1), 0)) {
             return true;
-        else if (offset - 1 >= 0 && offset - 1 < currentText.length() && isIDChar(currentText.charAt(offset - 1), 1)) {
+        } else if (offset - 1 >= 0 && offset - 1 < currentText.length() && isIDChar(currentText.charAt(offset - 1), 1)) {
             // Backtrace till we find an IDChar that is no DIGIT
             int i = 2;
             while (offset - i >= 0 && !isIDChar(currentText.charAt(offset - i), 0)
@@ -147,8 +181,10 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
      * Checks, whether user started to type a atom.
      * 
      * @param offset
+     *            the offset
      * @param currentText
-     * @return
+     *            the current text
+     * @return true, if is start of atom
      */
     private boolean isStartOfAtom(int offset, String currentText) {
         if (offset + 1 < currentText.length() // cursor is not at last character
@@ -158,41 +194,75 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
 
         String trimText = currentText.trim();
 
-        if (trimText.equals(""))
+        if (trimText.equals("")) {
             // only whitespace after offset
             return true;
+        }
 
         char lastChar = trimText.charAt(trimText.length() - 1);
-        if (templatePrefixes.indexOf(lastChar) >= 0)
+        if (templatePrefixes.indexOf(lastChar) >= 0) {
             // last character before current offset is one of the template prefixes
             return true;
+        }
 
         boolean hasIDChars = true;
         for (int i = 0; i < trimText.length(); i++) {
             char c = trimText.charAt(i);
-            if (!isIDChar(c, i))
+            if (!isIDChar(c, i)) {
                 hasIDChars = false;
+            }
         }
         return hasIDChars;
 
     }
 
     // As defined in the ANTLR grammar
+    /**
+     * Checks if is iD char.
+     * 
+     * @param c
+     *            the c
+     * @param index
+     *            the index
+     * @return true, if is iD char
+     */
     private static boolean isIDChar(char c, int index) {
         return Character.isLetter(c) || c == '.' || c == '_' || (index > 0 && Character.isDigit(c));
     }
 
+    /**
+     * Gets the last index of template prefix.
+     * 
+     * @param offset
+     *            the offset
+     * @param currentText
+     *            the current text
+     * @return the last index of template prefix
+     */
     private int getLastIndexOfTemplatePrefix(int offset, String currentText) {
         int lastIndex = -1;
         String templatePrefixesAndWS = templatePrefixes + " ";
         for (int i = 0; i < templatePrefixesAndWS.length(); i++) {
             int newLastIndex = currentText.substring(0, offset).lastIndexOf(templatePrefixesAndWS.charAt(i));
-            if (newLastIndex > lastIndex)
+            if (newLastIndex > lastIndex) {
                 lastIndex = newLastIndex;
+            }
         }
         return lastIndex;
     }
 
+    /**
+     * Adds the completion proposals string.
+     * 
+     * @param resultList
+     *            the result list
+     * @param lastIndex
+     *            the last index
+     * @param typedFragment
+     *            the typed fragment
+     * @param completions
+     *            the completions
+     */
     private void addCompletionProposalsString(ArrayList<ICompletionProposal> resultList, int lastIndex,
             String typedFragment, HashMap<String, String> completions) {
         for (Entry<String, String> entry : completions.entrySet()) {
@@ -207,59 +277,69 @@ public class StoExCompletionProcessor implements IContentAssistProcessor {
         }
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the completion proposal auto activation characters.
      * 
+     * @return the completion proposal auto activation characters
      * @see org.eclipse.jface.text.contentassist.IContentAssistProcessor#
-     * getCompletionProposalAutoActivationCharacters()
+     *      getCompletionProposalAutoActivationCharacters()
      */
     public char[] getCompletionProposalAutoActivationCharacters() {
         ArrayList<Character> result = new ArrayList<Character>();
-        for (String parameterName : parameterNames.keySet())
+        for (String parameterName : parameterNames.keySet()) {
             result.add(parameterName.charAt(0));
-        for (int i = 0; i < templatePrefixes.length(); i++)
+        }
+        for (int i = 0; i < templatePrefixes.length(); i++) {
             result.add(templatePrefixes.charAt(i));
+        }
         result.add('.');
         char[] realResult = new char[result.size()];
-        for (int i = 0; i < result.size(); i++)
+        for (int i = 0; i < result.size(); i++) {
             realResult[i] = result.get(i);
+        }
         return realResult;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Compute context information.
      * 
-     * @see
-     * org.eclipse.jface.text.contentassist.IContentAssistProcessor#computeContextInformation(org
-     * .eclipse.jface.text.ITextViewer, int)
+     * @param viewer
+     *            the viewer
+     * @param offset
+     *            the offset
+     * @return the i context information[]
+     * @see org.eclipse.jface.text.contentassist.IContentAssistProcessor#computeContextInformation(org
+     *      .eclipse.jface.text.ITextViewer, int)
      */
     public IContextInformation[] computeContextInformation(ITextViewer viewer, int offset) {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the context information auto activation characters.
      * 
+     * @return the context information auto activation characters
      * @see org.eclipse.jface.text.contentassist.IContentAssistProcessor#
-     * getContextInformationAutoActivationCharacters()
+     *      getContextInformationAutoActivationCharacters()
      */
     public char[] getContextInformationAutoActivationCharacters() {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the context information validator.
      * 
-     * @see
-     * org.eclipse.jface.text.contentassist.IContentAssistProcessor#getContextInformationValidator()
+     * @return the context information validator
+     * @see org.eclipse.jface.text.contentassist.IContentAssistProcessor#getContextInformationValidator()
      */
     public IContextInformationValidator getContextInformationValidator() {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the error message.
      * 
+     * @return the error message
      * @see org.eclipse.jface.text.contentassist.IContentAssistProcessor#getErrorMessage()
      */
     public String getErrorMessage() {

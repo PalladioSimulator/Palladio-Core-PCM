@@ -16,16 +16,29 @@ import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author admin
+ * The Class VariableUsageLabelProvider.
  * 
+ * @author admin
  */
 public class VariableUsageLabelProvider extends ItemProviderDecorator implements IItemLabelProvider {
 
+    /**
+     * Instantiates a new variable usage label provider.
+     * 
+     * @param adapterFactory
+     *            the adapter factory
+     */
     public VariableUsageLabelProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getImage(java.lang.Object)
+     */
     @Override
     public Object getImage(Object object) {
 
@@ -89,6 +102,10 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
     }
 
     /**
+     * Gets the tree type object.
+     * 
+     * @param object
+     *            the object
      * @return - return the DdataType from TreeType-Object
      */
     private DataType getTreeTypeObject(Object object) {
@@ -97,6 +114,10 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
     }
 
     /**
+     * Gets the tree declaration object.
+     * 
+     * @param object
+     *            the object
      * @return - return the InnerDeclaration from TreeDeclaration-Object
      */
     private InnerDeclaration getTreeDeclarationObject(Object object) {
@@ -104,9 +125,17 @@ public class VariableUsageLabelProvider extends ItemProviderDecorator implements
         return (InnerDeclaration) treeDeclaration.getObject();
     }
 
+    /**
+     * Gets the name data type.
+     * 
+     * @param dataType
+     *            the data type
+     * @return the name data type
+     */
     private String getNameDataType(DataType dataType) {
-        if (dataType != null)
+        if (dataType != null) {
             return super.getText(dataType);
+        }
         return "null";
     }
 }

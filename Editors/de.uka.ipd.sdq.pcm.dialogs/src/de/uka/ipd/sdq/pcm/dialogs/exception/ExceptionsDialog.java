@@ -34,43 +34,70 @@ import org.eclipse.swt.widgets.Text;
 import org.eclipse.swt.widgets.ToolBar;
 import org.eclipse.swt.widgets.ToolItem;
 
-import de.uka.ipd.sdq.pcm.dialogs.DialogsImages;
 import de.uka.ipd.sdq.dialogs.selection.FilteredItemsAdapterFactory;
+import de.uka.ipd.sdq.pcm.dialogs.DialogsImages;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ExceptionsDialog.
+ */
 public class ExceptionsDialog extends TitleAreaDialog {
 
+    /** The signature. */
     private Signature signature;
+
+    /** The seleced exception type. */
     private ExceptionType selecedExceptionType;
+
+    /** The message field. */
     private Text messageField;
+
+    /** The delete action adapter. */
     private SelectionAdapter deleteActionAdapter;
 
+    /** The Constant ICON_COLUMN_INDEX. */
     public static final int ICON_COLUMN_INDEX = 0;
+
+    /** The Constant CONTEXT_COLUMN_INDEX. */
     public static final int CONTEXT_COLUMN_INDEX = 1;
+
+    /** The Constant NAME_COLUMN_INDEX. */
     public static final int NAME_COLUMN_INDEX = 2;
 
-    /**
-     * Columns of a table, which is used into ParameterEditDialog
-     */
+    /** Columns of a table, which is used into ParameterEditDialog. */
     public final static String ICON_COLUMN = "";
+
+    /** The Constant CONTEXT_COLUMN. */
     public final static String CONTEXT_COLUMN = "Context";
+
+    /** The Constant NAME_COLUMN. */
     public final static String NAME_COLUMN = "Name";
 
+    /** The title dialog. */
     private final String TITLE_DIALOG = "Create/Edit a ExceptionType...";
 
     // Set column names of Table
+    /** The column names. */
     private static String[] columnNames = new String[] { ICON_COLUMN, CONTEXT_COLUMN, NAME_COLUMN };
 
+    /** The viewer. */
     private TableViewer viewer;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     protected TransactionalEditingDomain editingDomain = null;
 
+    /**
+     * Instantiates a new exceptions dialog.
+     * 
+     * @param parentShell
+     *            the parent shell
+     * @param signature
+     *            the signature
+     */
     public ExceptionsDialog(Shell parentShell, Signature signature) {
         super(parentShell);
         this.signature = signature;
@@ -181,7 +208,12 @@ public class ExceptionsDialog extends TitleAreaDialog {
         return container;
     }
 
-    /** Initialization of TableViewer */
+    /**
+     * Initialization of TableViewer.
+     * 
+     * @param table
+     *            the table
+     */
     private void createTableViewer(Table table) {
 
         ArrayList<Object> filterList = new ArrayList<Object>();
@@ -210,12 +242,13 @@ public class ExceptionsDialog extends TitleAreaDialog {
         viewer.addSelectionChangedListener(new ISelectionChangedListener() {
             public void selectionChanged(SelectionChangedEvent event) {
                 IStructuredSelection sel = (IStructuredSelection) event.getSelection();
-                Object selection = (Object) sel.getFirstElement();
+                Object selection = sel.getFirstElement();
                 selecedExceptionType = (ExceptionType) selection;
-                if (selecedExceptionType != null && selecedExceptionType.getExceptionMessage() != null)
+                if (selecedExceptionType != null && selecedExceptionType.getExceptionMessage() != null) {
                     messageField.setText(selecedExceptionType.getExceptionMessage());
-                else
+                } else {
                     messageField.setText("");
+                }
             }
         });
         viewer.setInput(signature);
@@ -243,11 +276,21 @@ public class ExceptionsDialog extends TitleAreaDialog {
         return new Point(500, 375);
     }
 
+    /**
+     * Gets the column names.
+     * 
+     * @return the column names
+     */
     public static String[] getColumnNames() {
         return columnNames;
     }
 
-    /** Set a message of ExceptionType */
+    /**
+     * Set a message of ExceptionType.
+     * 
+     * @param msg
+     *            the new exception type message
+     */
     private void setExceptionTypeMessage(final String msg) {
         RecordingCommand recCommand = new RecordingCommand(editingDomain) {
             @Override

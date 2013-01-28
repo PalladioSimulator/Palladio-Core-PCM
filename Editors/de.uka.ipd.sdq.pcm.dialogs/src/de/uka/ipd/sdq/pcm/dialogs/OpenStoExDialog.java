@@ -1,11 +1,9 @@
 package de.uka.ipd.sdq.pcm.dialogs;
 
-import org.eclipse.core.runtime.IStatus;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gmf.runtime.common.core.command.UnexecutableCommand;
 import org.eclipse.gmf.runtime.diagram.ui.commands.ICommandProxy;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy;
@@ -22,24 +20,42 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
+// TODO: Auto-generated Javadoc
 /**
  * Manually written open policy to open the StoEx Dialog. It's called via a CustomBehaviour in the
  * genmap
  */
 public class OpenStoExDialog extends OpenEditPolicy {
 
+    /** The random variable feature. */
     protected EStructuralFeature randomVariableFeature;
 
+    /**
+     * Instantiates a new open sto ex dialog.
+     * 
+     * @param randomVariableFeature
+     *            the random variable feature
+     */
     public OpenStoExDialog(EStructuralFeature randomVariableFeature) {
         super();
         this.randomVariableFeature = randomVariableFeature;
     }
 
+    /**
+     * Instantiates a new open sto ex dialog.
+     */
     public OpenStoExDialog() {
         super();
         this.randomVariableFeature = null;
     }
 
+    /**
+     * Gets the random variable.
+     * 
+     * @param parent
+     *            the parent
+     * @return the random variable
+     */
     protected RandomVariable getRandomVariable(EObject parent) {
         // Default Implementation. Override as necessary
         if (randomVariableFeature == null && parent instanceof RandomVariable) {
@@ -64,10 +80,12 @@ public class OpenStoExDialog extends OpenEditPolicy {
         RandomVariable rv = getRandomVariable(((View) host.getModel()).getElement());
         StochasticExpressionEditDialog dialog = new StochasticExpressionEditDialog(PlatformUI.getWorkbench()
                 .getActiveWorkbenchWindow().getShell(), getExpectedType(rv), rv);
-        if (rv != null)
+        if (rv != null) {
             dialog.setInitialExpression(rv);
-        if (getDialogMessage() != null)
+        }
+        if (getDialogMessage() != null) {
             dialog.setDisplayTitle(getDialogMessage());
+        }
 
         dialog.open();
         if (dialog.getReturnCode() == Dialog.OK) {
@@ -80,10 +98,22 @@ public class OpenStoExDialog extends OpenEditPolicy {
         return null;
     }
 
+    /**
+     * Gets the dialog message.
+     * 
+     * @return the dialog message
+     */
     protected String getDialogMessage() {
         return null;
     }
 
+    /**
+     * Gets the expected type.
+     * 
+     * @param rv
+     *            the rv
+     * @return the expected type
+     */
     protected TypeEnum getExpectedType(RandomVariable rv) {
         TypeEnum expectedType = TypeEnum.ANY;
         VariableCharacterisation vc = null;

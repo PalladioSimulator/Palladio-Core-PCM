@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.CoolBar;
 import org.eclipse.swt.widgets.CoolItem;
 import org.eclipse.swt.widgets.Display;
 
+// TODO: Auto-generated Javadoc
 /**
  * Utility class for managing OS resources associated with SWT controls such as colors, fonts,
  * images, etc.
@@ -56,13 +57,11 @@ public class SWTResourceManager {
     // Color support
     // ////////////////////////////
 
-    /**
-     * Maps RGB values to colors
-     */
+    /** Maps RGB values to colors. */
     private static HashMap<RGB, Color> m_ColorMap = new HashMap<RGB, Color>();
 
     /**
-     * Returns the system color matching the specific ID
+     * Returns the system color matching the specific ID.
      * 
      * @param systemColorID
      *            int The ID value for the color
@@ -74,7 +73,7 @@ public class SWTResourceManager {
     }
 
     /**
-     * Returns a color given its red, green and blue component values
+     * Returns a color given its red, green and blue component values.
      * 
      * @param r
      *            int The red component of the color
@@ -89,7 +88,7 @@ public class SWTResourceManager {
     }
 
     /**
-     * Returns a color given its RGB value
+     * Returns a color given its RGB value.
      * 
      * @param rgb
      *            RGB The RGB value of the color
@@ -106,11 +105,12 @@ public class SWTResourceManager {
     }
 
     /**
-     * Dispose of all the cached colors
+     * Dispose of all the cached colors.
      */
     public static void disposeColors() {
-        for (Iterator<Color> iter = m_ColorMap.values().iterator(); iter.hasNext();)
-            ((Color) iter.next()).dispose();
+        for (Iterator<Color> iter = m_ColorMap.values().iterator(); iter.hasNext();) {
+            iter.next().dispose();
+        }
         m_ColorMap.clear();
     }
 
@@ -118,18 +118,14 @@ public class SWTResourceManager {
     // Image support
     // ////////////////////////////
 
-    /**
-     * Maps image names to images
-     */
+    /** Maps image names to images. */
     private static HashMap<String, Image> m_ClassImageMap = new HashMap<String, Image>();
 
-    /**
-     * Maps images to image decorators
-     */
+    /** Maps images to image decorators. */
     private static HashMap<Image, HashMap<Image, Image>> m_ImageToDecoratorMap = new HashMap<Image, HashMap<Image, Image>>();
 
     /**
-     * Returns an image encoded by the specified input stream
+     * Returns an image encoded by the specified input stream.
      * 
      * @param is
      *            InputStream The input stream encoding the image data
@@ -138,13 +134,14 @@ public class SWTResourceManager {
     protected static Image getImage(InputStream is) {
         Display display = Display.getCurrent();
         ImageData data = new ImageData(is);
-        if (data.transparentPixel > 0)
+        if (data.transparentPixel > 0) {
             return new Image(display, data, data.getTransparencyMask());
+        }
         return new Image(display, data);
     }
 
     /**
-     * Returns an image stored in the file at the specified path
+     * Returns an image stored in the file at the specified path.
      * 
      * @param path
      *            String The path to the image file
@@ -155,7 +152,7 @@ public class SWTResourceManager {
     }
 
     /**
-     * Returns an image stored in the file at the specified path
+     * Returns an image stored in the file at the specified path.
      * 
      * @param section
      *            The section to which belongs specified image
@@ -181,7 +178,7 @@ public class SWTResourceManager {
     }
 
     /**
-     * Returns an image stored in the file at the specified path relative to the specified class
+     * Returns an image stored in the file at the specified path relative to the specified class.
      * 
      * @param clazz
      *            Class The class relative to which to find the image
@@ -209,8 +206,14 @@ public class SWTResourceManager {
         return image;
     }
 
+    /** The Constant MISSING_IMAGE_SIZE. */
     private static final int MISSING_IMAGE_SIZE = 10;
 
+    /**
+     * Gets the missing image.
+     * 
+     * @return the missing image
+     */
     private static Image getMissingImage() {
         Image image = new Image(Display.getCurrent(), MISSING_IMAGE_SIZE, MISSING_IMAGE_SIZE);
         //
@@ -240,7 +243,7 @@ public class SWTResourceManager {
     public static final int BOTTOM_RIGHT = 4;
 
     /**
-     * Returns an image composed of a base image decorated by another image
+     * Returns an image composed of a base image decorated by another image.
      * 
      * @param baseImage
      *            Image The base image that should be decorated
@@ -253,7 +256,7 @@ public class SWTResourceManager {
     }
 
     /**
-     * Returns an image composed of a base image decorated by another image
+     * Returns an image composed of a base image decorated by another image.
      * 
      * @param baseImage
      *            Image The base image that should be decorated
@@ -294,15 +297,16 @@ public class SWTResourceManager {
     }
 
     /**
-     * Dispose all of the cached images
+     * Dispose all of the cached images.
      */
     public static void disposeImages() {
-        for (Iterator<Image> I = m_ClassImageMap.values().iterator(); I.hasNext();)
-            ((Image) I.next()).dispose();
+        for (Iterator<Image> I = m_ClassImageMap.values().iterator(); I.hasNext();) {
+            I.next().dispose();
+        }
         m_ClassImageMap.clear();
         //
         for (Iterator<HashMap<Image, Image>> I = m_ImageToDecoratorMap.values().iterator(); I.hasNext();) {
-            HashMap<?, ?> decoratedMap = (HashMap<?, ?>) I.next();
+            HashMap<?, ?> decoratedMap = I.next();
             for (Iterator<?> J = decoratedMap.values().iterator(); J.hasNext();) {
                 Image image = (Image) J.next();
                 image.dispose();
@@ -311,16 +315,17 @@ public class SWTResourceManager {
     }
 
     /**
-     * Dispose cached images in specified section
+     * Dispose cached images in specified section.
      * 
      * @param section
      *            the section do dispose
      */
     public static void disposeImages(String section) {
         for (Iterator<String> I = m_ClassImageMap.keySet().iterator(); I.hasNext();) {
-            String key = (String) I.next();
-            if (!key.startsWith(section + '|'))
+            String key = I.next();
+            if (!key.startsWith(section + '|')) {
                 continue;
+            }
             Image image = m_ClassImageMap.get(key);
             image.dispose();
             I.remove();
@@ -331,18 +336,14 @@ public class SWTResourceManager {
     // Font support
     // ////////////////////////////
 
-    /**
-     * Maps font names to fonts
-     */
+    /** Maps font names to fonts. */
     private static HashMap<String, Font> m_FontMap = new HashMap<String, Font>();
 
-    /**
-     * Maps fonts to their bold versions
-     */
+    /** Maps fonts to their bold versions. */
     private static HashMap<Font, Font> m_FontToBoldFontMap = new HashMap<Font, Font>();
 
     /**
-     * Returns a font based on its name, height and style
+     * Returns a font based on its name, height and style.
      * 
      * @param name
      *            String The name of the font
@@ -401,7 +402,7 @@ public class SWTResourceManager {
     }
 
     /**
-     * Return a bold version of the give font
+     * Return a bold version of the give font.
      * 
      * @param baseFont
      *            Font The font for whoch a bold version is desired
@@ -419,11 +420,12 @@ public class SWTResourceManager {
     }
 
     /**
-     * Dispose all of the cached fonts
+     * Dispose all of the cached fonts.
      */
     public static void disposeFonts() {
-        for (Iterator<Font> iter = m_FontMap.values().iterator(); iter.hasNext();)
-            ((Font) iter.next()).dispose();
+        for (Iterator<Font> iter = m_FontMap.values().iterator(); iter.hasNext();) {
+            iter.next().dispose();
+        }
         m_FontMap.clear();
     }
 
@@ -432,7 +434,7 @@ public class SWTResourceManager {
     // ////////////////////////////
 
     /**
-     * Fix the layout of the specified CoolBar
+     * Fix the layout of the specified CoolBar.
      * 
      * @param bar
      *            CoolBar The CoolBar that shgoud be fixed
@@ -442,13 +444,14 @@ public class SWTResourceManager {
         // ensure that each item has control (at least empty one)
         for (int i = 0; i < items.length; i++) {
             CoolItem item = items[i];
-            if (item.getControl() == null)
+            if (item.getControl() == null) {
                 item.setControl(new Canvas(bar, SWT.NONE) {
                     @Override
                     public Point computeSize(int wHint, int hHint, boolean changed) {
                         return new Point(20, 20);
                     }
                 });
+            }
         }
         // compute size for each item
         for (int i = 0; i < items.length; i++) {
@@ -464,13 +467,11 @@ public class SWTResourceManager {
     // Cursor support
     // ////////////////////////////
 
-    /**
-     * Maps IDs to cursors
-     */
+    /** Maps IDs to cursors. */
     private static HashMap<Integer, Cursor> m_IdToCursorMap = new HashMap<Integer, Cursor>();
 
     /**
-     * Returns the system cursor matching the specific ID
+     * Returns the system cursor matching the specific ID.
      * 
      * @param id
      *            int The ID value for the cursor
@@ -487,11 +488,12 @@ public class SWTResourceManager {
     }
 
     /**
-     * Dispose all of the cached cursors
+     * Dispose all of the cached cursors.
      */
     public static void disposeCursors() {
-        for (Iterator<Cursor> iter = m_IdToCursorMap.values().iterator(); iter.hasNext();)
-            ((Cursor) iter.next()).dispose();
+        for (Iterator<Cursor> iter = m_IdToCursorMap.values().iterator(); iter.hasNext();) {
+            iter.next().dispose();
+        }
         m_IdToCursorMap.clear();
     }
 }

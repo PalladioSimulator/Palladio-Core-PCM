@@ -14,59 +14,78 @@ import org.eclipse.jface.text.IDocument;
 import org.eclipse.jface.text.rules.IToken;
 import org.eclipse.jface.text.rules.ITokenScanner;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Steffen Becker
+ * The Class ANTLRTokenScannerAdapter.
  * 
+ * @author Steffen Becker
  */
 public class ANTLRTokenScannerAdapter implements ITokenScanner {
 
+    /** The last token length. */
     int lastTokenLength = 0;
 
+    /** The token offset. */
     private int tokenOffset;
 
+    /** The scanner class. */
     private Class<?> scannerClass;
 
+    /** The scanner. */
     private Lexer scanner;
 
+    /** The current input. */
     private String currentInput;
 
+    /** The current document. */
     private IDocument currentDocument;
 
+    /** The base offset. */
     private int baseOffset;
 
+    /** The my mapper. */
     private ITokenMapper myMapper;
 
+    /** The last token offset. */
     private int lastTokenOffset;
 
     /**
-	 * 
-	 */
+     * Instantiates a new aNTLR token scanner adapter.
+     * 
+     * @param scannerClass
+     *            the scanner class
+     * @param mapper
+     *            the mapper
+     */
     public ANTLRTokenScannerAdapter(Class<?> scannerClass, ITokenMapper mapper) {
         this.scannerClass = scannerClass;
         this.myMapper = mapper;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
+     * Gets the token length.
+     *
+     * @return the token length
      * @see org.eclipse.jface.text.rules.ITokenScanner#getTokenLength()
      */
     public int getTokenLength() {
         return lastTokenLength;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
+     * Gets the token offset.
+     *
+     * @return the token offset
      * @see org.eclipse.jface.text.rules.ITokenScanner#getTokenOffset()
      */
     public int getTokenOffset() {
         return tokenOffset;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
+     * Next token.
+     *
+     * @return the i token
      * @see org.eclipse.jface.text.rules.ITokenScanner#nextToken()
      */
     public IToken nextToken() {
@@ -82,15 +101,18 @@ public class ANTLRTokenScannerAdapter implements ITokenScanner {
                                                                                               // recognition
                                                                                               // exceptions
 
-        wrapper.setIsWhitespace(wrapper.getToken().getChannel() == BaseRecognizer.HIDDEN);// Token
-                                                                                          // is a
-                                                                                          // Whitespace
+        wrapper.setIsWhitespace(wrapper.getToken().getChannel() == BaseRecognizer.HIDDEN); // Token
+                                                                                           // is a
+                                                                                           // Whitespace
         return wrapper;
     }
 
-    /*
-     * (non-Javadoc)
-     * 
+    /**
+     * Sets the range.
+     *
+     * @param document the document
+     * @param offset the offset
+     * @param length the length
      * @see org.eclipse.jface.text.rules.ITokenScanner#setRange(org.eclipse.jface.text.IDocument,
      * int, int)
      */

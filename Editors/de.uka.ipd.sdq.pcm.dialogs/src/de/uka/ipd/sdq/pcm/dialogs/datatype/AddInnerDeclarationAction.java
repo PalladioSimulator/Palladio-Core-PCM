@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
+// TODO: Auto-generated Javadoc
 /**
  * The class define an action, which a new InnerDeclaration to the CompositeDateType adds.
  * 
@@ -16,16 +17,20 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  */
 public class AddInnerDeclarationAction extends SelectionAdapter {
 
+    /** The composite data type. */
     private CompositeDataType compositeDataType;
+    
+    /** The dialog. */
     private PalladioDataTypeDialog dialog;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     private TransactionalEditingDomain editingDomain = null;
 
     /**
-     * @param compositeDataType
+     * Instantiates a new adds the inner declaration action.
+     *
+     * @param dialog the dialog
+     * @param editingDomain the editing domain
      */
     public AddInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
         this.dialog = dialog;

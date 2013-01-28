@@ -13,43 +13,77 @@ import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class InnerDeclarationCellModifier.
+ */
 public class InnerDeclarationCellModifier implements ICellModifier {
 
+    /** The dialog. */
     private PalladioDataTypeDialog dialog;
+
+    /** The column names. */
     private List<String> columnNames;
+
+    /** The declaration. */
     private InnerDeclaration declaration;
 
+    /** The editing domain. */
     private TransactionalEditingDomain editingDomain;
 
+    /**
+     * Instantiates a new inner declaration cell modifier.
+     * 
+     * @param dialog
+     *            the dialog
+     * @param editingDomain
+     *            the editing domain
+     */
     public InnerDeclarationCellModifier(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
         this.editingDomain = editingDomain;
         this.dialog = dialog;
         this.columnNames = Arrays.asList(CreateEditorContents.getColumnNames());
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Can modify.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @return true, if successful
      * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object, java.lang.String)
      */
     public boolean canModify(Object element, String property) {
         return true;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the value.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @return the value
      * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object, java.lang.String)
      */
     public Object getValue(Object element, String property) {
         return (new InnerDeclarationItemProvider(null)).getColumnText(element, columnNames.indexOf(property));
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Modify.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @param value
+     *            the value
      * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String,
-     * java.lang.Object)
+     *      java.lang.Object)
      */
     public void modify(Object element, String property, Object value) {
         // Find the index of the column
@@ -79,7 +113,10 @@ public class InnerDeclarationCellModifier implements ICellModifier {
     }
 
     /**
-     * @param - inner datatype of declaration
+     * Sets the data type.
+     * 
+     * @param dataType
+     *            the new data type
      */
     private void setDataType(final DataType dataType) {
 
@@ -97,7 +134,12 @@ public class InnerDeclarationCellModifier implements ICellModifier {
         reloadDeclarationViewer();
     }
 
-    /** set the name of innerdeclaration */
+    /**
+     * set the name of innerdeclaration.
+     * 
+     * @param valueString
+     *            the new declaration name
+     */
     private void setDeclarationName(final String valueString) {
 
         RecordingCommand recCommand = new RecordingCommand(editingDomain) {
@@ -115,6 +157,9 @@ public class InnerDeclarationCellModifier implements ICellModifier {
         reloadDeclarationViewer();
     }
 
+    /**
+     * Reload declaration viewer.
+     */
     private void reloadDeclarationViewer() {
         dialog.refresh();
     }

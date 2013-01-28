@@ -11,16 +11,21 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
+// TODO: Auto-generated Javadoc
 /**
  * Responsibly for representation different Signature property (ReturnType, Parameters, Exceptions),
- * as string
+ * as string.
  * 
  * @author Roman Andrej
  */
 public class ParameterRepresentation {
 
     /**
-     * Represents DataType in accordance with Palladio styles
+     * Represents DataType in accordance with Palladio styles.
+     * 
+     * @param returnType
+     *            the return type
+     * @return the string
      */
     public static String dataTypeToString(DataType returnType) {
 
@@ -41,7 +46,11 @@ public class ParameterRepresentation {
     }
 
     /**
-     * The method create the string list of parameter (parameter1, parameter2, ...)
+     * The method create the string list of parameter (parameter1, parameter2, ...).
+     * 
+     * @param parameters
+     *            the parameters
+     * @return the string
      */
     public static String parametersToString(EList<Parameter> parameters) {
         String result = "";
@@ -53,7 +62,11 @@ public class ParameterRepresentation {
     }
 
     /**
-     * Comma of the sentence deletes ends
+     * Comma of the sentence deletes ends.
+     * 
+     * @param result
+     *            the result
+     * @return the string
      */
     private static String deleteComma(String result) {
         if (!result.equals("")) {

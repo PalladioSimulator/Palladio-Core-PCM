@@ -24,23 +24,28 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class ParametersDialog.
+ *
  * @author Roman Andrej
  * 
- *         The dialogue serves the input of parameter names and types in table cells. It a simple
- *         editor implemented for providing and deletion of types.
+ * The dialogue serves the input of parameter names and types in table cells. It a simple
+ * editor implemented for providing and deletion of types.
  */
 public class ParametersDialog extends TitleAreaDialog {
 
+    /** The adapter factory. */
     private ComposedAdapterFactory adapterFactory;
 
+    /** The signature. */
     private Signature signature;
 
     /**
-     * Creates a dialog with the given parent and edited properties name
-     * 
-     * @param parentShell
-     *            -object that returns the current parent shell columnName - edited properties
+     * Creates a dialog with the given parent and edited properties name.
+     *
+     * @param parentShell -object that returns the current parent shell columnName - edited properties
+     * @param signature the signature
      */
     public ParametersDialog(Shell parentShell, Signature signature) {
         super(parentShell);

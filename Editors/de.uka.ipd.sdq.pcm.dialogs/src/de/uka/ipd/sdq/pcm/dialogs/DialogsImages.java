@@ -4,21 +4,33 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class DialogsImages.
+ *
  * @author roman Compilation of the pictures used in de.uka.ipd.sdq.dialogs-Plugin
  */
 public class DialogsImages {
 
-    /**
-     * Names of images used to represent actions in ToolBar
-     */
+    /** Names of images used to represent actions in ToolBar. */
     public static final String ADD = "add_action";
+    
+    /** The Constant DELETE. */
     public static final String DELETE = "delete_action";
+    
+    /** The Constant UP. */
     public static final String UP = "up_action";
+    
+    /** The Constant DOWN. */
     public static final String DOWN = "down_action";
+    
+    /** The Constant ERROR. */
     public static final String ERROR = "error";
+    
+    /** The Constant WARNING. */
     public static final String WARNING = "warning";
 
+    /** The image registry. */
     public static ImageRegistry imageRegistry = new ImageRegistry();
 
     /**
@@ -38,8 +50,9 @@ public class DialogsImages {
     }
 
     /**
-     * @param imageFilePath
-     *            the relative to the root of the plug-in; the path must be legal
+     * Gets the image descriptor.
+     *
+     * @param imageFilePath the relative to the root of the plug-in; the path must be legal
      * @return an image descriptor, or null if no image could be found
      */
     public static ImageDescriptor getImageDescriptor(String imageFilePath) {

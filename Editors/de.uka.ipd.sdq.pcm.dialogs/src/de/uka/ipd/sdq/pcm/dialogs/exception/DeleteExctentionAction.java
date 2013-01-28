@@ -14,41 +14,55 @@ import org.eclipse.swt.events.SelectionEvent;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-/** @author roman */
+// TODO: Auto-generated Javadoc
+/**
+ * The Class DeleteExctentionAction.
+ * 
+ * @author roman
+ */
 public class DeleteExctentionAction extends SelectionAdapter implements ISelectionChangedListener {
 
+    /** The parent signature. */
     private Signature parentSignature;
+
+    /** The exception type. */
     private ExceptionType exceptionType = null;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     protected TransactionalEditingDomain editingDomain = null;
 
+    /**
+     * Instantiates a new delete exctention action.
+     * 
+     * @param signature
+     *            the signature
+     */
     public DeleteExctentionAction(Signature signature) {
         this.parentSignature = signature;
         this.editingDomain = TransactionUtil.getEditingDomain(signature);
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Selection changed.
      * 
-     * @see
-     * org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers
-     * .SelectionChangedEvent)
+     * @param event
+     *            the event
+     * @see org.eclipse.jface.viewers.ISelectionChangedListener#selectionChanged(org.eclipse.jface.viewers
+     *      .SelectionChangedEvent)
      */
     public void selectionChanged(SelectionChangedEvent event) {
         IStructuredSelection sel = (IStructuredSelection) event.getSelection();
-        Object selection = (Object) sel.getFirstElement();
+        Object selection = sel.getFirstElement();
         this.exceptionType = (ExceptionType) selection;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Widget selected.
      * 
-     * @see
-     * org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent
-     * )
+     * @param e
+     *            the e
+     * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent
+     *      )
      */
     @Override
     public void widgetSelected(SelectionEvent e) {

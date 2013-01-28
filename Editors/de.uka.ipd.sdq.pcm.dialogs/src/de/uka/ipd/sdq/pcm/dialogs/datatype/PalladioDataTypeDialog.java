@@ -27,6 +27,7 @@ import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
+// TODO: Auto-generated Javadoc
 /**
  * The class initialize the DataTypeDialog with the Palladio Component Model specific
  * characteristics.
@@ -35,27 +36,51 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
  */
 public class PalladioDataTypeDialog extends DataTypeDialog {
 
+    /** The unnamed repository. */
     private final String UNNAMED_REPOSITORY = "<Unnamed Repository>";
 
+    /** The adapter factory. */
     private ComposedAdapterFactory adapterFactory;
 
+    /** The inner data type. */
     private DataType innerDataType;
+
+    /** The edited data type. */
     private DataType editedDataType;
+
+    /** The editor contents. */
     private CreateEditorContents editorContents;
 
+    /** The edited repository. */
     private Repository editedRepository;
+
+    /** The composite data type. */
     private CompositeDataType compositeDataType;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     private TransactionalEditingDomain editingDomain = null;
 
+    /**
+     * Instantiates a new palladio data type dialog.
+     * 
+     * @param parentShell
+     *            the parent shell
+     * @param editingDomain
+     *            the editing domain
+     */
     public PalladioDataTypeDialog(Shell parentShell, TransactionalEditingDomain editingDomain) {
         super(parentShell);
         this.editingDomain = editingDomain;
     }
 
+    /**
+     * Instantiates a new palladio data type dialog.
+     * 
+     * @param parentShell
+     *            the parent shell
+     * @param editeDataType
+     *            the edite data type
+     */
     public PalladioDataTypeDialog(Shell parentShell, DataType editeDataType) {
         super(parentShell);
         this.editingDomain = TransactionUtil.getEditingDomain(editeDataType);
@@ -63,7 +88,12 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
         initDialog(editeDataType);
     }
 
-    /** call if datatype set (edite button) */
+    /**
+     * call if datatype set (edite button).
+     * 
+     * @param editeDataType
+     *            the edite data type
+     */
     private void initDialog(DataType editeDataType) {
 
         String entityName;
@@ -121,19 +151,35 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
             }
         }
         // convert to String[]
-        return (String[]) tList.toArray(new String[tList.size()]);
+        return tList.toArray(new String[tList.size()]);
     }
 
+    /**
+     * Checks for repository extension.
+     * 
+     * @param uri
+     *            the uri
+     * @return true, if successful
+     */
     private boolean hasRepositoryExtension(URI uri) {
-        if (uri.fileExtension().equals("repository"))
+        if (uri.fileExtension().equals("repository")) {
             return true;
+        }
         return false;
     }
 
+    /**
+     * Checks if is primitive types repository.
+     * 
+     * @param uri
+     *            the uri
+     * @return true, if is primitive types repository
+     */
     private boolean isPrimitiveTypesRepository(URI uri) {
         String exp = "/PrimitiveTypes.repository";
-        if (uri.path().endsWith(exp))
+        if (uri.path().endsWith(exp)) {
             return true;
+        }
         return false;
     }
 
@@ -154,8 +200,9 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
                 String entityName = repository.getEntityName() == null ? UNNAMED_REPOSITORY : repository
                         .getEntityName();
 
-                if (entityName.contains(repositoryName))
+                if (entityName.contains(repositoryName)) {
                     editedRepository = repository;
+                }
             }
         }
     }
@@ -271,11 +318,18 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
                 .createCompositeDataType(editedRepository, compositeDataType, getEntityName());
     }
 
+    /**
+     * Gets the edited data type.
+     * 
+     * @return the edited data type
+     */
     public DataType getEditedDataType() {
         return editedDataType;
     }
 
     /**
+     * Gets the composite data type.
+     * 
      * @return the compositeDataType
      */
     public CompositeDataType getCompositeDataType() {
@@ -283,6 +337,8 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
     }
 
     /**
+     * Sets the composite data type.
+     * 
      * @param compositeDataType
      *            the compositeDataType to set
      */
@@ -291,12 +347,17 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
     }
 
     /**
+     * Gets the editor contents.
+     * 
      * @return the editorContents
      */
     public CreateEditorContents getEditorContents() {
         return editorContents;
     }
 
+    /**
+     * Refresh.
+     */
     public void refresh() {
         editorContents.getViewer().refresh();
         validateInput();

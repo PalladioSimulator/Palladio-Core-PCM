@@ -24,21 +24,41 @@ import org.eclipse.jface.text.source.SourceViewerConfiguration;
 
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Snowball
+ * The Class AbstractGrammarBasedViewerConfiguration.
  * 
+ * @author Snowball
  */
 public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfiguration {
 
+    /** The annotation model. */
     private IAnnotationModel annotationModel;
+
+    /** The my lexer class. */
     private Class myLexerClass;
+
+    /** The my mapper. */
     private ITokenMapper myMapper;
+
+    /** The context. */
     private Parameter[] context = null;
+
+    /** The my assistant. */
     private ContentAssistant myAssistant;
 
     /**
-	 * 
-	 */
+     * Instantiates a new abstract grammar based viewer configuration.
+     * 
+     * @param annotationModel
+     *            the annotation model
+     * @param context
+     *            the context
+     * @param lexerClass
+     *            the lexer class
+     * @param myMapper
+     *            the my mapper
+     */
     public AbstractGrammarBasedViewerConfiguration(IAnnotationModel annotationModel, Parameter[] context,
             Class lexerClass, ITokenMapper myMapper) {
         this.annotationModel = annotationModel;
@@ -65,15 +85,34 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
         return reconciler;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.jface.text.source.SourceViewerConfiguration#getAnnotationHover(org.eclipse.jface
+     * .text.source.ISourceViewer)
+     */
     @Override
     public IAnnotationHover getAnnotationHover(ISourceViewer sourceViewer) {
         return new AnnotationHover(annotationModel);
     }
 
+    /**
+     * Gets the keyword scanner.
+     * 
+     * @return the keyword scanner
+     */
     private ITokenScanner getKeywordScanner() {
         return new ANTLRTokenScannerAdapter(myLexerClass, myMapper);
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.jface.text.source.SourceViewerConfiguration#getContentAssistant(org.eclipse.jface
+     * .text.source.ISourceViewer)
+     */
     @Override
     public IContentAssistant getContentAssistant(ISourceViewer sourceViewer) {
         if (myAssistant == null) {
@@ -87,14 +126,36 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
     }
 }
 
-// annotation hover manager
+/**
+ * annotation hover manager
+ * 
+ */
 class AnnotationHover implements IAnnotationHover, ITextHover {
+
+    /** The annotation model. */
     private IAnnotationModel fAnnotationModel;
 
+    /**
+     * Instantiates a new annotation hover.
+     * 
+     * @param annotationModel
+     *            the annotation model
+     */
     public AnnotationHover(IAnnotationModel annotationModel) {
         this.fAnnotationModel = annotationModel;
     }
 
+    /**
+     * Gets the hover info.
+     * 
+     * @param sourceViewer
+     *            the source viewer
+     * @param lineNumber
+     *            the line number
+     * @return the hover info
+     * @see org.eclipse.jface.text.source.IAnnotationHover#getHoverInfo(org.eclipse.jface.text.source.ISourceViewer,
+     *      int)
+     */
     public String getHoverInfo(ISourceViewer sourceViewer, int lineNumber) {
         Iterator ite = fAnnotationModel.getAnnotationIterator();
 
@@ -103,7 +164,7 @@ class AnnotationHover implements IAnnotationHover, ITextHover {
         while (ite.hasNext()) {
             Annotation a = (Annotation) ite.next();
             if (a instanceof Annotation) {
-                all.add(((Annotation) a).getText());
+                all.add(a.getText());
             }
         }
 
@@ -116,10 +177,32 @@ class AnnotationHover implements IAnnotationHover, ITextHover {
         return total.toString();
     }
 
+    /**
+     * Gets the hover info.
+     * 
+     * @param textViewer
+     *            the text viewer
+     * @param hoverRegion
+     *            the hover region
+     * @return the hover info
+     * @see org.eclipse.jface.text.ITextHover#getHoverInfo(org.eclipse.jface.text.ITextViewer,
+     *      org.eclipse.jface.text.IRegion)
+     */
     public String getHoverInfo(ITextViewer textViewer, IRegion hoverRegion) {
         return null;
     }
 
+    /**
+     * Gets the hover region.
+     * 
+     * @param textViewer
+     *            the text viewer
+     * @param offset
+     *            the offset
+     * @return the hover region
+     * @see org.eclipse.jface.text.ITextHover#getHoverRegion(org.eclipse.jface.text.ITextViewer,
+     *      int)
+     */
     public IRegion getHoverRegion(ITextViewer textViewer, int offset) {
         return null;
     }

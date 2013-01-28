@@ -13,51 +13,79 @@ import org.eclipse.swt.widgets.TableItem;
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 
+// TODO: Auto-generated Javadoc
 /**
- * The class define the CellModifire for the ParametersDialog
+ * The class define the CellModifire for the ParametersDialog.
  * 
  * @author Roman Andrej
  */
 public class ParametersCellModifier implements ICellModifier {
 
+    /** The viewer. */
     private TableViewer viewer;
+
+    /** The column names. */
     private List<String> columnNames;
+
+    /** The parameter. */
     private Parameter parameter;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     private TransactionalEditingDomain editingDomain = null;
 
+    /**
+     * Instantiates a new parameters cell modifier.
+     * 
+     * @param viewer
+     *            the viewer
+     * @param editingDomain
+     *            the editing domain
+     */
     public ParametersCellModifier(TableViewer viewer, TransactionalEditingDomain editingDomain) {
         this.viewer = viewer;
         this.columnNames = Arrays.asList(CreateEditorContents.getColumnNames());
         this.editingDomain = editingDomain;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Can modify.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @return true, if successful
      * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object, java.lang.String)
      */
     public boolean canModify(Object element, String property) {
         return true;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the value.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @return the value
      * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object, java.lang.String)
      */
     public Object getValue(Object element, String property) {
         return (new ParametersItemProvider(null)).getColumnText(element, columnNames.indexOf(property));
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Modify.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @param value
+     *            the value
      * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String,
-     * java.lang.Object)
+     *      java.lang.Object)
      */
     public void modify(Object element, String property, Object value) {
 
@@ -87,7 +115,12 @@ public class ParametersCellModifier implements ICellModifier {
         }
     }
 
-    /** set parameter DataType */
+    /**
+     * set parameter DataType.
+     * 
+     * @param dataType
+     *            the new data type
+     */
     private void setDataType(final DataType dataType) {
 
         RecordingCommand recCommand = new RecordingCommand(editingDomain) {
@@ -106,7 +139,12 @@ public class ParametersCellModifier implements ICellModifier {
         reloadParametersViewer();
     }
 
-    /** set the parameter name */
+    /**
+     * set the parameter name.
+     * 
+     * @param valueString
+     *            the new parameter name
+     */
     private void setParameterName(String valueString) {
         final String value = valueString;
 
@@ -124,6 +162,9 @@ public class ParametersCellModifier implements ICellModifier {
         reloadParametersViewer();
     }
 
+    /**
+     * Reload parameters viewer.
+     */
     private void reloadParametersViewer() {
         viewer.refresh();
     }

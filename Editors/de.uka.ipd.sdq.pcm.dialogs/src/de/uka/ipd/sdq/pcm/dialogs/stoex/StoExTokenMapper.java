@@ -11,22 +11,27 @@ import org.eclipse.swt.graphics.RGB;
 
 import de.uka.ipd.sdq.pcm.stochasticexpressions.parser.PCMStoExLexer;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Steffen Becker
+ * The Class StoExTokenMapper.
  * 
+ * @author Steffen Becker
  */
 public class StoExTokenMapper implements ITokenMapper {
 
     /**
-	 * 
-	 */
+     * Instantiates a new sto ex token mapper.
+     */
     public StoExTokenMapper() {
         // TODO Auto-generated constructor stub
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Map color.
      * 
+     * @param t
+     *            the t
+     * @return the object
      * @see de.uka.ipd.sdq.dialogs.selection.IColorMapper#mapColor(antlr.Token)
      */
     public Object mapColor(Token t) {

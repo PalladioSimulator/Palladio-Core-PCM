@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.dialogs.parameters.UpDownButtonsValidator;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
+// TODO: Auto-generated Javadoc
 /**
  * This adapter class provides default implementations for the methods described by the
  * SelectionListener interface to upItem - Button in the ColpositeDataType edit area.
@@ -19,20 +20,32 @@ import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
  */
 public class UpInnerDeclarationAction extends EditorContentsSelectionAction implements SelectionListener {
 
+    /** The dialog. */
     private PalladioDataTypeDialog dialog;
+
+    /** The editing domain. */
     private TransactionalEditingDomain editingDomain;
 
+    /**
+     * Instantiates a new up inner declaration action.
+     * 
+     * @param dialog
+     *            the dialog
+     * @param editingDomain
+     *            the editing domain
+     */
     public UpInnerDeclarationAction(PalladioDataTypeDialog dialog, TransactionalEditingDomain editingDomain) {
         this.dialog = dialog;
         this.editingDomain = editingDomain;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Widget selected.
      * 
-     * @see
-     * org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent
-     * )
+     * @param e
+     *            the e
+     * @see org.eclipse.swt.events.SelectionListener#widgetSelected(org.eclipse.swt.events.SelectionEvent
+     *      )
      */
     public void widgetSelected(SelectionEvent e) {
 
@@ -61,6 +74,13 @@ public class UpInnerDeclarationAction extends EditorContentsSelectionAction impl
         dialog.validateInput();
     }
 
+    /**
+     * Widget default selected.
+     * 
+     * @param e
+     *            the e
+     * @see org.eclipse.swt.events.SelectionListener#widgetDefaultSelected(org.eclipse.swt.events.SelectionEvent)
+     */
     public void widgetDefaultSelected(SelectionEvent e) {
         // TODO Auto-generated method stub
     }

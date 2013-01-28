@@ -12,18 +12,25 @@ import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class AddExceptionTypeAction.
+ *
  * @author roman
  */
 public class AddExceptionTypeAction extends SelectionAdapter {
 
+    /** The parent signature. */
     private Signature parentSignature;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     protected TransactionalEditingDomain editingDomain = null;
 
+    /**
+     * Instantiates a new adds the exception type action.
+     *
+     * @param parentSignature the parent signature
+     */
     public AddExceptionTypeAction(Signature parentSignature) {
         this.parentSignature = parentSignature;
         this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);

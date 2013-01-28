@@ -13,17 +13,20 @@ import org.eclipse.jface.text.templates.TemplateCompletionProcessor;
 import org.eclipse.jface.text.templates.TemplateContextType;
 import org.eclipse.swt.graphics.Image;
 
+// TODO: Auto-generated Javadoc
 /**
+ * The Class StoExTemplateCompletionProcessor.
+ *
  * @author Steffen Becker
- * 
  */
 public class StoExTemplateCompletionProcessor extends TemplateCompletionProcessor {
 
+    /** The Constant STO_EX_CONTEXT_TYPE. */
     public static final String STO_EX_CONTEXT_TYPE = "StoExContextType";
 
     /**
-	 * 
-	 */
+     * Instantiates a new sto ex template completion processor.
+     */
     public StoExTemplateCompletionProcessor() {
         // TODO Auto-generated constructor stub
     }

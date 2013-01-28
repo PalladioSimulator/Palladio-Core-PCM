@@ -17,27 +17,67 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
 import de.uka.ipd.sdq.stoex.NamespaceReference;
 import de.uka.ipd.sdq.stoex.StoexFactory;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class SetOutputVariableNameDialog.
+ */
 public class SetOutputVariableNameDialog extends TitleAreaDialog {
 
+    /** The dialog title. */
     private String DIALOG_TITLE = "Enter Local Variable Name for Storing Output Variable";
+    
+    /** The set name text. */
     private Text setNameText;
+    
+    /** The result. */
     private String result;
 
+    /**
+     * The listener interface for receiving setNameValidation events.
+     * The class that is interested in processing a setNameValidation
+     * event implements this interface, and the object created
+     * with that class is registered with a component using the
+     * component's <code>addSetNameValidationListener<code> method. When
+     * the setNameValidation event occurs, that object's appropriate
+     * method is invoked.
+     *
+     * @see SetNameValidationEvent
+     */
     private class SetNameValidationListener extends SelectionAdapter implements ModifyListener {
+        
+        /**
+         * Modify text.
+         *
+         * @param e the e
+         * @see org.eclipse.swt.events.ModifyListener#modifyText(org.eclipse.swt.events.ModifyEvent)
+         */
         public void modifyText(ModifyEvent e) {
 
             result = setNameText.getText();
         }
     }
 
+    /** The listener. */
     private SetNameValidationListener listener = new SetNameValidationListener();
 
+    /**
+     * Instantiates a new sets the output variable name dialog.
+     *
+     * @param parentShell the parent shell
+     */
     public SetOutputVariableNameDialog(Shell parentShell) {
         super(parentShell);
         // TODO Auto-generated constructor stub
 
     }
 
+    /**
+     * Creates the dialog area.
+     *
+     * @param parent the parent
+     * @return the control
+     * @see org.eclipse.jface.dialogs.TitleAreaDialog#createDialogArea(org.eclipse.swt.widgets.Composite)
+     */
     @Override
     protected Control createDialogArea(Composite parent) {
         Composite area = (Composite) super.createDialogArea(parent);
@@ -62,10 +102,20 @@ public class SetOutputVariableNameDialog extends TitleAreaDialog {
         return super.createDialogArea(parent);
     }
 
+    /**
+     * Gets the result.
+     *
+     * @return the result
+     */
     public String getResult() {
         return result;
     }
 
+    /**
+     * Cancel pressed.
+     *
+     * @see org.eclipse.jface.dialogs.Dialog#cancelPressed()
+     */
     @Override
     protected void cancelPressed() {
         // TODO Auto-generated method stub
@@ -73,6 +123,11 @@ public class SetOutputVariableNameDialog extends TitleAreaDialog {
         result = null;
     }
 
+    /**
+     * Gets the output variable reference.
+     *
+     * @return the output variable reference
+     */
     public AbstractNamedReference getOutputVariableReference() {
         String[] enteredNameSplitted = result.split("\\.");
         AbstractNamedReference namedReference = referenceFactory(enteredNameSplitted[enteredNameSplitted.length - 1],
@@ -87,7 +142,11 @@ public class SetOutputVariableNameDialog extends TitleAreaDialog {
     }
 
     /**
-     * Create the AbstractNamedReference and set a string parameter
+     * Create the AbstractNamedReference and set a string parameter.
+     *
+     * @param string the string
+     * @param shouldGenerateVariableReference the should generate variable reference
+     * @return the abstract named reference
      */
     private AbstractNamedReference referenceFactory(String string, boolean shouldGenerateVariableReference) {
         AbstractNamedReference parameterReference = null;

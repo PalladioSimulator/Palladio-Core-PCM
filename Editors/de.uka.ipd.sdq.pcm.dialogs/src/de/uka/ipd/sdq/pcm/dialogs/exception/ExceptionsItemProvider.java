@@ -8,32 +8,52 @@ import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
-/** @author roman */
+// TODO: Auto-generated Javadoc
+/**
+ * The Class ExceptionsItemProvider.
+ * 
+ * @author roman
+ */
 public class ExceptionsItemProvider extends ItemProviderDecorator implements ITableItemLabelProvider,
         IItemLabelProvider {
 
     /**
-     * Inherited default constructor
+     * Inherited default constructor.
      * 
-     * @param factory
-     *            The factory which created this object
+     * @param adapterFactory
+     *            the adapter factory
      */
     public ExceptionsItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
     }
 
     /**
+     * Gets the column image.
+     * 
+     * @param object
+     *            the object
+     * @param columnIndex
+     *            the column index
+     * @return the column image
      * @see org.eclipse.emf.edit.provider.ItemProviderDecorator#getColumnImage(java.lang.Object,
      *      int) Get the icon by delegation if the first column is displayed
      */
     @Override
     public Object getColumnImage(Object object, int columnIndex) {
-        if (columnIndex == ExceptionsDialog.ICON_COLUMN_INDEX)
+        if (columnIndex == ExceptionsDialog.ICON_COLUMN_INDEX) {
             return this.getImage(object);
+        }
         return null;
     }
 
     /**
+     * Gets the column text.
+     * 
+     * @param element
+     *            the element
+     * @param columnIndex
+     *            the column index
+     * @return the column text
      * @see org.eclipse.jface.viewers.ITableLabelProvider#getColumnText(java.lang.Object, int)
      *      Format the columns with the given index constant as string text for displaying
      */
@@ -57,10 +77,18 @@ public class ExceptionsItemProvider extends ItemProviderDecorator implements ITa
         return result == null ? "" : result;
     }
 
+    /**
+     * Gets the exception name.
+     * 
+     * @param type
+     *            the type
+     * @return the exception name
+     */
     private String getExceptionName(ExceptionType type) {
         String exceptionName = type.getExceptionName();
-        if (exceptionName != null)
+        if (exceptionName != null) {
             return exceptionName;
+        }
         return "null";
     }
 }

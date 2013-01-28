@@ -22,8 +22,19 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class OpenSchedulingPolicyDialog.
+ */
 public class OpenSchedulingPolicyDialog extends OpenEditPolicy {
 
+    /**
+     * Gets the open command.
+     *
+     * @param request the request
+     * @return the open command
+     * @see org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy#getOpenCommand(org.eclipse.gef.Request)
+     */
     @Override
     protected Command getOpenCommand(Request request) {
 

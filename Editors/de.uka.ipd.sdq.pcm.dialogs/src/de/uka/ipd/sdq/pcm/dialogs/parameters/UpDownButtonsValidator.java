@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
+// TODO: Auto-generated Javadoc
 /**
  * The Class place the validate methods for CompositeDataType and Parameters(Signature) editor area.
  * The methods are used for validating of InnerDeclaration of CompositeDataType and signature
@@ -17,27 +18,48 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  * 
  * @author Roman Andrej
  */
-public class UpDownButtonsValidator {
+public final class UpDownButtonsValidator {
 
+    /** The singelton. */
     private static UpDownButtonsValidator singelton = null;
+
+    /** The contents. */
     private CreateEditorContents contents;
 
+    /**
+     * Instantiates a new up down buttons validator.
+     */
     private UpDownButtonsValidator() {
     }
 
+    /**
+     * Validate.
+     * 
+     * @param elementIndex
+     *            the element index
+     * @param maxIndex
+     *            the max index
+     */
     public void validate(int elementIndex, int maxIndex) {
         Assert.isNotNull(contents);
 
         contents.setDownItemsEnabled(true);
         contents.setUpItemsEnabled(true);
 
-        if (elementIndex == 0)
+        if (elementIndex == 0) {
             contents.setUpItemsEnabled(false);
-        if (elementIndex == maxIndex - 1)
+        }
+        if (elementIndex == maxIndex - 1) {
             contents.setDownItemsEnabled(false);
+        }
     }
 
-    /** Validate selection from table viewer */
+    /**
+     * Validate selection from table viewer.
+     * 
+     * @param selection
+     *            the selection
+     */
     public void validateSelection(Object selection) {
         if (selection == null) {
             contents.setDeleteItemsEnabled(false);
@@ -57,6 +79,9 @@ public class UpDownButtonsValidator {
     /**
      * Validate (Enabled/Unenabled) up-, down-button in the ParameterDialog. Call if selection
      * instanceof Parameter.
+     * 
+     * @param parameter
+     *            the parameter
      */
     public void validateParameter(Parameter parameter) {
         EList<Parameter> parameters = ParametersUtil.getParametersOfSignature((Signature) parameter.eContainer());
@@ -66,6 +91,9 @@ public class UpDownButtonsValidator {
     /**
      * Validate (Enabled/Unenabled) up-, down-button in the DataTypeDialog. Call if selection
      * instanceof InnerDeclaration.
+     * 
+     * @param declaration
+     *            the declaration
      */
     public void validateInnerDeclaration(InnerDeclaration declaration) {
         if (declaration.eContainer() instanceof CompositeDataType) {
@@ -75,6 +103,15 @@ public class UpDownButtonsValidator {
         }
     }
 
+    /**
+     * Validdate declaration inner data type.
+     * 
+     * @param declaration
+     *            the declaration
+     * @param dialog
+     *            the dialog
+     * @return true, if successful
+     */
     public boolean validdateDeclarationInnerDataType(InnerDeclaration declaration, PalladioDataTypeDialog dialog) {
         if (declaration.getDatatype_InnerDeclaration() == null) {
             dialog.setErrorMessage(Messages.DataTypeDialog_ErrorMsgInnerName);
@@ -87,12 +124,24 @@ public class UpDownButtonsValidator {
         return true;
     }
 
+    /**
+     * Gets the singelton.
+     * 
+     * @return the singelton
+     */
     public static UpDownButtonsValidator getSingelton() {
-        if (singelton == null)
+        if (singelton == null) {
             singelton = new UpDownButtonsValidator();
+        }
         return singelton;
     }
 
+    /**
+     * Sets the contents.
+     * 
+     * @param contents
+     *            the new contents
+     */
     public void setContents(CreateEditorContents contents) {
         this.contents = contents;
     }

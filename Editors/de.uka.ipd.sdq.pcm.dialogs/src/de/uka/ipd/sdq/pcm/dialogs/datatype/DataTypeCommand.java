@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
+// TODO: Auto-generated Javadoc
 /**
  * The class place the methods for the production of new DataType.
  * 
@@ -17,9 +18,15 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
  */
 public class DataTypeCommand {
 
-    /** The transactional editing domain which is used to get the commands */
+    /** The transactional editing domain which is used to get the commands. */
     private TransactionalEditingDomain editingDomain;
 
+    /**
+     * Instantiates a new data type command.
+     * 
+     * @param editingDomain
+     *            the editing domain
+     */
     public DataTypeCommand(TransactionalEditingDomain editingDomain) {
         this.editingDomain = editingDomain;
     }
@@ -28,6 +35,18 @@ public class DataTypeCommand {
      * (non-Javadoc)
      * 
      * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCollectionDataType()
+     */
+    /**
+     * Creates the collection data type.
+     * 
+     * @param repository
+     *            the repository
+     * @param dataType
+     *            the data type
+     * @param innerDataType
+     *            the inner data type
+     * @param entityName
+     *            the entity name
      */
     public void createCollectionDataType(final Repository repository, final DataType dataType,
             final DataType innerDataType, final String entityName) {
@@ -43,11 +62,13 @@ public class DataTypeCommand {
                     String typeName = collectionDataType.getEntityName();
                     DataType innerType = collectionDataType.getInnerType_CollectionDataType();
 
-                    if ((entityName != null) && (!typeName.equals(entityName)))
+                    if ((entityName != null) && (!typeName.equals(entityName))) {
                         collectionDataType.setEntityName(entityName);
+                    }
 
-                    if ((innerDataType != null) && (!innerType.equals(innerDataType)))
+                    if ((innerDataType != null) && (!innerType.equals(innerDataType))) {
                         collectionDataType.setInnerType_CollectionDataType(innerDataType);
+                    }
                 } else {
                     // Create new DataType
                     collectionDataType = RepositoryFactory.eINSTANCE.createCollectionDataType();
@@ -71,6 +92,16 @@ public class DataTypeCommand {
      * 
      * @see de.uka.ipd.sdq.pcmbench.tabs.dialogs.CreateDataTypeDialog#createCompositeDataType()
      */
+    /**
+     * Creates the composite data type.
+     * 
+     * @param repository
+     *            the repository
+     * @param compositeDataType
+     *            the composite data type
+     * @param entityName
+     *            the entity name
+     */
     public void createCompositeDataType(final Repository repository, final CompositeDataType compositeDataType,
             final String entityName) {
 
@@ -79,11 +110,13 @@ public class DataTypeCommand {
             protected void doExecute() {
                 Assert.isNotNull(compositeDataType);
 
-                if ((entityName != null) && (!compositeDataType.getEntityName().equals(entityName)))
+                if ((entityName != null) && (!compositeDataType.getEntityName().equals(entityName))) {
                     compositeDataType.setEntityName(entityName);
+                }
 
-                if (repository != null)
+                if (repository != null) {
                     compositeDataType.setRepository__DataType(repository);
+                }
             }
         };
 

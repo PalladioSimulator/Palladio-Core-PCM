@@ -18,15 +18,20 @@ import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author admin
+ * The Class VariableUsageContentProvider.
  * 
+ * @author admin
  */
 public class VariableUsageContentProvider implements ITreeContentProvider {
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the elements.
      * 
+     * @param inputElement
+     *            the input element
+     * @return the elements
      * @see org.eclipse.jface.viewers.IStructuredContentProvider#getElements(java.lang.Object)
      */
     public Object[] getElements(Object inputElement) {
@@ -36,8 +41,8 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Dispose.
      * 
      * @see org.eclipse.jface.viewers.IContentProvider#dispose()
      */
@@ -45,20 +50,28 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
         // TODO Auto-generated method stub
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Input changed.
      * 
-     * @see
-     * org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer,
-     * java.lang.Object, java.lang.Object)
+     * @param viewer
+     *            the viewer
+     * @param oldInput
+     *            the old input
+     * @param newInput
+     *            the new input
+     * @see org.eclipse.jface.viewers.IContentProvider#inputChanged(org.eclipse.jface.viewers.Viewer,
+     *      java.lang.Object, java.lang.Object)
      */
     public void inputChanged(Viewer viewer, Object oldInput, Object newInput) {
         // TODO Auto-generated method stub
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the children.
      * 
+     * @param parent
+     *            the parent
+     * @return the children
      * @see org.eclipse.jface.viewers.ITreeContentProvider#getChildren(java.lang.Object)
      */
     public Object[] getChildren(Object parent) {
@@ -75,15 +88,16 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
          */
         if (parent instanceof Parameter) {
             Parameter parameter = (Parameter) parent;
-            DataType dataType = (DataType) parameter.getDataType__Parameter();
+            DataType dataType = parameter.getDataType__Parameter();
 
             if (dataType instanceof CompositeDataType) {
                 return getCompositeTypeElements(dataType, parameter);
             } else if (dataType instanceof CollectionDataType) {
                 return new Object[] { new DataTypeContainer(
                         ((CollectionDataType) dataType).getInnerType_CollectionDataType(), parent) };
-            } else
+            } else {
                 return new Object[] {};
+            }
         }
 
         /**
@@ -92,11 +106,13 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
         if (parent instanceof DataTypeContainer) {
             DataType innerType = getTreeTypeInner(parent);
 
-            if (innerType instanceof PrimitiveDataType)
+            if (innerType instanceof PrimitiveDataType) {
                 return new Object[0];
+            }
 
-            if (innerType instanceof CompositeDataType)
+            if (innerType instanceof CompositeDataType) {
                 return getCompositeTypeElements(innerType, parent);
+            }
 
             return new Object[] { new DataTypeContainer(innerType, parent) };
         }
@@ -119,6 +135,10 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
     }
 
     /**
+     * Gets the tree declaration inner.
+     * 
+     * @param parent
+     *            the parent
      * @return - return the DataType from InnerDeclaration of TreeDeclaration-Object
      */
     private DataType getTreeDeclarationInner(Object parent) {
@@ -128,6 +148,10 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
     }
 
     /**
+     * Gets the tree type inner.
+     * 
+     * @param parent
+     *            the parent
      * @return - return the DataType from inner collection datatype of TreeType-Object
      */
     private DataType getTreeTypeInner(Object parent) {
@@ -145,9 +169,13 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
     }
 
     /**
-     * TODO
+     * TODO.
      * 
-     * @return - array of TreeDeclaration from composite datatype
+     * @param dataType
+     *            the data type
+     * @param parent
+     *            the parent
+     * @return - array of TreeDeclaration from composite datatype.
      */
     private Object[] getCompositeTypeElements(DataType dataType, Object parent) {
         CompositeDataType compDataType = (CompositeDataType) dataType;
@@ -156,15 +184,19 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
 
         int i = 0;
 
-        for (InnerDeclaration inner : list)
+        for (InnerDeclaration inner : list) {
             objects[i++] = new InnerDeclarationContainer(inner, parent);
+        }
 
         return objects;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the parent.
      * 
+     * @param element
+     *            the element
+     * @return the parent
      * @see org.eclipse.jface.viewers.ITreeContentProvider#getParent(java.lang.Object)
      */
     public Object getParent(Object element) {
@@ -172,9 +204,12 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
         return null;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Checks for children.
      * 
+     * @param element
+     *            the element
+     * @return true, if successful
      * @see org.eclipse.jface.viewers.ITreeContentProvider#hasChildren(java.lang.Object)
      */
     public boolean hasChildren(Object element) {
@@ -195,8 +230,9 @@ public class VariableUsageContentProvider implements ITreeContentProvider {
             return hasChildren(dataType);
         }
 
-        if (element instanceof PrimitiveDataType)
+        if (element instanceof PrimitiveDataType) {
             return false;
+        }
 
         return true;
     }

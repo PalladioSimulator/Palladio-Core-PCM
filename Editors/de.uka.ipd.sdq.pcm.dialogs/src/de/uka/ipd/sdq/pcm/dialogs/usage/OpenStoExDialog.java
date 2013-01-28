@@ -22,15 +22,33 @@ import de.uka.ipd.sdq.stoex.RandomVariable;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.TypeEnum;
 
+// TODO: Auto-generated Javadoc
 // Manually written open policy to open the StoEx Dialog. It's
 // called via a CustomBehaviour in the genmap
+/**
+ * The Class OpenStoExDialog.
+ */
 public class OpenStoExDialog extends OpenEditPolicy {
 
+    /**
+     * Gets the random variable.
+     * 
+     * @param parent
+     *            the parent
+     * @return the random variable
+     */
     protected RandomVariable getRandomVariable(EObject parent) {
         // Default Implementation. Override as necessary
         return (RandomVariable) parent;
     }
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * org.eclipse.gmf.runtime.diagram.ui.editpolicies.OpenEditPolicy#getOpenCommand(org.eclipse
+     * .gef.Request)
+     */
     @Override
     protected Command getOpenCommand(Request request) {
         IGraphicalEditPart host = (IGraphicalEditPart) getHost();
@@ -48,6 +66,13 @@ public class OpenStoExDialog extends OpenEditPolicy {
         return null;
     }
 
+    /**
+     * Gets the expected type.
+     * 
+     * @param rv
+     *            the rv
+     * @return the expected type
+     */
     protected TypeEnum getExpectedType(RandomVariable rv) {
         TypeEnum expectedType = TypeEnum.ANY;
         if (rv instanceof VariableCharacterisation) {
@@ -57,6 +82,13 @@ public class OpenStoExDialog extends OpenEditPolicy {
         return expectedType;
     }
 
+    /**
+     * Gets the context.
+     * 
+     * @param rv
+     *            the rv
+     * @return the context
+     */
     private Parameter[] getContext(EObject rv) {
         Parameter[] parameters = new Parameter[] {};
 
@@ -64,19 +96,29 @@ public class OpenStoExDialog extends OpenEditPolicy {
 
         if (seff != null && seff.getDescribedService__SEFF() != null) {
             if (seff.getDescribedService__SEFF() instanceof OperationSignature
-                    && ((OperationSignature) seff.getDescribedService__SEFF()).getParameters__OperationSignature() != null)
+                    && ((OperationSignature) seff.getDescribedService__SEFF()).getParameters__OperationSignature() != null) {
                 parameters = (Parameter[]) ((OperationSignature) seff.getDescribedService__SEFF())
                         .getParameters__OperationSignature().toArray();
+            }
         }
         return parameters;
     }
 
+    /**
+     * Gets the seff.
+     * 
+     * @param a
+     *            the a
+     * @return the seff
+     */
     private ResourceDemandingSEFF getSEFF(EObject a) {
         EObject container = a;
-        while (!(container instanceof ResourceDemandingSEFF))
+        while (!(container instanceof ResourceDemandingSEFF)) {
             container = container.eContainer();
-        if (!(container instanceof ResourceDemandingSEFF))
+        }
+        if (!(container instanceof ResourceDemandingSEFF)) {
             return null;
+        }
         ResourceDemandingSEFF seff = (ResourceDemandingSEFF) container;
         return seff;
     }

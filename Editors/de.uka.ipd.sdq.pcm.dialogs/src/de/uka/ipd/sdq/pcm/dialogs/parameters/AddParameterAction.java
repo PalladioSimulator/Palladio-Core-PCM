@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 
+// TODO: Auto-generated Javadoc
 /**
  * The class define an action, which a new parameter for the signature adds.
  * 
@@ -22,14 +23,20 @@ public class AddParameterAction extends SelectionAdapter {
     /** Default name of a newly created parameter. Not guaranteed to be unique. */
     private static final String DEFAULT_PARAMETER_NAME = "parameter";
 
+    /** The parent signature. */
     private Signature parentSignature = null;
+    
+    /** The parameter name. */
     private String parameterName = DEFAULT_PARAMETER_NAME;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     private TransactionalEditingDomain editingDomain = null;
 
+    /**
+     * Instantiates a new adds the parameter action.
+     *
+     * @param parentSignature the parent signature
+     */
     public AddParameterAction(Signature parentSignature) {
         this.parentSignature = parentSignature;
         this.editingDomain = TransactionUtil.getEditingDomain(parentSignature);

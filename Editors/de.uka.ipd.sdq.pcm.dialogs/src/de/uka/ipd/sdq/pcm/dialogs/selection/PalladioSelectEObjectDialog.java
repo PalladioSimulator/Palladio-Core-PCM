@@ -27,22 +27,27 @@ import de.uka.ipd.sdq.pcm.repository.provider.RepositoryItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.resourceenvironment.provider.ResourceenvironmentItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.resourcetype.provider.ResourcetypeItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.seff.provider.SeffItemProviderAdapterFactory;
-import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.subsystem.provider.SubsystemItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.system.provider.SystemItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.provider.UsagemodelItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
 
+// TODO: Auto-generated Javadoc
 /**
- * @author Snowball
+ * The Class PalladioSelectEObjectDialog.
  * 
+ * @author Snowball
  */
 public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
 
+    /** The input. */
     private Object input;
+
+    /** The content provider. */
     private AdapterFactoryContentProvider contentProvider;
 
     /**
-     * Creates a selection dialog
+     * Creates a selection dialog.
      * 
      * @param parent
      *            Shell of active workbench window
@@ -82,6 +87,16 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
         setInputDialogResourceName(filterList);
     }
 
+    /**
+     * Instantiates a new palladio select e object dialog.
+     * 
+     * @param parent
+     *            the parent
+     * @param filterList
+     *            the filter list
+     * @param input
+     *            the input
+     */
     public PalladioSelectEObjectDialog(Shell parent, Collection<Object> filterList, Object input) {
         this(parent, filterList, new ArrayList<EReference>(), input);
     }
@@ -105,16 +120,24 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
             for (Object object : list) {
                 Class<?> clazz = (Class<?>) object;
                 String name = clazz.getSimpleName();
-                if (name.equals(system) || name.equals(repository) || name.equals(resourceRepository))
+                if (name.equals(system) || name.equals(repository) || name.equals(resourceRepository)) {
                     setResourceName(correctionResourceRepositoryName(name));
+                }
             }
         }
     }
 
-    /** Correction the ResourceRepository to ResourceType */
+    /**
+     * Correction the ResourceRepository to ResourceType.
+     * 
+     * @param name
+     *            the name
+     * @return the string
+     */
     private String correctionResourceRepositoryName(String name) {
-        if (name.equals("ResourceRepository"))
+        if (name.equals("ResourceRepository")) {
             return "ResourceType";
+        }
         return name;
     }
 
@@ -140,26 +163,31 @@ public class PalladioSelectEObjectDialog extends SelectEObjectDialog {
     }
 
     /**
-     * Get a resource set from dialog input object
+     * Get a resource set from dialog input object.
      * 
      * @param object
      *            - dialog input object
+     * @return the resource set
      */
     protected ResourceSet getResourceSet(Object object) {
         /** ResourceSet */
-        if (object instanceof ResourceSet)
+        if (object instanceof ResourceSet) {
             return (ResourceSet) object;
+        }
         /** EObject */
         if (object instanceof EObject) {
             TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain((EObject) object);
-            if (editingDomain != null)
+            if (editingDomain != null) {
                 return editingDomain.getResourceSet();
+            }
         }
         return null;
     }
 
     /**
-     * The method supplies the main knots of, in this dialogue the represented, tree
+     * The method supplies the main knots of, in this dialogue the represented, tree.
+     * 
+     * @return the viewer root element
      */
     public Object getViewerRootElement() {
         Object object = null;

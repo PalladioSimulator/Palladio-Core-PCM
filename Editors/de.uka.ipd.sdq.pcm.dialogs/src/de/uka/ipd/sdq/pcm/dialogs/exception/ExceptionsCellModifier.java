@@ -12,47 +12,77 @@ import org.eclipse.swt.widgets.TableItem;
 
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 
-/** author roman */
+// TODO: Auto-generated Javadoc
+/**
+ * author roman.
+ */
 public class ExceptionsCellModifier implements ICellModifier {
 
+    /** The column names. */
     private List<String> columnNames;
+
+    /** The exception type. */
     private ExceptionType exceptionType;
+
+    /** The viewer. */
     private TableViewer viewer;
 
-    /**
-     * The transactional editing domain which is used to get the commands and alter the model
-     */
+    /** The transactional editing domain which is used to get the commands and alter the model. */
     protected TransactionalEditingDomain editingDomain = null;
 
+    /**
+     * Instantiates a new exceptions cell modifier.
+     * 
+     * @param viewer
+     *            the viewer
+     * @param editingDomain
+     *            the editing domain
+     */
     public ExceptionsCellModifier(TableViewer viewer, TransactionalEditingDomain editingDomain) {
         this.columnNames = Arrays.asList(ExceptionsDialog.getColumnNames());
         this.editingDomain = editingDomain;
         this.viewer = viewer;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Can modify.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @return true, if successful
      * @see org.eclipse.jface.viewers.ICellModifier#canModify(java.lang.Object, java.lang.String)
      */
     public boolean canModify(Object element, String property) {
         return true;
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Gets the value.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @return the value
      * @see org.eclipse.jface.viewers.ICellModifier#getValue(java.lang.Object, java.lang.String)
      */
     public Object getValue(Object element, String property) {
         return (new ExceptionsItemProvider(null)).getColumnText(element, columnNames.indexOf(property));
     }
 
-    /*
-     * (non-Javadoc)
+    /**
+     * Modify.
      * 
+     * @param element
+     *            the element
+     * @param property
+     *            the property
+     * @param value
+     *            the value
      * @see org.eclipse.jface.viewers.ICellModifier#modify(java.lang.Object, java.lang.String,
-     * java.lang.Object)
+     *      java.lang.Object)
      */
     public void modify(Object element, String property, Object value) {
 
@@ -77,7 +107,10 @@ public class ExceptionsCellModifier implements ICellModifier {
     }
 
     /**
-     * Set ExceptionName of the selected Signature
+     * Set ExceptionName of the selected Signature.
+     * 
+     * @param value
+     *            the new exception name
      */
     private void setExceptionName(final String value) {
 

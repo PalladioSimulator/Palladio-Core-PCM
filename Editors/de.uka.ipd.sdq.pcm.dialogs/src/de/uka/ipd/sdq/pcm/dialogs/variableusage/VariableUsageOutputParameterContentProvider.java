@@ -8,8 +8,19 @@ import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class VariableUsageOutputParameterContentProvider.
+ */
 public class VariableUsageOutputParameterContentProvider extends VariableUsageContentProvider {
 
+    /**
+     * Gets the children.
+     *
+     * @param parent the parent
+     * @return the children
+     * @see de.uka.ipd.sdq.pcm.dialogs.variableusage.VariableUsageContentProvider#getChildren(java.lang.Object)
+     */
     @Override
     public Object[] getChildren(Object parent) {
         if (parent instanceof OperationSignature) {

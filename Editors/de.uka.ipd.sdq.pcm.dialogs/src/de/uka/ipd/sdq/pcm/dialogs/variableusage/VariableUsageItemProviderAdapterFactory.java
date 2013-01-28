@@ -9,12 +9,19 @@ import org.eclipse.emf.edit.provider.IChangeNotifier;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
 import org.eclipse.emf.edit.provider.IItemProviderDecorator;
 
+// TODO: Auto-generated Javadoc
 /**
+ * A factory for creating VariableUsageItemProviderAdapter objects.
+ *
  * @author admin
- * 
  */
 public class VariableUsageItemProviderAdapterFactory extends DecoratorAdapterFactory {
 
+    /**
+     * Instantiates a new variable usage item provider adapter factory.
+     *
+     * @param decoratedAdapterFactory the decorated adapter factory
+     */
     public VariableUsageItemProviderAdapterFactory(AdapterFactory decoratedAdapterFactory) {
         super(decoratedAdapterFactory);
     }

@@ -8,6 +8,7 @@ import org.eclipse.emf.edit.provider.ItemProviderDecorator;
 import de.uka.ipd.sdq.pcm.dialogs.parameters.CreateEditorContents;
 import de.uka.ipd.sdq.pcm.repository.InnerDeclaration;
 
+// TODO: Auto-generated Javadoc
 /**
  * This class is a decorator for the generated EMF.Edit item providers. It provides item providers
  * which are used in the operations tab of the tabbed properties sheet when editing interfaces. It
@@ -20,7 +21,10 @@ public class InnerDeclarationItemProvider extends ItemProviderDecorator implemen
         IItemLabelProvider {
 
     /**
+     * Instantiates a new inner declaration item provider.
+     * 
      * @param adapterFactory
+     *            the adapter factory
      */
     public InnerDeclarationItemProvider(AdapterFactory adapterFactory) {
         super(adapterFactory);
@@ -34,8 +38,9 @@ public class InnerDeclarationItemProvider extends ItemProviderDecorator implemen
      */
     @Override
     public Object getColumnImage(Object object, int columnIndex) {
-        if (columnIndex == CreateEditorContents.ICON_COLUMN_INDEX)
+        if (columnIndex == CreateEditorContents.ICON_COLUMN_INDEX) {
             return this.getImage(object);
+        }
         return null;
     }
 
@@ -57,8 +62,9 @@ public class InnerDeclarationItemProvider extends ItemProviderDecorator implemen
             result = declaration.getClass().getSimpleName();
             break;
         case CreateEditorContents.NAME_COLUMN_INDEX:
-            if (declaration != null)
+            if (declaration != null) {
                 result = declaration.getEntityName();
+            }
             break;
         case CreateEditorContents.TYPE_COLUMN_INDEX:
             result = ParameterRepresentation.dataTypeToString(declaration.getDatatype_InnerDeclaration());

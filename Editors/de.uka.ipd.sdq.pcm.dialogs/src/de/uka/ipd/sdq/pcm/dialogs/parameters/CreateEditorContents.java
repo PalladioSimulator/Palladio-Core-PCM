@@ -24,6 +24,7 @@ import org.eclipse.swt.widgets.ToolItem;
 
 import de.uka.ipd.sdq.pcm.dialogs.DialogsImages;
 
+// TODO: Auto-generated Javadoc
 /**
  * This class create a dialog area for Parameter-, DataTypeDialog. In order to make functionality
  * possible from dialogue perfectly to, the following functions must be called:
@@ -37,89 +38,184 @@ import de.uka.ipd.sdq.pcm.dialogs.DialogsImages;
  * 
  * @author Roman Andrej
  */
-public class CreateEditorContents {
+public final class CreateEditorContents {
     // local value
+    /** The viewer. */
     private TableViewer viewer;
+
+    /** The up item. */
     private ToolItem addItem, deleteItem, downItem, upItem;
+
+    /** The table. */
     private Table table;
     // private TransactionalEditingDomain editingDomain;
 
+    /** The Constant ICON_COLUMN_INDEX. */
     public static final int ICON_COLUMN_INDEX = 0;
+
+    /** The Constant CONTEXT_COLUMN_INDEX. */
     public static final int CONTEXT_COLUMN_INDEX = 1;
+
+    /** The Constant TYPE_COLUMN_INDEX. */
     public static final int TYPE_COLUMN_INDEX = 2;
+
+    /** The Constant NAME_COLUMN_INDEX. */
     public static final int NAME_COLUMN_INDEX = 3;
 
-    /**
-     * Columns of a table, which is used into ParameterEditDialog
-     */
+    /** Columns of a table, which is used into ParameterEditDialog. */
     public final static String ATTRIBUTE_ICON_COLUMN = "";
+
+    /** The Constant CONTEXT_COLUMN. */
     public final static String CONTEXT_COLUMN = "Context";
+
+    /** The Constant TYPE_COLUMN. */
     public final static String TYPE_COLUMN = "Type";
+
+    /** The Constant NAME_COLUMN. */
     public final static String NAME_COLUMN = "Name";
 
     // Set column names of Tabele
+    /** The column names. */
     private static String[] columnNames = new String[] { ATTRIBUTE_ICON_COLUMN, CONTEXT_COLUMN, NAME_COLUMN,
             TYPE_COLUMN };
 
-    /**
-     * Create the cell editors for Name, Type column
-     */
+    /** Create the cell editors for Name, Type column. */
     private CellEditor[] editors = new CellEditor[columnNames.length];
 
+    /**
+     * Instantiates a new creates the editor contents.
+     * 
+     * @param composite
+     *            the composite
+     */
     private CreateEditorContents(Composite composite) {
         init(composite);
     }
 
-    /** Factory Method */
+    /**
+     * Factory Method.
+     * 
+     * @param composite
+     *            the composite
+     * @return the creates the editor contents
+     */
     public static CreateEditorContents create(Composite composite) {
         return new CreateEditorContents(composite);
     }
 
+    /**
+     * Creates the name column cell editor.
+     */
     public void createNameColumnCellEditor() {
         editors[NAME_COLUMN_INDEX] = new TextCellEditor(table);
     }
 
+    /**
+     * Creates the type column cell editor.
+     * 
+     * @param editingDomain
+     *            the editing domain
+     */
     public void createTypeColumnCellEditor(TransactionalEditingDomain editingDomain) {
         editors[TYPE_COLUMN_INDEX] = new TypeDialogCellEditor(table, editingDomain);
     }
 
+    /**
+     * Sets the viewer content provider.
+     * 
+     * @param contentProvider
+     *            the new viewer content provider
+     */
     public void setViewerContentProvider(IContentProvider contentProvider) {
         viewer.setContentProvider(contentProvider);
     }
 
+    /**
+     * Sets the viewer label provider.
+     * 
+     * @param labelProvider
+     *            the new viewer label provider
+     */
     public void setViewerLabelProvider(IBaseLabelProvider labelProvider) {
         viewer.setLabelProvider(labelProvider);
     }
 
+    /**
+     * Sets the viewer cell modifier.
+     * 
+     * @param cellModifier
+     *            the new viewer cell modifier
+     */
     public void setViewerCellModifier(ICellModifier cellModifier) {
         viewer.setCellModifier(cellModifier);
     }
 
+    /**
+     * Sets the adds the button action listener.
+     * 
+     * @param listener
+     *            the new adds the button action listener
+     */
     public void setAddButtonActionListener(SelectionListener listener) {
         addItem.addSelectionListener(listener);
     }
 
+    /**
+     * Sets the delete button action listener.
+     * 
+     * @param listener
+     *            the new delete button action listener
+     */
     public void setDeleteButtonActionListener(SelectionListener listener) {
         deleteItem.addSelectionListener(listener);
     }
 
+    /**
+     * Sets the up button action listener.
+     * 
+     * @param listener
+     *            the new up button action listener
+     */
     public void setUpButtonActionListener(SelectionListener listener) {
         upItem.addSelectionListener(listener);
     }
 
+    /**
+     * Sets the down button action listener.
+     * 
+     * @param listener
+     *            the new down button action listener
+     */
     public void setDownButtonActionListener(SelectionListener listener) {
         downItem.addSelectionListener(listener);
     }
 
+    /**
+     * Sets the viewer selection changed listener.
+     * 
+     * @param listener
+     *            the new viewer selection changed listener
+     */
     public void setViewerSelectionChangedListener(ISelectionChangedListener listener) {
         viewer.addSelectionChangedListener(listener);
     }
 
+    /**
+     * Sets the viewer input.
+     * 
+     * @param input
+     *            the new viewer input
+     */
     public void setViewerInput(Object input) {
         viewer.setInput(input);
     }
 
-    /** create dialog area */
+    /**
+     * create dialog area.
+     * 
+     * @param composite
+     *            the composite
+     */
     public void init(Composite composite) {
 
         FormData fdToolBar = new FormData();
@@ -196,30 +292,61 @@ public class CreateEditorContents {
         UpDownButtonsValidator.getSingelton().setContents(this);
     }
 
-    /** set upItem - ToolItem enabled or disabled */
+    /**
+     * set upItem - ToolItem enabled or disabled.
+     * 
+     * @param enabled
+     *            the new up items enabled
+     */
     public void setUpItemsEnabled(boolean enabled) {
         upItem.setEnabled(enabled);
     }
 
-    /** set downItem - ToolItem enabled or disabled */
+    /**
+     * set downItem - ToolItem enabled or disabled.
+     * 
+     * @param enabled
+     *            the new down items enabled
+     */
     public void setDownItemsEnabled(boolean enabled) {
         downItem.setEnabled(enabled);
     }
 
-    /** set deleteItem - ToolItem enabled or disabled */
+    /**
+     * set deleteItem - ToolItem enabled or disabled.
+     * 
+     * @param enabled
+     *            the new delete items enabled
+     */
     public void setDeleteItemsEnabled(boolean enabled) {
         deleteItem.setEnabled(enabled);
     }
 
+    /**
+     * Creates the separator.
+     * 
+     * @param composite
+     *            the composite
+     */
     public void createSeparator(Composite composite) {
         Label separator = new Label(composite, SWT.SEPARATOR | SWT.HORIZONTAL);
         separator.setLayoutData(new GridData(492, SWT.DEFAULT));
     }
 
+    /**
+     * Gets the column names.
+     * 
+     * @return the column names
+     */
     public static String[] getColumnNames() {
         return columnNames;
     }
 
+    /**
+     * Gets the viewer.
+     * 
+     * @return the viewer
+     */
     public TableViewer getViewer() {
         return viewer;
     }

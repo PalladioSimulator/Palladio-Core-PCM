@@ -23,6 +23,7 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcm.dialogs.Messages;
 
+// TODO: Auto-generated Javadoc
 /**
  * The dialogue is used in the PCM Bench for the production by Collection or Composite data types.
  * 
@@ -30,26 +31,51 @@ import de.uka.ipd.sdq.pcm.dialogs.Messages;
  */
 public abstract class DataTypeDialog extends TitleAreaDialog {
 
-    /** Edited entity properties */
+    /** Edited entity properties. */
     private String entityName;
 
-    /**
-     * help value define edit DataType (collectionSignator ,compositeSignator)
-     */
+    /** help value define edit DataType (collectionSignator ,compositeSignator). */
     private DataTypeEnum editeDataType;
 
+    /** The composite. */
     private Composite composite;
+
+    /** The collection group. */
     private Group compositeGroup, collectionGroup;
+
+    /** The composite button. */
     private Button compositeButton;
+
+    /** The collection button. */
     private Button collectionButton;
+
+    /** The name label field. */
     private Label nameLabelField;
+
+    /** The type label field. */
     private Label typeLabelField;
+
+    /** The type field. */
     private Text nameField, typeField;
+
+    /** The type button. */
     private Button typeButton;
+
+    /** The stack layout. */
     private StackLayout stackLayout;
+
+    /** The combo. */
     private Combo combo;
+
+    /** The shell. */
     private Shell shell;
 
+    /**
+     * Instantiates a new data type dialog.
+     * 
+     * @param parentShell
+     *            the parent shell
+     */
     public DataTypeDialog(Shell parentShell) {
         super(parentShell);
     }
@@ -57,6 +83,8 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
     /**
      * The method is called with the editing of the type of DataType.
      * 
+     * @param dataTyp
+     *            the data typ
      * @param repositoryName
      *            - the repository name of editing DataType
      * @param entityName
@@ -71,17 +99,20 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         setTitle(Messages.DataTypeDialog_EditTitle);
         shell.setText(Messages.DataTypeDialog_ShellEditTitle);
 
-        if (dataTyp == DataTypeEnum.COLLECTION)
+        if (dataTyp == DataTypeEnum.COLLECTION) {
             setTopCollectionLayout();
-        if (dataTyp == DataTypeEnum.COMPOSITE)
+        }
+        if (dataTyp == DataTypeEnum.COMPOSITE) {
             setTopCompositeLayout();
+        }
 
         // Initialization the SWT elements with edit DataType attributes
         combo.setText(repositoryName);
         combo.setEnabled(false);
         nameField.setText(entityName);
-        if (entityInnerType != null)
+        if (entityInnerType != null) {
             typeField.setText(entityInnerType);
+        }
 
         setEnabled(true);
         setOKButtonDisabled();
@@ -310,41 +341,85 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
              */
             @Override
             public void widgetSelected(SelectionEvent e) {
-                if (editeDataType == DataTypeEnum.COLLECTION)
+                if (editeDataType == DataTypeEnum.COLLECTION) {
                     createCollectionDataType();
-                if (editeDataType == DataTypeEnum.COMPOSITE)
+                }
+                if (editeDataType == DataTypeEnum.COMPOSITE) {
                     createCompositeDataType();
+                }
             }
         });
         setOKButtonDisabled();
     }
 
+    /**
+     * Sets the ok button enabled.
+     */
     protected void setOKButtonEnabled() {
         getButton(IDialogConstants.OK_ID).setEnabled(true);
     }
 
+    /**
+     * Sets the ok button disabled.
+     */
     protected void setOKButtonDisabled() {
         getButton(IDialogConstants.OK_ID).setEnabled(false);
     }
 
-    /** The method define the list with a loaded repository */
+    /**
+     * The method define the list with a loaded repository.
+     * 
+     * @return the loaded repositories
+     */
     public abstract String[] getLoadedRepositories();
 
-    /** The method create the editing area for CompositeDataType */
+    /**
+     * The method create the editing area for CompositeDataType.
+     * 
+     * @param group
+     *            the group
+     */
     public abstract void createInnerSectionCompositeGroup(Composite group);
 
+    /**
+     * Gets the selected inner type.
+     * 
+     * @param event
+     *            the event
+     * @return the selected inner type
+     */
     public abstract String getSelectedInnerType(SelectionEvent event);
 
+    /**
+     * Sets the edited resource.
+     * 
+     * @param resource
+     *            the new edited resource
+     */
     public abstract void setEditedResource(String resource);
 
-    /** The method create a new CollectionDataType */
+    /**
+     * The method create a new CollectionDataType.
+     */
     public abstract void createCollectionDataType();
 
-    /** The method create a new CompositeDataType */
+    /**
+     * The method create a new CompositeDataType.
+     */
     public abstract void createCompositeDataType();
 
+    /**
+     * Validate composite data type.
+     * 
+     * @return true, if successful
+     */
     public abstract boolean validateCompositeDataType();
 
+    /**
+     * Gets the entity name.
+     * 
+     * @return the entity name
+     */
     protected String getEntityName() {
         return entityName;
     }
@@ -360,6 +435,9 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         editeDataType = DataTypeEnum.COMPOSITE;
     }
 
+    /**
+     * Sets the top collection layout.
+     */
     protected void setTopCollectionLayout() {
         compositeButton.setSelection(false);
         collectionButton.setSelection(true);

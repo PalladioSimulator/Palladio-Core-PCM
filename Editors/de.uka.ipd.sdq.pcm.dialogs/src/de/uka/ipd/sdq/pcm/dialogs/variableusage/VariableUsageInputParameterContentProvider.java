@@ -7,8 +7,8 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 
+// TODO: Auto-generated Javadoc
 /**
  * This content provider collects the parameters of a parent object to be used in a variable usage.
  * 
@@ -17,6 +17,13 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
  */
 public class VariableUsageInputParameterContentProvider extends VariableUsageContentProvider {
 
+    /**
+     * Gets the children.
+     *
+     * @param parent the parent
+     * @return the children
+     * @see de.uka.ipd.sdq.pcm.dialogs.variableusage.VariableUsageContentProvider#getChildren(java.lang.Object)
+     */
     @Override
     public Object[] getChildren(Object parent) {
         if (parent instanceof OperationSignature) {
