@@ -353,10 +353,20 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 		}
 	}
 
-	public String getResourceTypeId() {
-		return resourceTypeID;
-	}
-	
+    /**
+     * Returns the id of the resource type (e.g. "_oro4gG3fEdy4YaaT-RYrLQ" for the "CPU" resource
+     * type).
+     * <p>
+     * Be warned that this method's name may be confusing since it interprets the term
+     * "resource type id" different to the rest of SimuCom! In SimuCom, the variable name "typeID"
+     * is mostly used to refer to the name (!) of a resource type, i.e. "CPU", not "_oro4g...".
+     * <p>
+     * TODO: the {@code typeID} variables should be renamed to {@code typeName} or similar!
+     */
+    public String getResourceTypeId() {
+        return resourceTypeID;
+    }
+
 	public String getSchedulingStrategyID() {
 		return schedulingStrategyID;
 	}
