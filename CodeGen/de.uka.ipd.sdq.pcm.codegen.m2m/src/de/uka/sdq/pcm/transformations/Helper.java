@@ -15,8 +15,20 @@ public class Helper {
 	 * @param eObject The object.
 	 * @return The file name of the resource containing the object.
 	 */
+	private static String getResourceFileNameEO(EObject eObject) {
+		String fileName = eObject.eResource().getURI().toFileString();
+		if (fileName.startsWith("\\")) {
+			return fileName.substring(1).replaceAll("\\\\", "\\\\\\\\");
+		} else {
+			return fileName;
+		}
+	}
+	/**
+	 * @param eObject The object.
+	 * @return The file name of the resource containing the object.
+	 */
 	public static String getResourceFileName(ResourceDemandingSEFF eObject) {
-		return eObject.eResource().getURI().toFileString();
+		return getResourceFileNameEO(eObject);
 	}
 
 	/**
@@ -24,7 +36,7 @@ public class Helper {
 	 * @return The file name of the resource containing the object.
 	 */
 	public static String getResourceFileName(CharacterisedPCMParameterPartition eObject) {
-		return eObject.eResource().getURI().toFileString();
+		return getResourceFileNameEO(eObject);
 	}
 
 	/**
