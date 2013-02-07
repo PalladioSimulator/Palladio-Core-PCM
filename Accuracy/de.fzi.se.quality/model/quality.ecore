@@ -160,7 +160,7 @@
       <eOperations name="APCMParameterPartitionMustReferenceAPCMParameterReference"
           eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean">
         <eAnnotations source="http://www.eclipse.org/uml2/1.1.0/GenModel">
-          <details key="body" value="self.parameterReference.oclIsTypeOf(Quality::Parameters::PCM::PCMParameterReference)"/>
+          <details key="body" value="self.parameterReference.oclIsKindOf(quality::parameters::pcm::PCMParameterReference)"/>
         </eAnnotations>
         <eParameters name="diagnostics" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EDiagnosticChain">
           <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">

@@ -103,7 +103,7 @@ public class PCMParameterPartitionImpl extends ParameterPartitionImpl implements
 	 * @generated
 	 * @ordered
 	 */
-	protected static final String APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parameterReference.oclIsTypeOf(Quality::Parameters::PCM::PCMParameterReference)";
+	protected static final String APCM_PARAMETER_PARTITION_MUST_REFERENCE_APCM_PARAMETER_REFERENCE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.parameterReference.oclIsKindOf(quality::parameters::pcm::PCMParameterReference)";
 
 	/**
 	 * The cached OCL invariant for the '{@link #APCMParameterPartitionMustReferenceAPCMParameterReference(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>APCM Parameter Partition Must Reference APCM Parameter Reference</em>}' invariant operation.
