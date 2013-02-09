@@ -4,6 +4,7 @@ import qualityannotation;
 import seff;
 import identifier;
 import quality::parameters::pcm;
+import quality::parameters;
 
 String getResourceName(ResourceDemandingSEFF seff) : JAVA
 	de.uka.sdq.pcm.transformations.Helper.getResourceFileName(de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF)
@@ -21,8 +22,11 @@ QualityAnnotation getQualityAnnotation(ResourceDemandingSEFF rdseff) :
 	getQualityAnnotationRepository().qualityStatements.typeSelect(QualityAnnotation).select(qa | qa.forServiceSpecification.metaType == PCMServiceSpecification && ((PCMServiceSpecification)qa.forServiceSpecification).resourceDemandingSEFF == rdseff);
 
 // PCM parameter references to SimuCom String-based ids within RD-SEFFs
-String getSimuComId(PCMParameterReference ref) :
+String getSimuComId(ParameterReference ref) :
 	"ERROR: Unknown type of parameter reference.";
+
+String getSimuComId(PCMParameterReference ref) :
+	"ERROR: Unknown type of PCM parameter reference.";
 
 String getSimuComId(PCMOperationParameterReference ref) :
 	ref.parameter.parameterName;

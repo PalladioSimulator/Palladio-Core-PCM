@@ -10,11 +10,11 @@
 		"«this.getResourceName()»",
 		ctx.getModel(),
 		«IF PCMOperationParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
-			ctx.getStack().currentStackFrame()
+			methodBodyStackFrame
 		«ELSEIF PCMRequiredBusinessOperationReturnParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
 			callResult
 		«ELSEIF PCMComponentParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
-			ctx.getStack().currentStackFrame()
+			methodBodyStackFrame
 		«ELSE»
 			«ERROR "This type of parameter reference is not supported by this implementation."»
 		«ENDIF»,
