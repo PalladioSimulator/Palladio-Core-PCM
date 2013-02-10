@@ -7,7 +7,6 @@ import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
-import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationFailureProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.PalladioComponentModelEditPartFactory;
@@ -76,8 +75,8 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
             case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
                 return new CommunicationLinkResourceSpecificationEditPart(view);
 
-            case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
-                return new CommunicationLinkResourceSpecificationFailureProbabilityEditPart(view);
+            case CustomCommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
+                return new CustomCommunicationLinkResourceSpecificationFailureProbabilityEditPart(view);
 
             case CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart.VISUAL_ID:
                 return new CustomCommunicationLinkResourceSpecificationLatencyLabelEditPart(view);
