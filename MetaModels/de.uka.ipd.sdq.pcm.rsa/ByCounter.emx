@@ -1779,9 +1779,9 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
         </ownedAttribute>
         <ownedAttribute xmi:id="_waGmAHRIEeKxuMpyopOVFg" name="numberCallGraphClassAnalyserThreads">
           <ownedComment xmi:id="_eVWfwHRLEeKvnrTyyrCsSw" annotatedElement="_waGmAHRIEeKxuMpyopOVFg">
-            <body>&lt;p >The specific amount of thread to spawn in the CallGraphClassAnalyser which is used when instrumenting recursively. Can be used to potentially limit memory demands etc. When not set a heuristic is used instead.&lt;/p></body>
+            <body>&lt;p>The specific amount of threads to spawn in the CallGraphClassAnalyser which is used when instrumenting recursively. Can be used to potentially limit memory demands etc. When not set a heuristic is used instead.&lt;/p></body>
           </ownedComment>
-          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EIntegerObject"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5Ep7UHRIEeKxuMpyopOVFg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5EpUQHRIEeKxuMpyopOVFg"/>
         </ownedAttribute>
