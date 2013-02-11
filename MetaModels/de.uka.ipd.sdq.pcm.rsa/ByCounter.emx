@@ -1725,12 +1725,12 @@ An instance in which final is used is a result for code which spawns threads. In
       </eAnnotations>
       <packagedElement xmi:type="uml:Class" xmi:id="_X45kMDveEd-PZ70lu-zpYg" name="InstrumentationProfile">
         <ownedComment xmi:id="_TIROMHRJEeKxuMpyopOVFg" annotatedElement="_X45kMDveEd-PZ70lu-zpYg">
-          <body>&lt;p>The specific amount of thread to spawn in the CallGraphClassAnalyser which is used when instrumenting recursively.&lt;/p>&lt;p>Can be used to potentially limit memory demands etc. When not set a heuristic is used instead.&lt;/p></body>
+          <body>&lt;p>&lt;/p></body>
         </ownedComment>
-        <ownedRule xmi:id="_Yc8M0HRJEeKxuMpyopOVFg" name="atLeastOne" constrainedElement="_X45kMDveEd-PZ70lu-zpYg">
+        <ownedRule xmi:id="_Yc8M0HRJEeKxuMpyopOVFg" name="atLeastOneThread" constrainedElement="_X45kMDveEd-PZ70lu-zpYg">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_Yc9a8HRJEeKxuMpyopOVFg">
             <language>OCL</language>
-            <body>self.numberCallGraphClassAnalyserThreads >= 1</body>
+            <body>(self.numberCallGraphClassAnalyserThreads = null) or (self.numberCallGraphClassAnalyserThreads >= 1)</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_EAdnEDwTEd-Dc9Rw_97E5Q">
@@ -1778,6 +1778,9 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
           </defaultValue>
         </ownedAttribute>
         <ownedAttribute xmi:id="_waGmAHRIEeKxuMpyopOVFg" name="numberCallGraphClassAnalyserThreads">
+          <ownedComment xmi:id="_eVWfwHRLEeKvnrTyyrCsSw" annotatedElement="_waGmAHRIEeKxuMpyopOVFg">
+            <body>&lt;p >The specific amount of thread to spawn in the CallGraphClassAnalyser which is used when instrumenting recursively. Can be used to potentially limit memory demands etc. When not set a heuristic is used instead.&lt;/p></body>
+          </ownedComment>
           <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
           <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5Ep7UHRIEeKxuMpyopOVFg" value="1"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5EpUQHRIEeKxuMpyopOVFg"/>
@@ -2043,4 +2046,5 @@ When false, only the counts for operations done in the method itself - not those
   <Default:Documentation xmi:id="_kzNxQPXqEeGJyMxspERnIw" base_Comment="_kzLVAPXqEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_5rcewAxvEeK8E4ionb-Bzg" base_Comment="_5rXmQAxvEeK8E4ionb-Bzg"/>
   <Default:Documentation xmi:id="_TIWtwHRJEeKxuMpyopOVFg" base_Comment="_TIROMHRJEeKxuMpyopOVFg"/>
+  <Default:Documentation xmi:id="_eVb_UHRLEeKvnrTyyrCsSw" base_Comment="_eVWfwHRLEeKvnrTyyrCsSw"/>
 </xmi:XMI>
