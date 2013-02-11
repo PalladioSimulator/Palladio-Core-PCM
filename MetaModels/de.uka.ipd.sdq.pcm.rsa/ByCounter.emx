@@ -740,7 +740,7 @@ An instance in which final is used is a result for code which spawns threads. In
     </packagedElement>
     <packagedElement xmi:type="uml:Package" xmi:id="_SuIvgDveEd-PZ70lu-zpYg" name="Input">
       <eAnnotations xmi:id="_SuvMcDveEd-PZ70lu-zpYg" source="uml2.diagrams" references="_Su7ZsDveEd-PZ70lu-zpYg">
-        <contents xmi:type="umlnotation:UMLDiagram" xmi:id="_Su7ZsDveEd-PZ70lu-zpYg" type="Freeform" name="InputModelOverview">
+        <contents xmi:type="umlnotation:UMLDiagram" xmi:id="_Su7ZsDveEd-PZ70lu-zpYg" type="Class" name="InputModelOverview">
           <children xmi:type="umlnotation:UMLShape" xmi:id="_X46yUDveEd-PZ70lu-zpYg" element="_X45kMDveEd-PZ70lu-zpYg" fontName="Segoe UI" fontHeight="8" lineColor="14263149" showStereotype="Label">
             <children xmi:type="notation:DecorationNode" xmi:id="_X47ZYDveEd-PZ70lu-zpYg" type="ImageCompartment">
               <layoutConstraint xmi:type="notation:Size" xmi:id="_X47ZYTveEd-PZ70lu-zpYg" width="1320" height="1320"/>
@@ -1724,6 +1724,15 @@ An instance in which final is used is a result for code which spawns threads. In
         </contents>
       </eAnnotations>
       <packagedElement xmi:type="uml:Class" xmi:id="_X45kMDveEd-PZ70lu-zpYg" name="InstrumentationProfile">
+        <ownedComment xmi:id="_TIROMHRJEeKxuMpyopOVFg" annotatedElement="_X45kMDveEd-PZ70lu-zpYg">
+          <body>&lt;p>The specific amount of thread to spawn in the CallGraphClassAnalyser which is used when instrumenting recursively.&lt;/p>&lt;p>Can be used to potentially limit memory demands etc. When not set a heuristic is used instead.&lt;/p></body>
+        </ownedComment>
+        <ownedRule xmi:id="_Yc8M0HRJEeKxuMpyopOVFg" name="atLeastOne" constrainedElement="_X45kMDveEd-PZ70lu-zpYg">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_Yc9a8HRJEeKxuMpyopOVFg">
+            <language>OCL</language>
+            <body>self.numberCallGraphClassAnalyserThreads >= 1</body>
+          </specification>
+        </ownedRule>
         <generalization xmi:id="_EAdnEDwTEd-Dc9Rw_97E5Q">
           <general xmi:type="uml:Class" href="identifier.emx#_UMp04JMWEdqSSImFLKDkSg?identifier/Identifier?"/>
         </generalization>
@@ -1767,6 +1776,11 @@ entitesToInstrument that  are not Java API methods (packages java.*, javax.* sun
           <defaultValue xmi:type="uml:LiteralBoolean" xmi:id="_uZ7_gEcTEd-sOu4vtdvMEA" value="true">
             <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EBoolean"/>
           </defaultValue>
+        </ownedAttribute>
+        <ownedAttribute xmi:id="_waGmAHRIEeKxuMpyopOVFg" name="numberCallGraphClassAnalyserThreads">
+          <type xmi:type="uml:PrimitiveType" href="pathmap://UML_LIBRARIES/EcorePrimitiveTypes.library.uml#EInt"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="_5Ep7UHRIEeKxuMpyopOVFg" value="1"/>
+          <lowerValue xmi:type="uml:LiteralInteger" xmi:id="_5EpUQHRIEeKxuMpyopOVFg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_wlHZYPXnEeGJyMxspERnIw" name="provideJoinThreadsAbility" visibility="public">
           <ownedComment xmi:id="_41Tt8PXnEeGJyMxspERnIw" annotatedElement="_wlHZYPXnEeGJyMxspERnIw">
@@ -2028,4 +2042,5 @@ When false, only the counts for operations done in the method itself - not those
   <Default:Documentation xmi:id="_c2PToPXqEeGJyMxspERnIw" base_Comment="_c2NecPXqEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_kzNxQPXqEeGJyMxspERnIw" base_Comment="_kzLVAPXqEeGJyMxspERnIw"/>
   <Default:Documentation xmi:id="_5rcewAxvEeK8E4ionb-Bzg" base_Comment="_5rXmQAxvEeK8E4ionb-Bzg"/>
+  <Default:Documentation xmi:id="_TIWtwHRJEeKxuMpyopOVFg" base_Comment="_TIROMHRJEeKxuMpyopOVFg"/>
 </xmi:XMI>
