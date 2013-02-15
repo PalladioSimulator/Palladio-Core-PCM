@@ -92,7 +92,11 @@ public class PCMUtil {
 	private static final StoexSwitch<String> anr2qnConverter = new StoexSwitch<String>() {
 		@Override
 		public String caseNamespaceReference(NamespaceReference object) {
-			return object.getReferenceName() + "." + doSwitch(object.getInnerReference_NamespaceReference());
+			String result = object.getReferenceName();
+			if (object.getInnerReference_NamespaceReference() != null) {
+				result += "." + doSwitch(object.getInnerReference_NamespaceReference()); 
+			}
+			return result;
 		}
 		
 		@Override
