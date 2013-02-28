@@ -55,6 +55,9 @@ public class PCMUtil {
 	 * @return The qualified name.
 	 */
 	public static String getQualifiedName(Parameter parameter) {
+		if (parameter == null) {
+			return "<null>";
+		}
 		return parameter.getParameterName();
 	}
 	
@@ -64,6 +67,9 @@ public class PCMUtil {
 	 * @return The qualified name, e.g. name.space.variableName.characterization.
 	 */
 	public static String getQualifiedName(VariableCharacterisation variableCharacterization) {
+		if (variableCharacterization == null) {
+			return "<null>";
+		}
 		return getQualifiedName(variableCharacterization.getVariableUsage_VariableCharacterisation()) + "." + variableCharacterization.getType();
 	}
 
@@ -72,6 +78,9 @@ public class PCMUtil {
 	 * @return The qualified name, e.g. name.space.variableName.
 	 */
 	public static String getQualifiedName(VariableUsage variableUsage) {
+		if (variableUsage == null) {
+			return "<null>";
+		}
 		return getQualifiedName(variableUsage.getNamedReference__VariableUsage());
 	}
 
@@ -170,6 +179,9 @@ public class PCMUtil {
 	 * @return The textual identifer.
 	 */
 	public static String prettyPrint(OperationSignature signature) {
+		if (signature == null) {
+			return "<null>";
+		}
 		String result = prettyPrint(signature.getReturnType__OperationSignature()) + " " + signature.getInterface__OperationSignature().getEntityName() + "::" + signature.getEntityName() + "(";
 		for (Parameter parameter : signature.getParameters__OperationSignature()) {
 			result += parameter.getDataType__Parameter() + " " + parameter.getParameterName() + ", ";
@@ -184,6 +196,9 @@ public class PCMUtil {
 	 * @return The textual identifer.
 	 */
 	public static String prettyPrint(InfrastructureSignature signature) {
+		if (signature == null) {
+			return "<null>";
+		}
 		String result = signature.getInfrastructureInterface__InfrastructureSignature().getEntityName() + "::" + signature.getEntityName() + "(";
 		for (Parameter parameter : signature.getParameters__InfrastructureSignature()) {
 			result += parameter.getDataType__Parameter() + " " + parameter.getParameterName() + ", ";
@@ -198,6 +213,9 @@ public class PCMUtil {
 	 * @return The textual identifer.
 	 */
 	public static String prettyPrint(RequiredRole requiredRole) {
+		if (requiredRole == null) {
+			return "<null>";
+		}
 		return requiredRole.getEntityName() + " [ID:" + requiredRole.getId() + "]";
 	}
 	
@@ -206,6 +224,9 @@ public class PCMUtil {
 	 * @return The textual identifier.
 	 */
 	public static String prettyPrint(DataType dataType) {
+		if (dataType == null) {
+			return "void";
+		}
 		return new RepositorySwitch<String>() {
 			@Override
 			public String caseCollectionDataType(CollectionDataType object) {
