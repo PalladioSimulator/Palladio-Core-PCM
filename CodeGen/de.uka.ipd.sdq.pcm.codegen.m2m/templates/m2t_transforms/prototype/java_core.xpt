@@ -167,14 +167,16 @@ Haupt-Interfaces müssen Remote erweitern + RemoteExceptions an die Methoden
 «DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
    public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
    {
+      de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+   
    	  «EXPAND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR this» 
-      «REM»«PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»«ENDREM»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
 	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
     	«ENDLET»
    	  «ENDIF»
-   	  «REM»«ENDPROTECT»«ENDREM»
+   	  
+   	  return resultStackFrame;
    }   
 «ENDDEFINE»
 
