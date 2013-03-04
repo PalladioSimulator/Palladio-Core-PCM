@@ -86,7 +86,7 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 «DEFINE InitCalculatorsTM FOR RepositoryComponent»
 «ENDDEFINE»
 
-«DEFINE ContainerAvailabilityCheckTM FOR OperationSignature»
+«DEFINE ContainerAvailabilityCheck FOR OperationSignature»
 	// Simulate a failure if one or multiple of the processing resources
 	// required by the executing resource container are currently unavailable:
 	de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer container = ctx.findResource(assemblyContextID);
@@ -111,7 +111,8 @@ Use ActionsAsMethods to generate the mapping for exactly one AbstractAction.
 «DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
    public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
    {
-   	  «EXPAND ContainerAvailabilityCheckTM FOR this» 
+   	  «EXPAND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR this» 
+
       «PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
    	  «IF this.hasSEFF(component)»
    	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
@@ -176,7 +177,7 @@ Use ActionsAsMethods to generate the mapping for exactly one AbstractAction.
 
 «DEFINE ActionsAsMethods FOR AbstractAction»
 	private void action«javaVariableName(this.id)»(
-			final de.uka.ipd.sdq.simucomframework.Context ctx, 
+			final «EXPAND m2t_transforms::java_core::ContextTypeTM FOR this» ctx, 
 			final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame, 
 			final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame) {
 		// EntityName = «javaString(this.entityName)», Type = «javaString(this.metaType.name)»

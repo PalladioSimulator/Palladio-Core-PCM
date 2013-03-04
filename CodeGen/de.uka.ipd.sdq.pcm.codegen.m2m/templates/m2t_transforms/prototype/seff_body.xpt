@@ -6,7 +6,7 @@
 
 
 // ----------------------------
-// POJO templates for parts of a SEFF
+// ProtoCom templates for parts of a SEFF
 // ----------------------------
 «DEFINE Action FOR AcquireAction»
 	// Acquire «this.passiveresource_AcquireAction»
@@ -36,7 +36,7 @@
  «LET (ServiceEffectSpecification)this.eContainer AS seff»
   «IF OperationSignature.isInstance(seff.describedService__SEFF)»
    «LET ((OperationSignature)seff.describedService__SEFF) AS sig»
-    // measure time for SEFF  
+    // TODO PALLADIO-119: measure time for SEFF  
     «EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR sig.seffDescription(seff.basicComponent_ServiceEffectSpecification).javaVariableName()»
    «ENDLET»
   «ENDIF»
@@ -49,6 +49,7 @@
  «LET (ServiceEffectSpecification)this.eContainer AS seff»
   «IF OperationSignature.isInstance(seff.describedService__SEFF)»
    «LET ((OperationSignature)seff.describedService__SEFF) AS sig»
+   // TODO PALLADIO-119: measure time for SEFF 
     «EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR sig.seffDescription(seff.basicComponent_ServiceEffectSpecification).javaVariableName()»
    «ENDLET»
   «ENDIF»

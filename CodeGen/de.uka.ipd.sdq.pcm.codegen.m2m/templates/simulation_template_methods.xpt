@@ -187,6 +187,10 @@
 	«EXPAND m2t_transforms::sim::java_core::ComponentService(component) FOR this»
 «ENDAROUND» 
 
+«AROUND m2t_transforms::java_core::ContextTypeTM FOR AbstractAction»
+	de.uka.ipd.sdq.simucomframework.Context
+«ENDAROUND»
+
 «AROUND m2t_transforms::seff_body::Action FOR StartAction»
 	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
 «ENDAROUND» 
@@ -307,5 +311,5 @@
 //-----------------------------
 
 «AROUND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR OperationSignature»
-	«EXPAND m2t_transforms::sim::java_core::ContainerAvailabilityCheckTM FOR this»
+	«EXPAND m2t_transforms::sim::java_core::ContainerAvailabilityCheck FOR this»
 «ENDAROUND»

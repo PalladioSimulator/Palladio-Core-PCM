@@ -197,3 +197,6 @@ public class «this.javaName()»
 
 «DEFINE ContainerAvailabilityCheckTM FOR OperationSignature»
 «ENDDEFINE»
+
+«DEFINE ContextTypeTM FOR AbstractAction»
+«ENDDEFINE»
