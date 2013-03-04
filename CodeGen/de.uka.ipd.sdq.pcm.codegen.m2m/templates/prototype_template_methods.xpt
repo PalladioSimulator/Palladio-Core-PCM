@@ -348,7 +348,8 @@
 «ENDAROUND» 
 
 «AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR InfrastructureSignature»
-	«EXPAND m2t_transforms::prototype::java_core::ComponentService(component) FOR this»
+«REM»ProtoCom does not call Infrastructure Components. However, they're still generated.«ENDREM»
+	«EXPAND m2t_transforms::sim::java_core::ComponentService(component) FOR this»
 «ENDAROUND» 
 
 
