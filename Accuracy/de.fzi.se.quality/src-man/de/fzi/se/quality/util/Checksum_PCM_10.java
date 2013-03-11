@@ -4,6 +4,8 @@
 package de.fzi.se.quality.util;
 
 import java.io.StringWriter;
+import java.util.ArrayList;
+import java.util.logging.Logger;
 import java.util.zip.CRC32;
 import java.util.zip.Checksum;
 
@@ -36,6 +38,8 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
  * 
  */
 public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
+	/** Logger for this class. */
+	public static final Logger logger = Logger.getLogger(Checksum_PCM_10.class.getCanonicalName());
 	/** Identifier for version 1.0 of the PCM checksum calculation algorithm. */
 	public static final String CHECKSUM_PCM_10_IDENTIFIER = "PCM 1.0";
 	/**
@@ -166,12 +170,12 @@ public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 						checksum,
 						parameter.getParameterName()
 								+ SEPARATOR
-								+ dataTypeConverter.doSwitch(parameter
+								+ dataTypeConverter.getUniqueIdentifier(parameter
 										.getDataType__Parameter()));
 			}
 			if (operationSignature.getReturnType__OperationSignature() != null) {
 				updateChecksum(checksum,
-						dataTypeConverter.doSwitch(operationSignature
+						dataTypeConverter.getUniqueIdentifier(operationSignature
 								.getReturnType__OperationSignature()));
 			}
 		} else if (signature instanceof InfrastructureSignature) {
@@ -181,7 +185,7 @@ public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 						checksum,
 						parameter.getParameterName()
 								+ SEPARATOR
-								+ dataTypeConverter.doSwitch(parameter
+								+ dataTypeConverter.getUniqueIdentifier(parameter
 										.getDataType__Parameter()));
 			}
 		} else {
@@ -209,7 +213,7 @@ public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 					signature.getParameter__ResourceSignature()
 							.getParameterName()
 							+ SEPARATOR
-							+ dataTypeConverter.doSwitch(signature
+							+ dataTypeConverter.getUniqueIdentifier(signature
 									.getParameter__ResourceSignature()
 									.getDataType__Parameter()));
 		}
@@ -242,17 +246,39 @@ public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 	 * 
 	 */
 	private class DataTypeConverter extends RepositorySwitch<String> {
+		/** List of data types handled in a conversion. Allows to track recursive definitions. */
+		protected ArrayList<DataType> handledDataTypes;
+		
+		/**Calculates and returns the unique string for the data type.
+		 * @param dataType The data type.
+		 * @return The unique string.
+		 */
+		public String getUniqueIdentifier(DataType dataType) {
+			handledDataTypes = new ArrayList<DataType>();
+			return doSwitch(dataType);
+		}
+				
 		@Override
 		public String caseCollectionDataType(CollectionDataType object) {
-			return object.eClass().getName() + SEPARATOR + object.getId()
+			if (handledDataTypes.contains(object)) {
+				return object.eClass().getName() + SEPARATOR + object.getId() + SEPARATOR + object.getEntityName();
+			}
+			handledDataTypes.add(object);
+			String result = object.eClass().getName() + SEPARATOR + object.getId()
 					+ SEPARATOR + object.getEntityName()
 					+ SEPARATOR_HIERARCHY_START
 					+ doSwitch(object.getInnerType_CollectionDataType())
 					+ SEPARATOR_HIERARCHY_END;
+			handledDataTypes.remove(object);
+			return result;
 		}
 
 		@Override
 		public String caseCompositeDataType(CompositeDataType object) {
+			if (handledDataTypes.contains(object)) {
+				return object.eClass().getName() + SEPARATOR + object.getId() + SEPARATOR + object.getEntityName();
+			}
+			handledDataTypes.add(object);
 			StringWriter result = new StringWriter();
 			result.append(object.eClass().getName() + SEPARATOR
 					+ object.getId() + SEPARATOR + object.getEntityName());
@@ -263,14 +289,18 @@ public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 						+ doSwitch(declaration.getDatatype_InnerDeclaration())
 						+ SEPARATOR_HIERARCHY_END);
 			}
+			handledDataTypes.remove(object);
 			return result.toString();
 		}
 
 		@Override
 		public String casePrimitiveDataType(PrimitiveDataType object) {
-			return object.eClass().getName() + SEPARATOR
+			handledDataTypes.add(object);
+			String result = object.eClass().getName() + SEPARATOR
 					+ object.getType().getValue() + SEPARATOR
 					+ object.getType().getLiteral();
+			handledDataTypes.remove(object);
+			return result;
 		}
 
 		@Override
