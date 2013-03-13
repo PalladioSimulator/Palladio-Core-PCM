@@ -112,9 +112,9 @@
    «ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/java_core.xpt]: Only OperationProvidedRoles are supported."»
 «ENDDEFINE»
 
-«DEFINE MainImplementation FOR BasicComponent»
+«DEFINE MainImplementation FOR Entity»
 	public static void main(String... args) {
-		logger.info("Main method of basic component «this.entityName» called");
+		logger.info("Main method of «this.entityName» called");
 
 		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
 		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
@@ -127,27 +127,6 @@
 		new «this.fqn()»(assemblyContext);
 	}
 «ENDDEFINE»
-
-«DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
-	public static void main(String... args) {
-		logger.info("Main method of composed structure «this.entityName» called");
-
-		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
-		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
-		
-		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
-		
-		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
-		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
-		
-		new «this.fqn()»(assemblyContext);
-	}
-«ENDDEFINE»
-
-«REM»
-FIX FIX FIX!!!! FIXME zolynski
-Haupt-Interfaces müssen Remote erweitern + RemoteExceptions an die Methoden
-«ENDREM»
 
 «DEFINE ComponentImplementationInterface FOR ComposedProvidingRequiringEntity»
 	«FILE this.fqnInterface().fqnToDirectoryPath()+'.java'»
@@ -163,15 +142,3 @@ Haupt-Interfaces müssen Remote erweitern + RemoteExceptions an die Methoden
 	    }
 	«ENDFILE»
 «ENDDEFINE»
-
-«DEFINE ComponentService(RepositoryComponent component) FOR InfrastructureSignature»
-   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
-   { 
-   	  «IF this.hasSEFF(component)»
-   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
-	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
-    	«ENDLET»
-   	  «ENDIF»
-   }   
-«ENDDEFINE»
-
