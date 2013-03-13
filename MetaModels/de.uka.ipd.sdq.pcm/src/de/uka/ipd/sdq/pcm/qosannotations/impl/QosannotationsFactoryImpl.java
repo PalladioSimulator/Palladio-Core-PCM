@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
-import de.uka.ipd.sdq.pcm.qosannotations.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -18,87 +17,80 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
- * 
  * @generated
  */
 public class QosannotationsFactoryImpl extends EFactoryImpl implements QosannotationsFactory {
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * Creates the default factory implementation.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public static QosannotationsFactory init() {
-        try {
-            QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory) EPackage.Registry.INSTANCE
-                    .getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0");
-            if (theQosannotationsFactory != null) {
-                return theQosannotationsFactory;
-            }
-        } catch (Exception exception) {
-            EcorePlugin.INSTANCE.log(exception);
-        }
-        return new QosannotationsFactoryImpl();
-    }
+		try {
+			QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"); 
+			if (theQosannotationsFactory != null) {
+				return theQosannotationsFactory;
+			}
+		}
+		catch (Exception exception) {
+			EcorePlugin.INSTANCE.log(exception);
+		}
+		return new QosannotationsFactoryImpl();
+	}
 
     /**
-     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * Creates an instance of the factory.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public QosannotationsFactoryImpl() {
-        super();
-    }
+		super();
+	}
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     @Override
     public EObject create(EClass eClass) {
-        switch (eClass.getClassifierID()) {
-        case QosannotationsPackage.QO_SANNOTATIONS:
-            return createQoSAnnotations();
-        default:
-            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-        }
-    }
+		switch (eClass.getClassifierID()) {
+			case QosannotationsPackage.QO_SANNOTATIONS: return createQoSAnnotations();
+			default:
+				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+		}
+	}
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public QoSAnnotations createQoSAnnotations() {
-        QoSAnnotationsImpl qoSAnnotations = new QoSAnnotationsImpl();
-        return qoSAnnotations;
-    }
+		QoSAnnotationsImpl qoSAnnotations = new QoSAnnotationsImpl();
+		return qoSAnnotations;
+	}
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     public QosannotationsPackage getQosannotationsPackage() {
-        return (QosannotationsPackage) getEPackage();
-    }
+		return (QosannotationsPackage)getEPackage();
+	}
 
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @deprecated
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @deprecated
+	 * @generated
+	 */
     @Deprecated
     public static QosannotationsPackage getPackage() {
-        return QosannotationsPackage.eINSTANCE;
-    }
+		return QosannotationsPackage.eINSTANCE;
+	}
 
 } // QosannotationsFactoryImpl

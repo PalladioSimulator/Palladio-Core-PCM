@@ -10,32 +10,25 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Required Resource Delegation Connector</b></em>'. <!-- end-user-doc -->
- * 
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector
- * <em>Assembly Context Required Resource Delegation Connector</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector
- * <em>Inner Required Role Required Resource Delegation Connector</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector
- * <em>Outer Required Role Required Resource Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getAssemblyContext__RequiredResourceDelegationConnector <em>Assembly Context Required Resource Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getInnerRequiredRole__RequiredResourceDelegationConnector <em>Inner Required Role Required Resource Delegation Connector</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.RequiredResourceDelegationConnector#getOuterRequiredRole__RequiredResourceDelegationConnector <em>Outer Required Role Required Resource Delegation Connector</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredResourceDelegationConnector()
  * @model
  * @generated
  */
 public interface RequiredResourceDelegationConnector extends DelegationConnector {
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**

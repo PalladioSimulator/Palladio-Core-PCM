@@ -15,63 +15,48 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Implementation Component Type</b></em>'. <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * This entity represents an abstraction of a component, where both sets of provided and required interfaces as well as the implementation is visible. It fully specifies the component type. The specification of
+ * the internal structure depends on the way the component is realised. In general, components can either be implemented from the scratch or composed out of other components. In the first case, the implemented behaviour of each provided service needs to be specified with a service effect specification (SEFF) to describe the component’s abstract internal structure. We refer to such components as basic components, since they form the basic building blocks of a software architecture. On the other hand, developers can use existing components to assemble new, composite components.
  * 
- * <!-- begin-model-doc --> This entity represents an abstraction of a component, where both sets of
- * provided and required interfaces as well as the implementation is visible. It fully specifies the
- * component type. The specification of the internal structure depends on the way the component is
- * realised. In general, components can either be implemented from the scratch or composed out of
- * other components. In the first case, the implemented behaviour of each provided service needs to
- * be specified with a service effect specification (SEFF) to describe the component?s abstract
- * internal structure. We refer to such components as basic components, since they form the basic
- * building blocks of a software architecture. On the other hand, developers can use existing
- * components to assemble new, composite components.
- * 
- * TODO: ? Possibly add constraint that the VariableUsages must have unique names within one
- * component. Maybe this constraint can even be added to the VariableUsage in general (for each
- * containment of VariableUsages, each name inside must be unique, for example). <!-- end-model-doc
- * -->
- * 
+ * TODO: ? Possibly add constraint that the VariableUsages must have unique names within one component. Maybe this constraint can even be added to the VariableUsage in general (for each containment of VariableUsages, each name inside must be unique, for example). 
+ * <!-- end-model-doc -->
+ *
  * <p>
  * The following features are supported:
  * <ul>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes
- * <em>Parent Complete Component Types</em>}</li>
- * <li>
- * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType
- * <em>Component Parameter Usage Implementation Component Type</em>}</li>
- * <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentType <em>
- * Component Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getParentCompleteComponentTypes <em>Parent Complete Component Types</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentParameterUsage_ImplementationComponentType <em>Component Parameter Usage Implementation Component Type</em>}</li>
+ *   <li>{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentType <em>Component Type</em>}</li>
  * </ul>
  * </p>
- * 
+ *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType()
  * @model abstract="true"
  * @generated
  */
 public interface ImplementationComponentType extends RepositoryComponent {
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Parent Complete Component Types</b></em>' reference list.
-     * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
-     * <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Parent Complete Component Types</b></em>' reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.CompleteComponentType}.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Parent Complete Component Types</em>' reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
-     * @return the value of the '<em>Parent Complete Component Types</em>' reference list.
-     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ParentCompleteComponentTypes()
-     * @model ordered="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Parent Complete Component Types</em>' reference list.
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ParentCompleteComponentTypes()
+	 * @model ordered="false"
+	 * @generated
+	 */
     EList<CompleteComponentType> getParentCompleteComponentTypes();
 
     /**
@@ -92,35 +77,32 @@ public interface ImplementationComponentType extends RepositoryComponent {
     EList<VariableUsage> getComponentParameterUsage_ImplementationComponentType();
 
     /**
-     * Returns the value of the '<em><b>Component Type</b></em>' attribute. The default value is
-     * <code>"BUSINESS_COMPONENT"</code>. The literals are from the enumeration
-     * {@link de.uka.ipd.sdq.pcm.repository.ComponentType}. <!-- begin-user-doc -->
+	 * Returns the value of the '<em><b>Component Type</b></em>' attribute.
+	 * The default value is <code>"BUSINESS_COMPONENT"</code>.
+	 * The literals are from the enumeration {@link de.uka.ipd.sdq.pcm.repository.ComponentType}.
+	 * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Component Type</em>' attribute isn't clear, there really should be
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * 
-     * @return the value of the '<em>Component Type</em>' attribute.
-     * @see de.uka.ipd.sdq.pcm.repository.ComponentType
-     * @see #setComponentType(ComponentType)
-     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentType()
-     * @model default="BUSINESS_COMPONENT" required="true" ordered="false"
-     * @generated
-     */
+	 * @return the value of the '<em>Component Type</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.repository.ComponentType
+	 * @see #setComponentType(ComponentType)
+	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getImplementationComponentType_ComponentType()
+	 * @model default="BUSINESS_COMPONENT" required="true" ordered="false"
+	 * @generated
+	 */
     ComponentType getComponentType();
 
     /**
-     * Sets the value of the '
-     * {@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentType
-     * <em>Component Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @param value
-     *            the new value of the '<em>Component Type</em>' attribute.
-     * @see de.uka.ipd.sdq.pcm.repository.ComponentType
-     * @see #getComponentType()
-     * @generated
-     */
+	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ImplementationComponentType#getComponentType <em>Component Type</em>}' attribute.
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @param value the new value of the '<em>Component Type</em>' attribute.
+	 * @see de.uka.ipd.sdq.pcm.repository.ComponentType
+	 * @see #getComponentType()
+	 * @generated
+	 */
     void setComponentType(ComponentType value);
 
     /**

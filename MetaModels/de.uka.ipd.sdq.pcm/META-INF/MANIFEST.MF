@@ -79,6 +79,5 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.errorhandling,
  org.eclipse.emf.ecore.xmi,
- org.eclipse.ocl.ecore;bundle-version="1.2.1",
- org.eclipse.uml2.types;bundle-version="1.0.0"
+ org.eclipse.ocl.ecore;bundle-version="1.2.1"
 Bundle-ActivationPolicy: lazy

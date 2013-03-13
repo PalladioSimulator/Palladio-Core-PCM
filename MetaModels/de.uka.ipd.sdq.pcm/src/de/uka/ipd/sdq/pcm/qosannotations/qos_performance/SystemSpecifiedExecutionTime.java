@@ -12,25 +12,24 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>System Specified Execution Time</b></em>'. <!-- end-user-doc -->
+ *
+ * <!-- begin-model-doc -->
+ * The SystemSpecifiedExecutionTime allows software architect and performance analysts to specify the response time (distribution) of services called at the system boundaries. This allows abstracting from the system externals and restricts the focus to the software architecture under consideration.
  * 
- * <!-- begin-model-doc --> The SystemSpecifiedExecutionTime allows software architect and
- * performance analysts to specify the response time (distribution) of services called at the system
- * boundaries. This allows abstracting from the system externals and restricts the focus to the
- * software architecture under consideration.
- * 
- * Note: - That's the starting point for Performance-Kennlinien I guess... <!-- end-model-doc -->
- * 
- * 
+ * Note:
+ * - That's the starting point for Performance-Kennlinien I guess...
+ * <!-- end-model-doc -->
+ *
+ *
  * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSystemSpecifiedExecutionTime()
  * @model
  * @generated
  */
 public interface SystemSpecifiedExecutionTime extends SpecifiedExecutionTime {
     /**
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
+	 * <!-- begin-user-doc --> <!-- end-user-doc -->
+	 * @generated
+	 */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
