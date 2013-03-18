@@ -184,7 +184,7 @@ public class PCMUtil {
 		}
 		String result = prettyPrint(signature.getReturnType__OperationSignature()) + " " + signature.getInterface__OperationSignature().getEntityName() + "::" + signature.getEntityName() + "(";
 		for (Parameter parameter : signature.getParameters__OperationSignature()) {
-			result += parameter.getDataType__Parameter() + " " + parameter.getParameterName() + ", ";
+			result += prettyPrint(parameter.getDataType__Parameter()) + " " + parameter.getParameterName() + ", ";
 		}
 		result.substring(0,result.length()-2);
 		result += ")" + " [ID: " + signature.getId() + "]";
