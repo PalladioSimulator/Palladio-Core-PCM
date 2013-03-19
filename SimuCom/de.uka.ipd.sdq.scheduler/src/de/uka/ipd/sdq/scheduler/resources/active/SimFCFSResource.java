@@ -25,7 +25,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 		public void eventRoutine(ISchedulableProcess process) {
 			ISchedulableProcess first = process;
 			toNow();
-			assert MathTools.equalsDouble(0, running_processes.get(first));
+			assert MathTools.equalsDouble(0, running_processes.get(first)) : "Remaining demand ("+ running_processes.get(first) +") not zero!";
 			running_processes.remove(first);
 			processQ.remove(first);
 			fireStateChange(processQ.size(), 0);
