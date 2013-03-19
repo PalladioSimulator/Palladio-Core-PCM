@@ -25,4 +25,13 @@ Copyright 2007, SDQ, IPD, University of Karlsruhe
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
    </extension>
+   <extension
+         point="org.eclipse.gmf.runtime.diagram.ui.layoutProviders">
+      <layoutProvider
+            class="de.uka.ipd.sdq.pcm.gmf.usage.custom.layout.UsageDefaultLayoutProvider">
+         <Priority
+               name="High">
+         </Priority>
+      </layoutProvider>
+   </extension>
 </plugin>
