@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
-<stringAttribute key="accuracyQualityAnnotationFile" value=""/>
+<stringAttribute key="accuracyQualityAnnotationFile" value="platform:/resource/InfrastructureComponent_Example/InvalidParameterRange.quality"/>
 <stringAttribute key="allocationFile" value="platform:/resource/InfrastructureComponent_Example/default.allocation"/>
 <booleanAttribute key="clear" value="true"/>
 <listAttribute key="completion.config"/>
@@ -30,7 +30,7 @@
 <stringAttribute key="outpath" value="de.uka.ipd.sdq.codegen.simucominstance"/>
 <stringAttribute key="persistenceFramework" value="SensorFramework"/>
 <stringAttribute key="simTime" value="150000"/>
-<booleanAttribute key="simulateAccuracy" value="false"/>
+<booleanAttribute key="simulateAccuracy" value="true"/>
 <booleanAttribute key="simulateFailures" value="false"/>
 <booleanAttribute key="simulateLinkingResources" value="false"/>
 <stringAttribute key="simulatorId" value="de.uka.ipd.sdq.codegen.simucontroller.simucom"/>
