@@ -19,6 +19,12 @@
           </variableCharacterisation_VariableUsage>
           <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="ids"/>
         </inputVariableUsages__CallAction>
+        <inputVariableUsages__CallAction>
+          <variableCharacterisation_VariableUsage type="VALUE">
+            <specification_VariableCharacterisation specification="request.customerType.VALUE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="customerType"/>
+        </inputVariableUsages__CallAction>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:InternalAction" id="_HZOt4Eg_Ed2v5eXKEbOQ9g" entityName="createRepsonse" predecessor_AbstractAction="_A-_1YEg_Ed2v5eXKEbOQ9g" successor_AbstractAction="_uHmY4SZ4EdywZLVVlfU7gQ">
         <resourceDemand_Action>
@@ -86,7 +92,7 @@
         </returnVariableUsage__CallReturnAction>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:LoopAction" id="_gyFk0EhFEd2v5eXKEbOQ9g" entityName="watermarkLoop" predecessor_AbstractAction="_GqUxwEhFEd2v5eXKEbOQ9g" successor_AbstractAction="_xj12QSZ4EdywZLVVlfU7gQ">
-        <bodyBehaviour_Loop id="_0594kXRoEeG0OObN983jnw">
+        <bodyBehaviour_Loop id="_XoUekL7GEeGhOOoNZJ4gSw">
           <steps_Behaviour xsi:type="seff:StartAction" id="_gyFk0UhFEd2v5eXKEbOQ9g" successor_AbstractAction="_u770YEhFEd2v5eXKEbOQ9g"/>
           <steps_Behaviour xsi:type="seff:StopAction" id="_gyFk0khFEd2v5eXKEbOQ9g" predecessor_AbstractAction="_u770YEhFEd2v5eXKEbOQ9g"/>
           <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_u770YEhFEd2v5eXKEbOQ9g" predecessor_AbstractAction="_gyFk0UhFEd2v5eXKEbOQ9g" successor_AbstractAction="_gyFk0khFEd2v5eXKEbOQ9g" calledService_ExternalService="_B8bOt3ebEd-AVaTk8ZPCHQ" role_ExternalService="_ACOwcBpaEdyxqpPYxT_m3w">
@@ -126,7 +132,7 @@
       <steps_Behaviour xsi:type="seff:StartAction" id="_1fqyoCZ4EdywZLVVlfU7gQ" successor_AbstractAction="_VwQpgEuPEd2IYen5QyVyzQ"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_1fqyoSZ4EdywZLVVlfU7gQ" predecessor_AbstractAction="_xohJ0EuPEd2IYen5QyVyzQ"/>
       <steps_Behaviour xsi:type="seff:LoopAction" id="_VwQpgEuPEd2IYen5QyVyzQ" entityName="loadFiles" predecessor_AbstractAction="_1fqyoCZ4EdywZLVVlfU7gQ" successor_AbstractAction="_xohJ0EuPEd2IYen5QyVyzQ">
-        <bodyBehaviour_Loop id="_06D_MnRoEeG0OObN983jnw">
+        <bodyBehaviour_Loop id="_XoZXEL7GEeGhOOoNZJ4gSw">
           <steps_Behaviour xsi:type="seff:StartAction" id="_ELns8EhAEd2v5eXKEbOQ9g" successor_AbstractAction="_J8k-8EhAEd2v5eXKEbOQ9g"/>
           <steps_Behaviour xsi:type="seff:InternalAction" id="_J8k-8EhAEd2v5eXKEbOQ9g" entityName="loadFilename" predecessor_AbstractAction="_ELns8EhAEd2v5eXKEbOQ9g" successor_AbstractAction="_fMM_gEuPEd2IYen5QyVyzQ">
             <resourceDemand_Action>
@@ -197,12 +203,12 @@
       <steps_Behaviour xsi:type="seff:StopAction" id="_z39N8SZ4EdywZLVVlfU7gQ" predecessor_AbstractAction="_J4l2gFNnEd2DAaYH-ZsiCA"/>
       <steps_Behaviour xsi:type="seff:BranchAction" id="_J4l2gFNnEd2DAaYH-ZsiCA" entityName="type?" predecessor_AbstractAction="_k0kp4FNpEd2DAaYH-ZsiCA" successor_AbstractAction="_z39N8SZ4EdywZLVVlfU7gQ">
         <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_B8IT_HebEd-AVaTk8ZPCHQ">
-          <branchBehaviour_BranchTransition id="_06Gbc3RoEeG0OObN983jnw">
+          <branchBehaviour_BranchTransition id="_XoihAb7GEeGhOOoNZJ4gSw">
             <steps_Behaviour xsi:type="seff:StartAction" id="_L_mmUVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_ANPdcFNlEd2DAaYH-ZsiCA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_L_mmUlNnEd2DAaYH-ZsiCA" predecessor_AbstractAction="_qaliEFNnEd2DAaYH-ZsiCA"/>
             <steps_Behaviour xsi:type="seff:BranchAction" id="_qaliEFNnEd2DAaYH-ZsiCA" entityName="bitrate?" predecessor_AbstractAction="_ANPdcFNlEd2DAaYH-ZsiCA" successor_AbstractAction="_L_mmUlNnEd2DAaYH-ZsiCA">
               <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_B8IUAHebEd-AVaTk8ZPCHQ">
-                <branchBehaviour_BranchTransition id="_06HCgXRoEeG0OObN983jnw">
+                <branchBehaviour_BranchTransition id="_XojvIb7GEeGhOOoNZJ4gSw">
                   <steps_Behaviour xsi:type="seff:StartAction" id="_r3uOcVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_UVcvkFNqEd2DAaYH-ZsiCA"/>
                   <steps_Behaviour xsi:type="seff:StopAction" id="_r3uOclNnEd2DAaYH-ZsiCA" predecessor_AbstractAction="_ZFldwFNqEd2DAaYH-ZsiCA"/>
                   <steps_Behaviour xsi:type="seff:InternalAction" id="_UVcvkFNqEd2DAaYH-ZsiCA" entityName="encode" predecessor_AbstractAction="_r3uOcVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_ZFldwFNqEd2DAaYH-ZsiCA">
@@ -226,7 +232,7 @@
                 <branchCondition_GuardedBranchTransition specification="file.VALUE>192"/>
               </branches_Branch>
               <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_B8IUBnebEd-AVaTk8ZPCHQ">
-                <branchBehaviour_BranchTransition id="_06HpkXRoEeG0OObN983jnw">
+                <branchBehaviour_BranchTransition id="_Xomycb7GEeGhOOoNZJ4gSw">
                   <steps_Behaviour xsi:type="seff:StartAction" id="_zvh4MVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_tsKVoFNpEd2DAaYH-ZsiCA"/>
                   <steps_Behaviour xsi:type="seff:StopAction" id="_zvh4MlNnEd2DAaYH-ZsiCA" predecessor_AbstractAction="_9cEkEFNpEd2DAaYH-ZsiCA"/>
                   <steps_Behaviour xsi:type="seff:InternalAction" id="_tsKVoFNpEd2DAaYH-ZsiCA" entityName="encode" predecessor_AbstractAction="_zvh4MVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_9cEkEFNpEd2DAaYH-ZsiCA">
@@ -260,12 +266,12 @@
           <branchCondition_GuardedBranchTransition specification="file.TYPE==&quot;constant&quot;"/>
         </branches_Branch>
         <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_B8IUDnebEd-AVaTk8ZPCHQ">
-          <branchBehaviour_BranchTransition id="_06IQo3RoEeG0OObN983jnw">
+          <branchBehaviour_BranchTransition id="_XorD4L7GEeGhOOoNZJ4gSw">
             <steps_Behaviour xsi:type="seff:StartAction" id="_MtfnEVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_5M9KMFNnEd2DAaYH-ZsiCA"/>
             <steps_Behaviour xsi:type="seff:StopAction" id="_MtfnElNnEd2DAaYH-ZsiCA" predecessor_AbstractAction="_5M9KMFNnEd2DAaYH-ZsiCA"/>
             <steps_Behaviour xsi:type="seff:BranchAction" id="_5M9KMFNnEd2DAaYH-ZsiCA" entityName="bitrate?" predecessor_AbstractAction="_MtfnEVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_MtfnElNnEd2DAaYH-ZsiCA">
               <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_B8IUEnebEd-AVaTk8ZPCHQ">
-                <branchBehaviour_BranchTransition id="_06I3snRoEeG0OObN983jnw">
+                <branchBehaviour_BranchTransition id="_XosSAL7GEeGhOOoNZJ4gSw">
                   <steps_Behaviour xsi:type="seff:StartAction" id="_7PykoVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_qaUm4FNoEd2DAaYH-ZsiCA"/>
                   <steps_Behaviour xsi:type="seff:InternalAction" id="_qaUm4FNoEd2DAaYH-ZsiCA" entityName="transform2Wav" predecessor_AbstractAction="_7PykoVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_1S89UFNoEd2DAaYH-ZsiCA">
                     <resourceDemand_Action>
@@ -295,7 +301,7 @@
                 <branchCondition_GuardedBranchTransition specification="file.VALUE>192"/>
               </branches_Branch>
               <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_B8IUGnebEd-AVaTk8ZPCHQ">
-                <branchBehaviour_BranchTransition id="_06JexHRoEeG0OObN983jnw">
+                <branchBehaviour_BranchTransition id="_Xov8YL7GEeGhOOoNZJ4gSw">
                   <steps_Behaviour xsi:type="seff:StartAction" id="_73SCcVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_ALbwgFNuEd2CFabol9uwYw"/>
                   <steps_Behaviour xsi:type="seff:StopAction" id="_73SCclNnEd2DAaYH-ZsiCA" predecessor_AbstractAction="_ALbwgFNuEd2CFabol9uwYw"/>
                   <steps_Behaviour xsi:type="seff:SetVariableAction" id="_ALbwgFNuEd2CFabol9uwYw" entityName="setReturn" predecessor_AbstractAction="_73SCcVNnEd2DAaYH-ZsiCA" successor_AbstractAction="_73SCclNnEd2DAaYH-ZsiCA">
@@ -333,7 +339,7 @@
       <steps_Behaviour xsi:type="seff:StartAction" id="_2fc0oCZ4EdywZLVVlfU7gQ" successor_AbstractAction="_ngAZ8FE7Ed2iLYgaJYxY7w"/>
       <steps_Behaviour xsi:type="seff:StopAction" id="_2fc0oSZ4EdywZLVVlfU7gQ" predecessor_AbstractAction="_2iz1UFE8Ed2iLYgaJYxY7w"/>
       <steps_Behaviour xsi:type="seff:LoopAction" id="_ngAZ8FE7Ed2iLYgaJYxY7w" entityName="cacheLoop" predecessor_AbstractAction="_2fc0oCZ4EdywZLVVlfU7gQ" successor_AbstractAction="_2iz1UFE8Ed2iLYgaJYxY7w">
-        <bodyBehaviour_Loop id="_06LT8XRoEeG0OObN983jnw">
+        <bodyBehaviour_Loop id="_Xo004b7GEeGhOOoNZJ4gSw">
           <steps_Behaviour xsi:type="seff:StartAction" id="_ngAZ8VE7Ed2iLYgaJYxY7w" successor_AbstractAction="_uMankFE7Ed2iLYgaJYxY7w"/>
           <steps_Behaviour xsi:type="seff:StopAction" id="_ngAZ8lE7Ed2iLYgaJYxY7w" predecessor_AbstractAction="_0_YwMFE7Ed2iLYgaJYxY7w"/>
           <steps_Behaviour xsi:type="seff:InternalAction" id="_uMankFE7Ed2iLYgaJYxY7w" entityName="isInCache?" predecessor_AbstractAction="_ngAZ8VE7Ed2iLYgaJYxY7w" successor_AbstractAction="_0_YwMFE7Ed2iLYgaJYxY7w">
@@ -344,13 +350,13 @@
           </steps_Behaviour>
           <steps_Behaviour xsi:type="seff:BranchAction" id="_0_YwMFE7Ed2iLYgaJYxY7w" predecessor_AbstractAction="_uMankFE7Ed2iLYgaJYxY7w" successor_AbstractAction="_ngAZ8lE7Ed2iLYgaJYxY7w">
             <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_B8IUK3ebEd-AVaTk8ZPCHQ" branchProbability="0.2">
-              <branchBehaviour_BranchTransition id="_06L7A3RoEeG0OObN983jnw">
+              <branchBehaviour_BranchTransition id="_Xo3RIb7GEeGhOOoNZJ4gSw">
                 <steps_Behaviour xsi:type="seff:StartAction" id="_2hI20VE7Ed2iLYgaJYxY7w" successor_AbstractAction="_2hI20lE7Ed2iLYgaJYxY7w"/>
                 <steps_Behaviour xsi:type="seff:StopAction" id="_2hI20lE7Ed2iLYgaJYxY7w" predecessor_AbstractAction="_2hI20VE7Ed2iLYgaJYxY7w"/>
               </branchBehaviour_BranchTransition>
             </branches_Branch>
             <branches_Branch xsi:type="seff:ProbabilisticBranchTransition" id="_B8IULnebEd-AVaTk8ZPCHQ" branchProbability="0.8">
-              <branchBehaviour_BranchTransition id="_06MiEnRoEeG0OObN983jnw">
+              <branchBehaviour_BranchTransition id="_Xo5GUL7GEeGhOOoNZJ4gSw">
                 <steps_Behaviour xsi:type="seff:StartAction" id="_G95kMVE8Ed2iLYgaJYxY7w" successor_AbstractAction="_K67acFE8Ed2iLYgaJYxY7w"/>
                 <steps_Behaviour xsi:type="seff:StopAction" id="_G95kMlE8Ed2iLYgaJYxY7w" predecessor_AbstractAction="_K67acFE8Ed2iLYgaJYxY7w"/>
                 <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_K67acFE8Ed2iLYgaJYxY7w" predecessor_AbstractAction="_G95kMVE8Ed2iLYgaJYxY7w" successor_AbstractAction="_G95kMlE8Ed2iLYgaJYxY7w" calledService_ExternalService="_B8bOtHebEd-AVaTk8ZPCHQ" role_ExternalService="_rt6xkCAeEdyB2fTIEA4hbA">
@@ -438,7 +444,7 @@
         </returnVariableUsage__CallReturnAction>
       </steps_Behaviour>
       <steps_Behaviour xsi:type="seff:LoopAction" id="_V2fPEFNrEd2DAaYH-ZsiCA" entityName="watermarkLoop" predecessor_AbstractAction="_SQRWUFNrEd2DAaYH-ZsiCA" successor_AbstractAction="_wbRrsSZ4EdywZLVVlfU7gQ">
-        <bodyBehaviour_Loop id="_06QzgHRoEeG0OObN983jnw">
+        <bodyBehaviour_Loop id="_XpLaML7GEeGhOOoNZJ4gSw">
           <steps_Behaviour xsi:type="seff:StartAction" id="_V2pAEFNrEd2DAaYH-ZsiCA" successor_AbstractAction="_XxbRwFNrEd2DAaYH-ZsiCA"/>
           <steps_Behaviour xsi:type="seff:StopAction" id="_V2pAEVNrEd2DAaYH-ZsiCA" predecessor_AbstractAction="_XxbRwFNrEd2DAaYH-ZsiCA"/>
           <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_XxbRwFNrEd2DAaYH-ZsiCA" predecessor_AbstractAction="_V2pAEFNrEd2DAaYH-ZsiCA" successor_AbstractAction="_V2pAEVNrEd2DAaYH-ZsiCA" calledService_ExternalService="_B8bOt3ebEd-AVaTk8ZPCHQ" role_ExternalService="_F0MaMBwqEdyg5YJN38bxwQ">
@@ -502,7 +508,7 @@
       <steps_Behaviour xsi:type="seff:StopAction" id="_0f5XsSZ4EdywZLVVlfU7gQ" predecessor_AbstractAction="__gHO4FE5Ed2iLYgaJYxY7w"/>
       <steps_Behaviour xsi:type="seff:AcquireAction" id="_MI6X4FE5Ed2iLYgaJYxY7w" entityName="acquireDBConnection" predecessor_AbstractAction="_0f5XsCZ4EdywZLVVlfU7gQ" successor_AbstractAction="_PqqnYFE5Ed2iLYgaJYxY7w" passiveresource_AcquireAction="_BcM9k1E5Ed2iLYgaJYxY7w"/>
       <steps_Behaviour xsi:type="seff:LoopAction" id="_PqqnYFE5Ed2iLYgaJYxY7w" entityName="loadFiles" predecessor_AbstractAction="_MI6X4FE5Ed2iLYgaJYxY7w" successor_AbstractAction="_soEx4FE5Ed2iLYgaJYxY7w">
-        <bodyBehaviour_Loop id="_06VE8XRoEeG0OObN983jnw">
+        <bodyBehaviour_Loop id="_XpXAYL7GEeGhOOoNZJ4gSw">
           <steps_Behaviour xsi:type="seff:StartAction" id="_PrHTUFE5Ed2iLYgaJYxY7w" successor_AbstractAction="_ZxrToFE5Ed2iLYgaJYxY7w"/>
           <steps_Behaviour xsi:type="seff:StopAction" id="_PrHTUVE5Ed2iLYgaJYxY7w" predecessor_AbstractAction="_guU8sFE5Ed2iLYgaJYxY7w"/>
           <steps_Behaviour xsi:type="seff:InternalAction" id="_ZxrToFE5Ed2iLYgaJYxY7w" entityName="loadFilenames" predecessor_AbstractAction="_PrHTUFE5Ed2iLYgaJYxY7w" successor_AbstractAction="_guU8sFE5Ed2iLYgaJYxY7w">
@@ -564,10 +570,11 @@
     <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_9fy_EGafEeCCuI19Qg4dIw" entityName="Provided_IMediaStore_PrioritizingMediaStore" providedInterface__OperationProvidedRole="_xSi60BpXEdyxqpPYxT_m3w"/>
     <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="__6HscGafEeCCuI19Qg4dIw" entityName="Required_IAudioDB_PrioritizingMediaStore" requiredInterface__OperationRequiredRole="_yNjKgBpXEdyxqpPYxT_m3w"/>
     <requiredRoles_InterfaceRequiringEntity xsi:type="repository:InfrastructureRequiredRole" id="_jNukAGagEeCCuI19Qg4dIw" entityName="Required_IJVM_PrioritizingMediaStore" requiredInterface__InfrastructureRequiredRole="_dgX_oGagEeCCuI19Qg4dIw"/>
+    <requiredRoles_InterfaceRequiringEntity xsi:type="repository:OperationRequiredRole" id="_xx5yYHyJEeCdJZ0qbkxynw" entityName="Required_ISound_PrioritizingMediaStore" requiredInterface__OperationRequiredRole="_zAzzcBpXEdyxqpPYxT_m3w"/>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_9f1bUGafEeCCuI19Qg4dIw" describedService__SEFF="_B8bOsXebEd-AVaTk8ZPCHQ">
       <steps_Behaviour xsi:type="seff:StartAction" id="_9f2CYGafEeCCuI19Qg4dIw" successor_AbstractAction="_JZ9ZEGaiEeCCuI19Qg4dIw"/>
-      <steps_Behaviour xsi:type="seff:StopAction" id="_9f2pcGafEeCCuI19Qg4dIw" predecessor_AbstractAction="_bLm1wGaiEeCCuI19Qg4dIw"/>
-      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_JZ9ZEGaiEeCCuI19Qg4dIw" predecessor_AbstractAction="_9f2CYGafEeCCuI19Qg4dIw" successor_AbstractAction="_bLm1wGaiEeCCuI19Qg4dIw" calledService_ExternalService="_B8bOtHebEd-AVaTk8ZPCHQ" role_ExternalService="__6HscGafEeCCuI19Qg4dIw">
+      <steps_Behaviour xsi:type="seff:StopAction" id="_9f2pcGafEeCCuI19Qg4dIw" predecessor_AbstractAction="_In4PIHyLEeCdJZ0qbkxynw"/>
+      <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_JZ9ZEGaiEeCCuI19Qg4dIw" predecessor_AbstractAction="_9f2CYGafEeCCuI19Qg4dIw" successor_AbstractAction="_TJBkkHyJEeCdJZ0qbkxynw" calledService_ExternalService="_B8bOtHebEd-AVaTk8ZPCHQ" role_ExternalService="__6HscGafEeCCuI19Qg4dIw">
         <inputVariableUsages__CallAction>
           <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
             <specification_VariableCharacterisation specification="ids.NUMBER_OF_ELEMENTS"/>
@@ -580,11 +587,61 @@
           </variableCharacterisation_VariableUsage>
           <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="fileList"/>
         </returnVariableUsage__CallReturnAction>
+        <returnVariableUsage__CallReturnAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="RETURN.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:NamespaceReference" referenceName="fileList">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference__VariableUsage>
+        </returnVariableUsage__CallReturnAction>
       </steps_Behaviour>
-      <steps_Behaviour xsi:type="seff:InternalAction" id="_bLm1wGaiEeCCuI19Qg4dIw" entityName="postprocessing" predecessor_AbstractAction="_JZ9ZEGaiEeCCuI19Qg4dIw" successor_AbstractAction="_9f2pcGafEeCCuI19Qg4dIw">
-        <infrastructureCall__Action signature__InfrastructureCall="_egsNIGagEeCCuI19Qg4dIw" requiredRole__InfrastructureCall="_jNukAGagEeCCuI19Qg4dIw">
-          <numberOfCalls__InfrastructureCall specification="fileList.NUMBER_OF_ELEMENTS"/>
-        </infrastructureCall__Action>
+      <steps_Behaviour xsi:type="seff:LoopAction" id="_TJBkkHyJEeCdJZ0qbkxynw" entityName="watermark files" predecessor_AbstractAction="_JZ9ZEGaiEeCCuI19Qg4dIw" successor_AbstractAction="_In4PIHyLEeCdJZ0qbkxynw">
+        <bodyBehaviour_Loop id="_XprJcL7GEeGhOOoNZJ4gSw">
+          <steps_Behaviour xsi:type="seff:StartAction" id="_TJcbUHyJEeCdJZ0qbkxynw" successor_AbstractAction="_YtGRIHyJEeCdJZ0qbkxynw"/>
+          <steps_Behaviour xsi:type="seff:StopAction" id="_TJcbUXyJEeCdJZ0qbkxynw" predecessor_AbstractAction="_YtGRIHyJEeCdJZ0qbkxynw"/>
+          <steps_Behaviour xsi:type="seff:BranchAction" id="_YtGRIHyJEeCdJZ0qbkxynw" entityName="customer type" predecessor_AbstractAction="_TJcbUHyJEeCdJZ0qbkxynw" successor_AbstractAction="_TJcbUXyJEeCdJZ0qbkxynw">
+            <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_hQNhsHyJEeCdJZ0qbkxynw" entityName="Type End User">
+              <branchBehaviour_BranchTransition id="_Xps-ob7GEeGhOOoNZJ4gSw">
+                <steps_Behaviour xsi:type="seff:StartAction" id="_hQOv0HyJEeCdJZ0qbkxynw" successor_AbstractAction="_1RI5YHyJEeCdJZ0qbkxynw"/>
+                <steps_Behaviour xsi:type="seff:StopAction" id="_hQOv0XyJEeCdJZ0qbkxynw" predecessor_AbstractAction="_1RI5YHyJEeCdJZ0qbkxynw"/>
+                <steps_Behaviour xsi:type="seff:ExternalCallAction" id="_1RI5YHyJEeCdJZ0qbkxynw" predecessor_AbstractAction="_hQOv0HyJEeCdJZ0qbkxynw" successor_AbstractAction="_hQOv0XyJEeCdJZ0qbkxynw" calledService_ExternalService="_B8bOt3ebEd-AVaTk8ZPCHQ" role_ExternalService="_xx5yYHyJEeCdJZ0qbkxynw">
+                  <inputVariableUsages__CallAction>
+                    <variableCharacterisation_VariableUsage type="BYTESIZE">
+                      <specification_VariableCharacterisation specification="fileList.INNER.BYTESIZE"/>
+                    </variableCharacterisation_VariableUsage>
+                    <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="file"/>
+                  </inputVariableUsages__CallAction>
+                </steps_Behaviour>
+              </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="customerType.VALUE == &quot;enduser&quot;"/>
+            </branches_Branch>
+            <branches_Branch xsi:type="seff:GuardedBranchTransition" id="_oA4kQHyJEeCdJZ0qbkxynw" entityName="Type Reseller">
+              <branchBehaviour_BranchTransition id="_XpwB8L7GEeGhOOoNZJ4gSw">
+                <steps_Behaviour xsi:type="seff:StartAction" id="_oA5LUHyJEeCdJZ0qbkxynw" successor_AbstractAction="_oA5yYHyJEeCdJZ0qbkxynw"/>
+                <steps_Behaviour xsi:type="seff:StopAction" id="_oA5yYHyJEeCdJZ0qbkxynw" predecessor_AbstractAction="_oA5LUHyJEeCdJZ0qbkxynw"/>
+              </branchBehaviour_BranchTransition>
+              <branchCondition_GuardedBranchTransition specification="customerType.VALUE == &quot;reseller&quot;"/>
+            </branches_Branch>
+          </steps_Behaviour>
+        </bodyBehaviour_Loop>
+        <iterationCount_LoopAction specification="fileList.NUMBER_OF_ELEMENTS"/>
+      </steps_Behaviour>
+      <steps_Behaviour xsi:type="seff:SetVariableAction" id="_In4PIHyLEeCdJZ0qbkxynw" entityName="RETURN" predecessor_AbstractAction="_TJBkkHyJEeCdJZ0qbkxynw" successor_AbstractAction="_9f2pcGafEeCCuI19Qg4dIw">
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="NUMBER_OF_ELEMENTS">
+            <specification_VariableCharacterisation specification="fileList.NUMBER_OF_ELEMENTS"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:VariableReference" referenceName="RETURN"/>
+        </localVariableUsages_SetVariableAction>
+        <localVariableUsages_SetVariableAction>
+          <variableCharacterisation_VariableUsage type="BYTESIZE">
+            <specification_VariableCharacterisation specification="fileList.INNER.BYTESIZE"/>
+          </variableCharacterisation_VariableUsage>
+          <namedReference__VariableUsage xsi:type="stoex:NamespaceReference" referenceName="RETURN">
+            <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="INNER"/>
+          </namedReference__VariableUsage>
+        </localVariableUsages_SetVariableAction>
       </steps_Behaviour>
     </serviceEffectSpecifications__BasicComponent>
     <serviceEffectSpecifications__BasicComponent xsi:type="seff:ResourceDemandingSEFF" id="_9f3QgGafEeCCuI19Qg4dIw" describedService__SEFF="_B8bOsnebEd-AVaTk8ZPCHQ">
@@ -624,6 +681,9 @@
   <interfaces__Repository xsi:type="repository:OperationInterface" id="_xSi60BpXEdyxqpPYxT_m3w" entityName="IMediaStore">
     <signatures__OperationInterface id="_B8bOsXebEd-AVaTk8ZPCHQ" entityName="download" returnType__OperationSignature="_LirKRRpZEdyxqpPYxT_m3w">
       <parameters__OperationSignature dataType__Parameter="_8dsIJRpYEdyxqpPYxT_m3w" parameterName="ids"/>
+      <parameters__OperationSignature parameterName="customerType">
+        <dataType__Parameter xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+      </parameters__OperationSignature>
     </signatures__OperationInterface>
     <signatures__OperationInterface id="_B8bOsnebEd-AVaTk8ZPCHQ" entityName="upload">
       <parameters__OperationSignature dataType__Parameter="_J4ti1hpZEdyxqpPYxT_m3w" parameterName="file"/>
@@ -652,6 +712,9 @@
   </interfaces__Repository>
   <dataTypes__Repository xsi:type="repository:CompositeDataType" id="_z9IcVhpYEdyxqpPYxT_m3w" entityName="Request">
     <innerDeclaration_CompositeDataType entityName="requestedFiles" datatype_InnerDeclaration="_8dsIJRpYEdyxqpPYxT_m3w"/>
+    <innerDeclaration_CompositeDataType entityName="customerType">
+      <datatype_InnerDeclaration xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>
+    </innerDeclaration_CompositeDataType>
   </dataTypes__Repository>
   <dataTypes__Repository xsi:type="repository:CollectionDataType" id="_8dsIJRpYEdyxqpPYxT_m3w" entityName="ListOfStrings">
     <innerType_CollectionDataType xsi:type="repository:PrimitiveDataType" href="pathmap://PCM_MODELS/PrimitiveTypes.repository#//@dataTypes__Repository.1"/>

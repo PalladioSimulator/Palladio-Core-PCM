@@ -42,6 +42,14 @@
                   <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="requestedFiles"/>
                 </namedReference__VariableUsage>
               </inputParameterUsages_EntryLevelSystemCall>
+              <inputParameterUsages_EntryLevelSystemCall>
+                <variableCharacterisation_VariableUsage type="VALUE">
+                  <specification_VariableCharacterisation specification="&quot;NONE&quot;"/>
+                </variableCharacterisation_VariableUsage>
+                <namedReference__VariableUsage xsi:type="stoex:NamespaceReference" referenceName="request">
+                  <innerReference_NamespaceReference xsi:type="stoex:VariableReference" referenceName="customerType"/>
+                </namedReference__VariableUsage>
+              </inputParameterUsages_EntryLevelSystemCall>
             </actions_ScenarioBehaviour>
           </branchedBehaviour_BranchTransition>
         </branchTransitions_Branch>

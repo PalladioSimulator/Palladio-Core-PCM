@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
 <stringAttribute key="accuracyQualityAnnotationFile" value=""/>
-<stringAttribute key="allocationFile" value="platform:/resource/PCM3.3_MediaStoreExample/default.allocation"/>
+<stringAttribute key="allocationFile" value="platform:/resource/MediaStoreExample/default.allocation"/>
 <booleanAttribute key="clear" value="false"/>
 <listAttribute key="completion.config"/>
 <booleanAttribute key="completion.qvt.verbose.logging" value="false"/>
@@ -35,7 +35,7 @@
 <booleanAttribute key="simulateLinkingResources" value="true"/>
 <stringAttribute key="simulatorId" value="de.uka.ipd.sdq.codegen.simucontroller.simucom"/>
 <stringAttribute key="stepwidth" value=""/>
-<stringAttribute key="usageFile" value="platform:/resource/PCM3.3_MediaStoreExample/default.usagemodel"/>
+<stringAttribute key="usageFile" value="platform:/resource/MediaStoreExample/default.usagemodel"/>
 <booleanAttribute key="useConfidenceStopCondition" value="false"/>
 <booleanAttribute key="useFixedSeed" value="false"/>
 <stringAttribute key="variable" value=""/>

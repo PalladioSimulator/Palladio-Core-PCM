@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0 http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//usagemodel" xmi:id="_owWFkAMZEeKkGv40lSkX_A" type="PCM Usage Model" measurementUnit="Pixel">
+<notation:Diagram xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:notation="http://www.eclipse.org/gmf/runtime/1.0.2/notation" xmlns:parameter="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0" xmlns:usagemodel="http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0" xsi:schemaLocation="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0 http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//parameter http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0 http://sdq.ipd.uka.de/PalladioComponentModel/5.0#//usagemodel" xmi:id="_owWFkAMZEeKkGv40lSkX_A" type="PCM Usage Model" measurementUnit="Pixel">
   <children xmi:type="notation:Node" xmi:id="_oyQKEAMZEeKkGv40lSkX_A" type="2004">
     <children xmi:type="notation:DecorationNode" xmi:id="_oyQxJAMZEeKkGv40lSkX_A" type="5017"/>
     <children xmi:type="notation:DecorationNode" xmi:id="_oyQxJQMZEeKkGv40lSkX_A" type="7012">
@@ -62,11 +62,41 @@
                     </children>
                     <children xmi:type="notation:Shape" xmi:id="_ozfgNQMZEeKkGv40lSkX_A" type="3002" fontName="Segoe UI">
                       <element xmi:type="usagemodel:Stop" href="default.usagemodel#_fK4jwlBwEd6ActLj8Gdl_A"/>
-                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ozfgNgMZEeKkGv40lSkX_A" x="175" y="281"/>
+                      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_ozfgNgMZEeKkGv40lSkX_A" x="174" y="325"/>
                     </children>
                     <children xmi:type="notation:Shape" xmi:id="_ozfgNwMZEeKkGv40lSkX_A" type="3003" fontName="Segoe UI">
                       <children xmi:type="notation:DecorationNode" xmi:id="_ozgHQAMZEeKkGv40lSkX_A" type="5004"/>
                       <children xmi:type="notation:DecorationNode" xmi:id="_ozgHQQMZEeKkGv40lSkX_A" type="7002">
+                        <children xmi:type="notation:Node" xmi:id="_vOdJoJJBEeKq4oi8Ure_zg" type="3012">
+                          <children xmi:type="notation:DecorationNode" xmi:id="_vOdJpZJBEeKq4oi8Ure_zg" type="5012"/>
+                          <children xmi:type="notation:BasicCompartment" xmi:id="_vOdJppJBEeKq4oi8Ure_zg" type="7011">
+                            <styles xmi:type="notation:TitleStyle" xmi:id="_vOdJp5JBEeKq4oi8Ure_zg" showTitle="true"/>
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_vOdJqJJBEeKq4oi8Ure_zg"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_vOdJqZJBEeKq4oi8Ure_zg"/>
+                          </children>
+                          <styles xmi:type="notation:DescriptionStyle" xmi:id="_vOdJoZJBEeKq4oi8Ure_zg"/>
+                          <styles xmi:type="notation:FontStyle" xmi:id="_vOdJopJBEeKq4oi8Ure_zg" fontName="Lucida Grande"/>
+                          <styles xmi:type="notation:LineStyle" xmi:id="_vOdJo5JBEeKq4oi8Ure_zg"/>
+                          <element xmi:type="parameter:VariableUsage" href="default.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.1/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.0"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_vOdJpJJBEeKq4oi8Ure_zg"/>
+                        </children>
+                        <children xmi:type="notation:Node" xmi:id="_xnfdkJJBEeKq4oi8Ure_zg" type="3012">
+                          <children xmi:type="notation:DecorationNode" xmi:id="_xngEoJJBEeKq4oi8Ure_zg" type="5012"/>
+                          <children xmi:type="notation:BasicCompartment" xmi:id="_xngEoZJBEeKq4oi8Ure_zg" type="7011">
+                            <children xmi:type="notation:Node" xmi:id="_yHBSMJJBEeKq4oi8Ure_zg" type="3013">
+                              <element xmi:type="parameter:VariableCharacterisation" href="default.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.1/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.1/@variableCharacterisation_VariableUsage.0"/>
+                              <layoutConstraint xmi:type="notation:Location" xmi:id="_yHBSMZJBEeKq4oi8Ure_zg"/>
+                            </children>
+                            <styles xmi:type="notation:TitleStyle" xmi:id="_xngEopJBEeKq4oi8Ure_zg" showTitle="true"/>
+                            <styles xmi:type="notation:SortingStyle" xmi:id="_xngEo5JBEeKq4oi8Ure_zg"/>
+                            <styles xmi:type="notation:FilteringStyle" xmi:id="_xngEpJJBEeKq4oi8Ure_zg"/>
+                          </children>
+                          <styles xmi:type="notation:DescriptionStyle" xmi:id="_xnfdkZJBEeKq4oi8Ure_zg"/>
+                          <styles xmi:type="notation:FontStyle" xmi:id="_xnfdkpJBEeKq4oi8Ure_zg" fontName="Lucida Grande"/>
+                          <styles xmi:type="notation:LineStyle" xmi:id="_xnfdk5JBEeKq4oi8Ure_zg"/>
+                          <element xmi:type="parameter:VariableUsage" href="default.usagemodel#//@usageScenario_UsageModel.0/@scenarioBehaviour_UsageScenario/@actions_ScenarioBehaviour.2/@branchTransitions_Branch.1/@branchedBehaviour_BranchTransition/@actions_ScenarioBehaviour.2/@inputParameterUsages_EntryLevelSystemCall.1"/>
+                          <layoutConstraint xmi:type="notation:Bounds" xmi:id="_xnfdlJJBEeKq4oi8Ure_zg"/>
+                        </children>
                         <styles xmi:type="notation:SortingStyle" xmi:id="_ozgHQgMZEeKkGv40lSkX_A"/>
                         <styles xmi:type="notation:FilteringStyle" xmi:id="_ozgHQwMZEeKkGv40lSkX_A"/>
                       </children>

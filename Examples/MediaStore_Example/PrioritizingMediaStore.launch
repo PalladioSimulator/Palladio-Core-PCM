@@ -1,14 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
-<stringAttribute key="accuracyQualityAnnotationFile" value="platform:/resource/PCM3.3_MediaStoreExample/PrioritizingMediaStore.quality"/>
-<stringAttribute key="allocationFile" value="platform:/resource/PCM3.3_MediaStoreExample/PrioritizingMediaStore.allocation"/>
+<stringAttribute key="accuracyQualityAnnotationFile" value="platform:/resource/MediaStoreExample/PrioritizingMediaStore.quality"/>
+<stringAttribute key="allocationFile" value="platform:/resource/MediaStoreExample/PrioritizingMediaStore.allocation"/>
 <booleanAttribute key="clear" value="true"/>
 <listAttribute key="completion.config"/>
 <booleanAttribute key="completion.qvt.verbose.logging" value="false"/>
+<stringAttribute key="confidenceBatchSize" value="200"/>
 <stringAttribute key="confidenceHalfWidth" value="10"/>
 <stringAttribute key="confidenceLevel" value="95"/>
+<stringAttribute key="confidenceMinNumberOfBatches" value="60"/>
 <stringAttribute key="confidenceModelElementName" value=""/>
 <stringAttribute key="confidenceModelElementURI" value=""/>
+<booleanAttribute key="confidenceUseAutomaticBatches" value="false"/>
 <intAttribute key="datasourceID" value="0"/>
 <intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
 <stringAttribute key="eventMiddlewareRepositoryFile" value="pathmap://PCM_MODELS/default_event_middleware.repository"/>
@@ -30,8 +33,9 @@
 <booleanAttribute key="simulateAccuracy" value="false"/>
 <booleanAttribute key="simulateFailures" value="false"/>
 <booleanAttribute key="simulateLinkingResources" value="true"/>
+<stringAttribute key="simulatorId" value="de.uka.ipd.sdq.codegen.simucontroller.simucom"/>
 <stringAttribute key="stepwidth" value=""/>
-<stringAttribute key="usageFile" value="platform:/resource/PCM3.3_MediaStoreExample/PrioritizingMediaStore.usagemodel"/>
+<stringAttribute key="usageFile" value="platform:/resource/MediaStoreExample/PrioritizingMediaStore.usagemodel"/>
 <booleanAttribute key="useConfidenceStopCondition" value="false"/>
 <booleanAttribute key="useFixedSeed" value="false"/>
 <stringAttribute key="variable" value=""/>

@@ -18,4 +18,8 @@
     <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
     <assemblyContext_AllocationContext href="PrioritizingMediaStore.system#_AyCEgGajEeCCuI19Qg4dIw"/>
   </allocationContexts_Allocation>
+  <allocationContexts_Allocation id="__WxTkKL_EeCc0ZtqSku26A" entityName="Allocation_Assembly_DigitalWatermarking &lt;DigitalWatermarking> &lt;DigitalWatermarking>">
+    <resourceContainer_AllocationContext href="mediastore.resourceenvironment#_5uTBUBpmEdyxqpPYxT_m3w"/>
+    <assemblyContext_AllocationContext href="PrioritizingMediaStore.system#_kMgmgJI-EeKq4oi8Ure_zg"/>
+  </allocationContexts_Allocation>
 </allocation:Allocation>

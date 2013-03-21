@@ -45,6 +45,13 @@
           <element href="mediastore.repository#_jNukAGagEeCCuI19Qg4dIw"/>
           <layoutConstraint xsi:type="notation:Bounds" x="228" y="9"/>
         </children>
+        <children xsi:type="notation:Shape" type="3008" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5008">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="mediastore.repository#_xx5yYHyJEeCdJZ0qbkxynw"/>
+          <layoutConstraint xsi:type="notation:Bounds"/>
+        </children>
         <element href="PrioritizingMediaStore.system#_4ETfYGaiEeCCuI19Qg4dIw"/>
         <layoutConstraint xsi:type="notation:Bounds" x="63" y="174" width="229"/>
       </children>
@@ -71,6 +78,18 @@
         </children>
         <element href="PrioritizingMediaStore.system#_AyCEgGajEeCCuI19Qg4dIw"/>
         <layoutConstraint xsi:type="notation:Bounds" x="503" y="143" width="158"/>
+      </children>
+      <children xsi:type="notation:Shape" type="3006" fontName="Lucida Grande">
+        <children xsi:type="notation:DecorationNode" type="5009"/>
+        <children xsi:type="notation:Shape" type="3007" fontName="Lucida Grande">
+          <children xsi:type="notation:DecorationNode" type="5007">
+            <layoutConstraint xsi:type="notation:Location" y="5"/>
+          </children>
+          <element href="mediastore.repository#_A1yUUBpaEdyxqpPYxT_m3w"/>
+          <layoutConstraint xsi:type="notation:Bounds" x="6" y="-29"/>
+        </children>
+        <element href="PrioritizingMediaStore.system#_kMgmgJI-EeKq4oi8Ure_zg"/>
+        <layoutConstraint xsi:type="notation:Bounds" x="377" y="332" width="267"/>
       </children>
     </children>
     <children xsi:type="notation:Shape" type="3011" fontName="Lucida Grande">
@@ -107,5 +126,12 @@
     <element href="PrioritizingMediaStore.system#_SmasIGajEeCCuI19Qg4dIw"/>
     <bendpoints xsi:type="notation:RelativeBendpoints" points="[30, 0, -44, 1]$[68, -3, -6, -2]"/>
     <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.2,0.43333333333333335)"/>
+  </edges>
+  <edges xsi:type="notation:Connector" type="4004" source="//@children.0/@children.1/@children.1/@children.4" target="//@children.0/@children.1/@children.4/@children.1">
+    <styles xsi:type="notation:FontStyle" fontName="Lucida Grande"/>
+    <element href="PrioritizingMediaStore.system#_nkyw8JI-EeKq4oi8Ure_zg"/>
+    <bendpoints xsi:type="notation:RelativeBendpoints" points="[7, 0, -93, -87]$[107, 85, 7, -2]"/>
+    <sourceAnchor xsi:type="notation:IdentityAnchor" id="(0.7666666666666667,0.5333333333333333)"/>
+    <targetAnchor xsi:type="notation:IdentityAnchor" id="(0.7666666666666667,0.43333333333333335)"/>
   </edges>
 </notation:Diagram>
