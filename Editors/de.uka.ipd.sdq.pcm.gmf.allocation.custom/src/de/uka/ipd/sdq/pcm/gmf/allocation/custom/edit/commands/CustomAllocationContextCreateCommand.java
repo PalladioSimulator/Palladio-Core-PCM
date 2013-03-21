@@ -16,8 +16,9 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**
  * a custom AllocationContext CreateCommand.
+ * FIXME: Never used?
  */
-public class CumstomAllocationContextCreateCommand extends AllocationContextCreateCommand {
+public class CustomAllocationContextCreateCommand extends AllocationContextCreateCommand {
 
     /**
      * An Allocation.
@@ -32,7 +33,7 @@ public class CumstomAllocationContextCreateCommand extends AllocationContextCrea
      * @param a
      *            an Allocation
      */
-    public CumstomAllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
+    public CustomAllocationContextCreateCommand(CreateElementRequest req, Allocation a) {
         super(req);
         this.allocation = a;
     }

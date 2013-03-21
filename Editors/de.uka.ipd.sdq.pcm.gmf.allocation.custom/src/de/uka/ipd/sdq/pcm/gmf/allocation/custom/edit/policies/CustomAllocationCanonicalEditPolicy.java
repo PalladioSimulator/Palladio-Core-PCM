@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
+ * FIXME: unused.
  * a custom Allocation CanoncialEditPolicy.
  * 
  */
