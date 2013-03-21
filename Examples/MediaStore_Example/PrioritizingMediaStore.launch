@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
-<stringAttribute key="accuracyQualityAnnotationFile" value="platform:/resource/MediaStoreExample/PrioritizingMediaStore.quality"/>
+<stringAttribute key="accuracyQualityAnnotationFile" value=""/>
 <stringAttribute key="allocationFile" value="platform:/resource/MediaStoreExample/PrioritizingMediaStore.allocation"/>
 <booleanAttribute key="clear" value="true"/>
 <listAttribute key="completion.config"/>

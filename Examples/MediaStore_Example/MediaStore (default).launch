@@ -2,7 +2,7 @@
 <launchConfiguration type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
 <stringAttribute key="accuracyQualityAnnotationFile" value=""/>
 <stringAttribute key="allocationFile" value="platform:/resource/MediaStoreExample/default.allocation"/>
-<booleanAttribute key="clear" value="false"/>
+<booleanAttribute key="clear" value="true"/>
 <listAttribute key="completion.config"/>
 <booleanAttribute key="completion.qvt.verbose.logging" value="false"/>
 <stringAttribute key="confidenceBatchSize" value="200"/>
