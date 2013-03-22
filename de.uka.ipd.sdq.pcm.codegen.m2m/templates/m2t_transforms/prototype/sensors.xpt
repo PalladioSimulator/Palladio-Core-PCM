@@ -1,0 +1,11 @@
+«EXTENSION m2t_transforms::java_names»
+
+«DEFINE StartResponseTimeMeasurement FOR String»
+	// Start a response time measurement
+	long startTime«this.javaVariableName()» = de.uka.ipd.sdq.prototype.framework.AbstractMain.takeStartTimeForInnerMeasurement();
+«ENDDEFINE»
+
+«DEFINE EndResponseTimeMeasurement FOR String»
+	// Stop the response time measurement
+	de.uka.ipd.sdq.prototype.framework.AbstractMain.takeMeasurement(startTime«this.javaVariableName()», expRun, tss«this.javaVariableName()»);
+«ENDDEFINE»

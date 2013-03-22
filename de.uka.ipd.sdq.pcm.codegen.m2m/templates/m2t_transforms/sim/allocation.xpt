@@ -1,0 +1,76 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT entity»
+«IMPORT system»
+«IMPORT pcm::subsystem»
+«IMPORT core::composition»
+«IMPORT allocation»
+«IMPORT resourceenvironment»
+«IMPORT resourcerepository»
+«IMPORT completions»
+
+//------------------------------
+// Allocation Context
+// 1.) Generate a simulated resource environment
+// 2.) Generate a context class which can be queried
+//     to retrieve the resource container of the component in the 
+//     current context
+//------------------------------
+«DEFINE Allocation FOR Allocation»
+	«EXPAND m2t_transforms::sim::resources::ResourceEnvironmentRoot FOR this.targetResourceEnvironment_Allocation»
+	«FILE this.fqnAllocationContext().fqnToDirectoryPath()+".java"»
+		package «this.fqnAllocationContextPackage()»;
+		 
+		public class «this.fqnAllocationContextClass()» 
+		extends de.uka.ipd.sdq.simucomframework.Context {
+			public «this.fqnAllocationContextClass()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel myModel) {
+				super(myModel);
+			}
+			
+			protected void initialiseAssemblyContextLookup() {
+				«EXPAND AssemblyContextLink(this.system_Allocation) FOREACH this.allocationContexts_Allocation»
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+// The following rule assumes the current 1:1 relationship between allocation context and
+// assembly context!
+// Additionally, it assumes that a SubSystem is only used once in the system (it will cause an error if 
+// it is used multiple times and the inner components are directly allocated.
+«DEFINE AssemblyContextLink(System system) FOR AllocationContext»
+	
+	«LET (SubSystem.isInstance(this.assemblyContext_AllocationContext.parentStructure__AssemblyContext)
+	|| Completion.isInstance(this.assemblyContext_AllocationContext.parentStructure__AssemblyContext)) ? 
+	this.assemblyContext_AllocationContext.id+system.getParentSubsystemsIdConcatenationFor((SubSystem)this.assemblyContext_AllocationContext.parentStructure__AssemblyContext) :
+	this.assemblyContext_AllocationContext.id AS fullAssemblyContextID»
+	
+	linkAssemblyContextAndResourceContainer("«fullAssemblyContextID»","«this.resourceContainer_AllocationContext.id»");
+	
+	
+	«IF CompositeComponent.isInstance(this.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext) 
+	|| SubSystem.isInstance(this.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)
+	|| Completion.isInstance(this.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)»
+		«EXPAND CompositeAllocation(this, fullAssemblyContextID, system) FOREACH ((CompositeComponent)this.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext).assemblyContexts__ComposedStructure»
+	«ENDIF»
+
+	«ENDLET»
+	 
+«ENDDEFINE»
+
+«DEFINE CompositeAllocation(AllocationContext allocCxt, String parentid, System system) FOR AssemblyContext»
+    «REM»Store this context id (1) alone and (2) together with parent id and then
+         recursively call this definition for the child components.  
+         Thus, all combinations of subsystems, composite components and basic components are 
+         hopefully covered. 
+         TODO: Some combinations might be superfluous and could be excluded here. 
+         But test throurouhly with also composite components inside nested subsystems... «ENDREM»
+	linkAssemblyContextAndResourceContainer("«this.id»"+"«parentid»","«allocCxt.resourceContainer_AllocationContext.id»");
+	«IF CompositeComponent.isInstance(this.encapsulatedComponent__AssemblyContext)
+	|| SubSystem.isInstance(this.encapsulatedComponent__AssemblyContext)
+	|| Completion.isInstance(this.encapsulatedComponent__AssemblyContext) »
+		«EXPAND CompositeAllocation(allocCxt, this.id+parentid, system) FOREACH ((CompositeComponent)this.encapsulatedComponent__AssemblyContext).assemblyContexts__ComposedStructure»
+		«EXPAND CompositeAllocation(allocCxt, this.id, system) FOREACH ((CompositeComponent)this.encapsulatedComponent__AssemblyContext).assemblyContexts__ComposedStructure»
+	«ENDIF»
+«ENDDEFINE»

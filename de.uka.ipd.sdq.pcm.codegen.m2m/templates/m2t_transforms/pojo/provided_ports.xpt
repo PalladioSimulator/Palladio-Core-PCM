@@ -1,0 +1,22 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT system»
+«IMPORT entity»
+«IMPORT composition»
+
+«DEFINE PortDelegationDelegatingCall FOR OperationSignature»
+   «IF this.returnType__OperationSignature != null»
+		return myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
+		     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+   «ELSE»
+		myComponent.«this.interface__OperationSignature.javaName().toFirstLower()»_«this.javaSignature()»(
+		     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+   «ENDIF»
+«ENDDEFINE»
+
+«DEFINE PortDelegationDelegatingCall FOR InfrastructureSignature»
+	myComponent.«this.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower()»_«this.javaSignature()»(
+	     «EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+«ENDDEFINE»

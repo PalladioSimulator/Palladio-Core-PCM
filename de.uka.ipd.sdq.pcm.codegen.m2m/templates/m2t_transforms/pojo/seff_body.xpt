@@ -1,0 +1,53 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
+
+// ----------------------------
+// POJO templates for parts of a SEFF
+// ----------------------------
+«DEFINE Action FOR CollectionIteratorAction»
+   for (int i = 0; i < «this.parameter_CollectionIteratorAction.parameterName».length; i++ ){
+       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+   } 
+«ENDDEFINE»
+
+«DEFINE Action FOR LoopAction»
+   for (int iterationCount = 0; iterationCount < 0; /* hint: «this.iterationCount_LoopAction.specification.javaString()»" */ 
+            iterationCount++){
+       «EXPAND m2t_transforms::java_core::Actions FOR this.bodyBehaviour_Loop.steps_Behaviour.findStart()»
+   } 
+«ENDDEFINE»
+
+«DEFINE Action FOR BranchAction»
+	«EXPAND BranchTransition FOREACH this.branches_Branch SEPARATOR " else "»
+	else
+		throw new RuntimeException("No branch condition evaluated to true :-(");
+«ENDDEFINE»
+
+«DEFINE BranchTransition FOR AbstractBranchTransition»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/pojo/seff.xpt]: Unknown branch transition found!"»
+«ENDDEFINE»
+
+«DEFINE BranchTransition FOR GuardedBranchTransition»
+	if (true /* TODO: Implement guard, hint: "«this.branchCondition_GuardedBranchTransition.specification» */)
+	{
+		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
+	}
+«ENDDEFINE»
+
+«DEFINE BranchTransition FOR ProbabilisticBranchTransition»
+	if (true /* TODO: Implement condition. Probability was: "«this.branchProbability» */)
+	{
+		«EXPAND m2t_transforms::java_core::Actions FOR this.branchBehaviour_BranchTransition.steps_Behaviour.findStart()»
+	}
+«ENDDEFINE»
+
+«DEFINE Action FOR AcquireAction»
+	// Acquire «this.passiveresource_AcquireAction»
+	// TODO: Implement code to get the resource
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+	// Release «this.passiveResource_ReleaseAction»
+	// TODO: Implement code to release the resource
+«ENDDEFINE»

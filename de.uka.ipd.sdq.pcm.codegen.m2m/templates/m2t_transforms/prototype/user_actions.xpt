@@ -1,0 +1,23 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT usagemodel»
+
+
+«DEFINE UserAction FOR Branch»
+	{
+		«LET this.id.javaVariableName() AS counterID»
+			double u«counterID» = de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache.singleton().getRandomGenerator().random();
+			double sum«counterID» = 0;
+			«EXPAND m2t_transforms::sim::user_actions::BranchTransition(counterID) FOREACH this.branchTransitions_Branch SEPARATOR ""»
+		«ENDLET»
+	}
+«ENDDEFINE»
+
+
+«DEFINE UserAction FOR EntryLevelSystemCall»
+    «EXPAND m2t_transforms::calls::Call(
+    	this, 
+    	this.providedRole_EntryLevelSystemCall.portMemberVar()+".",
+    	this.inputParameterUsages_EntryLevelSystemCall,
+    	{}) FOR this.operationSignature__EntryLevelSystemCall»
+«ENDDEFINE»
