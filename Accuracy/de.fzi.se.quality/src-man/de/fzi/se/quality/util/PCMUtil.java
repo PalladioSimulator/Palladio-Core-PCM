@@ -196,10 +196,11 @@ public class PCMUtil {
 	 * @return The textual identifer.
 	 */
 	public static String prettyPrint(InfrastructureSignature signature) {
-		if (signature == null) {
+		if (signature == null || signature.getInfrastructureInterface__InfrastructureSignature() == null) {
 			return "<null>";
 		}
-		String result = signature.getInfrastructureInterface__InfrastructureSignature().getEntityName() + "::" + signature.getEntityName() + "(";
+		String result;
+			result = signature.getInfrastructureInterface__InfrastructureSignature().getEntityName() + "::" + signature.getEntityName() + "(";
 		for (Parameter parameter : signature.getParameters__InfrastructureSignature()) {
 			result += parameter.getDataType__Parameter() + " " + parameter.getParameterName() + ", ";
 		}
