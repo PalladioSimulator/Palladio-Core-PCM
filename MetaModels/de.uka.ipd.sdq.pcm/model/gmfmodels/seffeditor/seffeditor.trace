@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<trace:TraceModel xmi:version="2.0"
+<trace:TraceModel
+    xmi:version="2.0"
     xmlns:xmi="http://www.omg.org/XMI"
     xmlns:trace="http://www.eclipse.org/gmf/2006/Trace">
   <nodeTraces
@@ -112,13 +113,13 @@
         queryText="true"/>
   </nodeTraces>
   <nodeTraces
-      visualID="2016"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0' and _eClass_.name = 'RecoveryAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'ResourceDemandingBehaviour') and _containmentMF_.name = 'steps_Behaviour')">
+      visualID="2017"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0' and _eClass_.name = 'RecoveryAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'ResourceDemandingBehaviour') and _containmentMF_.name = 'steps_Behaviour')">
     <nodeLabelTraces
-        visualID="5056"
+        visualID="5061"
         queryText="true"/>
     <compartmentTraces
-        visualID="7056"
+        visualID="7060"
         queryText="true"/>
   </nodeTraces>
   <childNodeTraces
@@ -355,22 +356,6 @@
       visualID="3050"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0' and _eClass_.name = 'InternalFailureOccurrenceDescription') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'InternalAction') and _containmentMF_.name = 'internalFailureOccurrenceDescriptions__InternalAction')"/>
   <childNodeTraces
-      visualID="3051"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0' and _eClass_.name = 'ParametricResourceDemand') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'AbstractInternalControlFlowAction') and _containmentMF_.name = 'resourceDemand_Action')"/>
-  <childNodeTraces
-      visualID="3053"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/1.0' and _eClass_.name = 'InfrastructureCall') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'AbstractInternalControlFlowAction') and _containmentMF_.name = 'infrastructureCall__Action')">
-    <nodeLabelTraces
-        visualID="5051"
-        queryText="true"/>
-    <nodeLabelTraces
-        visualID="5052"
-        queryText="true"/>
-    <compartmentTraces
-        visualID="7049"
-        queryText="true"/>
-  </childNodeTraces>
-  <childNodeTraces
       visualID="3054"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0' and _eClass_.name = 'VariableUsage') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'CallAction') and _containmentMF_.name = 'inputVariableUsages__CallAction')">
     <nodeLabelTraces
@@ -384,23 +369,39 @@
       visualID="3055"
       queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0' and _eClass_.name = 'VariableCharacterisation') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0' and _eClass_.name = 'VariableUsage') and _containmentMF_.name = 'variableCharacterisation_VariableUsage')"/>
   <childNodeTraces
-      visualID="3057"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0' and _eClass_.name = 'RecoveryAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'ResourceDemandingBehaviour') and _containmentMF_.name = 'steps_Behaviour')">
+      visualID="3059"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0' and _eClass_.name = 'ParametricResourceDemand') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'AbstractInternalControlFlowAction') and _containmentMF_.name = 'resourceDemand_Action')"/>
+  <childNodeTraces
+      visualID="3053"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0' and _eClass_.name = 'InfrastructureCall') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'AbstractInternalControlFlowAction') and _containmentMF_.name = 'infrastructureCall__Action')">
     <nodeLabelTraces
-        visualID="5055"
+        visualID="5057"
+        queryText="true"/>
+    <nodeLabelTraces
+        visualID="5058"
         queryText="true"/>
     <compartmentTraces
-        visualID="7054"
+        visualID="7057"
         queryText="true"/>
   </childNodeTraces>
   <childNodeTraces
-      visualID="3058"
-      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0' and _eClass_.name = 'RecoveryActionBehaviour') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/1.0' and _eClass_.name = 'RecoveryAction') and _containmentMF_.name = 'recoveryActionBehaviours__RecoveryAction')">
+      visualID="3061"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0' and _eClass_.name = 'RecoveryAction') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0' and _eClass_.name = 'ResourceDemandingBehaviour') and _containmentMF_.name = 'steps_Behaviour')">
     <nodeLabelTraces
-        visualID="5054"
+        visualID="5060"
         queryText="true"/>
     <compartmentTraces
-        visualID="7055"
+        visualID="7058"
+        queryText="true"/>
+  </childNodeTraces>
+  <childNodeTraces
+      visualID="3062"
+      queryText="(let _eClass_:ecore::EClass = modelFacet.metaClass.ecoreClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0' and _eClass_.name = 'RecoveryActionBehaviour') and (let _containmentMF_:ecore::EStructuralFeature = modelFacet.containmentMetaFeature.ecoreFeature in (let _eClass_:ecore::EClass = _containmentMF_.eContainingClass in _eClass_.ePackage.nsURI = 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0' and _eClass_.name = 'RecoveryAction') and _containmentMF_.name = 'recoveryActionBehaviours__RecoveryAction')">
+    <nodeLabelTraces
+        visualID="5059"
+        queryText="true"/>
+    <compartmentTraces
+        visualID="7059"
         queryText="true"/>
   </childNodeTraces>
   <linkTraces
