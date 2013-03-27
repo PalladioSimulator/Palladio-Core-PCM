@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.GridData;
@@ -44,7 +45,7 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 3058;
+    public static final int VISUAL_ID = 3062;
 
     /**
      * @generated
@@ -70,8 +71,7 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new RecoveryActionBehaviourItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -79,7 +79,7 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -104,8 +104,7 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        RecoveryActionBehaviourFigure figure = new RecoveryActionBehaviourFigure();
-        return primaryShape = figure;
+        return primaryShape = new RecoveryActionBehaviourFigure();
     }
 
     /**
@@ -126,8 +125,7 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureRecoveryActionBehaviourCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart) childEditPart).getFigure());
             return true;
         }
@@ -143,8 +141,6 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureRecoveryActionBehaviourCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart) childEditPart).getFigure());
             return true;
         }
@@ -270,18 +266,8 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004);
         return types;
     }
@@ -289,19 +275,8 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart) {
             types.add(PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004);
         }
@@ -311,21 +286,10 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004) {
-            types.add(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058);
+            types.add(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3062);
         }
         return types;
     }
@@ -333,18 +297,8 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004);
         return types;
     }
@@ -352,21 +306,10 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004) {
-            types.add(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058);
+            types.add(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3062);
         }
         return types;
     }
@@ -400,7 +343,6 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -411,6 +353,7 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             WrappingLabel recoveryActionBehaviourStereotype0 = new WrappingLabel();
+
             recoveryActionBehaviourStereotype0.setText("<<RecoveryActionBehaviour>>");
             recoveryActionBehaviourStereotype0.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -426,6 +369,7 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
             this.add(recoveryActionBehaviourStereotype0, constraintRecoveryActionBehaviourStereotype0);
 
             fFigureRecoveryActionBehaviourNameLabel = new WrappingLabel();
+
             fFigureRecoveryActionBehaviourNameLabel.setText("");
             fFigureRecoveryActionBehaviourNameLabel.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -441,9 +385,9 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
             this.add(fFigureRecoveryActionBehaviourNameLabel, constraintFFigureRecoveryActionBehaviourNameLabel);
 
             fFigureRecoveryActionBehaviourCompartment = new RectangleFigure();
+
             fFigureRecoveryActionBehaviourCompartment.setFill(false);
             fFigureRecoveryActionBehaviourCompartment.setOutline(false);
-            fFigureRecoveryActionBehaviourCompartment.setLineWidth(1);
             fFigureRecoveryActionBehaviourCompartment.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode()
                     .DPtoLP(0)));
 
@@ -457,25 +401,6 @@ public class RecoveryActionBehaviourEditPart extends ShapeNodeEditPart {
             constraintFFigureRecoveryActionBehaviourCompartment.grabExcessVerticalSpace = true;
             this.add(fFigureRecoveryActionBehaviourCompartment, constraintFFigureRecoveryActionBehaviourCompartment);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

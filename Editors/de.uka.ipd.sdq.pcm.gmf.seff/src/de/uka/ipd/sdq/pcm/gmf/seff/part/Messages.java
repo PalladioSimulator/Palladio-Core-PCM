@@ -731,6 +731,16 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String NavigatorGroupName_RecoveryAction_2017_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_RecoveryAction_2017_outgoinglinks;
+
+    /**
+     * @generated
+     */
     public static String NavigatorGroupName_ExternalCallAction_2003_incominglinks;
 
     /**
@@ -807,16 +817,6 @@ public class Messages extends NLS {
      * @generated
      */
     public static String NavigatorGroupName_ForkAction_2011_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_RecoveryAction_2016_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_RecoveryAction_2016_outgoinglinks;
 
     /**
      * @generated
@@ -931,26 +931,6 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_RecoveryAction_3057_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_RecoveryAction_3057_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_RecoveryActionBehaviour_3058_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_RecoveryActionBehaviour_3058_outgoinglinks;
-
-    /**
-     * @generated
-     */
     public static String NavigatorGroupName_CollectionIteratorAction_3013_incominglinks;
 
     /**
@@ -971,12 +951,32 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String NavigatorGroupName_RecoveryAction_3061_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_RecoveryAction_3061_outgoinglinks;
+
+    /**
+     * @generated
+     */
     public static String NavigatorGroupName_RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_target;
 
     /**
      * @generated
      */
     public static String NavigatorGroupName_RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_RecoveryActionBehaviour_3062_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_RecoveryActionBehaviour_3062_outgoinglinks;
 
     /**
      * @generated

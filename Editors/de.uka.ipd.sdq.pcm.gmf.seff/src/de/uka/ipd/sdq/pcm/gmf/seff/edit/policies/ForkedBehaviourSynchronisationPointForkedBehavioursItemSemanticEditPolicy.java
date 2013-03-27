@@ -70,7 +70,7 @@ public class ForkedBehaviourSynchronisationPointForkedBehavioursItemSemanticEdit
         if (PalladioComponentModelElementTypes.ForkAction_3023 == req.getElementType()) {
             return getGEFWrapper(new ForkAction2CreateCommand(req));
         }
-        if (PalladioComponentModelElementTypes.RecoveryAction_3057 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.RecoveryAction_3061 == req.getElementType()) {
             return getGEFWrapper(new RecoveryAction2CreateCommand(req));
         }
         return super.getCreateCommand(req);

@@ -48,7 +48,7 @@ public class BranchActionItemSemanticEditPolicy extends PalladioComponentModelBa
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
@@ -58,7 +58,7 @@ public class BranchActionItemSemanticEditPolicy extends PalladioComponentModelBa
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
@@ -86,30 +86,24 @@ public class BranchActionItemSemanticEditPolicy extends PalladioComponentModelBa
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
         View view = (View) getHost().getModel();
-        for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
+        for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
             Node node = (Node) nit.next();
             switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
             case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
-                for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
+                for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
                     Node cnode = (Node) cit.next();
                     switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
                     case ProbabilisticBranchTransitionEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case GuardedBranchTransitionEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     }
                 }

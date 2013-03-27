@@ -76,10 +76,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
      */
     protected boolean provides(CreateViewForKindOperation op) {
         /*
-         * if (op.getViewKind() == Node.class) return getNodeViewClass(op.getSemanticAdapter(),
-         * op.getContainerView(), op.getSemanticHint()) != null; if (op.getViewKind() == Edge.class)
-         * return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(),
-         * op.getSemanticHint()) != null;
+         if (op.getViewKind() == Node.class)
+         return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+         if (op.getViewKind() == Edge.class)
+         return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
          */
         return true;
     }
@@ -120,14 +120,12 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 }
                 String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
                 if (!op.getSemanticHint().equals(elementTypeHint)) {
-                    return false; // if semantic hint is specified it should be the same as in
-                                  // element type
+                    return false; // if semantic hint is specified it should be the same as in element type
                 }
                 if (domainElement != null
                         && visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID(op.getContainerView(),
                                 domainElement)) {
-                    return false; // visual id for node EClass should match visual id from element
-                                  // type
+                    return false; // visual id for node EClass should match visual id from element type
                 }
             } else {
                 if (!ResourceDemandingSEFFEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry.getModelID(op
@@ -187,8 +185,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                     if (domainElement == null
                             || visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID(
                                     op.getContainerView(), domainElement)) {
-                        return false; // visual id in semantic hint should match visual id for
-                                      // domain element
+                        return false; // visual id in semantic hint should match visual id for domain element
                     }
                     break;
                 default:
@@ -244,8 +241,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         }
         String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
         if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
-            return false; // our hint is visual id and must be specified, and it should be the same
-                          // as in element type
+            return false; // our hint is visual id and must be specified, and it should be the same as in element type
         }
         int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(elementTypeHint);
         EObject domainElement = getSemanticElement(op.getSemanticAdapter());
@@ -306,7 +302,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         case ForkActionEditPart.VISUAL_ID:
             return createForkAction_2011(domainElement, containerView, index, persisted, preferencesHint);
         case RecoveryActionEditPart.VISUAL_ID:
-            return createRecoveryAction_2016(domainElement, containerView, index, persisted, preferencesHint);
+            return createRecoveryAction_2017(domainElement, containerView, index, persisted, preferencesHint);
         case VariableUsageEditPart.VISUAL_ID:
             return createVariableUsage_3042(domainElement, containerView, index, persisted, preferencesHint);
         case VariableCharacterisationEditPart.VISUAL_ID:
@@ -367,9 +363,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
             return createResourceDemandingBehaviour_3014(domainElement, containerView, index, persisted,
                     preferencesHint);
         case RecoveryAction2EditPart.VISUAL_ID:
-            return createRecoveryAction_3057(domainElement, containerView, index, persisted, preferencesHint);
+            return createRecoveryAction_3061(domainElement, containerView, index, persisted, preferencesHint);
         case RecoveryActionBehaviourEditPart.VISUAL_ID:
-            return createRecoveryActionBehaviour_3058(domainElement, containerView, index, persisted, preferencesHint);
+            return createRecoveryActionBehaviour_3062(domainElement, containerView, index, persisted, preferencesHint);
         case SetVariableAction2EditPart.VISUAL_ID:
             return createSetVariableAction_3024(domainElement, containerView, index, persisted, preferencesHint);
         case VariableUsage3EditPart.VISUAL_ID:
@@ -422,7 +418,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -454,7 +450,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -490,7 +486,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -535,7 +531,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -576,7 +572,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -616,7 +612,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -658,7 +654,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -707,7 +703,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -747,7 +743,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -788,7 +784,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -826,7 +822,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -864,7 +860,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -897,7 +893,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     /**
      * @generated
      */
-    public Node createRecoveryAction_2016(EObject domainElement, View containerView, int index, boolean persisted,
+    public Node createRecoveryAction_2017(EObject domainElement, View containerView, int index, boolean persisted,
             PreferencesHint preferencesHint) {
         Shape node = NotationFactory.eINSTANCE.createShape();
         node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
@@ -905,7 +901,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -927,7 +923,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 IPreferenceConstants.PREF_FILL_COLOR);
         ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
                 FigureUtilities.RGBToInteger(fillRGB));
-        Node label5056 = createLabel(node,
+        Node label5061 = createLabel(node,
                 PalladioComponentModelVisualIDRegistry.getType(RecoveryActionEntityNameEditPart.VISUAL_ID));
         createCompartment(node,
                 PalladioComponentModelVisualIDRegistry
@@ -948,7 +944,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(VariableUsageEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1001,7 +997,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(VariableUsage2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1053,7 +1049,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(VariableUsage4EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1089,7 +1085,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ResourceDemandingBehaviourEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1131,7 +1127,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(StartAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1162,7 +1158,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(StopAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1197,7 +1193,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(LoopAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1236,7 +1232,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(InternalAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1310,7 +1306,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(InfrastructureCallEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1332,14 +1328,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 IPreferenceConstants.PREF_FILL_COLOR);
         ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
                 FigureUtilities.RGBToInteger(fillRGB));
-        Node label5051 = createLabel(node,
-                PalladioComponentModelVisualIDRegistry.getType(InfrastructureCallNumberOfCallsLabelEditPart.VISUAL_ID));
-        Node label5052 = createLabel(node,
-                PalladioComponentModelVisualIDRegistry.getType(InfrastructureCallTargetLabelEditPart.VISUAL_ID));
+        Node label5057 = createLabel(node,
+                PalladioComponentModelVisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
+        Node label5058 = createLabel(node,
+                PalladioComponentModelVisualIDRegistry.getType(WrappingLabel3EditPart.VISUAL_ID));
         createCompartment(node,
                 PalladioComponentModelVisualIDRegistry
                         .getType(InfrastructureCallInfrastructureCallInputVariableUsagesEditPart.VISUAL_ID), true,
-                false, true, true);
+                false, false, false);
         return node;
     }
 
@@ -1356,7 +1352,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(VariableUsage5EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1392,7 +1388,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(BranchAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1432,7 +1428,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ProbabilisticBranchTransitionEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1473,7 +1469,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ResourceDemandingBehaviour2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1512,7 +1508,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ExternalCallAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1556,7 +1552,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(EmitEventAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1596,7 +1592,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(AcquireAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1633,7 +1629,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ReleaseAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1670,7 +1666,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ForkAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1710,7 +1706,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ForkedBehaviourEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1748,7 +1744,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(CollectionIteratorAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1787,7 +1783,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ResourceDemandingBehaviour3EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1819,14 +1815,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     /**
      * @generated
      */
-    public Node createRecoveryAction_3057(EObject domainElement, View containerView, int index, boolean persisted,
+    public Node createRecoveryAction_3061(EObject domainElement, View containerView, int index, boolean persisted,
             PreferencesHint preferencesHint) {
         Shape node = NotationFactory.eINSTANCE.createShape();
         node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
         node.setType(PalladioComponentModelVisualIDRegistry.getType(RecoveryAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1848,7 +1844,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 IPreferenceConstants.PREF_FILL_COLOR);
         ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
                 FigureUtilities.RGBToInteger(fillRGB));
-        Node label5055 = createLabel(node,
+        Node label5060 = createLabel(node,
                 PalladioComponentModelVisualIDRegistry.getType(RecoveryActionEntityName2EditPart.VISUAL_ID));
         createCompartment(node,
                 PalladioComponentModelVisualIDRegistry
@@ -1859,14 +1855,14 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     /**
      * @generated
      */
-    public Node createRecoveryActionBehaviour_3058(EObject domainElement, View containerView, int index,
+    public Node createRecoveryActionBehaviour_3062(EObject domainElement, View containerView, int index,
             boolean persisted, PreferencesHint preferencesHint) {
         Shape node = NotationFactory.eINSTANCE.createShape();
         node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
         node.setType(PalladioComponentModelVisualIDRegistry.getType(RecoveryActionBehaviourEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1888,7 +1884,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 IPreferenceConstants.PREF_FILL_COLOR);
         ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
                 FigureUtilities.RGBToInteger(fillRGB));
-        Node label5054 = createLabel(node,
+        Node label5059 = createLabel(node,
                 PalladioComponentModelVisualIDRegistry.getType(RecoveryActionBehaviourEntityNameEditPart.VISUAL_ID));
         createCompartment(node,
                 PalladioComponentModelVisualIDRegistry
@@ -1907,7 +1903,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(SynchronisationPointEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1946,7 +1942,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ForkedBehaviour2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -1985,7 +1981,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(SetVariableAction2EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -2028,7 +2024,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(VariableUsage3EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -2103,7 +2099,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(GuardedBranchTransitionEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -2142,7 +2138,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ResourceDemandingBehaviour4EditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -2179,7 +2175,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -2221,7 +2217,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         Connector edge = NotationFactory.eINSTANCE.createConnector();
         edge.getStyles().add(NotationFactory.eINSTANCE.createFontStyle());
         RelativeBendpoints bendpoints = NotationFactory.eINSTANCE.createRelativeBendpoints();
-        ArrayList points = new ArrayList(2);
+        ArrayList<RelativeBendpoint> points = new ArrayList<RelativeBendpoint>(2);
         points.add(new RelativeBendpoint());
         points.add(new RelativeBendpoint());
         bendpoints.setPoints(points);
@@ -2283,9 +2279,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
      */
     private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
             boolean canFilter) {
-        // SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
-        // rv.setShowTitle(showTitle);
-        // rv.setCollapsed(isCollapsed);
+        //SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
+        //rv.setShowTitle(showTitle);
+        //rv.setCollapsed(isCollapsed);
         Node rv;
         if (canCollapse) {
             rv = NotationFactory.eINSTANCE.createBasicCompartment();

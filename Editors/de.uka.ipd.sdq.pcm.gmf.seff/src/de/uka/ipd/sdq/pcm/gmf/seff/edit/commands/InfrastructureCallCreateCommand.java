@@ -25,13 +25,6 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 public class InfrastructureCallCreateCommand extends EditElementCommand {
 
     /**
-     * Default number of calls to use for a infrastructure call.
-     * 
-     * @generated not
-     */
-    private static final String DEFAULT_NUMBER_OF_CALLS = "1";
-
-    /**
      * @generated
      */
     public InfrastructureCallCreateCommand(CreateElementRequest req) {
@@ -67,15 +60,11 @@ public class InfrastructureCallCreateCommand extends EditElementCommand {
      * @return the command result
      * @throws ExecutionException
      *             the execution exception
-     * @generated not
+     * @generated
      */
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall newElement = de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformanceFactory.eINSTANCE
                 .createInfrastructureCall();
-        // add empty random variable
-        PCMRandomVariable numberOfCalls = CoreFactory.eINSTANCE.createPCMRandomVariable();
-        numberOfCalls.setSpecification(DEFAULT_NUMBER_OF_CALLS);
-        newElement.setNumberOfCalls__InfrastructureCall(numberOfCalls);
 
         AbstractInternalControlFlowAction owner = (AbstractInternalControlFlowAction) getElementToEdit();
         owner.getInfrastructureCall__Action().add(newElement);

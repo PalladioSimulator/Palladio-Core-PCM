@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.*;
 import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
@@ -73,7 +74,7 @@ public class PalladioComponentModelVisualIDRegistry {
      * @generated
      */
     public static String getType(int visualID) {
-        return String.valueOf(visualID);
+        return Integer.toString(visualID);
     }
 
     /**
@@ -114,6 +115,48 @@ public class PalladioComponentModelVisualIDRegistry {
             }
         }
         switch (containerVisualID) {
+        case ResourceDemandingSEFFEditPart.VISUAL_ID:
+            if (SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(domainElement.eClass())) {
+                return StartActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(domainElement.eClass())) {
+                return StopActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(domainElement.eClass())) {
+                return ExternalCallActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getEmitEventAction().isSuperTypeOf(domainElement.eClass())) {
+                return EmitEventActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(domainElement.eClass())) {
+                return LoopActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(domainElement.eClass())) {
+                return BranchActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(domainElement.eClass())) {
+                return InternalActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getCollectionIteratorAction().isSuperTypeOf(domainElement.eClass())) {
+                return CollectionIteratorActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getSetVariableAction().isSuperTypeOf(domainElement.eClass())) {
+                return SetVariableActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(domainElement.eClass())) {
+                return AcquireActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(domainElement.eClass())) {
+                return ReleaseActionEditPart.VISUAL_ID;
+            }
+            if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(domainElement.eClass())) {
+                return ForkActionEditPart.VISUAL_ID;
+            }
+            if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction()
+                    .isSuperTypeOf(domainElement.eClass())) {
+                return RecoveryActionEditPart.VISUAL_ID;
+            }
+            break;
         case LoopActionEditPart.VISUAL_ID:
             if (SeffPackage.eINSTANCE.getResourceDemandingBehaviour().isSuperTypeOf(domainElement.eClass())) {
                 return ResourceDemandingBehaviourEditPart.VISUAL_ID;
@@ -584,48 +627,6 @@ public class PalladioComponentModelVisualIDRegistry {
                 return RecoveryActionBehaviourEditPart.VISUAL_ID;
             }
             break;
-        case ResourceDemandingSEFFEditPart.VISUAL_ID:
-            if (SeffPackage.eINSTANCE.getStartAction().isSuperTypeOf(domainElement.eClass())) {
-                return StartActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getStopAction().isSuperTypeOf(domainElement.eClass())) {
-                return StopActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getExternalCallAction().isSuperTypeOf(domainElement.eClass())) {
-                return ExternalCallActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getEmitEventAction().isSuperTypeOf(domainElement.eClass())) {
-                return EmitEventActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getLoopAction().isSuperTypeOf(domainElement.eClass())) {
-                return LoopActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getBranchAction().isSuperTypeOf(domainElement.eClass())) {
-                return BranchActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getInternalAction().isSuperTypeOf(domainElement.eClass())) {
-                return InternalActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getCollectionIteratorAction().isSuperTypeOf(domainElement.eClass())) {
-                return CollectionIteratorActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getSetVariableAction().isSuperTypeOf(domainElement.eClass())) {
-                return SetVariableActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getAcquireAction().isSuperTypeOf(domainElement.eClass())) {
-                return AcquireActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getReleaseAction().isSuperTypeOf(domainElement.eClass())) {
-                return ReleaseActionEditPart.VISUAL_ID;
-            }
-            if (SeffPackage.eINSTANCE.getForkAction().isSuperTypeOf(domainElement.eClass())) {
-                return ForkActionEditPart.VISUAL_ID;
-            }
-            if (de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction()
-                    .isSuperTypeOf(domainElement.eClass())) {
-                return RecoveryActionEditPart.VISUAL_ID;
-            }
-            break;
         }
         return -1;
     }
@@ -651,6 +652,47 @@ public class PalladioComponentModelVisualIDRegistry {
             }
         }
         switch (containerVisualID) {
+        case ResourceDemandingSEFFEditPart.VISUAL_ID:
+            if (StartActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (StopActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (ExternalCallActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (EmitEventActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (LoopActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (SetVariableActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (AcquireActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (RecoveryActionEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
         case ExternalCallActionEditPart.VISUAL_ID:
             if (ExternalCallActionEntityNameEditPart.VISUAL_ID == nodeVisualID) {
                 return true;
@@ -803,10 +845,10 @@ public class PalladioComponentModelVisualIDRegistry {
             }
             break;
         case InfrastructureCallEditPart.VISUAL_ID:
-            if (InfrastructureCallNumberOfCallsLabelEditPart.VISUAL_ID == nodeVisualID) {
+            if (WrappingLabel2EditPart.VISUAL_ID == nodeVisualID) {
                 return true;
             }
-            if (InfrastructureCallTargetLabelEditPart.VISUAL_ID == nodeVisualID) {
+            if (WrappingLabel3EditPart.VISUAL_ID == nodeVisualID) {
                 return true;
             }
             if (InfrastructureCallInfrastructureCallInputVariableUsagesEditPart.VISUAL_ID == nodeVisualID) {
@@ -1386,47 +1428,6 @@ public class PalladioComponentModelVisualIDRegistry {
                 return true;
             }
             break;
-        case ResourceDemandingSEFFEditPart.VISUAL_ID:
-            if (StartActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (StopActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (ExternalCallActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (EmitEventActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (LoopActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (BranchActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (InternalActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (CollectionIteratorActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (SetVariableActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (AcquireActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (ReleaseActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (ForkActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            if (RecoveryActionEditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            break;
         }
         return false;
     }
@@ -1447,4 +1448,148 @@ public class PalladioComponentModelVisualIDRegistry {
     private static boolean isDiagram(ResourceDemandingSEFF element) {
         return true;
     }
+
+    /**
+     * @generated
+     */
+    public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+        if (candidate == -1) {
+            //unrecognized id is always bad
+            return false;
+        }
+        int basic = getNodeVisualID(containerView, domainElement);
+        return basic == candidate;
+    }
+
+    /**
+     * @generated
+     */
+    public static boolean isCompartmentVisualID(int visualID) {
+        switch (visualID) {
+        case ExternalCallActionInputVariableUsageEditPart.VISUAL_ID:
+        case ExternalCallActionOutputVariableUsageEditPart.VISUAL_ID:
+        case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
+        case VariableUsageVariableCharacterisation2EditPart.VISUAL_ID:
+        case EmitEventActionInputVariableUsageEventEditPart.VISUAL_ID:
+        case VariableUsageVariableCharacterisation4EditPart.VISUAL_ID:
+        case ResourceDemandingBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+        case InternalActionResourceDemandEditPart.VISUAL_ID:
+        case InternalActionFailureOccurrenceDescriptionsEditPart.VISUAL_ID:
+        case InternalActionInfrastructureCallsCompartmentEditPart.VISUAL_ID:
+        case InfrastructureCallInfrastructureCallInputVariableUsagesEditPart.VISUAL_ID:
+        case VariableUsageVariableCharacterisation5EditPart.VISUAL_ID:
+        case BranchActionBranchTransitionCompartmentEditPart.VISUAL_ID:
+        case ResourceDemandingBehaviourBehaviourCompartment2EditPart.VISUAL_ID:
+        case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
+        case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
+        case EmitEventActionInputVariableUsageEvent2EditPart.VISUAL_ID:
+        case ForkActionForkedBehavioursEditPart.VISUAL_ID:
+        case ForkedBehaviourBehaviourCompartmentEditPart.VISUAL_ID:
+        case ResourceDemandingBehaviourBehaviourCompartment3EditPart.VISUAL_ID:
+        case RecoveryActionRecoveryBlockCompartmentEditPart.VISUAL_ID:
+        case RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart.VISUAL_ID:
+        case SetVariableActionVariableSetterEditPart.VISUAL_ID:
+        case VariableUsageVariableCharacterisation3EditPart.VISUAL_ID:
+        case SynchronisationPointSynchronisationPointEditPart.VISUAL_ID:
+        case ForkedBehaviourSynchronisationPointForkedBehavioursEditPart.VISUAL_ID:
+        case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
+        case BranchActionBranchTransitionCompartment2EditPart.VISUAL_ID:
+        case InternalActionResourceDemand2EditPart.VISUAL_ID:
+        case InternalActionFailureOccurrenceDescriptions2EditPart.VISUAL_ID:
+        case InternalActionInfrastructureCallsCompartment2EditPart.VISUAL_ID:
+        case SetVariableActionVariableSetter2EditPart.VISUAL_ID:
+        case ForkActionForkedBehaviours2EditPart.VISUAL_ID:
+        case RecoveryActionRecoveryBlockCompartment2EditPart.VISUAL_ID:
+            return true;
+        default:
+            break;
+        }
+        return false;
+    }
+
+    /**
+     * @generated
+     */
+    public static boolean isSemanticLeafVisualID(int visualID) {
+        switch (visualID) {
+        case ResourceDemandingSEFFEditPart.VISUAL_ID:
+            return false;
+        case StartActionEditPart.VISUAL_ID:
+        case StopActionEditPart.VISUAL_ID:
+        case ReleaseActionEditPart.VISUAL_ID:
+        case AcquireActionEditPart.VISUAL_ID:
+        case StartAction2EditPart.VISUAL_ID:
+        case StopAction2EditPart.VISUAL_ID:
+        case ReleaseAction2EditPart.VISUAL_ID:
+        case AcquireAction2EditPart.VISUAL_ID:
+        case VariableCharacterisationEditPart.VISUAL_ID:
+        case VariableCharacterisation2EditPart.VISUAL_ID:
+        case VariableCharacterisation3EditPart.VISUAL_ID:
+        case VariableCharacterisation4EditPart.VISUAL_ID:
+        case InternalFailureOccurrenceDescriptionEditPart.VISUAL_ID:
+        case ParametricResourceDemandEditPart.VISUAL_ID:
+        case VariableCharacterisation5EditPart.VISUAL_ID:
+            return true;
+        default:
+            break;
+        }
+        return false;
+    }
+
+    /**
+     * @generated
+     */
+    public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
+        /**
+         * @generated
+         */
+        @Override
+        public int getVisualID(View view) {
+            return de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public String getModelID(View view) {
+            return de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry.getModelID(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public int getNodeVisualID(View containerView, EObject domainElement) {
+            return de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+                    containerView, domainElement);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+            return de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry.checkNodeVisualID(
+                    containerView, domainElement, candidate);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean isCompartmentVisualID(int visualID) {
+            return de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
+                    .isCompartmentVisualID(visualID);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean isSemanticLeafVisualID(int visualID) {
+            return de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry
+                    .isSemanticLeafVisualID(visualID);
+        }
+    };
 }

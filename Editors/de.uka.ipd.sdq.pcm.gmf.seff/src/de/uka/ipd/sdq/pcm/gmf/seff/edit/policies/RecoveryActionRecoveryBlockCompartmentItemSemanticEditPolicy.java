@@ -19,14 +19,14 @@ public class RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy extend
      * @generated
      */
     public RecoveryActionRecoveryBlockCompartmentItemSemanticEditPolicy() {
-        super(PalladioComponentModelElementTypes.RecoveryAction_3057);
+        super(PalladioComponentModelElementTypes.RecoveryAction_3061);
     }
 
     /**
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-        if (PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.RecoveryActionBehaviour_3062 == req.getElementType()) {
             return getGEFWrapper(new RecoveryActionBehaviourCreateCommand(req));
         }
         return super.getCreateCommand(req);

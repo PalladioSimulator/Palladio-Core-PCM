@@ -74,7 +74,7 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
         if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistAbstractActionSuccessor_AbstractAction_4001(getNewSource(), getOldTarget());
     }
 
@@ -85,7 +85,7 @@ public class AbstractActionSuccessor_AbstractActionReorientCommand extends EditE
         if (!(oldEnd instanceof AbstractAction && newEnd instanceof AbstractAction)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistAbstractActionSuccessor_AbstractAction_4001(getOldSource(), getNewTarget());
     }
 

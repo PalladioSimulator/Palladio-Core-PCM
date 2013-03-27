@@ -7,6 +7,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map;
 
+import org.eclipse.emf.ecore.EClassifier;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -36,6 +37,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.PalladioComponentModelBaseEditHelper;
 import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelAbstractExpression;
 import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelOCLFactory;
@@ -118,13 +120,13 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         if (editPolicyCommand != null) {
             ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
                     .getICommand() : new CommandProxy(editPolicyCommand);
-            request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, command);
+            request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, command);
         }
         IElementType requestContextElementType = getContextElementType(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, requestContextElementType);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, requestContextElementType);
         ICommand command = requestContextElementType.getEditCommand(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, null);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, null);
+        request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, null);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, null);
         if (command != null) {
             if (!(command instanceof CompositeTransactionalCommand)) {
                 command = new CompositeTransactionalCommand(getEditingDomain(), command.getLabel()).compose(command);
@@ -281,38 +283,31 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
+    public static LinkConstraints getLinkConstraints() {
+        LinkConstraints cached = PalladioComponentModelSeffDiagramEditorPlugin.getInstance().getLinkConstraints();
+        if (cached == null) {
+            PalladioComponentModelSeffDiagramEditorPlugin.getInstance().setLinkConstraints(
+                    cached = new LinkConstraints());
+        }
+        return cached;
+    }
+
+    /**
+     * @generated
+     */
     public static class LinkConstraints {
 
         /**
          * @generated
          */
-        private static final String OPPOSITE_END_VAR = "oppositeEnd"; //$NON-NLS-1$
+        LinkConstraints() {
+            // use static method #getLinkConstraints() to access instance
+        }
 
         /**
          * @generated
          */
-        private static PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_SourceExpression;
-
-        /**
-         * @generated
-         */
-        private static PalladioComponentModelAbstractExpression AbstractActionSuccessor_AbstractAction_4001_TargetExpression;
-
-        /**
-         * @generated
-         */
-        private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression;
-
-        /**
-         * @generated
-         */
-        private static PalladioComponentModelAbstractExpression RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression;
-
-        /**
-         * @generated
-         */
-        public static boolean canCreateAbstractActionSuccessor_AbstractAction_4001(AbstractAction source,
-                AbstractAction target) {
+        public boolean canCreateAbstractActionSuccessor_AbstractAction_4001(AbstractAction source, AbstractAction target) {
             if (source != null) {
                 if (source.getSuccessor_AbstractAction() != null) {
                     return false;
@@ -328,7 +323,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public static boolean canCreateRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
+        public boolean canCreateRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
                 de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
                 de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
             if (source != null) {
@@ -344,37 +339,32 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public static boolean canExistAbstractActionSuccessor_AbstractAction_4001(AbstractAction source,
-                AbstractAction target) {
+        public boolean canExistAbstractActionSuccessor_AbstractAction_4001(AbstractAction source, AbstractAction target) {
             try {
                 if (source == null) {
                     return true;
+                } else {
+                    Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap(
+                            "oppositeEnd", SeffPackage.eINSTANCE.getAbstractAction()); //$NON-NLS-1$
+                    Object sourceVal = PalladioComponentModelOCLFactory.getExpression(0,
+                            SeffPackage.eINSTANCE.getAbstractAction(), env).evaluate(source,
+                            Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
+                    if (false == sourceVal instanceof Boolean || !((Boolean) sourceVal).booleanValue()) {
+                        return false;
+                    } // else fall-through
                 }
-                if (AbstractActionSuccessor_AbstractAction_4001_SourceExpression == null) {
-                    Map env = Collections.singletonMap(OPPOSITE_END_VAR, SeffPackage.eINSTANCE.getAbstractAction());
-                    AbstractActionSuccessor_AbstractAction_4001_SourceExpression = PalladioComponentModelOCLFactory
-                            .getExpression(
-                                    "not self.oclIsTypeOf(StopAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
-                }
-                Object sourceVal = AbstractActionSuccessor_AbstractAction_4001_SourceExpression.evaluate(source,
-                        Collections.singletonMap(OPPOSITE_END_VAR, target));
-                if (false == sourceVal instanceof Boolean || !((Boolean) sourceVal).booleanValue()) {
-                    return false;
-                } // else fall-through
                 if (target == null) {
                     return true;
+                } else {
+                    Map<String, EClassifier> env = Collections.<String, EClassifier> singletonMap(
+                            "oppositeEnd", SeffPackage.eINSTANCE.getAbstractAction()); //$NON-NLS-1$
+                    Object targetVal = PalladioComponentModelOCLFactory.getExpression(1,
+                            SeffPackage.eINSTANCE.getAbstractAction(), env).evaluate(target,
+                            Collections.singletonMap("oppositeEnd", source)); //$NON-NLS-1$
+                    if (false == targetVal instanceof Boolean || !((Boolean) targetVal).booleanValue()) {
+                        return false;
+                    } // else fall-through
                 }
-                if (AbstractActionSuccessor_AbstractAction_4001_TargetExpression == null) {
-                    Map env = Collections.singletonMap(OPPOSITE_END_VAR, SeffPackage.eINSTANCE.getAbstractAction());
-                    AbstractActionSuccessor_AbstractAction_4001_TargetExpression = PalladioComponentModelOCLFactory
-                            .getExpression(
-                                    "self.predecessor_AbstractAction = null and not self.oclIsTypeOf(StartAction)", SeffPackage.eINSTANCE.getAbstractAction(), env); //$NON-NLS-1$
-                }
-                Object targetVal = AbstractActionSuccessor_AbstractAction_4001_TargetExpression.evaluate(target,
-                        Collections.singletonMap(OPPOSITE_END_VAR, source));
-                if (false == targetVal instanceof Boolean || !((Boolean) targetVal).booleanValue()) {
-                    return false;
-                } // else fall-through
                 return true;
             } catch (Exception e) {
                 PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError(
@@ -386,42 +376,40 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public static boolean canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
+        public boolean canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
                 de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour source,
                 de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour target) {
             try {
                 if (source == null) {
                     return true;
-                }
-                if (RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression == null) {
-                    Map env = Collections.singletonMap(OPPOSITE_END_VAR,
+                } else {
+                    Map<String, EClassifier> env = Collections
+                            .<String, EClassifier> singletonMap(
+                                    "oppositeEnd", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour()); //$NON-NLS-1$
+                    Object sourceVal = PalladioComponentModelOCLFactory.getExpression(
+                            2,
                             de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
-                                    .getRecoveryActionBehaviour());
-                    RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression = PalladioComponentModelOCLFactory
-                            .getExpression(
-                                    "not self.failureHandlingAlternatives__RecoveryActionBehaviour->exists(x,y:RecoveryActionBehaviour | x<>y and not x.failureTypes_FailureHandlingEntity->intersection(y.failureTypes_FailureHandlingEntity)->isEmpty())", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
+                                    .getRecoveryActionBehaviour(), env).evaluate(source,
+                            Collections.singletonMap("oppositeEnd", target)); //$NON-NLS-1$
+                    if (false == sourceVal instanceof Boolean || !((Boolean) sourceVal).booleanValue()) {
+                        return false;
+                    } // else fall-through
                 }
-                Object sourceVal = RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_SourceExpression
-                        .evaluate(source, Collections.singletonMap(OPPOSITE_END_VAR, target));
-                if (false == sourceVal instanceof Boolean || !((Boolean) sourceVal).booleanValue()) {
-                    return false;
-                } // else fall-through
                 if (target == null) {
                     return true;
-                }
-                if (RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression == null) {
-                    Map env = Collections.singletonMap(OPPOSITE_END_VAR,
+                } else {
+                    Map<String, EClassifier> env = Collections
+                            .<String, EClassifier> singletonMap(
+                                    "oppositeEnd", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour()); //$NON-NLS-1$
+                    Object targetVal = PalladioComponentModelOCLFactory.getExpression(
+                            3,
                             de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
-                                    .getRecoveryActionBehaviour());
-                    RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression = PalladioComponentModelOCLFactory
-                            .getExpression(
-                                    "(not self.recoveryAction__RecoveryActionBehaviour.recoveryActionBehaviours__RecoveryAction->exists(x,y:RecoveryActionBehaviour | x<>y and x.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self) and y.failureHandlingAlternatives__RecoveryActionBehaviour->includes(self))) and (self.recoveryAction__RecoveryActionBehaviour = oppositeEnd.recoveryAction__RecoveryActionBehaviour)", de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryActionBehaviour(), env); //$NON-NLS-1$
+                                    .getRecoveryActionBehaviour(), env).evaluate(target,
+                            Collections.singletonMap("oppositeEnd", source)); //$NON-NLS-1$
+                    if (false == targetVal instanceof Boolean || !((Boolean) targetVal).booleanValue()) {
+                        return false;
+                    } // else fall-through
                 }
-                Object targetVal = RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004_TargetExpression
-                        .evaluate(target, Collections.singletonMap(OPPOSITE_END_VAR, source));
-                if (false == targetVal instanceof Boolean || !((Boolean) targetVal).booleanValue()) {
-                    return false;
-                } // else fall-through
                 return true;
             } catch (Exception e) {
                 PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError(

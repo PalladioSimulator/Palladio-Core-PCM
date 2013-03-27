@@ -56,6 +56,7 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.ui.navigator.resources,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
- de.uka.ipd.sdq.pcm.dialogs
+ de.uka.ipd.sdq.pcm.dialogs,
+ org.eclipse.gmf.tooling.runtime;visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

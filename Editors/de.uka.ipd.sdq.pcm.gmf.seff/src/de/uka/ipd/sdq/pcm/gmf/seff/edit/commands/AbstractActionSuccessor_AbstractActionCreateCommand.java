@@ -56,7 +56,7 @@ public class AbstractActionSuccessor_AbstractActionCreateCommand extends EditEle
             return true; // link creation is in progress; source is not defined yet
         }
         // target may be null here but it's possible to check constraint
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canCreateAbstractActionSuccessor_AbstractAction_4001(getSource(), getTarget());
     }
 

@@ -65,8 +65,7 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new SynchronisationPointItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -74,7 +73,7 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -99,8 +98,7 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        SynchronisationPointFigure figure = new SynchronisationPointFigure();
-        return primaryShape = figure;
+        return primaryShape = new SynchronisationPointFigure();
     }
 
     /**
@@ -116,8 +114,7 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     protected boolean addFixedChild(EditPart childEditPart) {
         if (childEditPart instanceof SynchronisationPointSynchronisationPointEditPart) {
             IFigure pane = getPrimaryShape().getFigureSynchronisationPointCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((SynchronisationPointSynchronisationPointEditPart) childEditPart).getFigure());
             return true;
         }
@@ -130,8 +127,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
     protected boolean removeFixedChild(EditPart childEditPart) {
         if (childEditPart instanceof SynchronisationPointSynchronisationPointEditPart) {
             IFigure pane = getPrimaryShape().getFigureSynchronisationPointCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((SynchronisationPointSynchronisationPointEditPart) childEditPart).getFigure());
             return true;
         }
@@ -282,6 +277,7 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             WrappingLabel stereotypeLabelFigure0 = new WrappingLabel();
+
             stereotypeLabelFigure0.setText("<<Synchronisation Point>>");
             stereotypeLabelFigure0.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
                     getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -297,6 +293,7 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
             this.add(stereotypeLabelFigure0, constraintStereotypeLabelFigure0);
 
             fFigureSynchronisationPointCompartment = new RectangleFigure();
+
             fFigureSynchronisationPointCompartment.setFill(false);
             fFigureSynchronisationPointCompartment.setOutline(false);
             fFigureSynchronisationPointCompartment.setLineWidth(2);
@@ -314,25 +311,6 @@ public class SynchronisationPointEditPart extends ShapeNodeEditPart {
             constraintFFigureSynchronisationPointCompartment.grabExcessVerticalSpace = true;
             this.add(fFigureSynchronisationPointCompartment, constraintFFigureSynchronisationPointCompartment);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

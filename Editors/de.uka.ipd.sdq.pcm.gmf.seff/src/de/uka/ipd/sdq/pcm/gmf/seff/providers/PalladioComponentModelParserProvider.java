@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.parsers.EnumParser;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEntityNameEditPart;
@@ -234,19 +235,19 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     /**
      * @generated
      */
-    private IParser recoveryActionEntityName_5056Parser;
+    private IParser recoveryActionEntityName_5061Parser;
 
     /**
      * @generated
      */
-    private IParser getRecoveryActionEntityName_5056Parser() {
-        if (recoveryActionEntityName_5056Parser == null) {
+    private IParser getRecoveryActionEntityName_5061Parser() {
+        if (recoveryActionEntityName_5061Parser == null) {
             EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
             EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
             MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-            recoveryActionEntityName_5056Parser = parser;
+            recoveryActionEntityName_5061Parser = parser;
         }
-        return recoveryActionEntityName_5056Parser;
+        return recoveryActionEntityName_5061Parser;
     }
 
     /**
@@ -259,11 +260,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
      */
     private IParser getVariableCharacterisation_3033Parser() {
         if (variableCharacterisation_3033Parser == null) {
-            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
-            MessageFormatParser parser = new MessageFormatParser(features);
-            parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+            EAttribute editableFeature = ParameterPackage.eINSTANCE.getVariableCharacterisation_Type();
+            EnumParser parser = new EnumParser(editableFeature);
             variableCharacterisation_3033Parser = parser;
         }
         return variableCharacterisation_3033Parser;
@@ -279,11 +277,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
      */
     private IParser getVariableCharacterisation_3035Parser() {
         if (variableCharacterisation_3035Parser == null) {
-            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
-            MessageFormatParser parser = new MessageFormatParser(features);
-            parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+            EAttribute editableFeature = ParameterPackage.eINSTANCE.getVariableCharacterisation_Type();
+            EnumParser parser = new EnumParser(editableFeature);
             variableCharacterisation_3035Parser = parser;
         }
         return variableCharacterisation_3035Parser;
@@ -486,37 +481,37 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     /**
      * @generated
      */
-    private IParser recoveryActionEntityName_5055Parser;
+    private IParser recoveryActionEntityName_5060Parser;
 
     /**
      * @generated
      */
-    private IParser getRecoveryActionEntityName_5055Parser() {
-        if (recoveryActionEntityName_5055Parser == null) {
+    private IParser getRecoveryActionEntityName_5060Parser() {
+        if (recoveryActionEntityName_5060Parser == null) {
             EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
             EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
             MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-            recoveryActionEntityName_5055Parser = parser;
+            recoveryActionEntityName_5060Parser = parser;
         }
-        return recoveryActionEntityName_5055Parser;
+        return recoveryActionEntityName_5060Parser;
     }
 
     /**
      * @generated
      */
-    private IParser recoveryActionBehaviourEntityName_5054Parser;
+    private IParser recoveryActionBehaviourEntityName_5059Parser;
 
     /**
      * @generated
      */
-    private IParser getRecoveryActionBehaviourEntityName_5054Parser() {
-        if (recoveryActionBehaviourEntityName_5054Parser == null) {
+    private IParser getRecoveryActionBehaviourEntityName_5059Parser() {
+        if (recoveryActionBehaviourEntityName_5059Parser == null) {
             EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
             EAttribute[] editableFeatures = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
             MessageFormatParser parser = new MessageFormatParser(features, editableFeatures);
-            recoveryActionBehaviourEntityName_5054Parser = parser;
+            recoveryActionBehaviourEntityName_5059Parser = parser;
         }
-        return recoveryActionBehaviourEntityName_5054Parser;
+        return recoveryActionBehaviourEntityName_5059Parser;
     }
 
     /**
@@ -546,11 +541,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
      */
     private IParser getVariableCharacterisation_3055Parser() {
         if (variableCharacterisation_3055Parser == null) {
-            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
-            MessageFormatParser parser = new MessageFormatParser(features);
-            parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+            EAttribute editableFeature = ParameterPackage.eINSTANCE.getVariableCharacterisation_Type();
+            EnumParser parser = new EnumParser(editableFeature);
             variableCharacterisation_3055Parser = parser;
         }
         return variableCharacterisation_3055Parser;
@@ -566,11 +558,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
      */
     private IParser getVariableCharacterisation_3048Parser() {
         if (variableCharacterisation_3048Parser == null) {
-            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
-            MessageFormatParser parser = new MessageFormatParser(features);
-            parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+            EAttribute editableFeature = ParameterPackage.eINSTANCE.getVariableCharacterisation_Type();
+            EnumParser parser = new EnumParser(editableFeature);
             variableCharacterisation_3048Parser = parser;
         }
         return variableCharacterisation_3048Parser;
@@ -586,11 +575,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
      */
     private IParser getVariableCharacterisation_3037Parser() {
         if (variableCharacterisation_3037Parser == null) {
-            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
-            MessageFormatParser parser = new MessageFormatParser(features);
-            parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+            EAttribute editableFeature = ParameterPackage.eINSTANCE.getVariableCharacterisation_Type();
+            EnumParser parser = new EnumParser(editableFeature);
             variableCharacterisation_3037Parser = parser;
         }
         return variableCharacterisation_3037Parser;
@@ -639,17 +625,21 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         case ForkActionEntityNameEditPart.VISUAL_ID:
             return getForkActionEntityName_5024Parser();
         case RecoveryActionEntityNameEditPart.VISUAL_ID:
-            return getRecoveryActionEntityName_5056Parser();
+            return getRecoveryActionEntityName_5061Parser();
+
         case VariableCharacterisationEditPart.VISUAL_ID:
             return getVariableCharacterisation_3033Parser();
+
         case VariableCharacterisation2EditPart.VISUAL_ID:
             return getVariableCharacterisation_3035Parser();
+
         case VariableCharacterisation3EditPart.VISUAL_ID:
             return getVariableCharacterisation_3037Parser();
         case LoopActionEntityName2EditPart.VISUAL_ID:
             return getLoopActionEntityName_5003Parser();
         case InternalActionEntityName2EditPart.VISUAL_ID:
             return getInternalActionEntityName_5005Parser();
+
         case VariableCharacterisation4EditPart.VISUAL_ID:
             return getVariableCharacterisation_3048Parser();
         case BranchActionEntityName2EditPart.VISUAL_ID:
@@ -671,11 +661,12 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         case CollectionIteratorActionEntityName2EditPart.VISUAL_ID:
             return getCollectionIteratorActionEntityName_5013Parser();
         case RecoveryActionEntityName2EditPart.VISUAL_ID:
-            return getRecoveryActionEntityName_5055Parser();
+            return getRecoveryActionEntityName_5060Parser();
         case RecoveryActionBehaviourEntityNameEditPart.VISUAL_ID:
-            return getRecoveryActionBehaviourEntityName_5054Parser();
+            return getRecoveryActionBehaviourEntityName_5059Parser();
         case SetVariableActionEntityName2EditPart.VISUAL_ID:
             return getSetVariableActionEntityName_5027Parser();
+
         case VariableCharacterisation5EditPart.VISUAL_ID:
             return getVariableCharacterisation_3055Parser();
         case GuardedBranchTransitionEntityNameEditPart.VISUAL_ID:

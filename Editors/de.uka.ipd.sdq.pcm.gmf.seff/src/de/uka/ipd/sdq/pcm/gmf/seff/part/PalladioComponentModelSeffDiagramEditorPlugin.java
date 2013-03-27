@@ -29,6 +29,9 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelOCLFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.ElementInitializers;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
@@ -73,6 +76,21 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
      * @generated
      */
     private PalladioComponentModelDocumentProvider documentProvider;
+
+    /**
+     * @generated
+     */
+    private PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints linkConstraints;
+
+    /**
+     * @generated
+     */
+    private ElementInitializers initializers;
+
+    /**
+     * @generated
+     */
+    private PalladioComponentModelOCLFactory oclFactory;
 
     /**
      * @generated
@@ -137,7 +155,7 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
     /**
      * @generated
      */
-    protected void fillItemProviderFactories(List factories) {
+    protected void fillItemProviderFactories(List<AdapterFactory> factories) {
         factories.add(new PcmItemProviderAdapterFactory());
         factories.add(new CoreItemProviderAdapterFactory());
         factories.add(new EntityItemProviderAdapterFactory());
@@ -235,6 +253,48 @@ public class PalladioComponentModelSeffDiagramEditorPlugin extends AbstractUIPlu
             documentProvider = new PalladioComponentModelDocumentProvider();
         }
         return documentProvider;
+    }
+
+    /**
+     * @generated
+     */
+    public PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
+        return linkConstraints;
+    }
+
+    /**
+     * @generated
+     */
+    public void setLinkConstraints(PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints lc) {
+        this.linkConstraints = lc;
+    }
+
+    /**
+     * @generated
+     */
+    public ElementInitializers getElementInitializers() {
+        return initializers;
+    }
+
+    /**
+     * @generated
+     */
+    public void setElementInitializers(ElementInitializers i) {
+        this.initializers = i;
+    }
+
+    /**
+     * @generated
+     */
+    public PalladioComponentModelOCLFactory getPalladioComponentModelOCLFactory() {
+        return oclFactory;
+    }
+
+    /**
+     * @generated
+     */
+    public void setPalladioComponentModelOCLFactory(PalladioComponentModelOCLFactory f) {
+        this.oclFactory = f;
     }
 
     /**

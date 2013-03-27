@@ -68,12 +68,10 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected void createDefaultEditPolicies() {
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureCallItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -81,7 +79,7 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -106,8 +104,7 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        InfrastructureCallFigure figure = new InfrastructureCallFigure();
-        return primaryShape = figure;
+        return primaryShape = new InfrastructureCallFigure();
     }
 
     /**
@@ -121,20 +118,19 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof InfrastructureCallNumberOfCallsLabelEditPart) {
-            ((InfrastructureCallNumberOfCallsLabelEditPart) childEditPart).setLabel(getPrimaryShape()
+        if (childEditPart instanceof WrappingLabel2EditPart) {
+            ((WrappingLabel2EditPart) childEditPart).setLabel(getPrimaryShape()
                     .getFigureInfrastructureCallNumberOfCallsLabel());
             return true;
         }
-        if (childEditPart instanceof InfrastructureCallTargetLabelEditPart) {
-            ((InfrastructureCallTargetLabelEditPart) childEditPart).setLabel(getPrimaryShape()
+        if (childEditPart instanceof WrappingLabel3EditPart) {
+            ((WrappingLabel3EditPart) childEditPart).setLabel(getPrimaryShape()
                     .getFigureInfrastructureCallTargetLabel());
             return true;
         }
         if (childEditPart instanceof InfrastructureCallInfrastructureCallInputVariableUsagesEditPart) {
             IFigure pane = getPrimaryShape().getFigureInfrastructureCallVariableUsagesCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((InfrastructureCallInfrastructureCallInputVariableUsagesEditPart) childEditPart).getFigure());
             return true;
         }
@@ -145,16 +141,14 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
-        if (childEditPart instanceof InfrastructureCallNumberOfCallsLabelEditPart) {
+        if (childEditPart instanceof WrappingLabel2EditPart) {
             return true;
         }
-        if (childEditPart instanceof InfrastructureCallTargetLabelEditPart) {
+        if (childEditPart instanceof WrappingLabel3EditPart) {
             return true;
         }
         if (childEditPart instanceof InfrastructureCallInfrastructureCallInputVariableUsagesEditPart) {
             IFigure pane = getPrimaryShape().getFigureInfrastructureCallVariableUsagesCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((InfrastructureCallInfrastructureCallInputVariableUsagesEditPart) childEditPart).getFigure());
             return true;
         }
@@ -273,24 +267,7 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public EditPart getPrimaryChildEditPart() {
-        return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-                .getType(InfrastructureCallNumberOfCallsLabelEditPart.VISUAL_ID));
-    }
-
-    /**
-     * @generated
-     */
-    public EditPart getTargetEditPart(Request request) {
-        if (request instanceof CreateViewAndElementRequest) {
-            CreateElementRequestAdapter adapter = ((CreateViewAndElementRequest) request).getViewAndElementDescriptor()
-                    .getCreateElementRequestAdapter();
-            IElementType type = (IElementType) adapter.getAdapter(IElementType.class);
-            if (type == PalladioComponentModelElementTypes.VariableUsage_3054) {
-                return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
-                        .getType(InfrastructureCallInfrastructureCallInputVariableUsagesEditPart.VISUAL_ID));
-            }
-        }
-        return super.getTargetEditPart(request);
+        return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry.getType(WrappingLabel2EditPart.VISUAL_ID));
     }
 
     /**
@@ -328,7 +305,6 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
             this.setLayoutManager(layoutThis);
 
             this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -339,6 +315,7 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureInfrastructureCallNumberOfCallsLabel = new WrappingLabel();
+
             fFigureInfrastructureCallNumberOfCallsLabel.setText("x");
             fFigureInfrastructureCallNumberOfCallsLabel.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(2), getMapMode().DPtoLP(2), getMapMode().DPtoLP(2)));
@@ -354,6 +331,7 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
             this.add(fFigureInfrastructureCallNumberOfCallsLabel, constraintFFigureInfrastructureCallNumberOfCallsLabel);
 
             fFigureInfrastructureCallTargetLabel = new WrappingLabel();
+
             fFigureInfrastructureCallTargetLabel.setText("infrastructureCallTargetLabel");
             fFigureInfrastructureCallTargetLabel.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(2)));
@@ -369,9 +347,9 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
             this.add(fFigureInfrastructureCallTargetLabel, constraintFFigureInfrastructureCallTargetLabel);
 
             fFigureInfrastructureCallVariableUsagesCompartment = new RectangleFigure();
+
             fFigureInfrastructureCallVariableUsagesCompartment.setFill(false);
             fFigureInfrastructureCallVariableUsagesCompartment.setOutline(false);
-            fFigureInfrastructureCallVariableUsagesCompartment.setLineWidth(1);
             fFigureInfrastructureCallVariableUsagesCompartment.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
                     getMapMode().DPtoLP(0)));
 
@@ -386,25 +364,6 @@ public class InfrastructureCallEditPart extends ShapeNodeEditPart {
             this.add(fFigureInfrastructureCallVariableUsagesCompartment,
                     constraintFFigureInfrastructureCallVariableUsagesCompartment);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

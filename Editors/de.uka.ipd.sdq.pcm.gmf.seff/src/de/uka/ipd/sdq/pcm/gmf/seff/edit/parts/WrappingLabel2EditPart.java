@@ -13,11 +13,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.transaction.RunnableWithResult;
 import org.eclipse.gef.AccessibleEditPart;
-import org.eclipse.gef.DragTracker;
 import org.eclipse.gef.EditPolicy;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.requests.DirectEditRequest;
-import org.eclipse.gef.requests.SelectionRequest;
 import org.eclipse.gef.tools.DirectEditManager;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParser;
 import org.eclipse.gmf.runtime.common.ui.services.parser.IParserEditStatus;
@@ -26,14 +24,11 @@ import org.eclipse.gmf.runtime.common.ui.services.parser.ParserOptions;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.CompartmentEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ITextAwareEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.LabelDirectEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.ListItemComponentEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.diagram.ui.label.ILabelDelegate;
 import org.eclipse.gmf.runtime.diagram.ui.label.WrappingLabelDelegate;
 import org.eclipse.gmf.runtime.diagram.ui.requests.RequestConstants;
-import org.eclipse.gmf.runtime.diagram.ui.tools.DragEditPartsTrackerEx;
 import org.eclipse.gmf.runtime.diagram.ui.tools.TextDirectEditManager;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
@@ -41,7 +36,7 @@ import org.eclipse.gmf.runtime.emf.ui.services.parser.ISemanticParser;
 import org.eclipse.gmf.runtime.notation.FontStyle;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
-import org.eclipse.gmf.tooling.runtime.directedit.ComboDirectEditManager;
+import org.eclipse.gmf.tooling.runtime.directedit.TextDirectEditManager2;
 import org.eclipse.gmf.tooling.runtime.draw2d.labels.SimpleLabelDelegate;
 import org.eclipse.gmf.tooling.runtime.edit.policies.labels.IRefreshableFeedbackEditPolicy;
 import org.eclipse.jface.text.contentassist.IContentAssistProcessor;
@@ -52,26 +47,20 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableCharacterisation4ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
-import de.uka.ipd.sdq.stoex.Expression;
 
 /**
  * @generated
  */
-public class VariableCharacterisation4EditPart extends CompartmentEditPart implements ITextAwareEditPart {
+public class WrappingLabel2EditPart extends CompartmentEditPart implements ITextAwareEditPart {
 
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 3048;
+    public static final int VISUAL_ID = 5057;
 
     /**
      * @generated
@@ -101,32 +90,18 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    public VariableCharacterisation4EditPart(View view) {
+    public WrappingLabel2EditPart(View view) {
         super(view);
     }
 
     /**
      * @generated
      */
-    @Override
-    public DragTracker getDragTracker(Request request) {
-        if (request instanceof SelectionRequest && ((SelectionRequest) request).getLastButtonPressed() == 3) {
-            return null;
-        }
-        return new DragEditPartsTrackerEx(this);
-    }
-
-    /**
-     * @generated
-     */
-    @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
-        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new VariableCharacterisation4ItemSemanticEditPolicy());
-        installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new PalladioComponentModelTextNonResizableEditPolicy());
-        installEditPolicy(EditPolicy.COMPONENT_ROLE, new ListItemComponentEditPolicy());
+        installEditPolicy(EditPolicy.SELECTION_FEEDBACK_ROLE, new PalladioComponentModelTextSelectionEditPolicy());
         installEditPolicy(EditPolicy.DIRECT_EDIT_ROLE, new LabelDirectEditPolicy());
-        installEditPolicy(EditPolicyRoles.OPEN_ROLE, new OpenStoExDialog());
+        installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, new ResourceDemandingSEFFEditPart.NodeLabelDragPolicy());
     }
 
     /**
@@ -186,7 +161,7 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    public void setLabel(IFigure figure) {
+    public void setLabel(WrappingLabel figure) {
         unregisterVisuals();
         setFigure(figure);
         defaultText = getLabelTextHelper(figure);
@@ -198,7 +173,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
      * @generated
      */
     @SuppressWarnings("rawtypes")
-    @Override
     protected List getModelChildren() {
         return Collections.EMPTY_LIST;
     }
@@ -206,7 +180,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     public IGraphicalEditPart getChildBySemanticHint(String semanticHint) {
         return null;
     }
@@ -222,17 +195,10 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
      * @generated
      */
     protected Image getLabelIcon() {
-        EObject parserElement = getParserElement();
-        if (parserElement == null) {
-            return null;
-        }
-        return PalladioComponentModelElementTypes.getImage(parserElement.eClass());
+        return null;
     }
 
     /**
-     * Gets the label text.
-     * 
-     * @return the label text
      * @generated
      */
     protected String getLabelText() {
@@ -250,7 +216,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     public void setLabelText(String text) {
         setLabelTextHelper(getFigure(), text);
         refreshSelectionFeedback();
@@ -259,7 +224,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     public String getEditText() {
         if (getParserElement() == null || getParser() == null) {
             return ""; //$NON-NLS-1$
@@ -271,13 +235,12 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
      * @generated
      */
     protected boolean isEditable() {
-        return false;
+        return getParser() != null;
     }
 
     /**
      * @generated
      */
-    @Override
     public ICellEditorValidator getEditTextValidator() {
         return new ICellEditorValidator() {
 
@@ -308,7 +271,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     public IContentAssistProcessor getCompletionProcessor() {
         if (getParserElement() == null || getParser() == null) {
             return null;
@@ -319,7 +281,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     public ParserOptions getParserOptions() {
         return ParserOptions.NONE;
     }
@@ -327,15 +288,12 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     public IParser getParser() {
         if (parser == null) {
-            parser = PalladioComponentModelParserProvider
-                    .getParser(
-                            PalladioComponentModelElementTypes.VariableCharacterisation_3048,
-                            getParserElement(),
-                            PalladioComponentModelVisualIDRegistry
-                                    .getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation4EditPart.VISUAL_ID));
+            parser = PalladioComponentModelParserProvider.getParser(
+                    PalladioComponentModelElementTypes.InfrastructureCall_3053, getParserElement(),
+                    PalladioComponentModelVisualIDRegistry
+                            .getType(de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel2EditPart.VISUAL_ID));
         }
         return parser;
     }
@@ -345,7 +303,7 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
      */
     protected DirectEditManager getManager() {
         if (manager == null) {
-            setManager(new ComboDirectEditManager(this, null,
+            setManager(new TextDirectEditManager2(this, null,
                     PalladioComponentModelEditPartFactory.getTextCellEditorLocator(this)));
         }
         return manager;
@@ -369,15 +327,29 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
      * @generated
      */
     protected void performDirectEdit(Point eventLocation) {
-        if (getManager().getClass() == ComboDirectEditManager.class) {
-            ((ComboDirectEditManager) getManager()).show(eventLocation.getSWTPoint());
+        if (getManager().getClass() == TextDirectEditManager2.class) {
+            ((TextDirectEditManager2) getManager()).show(eventLocation.getSWTPoint());
         }
     }
 
     /**
      * @generated
      */
-    @Override
+    private void performDirectEdit(char initialCharacter) {
+        if (getManager() instanceof TextDirectEditManager) {
+            ((TextDirectEditManager) getManager()).show(initialCharacter);
+        } else // 
+        if (getManager() instanceof TextDirectEditManager2) {
+            ((TextDirectEditManager2) getManager()).show(initialCharacter);
+        } else //
+        {
+            performDirectEdit();
+        }
+    }
+
+    /**
+     * @generated
+     */
     protected void performDirectEditRequest(Request request) {
         final Request theRequest = request;
         try {
@@ -385,7 +357,11 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
 
                 public void run() {
                     if (isActive() && isEditable()) {
-                        if ((theRequest instanceof DirectEditRequest) && (getEditText().equals(getLabelText()))) {
+                        if (theRequest.getExtendedData().get(RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR) instanceof Character) {
+                            Character initialChar = (Character) theRequest.getExtendedData().get(
+                                    RequestConstants.REQ_DIRECTEDIT_EXTENDEDDATA_INITIAL_CHAR);
+                            performDirectEdit(initialChar.charValue());
+                        } else if ((theRequest instanceof DirectEditRequest) && (getEditText().equals(getLabelText()))) {
                             DirectEditRequest editRequest = (DirectEditRequest) theRequest;
                             performDirectEdit(editRequest.getLocation());
                         } else {
@@ -402,7 +378,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     protected void refreshVisuals() {
         super.refreshVisuals();
         refreshLabel();
@@ -444,7 +419,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     protected void refreshFont() {
         FontStyle style = (FontStyle) getFontStyleOwnerView().getStyle(NotationPackage.eINSTANCE.getFontStyle());
         if (style != null) {
@@ -475,17 +449,13 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     protected void setFontColor(Color color) {
         getFigure().setForegroundColor(color);
     }
 
     /**
-     * Adds the semantic listeners.
-     * 
      * @generated
      */
-    @Override
     protected void addSemanticListeners() {
         if (getParser() instanceof ISemanticParser) {
             EObject element = resolveSemanticElement();
@@ -499,11 +469,8 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     }
 
     /**
-     * Removes the semantic listeners.
-     * 
      * @generated
      */
-    @Override
     protected void removeSemanticListeners() {
         if (parserElements != null) {
             for (int i = 0; i < parserElements.size(); i++) {
@@ -517,7 +484,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     protected AccessibleEditPart getAccessibleEditPart() {
         if (accessibleEP == null) {
             accessibleEP = new AccessibleGraphicalEditPart() {
@@ -566,7 +532,6 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     protected void addNotationalListeners() {
         super.addNotationalListeners();
         addListenerFilter("PrimaryView", this, getPrimaryView()); //$NON-NLS-1$
@@ -575,20 +540,14 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     protected void removeNotationalListeners() {
         super.removeNotationalListeners();
         removeListenerFilter("PrimaryView"); //$NON-NLS-1$
     }
 
     /**
-     * Handle notification event.
-     * 
-     * @param event
-     *            the event
      * @generated
      */
-    @Override
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();
         if (NotationPackage.eINSTANCE.getFontStyle_FontColor().equals(feature)) {
@@ -624,17 +583,9 @@ public class VariableCharacterisation4EditPart extends CompartmentEditPart imple
     /**
      * @generated
      */
-    @Override
     protected IFigure createFigure() {
-        IFigure label = createFigurePrim();
-        defaultText = getLabelTextHelper(label);
-        return label;
+        // Parent should assign one using setLabel() method
+        return null;
     }
 
-    /**
-     * @generated
-     */
-    protected IFigure createFigurePrim() {
-        return new WrappingLabel();
-    }
 }

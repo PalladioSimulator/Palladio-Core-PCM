@@ -206,7 +206,7 @@ public class InfrastructureCallNumberOfCallsLabelEditPart extends CompartmentEdi
      * Customized to display specification of number of calls.
      * 
      * @return the label text
-     * @generated not
+     * @generated
      */
     protected String getLabelText() {
         String text = null;
@@ -464,7 +464,7 @@ public class InfrastructureCallNumberOfCallsLabelEditPart extends CompartmentEdi
     /**
      * Listens for changes on number of calls.
      * 
-     * @generated not
+     * @generated
      */
     protected void addSemanticListeners() {
         InfrastructureCall call = (InfrastructureCall) resolveSemanticElement();
@@ -474,7 +474,7 @@ public class InfrastructureCallNumberOfCallsLabelEditPart extends CompartmentEdi
     /**
      * Remove customized filter.
      * 
-     * @generated not
+     * @generated
      */
     protected void removeSemanticListeners() {
         removeListenerFilter("SemanticModel");
@@ -523,7 +523,7 @@ public class InfrastructureCallNumberOfCallsLabelEditPart extends CompartmentEdi
      * 
      * @param event
      *            the event
-     * @generated not
+     * @generated
      */
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

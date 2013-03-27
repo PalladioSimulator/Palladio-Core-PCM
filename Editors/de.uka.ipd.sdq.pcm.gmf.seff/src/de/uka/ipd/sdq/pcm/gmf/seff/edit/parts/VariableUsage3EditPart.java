@@ -30,6 +30,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsage3ItemSemanticEditPolicy;
@@ -69,12 +70,12 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected void createDefaultEditPolicies() {
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+                PalladioComponentModelVisualIDRegistry.TYPED_INSTANCE));
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new VariableUsage3ItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -82,7 +83,7 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -107,8 +108,7 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        ParametricParameterUsageFigure figure = new ParametricParameterUsageFigure();
-        return primaryShape = figure;
+        return primaryShape = new ParametricParameterUsageFigure();
     }
 
     /**
@@ -129,8 +129,7 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof VariableUsageVariableCharacterisation3EditPart) {
             IFigure pane = getPrimaryShape().getFigureParametricParameterUsageRectangleCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((VariableUsageVariableCharacterisation3EditPart) childEditPart).getFigure());
             return true;
         }
@@ -146,8 +145,6 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof VariableUsageVariableCharacterisation3EditPart) {
             IFigure pane = getPrimaryShape().getFigureParametricParameterUsageRectangleCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((VariableUsageVariableCharacterisation3EditPart) childEditPart).getFigure());
             return true;
         }
@@ -315,7 +312,6 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setBackgroundColor(THIS_BACK);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
@@ -324,19 +320,13 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
         /**
          * Creates the contents.
          * 
-         * @generated not
+         * @generated
          */
         private void createContents() {
 
             fFigureVariableUsageReferenceLabelFigure = new WrappingLabel();
-            VariableUsage variableUsage = (VariableUsage) resolveSemanticElement();
-            if (variableUsage == null) {
-                fFigureVariableUsageReferenceLabelFigure.setText("<not set>");
-            } else {
-                fFigureVariableUsageReferenceLabelFigure.setText(new PCMStoExPrettyPrintVisitor()
-                        .prettyPrint(variableUsage.getNamedReference__VariableUsage()));
-            }
 
+            fFigureVariableUsageReferenceLabelFigure.setText("<?>");
             fFigureVariableUsageReferenceLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
 
@@ -351,8 +341,11 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
             this.add(fFigureVariableUsageReferenceLabelFigure, constraintFFigureVariableUsageReferenceLabelFigure);
 
             fFigureParametricParameterUsageRectangleCompartment = new RectangleFigure();
+
             fFigureParametricParameterUsageRectangleCompartment.setFill(false);
             fFigureParametricParameterUsageRectangleCompartment.setOutline(false);
+            fFigureParametricParameterUsageRectangleCompartment.setMinimumSize(new Dimension(getMapMode().DPtoLP(0),
+                    getMapMode().DPtoLP(0)));
 
             GridData constraintFFigureParametricParameterUsageRectangleCompartment = new GridData();
             constraintFFigureParametricParameterUsageRectangleCompartment.verticalAlignment = GridData.FILL;
@@ -365,25 +358,6 @@ public class VariableUsage3EditPart extends ShapeNodeEditPart {
             this.add(fFigureParametricParameterUsageRectangleCompartment,
                     constraintFFigureParametricParameterUsageRectangleCompartment);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

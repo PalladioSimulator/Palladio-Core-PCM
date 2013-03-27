@@ -73,15 +73,15 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
         View view = (View) getHost().getModel();
-        for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
+        for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
             Node node = (Node) nit.next();
             switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
             case ResourceDemandingBehaviourBehaviourCompartment4EditPart.VISUAL_ID:
-                for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
+                for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
                     Node cnode = (Node) cit.next();
                     switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
                     case StartAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -91,7 +91,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -103,14 +103,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case StopAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -120,7 +117,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -132,14 +129,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case LoopAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -149,7 +143,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -161,14 +155,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case InternalAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -178,7 +169,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -190,14 +181,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case BranchAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -207,7 +195,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -219,14 +207,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case ExternalCallAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -236,7 +221,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -248,14 +233,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case EmitEventAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -265,7 +247,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -277,14 +259,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case AcquireAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -294,7 +273,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -306,14 +285,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case ReleaseAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -323,7 +299,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -335,14 +311,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case ForkAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -352,7 +325,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -364,14 +337,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case CollectionIteratorAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -381,7 +351,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -393,14 +363,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case SetVariableAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -410,7 +377,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -422,14 +389,11 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case RecoveryAction2EditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
@@ -439,7 +403,7 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                                 continue;
                             }
                         }
-                        for (Iterator it = cnode.getSourceEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getSourceEdges().iterator(); it.hasNext();) {
                             Edge outgoingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource()
@@ -451,11 +415,8 @@ public class ResourceDemandingBehaviour4ItemSemanticEditPolicy extends PalladioC
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     }
                 }

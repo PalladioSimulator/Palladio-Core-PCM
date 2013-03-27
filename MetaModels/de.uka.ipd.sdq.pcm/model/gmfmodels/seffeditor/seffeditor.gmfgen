@@ -523,9 +523,10 @@
     </childNodes>
     <childNodes
         xsi:type="gmfgen:GenChildLabelNode"
-        visualID="3059"
+        visualID="3051"
         editPartClassName="ParametricResourceDemandEditPart"
         itemSemanticEditPolicyClassName="ParametricResourceDemandItemSemanticEditPolicy"
+        notationViewFactoryClassName="ParametricResourceDemandViewFactory"
         canonicalEditPolicyClassName="ParametricResourceDemandCanonicalEditPolicy"
         graphicalNodeEditPolicyClassName="ParametricResourceDemandGraphicalNodeEditPolicy"
         createCommandClassName="ParametricResourceDemandCreateCommand"

@@ -77,7 +77,7 @@ public class ResourceDemandingSEFFItemSemanticEditPolicy extends PalladioCompone
         if (PalladioComponentModelElementTypes.ForkAction_2011 == req.getElementType()) {
             return getGEFWrapper(new ForkActionCreateCommand(req));
         }
-        if (PalladioComponentModelElementTypes.RecoveryAction_2016 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.RecoveryAction_2017 == req.getElementType()) {
             return getGEFWrapper(new RecoveryActionCreateCommand(req));
         }
         return super.getCreateCommand(req);

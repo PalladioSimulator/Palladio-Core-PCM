@@ -31,7 +31,7 @@ public class RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticE
      * @generated
      */
     public RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy() {
-        super(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3058);
+        super(PalladioComponentModelElementTypes.RecoveryActionBehaviour_3062);
     }
 
     /**
@@ -74,7 +74,7 @@ public class RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticE
         if (PalladioComponentModelElementTypes.SetVariableAction_3024 == req.getElementType()) {
             return getGEFWrapper(new SetVariableAction2CreateCommand(req));
         }
-        if (PalladioComponentModelElementTypes.RecoveryAction_3057 == req.getElementType()) {
+        if (PalladioComponentModelElementTypes.RecoveryAction_3061 == req.getElementType()) {
             return getGEFWrapper(new RecoveryAction2CreateCommand(req));
         }
         return super.getCreateCommand(req);

@@ -58,7 +58,7 @@ public class LoopActionItemSemanticEditPolicy extends PalladioComponentModelBase
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
@@ -68,7 +68,7 @@ public class LoopActionItemSemanticEditPolicy extends PalladioComponentModelBase
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
@@ -96,17 +96,14 @@ public class LoopActionItemSemanticEditPolicy extends PalladioComponentModelBase
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
         View view = (View) getHost().getModel();
-        for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
+        for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
             Node node = (Node) nit.next();
             switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
             case ResourceDemandingBehaviourEditPart.VISUAL_ID:
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: true
-                // don't need explicit deletion of node as parent's view deletion would clean child
-                // views as well
-                // cmd.add(new
-                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                // node));
+                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
+                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
                 break;
             }
         }

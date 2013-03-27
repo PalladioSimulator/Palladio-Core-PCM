@@ -75,7 +75,7 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
         if (!(oldEnd instanceof de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour && newEnd instanceof de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
                         getNewSource(), getOldTarget());
     }
@@ -87,7 +87,7 @@ public class RecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionB
         if (!(oldEnd instanceof de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour && newEnd instanceof de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistRecoveryActionBehaviourFailureHandlingAlternatives__RecoveryActionBehaviour_4004(
                         getOldSource(), getNewTarget());
     }

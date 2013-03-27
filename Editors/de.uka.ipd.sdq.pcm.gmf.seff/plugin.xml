@@ -77,6 +77,10 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
                <GlobalActionId actionId="save"/>
             </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
@@ -233,16 +237,16 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
             <method name="getType()" value="PCM SEFF Model"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2001,2002,2003,2013,2004,2005,2006,2007,2008,2012,2010,2011,2016,3042,3033,3049,3035,3047,3037,3003,3004,3005,3006,3007,3051,3050,3053,3054,3048,3009,3010,3011,3012,3046,3026,3020,3023,3027,3013,3014,3057,3058,3024,3036,3055,3038,3039,3017,3018"/>
+            <method name="getType()" value="2001,2002,2003,2013,2004,2005,2006,2007,2008,2012,2010,2011,2017,3042,3033,3049,3035,3047,3037,3003,3004,3005,3006,3007,3051,3050,3053,3054,3048,3009,3010,3011,3012,3046,3026,3020,3023,3027,3013,3014,3061,3062,3024,3036,3055,3038,3039,3017,3018"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4001,4004"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-labels">
-            <method name="getType()" value="5002,5046,5009,5010,5011,5012,5015,5016,5023,5029,5022,5024,5056,5040,5047,5045,5003,5004,5005,5051,5052,5050,5008,5007,5037,5006,5044,5028,5020,5026,5013,5014,5055,5054,5027,5035,5018,5036"/>
+            <method name="getType()" value="5002,5046,5009,5010,5011,5012,5015,5016,5023,5029,5022,5024,5061,5040,5047,5045,5003,5004,5005,5057,5058,5050,5008,5007,5037,5006,5044,5028,5020,5026,5013,5014,5060,5059,5027,5035,5018,5036"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="7001,7021,7037,7044,7042,7043,7004,7006,7045,7048,7049,7050,7007,7009,7010,7023,7041,7024,7026,7014,7054,7055,7025,7032,7034,7033,7018,7011,7012,7046,7051,7016,7019,7056"/>
+            <method name="getType()" value="7001,7021,7037,7044,7042,7043,7004,7006,7045,7048,7057,7050,7007,7009,7010,7023,7041,7024,7026,7014,7058,7059,7025,7032,7034,7033,7018,7011,7012,7046,7051,7016,7019,7060"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
@@ -265,8 +269,44 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireActionEditPart" id="AcquireAction_2012"/>
          <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseActionEditPart" id="ReleaseAction_2010"/>
          <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkActionEditPart" id="ForkAction_2011"/>
-         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart" id="RecoveryAction_2016"/>
-         <context elements="ResourceDemandingSEFF_1000,StartAction_2001,StopAction_2002,ExternalCallAction_2003,EmitEventAction_2013,LoopAction_2004,BranchAction_2005,InternalAction_2006,CollectionIteratorAction_2007,SetVariableAction_2008,AcquireAction_2012,ReleaseAction_2010,ForkAction_2011,RecoveryAction_2016"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionEditPart" id="RecoveryAction_2017"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsageEditPart" id="VariableUsage_3042"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisationEditPart" id="VariableCharacterisation_3033"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage2EditPart" id="VariableUsage_3049"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation2EditPart" id="VariableCharacterisation_3035"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage4EditPart" id="VariableUsage_3047"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation3EditPart" id="VariableCharacterisation_3037"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviourEditPart" id="ResourceDemandingBehaviour_3003"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StartAction2EditPart" id="StartAction_3004"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.StopAction2EditPart" id="StopAction_3005"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.LoopAction2EditPart" id="LoopAction_3006"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalAction2EditPart" id="InternalAction_3007"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ParametricResourceDemandEditPart" id="ParametricResourceDemand_3051"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InternalFailureOccurrenceDescriptionEditPart" id="InternalFailureOccurrenceDescription_3050"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InfrastructureCallEditPart" id="InfrastructureCall_3053"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage5EditPart" id="VariableUsage_3054"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation4EditPart" id="VariableCharacterisation_3048"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.BranchAction2EditPart" id="BranchAction_3009"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ProbabilisticBranchTransitionEditPart" id="ProbabilisticBranchTransition_3010"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour2EditPart" id="ResourceDemandingBehaviour_3011"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ExternalCallAction2EditPart" id="ExternalCallAction_3012"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.EmitEventAction2EditPart" id="EmitEventAction_3046"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.AcquireAction2EditPart" id="AcquireAction_3026"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ReleaseAction2EditPart" id="ReleaseAction_3020"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkAction2EditPart" id="ForkAction_3023"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviourEditPart" id="ForkedBehaviour_3027"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.CollectionIteratorAction2EditPart" id="CollectionIteratorAction_3013"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour3EditPart" id="ResourceDemandingBehaviour_3014"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryAction2EditPart" id="RecoveryAction_3061"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.RecoveryActionBehaviourEditPart" id="RecoveryActionBehaviour_3062"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SetVariableAction2EditPart" id="SetVariableAction_3024"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableUsage3EditPart" id="VariableUsage_3036"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.VariableCharacterisation5EditPart" id="VariableCharacterisation_3055"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.SynchronisationPointEditPart" id="SynchronisationPoint_3038"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ForkedBehaviour2EditPart" id="ForkedBehaviour_3039"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.GuardedBranchTransitionEditPart" id="GuardedBranchTransition_3017"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.ResourceDemandingBehaviour4EditPart" id="ResourceDemandingBehaviour_3018"/>
+         <context elements="ResourceDemandingSEFF_1000,StartAction_2001,StopAction_2002,ExternalCallAction_2003,EmitEventAction_2013,LoopAction_2004,BranchAction_2005,InternalAction_2006,CollectionIteratorAction_2007,SetVariableAction_2008,AcquireAction_2012,ReleaseAction_2010,ForkAction_2011,RecoveryAction_2017,VariableUsage_3042,VariableCharacterisation_3033,VariableUsage_3049,VariableCharacterisation_3035,VariableUsage_3047,VariableCharacterisation_3037,ResourceDemandingBehaviour_3003,StartAction_3004,StopAction_3005,LoopAction_3006,InternalAction_3007,ParametricResourceDemand_3051,InternalFailureOccurrenceDescription_3050,InfrastructureCall_3053,VariableUsage_3054,VariableCharacterisation_3048,BranchAction_3009,ProbabilisticBranchTransition_3010,ResourceDemandingBehaviour_3011,ExternalCallAction_3012,EmitEventAction_3046,AcquireAction_3026,ReleaseAction_3020,ForkAction_3023,ForkedBehaviour_3027,CollectionIteratorAction_3013,ResourceDemandingBehaviour_3014,RecoveryAction_3061,RecoveryActionBehaviour_3062,SetVariableAction_3024,VariableUsage_3036,VariableCharacterisation_3055,SynchronisationPoint_3038,ForkedBehaviour_3039,GuardedBranchTransition_3017,ResourceDemandingBehaviour_3018"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -415,11 +455,11 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0">
          <specializationType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2016"
-               name="%metatype.name.RecoveryAction_2016"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2017"
+               name="%metatype.name.RecoveryAction_2017"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType">
-            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3057"/>
-            <param name="semanticHint" value="2016"/>
+            <specializes id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3061"/>
+            <param name="semanticHint" value="2017"/>
          </specializationType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0">
@@ -687,22 +727,22 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3057"
-               name="%metatype.name.RecoveryAction_3057"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3061"
+               name="%metatype.name.RecoveryAction_3061"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="RecoveryAction"
                edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.RecoveryActionEditHelper">
-            <param name="semanticHint" value="3057"/>
+            <param name="semanticHint" value="3061"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0">
          <metamodelType
-               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3058"
-               name="%metatype.name.RecoveryActionBehaviour_3058"
+               id="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3062"
+               name="%metatype.name.RecoveryActionBehaviour_3062"
                kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
                eclass="RecoveryActionBehaviour"
                edithelper="de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.RecoveryActionBehaviourEditHelper">
-            <param name="semanticHint" value="3058"/>
+            <param name="semanticHint" value="3062"/>
          </metamodelType>
       </metamodel>
       <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
@@ -815,7 +855,7 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.AcquireAction_2012"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ReleaseAction_2010"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkAction_2011"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2016"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2017"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3042"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3033"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3049"/>
@@ -843,8 +883,8 @@ Copyright 2006 SDQ Research Group, University of Karlsruhe (TH)
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ForkedBehaviour_3027"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.CollectionIteratorAction_3013"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.ResourceDemandingBehaviour_3014"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3057"/>
-         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3058"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3061"/>
+         <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3062"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.SetVariableAction_3024"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableUsage_3036"/>
          <elementType ref="de.uka.ipd.sdq.pcm.gmf.seff.VariableCharacterisation_3055"/>

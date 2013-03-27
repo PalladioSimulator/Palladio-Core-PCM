@@ -12,9 +12,11 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.RecoveryActionBehaviourAlternativeBehaviourCompartmentCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.Messages;
+import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -24,7 +26,7 @@ public class RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart exte
     /**
      * @generated
      */
-    public static final int VISUAL_ID = 7055;
+    public static final int VISUAL_ID = 7059;
 
     /**
      * @generated
@@ -56,7 +58,8 @@ public class RecoveryActionBehaviourAlternativeBehaviourCompartmentEditPart exte
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
                 new RecoveryActionBehaviourAlternativeBehaviourCompartmentItemSemanticEditPolicy());
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+                PalladioComponentModelVisualIDRegistry.TYPED_INSTANCE));
         installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
         installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
                 new RecoveryActionBehaviourAlternativeBehaviourCompartmentCanonicalEditPolicy());

@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.GridData;
@@ -71,8 +72,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ForkAction2ItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -80,7 +80,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -105,8 +105,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        ForkFigure figure = new ForkFigure();
-        return primaryShape = figure;
+        return primaryShape = new ForkFigure();
     }
 
     /**
@@ -127,8 +126,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof ForkActionForkedBehavioursEditPart) {
             IFigure pane = getPrimaryShape().getFigureForkCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((ForkActionForkedBehavioursEditPart) childEditPart).getFigure());
             return true;
         }
@@ -144,8 +142,6 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof ForkActionForkedBehavioursEditPart) {
             IFigure pane = getPrimaryShape().getFigureForkCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((ForkActionForkedBehavioursEditPart) childEditPart).getFigure());
             return true;
         }
@@ -271,18 +267,8 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
         return types;
     }
@@ -290,19 +276,8 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof StartActionEditPart) {
             types.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
         }
@@ -387,95 +362,34 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.StartAction_2001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.StopAction_2002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ExternalCallAction_2003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.EmitEventAction_2013);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.LoopAction_2004);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.BranchAction_2005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.InternalAction_2006);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.CollectionIteratorAction_2007);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.AcquireAction_2012);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ReleaseAction_2010);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ForkAction_2011);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-            types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+            types.add(PalladioComponentModelElementTypes.RecoveryAction_2017);
             types.add(PalladioComponentModelElementTypes.StartAction_3004);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.StopAction_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.LoopAction_3006);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.InternalAction_3007);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.BranchAction_3009);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.EmitEventAction_3046);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ForkAction_3023);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-            types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+            types.add(PalladioComponentModelElementTypes.RecoveryAction_3061);
             types.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
         }
         return types;
@@ -484,18 +398,8 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001);
         return types;
     }
@@ -503,95 +407,34 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.StartAction_2001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.StopAction_2002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ExternalCallAction_2003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.EmitEventAction_2013);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.LoopAction_2004);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.BranchAction_2005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.InternalAction_2006);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.CollectionIteratorAction_2007);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.SetVariableAction_2008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.AcquireAction_2012);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ReleaseAction_2010);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ForkAction_2011);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-            types.add(PalladioComponentModelElementTypes.RecoveryAction_2016);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+            types.add(PalladioComponentModelElementTypes.RecoveryAction_2017);
             types.add(PalladioComponentModelElementTypes.StartAction_3004);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.StopAction_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.LoopAction_3006);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.InternalAction_3007);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.BranchAction_3009);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ExternalCallAction_3012);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.EmitEventAction_3046);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.AcquireAction_3026);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ReleaseAction_3020);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.ForkAction_3023);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
             types.add(PalladioComponentModelElementTypes.CollectionIteratorAction_3013);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
-            types.add(PalladioComponentModelElementTypes.RecoveryAction_3057);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractActionSuccessor_AbstractAction_4001) {
+            types.add(PalladioComponentModelElementTypes.RecoveryAction_3061);
             types.add(PalladioComponentModelElementTypes.SetVariableAction_3024);
         }
         return types;
@@ -627,7 +470,6 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
             this.setLayoutManager(layoutThis);
 
             this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -638,6 +480,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             WrappingLabel stereotypeLabelFigure0 = new WrappingLabel();
+
             stereotypeLabelFigure0.setText("<<Fork>>");
             stereotypeLabelFigure0.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
                     getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -653,6 +496,7 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
             this.add(stereotypeLabelFigure0, constraintStereotypeLabelFigure0);
 
             fFigureForkFigureNameLabelFigure = new WrappingLabel();
+
             fFigureForkFigureNameLabelFigure.setText("");
             fFigureForkFigureNameLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
                     getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -668,9 +512,9 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
             this.add(fFigureForkFigureNameLabelFigure, constraintFFigureForkFigureNameLabelFigure);
 
             fFigureForkCompartment = new RectangleFigure();
+
             fFigureForkCompartment.setFill(false);
             fFigureForkCompartment.setOutline(false);
-            fFigureForkCompartment.setLineWidth(1);
             fFigureForkCompartment.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
             GridData constraintFFigureForkCompartment = new GridData();
@@ -683,25 +527,6 @@ public class ForkAction2EditPart extends ShapeNodeEditPart {
             constraintFFigureForkCompartment.grabExcessVerticalSpace = true;
             this.add(fFigureForkCompartment, constraintFFigureForkCompartment);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

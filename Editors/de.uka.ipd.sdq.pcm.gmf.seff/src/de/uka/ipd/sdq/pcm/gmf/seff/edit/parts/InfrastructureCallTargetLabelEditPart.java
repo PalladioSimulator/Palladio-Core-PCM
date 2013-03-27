@@ -208,7 +208,7 @@ public class InfrastructureCallTargetLabelEditPart extends CompartmentEditPart i
      * Displays required role and signature.
      * 
      * @return the label text
-     * @generated not
+     * @generated
      */
     protected String getLabelText() {
         String text = null;
@@ -539,7 +539,7 @@ public class InfrastructureCallTargetLabelEditPart extends CompartmentEditPart i
      * 
      * @param event
      *            the event
-     * @generated not
+     * @generated
      */
     protected void handleNotificationEvent(Notification event) {
         Object feature = event.getFeature();

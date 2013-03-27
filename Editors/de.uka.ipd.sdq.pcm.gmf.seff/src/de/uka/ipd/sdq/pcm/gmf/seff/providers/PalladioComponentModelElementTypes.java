@@ -79,7 +79,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 /**
  * @generated
  */
-public class PalladioComponentModelElementTypes extends ElementInitializers {
+public class PalladioComponentModelElementTypes {
 
     /**
      * @generated
@@ -90,7 +90,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    private static Map elements;
+    private static Map<IElementType, ENamedElement> elements;
 
     /**
      * @generated
@@ -100,7 +100,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    private static Set KNOWN_ELEMENT_TYPES;
+    private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
     /**
      * @generated
@@ -170,7 +170,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    public static final IElementType RecoveryAction_2016 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2016"); //$NON-NLS-1$
+    public static final IElementType RecoveryAction_2017 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_2017"); //$NON-NLS-1$
 
     /**
      * @generated
@@ -310,12 +310,12 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    public static final IElementType RecoveryAction_3057 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3057"); //$NON-NLS-1$
+    public static final IElementType RecoveryAction_3061 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryAction_3061"); //$NON-NLS-1$
 
     /**
      * @generated
      */
-    public static final IElementType RecoveryActionBehaviour_3058 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3058"); //$NON-NLS-1$
+    public static final IElementType RecoveryActionBehaviour_3062 = getElementType("de.uka.ipd.sdq.pcm.gmf.seff.RecoveryActionBehaviour_3062"); //$NON-NLS-1$
 
     /**
      * @generated
@@ -465,7 +465,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     public static ENamedElement getElement(IAdaptable hint) {
         Object type = hint.getAdapter(IElementType.class);
         if (elements == null) {
-            elements = new IdentityHashMap();
+            elements = new IdentityHashMap<IElementType, ENamedElement>();
 
             elements.put(ResourceDemandingSEFF_1000, SeffPackage.eINSTANCE.getResourceDemandingSEFF());
 
@@ -493,7 +493,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
             elements.put(ForkAction_2011, SeffPackage.eINSTANCE.getForkAction());
 
-            elements.put(RecoveryAction_2016,
+            elements.put(RecoveryAction_2017,
                     de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction());
 
             elements.put(VariableUsage_3042, ParameterPackage.eINSTANCE.getVariableUsage());
@@ -554,10 +554,10 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
 
             elements.put(ResourceDemandingBehaviour_3014, SeffPackage.eINSTANCE.getResourceDemandingBehaviour());
 
-            elements.put(RecoveryAction_3057,
+            elements.put(RecoveryAction_3061,
                     de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE.getRecoveryAction());
 
-            elements.put(RecoveryActionBehaviour_3058,
+            elements.put(RecoveryActionBehaviour_3062,
                     de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage.eINSTANCE
                             .getRecoveryActionBehaviour());
 
@@ -597,7 +597,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
      */
     public static boolean isKnownElementType(IElementType elementType) {
         if (KNOWN_ELEMENT_TYPES == null) {
-            KNOWN_ELEMENT_TYPES = new HashSet();
+            KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
             KNOWN_ELEMENT_TYPES.add(ResourceDemandingSEFF_1000);
             KNOWN_ELEMENT_TYPES.add(StartAction_2001);
             KNOWN_ELEMENT_TYPES.add(StopAction_2002);
@@ -611,7 +611,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
             KNOWN_ELEMENT_TYPES.add(AcquireAction_2012);
             KNOWN_ELEMENT_TYPES.add(ReleaseAction_2010);
             KNOWN_ELEMENT_TYPES.add(ForkAction_2011);
-            KNOWN_ELEMENT_TYPES.add(RecoveryAction_2016);
+            KNOWN_ELEMENT_TYPES.add(RecoveryAction_2017);
             KNOWN_ELEMENT_TYPES.add(VariableUsage_3042);
             KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3033);
             KNOWN_ELEMENT_TYPES.add(VariableUsage_3049);
@@ -639,8 +639,8 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
             KNOWN_ELEMENT_TYPES.add(ForkedBehaviour_3027);
             KNOWN_ELEMENT_TYPES.add(CollectionIteratorAction_3013);
             KNOWN_ELEMENT_TYPES.add(ResourceDemandingBehaviour_3014);
-            KNOWN_ELEMENT_TYPES.add(RecoveryAction_3057);
-            KNOWN_ELEMENT_TYPES.add(RecoveryActionBehaviour_3058);
+            KNOWN_ELEMENT_TYPES.add(RecoveryAction_3061);
+            KNOWN_ELEMENT_TYPES.add(RecoveryActionBehaviour_3062);
             KNOWN_ELEMENT_TYPES.add(SetVariableAction_3024);
             KNOWN_ELEMENT_TYPES.add(VariableUsage_3036);
             KNOWN_ELEMENT_TYPES.add(VariableCharacterisation_3055);
@@ -686,7 +686,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
         case ForkActionEditPart.VISUAL_ID:
             return ForkAction_2011;
         case RecoveryActionEditPart.VISUAL_ID:
-            return RecoveryAction_2016;
+            return RecoveryAction_2017;
         case VariableUsageEditPart.VISUAL_ID:
             return VariableUsage_3042;
         case VariableCharacterisationEditPart.VISUAL_ID:
@@ -742,9 +742,9 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
         case ResourceDemandingBehaviour3EditPart.VISUAL_ID:
             return ResourceDemandingBehaviour_3014;
         case RecoveryAction2EditPart.VISUAL_ID:
-            return RecoveryAction_3057;
+            return RecoveryAction_3061;
         case RecoveryActionBehaviourEditPart.VISUAL_ID:
-            return RecoveryActionBehaviour_3058;
+            return RecoveryActionBehaviour_3062;
         case SetVariableAction2EditPart.VISUAL_ID:
             return SetVariableAction_3024;
         case VariableUsage3EditPart.VISUAL_ID:

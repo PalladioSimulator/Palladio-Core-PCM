@@ -49,7 +49,7 @@ public class ExternalCallAction2ItemSemanticEditPolicy extends PalladioComponent
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
@@ -59,7 +59,7 @@ public class ExternalCallAction2ItemSemanticEditPolicy extends PalladioComponent
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractActionSuccessor_AbstractActionEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,
@@ -87,37 +87,31 @@ public class ExternalCallAction2ItemSemanticEditPolicy extends PalladioComponent
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
         View view = (View) getHost().getModel();
-        for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
+        for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
             Node node = (Node) nit.next();
             switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
             case ExternalCallActionInputVariableUsage2EditPart.VISUAL_ID:
-                for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
+                for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
                     Node cnode = (Node) cit.next();
                     switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
                     case VariableUsageEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     }
                 }
                 break;
             case ExternalCallActionOutputVariableUsage2EditPart.VISUAL_ID:
-                for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
+                for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
                     Node cnode = (Node) cit.next();
                     switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
                     case VariableUsage2EditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     }
                 }

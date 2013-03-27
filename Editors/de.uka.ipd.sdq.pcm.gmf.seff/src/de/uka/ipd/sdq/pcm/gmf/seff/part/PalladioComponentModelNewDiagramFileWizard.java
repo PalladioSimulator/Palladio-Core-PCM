@@ -26,7 +26,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.transaction.TransactionalEditingDomain;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.diagram.core.services.ViewService;
+import org.eclipse.gmf.runtime.diagram.core.services.view.CreateDiagramViewOperation;
 import org.eclipse.gmf.runtime.emf.commands.core.command.AbstractTransactionalCommand;
+import org.eclipse.gmf.runtime.emf.core.util.EObjectAdapter;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.jface.viewers.StructuredSelection;
 import org.eclipse.jface.wizard.Wizard;
@@ -65,7 +67,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
     /**
      * @generated
      */
-    private final TransactionalEditingDomain myEditingDomain;
+    private TransactionalEditingDomain myEditingDomain;
 
     /** The my diagram filename selection page. @generated not */
     private final WizardNewFileCreationPage myDiagramFilenameSelectionPage;
