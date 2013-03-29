@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.2"?>
+<plugin>
+   <!--extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypes">
+      <metamodel nsURI="http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0">
+         <metamodelType
+               id="de.uka.ipd.sdq.pcm.gmf.composite.helper.InitialisedResourceDemandingSEFF_4201"
+               name="InitialisedResourceDemandingSEFF"
+               eclass="ResourceDemandingSEFF"
+               kind="org.eclipse.gmf.runtime.emf.type.core.IHintedType"
+               edithelper="de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers.InitialisedResourceDemandingSEFFEditHelperAdvice">
+            <param name="semanticHint" value="4201"/>
+         </metamodelType>
+      </metamodel>
+   </extension-->
+
+   <!--extension
+         point="org.eclipse.gmf.runtime.emf.type.core.elementTypeBindings">
+      <clientContext id="de.uka.ipd.sdq.pcm.gmf.composite.TypeContext">
+         <enablement>
+            <test
+               property="org.eclipse.gmf.runtime.emf.core.editingDomain"
+               value="de.uka.ipd.sdq.pcm.gmf.composite.EditingDomain"/>
+         </enablement>
+      </clientContext> 
+      <binding context="de.uka.ipd.sdq.pcm.gmf.composite.TypeContext">
+      	 <elementType ref="de.uka.ipd.sdq.pcm.gmf.composite.helper.InitialisedResourceDemandingSEFF_4201"/>
+         <advice
+               ref="de.uka.ipd.sdq.pcm.gmf.composite.InterfaceAdvice">
+         </advice>
+       </binding>
+   </extension-->
+
+</plugin>

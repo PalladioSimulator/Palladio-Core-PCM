@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Composite Diagram Edit Helper Plug-in
+Bundle-SymbolicName: de.uka.ipd.sdq.pcm.gmf.composite.helper;singleton:=true
+Bundle-Version: 2.0.0.qualifier
+Bundle-Activator: de.uka.ipd.sdq.pcm.gmf.composite.helper.CompositeHelperPlugin
+Bundle-Vendor: sdq.ipd.uka.de
+Require-Bundle: org.eclipse.gmf.runtime.diagram.ui
+Bundle-ActivationPolicy: lazy
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
