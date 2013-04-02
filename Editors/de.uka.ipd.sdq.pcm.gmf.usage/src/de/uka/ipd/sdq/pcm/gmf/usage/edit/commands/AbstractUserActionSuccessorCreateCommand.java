@@ -55,7 +55,7 @@ public class AbstractUserActionSuccessorCreateCommand extends EditElementCommand
             return true; // link creation is in progress; source is not defined yet
         }
         // target may be null here but it's possible to check constraint
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canCreateAbstractUserActionSuccessor_4002(getSource(), getTarget());
     }
 

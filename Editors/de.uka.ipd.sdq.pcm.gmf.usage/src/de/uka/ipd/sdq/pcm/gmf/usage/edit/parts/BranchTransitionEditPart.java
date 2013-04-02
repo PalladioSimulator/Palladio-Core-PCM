@@ -29,6 +29,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
@@ -67,14 +68,14 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected void createDefaultEditPolicies() {
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+                PalladioComponentModelVisualIDRegistry.TYPED_INSTANCE));
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new BranchTransitionItemSemanticEditPolicy());
         installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
         installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new BranchTransitionCanonicalEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -82,7 +83,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -107,8 +108,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        BranchTransitionFigure figure = new BranchTransitionFigure();
-        return primaryShape = figure;
+        return primaryShape = new BranchTransitionFigure();
     }
 
     /**
@@ -299,6 +299,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureBranchTransitionNameLabel = new WrappingLabel();
+
             fFigureBranchTransitionNameLabel.setText("");
             fFigureBranchTransitionNameLabel.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
                     getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -314,6 +315,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
             this.add(fFigureBranchTransitionNameLabel, constraintFFigureBranchTransitionNameLabel);
 
             fFigureBranchTransitionProbabilityLabel = new WrappingLabel();
+
             fFigureBranchTransitionProbabilityLabel.setText("");
             fFigureBranchTransitionProbabilityLabel.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -329,6 +331,7 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
             this.add(fFigureBranchTransitionProbabilityLabel, constraintFFigureBranchTransitionProbabilityLabel);
 
             fFigureBranchTransitionConditionLabel = new WrappingLabel();
+
             fFigureBranchTransitionConditionLabel.setText("");
             fFigureBranchTransitionConditionLabel.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -350,25 +353,6 @@ public class BranchTransitionEditPart extends ShapeNodeEditPart {
          */
         public WrappingLabel getFigureBranchTransitionProbabilityLabel() {
             return fFigureBranchTransitionProbabilityLabel;
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

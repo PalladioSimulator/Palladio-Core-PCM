@@ -66,8 +66,7 @@ public class UsageScenario2EditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new UsageScenario2ItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -75,7 +74,7 @@ public class UsageScenario2EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -100,8 +99,7 @@ public class UsageScenario2EditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        UsageScenarioFigure figure = new UsageScenarioFigure();
-        return primaryShape = figure;
+        return primaryShape = new UsageScenarioFigure();
     }
 
     /**
@@ -259,7 +257,6 @@ public class UsageScenario2EditPart extends ShapeNodeEditPart {
          * @generated
          */
         public UsageScenarioFigure() {
-            this.setLineWidth(1);
             this.setForegroundColor(ColorConstants.lightGray);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             this.setBorder(new CompoundBorder(new LineBorder(null, getMapMode().DPtoLP(3)), new MarginBorder(
@@ -273,6 +270,7 @@ public class UsageScenario2EditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureUsageScenarioLabelName = new WrappingLabel();
+
             fFigureUsageScenarioLabelName.setText("");
             fFigureUsageScenarioLabelName.setMaximumSize(new Dimension(getMapMode().DPtoLP(300), getMapMode()
                     .DPtoLP(40)));
@@ -281,25 +279,6 @@ public class UsageScenario2EditPart extends ShapeNodeEditPart {
 
             this.add(fFigureUsageScenarioLabelName);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

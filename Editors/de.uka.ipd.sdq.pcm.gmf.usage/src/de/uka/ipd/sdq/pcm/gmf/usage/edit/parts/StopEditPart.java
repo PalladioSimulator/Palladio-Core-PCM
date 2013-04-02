@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.ColorConstants;
@@ -68,8 +69,7 @@ public class StopEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new StopItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -77,7 +77,7 @@ public class StopEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -102,8 +102,7 @@ public class StopEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        StopFigure figure = new StopFigure();
-        return primaryShape = figure;
+        return primaryShape = new StopFigure();
     }
 
     /**
@@ -201,18 +200,8 @@ public class StopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         return types;
     }
@@ -220,19 +209,8 @@ public class StopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof StartEditPart) {
             types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         }
@@ -257,35 +235,14 @@ public class StopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Start_3001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Stop_3002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Loop_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Branch_3008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Delay_3017);
         }
         return types;
@@ -294,18 +251,8 @@ public class StopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         return types;
     }
@@ -313,35 +260,14 @@ public class StopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Start_3001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Stop_3002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Loop_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Branch_3008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Delay_3017);
         }
         return types;
@@ -357,7 +283,6 @@ public class StopEditPart extends ShapeNodeEditPart {
          */
         public StopFigure() {
             this.setLayoutManager(new StackLayout());
-            this.setLineWidth(1);
             this.setPreferredSize(new Dimension(getMapMode().DPtoLP(30), getMapMode().DPtoLP(30)));
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
@@ -372,30 +297,11 @@ public class StopEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             Ellipse innerCircle0 = new Ellipse();
-            innerCircle0.setLineWidth(1);
+
             innerCircle0.setBackgroundColor(ColorConstants.black);
 
             this.add(innerCircle0);
 
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
     }

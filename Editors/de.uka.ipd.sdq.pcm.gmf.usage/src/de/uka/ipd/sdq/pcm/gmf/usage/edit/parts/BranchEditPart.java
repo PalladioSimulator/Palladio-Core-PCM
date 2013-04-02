@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.GridData;
@@ -70,8 +71,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new BranchItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -79,7 +79,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -104,8 +104,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        UsageBranchFigure figure = new UsageBranchFigure();
-        return primaryShape = figure;
+        return primaryShape = new UsageBranchFigure();
     }
 
     /**
@@ -121,8 +120,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
     protected boolean addFixedChild(EditPart childEditPart) {
         if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureBranchCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart).getFigure());
             return true;
         }
@@ -135,8 +133,6 @@ public class BranchEditPart extends ShapeNodeEditPart {
     protected boolean removeFixedChild(EditPart childEditPart) {
         if (childEditPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureBranchCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((BranchUsageBranchTransitionsCompartmentEditPart) childEditPart).getFigure());
             return true;
         }
@@ -254,18 +250,8 @@ public class BranchEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         return types;
     }
@@ -273,19 +259,8 @@ public class BranchEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof StartEditPart) {
             types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         }
@@ -310,35 +285,14 @@ public class BranchEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Start_3001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Stop_3002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Loop_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Branch_3008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Delay_3017);
         }
         return types;
@@ -347,18 +301,8 @@ public class BranchEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         return types;
     }
@@ -366,35 +310,14 @@ public class BranchEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Start_3001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Stop_3002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Loop_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Branch_3008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Delay_3017);
         }
         return types;
@@ -430,7 +353,6 @@ public class BranchEditPart extends ShapeNodeEditPart {
             this.setLayoutManager(layoutThis);
 
             this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -441,6 +363,7 @@ public class BranchEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureUsageBranchStereotypeLabelFigure = new WrappingLabel();
+
             fFigureUsageBranchStereotypeLabelFigure.setText("<<Branch>>");
             fFigureUsageBranchStereotypeLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -456,9 +379,9 @@ public class BranchEditPart extends ShapeNodeEditPart {
             this.add(fFigureUsageBranchStereotypeLabelFigure, constraintFFigureUsageBranchStereotypeLabelFigure);
 
             fFigureBranchCompartment = new RectangleFigure();
+
             fFigureBranchCompartment.setFill(false);
             fFigureBranchCompartment.setOutline(false);
-            fFigureBranchCompartment.setLineWidth(1);
             fFigureBranchCompartment.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
 
             GridData constraintFFigureBranchCompartment = new GridData();
@@ -485,25 +408,6 @@ public class BranchEditPart extends ShapeNodeEditPart {
          */
         public RectangleFigure getFigureBranchCompartment() {
             return fFigureBranchCompartment;
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
     }

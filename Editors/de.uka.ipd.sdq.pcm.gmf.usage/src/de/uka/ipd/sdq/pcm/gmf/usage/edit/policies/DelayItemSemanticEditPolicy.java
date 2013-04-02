@@ -43,7 +43,7 @@ public class DelayItemSemanticEditPolicy extends PalladioComponentModelBaseItemS
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AbstractUserActionSuccessorEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource().getElement(), null,
@@ -53,7 +53,7 @@ public class DelayItemSemanticEditPolicy extends PalladioComponentModelBaseItemS
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AbstractUserActionSuccessorEditPart.VISUAL_ID) {
                 DestroyReferenceRequest r = new DestroyReferenceRequest(outgoingLink.getSource().getElement(), null,

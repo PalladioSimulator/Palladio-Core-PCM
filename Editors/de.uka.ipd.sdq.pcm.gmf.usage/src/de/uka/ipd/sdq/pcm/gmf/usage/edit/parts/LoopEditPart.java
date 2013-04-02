@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.usage.edit.parts;
 
 import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.GridData;
@@ -32,6 +33,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.graphics.Color;
 
@@ -71,14 +73,14 @@ public class LoopEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected void createDefaultEditPolicies() {
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+                PalladioComponentModelVisualIDRegistry.TYPED_INSTANCE));
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new LoopItemSemanticEditPolicy());
         installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
         installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new LoopCanonicalEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -86,7 +88,7 @@ public class LoopEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -111,8 +113,7 @@ public class LoopEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        UsageLoopFigure figure = new UsageLoopFigure();
-        return primaryShape = figure;
+        return primaryShape = new UsageLoopFigure();
     }
 
     /**
@@ -260,18 +261,8 @@ public class LoopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         return types;
     }
@@ -279,19 +270,8 @@ public class LoopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof StartEditPart) {
             types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         }
@@ -316,35 +296,14 @@ public class LoopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Start_3001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Stop_3002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Loop_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Branch_3008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Delay_3017);
         }
         return types;
@@ -353,18 +312,8 @@ public class LoopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002);
         return types;
     }
@@ -372,35 +321,14 @@ public class LoopEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Start_3001);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Stop_3002);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Loop_3005);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Branch_3008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AbstractUserActionSuccessor_4002) {
             types.add(PalladioComponentModelElementTypes.Delay_3017);
         }
         return types;
@@ -431,7 +359,6 @@ public class LoopEditPart extends ShapeNodeEditPart {
             this.setLayoutManager(layoutThis);
 
             this.setCornerDimensions(new Dimension(getMapMode().DPtoLP(8), getMapMode().DPtoLP(8)));
-            this.setLineWidth(1);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
         }
@@ -442,6 +369,7 @@ public class LoopEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             WrappingLabel usageLoopStereotypeLabelFigure0 = new WrappingLabel();
+
             usageLoopStereotypeLabelFigure0.setText("<<Loop>>");
             usageLoopStereotypeLabelFigure0.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode().DPtoLP(0),
                     getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -457,6 +385,7 @@ public class LoopEditPart extends ShapeNodeEditPart {
             this.add(usageLoopStereotypeLabelFigure0, constraintUsageLoopStereotypeLabelFigure0);
 
             fFigureUsageLoopIterationsLabelFigure = new WrappingLabel();
+
             fFigureUsageLoopIterationsLabelFigure.setText("");
             fFigureUsageLoopIterationsLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -478,25 +407,6 @@ public class LoopEditPart extends ShapeNodeEditPart {
          */
         public WrappingLabel getFigureUsageLoopIterationsLabelFigure() {
             return fFigureUsageLoopIterationsLabelFigure;
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
         /**

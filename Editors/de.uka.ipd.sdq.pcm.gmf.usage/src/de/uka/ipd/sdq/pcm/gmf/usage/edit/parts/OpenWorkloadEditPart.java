@@ -66,8 +66,7 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new OpenWorkloadItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -75,7 +74,7 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -100,8 +99,7 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        OpenWorkloadFigure figure = new OpenWorkloadFigure();
-        return primaryShape = figure;
+        return primaryShape = new OpenWorkloadFigure();
     }
 
     /**
@@ -270,7 +268,6 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setBackgroundColor(ColorConstants.yellow);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
@@ -282,6 +279,7 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             WrappingLabel openWorkloadStereotypeLabelFigure0 = new WrappingLabel();
+
             openWorkloadStereotypeLabelFigure0.setText("<<Open Workload>>");
             openWorkloadStereotypeLabelFigure0.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -297,6 +295,7 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
             this.add(openWorkloadStereotypeLabelFigure0, constraintOpenWorkloadStereotypeLabelFigure0);
 
             fFigureOpenWorkloadSpecLabelFigure = new WrappingLabel();
+
             fFigureOpenWorkloadSpecLabelFigure.setText("<spec>");
 
             GridData constraintFFigureOpenWorkloadSpecLabelFigure = new GridData();
@@ -316,25 +315,6 @@ public class OpenWorkloadEditPart extends ShapeNodeEditPart {
          */
         public WrappingLabel getFigureOpenWorkloadSpecLabelFigure() {
             return fFigureOpenWorkloadSpecLabelFigure;
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
     }

@@ -66,8 +66,7 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ClosedWorkloadItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -75,7 +74,7 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
@@ -100,8 +99,7 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        ClosedWorkloadFigure figure = new ClosedWorkloadFigure();
-        return primaryShape = figure;
+        return primaryShape = new ClosedWorkloadFigure();
     }
 
     /**
@@ -115,6 +113,11 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean addFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
+            ((ClosedWorkloadPopulationEditPart) childEditPart).setLabel(getPrimaryShape()
+                    .getFigureClosedWorkloadPopulationFigure());
+            return true;
+        }
         if (childEditPart instanceof ClosedWorkloadTitleLabelEditPart) {
             ((ClosedWorkloadTitleLabelEditPart) childEditPart).setLabel(getPrimaryShape()
                     .getFigureClosedWorkloadTitleLabelFigure());
@@ -125,11 +128,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
                     .getFigureClosedWorkloadThinkTimeLabelFigure());
             return true;
         }
-        if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
-            ((ClosedWorkloadPopulationEditPart) childEditPart).setLabel(getPrimaryShape()
-                    .getFigureClosedWorkloadPopulationFigure());
-            return true;
-        }
         return false;
     }
 
@@ -137,13 +135,13 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected boolean removeFixedChild(EditPart childEditPart) {
+        if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
+            return true;
+        }
         if (childEditPart instanceof ClosedWorkloadTitleLabelEditPart) {
             return true;
         }
         if (childEditPart instanceof ClosedWorkloadThinkTimeLabelEditPart) {
-            return true;
-        }
-        if (childEditPart instanceof ClosedWorkloadPopulationEditPart) {
             return true;
         }
         return false;
@@ -296,7 +294,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setBackgroundColor(ColorConstants.yellow);
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             createContents();
@@ -308,6 +305,7 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
         private void createContents() {
 
             fFigureClosedWorkloadTitleLabelFigure = new WrappingLabel();
+
             fFigureClosedWorkloadTitleLabelFigure.setText("<<ClosedWorkload>>");
             fFigureClosedWorkloadTitleLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -323,6 +321,7 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
             this.add(fFigureClosedWorkloadTitleLabelFigure, constraintFFigureClosedWorkloadTitleLabelFigure);
 
             fFigureClosedWorkloadPopulationFigure = new WrappingLabel();
+
             fFigureClosedWorkloadPopulationFigure.setText("<...>");
             fFigureClosedWorkloadPopulationFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -338,6 +337,7 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
             this.add(fFigureClosedWorkloadPopulationFigure, constraintFFigureClosedWorkloadPopulationFigure);
 
             fFigureClosedWorkloadThinkTimeLabelFigure = new WrappingLabel();
+
             fFigureClosedWorkloadThinkTimeLabelFigure.setText("");
             fFigureClosedWorkloadThinkTimeLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -373,25 +373,6 @@ public class ClosedWorkloadEditPart extends ShapeNodeEditPart {
          */
         public WrappingLabel getFigureClosedWorkloadTitleLabelFigure() {
             return fFigureClosedWorkloadTitleLabelFigure;
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
     }

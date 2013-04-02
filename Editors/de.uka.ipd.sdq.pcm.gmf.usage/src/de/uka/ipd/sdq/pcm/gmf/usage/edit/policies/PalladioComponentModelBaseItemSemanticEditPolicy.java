@@ -34,7 +34,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.helpers.PalladioComponentModelBaseEditHelper;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelUsageDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.usage.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
@@ -112,13 +114,13 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         if (editPolicyCommand != null) {
             ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
                     .getICommand() : new CommandProxy(editPolicyCommand);
-            request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, command);
+            request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, command);
         }
         IElementType requestContextElementType = getContextElementType(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, requestContextElementType);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, requestContextElementType);
         ICommand command = requestContextElementType.getEditCommand(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, null);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, null);
+        request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, null);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, null);
         if (command != null) {
             if (!(command instanceof CompositeTransactionalCommand)) {
                 command = new CompositeTransactionalCommand(getEditingDomain(), command.getLabel()).compose(command);
@@ -275,13 +277,31 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
+    public static LinkConstraints getLinkConstraints() {
+        LinkConstraints cached = PalladioComponentModelUsageDiagramEditorPlugin.getInstance().getLinkConstraints();
+        if (cached == null) {
+            PalladioComponentModelUsageDiagramEditorPlugin.getInstance().setLinkConstraints(
+                    cached = new LinkConstraints());
+        }
+        return cached;
+    }
+
+    /**
+     * @generated
+     */
     public static class LinkConstraints {
 
         /**
          * @generated
          */
-        public static boolean canCreateAbstractUserActionSuccessor_4002(AbstractUserAction source,
-                AbstractUserAction target) {
+        LinkConstraints() {
+            // use static method #getLinkConstraints() to access instance
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canCreateAbstractUserActionSuccessor_4002(AbstractUserAction source, AbstractUserAction target) {
             if (source != null) {
                 if (source.getSuccessor() != null) {
                     return false;
@@ -297,8 +317,7 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         /**
          * @generated
          */
-        public static boolean canExistAbstractUserActionSuccessor_4002(AbstractUserAction source,
-                AbstractUserAction target) {
+        public boolean canExistAbstractUserActionSuccessor_4002(AbstractUserAction source, AbstractUserAction target) {
             return true;
         }
 

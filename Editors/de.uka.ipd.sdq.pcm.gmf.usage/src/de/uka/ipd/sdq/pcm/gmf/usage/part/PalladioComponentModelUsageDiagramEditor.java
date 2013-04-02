@@ -101,6 +101,7 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
     /**
      * @generated
      */
+    @SuppressWarnings("rawtypes")
     public Object getAdapter(Class type) {
         if (type == IShowInTargetList.class) {
             return new IShowInTargetList() {
@@ -254,6 +255,9 @@ public class PalladioComponentModelUsageDiagramEditor extends DiagramDocumentEdi
             return StructuredSelection.EMPTY;
         }
         Diagram diagram = document.getDiagram();
+        if (diagram == null || diagram.eResource() == null) {
+            return StructuredSelection.EMPTY;
+        }
         IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
         if (file != null) {
             PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(diagram, file, false);

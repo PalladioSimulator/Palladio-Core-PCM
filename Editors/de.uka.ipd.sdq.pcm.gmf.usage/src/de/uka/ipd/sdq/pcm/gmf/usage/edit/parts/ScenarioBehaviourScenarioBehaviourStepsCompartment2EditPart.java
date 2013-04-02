@@ -12,9 +12,11 @@ import org.eclipse.gmf.runtime.diagram.ui.figures.ResizableCompartmentFigure;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.ScenarioBehaviourScenarioBehaviourStepsCompartment2CanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.policies.ScenarioBehaviourScenarioBehaviourStepsCompartment2ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.usage.part.Messages;
+import de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * @generated
@@ -56,7 +58,8 @@ public class ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart extends
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
                 new ScenarioBehaviourScenarioBehaviourStepsCompartment2ItemSemanticEditPolicy());
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+                PalladioComponentModelVisualIDRegistry.TYPED_INSTANCE));
         installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
         installEditPolicy(EditPolicyRoles.CANONICAL_ROLE,
                 new ScenarioBehaviourScenarioBehaviourStepsCompartment2CanonicalEditPolicy());

@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.ui.services.parser.ParserHintAdapter;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.parsers.EnumParser;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.ClosedWorkloadPopulationEditPart;
@@ -59,11 +60,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
      */
     private IParser getVariableCharacterisation_3013Parser() {
         if (variableCharacterisation_3013Parser == null) {
-            EAttribute[] features = new EAttribute[] { ParameterPackage.eINSTANCE.getVariableCharacterisation_Type() };
-            MessageFormatParser parser = new MessageFormatParser(features);
-            parser.setViewPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditorPattern("{0} = {1}"); //$NON-NLS-1$
-            parser.setEditPattern("{0} = {1}"); //$NON-NLS-1$
+            EAttribute editableFeature = ParameterPackage.eINSTANCE.getVariableCharacterisation_Type();
+            EnumParser parser = new EnumParser(editableFeature);
             variableCharacterisation_3013Parser = parser;
         }
         return variableCharacterisation_3013Parser;
@@ -117,7 +115,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
             EAttribute[] features = new EAttribute[] { UsagemodelPackage.eINSTANCE.getClosedWorkload_Population() };
             MessageFormatParser parser = new MessageFormatParser(features);
             parser.setViewPattern("Population: {0}"); //$NON-NLS-1$
-            parser.setEditorPattern("{0}"); //$NON-NLS-1$
+            parser.setEditorPattern("Population: {0}"); //$NON-NLS-1$
             parser.setEditPattern("{0}"); //$NON-NLS-1$
             closedWorkloadPopulation_5013Parser = parser;
         }
@@ -131,6 +129,7 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
         switch (visualID) {
         case UsageScenarioLabelEditPart.VISUAL_ID:
             return getUsageScenarioEntityName_5017Parser();
+
         case VariableCharacterisationEditPart.VISUAL_ID:
             return getVariableCharacterisation_3013Parser();
         case BranchTransitionBranchProbabilityEditPart.VISUAL_ID:

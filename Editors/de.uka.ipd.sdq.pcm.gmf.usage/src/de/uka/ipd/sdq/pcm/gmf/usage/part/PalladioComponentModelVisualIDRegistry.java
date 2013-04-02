@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.structure.DiagramStructure;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionBranchProbabilityEditPart;
 import de.uka.ipd.sdq.pcm.gmf.usage.edit.parts.BranchTransitionEditPart;
@@ -105,7 +106,7 @@ public class PalladioComponentModelVisualIDRegistry {
      * @generated
      */
     public static String getType(int visualID) {
-        return String.valueOf(visualID);
+        return Integer.toString(visualID);
     }
 
     /**
@@ -146,6 +147,11 @@ public class PalladioComponentModelVisualIDRegistry {
             }
         }
         switch (containerVisualID) {
+        case UsageScenarioEditPart.VISUAL_ID:
+            if (UsagemodelPackage.eINSTANCE.getUsageScenario().isSuperTypeOf(domainElement.eClass())) {
+                return UsageScenario2EditPart.VISUAL_ID;
+            }
+            break;
         case LoopEditPart.VISUAL_ID:
             if (UsagemodelPackage.eINSTANCE.getScenarioBehaviour().isSuperTypeOf(domainElement.eClass())) {
                 return ScenarioBehaviour2EditPart.VISUAL_ID;
@@ -242,11 +248,6 @@ public class PalladioComponentModelVisualIDRegistry {
                 return DelayEditPart.VISUAL_ID;
             }
             break;
-        case UsageScenarioEditPart.VISUAL_ID:
-            if (UsagemodelPackage.eINSTANCE.getUsageScenario().isSuperTypeOf(domainElement.eClass())) {
-                return UsageScenario2EditPart.VISUAL_ID;
-            }
-            break;
         }
         return -1;
     }
@@ -272,6 +273,11 @@ public class PalladioComponentModelVisualIDRegistry {
             }
         }
         switch (containerVisualID) {
+        case UsageScenarioEditPart.VISUAL_ID:
+            if (UsageScenario2EditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
         case UsageScenario2EditPart.VISUAL_ID:
             if (UsageScenarioLabelEditPart.VISUAL_ID == nodeVisualID) {
                 return true;
@@ -442,11 +448,6 @@ public class PalladioComponentModelVisualIDRegistry {
                 return true;
             }
             break;
-        case UsageScenarioEditPart.VISUAL_ID:
-            if (UsageScenario2EditPart.VISUAL_ID == nodeVisualID) {
-                return true;
-            }
-            break;
         }
         return false;
     }
@@ -467,4 +468,112 @@ public class PalladioComponentModelVisualIDRegistry {
     private static boolean isDiagram(UsageModel element) {
         return true;
     }
+
+    /**
+     * @generated
+     */
+    public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+        if (candidate == -1) {
+            //unrecognized id is always bad
+            return false;
+        }
+        int basic = getNodeVisualID(containerView, domainElement);
+        return basic == candidate;
+    }
+
+    /**
+     * @generated
+     */
+    public static boolean isCompartmentVisualID(int visualID) {
+        switch (visualID) {
+        case UsageScenarioUsageScenarioCompartmentEditPart.VISUAL_ID:
+        case ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart.VISUAL_ID:
+        case EntryLevelSystemCallParameterUsageEditPart.VISUAL_ID:
+        case VariableUsageVariableCharacterisationEditPart.VISUAL_ID:
+        case ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart.VISUAL_ID:
+        case BranchUsageBranchTransitionsCompartmentEditPart.VISUAL_ID:
+        case ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart.VISUAL_ID:
+            return true;
+        default:
+            break;
+        }
+        return false;
+    }
+
+    /**
+     * @generated
+     */
+    public static boolean isSemanticLeafVisualID(int visualID) {
+        switch (visualID) {
+        case UsageScenarioEditPart.VISUAL_ID:
+            return false;
+        case StartEditPart.VISUAL_ID:
+        case StopEditPart.VISUAL_ID:
+        case VariableCharacterisationEditPart.VISUAL_ID:
+        case ClosedWorkloadEditPart.VISUAL_ID:
+        case OpenWorkloadEditPart.VISUAL_ID:
+        case DelayEditPart.VISUAL_ID:
+            return true;
+        default:
+            break;
+        }
+        return false;
+    }
+
+    /**
+     * @generated
+     */
+    public static final DiagramStructure TYPED_INSTANCE = new DiagramStructure() {
+        /**
+         * @generated
+         */
+        @Override
+        public int getVisualID(View view) {
+            return de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry.getVisualID(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public String getModelID(View view) {
+            return de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry.getModelID(view);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public int getNodeVisualID(View containerView, EObject domainElement) {
+            return de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry.getNodeVisualID(
+                    containerView, domainElement);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
+            return de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry.checkNodeVisualID(
+                    containerView, domainElement, candidate);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean isCompartmentVisualID(int visualID) {
+            return de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+                    .isCompartmentVisualID(visualID);
+        }
+
+        /**
+         * @generated
+         */
+        @Override
+        public boolean isSemanticLeafVisualID(int visualID) {
+            return de.uka.ipd.sdq.pcm.gmf.usage.part.PalladioComponentModelVisualIDRegistry
+                    .isSemanticLeafVisualID(visualID);
+        }
+    };
 }

@@ -74,7 +74,7 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
         if (!(oldEnd instanceof AbstractUserAction && newEnd instanceof AbstractUserAction)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistAbstractUserActionSuccessor_4002(getNewSource(), getOldTarget());
     }
 
@@ -85,7 +85,7 @@ public class AbstractUserActionSuccessorReorientCommand extends EditElementComma
         if (!(oldEnd instanceof AbstractUserAction && newEnd instanceof AbstractUserAction)) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canExistAbstractUserActionSuccessor_4002(getOldSource(), getNewTarget());
     }
 

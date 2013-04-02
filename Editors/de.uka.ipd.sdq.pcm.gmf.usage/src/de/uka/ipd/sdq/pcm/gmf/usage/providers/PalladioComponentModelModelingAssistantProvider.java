@@ -51,35 +51,40 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
      */
     public List getTypesForPopupBar(IAdaptable host) {
         IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+        if (editPart instanceof UsageScenarioEditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.UsageScenario_2004);
+            return types;
+        }
         if (editPart instanceof EntryLevelSystemCallEditPart) {
-            ArrayList types = new ArrayList(1);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
             types.add(PalladioComponentModelElementTypes.VariableUsage_3012);
             return types;
         }
         if (editPart instanceof VariableUsageEditPart) {
-            ArrayList types = new ArrayList(1);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
             types.add(PalladioComponentModelElementTypes.VariableCharacterisation_3013);
             return types;
         }
         if (editPart instanceof LoopEditPart) {
-            ArrayList types = new ArrayList(1);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
             types.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3007);
             return types;
         }
         if (editPart instanceof BranchTransitionEditPart) {
-            ArrayList types = new ArrayList(1);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
             types.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3010);
             return types;
         }
         if (editPart instanceof UsageScenarioUsageScenarioCompartmentEditPart) {
-            ArrayList types = new ArrayList(3);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(3);
             types.add(PalladioComponentModelElementTypes.ScenarioBehaviour_3014);
             types.add(PalladioComponentModelElementTypes.ClosedWorkload_3015);
             types.add(PalladioComponentModelElementTypes.OpenWorkload_3016);
             return types;
         }
         if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartmentEditPart) {
-            ArrayList types = new ArrayList(6);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(6);
             types.add(PalladioComponentModelElementTypes.Start_3001);
             types.add(PalladioComponentModelElementTypes.Stop_3002);
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
@@ -89,7 +94,7 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
             return types;
         }
         if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment2EditPart) {
-            ArrayList types = new ArrayList(6);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(6);
             types.add(PalladioComponentModelElementTypes.Start_3001);
             types.add(PalladioComponentModelElementTypes.Stop_3002);
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
@@ -99,23 +104,18 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
             return types;
         }
         if (editPart instanceof BranchUsageBranchTransitionsCompartmentEditPart) {
-            ArrayList types = new ArrayList(1);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
             types.add(PalladioComponentModelElementTypes.BranchTransition_3009);
             return types;
         }
         if (editPart instanceof ScenarioBehaviourScenarioBehaviourStepsCompartment3EditPart) {
-            ArrayList types = new ArrayList(6);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(6);
             types.add(PalladioComponentModelElementTypes.Start_3001);
             types.add(PalladioComponentModelElementTypes.Stop_3002);
             types.add(PalladioComponentModelElementTypes.EntryLevelSystemCall_3003);
             types.add(PalladioComponentModelElementTypes.Loop_3005);
             types.add(PalladioComponentModelElementTypes.Branch_3008);
             types.add(PalladioComponentModelElementTypes.Delay_3017);
-            return types;
-        }
-        if (editPart instanceof UsageScenarioEditPart) {
-            ArrayList types = new ArrayList(1);
-            types.add(PalladioComponentModelElementTypes.UsageScenario_2004);
             return types;
         }
         return Collections.EMPTY_LIST;
@@ -278,9 +278,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
             return null;
         }
         Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
-        Collection elements = new HashSet();
-        for (Iterator it = diagram.getElement().eAllContents(); it.hasNext();) {
-            EObject element = (EObject) it.next();
+        HashSet<EObject> elements = new HashSet<EObject>();
+        for (Iterator<EObject> it = diagram.getElement().eAllContents(); it.hasNext();) {
+            EObject element = it.next();
             if (isApplicableElement(element, types)) {
                 elements.add(element);
             }

@@ -67,8 +67,7 @@ public class PalladioComponentModelSheetLabelProvider extends BaseLabelProvider 
      * @generated
      */
     private IElementType getElementType(View view) {
-        // For intermediate views climb up the containment hierarchy to find the one associated with
-        // an element type.
+        // For intermediate views climb up the containment hierarchy to find the one associated with an element type.
         while (view != null) {
             int vid = PalladioComponentModelVisualIDRegistry.getVisualID(view);
             IElementType etype = PalladioComponentModelElementTypes.getElementType(vid);
