@@ -3,12 +3,16 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.parts;
 
+import org.eclipse.gef.EditPolicy;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.AbstractBorderFigure.POSITION_TYPE;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.InfrastructureRequiredRoleManualFigure;
+import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomInfrastructureRequiredRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.InfrastructureRequiredRoleItemSemanticEditPolicy;
 
 public class CustomInfrastructureRequiredRoleEditPart extends InfrastructureRequiredRoleEditPart {
     public CustomInfrastructureRequiredRoleEditPart(View view) {
@@ -38,4 +42,14 @@ public class CustomInfrastructureRequiredRoleEditPart extends InfrastructureRequ
         return figure;
     }
 
+    @Override
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CustomInfrastructureRequiredRoleItemSemanticEditPolicy());
+        installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
+        // XXX need an SCR to runtime to have another abstract superclass that would let children
+        // add reasonable editpolicies
+        // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
+    }
 }

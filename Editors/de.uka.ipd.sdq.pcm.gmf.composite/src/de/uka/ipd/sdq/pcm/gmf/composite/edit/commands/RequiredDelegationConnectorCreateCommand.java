@@ -79,44 +79,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Create a new RequiredDelegationConnector.
-     * 
-     * This method has been adopted manually, to set the source assembly context in the required
-     * delegation connector.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
-     * @generated not
-     */
-    @Override
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        if (!canExecute()) {
-            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
-        }
-
-        RequiredDelegationConnector newElement = CompositionFactory.eINSTANCE.createRequiredDelegationConnector();
-        getContainer().getConnectors__ComposedStructure().add(newElement);
-        newElement.setInnerRequiredRole_RequiredDelegationConnector(getSource());
-        newElement.setOuterRequiredRole_RequiredDelegationConnector(getTarget());
-
-        // get the assembly context out of the request
-        // it has been set in the OperationRequiredRoleItemSemanticEditPolicy previously
-        IEditCommandRequest request = getRequest();
-        AssemblyContext assemblyContext = (AssemblyContext) request.getParameter("CHILD_CONTEXT");
-        newElement.setAssemblyContext_RequiredDelegationConnector(assemblyContext);
-
-        doConfigure(newElement, monitor, info);
-        ((CreateElementRequest) getRequest()).setNewElement(newElement);
-        return CommandResult.newOKCommandResult(newElement);
-
-    }
-
-    /**
      * @generated
      */
     protected void doConfigure(RequiredDelegationConnector newElement, IProgressMonitor monitor, IAdaptable info)
@@ -184,5 +146,14 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
         }
         return null;
     }
+
+	/**
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		// FIXME regenerate
+		return null;
+	}
 
 }

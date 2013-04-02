@@ -79,42 +79,6 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
-     * Adapted to use correct assembly contexts.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
-     * @generated not
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        if (!canExecute()) {
-            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
-        }
-
-        AssemblyInfrastructureConnector newElement = CompositionFactory.eINSTANCE
-                .createAssemblyInfrastructureConnector();
-        getContainer().getConnectors__ComposedStructure().add(newElement);
-        newElement.setRequiredRole__AssemblyInfrastructureConnector(getSource());
-        newElement.setProvidedRole__AssemblyInfrastructureConnector(getTarget());
-
-        // add assembly contexts
-        CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-        newElement.setRequiringAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) req
-                .getParameter("SOURCE_ASSEMBLY_CONTEXT"));
-        newElement.setProvidingAssemblyContext__AssemblyInfrastructureConnector((AssemblyContext) req
-                .getParameter("TARGET_ASSEMBLY_CONTEXT"));
-
-        doConfigure(newElement, monitor, info);
-        ((CreateElementRequest) getRequest()).setNewElement(newElement);
-        return CommandResult.newOKCommandResult(newElement);
-
-    }
-
-    /**
      * @generated
      */
     protected void doConfigure(AssemblyInfrastructureConnector newElement, IProgressMonitor monitor, IAdaptable info)
@@ -173,5 +137,14 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
         }
         return null;
     }
+
+    /**
+     * @generated
+     */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		// FIXME regenerate
+		return null;
+	}
 
 }

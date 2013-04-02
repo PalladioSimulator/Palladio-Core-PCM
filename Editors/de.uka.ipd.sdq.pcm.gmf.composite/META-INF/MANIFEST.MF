@@ -9,6 +9,7 @@ Bundle-Vendor: %providerName
 Bundle-Localization: plugin
 Export-Package: de.uka.ipd.sdq.pcm.gmf.composite.edit.commands,
  de.uka.ipd.sdq.pcm.gmf.composite.edit.parts,
+ de.uka.ipd.sdq.pcm.gmf.composite.edit.policies,
  de.uka.ipd.sdq.pcm.gmf.composite.part,
  de.uka.ipd.sdq.pcm.gmf.composite.providers
 Require-Bundle: org.eclipse.core.runtime,

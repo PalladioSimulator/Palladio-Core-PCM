@@ -81,22 +81,4 @@ public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRela
         throw new UnsupportedOperationException();
     }
 
-    /**
-     * Do default element creation.
-     * 
-     * @return the e object
-     * @generated not
-     */
-    protected EObject doDefaultElementCreation() {
-        ProvidedDelegationConnector newElement = (ProvidedDelegationConnector) super.doDefaultElementCreation();
-        if (newElement != null) {
-            newElement.setInnerProvidedRole_ProvidedDelegationConnector(myTarget);
-            newElement.setOuterProvidedRole_ProvidedDelegationConnector(mySource);
-            CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-            newElement.setAssemblyContext_ProvidedDelegationConnector((AssemblyContext) req
-                    .getParameter("CHILD_CONTEXT"));
-        }
-        return newElement;
-    }
-
 }

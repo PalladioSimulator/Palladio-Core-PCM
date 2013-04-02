@@ -78,37 +78,13 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
-     * Gets the start create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the start create relationship command
-     * @generated not
+     * @generated
      */
-    protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-        if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
-            EObject sourceEObject = req.getSource();
-            if (!(sourceEObject instanceof InfrastructureRequiredRole)) {
-                return UnexecutableCommand.INSTANCE;
-            }
-            InfrastructureRequiredRole source = (InfrastructureRequiredRole) sourceEObject;
-            ComposedStructure container = (ComposedStructure) getRelationshipContainer(source,
-                    CompositionPackage.eINSTANCE.getComposedStructure(), req.getElementType());
-            if (container == null) {
-                return UnexecutableCommand.INSTANCE;
-            }
-            if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                    .canCreateAssemblyInfrastructureConnector_4008(container, source, null)) {
-                return UnexecutableCommand.INSTANCE;
-            }
-            // added to provide assembly context in addition to source and target role
-            req.setParameter("SOURCE_ASSEMBLY_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
-
-            return new Command() {
-            };
-        }
-        return null;
-    }
+    protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		// FIXME is only referenced in getCreateRelatioshipCommand? / regenerate
+		return null;
+	}
 
     /**
      * @generated

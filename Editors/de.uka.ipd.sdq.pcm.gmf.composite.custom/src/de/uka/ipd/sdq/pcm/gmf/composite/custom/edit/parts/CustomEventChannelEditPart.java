@@ -5,10 +5,12 @@ package de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.parts;
 
 import org.eclipse.draw2d.geometry.PointList;
 import org.eclipse.draw2d.geometry.Rectangle;
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomEventChannelItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
 
 public class CustomEventChannelEditPart extends EventChannelEditPart {
@@ -42,4 +44,8 @@ public class CustomEventChannelEditPart extends EventChannelEditPart {
 
     }
 
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CustomEventChannelItemSemanticEditPolicy());
+    }
 }

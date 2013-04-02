@@ -34,8 +34,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure.POSITION_TYPE;
-import de.uka.ipd.sdq.pcm.gmf.composite.BallFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.OperationProvidedRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
@@ -44,9 +42,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
  * @generated
  */
 public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
-
-    /** size of the figure in LP. @generated not */
-    private static final int FIGURE_LOGICAL_SIZE = 30;
 
     /**
      * @generated
@@ -149,23 +144,6 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
-     * Create the Node Plate. This triggers the drawing of the ball figure
-     * 
-     * @return the node figure
-     * @generated not
-     */
-    protected NodeFigure createNodePlate() {
-        // DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(getMapMode()
-        // .DPtoLP(20), getMapMode().DPtoLP(20));
-
-        BallFigure result = new BallFigure(getMapMode().DPtoLP(FIGURE_LOGICAL_SIZE), POSITION_TYPE.POS_INTERNAL);
-
-        // FIXME: workaround for #154536
-        result.getBounds().setSize(result.getPreferredSize());
-        return result;
-    }
-
-    /**
      * @generated
      */
     public EditPolicy getPrimaryDragEditPolicy() {
@@ -175,27 +153,6 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
             ep.setResizeDirections(PositionConstants.NONE);
         }
         return result;
-    }
-
-    /**
-     * Creates figure for this edit part.
-     * 
-     * Call the createNodePlate() method
-     * 
-     * Original generated Comment: Body of this method does not depend on settings in generation
-     * model so you may safely remove <i>generated</i> tag and modify it.
-     * 
-     * @return the node figure
-     * @generated not
-     */
-    protected NodeFigure createMainFigure() {
-        NodeFigure figure = createNodePlate();
-        // figure.setLayoutManager(new StackLayout());
-        // IFigure shape = createNodeShape();
-        // figure.add(shape);
-        // contentPane = setupContentPane(shape);
-
-        return figure;
     }
 
     /**
@@ -414,5 +371,14 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
         }
 
     }
+
+    /**
+     * @generated
+     */
+	@Override
+	protected NodeFigure createMainFigure() {
+		// FIXME: regenerate
+		return null;
+	}
 
 }

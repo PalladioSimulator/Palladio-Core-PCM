@@ -53,32 +53,6 @@ public class RequiredRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
-     * @generated NOT
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        RequiredRole newElement = RepositoryFactory.eINSTANCE.createOperationRequiredRole(); // changed
-                                                                                             // createRequiredRole
-                                                                                             // to
-
-        InterfaceRequiringEntity owner = (InterfaceRequiringEntity) getElementToEdit();
-        owner.getRequiredRoles_InterfaceRequiringEntity().add(newElement);
-
-        doConfigure(newElement, monitor, info);
-
-        ((CreateElementRequest) getRequest()).setNewElement(newElement);
-        return CommandResult.newOKCommandResult(newElement);
-    }
-
-    /**
      * @generated
      */
     protected void doConfigure(RequiredRole newElement, IProgressMonitor monitor, IAdaptable info)
@@ -92,5 +66,14 @@ public class RequiredRoleCreateCommand extends EditElementCommand {
             configureCommand.execute(monitor, info);
         }
     }
+
+	/**
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		// FIXME regenerate
+		return null;
+	}
 
 }

@@ -93,6 +93,15 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     /**
      * @generated
      */
+    private Command getCompleteCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		// FIXME is only referenced in getCreateRelatioshipCommand? / regenerate
+		return null;
+	}
+
+	/**
+     * @generated
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
             return null;
@@ -101,29 +110,6 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
             return getGEFWrapper(new ProvidedDelegationConnectorCreateCommand(req, req.getSource(), req.getTarget()));
         }
         return null;
-    }
-
-    /**
-     * Gets the complete create relationship command.
-     * 
-     * @param req
-     *            the req
-     * @return the complete create relationship command
-     * @generated not
-     */
-    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-        return null;
-        // if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req
-        // .getElementType()) {
-        // return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req
-        // .getSource(), req.getTarget()));
-        // }
-        // if (PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006 == req
-        // .getElementType()) {
-        // return getGEFWrapper(new ProvidedDelegationConnectorCreateCommand(
-        // req, req.getSource(), req.getTarget()));
-        // }
-        // return null;
     }
 
     /**

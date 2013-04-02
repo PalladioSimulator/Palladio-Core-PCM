@@ -34,38 +34,6 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
     Set myFeaturesToSynchronize;
 
     /**
-     * Gets the semantic children list.
-     * 
-     * @return the semantic children list
-     * @generated not
-     */
-    protected List getSemanticChildrenList() {
-        View viewObject = (View) getHost().getModel();
-        EObject modelObject = viewObject.getElement();
-        List result = new LinkedList();
-
-        if (modelObject != null && modelObject instanceof ComposedStructure) {
-            for (AssemblyContext assemblyContext : ((ComposedStructure) modelObject)
-                    .getAssemblyContexts__ComposedStructure()) {
-
-                int assemblyNodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(viewObject,
-                        assemblyContext);
-                if (AssemblyContextEditPart.VISUAL_ID == assemblyNodeVID) {
-                    result.add(assemblyContext);
-                }
-            }
-            for (EventChannel eventChannel : ((ComposedStructure) modelObject).getEventChannel__ComposedStructure()) {
-
-                int channelNodeVID = PalladioComponentModelVisualIDRegistry.getNodeVisualID(viewObject, eventChannel);
-                if (EventChannelEditPart.VISUAL_ID == channelNodeVID) {
-                    result.add(eventChannel);
-                }
-            }
-        }
-        return result;
-    }
-
-    /**
      * @generated
      */
     protected boolean isOrphaned(Collection semanticChildren, final View view) {
@@ -100,5 +68,13 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentC
         }
         return myFeaturesToSynchronize;
     }
+
+	/*
+	 * @generated
+	 */
+	protected List getSemanticChildrenList() {
+		// FIXME regenerate
+		return null;
+	}
 
 }

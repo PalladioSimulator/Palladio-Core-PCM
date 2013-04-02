@@ -7,7 +7,6 @@ import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
@@ -17,9 +16,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
@@ -77,35 +73,18 @@ public class InfrastructureProvidedRoleItemSemanticEditPolicy extends PalladioCo
     /**
      * @generated
      */
+    protected Command getCompleteCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+		// FIXME is only referenced in getCreateRelatioshipCommand? / regenerate
+		return null;
+	}
+
+	/**
+     * @generated
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
             return null;
-        }
-        return null;
-    }
-
-    /**
-     * Adapted to transfer information on containing component and assembly context of target.
-     * 
-     * @param req
-     *            the req
-     * @return the complete create relationship command
-     * @generated not
-     */
-    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
-        if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
-
-            // set the container
-            ComposedStructure container = (ComposedStructure) getRelationshipContainer(req.getSource(),
-                    CompositionPackage.eINSTANCE.getComposedStructure(), req.getElementType());
-            if (container == null) {
-                return UnexecutableCommand.INSTANCE;
-            }
-            req.setParameter("CONTAINER", container);
-
-            // set assembly context
-            req.setParameter("TARGET_ASSEMBLY_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
-            return getGEFWrapper(new AssemblyInfrastructureConnectorCreateCommand(req, req.getSource(), req.getTarget()));
         }
         return null;
     }

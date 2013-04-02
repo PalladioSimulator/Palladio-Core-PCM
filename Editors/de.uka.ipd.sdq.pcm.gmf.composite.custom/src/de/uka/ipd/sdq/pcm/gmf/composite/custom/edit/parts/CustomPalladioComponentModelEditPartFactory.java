@@ -20,11 +20,17 @@ public class CustomPalladioComponentModelEditPartFactory extends PalladioCompone
             View view = (View) model;
             switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
             
+            case CustomAssemblyContextEditPart.VISUAL_ID:
+            	return new CustomAssemblyContextEditPart(view);
+            
             case CustomAssemblyEventConnectorEditPart.VISUAL_ID:
             	return new CustomAssemblyEventConnectorEditPart(view);
             
             case CustomComposedProvidingRequiringEntity2EditPart.VISUAL_ID:
             	return new CustomComposedProvidingRequiringEntity2EditPart(view);
+            	
+            case CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart.VISUAL_ID:
+            	return new CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart(view);
             	
             case CustomEventChannelEditPart.VISUAL_ID:
             	return new CustomEventChannelEditPart(view);

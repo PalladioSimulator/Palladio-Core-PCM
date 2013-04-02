@@ -78,39 +78,6 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
-     * @generated not
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        if (!canExecute()) {
-            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
-        }
-
-        EventChannelSourceConnector newElement = CompositionFactory.eINSTANCE.createEventChannelSourceConnector();
-        getContainer().getConnectors__ComposedStructure().add(newElement);
-        newElement.setSourceRole__EventChannelSourceRole(getSource());
-        newElement.setEventChannel__EventChannelSourceConnector(getTarget());
-
-        // set the assembly contexts.
-        CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-        newElement
-                .setAssemblyContext__EventChannelSourceConnector((AssemblyContext) req.getParameter("SOURCE_CONTEXT"));
-
-        doConfigure(newElement, monitor, info);
-        ((CreateElementRequest) getRequest()).setNewElement(newElement);
-        return CommandResult.newOKCommandResult(newElement);
-
-    }
-
-    /**
      * @generated
      */
     protected void doConfigure(EventChannelSourceConnector newElement, IProgressMonitor monitor, IAdaptable info)
@@ -185,5 +152,14 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
         }
         return null;
     }
+
+    /**
+     * @generated
+     */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		// FIXME regenerate
+		return null;
+	}
 
 }

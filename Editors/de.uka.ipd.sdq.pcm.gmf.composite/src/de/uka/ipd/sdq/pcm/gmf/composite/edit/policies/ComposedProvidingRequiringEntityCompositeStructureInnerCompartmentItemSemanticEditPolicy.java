@@ -27,6 +27,7 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentI
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
+    	// FIXME regenerate
         if (PalladioComponentModelElementTypes.AssemblyContext_3006 == req.getElementType()) {
             return getGEFWrapper(new AssemblyContextCreateCommand(req));
         }

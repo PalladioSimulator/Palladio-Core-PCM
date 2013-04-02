@@ -82,40 +82,6 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
         return super.getCreateCommand(req);
     }
 
-    // TODO: write javadoc and annotations
-    /**
-     * Gets the destroy element command.
-     * 
-     * @param req
-     *            the req
-     * @return the destroy element command
-     * @generated not
-     */
-    protected Command getDestroyElementCommand(DestroyElementRequest req) {
-        CompoundCommand cc = new CompoundCommand();
-        Collection allEdges = new ArrayList();
-        View view = (View) getHost().getModel();
-        for (Object p : getHost().getChildren()) {
-            if (p instanceof BorderedBorderItemEditPart) {
-                BorderedBorderItemEditPart borderItem = (BorderedBorderItemEditPart) p;
-                if (borderItem.getModel() != null && borderItem.getModel() instanceof View) {
-                    allEdges.addAll(((View) borderItem.getModel()).getSourceEdges());
-                    allEdges.addAll(((View) borderItem.getModel()).getTargetEdges());
-                }
-            }
-        }
-        for (Iterator it = allEdges.iterator(); it.hasNext();) {
-            Edge nextEdge = (Edge) it.next();
-            EditPart nextEditPart = (EditPart) getHost().getViewer().getEditPartRegistry().get(nextEdge);
-            EditCommandRequestWrapper editCommandRequest = new EditCommandRequestWrapper(new DestroyElementRequest(
-                    ((AssemblyContextEditPart) getHost()).getEditingDomain(), req.isConfirmationRequired()),
-                    Collections.EMPTY_MAP);
-            cc.add(nextEditPart.getCommand(editCommandRequest));
-        }
-        cc.add(getGEFWrapper(new DestroyElementCommand(req)));
-        return cc;
-    }
-
     /**
      * @generated
      */

@@ -3,11 +3,13 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.parts;
 
+import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.AbstractBorderFigure.POSITION_TYPE;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.BallFigure;
+import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomOperationProvidedRole2ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart;
 
 public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2EditPart {
@@ -55,5 +57,10 @@ public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2
         // contentPane = setupContentPane(shape);
 
         return figure;
+    }
+    
+    protected void createDefaultEditPolicies() {
+        super.createDefaultEditPolicies();
+        installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CustomOperationProvidedRole2ItemSemanticEditPolicy());
     }
 }

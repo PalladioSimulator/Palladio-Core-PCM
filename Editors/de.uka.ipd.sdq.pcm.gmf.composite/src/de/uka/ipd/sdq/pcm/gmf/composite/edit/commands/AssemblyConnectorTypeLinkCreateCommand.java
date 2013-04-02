@@ -8,8 +8,6 @@ import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
@@ -81,25 +79,4 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
     protected void setElementToEdit(EObject element) {
         throw new UnsupportedOperationException();
     }
-
-    /**
-     * Do default element creation.
-     * 
-     * @return the e object
-     * @generated not
-     */
-    protected EObject doDefaultElementCreation() {
-        AssemblyConnector newElement = (AssemblyConnector) super.doDefaultElementCreation();
-        if (newElement != null) {
-            newElement.setProvidedRole_AssemblyConnector(myTarget);
-            newElement.setRequiredRole_AssemblyConnector(mySource);
-            CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-            newElement.setRequiringAssemblyContext_AssemblyConnector((AssemblyContext) req
-                    .getParameter("REQ_CHILD_CONTEXT"));
-            newElement.setProvidingAssemblyContext_AssemblyConnector((AssemblyContext) req
-                    .getParameter("PROV_CHILD_CONTEXT"));
-        }
-        return newElement;
-    }
-
 }

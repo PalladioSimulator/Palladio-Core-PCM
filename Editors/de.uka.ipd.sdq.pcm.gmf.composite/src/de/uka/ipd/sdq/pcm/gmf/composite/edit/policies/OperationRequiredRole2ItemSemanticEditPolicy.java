@@ -89,22 +89,15 @@ public class OperationRequiredRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * Get the create relation ship start command.
-     * 
-     * This method has manually adopted to disallow any connectors to be started at the system
-     * required role. AssemblyConnectors are not allowed anyway and delegation connectors should be
-     * started at the inner operation required role.
-     * 
-     * @param req
-     *            the req
-     * @return the start create relationship command
-     * @generated not
+     * @generated
      */
-    protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
-        return null;
-    }
+    protected Command getStartCreateRelationshipCommand(
+			CreateRelationshipRequest req) {
+    	// FIXME is only referenced in getCreateRelatioshipCommand? / regenerate
+    	return null;
+	}
 
-    /**
+	/**
      * @generated
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {

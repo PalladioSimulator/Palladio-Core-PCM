@@ -34,8 +34,6 @@ import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
 
-import de.uka.ipd.sdq.pcm.gmf.composite.AbstractBorderFigure.POSITION_TYPE;
-import de.uka.ipd.sdq.pcm.gmf.composite.SinkFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SinkRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
@@ -44,10 +42,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
  * @generated
  */
 public class SinkRoleEditPart extends BorderedBorderItemEditPart {
-
-    /** size of the figure in LP. @generated not */
-    private static final int FIGURE_LOGICAL_SIZE = 30;
-
     /**
      * @generated
      */
@@ -157,24 +151,6 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
         // FIXME: workaround for #154536
         result.getBounds().setSize(result.getPreferredSize());
         return result;
-    }
-
-    /**
-     * Creates figure for this edit part.
-     * 
-     * Body of this method does not depend on settings in generation model so you may safely remove
-     * <i>generated</i> tag and modify it.
-     * 
-     * Manually modified to generate a specific sink figure instead of the standard shape configured
-     * in the map model.
-     * 
-     * @return the node figure
-     * @generated not
-     */
-    protected NodeFigure createMainFigure() {
-        SinkFigure figure = new SinkFigure(getMapMode().DPtoLP(FIGURE_LOGICAL_SIZE), POSITION_TYPE.POS_INTERNAL);
-        figure.getBounds().setSize(figure.getPreferredSize());
-        return figure;
     }
 
     /**
@@ -377,5 +353,14 @@ public class SinkRoleEditPart extends BorderedBorderItemEditPart {
         }
 
     }
+
+    /**
+     * @generated
+     */
+	@Override
+	protected NodeFigure createMainFigure() {
+		// FIXME regenerate
+		return null;
+	}
 
 }

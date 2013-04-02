@@ -15,9 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
 // TODO: decide whether this file is obsolete
 
@@ -53,34 +51,6 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
     }
 
     /**
-     * Do execute with result.
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
-     * @generated not
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        ProvidedRole newElement = RepositoryFactory.eINSTANCE.createOperationProvidedRole(); // change
-                                                                                             // createProvidedRole
-                                                                                             // to
-                                                                                             // OperationProvidedRole
-                                                                                             // to
-
-        InterfaceProvidingEntity owner = (InterfaceProvidingEntity) getElementToEdit();
-        owner.getProvidedRoles_InterfaceProvidingEntity().add(newElement);
-
-        doConfigure(newElement, monitor, info);
-
-        ((CreateElementRequest) getRequest()).setNewElement(newElement);
-        return CommandResult.newOKCommandResult(newElement);
-    }
-
-    /**
      * @generated
      */
     protected void doConfigure(ProvidedRole newElement, IProgressMonitor monitor, IAdaptable info)
@@ -94,5 +64,14 @@ public class ProvidedRoleCreateCommand extends EditElementCommand {
             configureCommand.execute(monitor, info);
         }
     }
+
+	/**
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		// FIXME regenerate
+		return null;
+	}
 
 }

@@ -4,16 +4,14 @@
 Copyright 2007, IPD, SDQ, University of Karlsruhe
 -->
 <plugin>
-
    <extension point="org.eclipse.gmf.runtime.diagram.ui.editpartProviders" id="ep-provider">
-
       <editpartProvider class="de.uka.ipd.sdq.pcm.gmf.composite.custom.providers.CustomPalladioComponentModelEditPartProvider">
          <Priority name="Low"/>
          <object class="org.eclipse.gmf.runtime.notation.Diagram" id="generated-diagram">
             <method name="getType()" value="PCM Composite Model"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-nodes">
-            <method name="getType()" value="2002,3007,3008,3011,3012,3013,3014,3015,3016,3017"/>
+            <method name="getType()" value="2002,3006,3007,3008,3011,3012,3013,3014,3015,3016,3017"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Edge" id="generated-links">
             <method name="getType()" value="4007,4010"/>
@@ -22,10 +20,9 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <method name="getType()" value="0"/>
          </object>
          <object class="org.eclipse.gmf.runtime.notation.Node" id="generated-compartments">
-            <method name="getType()" value="0"/>
+            <method name="getType()" value="7002,0"/>
          </object>
          <context views="generated-diagram,generated-nodes,generated-links,generated-labels,generated-compartments"/>
       </editpartProvider>
    </extension>
-
 </plugin>

@@ -21,7 +21,6 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
@@ -204,35 +203,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
             return;
         }
         super.removeChildVisual(childEditPart);
-    }
-
-    /**
-     * Gets the content pane for.
-     * 
-     * @param editPart
-     *            the edit part
-     * @return the content pane for
-     * @generated not
-     */
-    protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
-
-        // TODO: Proof necessity of instance of type check
-        // We found out that "return editPart.getFigure().getParent();" is sufficient
-        // for the InnerCompartment. It might be sufficient for the roles to.
-        // This should be proven and instance of separation removed if possible
-        // (benjamin klatt)
-
-        if (editPart instanceof OperationProvidedRoleEditPart) {
-            return getBorderedFigure().getBorderItemContainer();
-        }
-        if (editPart instanceof OperationRequiredRoleEditPart) {
-            return getBorderedFigure().getBorderItemContainer();
-        }
-        if (editPart instanceof ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) {
-            // get the rectangle figure that should be resized
-            return editPart.getFigure().getParent();
-        }
-        return super.getContentPaneFor(editPart);
     }
 
     /**

@@ -15,9 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
@@ -75,40 +73,6 @@ public class EventChannelSinkConnectorCreateCommand extends EditElementCommand {
         }
         return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
                 .canCreateEventChannelSinkConnector_4010(getContainer(), getSource(), getTarget());
-    }
-
-    /**
-     * Execute the command to build up the new assembly event connector.
-     * 
-     * This has been manually modified to set the additional assembly context references
-     * 
-     * @param monitor
-     *            the monitor
-     * @param info
-     *            the info
-     * @return the command result
-     * @throws ExecutionException
-     *             the execution exception
-     * @generated not
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
-        if (!canExecute()) {
-            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
-        }
-
-        EventChannelSinkConnector newElement = CompositionFactory.eINSTANCE.createEventChannelSinkConnector();
-        getContainer().getConnectors__ComposedStructure().add(newElement);
-        newElement.setSinkRole__EventChannelSinkConnector(getSource());
-        newElement.setEventChannel__EventChannelSinkConnector(getTarget());
-
-        // set the assembly contexts.
-        CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
-        newElement.setAssemblyContext__EventChannelSinkConnector((AssemblyContext) req.getParameter("SINK_CONTEXT"));
-
-        doConfigure(newElement, monitor, info);
-        ((CreateElementRequest) getRequest()).setNewElement(newElement);
-        return CommandResult.newOKCommandResult(newElement);
-
     }
 
     /**
@@ -186,5 +150,14 @@ public class EventChannelSinkConnectorCreateCommand extends EditElementCommand {
         }
         return null;
     }
+
+	/**
+	 * @generated
+	 */
+	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
+			IAdaptable info) throws ExecutionException {
+		// FIXME regenerate
+		return null;
+	}
 
 }
