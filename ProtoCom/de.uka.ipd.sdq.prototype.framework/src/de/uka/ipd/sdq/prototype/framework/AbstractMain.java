@@ -1,7 +1,7 @@
 package de.uka.ipd.sdq.prototype.framework;
 
-import java.io.File;
 import java.lang.reflect.Method;
+import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -16,14 +16,14 @@ import de.uka.ipd.sdq.measurement.strategies.activeresource.DegreeOfAccuracyEnum
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
+import de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager;
+import de.uka.ipd.sdq.prototype.framework.experiment.IExperimentManager;
 import de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry;
 import de.uka.ipd.sdq.prototype.framework.utils.CommandLineParser;
 import de.uka.ipd.sdq.prototype.framework.utils.RunProperties;
 import de.uka.ipd.sdq.prototype.framework.utils.UserMenu;
-import de.uka.ipd.sdq.sensorframework.dao.file.FileDAOFactory;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;
-import de.uka.ipd.sdq.sensorframework.entities.dao.IDAOFactory;
 
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 
@@ -42,13 +42,6 @@ public abstract class AbstractMain {
 	 * all log output.
 	 */
 	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
-
-	/**
-	 * Attributes for the measurements store.
-	 */
-	private static IDAOFactory datasource = null;
-
-	private ExperimentRun expRun;
 
 	/**
 	 * Threads used to simulate users.
@@ -75,6 +68,8 @@ public abstract class AbstractMain {
 		initAllocationStorage();
 		AbstractAllocationStorage.initContainer();
 
+		// FIXME: This should be removed. A fixed seed makes no sense in
+		//        ProtoCom since the order of numbers will be messed up anyway.
 		DefaultRandomGenerator randomGen = new DefaultRandomGenerator();
 		if (runProps.hasOption('E')) {
 			randomGen.setSeed(Long.parseLong(runProps.getOptionValue('E')));
@@ -125,18 +120,16 @@ public abstract class AbstractMain {
 			// Usage Scenarios
 			logger.debug("Start: Usage Scenarios");
 
-			createExperiment();
-			initMeasurement();
+			try {
+				ExperimentManager.init(runProps.getOptionValue('n') + " (Usage Scenario)", runProps.getOptionValue('d') + "-UsageScenario", IExperimentManager.EXPERIMENT_MANAGER_MASTER);
+				ExperimentManager.getInstance().startNewExperimentRun();
+			} catch (RemoteException e) {
+				e.printStackTrace();
+			}
+			
+			startMeasurements();
 		} else {
 			int i = 4;
-
-			// This data source is only used temporary by components for inner
-			// sensors and NOT for
-			// the usage scenario.
-			// This should be refactored into a better place, just like all in
-			// this class...
-			datasource = prepareDatasource();
-			ExperimentManager.setExperiment(datasource.createExperimentDAO().addExperiment(runProps.getOptionValue('n')));
 
 			// systems
 			String[][] systems = getSystems();
@@ -154,6 +147,10 @@ public abstract class AbstractMain {
 				if (itemId == i) {
 					logger.debug("Start: Container " + AbstractAllocationStorage.getContainerName(containerId));
 					AbstractAllocationStorage.setActiveContainer(containerId);
+					
+					ExperimentManager.init(runProps.getOptionValue('n') + " (" + AbstractAllocationStorage.getContainerName(containerId) + ")", runProps.getOptionValue('d') + "-" + AbstractAllocationStorage.getContainerName(containerId), IExperimentManager.EXPERIMENT_MANAGER_SLAVE);
+					ExperimentManager.getInstance().createExperimentRun();
+					
 					setupResources();
 
 					startComponentsFromContainer(containerId);
@@ -190,11 +187,11 @@ public abstract class AbstractMain {
 		return null;
 	}
 
-	protected void initMeasurement() {
+	protected void startMeasurements() {
 		// init threads if configuration is active server (not -P) or only
 		// warmup requested.
 		if (!runProps.hasOption('P') || runProps.hasOption('W')) {
-			initialiseThreads(ExperimentManager.getExperiment(), expRun);
+			initialiseThreads(ExperimentManager.getExperiment(), ExperimentManager.getLatestExperimentRun());
 		}
 
 		// run measurements if the configuration is neither passive nor warmup
@@ -208,11 +205,13 @@ public abstract class AbstractMain {
 
 				stop();
 
+				logger.info("Current time: " + new Date());
+				ExperimentManager.getInstance().writeResultsAndClose();
+				
 			} catch (RuntimeException e) {
 				throw e;
-			} finally {
-				logger.info("Current time: " + new Date());
-				writeResultsAndClose(datasource);
+			} catch (RemoteException e) {
+				logger.error("Error when calling remote server.", e);
 			}
 		}
 
@@ -220,19 +219,13 @@ public abstract class AbstractMain {
 		System.exit(0);
 	}
 
-	private void createExperiment() {
-		datasource = prepareDatasource();
-		ExperimentManager.setExperiment(datasource.createExperimentDAO().addExperiment(runProps.getOptionValue('n')));
-		expRun = ExperimentManager.addExperimentRun();
-		logger.info("Created data source at event time " + (System.nanoTime() / Math.pow(10, 9)));
-	}
-
 	/**
 	 * Starts the prototype in a local mode. This can only be used for testing,
 	 * since all systems/components are started on one piece of hardware.
 	 */
 	private void startLocalMode() {
-		createExperiment();
+		ExperimentManager.init(runProps.getOptionValue('n'), runProps.getOptionValue('d'), IExperimentManager.EXPERIMENT_MANAGER_SLAVE);
+		ExperimentManager.getInstance().createExperimentRun();
 
 		Collection<String> containers = AbstractAllocationStorage.getContainerIds();
 
@@ -242,7 +235,7 @@ public abstract class AbstractMain {
 
 		initialiseSystems();
 		
-		initMeasurement();
+		startMeasurements();
 	}
 
 	private void startComponentsFromContainer(String containerId) {
@@ -276,21 +269,6 @@ public abstract class AbstractMain {
 			logger.info("Failed to retrieve main class. Falling back to menu mode");
 		}
 		return null;
-	}
-
-	private static void writeResultsAndClose(IDAOFactory datasource) {
-		logger.info("Storing results...");
-		datasource.createExperimentDAO().storeAll();
-		datasource.finalizeAndClose();
-		logger.info("...Done!");
-
-		// wait a little before closing down results writer
-		try {
-			Thread.sleep(1000);
-		} catch (InterruptedException e) {
-			logger.error("Failed to persist measurements", e);
-			System.exit(-1);
-		}
 	}
 
 	private void startThreads() {
@@ -330,36 +308,6 @@ public abstract class AbstractMain {
 				e.printStackTrace();
 				throw new RuntimeException(e);
 			}
-		}
-	}
-
-	/**
-	 * 
-	 * @return
-	 */
-	private IDAOFactory prepareDatasource() {
-		if (!checkDirectory(runProps.getOptionValue('d'))) {
-			String error = "Unable to find data directory. Ensure data directory exists and is writeable";
-			logger.error(error);
-			throw new RuntimeException(error);
-		}
-		return new FileDAOFactory(runProps.getOptionValue('d'));
-	}
-
-	/**
-	 * 
-	 * @param path
-	 * @return
-	 */
-	private boolean checkDirectory(String path) {
-		File f = new File(path);
-		if (f.isDirectory() && f.canWrite()) {
-			return true;
-		}
-		if (!f.exists()) {
-			return f.mkdir();
-		} else {
-			return false;
 		}
 	}
 

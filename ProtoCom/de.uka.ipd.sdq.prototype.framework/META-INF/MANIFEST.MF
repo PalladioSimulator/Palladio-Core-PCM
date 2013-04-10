@@ -5,6 +5,7 @@ Bundle-SymbolicName: de.uka.ipd.sdq.prototype.framework
 Bundle-Version: 1.0.0.qualifier
 Export-Package: .,
  de.uka.ipd.sdq.prototype.framework,
+ de.uka.ipd.sdq.prototype.framework.experiment,
  de.uka.ipd.sdq.prototype.framework.port,
  de.uka.ipd.sdq.prototype.framework.registry,
  de.uka.ipd.sdq.prototype.framework.strategies,

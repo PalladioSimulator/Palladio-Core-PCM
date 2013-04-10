@@ -88,11 +88,11 @@
 // Sensors TM
 //-------------------------
 «AROUND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR String»
-	«REM»«EXPAND m2t_transforms::prototype::sensors::StartResponseTimeMeasurement FOR this»	«ENDREM»
+	«EXPAND m2t_transforms::prototype::sensors::StartResponseTimeMeasurement FOR this»	
 «ENDAROUND»
  
 «AROUND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR String»
-	«REM»«EXPAND m2t_transforms::prototype::sensors::EndResponseTimeMeasurement FOR this»«ENDREM»
+	«EXPAND m2t_transforms::prototype::sensors::EndResponseTimeMeasurement FOR this»
 «ENDAROUND»
 
 //-------------------------
@@ -178,7 +178,6 @@
 
 «AROUND m2t_transforms::seff_body::Action FOR StopAction»
 	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
-	«REM»Use ::prototype::seff_body::Action when reimplementing sensors! Bug PALLADIO-119«ENDREM»
 «ENDAROUND» 
 
 «AROUND m2t_transforms::java_core::ContextTypeTM FOR AbstractAction»

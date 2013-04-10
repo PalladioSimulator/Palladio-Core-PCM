@@ -77,10 +77,16 @@
 		{
 			protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
 		
+			«EXPAND m2t_transforms::prototype::java_core::SensorDefinition FOREACH this.scenarioBehaviour_UsageScenario.querySystemCalls()»
+		
 			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+
+			private de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun;
 
 			public «this.javaName()»() {
 				«EXPAND CreateSystemVar FOREACH this.querySystemCalls().getSystemsFromCalls()»
+			
+				«EXPAND m2t_transforms::prototype::java_core::SensorInitialisation FOREACH this.scenarioBehaviour_UsageScenario.querySystemCalls()»	
 			
 	            «EXPAND ContextInit FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
 				
@@ -204,12 +210,8 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.usage.Abst
 «ENDDEFINE»
 
 «DEFINE UsageScenarioAddition FOR UsageScenario»
-
-		//FIXME: why is expRun needed?
-        // expRun = de.uka.ipd.sdq.prototype.framework.AbstractMain.getLatestExperimentRun();
+        expRun = de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.getLatestExperimentRun();
         
-        //FIXME: declare and initialise sensors  
-
 		ctx.getStack().createAndPushNewStackFrame();
 		
 		// de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache
@@ -229,12 +231,12 @@ class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.usage.Abst
 	{
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> outerStackframe = ctx.getStack().createAndPushNewStackFrame();
 		
-		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»
+		«REM»We are using sensors on EntryLevelSystemCalls now. «EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»«ENDREM»
 		{	
 			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
 
 		}
-		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»
+		«REM»«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»«ENDREM»
 		
 		ctx.getStack().removeStackFrame();
 	}

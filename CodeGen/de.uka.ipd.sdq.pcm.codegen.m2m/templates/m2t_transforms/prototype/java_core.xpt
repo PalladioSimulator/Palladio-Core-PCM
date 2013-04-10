@@ -5,6 +5,7 @@
 «IMPORT repository»
 «IMPORT seff»
 «IMPORT core::entity»
+«IMPORT usagemodel»
 
 «DEFINE ComponentConstructor FOR RepositoryComponent»
 «ENDDEFINE»
@@ -13,29 +14,25 @@
 	private static org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());
 			
-	«REM»//protected String assemblyContextID = ""; «ENDREM»
+	protected String assemblyContextID = "";
 	
 	«REM»
 	Sensores are removed by now. They can be added again, however, 
 	collecting the results in one place has to be implemented first!
+	«ENDREM»
 	
 	«EXPAND SensorDefinition FOREACH this.getExternalCallActions()»
 	«EXPAND SEFFSensorDefinitionForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
-	private de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun;
-	«ENDREM»
 	
 	«EXPAND m2t_transforms::resources::PassiveResourceInitTM FOREACH this.passiveResource_BasicComponent»
 	
-	public «this.javaName()»(String assemblyContext) {
+	public «this.javaName()»(String assemblyContextID) {
+	
+		this.assemblyContextID = assemblyContextID;
 
-		«REM»
-		See comment above.
-		
-		expRun = de.uka.ipd.sdq.prototype.framework.AbstractMain.getLatestExperimentRun();
 		«EXPAND SensorInitialisation FOREACH this.getExternalCallActions()»		
 		«EXPAND SEFFSensorInitialisationForInterface(this) FOREACH this.providedRoles_InterfaceProvidingEntity»
-		«ENDREM»
-		
+
 		«REM»
 		(Hopefully) Unneeded quick fix to initialise component params as setComponentFrame 
 		is not called by system for ejbs.
@@ -44,11 +41,11 @@
 		«ENDREM»
 		
 		«FOREACH this.providedRoles_InterfaceProvidingEntity.select(e|OperationProvidedRole.isInstance(e)) AS role»
-			«((OperationProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContext);
+			«((OperationProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContextID);
 		«ENDFOREACH»
 		
 		«FOREACH this.providedRoles_InterfaceProvidingEntity.select(e|InfrastructureProvidedRole.isInstance(e)) AS role»
-			«((InfrastructureProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContext);
+			«((InfrastructureProvidedRole)role).portMemberVar()» = init_«role.javaName()»(assemblyContextID);
 		«ENDFOREACH»
 	}
 «ENDDEFINE»
@@ -76,13 +73,24 @@
 
 «DEFINE SensorInitialisation FOR ExternalCallAction»
         tss«this.calledService_ExternalService.externalCallActionDescription(this).javaVariableName()» 
-            = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
-                "«this.calledService_ExternalService.externalCallActionDescription(this)»"
+            = de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.createOrReuseTimeSpanSensor(
+                "External «this.calledService_ExternalService.externalCallActionDescription(this)»"
+            );
+«ENDDEFINE»
+
+«DEFINE SensorInitialisation FOR EntryLevelSystemCall»
+        tss«this.operationSignature__EntryLevelSystemCall.entryLevelSystemCallActionDescription(this).javaVariableName()» 
+            = de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.createOrReuseTimeSpanSensor(
+                "Entry Level System «this.operationSignature__EntryLevelSystemCall.entryLevelSystemCallActionDescription(this)»"
             );
 «ENDDEFINE»
 
 «DEFINE SensorDefinition FOR ExternalCallAction»
     de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor tss«this.calledService_ExternalService.externalCallActionDescription(this).javaVariableName()»;
+«ENDDEFINE»
+
+«DEFINE SensorDefinition FOR EntryLevelSystemCall»
+    de.uka.ipd.sdq.sensorframework.entities.TimeSpanSensor tss«this.operationSignature__EntryLevelSystemCall.entryLevelSystemCallActionDescription(this).javaVariableName()»;
 «ENDDEFINE»
 
 «DEFINE SEFFSensorDefinitionForInterface(BasicComponent component) FOR OperationProvidedRole»
@@ -103,7 +111,7 @@
 
 «DEFINE SEFFSensorInitialisation(BasicComponent component) FOR OperationSignature»
         tss«this.seffDescription(component).javaVariableName()» 
-            = de.uka.ipd.sdq.prototype.framework.AbstractMain.createAndAddTimeSpanSensor(
+            = de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.createOrReuseTimeSpanSensor(
                 "«this.seffDescription(component)»"
             );
 «ENDDEFINE»

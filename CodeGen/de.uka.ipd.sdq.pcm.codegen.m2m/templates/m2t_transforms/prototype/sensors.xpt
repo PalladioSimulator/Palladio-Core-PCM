@@ -1,11 +1,11 @@
-«EXTENSION m2t_transforms::java_names»
+Â«EXTENSION m2t_transforms::java_namesÂ»
 
-«DEFINE StartResponseTimeMeasurement FOR String»
+Â«DEFINE StartResponseTimeMeasurement FOR StringÂ»
 	// Start a response time measurement
-	long startTime«this.javaVariableName()» = de.uka.ipd.sdq.prototype.framework.AbstractMain.takeStartTimeForInnerMeasurement();
-«ENDDEFINE»
+	long startTimeÂ«this.javaVariableName()Â» = de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.takeStartTimeForInnerMeasurement();
+Â«ENDDEFINEÂ»
 
-«DEFINE EndResponseTimeMeasurement FOR String»
+Â«DEFINE EndResponseTimeMeasurement FOR StringÂ»
 	// Stop the response time measurement
-	de.uka.ipd.sdq.prototype.framework.AbstractMain.takeMeasurement(startTime«this.javaVariableName()», expRun, tss«this.javaVariableName()»);
-«ENDDEFINE»
+	de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.takeMeasurement(startTimeÂ«this.javaVariableName()Â», de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.getLatestExperimentRun(), tssÂ«this.javaVariableName()Â»);
+Â«ENDDEFINEÂ»

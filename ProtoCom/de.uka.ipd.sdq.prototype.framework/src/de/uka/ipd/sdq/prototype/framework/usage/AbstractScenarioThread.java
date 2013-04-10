@@ -2,8 +2,8 @@ package de.uka.ipd.sdq.prototype.framework.usage;
 
 import java.util.concurrent.atomic.AtomicLong;
 
-import de.uka.ipd.sdq.prototype.framework.ExperimentManager;
 import de.uka.ipd.sdq.prototype.framework.IStopable;
+import de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager;
 import de.uka.ipd.sdq.prototype.framework.utils.RunProperties;
 import de.uka.ipd.sdq.sensorframework.entities.Experiment;
 import de.uka.ipd.sdq.sensorframework.entities.ExperimentRun;

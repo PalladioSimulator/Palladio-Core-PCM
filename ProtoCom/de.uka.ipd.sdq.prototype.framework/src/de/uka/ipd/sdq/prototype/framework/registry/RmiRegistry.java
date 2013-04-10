@@ -11,7 +11,11 @@ import java.rmi.ServerException;
 import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.LinkedList;
+import java.util.List;
 import java.util.Scanner;
+
+import de.uka.ipd.sdq.prototype.framework.experiment.IExperimentManager;
 
 /**
  * RMI registry service for ProtoCom. It can be started on any hardware node of
@@ -27,6 +31,8 @@ import java.util.Scanner;
  * 
  */
 public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Serializable {
+
+	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RmiRegistry.class);
 
 	private static final long serialVersionUID = 8964579189837506625L;
 
@@ -44,9 +50,11 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 	 */
 	private static int configuredRegistryPort = Registry.REGISTRY_PORT;
 
-
-	protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getLogger(RmiRegistry.class);
-
+	/**
+	 * List of all associated experiment managers.
+	 */
+	private List<IExperimentManager> experimentManagers = new LinkedList<IExperimentManager>();
+	
 	/**
 	 * Initializes a new RMI registry.
 	 * 
@@ -76,13 +84,24 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 			try {
 				String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_RMI_REGISTRY;
 //				String bindingName = PCM_RMI_REGISTRY;
-				
 				Naming.bind(bindingName, this);
+				
 				logger.info("RMI binding service bound as " + bindingName);
 			} catch (MalformedURLException e2) {
 				logger.error("RMI registry failed: Malformed URL", e2);
 			} catch (AlreadyBoundException e2) {
 				logger.error("RMI registry failed: Registry already bound on this port", e2);
+			}
+			
+			try {
+				String bindingName = "//" + configuredRemoteAddr + ":" + configuredRegistryPort + "/" + PCM_EXPERIMENT_MANAGER_REGISTRY;
+				Naming.bind(bindingName, this);
+				
+				logger.info("Experiment Manager service bound as " + bindingName);
+			} catch (MalformedURLException e2) {
+				logger.error("Experiment Manager service failed: Malformed URL", e2);
+			} catch (AlreadyBoundException e2) {
+				logger.error("Experiment Manager service failed: Service already bound on this port", e2);
 			}
 		}
 	}
@@ -201,7 +220,6 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 
 		while (true) {
 			try {
-
 				result = java.rmi.Naming.lookup(addr);
 
 			} catch (java.net.MalformedURLException e) {
@@ -253,5 +271,19 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 				}
 			}
 		}.run();
+	}
+
+	@Override
+	public void bindExperimentManager(IExperimentManager experimentManager)
+			throws RemoteException {
+		
+		experimentManagers.add(experimentManager);
+		logger.info("Added " + experimentManager.getName() + " to associated experiment managers");
+	}
+	
+
+	@Override
+	public List<IExperimentManager> getExperimentManagers() {
+		return experimentManagers;
 	}
 }
