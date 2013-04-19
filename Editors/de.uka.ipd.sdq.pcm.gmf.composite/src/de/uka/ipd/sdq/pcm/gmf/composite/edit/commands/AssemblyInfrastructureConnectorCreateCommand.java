@@ -15,10 +15,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
@@ -44,14 +42,16 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     private final ComposedStructure container;
 
     /**
-     * @generated
+     * @generated not
      */
     public AssemblyInfrastructureConnectorCreateCommand(CreateRelationshipRequest request, EObject source,
             EObject target) {
         super(request.getLabel(), null, request);
         this.source = source;
         this.target = target;
-        container = deduceContainer(source, target);
+        
+        // The container has been placed in the request during the SinkRoleItemSemanticEditPolicy
+        container = (ComposedStructure) request.getParameter("CONTAINER");
     }
 
     /**
