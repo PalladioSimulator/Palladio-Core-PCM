@@ -362,4 +362,12 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
         editorContents.getViewer().refresh();
         validateInput();
     }
+
+	protected DataType getInnerDataType() {
+		return innerDataType;
+	}
+
+	protected Repository getEditedRepository() {
+		return editedRepository;
+	}
 }

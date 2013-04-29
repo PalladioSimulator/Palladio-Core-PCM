@@ -70,6 +70,8 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
     /** The shell. */
     private Shell shell;
 
+	private Group choiceTypeGroup;
+
     /**
      * Instantiates a new data type dialog.
      * 
@@ -144,13 +146,13 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         container.setLayout(new GridLayout());
         container.setLayoutData(new GridData(GridData.FILL_BOTH));
 
-        // Reposetory section
-        final Group reposetoryGroup = new Group(container, SWT.NONE);
-        reposetoryGroup.setText("Repository");
-        reposetoryGroup.setLayoutData(new GridData(478, 30));
-        reposetoryGroup.setLayout(new GridLayout());
+        // Repository section
+        final Group repositoryGroup = new Group(container, SWT.NONE);
+        repositoryGroup.setText("Repository");
+        repositoryGroup.setLayoutData(new GridData(478, 30));
+        repositoryGroup.setLayout(new GridLayout());
 
-        combo = new Combo(reposetoryGroup, SWT.DROP_DOWN | SWT.READ_ONLY);
+        combo = new Combo(repositoryGroup, SWT.DROP_DOWN | SWT.READ_ONLY);
         combo.setLayoutData(new GridData(SWT.FILL, SWT.CENTER, true, false));
         combo.addSelectionListener(new SelectionAdapter() {
 
@@ -184,7 +186,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         combo.setItems(getLoadedRepositories());
 
         // RadioButtons section
-        final Group choiceTypeGroup = new Group(container, SWT.SHADOW_ETCHED_IN);
+        choiceTypeGroup = new Group(container, SWT.SHADOW_ETCHED_IN);
         choiceTypeGroup.setText("Choose DataType");
         final GridLayout gridLayout = new GridLayout();
         gridLayout.numColumns = 2;
@@ -212,8 +214,8 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
 
         // Create CompositeDataType button
         compositeButton = new Button(choiceTypeGroup, SWT.RADIO);
-        compositeButton.setText("CompositeDataType");
-        compositeButton.addSelectionListener(new SelectionAdapter() {
+        getCompositeButton().setText("CompositeDataType");
+        getCompositeButton().addSelectionListener(new SelectionAdapter() {
             @Override
             public void widgetSelected(SelectionEvent e) {
                 setTopCompositeLayout();
@@ -302,7 +304,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
      *            the new enabled state
      */
     public void setEnabled(boolean enabled) {
-        compositeButton.setEnabled(enabled);
+        getCompositeButton().setEnabled(enabled);
         collectionButton.setEnabled(enabled);
         typeLabelField.setEnabled(enabled);
         typeField.setEnabled(enabled);
@@ -321,7 +323,11 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         return new Point(500, 446);
     }
 
-    /*
+    protected DataTypeEnum getEditeDataType() {
+		return editeDataType;
+	}
+
+	/*
      * (non-Javadoc)
      * 
      * @see
@@ -352,7 +358,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         setOKButtonDisabled();
     }
 
-    /**
+	/**
      * Sets the ok button enabled.
      */
     protected void setOKButtonEnabled() {
@@ -429,7 +435,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
      */
     protected void setTopCompositeLayout() {
         collectionButton.setSelection(false);
-        compositeButton.setSelection(true);
+        getCompositeButton().setSelection(true);
         stackLayout.topControl = compositeGroup;
         composite.layout();
         editeDataType = DataTypeEnum.COMPOSITE;
@@ -439,7 +445,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
      * Sets the top collection layout.
      */
     protected void setTopCollectionLayout() {
-        compositeButton.setSelection(false);
+        getCompositeButton().setSelection(false);
         collectionButton.setSelection(true);
         stackLayout.topControl = collectionGroup;
         composite.layout();
@@ -461,11 +467,31 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         if (collectionButton.getSelection() && typeField.getText().equals("")) {
             setOKButtonDisabled();
             setErrorMessage(Messages.DataTypeDialog_ErrorMsgInner);
-        } else if (compositeButton.getSelection() && !validateCompositeDataType()) {
+        } else if (getCompositeButton().getSelection() && !validateCompositeDataType()) {
             setOKButtonDisabled();
         } else {
             setErrorMessage(null);
             setOKButtonEnabled();
         }
     }
+
+	protected Group getChoiceTypeGroup() {
+		return choiceTypeGroup;
+	}
+
+	protected Button getCompositeButton() {
+		return compositeButton;
+	}
+	
+	protected Button getCollectionButton() {
+		return collectionButton;
+	}
+	
+	protected StackLayout getStackLayout() {
+		return stackLayout;
+	}
+	
+	protected Composite getComposite() {
+		return composite;
+	}
 }
