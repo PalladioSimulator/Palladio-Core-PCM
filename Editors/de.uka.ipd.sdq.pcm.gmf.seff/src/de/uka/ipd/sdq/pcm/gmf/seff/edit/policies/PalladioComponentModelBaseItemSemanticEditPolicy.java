@@ -36,10 +36,8 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.helpers.PalladioComponentModelBaseEditHelper;
-import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelAbstractExpression;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.expressions.PalladioComponentModelOCLFactory;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelSeffDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;

@@ -55,11 +55,9 @@ import org.eclipse.swt.graphics.Image;
 
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.InternalFailureOccurrenceDescriptionItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription;
 
 /**
  * @generated
@@ -374,7 +372,7 @@ public class InternalFailureOccurrenceDescriptionEditPart extends CompartmentEdi
     private void performDirectEdit(char initialCharacter) {
         if (getManager() instanceof TextDirectEditManager) {
             ((TextDirectEditManager) getManager()).show(initialCharacter);
-        } else // 
+        } else //
         if (getManager() instanceof TextDirectEditManager2) {
             ((TextDirectEditManager2) getManager()).show(initialCharacter);
         } else //

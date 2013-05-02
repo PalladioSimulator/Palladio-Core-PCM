@@ -5,6 +5,7 @@ package de.uka.ipd.sdq.pcm.gmf.seff.edit.parts;
 
 import java.util.Collections;
 import java.util.List;
+
 import org.eclipse.gef.GraphicalEditPart;
 import org.eclipse.gef.Request;
 import org.eclipse.gef.commands.Command;
@@ -13,8 +14,8 @@ import org.eclipse.gef.handles.MoveHandle;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
+
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingSEFFCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ResourceDemandingSEFFItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;

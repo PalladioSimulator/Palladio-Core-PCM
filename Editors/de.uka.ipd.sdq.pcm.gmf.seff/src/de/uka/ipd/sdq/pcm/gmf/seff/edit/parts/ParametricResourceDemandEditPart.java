@@ -54,16 +54,11 @@ import org.eclipse.swt.graphics.Color;
 import org.eclipse.swt.graphics.FontData;
 import org.eclipse.swt.graphics.Image;
 
-import de.uka.ipd.sdq.pcm.dialogs.OpenStoExDialog;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextNonResizableEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.PalladioComponentModelTextSelectionEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.ParametricResourceDemandItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelParserProvider;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -383,7 +378,7 @@ public class ParametricResourceDemandEditPart extends CompartmentEditPart implem
     private void performDirectEdit(char initialCharacter) {
         if (getManager() instanceof TextDirectEditManager) {
             ((TextDirectEditManager) getManager()).show(initialCharacter);
-        } else // 
+        } else //
         if (getManager() instanceof TextDirectEditManager2) {
             ((TextDirectEditManager2) getManager()).show(initialCharacter);
         } else //

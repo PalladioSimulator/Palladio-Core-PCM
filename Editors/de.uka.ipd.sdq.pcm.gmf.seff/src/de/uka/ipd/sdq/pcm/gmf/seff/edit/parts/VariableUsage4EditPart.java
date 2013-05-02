@@ -21,7 +21,6 @@ import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.core.edithelpers.CreateElementRequestAdapter;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.ShapeNodeEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.requests.CreateViewAndElementRequest;
 import org.eclipse.gmf.runtime.draw2d.ui.figures.ConstrainedToolbarLayout;
@@ -36,8 +35,6 @@ import org.eclipse.swt.graphics.Color;
 import de.uka.ipd.sdq.pcm.gmf.seff.edit.policies.VariableUsage4ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.seff.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 
 /**
  * @generated
@@ -75,7 +72,8 @@ public class VariableUsage4EditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new VariableUsage4ItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children
+        // add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -129,7 +127,8 @@ public class VariableUsage4EditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof VariableUsageVariableCharacterisation4EditPart) {
             IFigure pane = getPrimaryShape().getFigureParametricParameterUsageRectangleCompartment();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
+                                    // own way
             pane.add(((VariableUsageVariableCharacterisation4EditPart) childEditPart).getFigure());
             return true;
         }

@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.seff.part;
 
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
@@ -214,8 +213,9 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 if (!resource.isLoaded()) {
                     try {
                         Map options = new HashMap(GMFResourceFactory.getDefaultLoadOptions());
-                        // @see 171060 
-                        // options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
+                        // @see 171060
+                        // options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE,
+                        // Boolean.TRUE);
                         resource.load(options);
                     } catch (IOException e) {
                         resource.unload();
@@ -225,14 +225,14 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 if (uri.fragment() != null) {
                     EObject rootElement = resource.getEObject(uri.fragment());
                     if (rootElement instanceof Diagram) {
-                        document.setContent((Diagram) rootElement);
+                        document.setContent(rootElement);
                         return;
                     }
                 } else {
                     for (Iterator it = resource.getContents().iterator(); it.hasNext();) {
                         Object rootElement = it.next();
                         if (rootElement instanceof Diagram) {
-                            document.setContent((Diagram) rootElement);
+                            document.setContent(rootElement);
                             return;
                         }
                     }
@@ -321,8 +321,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                     files2Validate.add(file);
                 }
             }
-            ResourcesPlugin.getWorkspace().validateEdit(
-                    (IFile[]) files2Validate.toArray(new IFile[files2Validate.size()]), computationContext);
+            ResourcesPlugin.getWorkspace().validateEdit(files2Validate.toArray(new IFile[files2Validate.size()]),
+                    computationContext);
         }
 
         super.doValidateState(element, computationContext);
@@ -340,7 +340,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 } catch (CoreException ex) {
                     PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError(
                             Messages.PalladioComponentModelDocumentProvider_isModifiable, ex);
-                    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+                    // Error message to log was initially taken from
+                    // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
                 }
             }
             return info.isReadOnly();
@@ -365,7 +366,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 } catch (CoreException ex) {
                     PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError(
                             Messages.PalladioComponentModelDocumentProvider_isModifiable, ex);
-                    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+                    // Error message to log was initially taken from
+                    // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
                 }
             }
             return info.isModifiable();
@@ -430,7 +432,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                     rules.add(ResourcesPlugin.getWorkspace().getRuleFactory().modifyRule(file));
                 }
             }
-            return new MultiRule((ISchedulingRule[]) rules.toArray(new ISchedulingRule[rules.size()]));
+            return new MultiRule(rules.toArray(new ISchedulingRule[rules.size()]));
         }
         return null;
     }
@@ -449,7 +451,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                     rules.add(computeSchedulingRule(file));
                 }
             }
-            return new MultiRule((ISchedulingRule[]) rules.toArray(new ISchedulingRule[rules.size()]));
+            return new MultiRule(rules.toArray(new ISchedulingRule[rules.size()]));
         }
         return null;
     }
@@ -468,7 +470,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                     rules.add(ResourcesPlugin.getWorkspace().getRuleFactory().refreshRule(file));
                 }
             }
-            return new MultiRule((ISchedulingRule[]) rules.toArray(new ISchedulingRule[rules.size()]));
+            return new MultiRule(rules.toArray(new ISchedulingRule[rules.size()]));
         }
         return null;
     }
@@ -488,7 +490,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 }
             }
             return ResourcesPlugin.getWorkspace().getRuleFactory()
-                    .validateEditRule((IFile[]) files.toArray(new IFile[files.size()]));
+                    .validateEditRule(files.toArray(new IFile[files.size()]));
         }
         return null;
     }
@@ -497,16 +499,15 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
      * @generated
      */
     private ISchedulingRule computeSchedulingRule(IResource toCreateOrModify) {
-        if (toCreateOrModify.exists())
+        if (toCreateOrModify.exists()) {
             return ResourcesPlugin.getWorkspace().getRuleFactory().modifyRule(toCreateOrModify);
+        }
 
         IResource parent = toCreateOrModify;
         do {
             /*
-             * XXX This is a workaround for
-             * https://bugs.eclipse.org/bugs/show_bug.cgi?id=67601
-             * IResourceRuleFactory.createRule should iterate the hierarchy
-             * itself.
+             * XXX This is a workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=67601
+             * IResourceRuleFactory.createRule should iterate the hierarchy itself.
              */
             toCreateOrModify = parent;
             parent = toCreateOrModify.getParent();
@@ -546,7 +547,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             fireElementStateChanging(element);
             try {
                 monitor.beginTask(Messages.PalladioComponentModelDocumentProvider_SaveDiagramTask, info
-                        .getResourceSet().getResources().size() + 1); //"Saving diagram"
+                        .getResourceSet().getResources().size() + 1); // "Saving diagram"
                 for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
                     Resource nextResource = it.next();
                     monitor.setTaskName(NLS.bind(Messages.PalladioComponentModelDocumentProvider_SaveNextResourceTask,
@@ -600,7 +601,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             IDiagramDocument diagramDocument = (IDiagramDocument) document;
             final Resource newResource = diagramDocument.getEditingDomain().getResourceSet()
                     .createResource(newResoruceURI);
-            final Diagram diagramCopy = (Diagram) EcoreUtil.copy(diagramDocument.getDiagram());
+            final Diagram diagramCopy = EcoreUtil.copy(diagramDocument.getDiagram());
             try {
                 new AbstractTransactionalCommand(diagramDocument.getEditingDomain(), NLS.bind(
                         Messages.PalladioComponentModelDocumentProvider_SaveAsOperation, diagramCopy.getName()),
@@ -636,7 +637,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             } catch (CoreException ex) {
                 PalladioComponentModelSeffDiagramEditorPlugin.getInstance().logError(
                         Messages.PalladioComponentModelDocumentProvider_handleElementContentChanged, ex);
-                // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
+                // Error message to log was initially taken from
+                // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
             }
         }
         changedResource.unload();
@@ -1000,7 +1002,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                     Resource resource = (Resource) notification.getNotifier();
                     if (resource.isLoaded()) {
                         boolean modified = false;
-                        for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/it = myInfo
+                        for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = myInfo
                                 .getLoadedResourcesIterator(); it.hasNext() && !modified;) {
                             Resource nextResource = (Resource) it.next();
                             if (nextResource.isLoaded()) {

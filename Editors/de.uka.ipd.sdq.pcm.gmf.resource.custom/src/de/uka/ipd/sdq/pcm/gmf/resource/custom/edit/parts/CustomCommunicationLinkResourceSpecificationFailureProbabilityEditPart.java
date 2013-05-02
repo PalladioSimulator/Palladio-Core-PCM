@@ -8,40 +8,48 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecifica
 /**
  * A custom edit part for the failure probability of a communication link.
  * 
- * This class was introduced because the default edit part failed to display the value correctly
- * for values below or equal to 5*10^-4.
+ * This class was introduced because the default edit part failed to display the value correctly for
+ * values below or equal to 5*10^-4.
+ * 
  * @author Dominik Werle
- *
+ * 
  */
-public class CustomCommunicationLinkResourceSpecificationFailureProbabilityEditPart
-		extends
-		CommunicationLinkResourceSpecificationFailureProbabilityEditPart {
+public class CustomCommunicationLinkResourceSpecificationFailureProbabilityEditPart extends
+        CommunicationLinkResourceSpecificationFailureProbabilityEditPart {
 
-	public CustomCommunicationLinkResourceSpecificationFailureProbabilityEditPart(
-			View view) {
-		super(view);
-	}
-	
-	/**
-	 * Returns the failure probability in the format returned by {@link Double#toString}. 
-	 */
-	@Override
-	protected String getLabelText() {
-		String text = null;
-		CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
+    /**
+     * Instantiates a new custom communication link resource specification failure probability edit
+     * part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomCommunicationLinkResourceSpecificationFailureProbabilityEditPart(View view) {
+        super(view);
+    }
 
-		if (spec.getLatency_CommunicationLinkResourceSpecification() != null) {
-			text = Double.toString(spec.getFailureProbability());
-		}
-		if (text == null || text.length() == 0) {
-			text = getLabelTextHelper(getFigure());
-		}
-		return text;
-	}
+    /**
+     * Returns the failure probability in the format returned by {@link Double#toString}.
+     * 
+     * @return the failure probability as a String
+     */
+    @Override
+    protected String getLabelText() {
+        String text = null;
+        CommunicationLinkResourceSpecification spec = (CommunicationLinkResourceSpecification) resolveSemanticElement();
 
-	@Override
-	public String getEditText() {
-		return getLabelText();
-	}
+        if (spec.getLatency_CommunicationLinkResourceSpecification() != null) {
+            text = Double.toString(spec.getFailureProbability());
+        }
+        if (text == null || text.length() == 0) {
+            text = getLabelTextHelper(getFigure());
+        }
+        return text;
+    }
+
+    @Override
+    public String getEditText() {
+        return getLabelText();
+    }
 
 }
