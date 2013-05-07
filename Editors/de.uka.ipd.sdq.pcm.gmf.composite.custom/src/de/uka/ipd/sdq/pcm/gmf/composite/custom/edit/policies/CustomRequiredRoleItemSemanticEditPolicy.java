@@ -16,6 +16,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.RequiredRoleItemSemanticEd
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
+/**
+ * The Class CustomRequiredRoleItemSemanticEditPolicy.
+ */
 public class CustomRequiredRoleItemSemanticEditPolicy extends RequiredRoleItemSemanticEditPolicy {
     // TODO: write javadoc and annotations
     /**

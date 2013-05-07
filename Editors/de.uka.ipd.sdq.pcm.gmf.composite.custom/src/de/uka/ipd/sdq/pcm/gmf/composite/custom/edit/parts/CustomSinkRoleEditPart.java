@@ -13,12 +13,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.SinkFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomSinkRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SinkRoleEditPart;
 
+/**
+ * The Class CustomSinkRoleEditPart.
+ */
 public class CustomSinkRoleEditPart extends SinkRoleEditPart {
-    public CustomSinkRoleEditPart(View view) {
-		super(view);
-	}
 
-	/** size of the figure in LP. @generated not */
+    /**
+     * Instantiates a new custom sink role edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomSinkRoleEditPart(View view) {
+        super(view);
+    }
+
+    /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
 
     /**
@@ -39,6 +49,11 @@ public class CustomSinkRoleEditPart extends SinkRoleEditPart {
         return figure;
     }
 
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SinkRoleEditPart#createDefaultEditPolicies()
+     */
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
@@ -47,5 +62,5 @@ public class CustomSinkRoleEditPart extends SinkRoleEditPart {
         // XXX need an SCR to runtime to have another abstract superclass that would let children
         // add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
-    }   
+    }
 }

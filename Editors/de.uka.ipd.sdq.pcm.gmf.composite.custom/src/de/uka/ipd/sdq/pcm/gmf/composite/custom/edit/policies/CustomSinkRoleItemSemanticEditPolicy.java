@@ -18,6 +18,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SinkRoleItemSemanticEditPo
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.SinkRole;
 
+/**
+ * The Class CustomSinkRoleItemSemanticEditPolicy.
+ */
 public class CustomSinkRoleItemSemanticEditPolicy extends SinkRoleItemSemanticEditPolicy {
     /**
      * Get the create relationship command or null / UnexecutableCommand instance if this is not an
@@ -116,7 +119,15 @@ public class CustomSinkRoleItemSemanticEditPolicy extends SinkRoleItemSemanticEd
 
         return getGEFWrapper(new AssemblyEventConnectorCreateCommand(req, req.getSource(), req.getTarget()));
     }
-    
+
+    /**
+     * Gets the start create relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the start create relationship command
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SinkRoleItemSemanticEditPolicy#getStartCreateRelationshipCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest)
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.EventChannelSinkConnector_4010 == req.getElementType()) {
             return getGEFWrapper(new CustomEventChannelSinkConnectorCreateCommand(req, req.getSource(), req.getTarget()));

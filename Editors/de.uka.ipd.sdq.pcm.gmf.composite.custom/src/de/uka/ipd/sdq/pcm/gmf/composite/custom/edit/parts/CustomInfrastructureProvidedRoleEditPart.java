@@ -13,13 +13,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.InfrastructureProvidedRoleManualF
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomInfrastructureProvidedRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart;
 
+/**
+ * The Class CustomInfrastructureProvidedRoleEditPart.
+ */
 public class CustomInfrastructureProvidedRoleEditPart extends InfrastructureProvidedRoleEditPart {
 
+    /**
+     * Instantiates a new custom infrastructure provided role edit part.
+     * 
+     * @param view
+     *            the view
+     */
     public CustomInfrastructureProvidedRoleEditPart(View view) {
-		super(view);
-	}
+        super(view);
+    }
 
-	/** size of the figure in LP. @generated not */
+    /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
 
     /**
@@ -40,7 +49,12 @@ public class CustomInfrastructureProvidedRoleEditPart extends InfrastructureProv
         figure.getBounds().setSize(figure.getPreferredSize());
         return figure;
     }
-    
+
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart#createDefaultEditPolicies()
+     */
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());

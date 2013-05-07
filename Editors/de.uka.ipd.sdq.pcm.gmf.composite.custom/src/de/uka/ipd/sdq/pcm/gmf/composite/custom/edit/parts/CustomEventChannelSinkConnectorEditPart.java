@@ -10,14 +10,25 @@ import org.eclipse.swt.graphics.Color;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
 
+/**
+ * The Class CustomEventChannelSinkConnectorEditPart.
+ */
 public class CustomEventChannelSinkConnectorEditPart extends EventChannelSinkConnectorEditPart {
-    public CustomEventChannelSinkConnectorEditPart(View view) {
-		super(view);
-	}
 
-	/**
-     * This method changes the color of the connector if a FilterCondition!=true is specified
+    /**
+     * Instantiates a new custom event channel sink connector edit part.
      * 
+     * @param view
+     *            the view
+     */
+    public CustomEventChannelSinkConnectorEditPart(View view) {
+        super(view);
+    }
+
+    /**
+     * This method changes the color of the connector if a FilterCondition!=true is specified.
+     * 
+     * @return the figure
      * @generated not
      */
     @Override

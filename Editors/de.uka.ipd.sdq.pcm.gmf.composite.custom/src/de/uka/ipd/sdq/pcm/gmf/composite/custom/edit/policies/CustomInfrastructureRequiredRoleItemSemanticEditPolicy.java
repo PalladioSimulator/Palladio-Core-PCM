@@ -16,7 +16,11 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBase
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 
-public class CustomInfrastructureRequiredRoleItemSemanticEditPolicy extends InfrastructureRequiredRoleItemSemanticEditPolicy {
+/**
+ * The Class CustomInfrastructureRequiredRoleItemSemanticEditPolicy.
+ */
+public class CustomInfrastructureRequiredRoleItemSemanticEditPolicy extends
+        InfrastructureRequiredRoleItemSemanticEditPolicy {
     /**
      * Gets the start create relationship command.
      * 

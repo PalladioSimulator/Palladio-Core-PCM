@@ -18,6 +18,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SourceRoleItemSemanticEdit
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;
 
+/**
+ * The Class CustomSourceRoleItemSemanticEditPolicy.
+ */
 public class CustomSourceRoleItemSemanticEditPolicy extends SourceRoleItemSemanticEditPolicy {
     /**
      * Get the create relationship command or null / UnexecutableCommand instance if this is not an
@@ -71,10 +74,19 @@ public class CustomSourceRoleItemSemanticEditPolicy extends SourceRoleItemSemant
         return new Command() {
         };
     }
-    
+
+    /**
+     * Gets the start create relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the start create relationship command
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SourceRoleItemSemanticEditPolicy#getStartCreateRelationshipCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest)
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.EventChannelSourceConnector_4009 == req.getElementType()) {
-            return getGEFWrapper(new CustomEventChannelSourceConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+            return getGEFWrapper(new CustomEventChannelSourceConnectorCreateCommand(req, req.getSource(),
+                    req.getTarget()));
         }
         if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req.getElementType()) {
             return getGEFWrapper(new AssemblyEventConnectorCreateCommand(req, req.getSource(), req.getTarget()));

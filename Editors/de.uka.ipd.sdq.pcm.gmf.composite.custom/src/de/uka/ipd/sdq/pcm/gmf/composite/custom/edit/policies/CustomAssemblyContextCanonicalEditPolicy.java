@@ -16,6 +16,9 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.AssemblyContextCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
+/**
+ * The Class CustomAssemblyContextCanonicalEditPolicy.
+ */
 public class CustomAssemblyContextCanonicalEditPolicy extends AssemblyContextCanonicalEditPolicy {
     /**
      * Get the semantic children of an assembly context.

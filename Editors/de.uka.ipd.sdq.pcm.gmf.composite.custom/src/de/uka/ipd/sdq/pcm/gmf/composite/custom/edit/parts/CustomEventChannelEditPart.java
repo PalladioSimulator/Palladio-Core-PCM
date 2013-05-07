@@ -13,12 +13,22 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomEventChannelItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
 
+/**
+ * The Class CustomEventChannelEditPart.
+ */
 public class CustomEventChannelEditPart extends EventChannelEditPart {
-    public CustomEventChannelEditPart(View view) {
-		super(view);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom event channel edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomEventChannelEditPart(View view) {
+        super(view);
+    }
+
+    /**
      * Adapted to fit to the diamond shape of the channel.
      * 
      * @return the node figure
@@ -44,6 +54,11 @@ public class CustomEventChannelEditPart extends EventChannelEditPart {
 
     }
 
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart#createDefaultEditPolicies()
+     */
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CustomEventChannelItemSemanticEditPolicy());

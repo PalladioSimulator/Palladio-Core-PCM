@@ -16,13 +16,27 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorCreateCommand;
 
+/**
+ * The Class CustomAssemblyInfrastructureConnectorCreateCommand.
+ */
 public class CustomAssemblyInfrastructureConnectorCreateCommand extends AssemblyInfrastructureConnectorCreateCommand {
-    public CustomAssemblyInfrastructureConnectorCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
-		super(request, source, target);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom assembly infrastructure connector create command.
+     * 
+     * @param request
+     *            the request
+     * @param source
+     *            the source
+     * @param target
+     *            the target
+     */
+    public CustomAssemblyInfrastructureConnectorCreateCommand(CreateRelationshipRequest request, EObject source,
+            EObject target) {
+        super(request, source, target);
+    }
+
+    /**
      * Adapted to use correct assembly contexts.
      * 
      * @param monitor

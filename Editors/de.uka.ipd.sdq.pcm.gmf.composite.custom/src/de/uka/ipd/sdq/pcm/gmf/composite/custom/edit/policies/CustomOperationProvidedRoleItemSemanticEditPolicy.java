@@ -24,6 +24,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
+/**
+ * The Class CustomOperationProvidedRoleItemSemanticEditPolicy.
+ */
 public class CustomOperationProvidedRoleItemSemanticEditPolicy extends OperationProvidedRoleItemSemanticEditPolicy {
     /**
      * Get the create relationship command or null / UnexecutableCommand instance if this is not an
@@ -113,7 +116,7 @@ public class CustomOperationProvidedRoleItemSemanticEditPolicy extends Operation
         req.setParameter("CHILD_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
         return getGEFWrapper(new CustomProvidedDelegationConnectorTypeLinkCreateCommand(req, container, source, target));
     }
-    
+
     @Override
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {

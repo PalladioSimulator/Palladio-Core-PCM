@@ -13,6 +13,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ProvidedDelegationConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.OperationProvidedRole2ItemSemanticEditPolicy;
 
+/**
+ * The Class CustomOperationProvidedRole2ItemSemanticEditPolicy.
+ */
 public class CustomOperationProvidedRole2ItemSemanticEditPolicy extends OperationProvidedRole2ItemSemanticEditPolicy {
     /**
      * Gets the complete create relationship command.
@@ -36,7 +39,15 @@ public class CustomOperationProvidedRole2ItemSemanticEditPolicy extends Operatio
         // }
         // return null;
     }
-    
+
+    /**
+     * Gets the reorient relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the reorient relationship command
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.OperationProvidedRole2ItemSemanticEditPolicy#getReorientRelationshipCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest)
+     */
     @Override
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {

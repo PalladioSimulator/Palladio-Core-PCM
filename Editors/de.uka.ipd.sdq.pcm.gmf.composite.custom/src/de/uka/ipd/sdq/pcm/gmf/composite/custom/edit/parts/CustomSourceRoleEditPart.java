@@ -13,12 +13,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.SourceFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomSourceRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEditPart;
 
+/**
+ * The Class CustomSourceRoleEditPart.
+ */
 public class CustomSourceRoleEditPart extends SourceRoleEditPart {
-    public CustomSourceRoleEditPart(View view) {
-		super(view);
-	}
 
-	/** size of the figure in LP. @generated not */
+    /**
+     * Instantiates a new custom source role edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomSourceRoleEditPart(View view) {
+        super(view);
+    }
+
+    /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
 
     /**
@@ -38,7 +48,12 @@ public class CustomSourceRoleEditPart extends SourceRoleEditPart {
         figure.getBounds().setSize(figure.getPreferredSize());
         return figure;
     }
-    
+
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEditPart#createDefaultEditPolicies()
+     */
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());

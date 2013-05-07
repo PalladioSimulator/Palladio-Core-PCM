@@ -12,14 +12,23 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.AbstractBorderFigure.POSITION_TYP
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.InfrastructureRequiredRoleManualFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomInfrastructureRequiredRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.InfrastructureRequiredRoleItemSemanticEditPolicy;
 
+/**
+ * The Class CustomInfrastructureRequiredRoleEditPart.
+ */
 public class CustomInfrastructureRequiredRoleEditPart extends InfrastructureRequiredRoleEditPart {
-    public CustomInfrastructureRequiredRoleEditPart(View view) {
-		super(view);
-	}
 
-	/** size of the figure in LP. @generated not */
+    /**
+     * Instantiates a new custom infrastructure required role edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomInfrastructureRequiredRoleEditPart(View view) {
+        super(view);
+    }
+
+    /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
 
     /**
@@ -42,6 +51,11 @@ public class CustomInfrastructureRequiredRoleEditPart extends InfrastructureRequ
         return figure;
     }
 
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart#createDefaultEditPolicies()
+     */
     @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();

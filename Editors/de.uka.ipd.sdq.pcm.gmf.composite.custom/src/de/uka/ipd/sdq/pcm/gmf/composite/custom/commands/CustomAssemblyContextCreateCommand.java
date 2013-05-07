@@ -14,12 +14,22 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyContextCreateCommand;
 
+/**
+ * The Class CustomAssemblyContextCreateCommand.
+ */
 public class CustomAssemblyContextCreateCommand extends AssemblyContextCreateCommand {
-    public CustomAssemblyContextCreateCommand(CreateElementRequest req) {
-		super(req);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom assembly context create command.
+     * 
+     * @param req
+     *            the req
+     */
+    public CustomAssemblyContextCreateCommand(CreateElementRequest req) {
+        super(req);
+    }
+
+    /**
      * Do execute with result.
      * 
      * @param monitor

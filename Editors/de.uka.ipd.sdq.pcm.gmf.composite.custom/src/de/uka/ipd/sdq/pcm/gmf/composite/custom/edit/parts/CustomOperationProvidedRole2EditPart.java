@@ -12,13 +12,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.BallFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomOperationProvidedRole2ItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart;
 
+/**
+ * The Class CustomOperationProvidedRole2EditPart.
+ */
 public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2EditPart {
 
+    /**
+     * Instantiates a new custom operation provided role2 edit part.
+     * 
+     * @param view
+     *            the view
+     */
     public CustomOperationProvidedRole2EditPart(View view) {
-		super(view);
-	}
+        super(view);
+    }
 
-	/** size of the figure in LP. @generated not */
+    /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 60;
 
     /**
@@ -58,7 +67,12 @@ public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2
 
         return figure;
     }
-    
+
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart#createDefaultEditPolicies()
+     */
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CustomOperationProvidedRole2ItemSemanticEditPolicy());

@@ -13,12 +13,27 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomAssemblyConte
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomAssemblyContextItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
 
+/**
+ * The Class CustomAssemblyContextEditPart.
+ */
 public class CustomAssemblyContextEditPart extends AssemblyContextEditPart {
-    public CustomAssemblyContextEditPart(View view) {
-		super(view);
-	}
 
-	protected void createDefaultEditPolicies() {
+    /**
+     * Instantiates a new custom assembly context edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomAssemblyContextEditPart(View view) {
+        super(view);
+    }
+
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart#createDefaultEditPolicies()
+     */
+    protected void createDefaultEditPolicies() {
         installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new CustomAssemblyContextItemSemanticEditPolicy());

@@ -13,15 +13,24 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.BallFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomOperationProvidedRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRoleEditPart;
 
+/**
+ * The Class CustomOperationProvidedRoleEditPart.
+ */
 public class CustomOperationProvidedRoleEditPart extends OperationProvidedRoleEditPart {
     /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
-	
-    public CustomOperationProvidedRoleEditPart(View view) {
-		super(view);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom operation provided role edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomOperationProvidedRoleEditPart(View view) {
+        super(view);
+    }
+
+    /**
      * Create the Node Plate. This triggers the drawing of the ball figure
      * 
      * @return the node figure
@@ -58,7 +67,12 @@ public class CustomOperationProvidedRoleEditPart extends OperationProvidedRoleEd
 
         return figure;
     }
-    
+
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRoleEditPart#createDefaultEditPolicies()
+     */
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());

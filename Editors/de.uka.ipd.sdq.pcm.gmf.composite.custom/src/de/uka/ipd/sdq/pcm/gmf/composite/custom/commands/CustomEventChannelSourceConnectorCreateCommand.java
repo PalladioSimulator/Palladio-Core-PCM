@@ -16,13 +16,27 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSourceConnectorCreateCommand;
 
+/**
+ * The Class CustomEventChannelSourceConnectorCreateCommand.
+ */
 public class CustomEventChannelSourceConnectorCreateCommand extends EventChannelSourceConnectorCreateCommand {
-    public CustomEventChannelSourceConnectorCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
-		super(request, source, target);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom event channel source connector create command.
+     * 
+     * @param request
+     *            the request
+     * @param source
+     *            the source
+     * @param target
+     *            the target
+     */
+    public CustomEventChannelSourceConnectorCreateCommand(CreateRelationshipRequest request, EObject source,
+            EObject target) {
+        super(request, source, target);
+    }
+
+    /**
      * Do execute with result.
      * 
      * @param monitor

@@ -21,6 +21,9 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.AssemblyContextItemSemanticEditPolicy;
 
+/**
+ * The Class CustomAssemblyContextItemSemanticEditPolicy.
+ */
 public class CustomAssemblyContextItemSemanticEditPolicy extends AssemblyContextItemSemanticEditPolicy {
     // TODO: write javadoc and annotations
     /**

@@ -15,7 +15,6 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomAssemblyConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomRequiredDelegationConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredDelegationConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredDelegationConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.RequiredDelegationConnectorEditPart;
@@ -24,6 +23,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBase
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
+/**
+ * The Class CustomOperationRequiredRoleItemSemanticEditPolicy.
+ */
 public class CustomOperationRequiredRoleItemSemanticEditPolicy extends OperationRequiredRoleItemSemanticEditPolicy {
     /**
      * Get the create relationship command or null / UnexecutableCommand instance if this is not an
@@ -103,17 +105,34 @@ public class CustomOperationRequiredRoleItemSemanticEditPolicy extends Operation
         return new Command() {
         };
     }
-    
+
+    /**
+     * Gets the start create relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the start create relationship command
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.OperationRequiredRoleItemSemanticEditPolicy#getStartCreateRelationshipCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest)
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
             return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req.getSource(), req.getTarget()));
         }
         if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req.getElementType()) {
-            return getGEFWrapper(new CustomRequiredDelegationConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+            return getGEFWrapper(new CustomRequiredDelegationConnectorCreateCommand(req, req.getSource(),
+                    req.getTarget()));
         }
         return null;
     }
-    
+
+    /**
+     * Gets the reorient relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the reorient relationship command
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.OperationRequiredRoleItemSemanticEditPolicy#getReorientRelationshipCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest)
+     */
     @Override
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {
@@ -124,13 +143,22 @@ public class CustomOperationRequiredRoleItemSemanticEditPolicy extends Operation
         }
         return super.getReorientRelationshipCommand(req);
     }
-    
+
+    /**
+     * Gets the complete create relationship command.
+     * 
+     * @param req
+     *            the req
+     * @return the complete create relationship command
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.OperationRequiredRoleItemSemanticEditPolicy#getCompleteCreateRelationshipCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest)
+     */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
             return null;
         }
         if (PalladioComponentModelElementTypes.RequiredDelegationConnector_4005 == req.getElementType()) {
-            return getGEFWrapper(new CustomRequiredDelegationConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+            return getGEFWrapper(new CustomRequiredDelegationConnectorCreateCommand(req, req.getSource(),
+                    req.getTarget()));
         }
         return null;
     }

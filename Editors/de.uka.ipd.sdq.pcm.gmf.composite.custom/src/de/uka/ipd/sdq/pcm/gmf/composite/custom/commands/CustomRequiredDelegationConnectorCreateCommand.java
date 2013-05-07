@@ -17,13 +17,27 @@ import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredDelegationConnectorCreateCommand;
 
+/**
+ * The Class CustomRequiredDelegationConnectorCreateCommand.
+ */
 public class CustomRequiredDelegationConnectorCreateCommand extends RequiredDelegationConnectorCreateCommand {
-    public CustomRequiredDelegationConnectorCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
-		super(request, source, target);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom required delegation connector create command.
+     * 
+     * @param request
+     *            the request
+     * @param source
+     *            the source
+     * @param target
+     *            the target
+     */
+    public CustomRequiredDelegationConnectorCreateCommand(CreateRelationshipRequest request, EObject source,
+            EObject target) {
+        super(request, source, target);
+    }
+
+    /**
      * Create a new RequiredDelegationConnector.
      * 
      * This method has been adopted manually, to set the source assembly context in the required

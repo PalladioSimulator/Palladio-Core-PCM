@@ -12,19 +12,31 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSinkConnectorCreateCommand;
 
+/**
+ * The Class CustomEventChannelSinkConnectorCreateCommand.
+ */
 public class CustomEventChannelSinkConnectorCreateCommand extends EventChannelSinkConnectorCreateCommand {
 
-    public CustomEventChannelSinkConnectorCreateCommand(
-			CreateRelationshipRequest request, EObject source, EObject target) {
-		super(request, source, target);
-	}
+    /**
+     * Instantiates a new custom event channel sink connector create command.
+     * 
+     * @param request
+     *            the request
+     * @param source
+     *            the source
+     * @param target
+     *            the target
+     */
+    public CustomEventChannelSinkConnectorCreateCommand(CreateRelationshipRequest request, EObject source,
+            EObject target) {
+        super(request, source, target);
+    }
 
-	/**
+    /**
      * Execute the command to build up the new assembly event connector.
      * 
      * This has been manually modified to set the additional assembly context references

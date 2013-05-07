@@ -14,12 +14,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ProvidedRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 
+/**
+ * The Class CustomProvidedRoleCreateCommand.
+ */
 public class CustomProvidedRoleCreateCommand extends ProvidedRoleCreateCommand {
-    public CustomProvidedRoleCreateCommand(CreateElementRequest req) {
-		super(req);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom provided role create command.
+     * 
+     * @param req
+     *            the req
+     */
+    public CustomProvidedRoleCreateCommand(CreateElementRequest req) {
+        super(req);
+    }
+
+    /**
      * Do execute with result.
      * 
      * @param monitor

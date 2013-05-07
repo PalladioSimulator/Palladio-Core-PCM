@@ -14,12 +14,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 
+/**
+ * The Class CustomRequiredRoleCreateCommand.
+ */
 public class CustomRequiredRoleCreateCommand extends RequiredRoleCreateCommand {
-    public CustomRequiredRoleCreateCommand(CreateElementRequest req) {
-		super(req);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom required role create command.
+     * 
+     * @param req
+     *            the req
+     */
+    public CustomRequiredRoleCreateCommand(CreateElementRequest req) {
+        super(req);
+    }
+
+    /**
      * Do execute with result.
      * 
      * @param monitor

@@ -11,10 +11,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 
+/**
+ * The Class
+ * CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy.
+ */
 public class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy extends
-ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy {
+        ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy {
 
-	protected Command getCreateCommand(CreateElementRequest req) {
+    /**
+     * Gets the creates the command.
+     * 
+     * @param req
+     *            the req
+     * @return the creates the command
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy#getCreateCommand(org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest)
+     */
+    protected Command getCreateCommand(CreateElementRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyContext_3006 == req.getElementType()) {
             return getGEFWrapper(new CustomAssemblyContextCreateCommand(req));
         }

@@ -19,6 +19,9 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
+/**
+ * The Class CustomProvidedRoleItemSemanticEditPolicy.
+ */
 public class CustomProvidedRoleItemSemanticEditPolicy extends ProvidedRoleItemSemanticEditPolicy {
     // TODO: write javadoc and annotations
     /**

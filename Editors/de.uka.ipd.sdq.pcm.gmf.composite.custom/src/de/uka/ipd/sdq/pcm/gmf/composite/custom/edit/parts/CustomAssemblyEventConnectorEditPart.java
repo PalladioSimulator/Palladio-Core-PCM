@@ -10,12 +10,22 @@ import org.eclipse.swt.graphics.Color;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPart;
 
+/**
+ * The Class CustomAssemblyEventConnectorEditPart.
+ */
 public class CustomAssemblyEventConnectorEditPart extends AssemblyEventConnectorEditPart {
-    public CustomAssemblyEventConnectorEditPart(View view) {
-		super(view);
-	}
 
-	/**
+    /**
+     * Instantiates a new custom assembly event connector edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomAssemblyEventConnectorEditPart(View view) {
+        super(view);
+    }
+
+    /**
      * This method changes the color of the connector if a FilterCondition!=true is specified.
      * 
      * @return the figure

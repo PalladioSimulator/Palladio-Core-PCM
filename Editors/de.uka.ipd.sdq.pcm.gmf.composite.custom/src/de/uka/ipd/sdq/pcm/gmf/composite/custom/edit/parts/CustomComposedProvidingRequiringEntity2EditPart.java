@@ -12,11 +12,20 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEnt
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRoleEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationRequiredRoleEditPart;
 
+/**
+ * The Class CustomComposedProvidingRequiringEntity2EditPart.
+ */
 public class CustomComposedProvidingRequiringEntity2EditPart extends ComposedProvidingRequiringEntity2EditPart {
 
+    /**
+     * Instantiates a new custom composed providing requiring entity2 edit part.
+     * 
+     * @param view
+     *            the view
+     */
     public CustomComposedProvidingRequiringEntity2EditPart(View view) {
-		super(view);
-	}
+        super(view);
+    }
 
     /**
      * Gets the content pane for.

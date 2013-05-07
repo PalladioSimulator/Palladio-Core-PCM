@@ -57,22 +57,23 @@ public class CustomResourceDemandingSEFFEditPart extends ResourceDemandingSEFFEd
     @Override
     protected void addSemanticListeners() {
         super.addSemanticListeners();
-        
+
         ResourceDemandingSEFF element = (ResourceDemandingSEFF) resolveSemanticElement();
         Signature signature = element.getDescribedService__SEFF();
-        if (signature != null)
+        if (signature != null) {
             addListenerFilter("SemanticModel-Sig", this, signature);
+        }
     }
-    
-    
+
     @Override
     protected void removeSemanticListeners() {
         super.removeSemanticListeners();
-        
+
         ResourceDemandingSEFF element = (ResourceDemandingSEFF) resolveSemanticElement();
         Signature signature = element.getDescribedService__SEFF();
-        if (signature != null)
+        if (signature != null) {
             removeListenerFilter("SemanticModel-Sig"); //$NON-NLS-1$
+        }
 
     }
 
@@ -80,18 +81,13 @@ public class CustomResourceDemandingSEFFEditPart extends ResourceDemandingSEFFEd
     protected void handleNotificationEvent(Notification event) {
         super.handleNotificationEvent(event);
         Object feature = event.getFeature();
-        if(SeffPackage.eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF().equals(feature))
-        {
+        if (SeffPackage.eINSTANCE.getServiceEffectSpecification_DescribedService__SEFF().equals(feature)) {
             refreshLabel();
         }
-        if(event.getNotifier() instanceof Signature)
+        if (event.getNotifier() instanceof Signature) {
             refreshLabel();
-        
-    }
+        }
 
-    
-    
-    
-    
+    }
 
 }

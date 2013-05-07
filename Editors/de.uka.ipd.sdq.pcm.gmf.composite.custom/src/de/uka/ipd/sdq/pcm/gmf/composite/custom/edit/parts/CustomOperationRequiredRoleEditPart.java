@@ -13,13 +13,22 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.SocketFigure;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomOperationRequiredRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationRequiredRoleEditPart;
 
+/**
+ * The Class CustomOperationRequiredRoleEditPart.
+ */
 public class CustomOperationRequiredRoleEditPart extends OperationRequiredRoleEditPart {
 
+    /**
+     * Instantiates a new custom operation required role edit part.
+     * 
+     * @param view
+     *            the view
+     */
     public CustomOperationRequiredRoleEditPart(View view) {
-		super(view);
-	}
+        super(view);
+    }
 
-	/** size of the figure in LP. @generated not */
+    /** size of the figure in LP. @generated not */
     private static final int FIGURE_LOGICAL_SIZE = 30;
 
     /**
@@ -41,6 +50,11 @@ public class CustomOperationRequiredRoleEditPart extends OperationRequiredRoleEd
         return figure;
     }
 
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationRequiredRoleEditPart#createDefaultEditPolicies()
+     */
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());

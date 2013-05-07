@@ -12,15 +12,29 @@ import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomComposedProvi
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies.CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart;
 
+/**
+ * The Class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart.
+ */
 public class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart extends
-	ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart {
+        ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart {
 
-    public CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart(
-			View view) {
-		super(view);
-	}
+    /**
+     * Instantiates a new custom composed providing requiring entity composite structure inner
+     * compartment edit part.
+     * 
+     * @param view
+     *            the view
+     */
+    public CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart(View view) {
+        super(view);
+    }
 
-	protected void createDefaultEditPolicies() {
+    /**
+     * Creates the default edit policies.
+     * 
+     * @see de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart#createDefaultEditPolicies()
+     */
+    protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE,
                 new CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentItemSemanticEditPolicy());

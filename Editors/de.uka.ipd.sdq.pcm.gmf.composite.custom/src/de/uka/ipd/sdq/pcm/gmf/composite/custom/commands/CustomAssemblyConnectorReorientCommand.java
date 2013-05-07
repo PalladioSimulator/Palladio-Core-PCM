@@ -13,14 +13,22 @@ import org.eclipse.ui.PlatformUI;
 
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorReorientCommand;
 
+/**
+ * The Class CustomAssemblyConnectorReorientCommand.
+ */
 public class CustomAssemblyConnectorReorientCommand extends AssemblyConnectorReorientCommand {
 
-    public CustomAssemblyConnectorReorientCommand(
-			ReorientRelationshipRequest request) {
-		super(request);
-	}
+    /**
+     * Instantiates a new custom assembly connector reorient command.
+     * 
+     * @param request
+     *            the request
+     */
+    public CustomAssemblyConnectorReorientCommand(ReorientRelationshipRequest request) {
+        super(request);
+    }
 
-	/**
+    /**
      * Reorient source.
      * 
      * @return the command result

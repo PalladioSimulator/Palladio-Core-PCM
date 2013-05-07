@@ -17,8 +17,12 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
+/**
+ * The Class
+ * CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy.
+ */
 public class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy extends
-ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy {
+        ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy {
 
     /**
      * Gets the semantic children list.
