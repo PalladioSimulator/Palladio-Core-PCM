@@ -103,6 +103,9 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 						.rootContext());
 				runCount++;
 			}
+			double thinkTime = (Double) Context.evaluateStatic(this.thinkTime,
+					Double.class, null);
+			this.hold(thinkTime);
 		}
 
 		// Mark user as finished:
@@ -124,10 +127,8 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 	 * desmoj.core.simulator.SimProcess)
 	 */
 	public void scenarioRunner(SimuComSimProcess thread) {
-		double thinkTime = (Double) Context.evaluateStatic(this.thinkTime,
-				Double.class, null);
+		
 		this.scenarioRunner.scenarioRunner(thread);
-		this.hold(thinkTime);
 	}
 
 	/*
