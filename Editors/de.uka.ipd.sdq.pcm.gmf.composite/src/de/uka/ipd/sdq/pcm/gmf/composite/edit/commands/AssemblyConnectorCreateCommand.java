@@ -72,7 +72,7 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
         if (getContainer() == null) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateAssemblyConnector_4004(
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canCreateAssemblyConnector_4004(
                 getContainer(), getSource(), getTarget());
     }
 
@@ -140,6 +140,9 @@ public class AssemblyConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Default approach is to traverse ancestors of the source to find instance of container. Modify
+     * with appropriate logic.
+     * 
      * @generated
      */
     private static ComposedStructure deduceContainer(EObject source, EObject target) {

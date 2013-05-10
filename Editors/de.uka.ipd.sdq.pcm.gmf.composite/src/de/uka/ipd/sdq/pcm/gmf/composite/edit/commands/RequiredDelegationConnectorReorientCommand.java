@@ -74,8 +74,8 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistRequiredDelegationConnector_4005(container, getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistRequiredDelegationConnector_4005(container, getLink(), getNewSource(), target);
     }
 
     /**
@@ -90,8 +90,8 @@ public class RequiredDelegationConnectorReorientCommand extends EditElementComma
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistRequiredDelegationConnector_4005(container, source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistRequiredDelegationConnector_4005(container, getLink(), source, getNewTarget());
     }
 
     /**

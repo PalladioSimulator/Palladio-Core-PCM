@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.providers;
 
@@ -256,6 +256,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     }
 
     /**
+     * Utility method that consults ParserService
+     * 
      * @generated
      */
     public static IParser getParser(IElementType type, EObject object, String parserHint) {
@@ -320,4 +322,5 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
             return super.getAdapter(adapter);
         }
     }
+
 }

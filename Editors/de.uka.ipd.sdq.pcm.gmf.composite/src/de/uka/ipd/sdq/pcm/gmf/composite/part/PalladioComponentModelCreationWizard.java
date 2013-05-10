@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.part;
 
@@ -105,15 +105,31 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
      * @generated not
      */
     public void addPages() {
+        // Manually changed strings "composite_diagram" to "system_diagram", and "repository" to
+        // "system".
+
         diagramModelFilePage = new PalladioComponentModelCreationWizardPage(
                 "DiagramModelFile", getSelection(), "system_diagram"); //$NON-NLS-1$ //$NON-NLS-2$
-        diagramModelFilePage.setTitle("Create CompositeModel Diagram");
-        diagramModelFilePage.setDescription("Select file that will contain composite diagram model.");
+        diagramModelFilePage.setTitle(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageTitle);
+        diagramModelFilePage
+                .setDescription(Messages.PalladioComponentModelCreationWizard_DiagramModelFilePageDescription);
         addPage(diagramModelFilePage);
 
-        domainModelFilePage = new PalladioComponentModelCreationWizardPage("DomainModelFile", getSelection(), "system"); //$NON-NLS-1$ //$NON-NLS-2$
-        domainModelFilePage.setTitle("Create CompositeModel");
-        domainModelFilePage.setDescription("Select file that will contain composite domain model.");
+        domainModelFilePage = new PalladioComponentModelCreationWizardPage("DomainModelFile", getSelection(), "system") { //$NON-NLS-1$ //$NON-NLS-2$
+
+            public void setVisible(boolean visible) {
+                if (visible) {
+                    String fileName = diagramModelFilePage.getFileName();
+                    fileName = fileName.substring(0, fileName.length() - ".system_diagram".length()); //$NON-NLS-1$
+                    setFileName(PalladioComponentModelDiagramEditorUtil.getUniqueFileName(getContainerFullPath(),
+                            fileName, "repository")); //$NON-NLS-1$
+                }
+                super.setVisible(visible);
+            }
+        };
+        domainModelFilePage.setTitle(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageTitle);
+        domainModelFilePage
+                .setDescription(Messages.PalladioComponentModelCreationWizard_DomainModelFilePageDescription);
         addPage(domainModelFilePage);
     }
 

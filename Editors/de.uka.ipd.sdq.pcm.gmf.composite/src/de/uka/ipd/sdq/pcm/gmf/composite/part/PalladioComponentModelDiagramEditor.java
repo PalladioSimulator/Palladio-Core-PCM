@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.part;
 
@@ -101,6 +101,7 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
     /**
      * @generated
      */
+    @SuppressWarnings("rawtypes")
     public Object getAdapter(Class type) {
         if (type == IShowInTargetList.class) {
             return new IShowInTargetList() {
@@ -255,6 +256,9 @@ public class PalladioComponentModelDiagramEditor extends DiagramDocumentEditor i
             return StructuredSelection.EMPTY;
         }
         Diagram diagram = document.getDiagram();
+        if (diagram == null || diagram.eResource() == null) {
+            return StructuredSelection.EMPTY;
+        }
         IFile file = WorkspaceSynchronizer.getFile(diagram.eResource());
         if (file != null) {
             PalladioComponentModelNavigatorItem item = new PalladioComponentModelNavigatorItem(diagram, file, false);

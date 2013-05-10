@@ -5,7 +5,6 @@ package de.uka.ipd.sdq.pcm.gmf.composite.part;
 
 import java.io.IOException;
 import java.util.LinkedList;
-import java.util.List;
 
 import org.eclipse.core.commands.ExecutionException;
 import org.eclipse.core.commands.operations.OperationHistoryFactory;
@@ -106,7 +105,7 @@ public class PalladioComponentModelNewDiagramFileWizard extends Wizard {
      * @generated
      */
     public boolean performFinish() {
-        List affectedFiles = new LinkedList();
+        LinkedList<IFile> affectedFiles = new LinkedList<IFile>();
         IFile diagramFile = myFileCreationPage.createNewFile();
         PalladioComponentModelDiagramEditorUtil.setCharset(diagramFile);
         affectedFiles.add(diagramFile);

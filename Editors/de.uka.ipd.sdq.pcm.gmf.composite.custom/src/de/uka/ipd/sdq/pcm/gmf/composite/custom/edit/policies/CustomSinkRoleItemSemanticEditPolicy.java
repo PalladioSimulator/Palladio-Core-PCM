@@ -11,8 +11,8 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomAssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomEventChannelSinkConnectorCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SinkRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
@@ -66,8 +66,7 @@ public class CustomSinkRoleItemSemanticEditPolicy extends SinkRoleItemSemanticEd
         if (container == null) {
             return UnexecutableCommand.INSTANCE;
         }
-        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateEventChannelSinkConnector_4010(
-                container, source, null)) {
+        if (!getLinkConstraints().canCreateEventChannelSinkConnector_4010(container, source, null)) {
             return UnexecutableCommand.INSTANCE;
         }
         req.setParameter("SINK_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
@@ -117,7 +116,7 @@ public class CustomSinkRoleItemSemanticEditPolicy extends SinkRoleItemSemanticEd
         // set the contexts
         req.setParameter("SINK_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
 
-        return getGEFWrapper(new AssemblyEventConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        return getGEFWrapper(new CustomAssemblyEventConnectorCreateCommand(req, req.getSource(), req.getTarget()));
     }
 
     /**

@@ -5,12 +5,14 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.parts;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
+import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
@@ -69,14 +71,12 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureRequiredRoleItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -84,16 +84,14 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-            @Override
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 View childView = (View) child.getModel();
                 switch (PalladioComponentModelVisualIDRegistry.getVisualID(childView)) {
                 case InfrastructureRequiredRoleEntityNameEditPart.VISUAL_ID:
                     return new BorderItemSelectionEditPolicy() {
 
-                        @Override
                         protected List createSelectionHandles() {
                             MoveHandle mh = new MoveHandle((GraphicalEditPart) getHost());
                             mh.setBorder(null);
@@ -108,12 +106,10 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
                 return result;
             }
 
-            @Override
             protected Command getMoveChildrenCommand(Request request) {
                 return null;
             }
 
-            @Override
             protected Command getCreateCommand(CreateRequest request) {
                 return null;
             }
@@ -125,8 +121,7 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
      * @generated
      */
     protected IFigure createNodeShape() {
-        InfrastructureRequiredRoleFigure figure = new InfrastructureRequiredRoleFigure();
-        return primaryShape = figure;
+        return primaryShape = new InfrastructureRequiredRoleFigure();
     }
 
     /**
@@ -139,7 +134,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     protected void addBorderItem(IFigure borderItemContainer, IBorderItemEditPart borderItemEditPart) {
         if (borderItemEditPart instanceof InfrastructureRequiredRoleEntityNameEditPart) {
             BorderItemLocator locator = new BorderItemLocator(getMainFigure(), PositionConstants.SOUTH);
@@ -156,7 +150,7 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     protected NodeFigure createNodePlate() {
         DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(20, 20);
 
-        // FIXME: workaround for #154536
+        //FIXME: workaround for #154536
         result.getBounds().setSize(result.getPreferredSize());
         return result;
     }
@@ -164,7 +158,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     public EditPolicy getPrimaryDragEditPolicy() {
         EditPolicy result = super.getPrimaryDragEditPolicy();
         if (result instanceof ResizableEditPolicy) {
@@ -175,6 +168,28 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     }
 
     /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
+    protected NodeFigure createMainFigure() {
+        NodeFigure figure = createNodePlate();
+        figure.setLayoutManager(new StackLayout());
+        IFigure shape = createNodeShape();
+        figure.add(shape);
+        contentPane = setupContentPane(shape);
+        return figure;
+    }
+
+    /**
+     * Default implementation treats passed figure as content pane. Respects layout one may have set
+     * for generated figure.
+     * 
+     * @param nodeShape
+     *            instance of generated figure class
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -184,7 +199,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     public IFigure getContentPane() {
         if (contentPane != null) {
             return contentPane;
@@ -195,7 +209,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     protected void setForegroundColor(Color color) {
         if (primaryShape != null) {
             primaryShape.setForegroundColor(color);
@@ -205,7 +218,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     protected void setBackgroundColor(Color color) {
         if (primaryShape != null) {
             primaryShape.setBackgroundColor(color);
@@ -215,7 +227,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     protected void setLineWidth(int width) {
         if (primaryShape instanceof Shape) {
             ((Shape) primaryShape).setLineWidth(width);
@@ -225,7 +236,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     protected void setLineType(int style) {
         if (primaryShape instanceof Shape) {
             ((Shape) primaryShape).setLineStyle(style);
@@ -235,7 +245,6 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    @Override
     public EditPart getPrimaryChildEditPart() {
         return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
                 .getType(InfrastructureRequiredRoleEntityNameEditPart.VISUAL_ID));
@@ -244,18 +253,8 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008);
         return types;
     }
@@ -263,19 +262,8 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof InfrastructureProvidedRoleEditPart) {
             types.add(PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008);
         }
@@ -285,19 +273,8 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008) {
             types.add(PalladioComponentModelElementTypes.InfrastructureProvidedRole_3015);
         }
@@ -313,41 +290,12 @@ public class InfrastructureRequiredRoleEditPart extends BorderedBorderItemEditPa
          * @generated
          */
         public InfrastructureRequiredRoleFigure() {
-            this.setLineWidth(1);
             this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
-            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+            this.setMaximumSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
+            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
             this.setLocation(new Point(getMapMode().DPtoLP(40), getMapMode().DPtoLP(40)));
         }
 
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        @Override
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
-        }
-
     }
-
-    /**
-     * @generated
-     */
-	@Override
-	protected NodeFigure createMainFigure() {
-		// FIXME regenerate
-		return null;
-	}
 
 }

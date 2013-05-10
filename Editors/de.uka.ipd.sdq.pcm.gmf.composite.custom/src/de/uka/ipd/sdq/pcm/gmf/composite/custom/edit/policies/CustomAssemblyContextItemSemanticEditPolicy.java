@@ -25,7 +25,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.AssemblyContextItemSemanti
  * The Class CustomAssemblyContextItemSemanticEditPolicy.
  */
 public class CustomAssemblyContextItemSemanticEditPolicy extends AssemblyContextItemSemanticEditPolicy {
-    // TODO: write javadoc and annotations
     /**
      * Gets the destroy element command.
      * 
@@ -35,6 +34,21 @@ public class CustomAssemblyContextItemSemanticEditPolicy extends AssemblyContext
      * @generated not
      */
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
+        // View view = (View) getHost().getModel();
+        // CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(),
+        // null);
+        // cmd.setTransactionNestingEnabled(false);
+        //		EAnnotation annotation = view.getEAnnotation("Shortcut"); //$NON-NLS-1$
+        // if (annotation == null) {
+        // // there are indirectly referenced children, need extra commands: true
+        // addDestroyChildNodesCommand(cmd);
+        // addDestroyShortcutsCommand(cmd, view);
+        // // delete host element
+        // cmd.add(new DestroyElementCommand(req));
+        // } else {
+        // cmd.add(new DeleteCommand(getEditingDomain(), view));
+        // }
+        // return getGEFWrapper(cmd.reduce());
         CompoundCommand cc = new CompoundCommand();
         Collection allEdges = new ArrayList();
         View view = (View) getHost().getModel();

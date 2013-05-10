@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 
@@ -27,7 +27,6 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentI
      * @generated
      */
     protected Command getCreateCommand(CreateElementRequest req) {
-    	// FIXME regenerate
         if (PalladioComponentModelElementTypes.AssemblyContext_3006 == req.getElementType()) {
             return getGEFWrapper(new AssemblyContextCreateCommand(req));
         }
@@ -36,4 +35,5 @@ public class ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentI
         }
         return super.getCreateCommand(req);
     }
+
 }

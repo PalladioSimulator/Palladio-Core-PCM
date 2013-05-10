@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.part;
 
@@ -31,6 +31,8 @@ public class PalladioComponentModelCreationWizardPage extends WizardNewFileCreat
     }
 
     /**
+     * Override to create files with this extension.
+     * 
      * @generated
      */
     protected String getExtension() {

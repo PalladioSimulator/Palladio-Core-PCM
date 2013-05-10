@@ -40,12 +40,11 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
     /**
      * @generated
      */
-    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == RequiredDelegationConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -54,7 +53,7 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
@@ -84,6 +83,15 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
     /**
      * @generated
      */
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+        Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+                : getCompleteCreateRelationshipCommand(req);
+        return command != null ? command : super.getCreateRelationshipCommand(req);
+    }
+
+    /**
+     * @generated
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
             return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req.getSource(), req.getTarget()));
@@ -108,9 +116,11 @@ public class OperationRequiredRoleItemSemanticEditPolicy extends PalladioCompone
     }
 
     /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
      * @generated
      */
-    @Override
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {
         case AssemblyConnectorEditPart.VISUAL_ID:

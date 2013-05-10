@@ -1,14 +1,13 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.navigator;
-
-import java.util.Iterator;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.EObject;
+import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.workspace.util.WorkspaceSynchronizer;
 import org.eclipse.gmf.runtime.notation.Diagram;
@@ -90,7 +89,7 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
     /**
      * @generated
      */
-    private class OpenDiagramAction extends Action {
+    private static class OpenDiagramAction extends Action {
 
         /**
          * @generated
@@ -141,7 +140,7 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
                 return;
             }
 
-            IEditorInput editorInput = getEditorInput();
+            IEditorInput editorInput = getEditorInput(myDiagram);
             IWorkbenchPage page = myViewerSite.getPage();
             try {
                 page.openEditor(editorInput, PalladioComponentModelDiagramEditor.ID);
@@ -154,18 +153,18 @@ public class PalladioComponentModelNavigatorActionProvider extends CommonActionP
         /**
          * @generated
          */
-        private IEditorInput getEditorInput() {
-            for (Iterator it = myDiagram.eResource().getContents().iterator(); it.hasNext();) {
-                EObject nextEObject = (EObject) it.next();
-                if (nextEObject == myDiagram) {
-                    return new FileEditorInput(WorkspaceSynchronizer.getFile(myDiagram.eResource()));
+        private static IEditorInput getEditorInput(Diagram diagram) {
+            Resource diagramResource = diagram.eResource();
+            for (EObject nextEObject : diagramResource.getContents()) {
+                if (nextEObject == diagram) {
+                    return new FileEditorInput(WorkspaceSynchronizer.getFile(diagramResource));
                 }
                 if (nextEObject instanceof Diagram) {
                     break;
                 }
             }
-            URI uri = EcoreUtil.getURI(myDiagram);
-            String editorName = uri.lastSegment() + "#" + myDiagram.eResource().getContents().indexOf(myDiagram); //$NON-NLS-1$
+            URI uri = EcoreUtil.getURI(diagram);
+            String editorName = uri.lastSegment() + '#' + diagram.eResource().getContents().indexOf(diagram);
             IEditorInput editorInput = new URIEditorInput(uri, editorName);
             return editorInput;
         }

@@ -13,6 +13,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorCreateCommand;
 
@@ -34,6 +35,13 @@ public class CustomAssemblyInfrastructureConnectorCreateCommand extends Assembly
     public CustomAssemblyInfrastructureConnectorCreateCommand(CreateRelationshipRequest request, EObject source,
             EObject target) {
         super(request, source, target);
+        // super(request.getLabel(), null, request);
+        // this.source = source;
+        // this.target = target;
+        // // container = deduceContainer(source, target);
+        // // Replaced last line with the following line:
+        // // The container has been placed in the request during the SinkRoleItemSemanticEditPolicy
+        // container = (ComposedStructure) request.getParameter("CONTAINER");
     }
 
     /**

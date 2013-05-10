@@ -48,7 +48,7 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
      * 
      * This has been modified to deduce the container from the request, while the assembly connector
      * is not accessible from source or target. Note: The request object is not accessible by the
-     * deduceContainer() method. For this, the container is deduced directly in the contructor.
+     * deduceContainer() method. For this, the container is deduced directly in the constructor.
      * 
      * @param request
      *            the request
@@ -64,6 +64,7 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
         this.target = target;
 
         // The container has been placed in the request during the SinkRoleItemSemanticEditPolicy
+        // container = deduceContainer(source, target);
         container = (ComposedStructure) request.getParameter("CONTAINER");
     }
 
@@ -87,14 +88,15 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
         if (getContainer() == null) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateAssemblyEventConnector_4007(
-                getContainer(), getSource(), getTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canCreateAssemblyEventConnector_4007(getContainer(), getSource(), getTarget());
     }
 
     /**
      * Execute the command to build up the new assembly event connector.
      * 
-     * This has been manually modified to set the additional assembly context references
+     * This has been manually modified to set the additional assembly context references. This
+     * method has been extracted to custom plugin.
      * 
      * @param monitor
      *            the monitor
@@ -116,7 +118,7 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
         newElement.setSourceRole__AssemblyEventConnector(getSource());
         newElement.setSinkRole__AssemblyEventConnector(getTarget());
 
-        // set the assembly contexts.
+        // Added the following 3 lines to set the assembly contexts.
         CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
         newElement.setSourceAssemblyContext__AssemblyEventConnector((AssemblyContext) req
                 .getParameter("SOURCE_CONTEXT"));
@@ -174,6 +176,9 @@ public class AssemblyEventConnectorCreateCommand extends EditElementCommand {
     }
 
     /**
+     * Default approach is to traverse ancestors of the source to find instance of container. Modify
+     * with appropriate logic.
+     * 
      * @generated
      */
     private static ComposedStructure deduceContainer(EObject source, EObject target) {

@@ -28,7 +28,7 @@ public class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompar
      */
     protected Command getCreateCommand(CreateElementRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyContext_3006 == req.getElementType()) {
-            return getGEFWrapper(new CustomAssemblyContextCreateCommand(req));
+            return getGEFWrapper(new /* AssemblyContextCreateCommand */CustomAssemblyContextCreateCommand(req));
         }
         if (PalladioComponentModelElementTypes.EventChannel_3017 == req.getElementType()) {
             return getGEFWrapper(new EventChannelCreateCommand(req));

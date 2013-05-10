@@ -35,10 +35,18 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientReferenceRelations
 import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.helpers.GeneratedEditHelperBase;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.helpers.PalladioComponentModelBaseEditHelper;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSinkConnector;
+import de.uka.ipd.sdq.pcm.core.composition.EventChannelSourceConnector;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
+import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
+import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelComposedStructureDiagramEditorPlugin;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
@@ -54,6 +62,8 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
 public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEditPolicy {
 
     /**
+     * Extended request data key to hold editpart visual id.
+     * 
      * @generated
      */
     public static final String VISUAL_ID_KEY = "visual_id"; //$NON-NLS-1$
@@ -71,6 +81,11 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Extended request data key to hold editpart visual id. Add visual id of edited editpart to
+     * extended data of the request so command switch can decide what kind of diagram element is
+     * being edited. It is done in those cases when it's not possible to deduce diagram element kind
+     * from domain element.
+     * 
      * @generated
      */
     public Command getCommand(Request request) {
@@ -85,6 +100,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Returns visual id from request parameters.
+     * 
      * @generated
      */
     protected int getVisualID(IEditCommandRequest request) {
@@ -121,13 +138,13 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
         if (editPolicyCommand != null) {
             ICommand command = editPolicyCommand instanceof ICommandProxy ? ((ICommandProxy) editPolicyCommand)
                     .getICommand() : new CommandProxy(editPolicyCommand);
-            request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, command);
+            request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, command);
         }
         IElementType requestContextElementType = getContextElementType(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, requestContextElementType);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, requestContextElementType);
         ICommand command = requestContextElementType.getEditCommand(request);
-        request.setParameter(PalladioComponentModelBaseEditHelper.EDIT_POLICY_COMMAND, null);
-        request.setParameter(PalladioComponentModelBaseEditHelper.CONTEXT_ELEMENT_TYPE, null);
+        request.setParameter(GeneratedEditHelperBase.EDIT_POLICY_COMMAND, null);
+        request.setParameter(GeneratedEditHelperBase.CONTEXT_ELEMENT_TYPE, null);
         if (command != null) {
             if (!(command instanceof CompositeTransactionalCommand)) {
                 command = new CompositeTransactionalCommand(getEditingDomain(), command.getLabel()).compose(command);
@@ -261,6 +278,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Returns editing domain from the host edit part.
+     * 
      * @generated
      */
     protected TransactionalEditingDomain getEditingDomain() {
@@ -268,6 +287,8 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * Clean all shortcuts to the host element from the same diagram
+     * 
      * @generated
      */
     protected void addDestroyShortcutsCommand(ICompositeCommand cmd, View view) {
@@ -282,9 +303,13 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     }
 
     /**
+     * This method is newly added to be used from plugin de.uka.ipd.sdq.pcm.gmf.composite.custom.
+     * 
      * Finds container element for the new relationship of the specified type. Default
      * implementation goes up by containment hierarchy starting from the specified element and
      * returns the first element that is instance of the specified container class.
+     * 
+     * Cannot be moved to custom plugin. It is used from many different customized subtypes.
      * 
      * @param uelement
      *            the uelement
@@ -315,120 +340,140 @@ public class PalladioComponentModelBaseItemSemanticEditPolicy extends SemanticEd
     /**
      * @generated
      */
+    public static LinkConstraints getLinkConstraints() {
+        LinkConstraints cached = PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance()
+                .getLinkConstraints();
+        if (cached == null) {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().setLinkConstraints(
+                    cached = new LinkConstraints());
+        }
+        return cached;
+    }
+
+    /**
+     * @generated
+     */
     public static class LinkConstraints {
 
         /**
          * @generated
          */
-        public static boolean canCreateEventChannelSinkConnector_4010(ComposedStructure container, SinkRole source,
+        LinkConstraints() {
+            // use static method #getLinkConstraints() to access instance
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canCreateEventChannelSinkConnector_4010(ComposedStructure container, SinkRole source,
                 EventChannel target) {
-            return canExistEventChannelSinkConnector_4010(container, source, target);
+            return canExistEventChannelSinkConnector_4010(container, null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canCreateEventChannelSourceConnector_4009(ComposedStructure container, SourceRole source,
+        public boolean canCreateEventChannelSourceConnector_4009(ComposedStructure container, SourceRole source,
                 EventChannel target) {
-            return canExistEventChannelSourceConnector_4009(container, source, target);
+            return canExistEventChannelSourceConnector_4009(container, null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canCreateAssemblyConnector_4004(ComposedStructure container,
-                OperationRequiredRole source, OperationProvidedRole target) {
-            return canExistAssemblyConnector_4004(container, source, target);
-        }
-
-        /**
-         * @generated
-         */
-        public static boolean canCreateAssemblyEventConnector_4007(ComposedStructure container, SourceRole source,
-                SinkRole target) {
-            return canExistAssemblyEventConnector_4007(container, source, target);
-        }
-
-        /**
-         * @generated
-         */
-        public static boolean canCreateRequiredDelegationConnector_4005(ComposedStructure container,
-                OperationRequiredRole source, OperationRequiredRole target) {
-            return canExistRequiredDelegationConnector_4005(container, source, target);
-        }
-
-        /**
-         * @generated
-         */
-        public static boolean canCreateProvidedDelegationConnector_4006(ComposedStructure container,
-                OperationProvidedRole source, OperationProvidedRole target) {
-            return canExistProvidedDelegationConnector_4006(container, source, target);
-        }
-
-        /**
-         * @generated
-         */
-        public static boolean canCreateAssemblyInfrastructureConnector_4008(ComposedStructure container,
-                InfrastructureRequiredRole source, InfrastructureProvidedRole target) {
-            return canExistAssemblyInfrastructureConnector_4008(container, source, target);
-        }
-
-        /**
-         * @generated
-         */
-        public static boolean canExistEventChannelSinkConnector_4010(ComposedStructure container, SinkRole source,
-                EventChannel target) {
-            return true;
-        }
-
-        /**
-         * @generated
-         */
-        public static boolean canExistEventChannelSourceConnector_4009(ComposedStructure container, SourceRole source,
-                EventChannel target) {
-            return true;
-        }
-
-        /**
-         * @generated
-         */
-        public static boolean canExistAssemblyConnector_4004(ComposedStructure container, OperationRequiredRole source,
+        public boolean canCreateAssemblyConnector_4004(ComposedStructure container, OperationRequiredRole source,
                 OperationProvidedRole target) {
-            return true;
+            return canExistAssemblyConnector_4004(container, null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canExistAssemblyEventConnector_4007(ComposedStructure container, SourceRole source,
+        public boolean canCreateAssemblyEventConnector_4007(ComposedStructure container, SourceRole source,
                 SinkRole target) {
-            return true;
+            return canExistAssemblyEventConnector_4007(container, null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canExistRequiredDelegationConnector_4005(ComposedStructure container,
+        public boolean canCreateRequiredDelegationConnector_4005(ComposedStructure container,
                 OperationRequiredRole source, OperationRequiredRole target) {
-            return true;
+            return canExistRequiredDelegationConnector_4005(container, null, source, target);
         }
 
         /**
          * @generated
          */
-        public static boolean canExistProvidedDelegationConnector_4006(ComposedStructure container,
+        public boolean canCreateProvidedDelegationConnector_4006(ComposedStructure container,
                 OperationProvidedRole source, OperationProvidedRole target) {
+            return canExistProvidedDelegationConnector_4006(container, null, source, target);
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canCreateAssemblyInfrastructureConnector_4008(ComposedStructure container,
+                InfrastructureRequiredRole source, InfrastructureProvidedRole target) {
+            return canExistAssemblyInfrastructureConnector_4008(container, null, source, target);
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canExistEventChannelSinkConnector_4010(ComposedStructure container,
+                EventChannelSinkConnector linkInstance, SinkRole source, EventChannel target) {
             return true;
         }
 
         /**
          * @generated
          */
-        public static boolean canExistAssemblyInfrastructureConnector_4008(ComposedStructure container,
-                InfrastructureRequiredRole source, InfrastructureProvidedRole target) {
+        public boolean canExistEventChannelSourceConnector_4009(ComposedStructure container,
+                EventChannelSourceConnector linkInstance, SourceRole source, EventChannel target) {
             return true;
         }
 
+        /**
+         * @generated
+         */
+        public boolean canExistAssemblyConnector_4004(ComposedStructure container, AssemblyConnector linkInstance,
+                OperationRequiredRole source, OperationProvidedRole target) {
+            return true;
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canExistAssemblyEventConnector_4007(ComposedStructure container,
+                AssemblyEventConnector linkInstance, SourceRole source, SinkRole target) {
+            return true;
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canExistRequiredDelegationConnector_4005(ComposedStructure container,
+                RequiredDelegationConnector linkInstance, OperationRequiredRole source, OperationRequiredRole target) {
+            return true;
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canExistProvidedDelegationConnector_4006(ComposedStructure container,
+                ProvidedDelegationConnector linkInstance, OperationProvidedRole source, OperationProvidedRole target) {
+            return true;
+        }
+
+        /**
+         * @generated
+         */
+        public boolean canExistAssemblyInfrastructureConnector_4008(ComposedStructure container,
+                AssemblyInfrastructureConnector linkInstance, InfrastructureRequiredRole source,
+                InfrastructureProvidedRole target) {
+            return true;
+        }
     }
 
 }

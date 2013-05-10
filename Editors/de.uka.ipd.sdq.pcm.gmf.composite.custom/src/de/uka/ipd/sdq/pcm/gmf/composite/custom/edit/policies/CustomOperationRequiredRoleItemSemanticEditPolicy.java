@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
  */
 public class CustomOperationRequiredRoleItemSemanticEditPolicy extends OperationRequiredRoleItemSemanticEditPolicy {
     /**
-     * Get the create relationship command or null / UnexecutableCommand instance if this is not an
+     * Get the create relationship command or null / UnexecutableCommand instance if this is not a
      * valid end for the connector creation.
      * 
      * @param req
@@ -39,6 +39,9 @@ public class CustomOperationRequiredRoleItemSemanticEditPolicy extends Operation
      */
     @Override
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+        // Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+        // : getCompleteCreateRelationshipCommand(req);
+        // return command != null ? command : super.getCreateRelationshipCommand(req);
         if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
             return req.getTarget() == null ? getStartCreateRelationshipCommandAssemblyConnector(req) : null;
         }
@@ -68,8 +71,7 @@ public class CustomOperationRequiredRoleItemSemanticEditPolicy extends Operation
         if (container == null) {
             return UnexecutableCommand.INSTANCE;
         }
-        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateAssemblyConnector_4004(
-                container, source, null)) {
+        if (!getLinkConstraints().canCreateAssemblyConnector_4004(container, source, null)) {
             return UnexecutableCommand.INSTANCE;
         }
         req.setParameter("REQ_CHILD_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
@@ -98,8 +100,7 @@ public class CustomOperationRequiredRoleItemSemanticEditPolicy extends Operation
             return UnexecutableCommand.INSTANCE;
         }
         req.setParameter("CHILD_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
-        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canCreateRequiredDelegationConnector_4005(container, source, null)) {
+        if (!getLinkConstraints().canCreateRequiredDelegationConnector_4005(container, source, null)) {
             return UnexecutableCommand.INSTANCE;
         }
         return new Command() {

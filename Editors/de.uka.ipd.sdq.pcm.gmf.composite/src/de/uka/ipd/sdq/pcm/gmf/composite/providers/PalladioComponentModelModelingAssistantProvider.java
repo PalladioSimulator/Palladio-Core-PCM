@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.providers;
 
@@ -48,7 +48,7 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
     /**
      * Get the types to provide within a pop-up bar (hover context menu) in the editor.
      * 
-     * This method has manually be adopted to disable the creation of new Composed Providing
+     * This method has been manually adopted to disable the creation of new Composed Providing
      * Requiring Entities within the same system.
      * 
      * @param host
@@ -58,26 +58,35 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
      */
     public List getTypesForPopupBar(IAdaptable host) {
         IGraphicalEditPart editPart = (IGraphicalEditPart) host.getAdapter(IGraphicalEditPart.class);
+        if (editPart instanceof ComposedProvidingRequiringEntityEditPart) {
+            // ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            // types.add(PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_2002);
+            // return types;
+            // Instead, return an empty list:
+            return Collections.EMPTY_LIST;
+        }
         if (editPart instanceof ComposedProvidingRequiringEntity2EditPart) {
-            ArrayList types = new ArrayList(2);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(2);
             types.add(PalladioComponentModelElementTypes.OperationProvidedRole_3011);
             types.add(PalladioComponentModelElementTypes.OperationRequiredRole_3012);
             return types;
         }
         if (editPart instanceof AssemblyContextEditPart) {
-            ArrayList types = new ArrayList(2);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(6);
             types.add(PalladioComponentModelElementTypes.OperationProvidedRole_3007);
             types.add(PalladioComponentModelElementTypes.OperationRequiredRole_3008);
+            // Removed the following 4 types:
+            // types.add(PalladioComponentModelElementTypes.SourceRole_3013);
+            // types.add(PalladioComponentModelElementTypes.SinkRole_3014);
+            // types.add(PalladioComponentModelElementTypes.InfrastructureProvidedRole_3015);
+            // types.add(PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016);
             return types;
         }
         if (editPart instanceof ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) {
-            ArrayList types = new ArrayList(1);
+            ArrayList<IElementType> types = new ArrayList<IElementType>(2);
             types.add(PalladioComponentModelElementTypes.AssemblyContext_3006);
             types.add(PalladioComponentModelElementTypes.EventChannel_3017);
             return types;
-        }
-        if (editPart instanceof ComposedProvidingRequiringEntityEditPart) {
-            return Collections.EMPTY_LIST;
         }
         return Collections.EMPTY_LIST;
     }
@@ -254,9 +263,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
             return null;
         }
         Diagram diagram = (Diagram) editPart.getRoot().getContents().getModel();
-        Collection elements = new HashSet();
-        for (Iterator it = diagram.getElement().eAllContents(); it.hasNext();) {
-            EObject element = (EObject) it.next();
+        HashSet<EObject> elements = new HashSet<EObject>();
+        for (Iterator<EObject> it = diagram.getElement().eAllContents(); it.hasNext();) {
+            EObject element = it.next();
             if (isApplicableElement(element, types)) {
                 elements.add(element);
             }

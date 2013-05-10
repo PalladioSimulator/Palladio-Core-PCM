@@ -60,7 +60,7 @@ public class CustomEventChannelSinkConnectorCreateCommand extends EventChannelSi
         newElement.setSinkRole__EventChannelSinkConnector(getSource());
         newElement.setEventChannel__EventChannelSinkConnector(getTarget());
 
-        // set the assembly contexts.
+        // Set the assembly contexts.
         CreateRelationshipRequest req = (CreateRelationshipRequest) this.getRequest();
         newElement.setAssemblyContext__EventChannelSinkConnector((AssemblyContext) req.getParameter("SINK_CONTEXT"));
 

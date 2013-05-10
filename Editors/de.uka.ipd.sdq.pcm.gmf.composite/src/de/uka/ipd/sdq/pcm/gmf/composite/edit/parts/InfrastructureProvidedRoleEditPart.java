@@ -5,12 +5,14 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.parts;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
+import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
@@ -73,8 +75,7 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new InfrastructureProvidedRoleItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -82,7 +83,7 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 View childView = (View) child.getModel();
@@ -119,8 +120,7 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
      * @generated
      */
     protected IFigure createNodeShape() {
-        InfrastructureProvidedRoleFigure figure = new InfrastructureProvidedRoleFigure();
-        return primaryShape = figure;
+        return primaryShape = new InfrastructureProvidedRoleFigure();
     }
 
     /**
@@ -149,7 +149,7 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
     protected NodeFigure createNodePlate() {
         DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(20, 20);
 
-        // FIXME: workaround for #154536
+        //FIXME: workaround for #154536
         result.getBounds().setSize(result.getPreferredSize());
         return result;
     }
@@ -167,6 +167,28 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
     }
 
     /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
+    protected NodeFigure createMainFigure() {
+        NodeFigure figure = createNodePlate();
+        figure.setLayoutManager(new StackLayout());
+        IFigure shape = createNodeShape();
+        figure.add(shape);
+        contentPane = setupContentPane(shape);
+        return figure;
+    }
+
+    /**
+     * Default implementation treats passed figure as content pane. Respects layout one may have set
+     * for generated figure.
+     * 
+     * @param nodeShape
+     *            instance of generated figure class
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -230,18 +252,8 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008);
         return types;
     }
@@ -249,19 +261,8 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008) {
             types.add(PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016);
         }
@@ -277,40 +278,12 @@ public class InfrastructureProvidedRoleEditPart extends BorderedBorderItemEditPa
          * @generated
          */
         public InfrastructureProvidedRoleFigure() {
-            this.setLineWidth(1);
             this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
-            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+            this.setMaximumSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
+            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
             this.setLocation(new Point(getMapMode().DPtoLP(40), getMapMode().DPtoLP(40)));
         }
 
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
-        }
-
     }
-
-    /**
-     * @generated
-     */
-	@Override
-	protected NodeFigure createMainFigure() {
-		// FIXME regenerate
-		return null;
-	}
 
 }

@@ -15,6 +15,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RepositoryFactory;
@@ -32,6 +33,8 @@ public class OperationProvidedRoleCreateCommand extends EditElementCommand {
     }
 
     /**
+     * FIXME: replace with setElementToEdit()
+     * 
      * @generated
      */
     protected EObject getElementToEdit() {

@@ -83,11 +83,11 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
      */
     private void addDestroyChildNodesCommand(ICompositeCommand cmd) {
         View view = (View) getHost().getModel();
-        for (Iterator nit = view.getChildren().iterator(); nit.hasNext();) {
+        for (Iterator<?> nit = view.getChildren().iterator(); nit.hasNext();) {
             Node node = (Node) nit.next();
             switch (PalladioComponentModelVisualIDRegistry.getVisualID(node)) {
             case OperationProvidedRole2EditPart.VISUAL_ID:
-                for (Iterator it = node.getTargetEdges().iterator(); it.hasNext();) {
+                for (Iterator<?> it = node.getTargetEdges().iterator(); it.hasNext();) {
                     Edge incomingLink = (Edge) it.next();
                     if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
                         DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -102,7 +102,7 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
                         continue;
                     }
                 }
-                for (Iterator it = node.getSourceEdges().iterator(); it.hasNext();) {
+                for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
                     Edge outgoingLink = (Edge) it.next();
                     if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == ProvidedDelegationConnectorEditPart.VISUAL_ID) {
                         DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
@@ -113,14 +113,11 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: true
-                // don't need explicit deletion of node as parent's view deletion would clean child
-                // views as well
-                // cmd.add(new
-                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                // node));
+                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
+                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
                 break;
             case OperationRequiredRole2EditPart.VISUAL_ID:
-                for (Iterator it = node.getTargetEdges().iterator(); it.hasNext();) {
+                for (Iterator<?> it = node.getTargetEdges().iterator(); it.hasNext();) {
                     Edge incomingLink = (Edge) it.next();
                     if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == RequiredDelegationConnectorEditPart.VISUAL_ID) {
                         DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -129,7 +126,7 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
                         continue;
                     }
                 }
-                for (Iterator it = node.getSourceEdges().iterator(); it.hasNext();) {
+                for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
                     Edge outgoingLink = (Edge) it.next();
                     if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
                         DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
@@ -146,27 +143,21 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: true
-                // don't need explicit deletion of node as parent's view deletion would clean child
-                // views as well
-                // cmd.add(new
-                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                // node));
+                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
+                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
                 break;
             case ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart.VISUAL_ID:
-                for (Iterator cit = node.getChildren().iterator(); cit.hasNext();) {
+                for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
                     Node cnode = (Node) cit.next();
                     switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
                     case AssemblyContextEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     case EventChannelEditPart.VISUAL_ID:
-                        for (Iterator it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
                             Edge incomingLink = (Edge) it.next();
                             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == EventChannelSinkConnectorEditPart.VISUAL_ID) {
                                 DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -183,11 +174,8 @@ public class ComposedProvidingRequiringEntity2ItemSemanticEditPolicy extends
                         }
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     }
                 }

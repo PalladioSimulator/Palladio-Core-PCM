@@ -14,9 +14,7 @@ import org.eclipse.gmf.runtime.emf.type.core.commands.EditElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
-import org.eclipse.gmf.runtime.emf.type.core.requests.IEditCommandRequest;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
@@ -56,7 +54,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     /**
      * @generated
      */
-    @Override
     public boolean canExecute() {
         if (source == null && target == null) {
             return false;
@@ -74,8 +71,26 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
         if (getContainer() == null) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canCreateRequiredDelegationConnector_4005(getContainer(), getSource(), getTarget());
+    }
+
+    /**
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        if (!canExecute()) {
+            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+        }
+
+        RequiredDelegationConnector newElement = CompositionFactory.eINSTANCE.createRequiredDelegationConnector();
+        getContainer().getConnectors__ComposedStructure().add(newElement);
+        newElement.setInnerRequiredRole_RequiredDelegationConnector(getSource());
+        newElement.setOuterRequiredRole_RequiredDelegationConnector(getTarget());
+        doConfigure(newElement, monitor, info);
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+
     }
 
     /**
@@ -98,7 +113,6 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     /**
      * @generated
      */
-    @Override
     protected void setElementToEdit(EObject element) {
         throw new UnsupportedOperationException();
     }
@@ -125,8 +139,10 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
-     * Default approach is to traverse ancestors of the source to find instance of container. Modify
-     * with appropriate logic.
+     * Default approach is to traverse ancestors of the source to find instance of container.
+     * Modified with appropriate logic: now traverses target instead of source.
+     * 
+     * Cannot be moved to custom plugin.
      * 
      * @param source
      *            the source
@@ -139,21 +155,12 @@ public class RequiredDelegationConnectorCreateCommand extends EditElementCommand
         // Find container element for the new link.
         // Climb up by containment hierarchy starting from the source
         // and return the first element that is instance of the container class.
-        for (EObject element = target; element != null; element = element.eContainer()) {
+        for (EObject element = /* source */target; element != null; element = element.eContainer()) {
             if (element instanceof ComposedStructure) {
                 return (ComposedStructure) element;
             }
         }
         return null;
     }
-
-	/**
-	 * @generated
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		// FIXME regenerate
-		return null;
-	}
 
 }

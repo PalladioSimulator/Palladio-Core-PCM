@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
@@ -40,7 +41,7 @@ public class InfrastructureProvidedRoleItemSemanticEditPolicy extends PalladioCo
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AssemblyInfrastructureConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -73,15 +74,6 @@ public class InfrastructureProvidedRoleItemSemanticEditPolicy extends PalladioCo
     /**
      * @generated
      */
-    protected Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		// FIXME is only referenced in getCreateRelatioshipCommand? / regenerate
-		return null;
-	}
-
-	/**
-     * @generated
-     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
             return null;
@@ -90,6 +82,19 @@ public class InfrastructureProvidedRoleItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
+     * @generated
+     */
+    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
+            return getGEFWrapper(new AssemblyInfrastructureConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        return null;
+    }
+
+    /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
      * @generated
      */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {

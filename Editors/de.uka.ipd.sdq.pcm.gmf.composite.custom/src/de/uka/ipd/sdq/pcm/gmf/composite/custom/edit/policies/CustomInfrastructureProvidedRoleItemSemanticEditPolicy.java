@@ -17,7 +17,8 @@ import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementT
 /**
  * @generated
  */
-public class CustomInfrastructureProvidedRoleItemSemanticEditPolicy extends InfrastructureProvidedRoleItemSemanticEditPolicy {
+public class CustomInfrastructureProvidedRoleItemSemanticEditPolicy extends
+        InfrastructureProvidedRoleItemSemanticEditPolicy {
     /**
      * Adapted to transfer information on containing component and assembly context of target.
      * 
@@ -39,7 +40,8 @@ public class CustomInfrastructureProvidedRoleItemSemanticEditPolicy extends Infr
 
             // set assembly context
             req.setParameter("TARGET_ASSEMBLY_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
-            return getGEFWrapper(new CustomAssemblyInfrastructureConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+            return getGEFWrapper(new CustomAssemblyInfrastructureConnectorCreateCommand(req, req.getSource(),
+                    req.getTarget()));
         }
         return null;
     }

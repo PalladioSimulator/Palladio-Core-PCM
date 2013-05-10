@@ -75,8 +75,8 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistAssemblyEventConnector_4007(
-                container, getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistAssemblyEventConnector_4007(container, getLink(), getNewSource(), target);
     }
 
     /**
@@ -91,8 +91,8 @@ public class AssemblyEventConnectorReorientCommand extends EditElementCommand {
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistAssemblyEventConnector_4007(
-                container, source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistAssemblyEventConnector_4007(container, getLink(), source, getNewTarget());
     }
 
     /**

@@ -71,7 +71,7 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
         if (getContainer() == null) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canCreateProvidedDelegationConnector_4006(getContainer(), getSource(), getTarget());
     }
 
@@ -139,6 +139,9 @@ public class ProvidedDelegationConnectorCreateCommand extends EditElementCommand
     }
 
     /**
+     * Default approach is to traverse ancestors of the source to find instance of container. Modify
+     * with appropriate logic.
+     * 
      * @generated
      */
     private static ComposedStructure deduceContainer(EObject source, EObject target) {

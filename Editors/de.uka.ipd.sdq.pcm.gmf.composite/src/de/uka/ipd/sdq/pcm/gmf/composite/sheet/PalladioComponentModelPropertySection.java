@@ -8,8 +8,11 @@ import java.util.Iterator;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.notify.AdapterFactory;
+import org.eclipse.emf.edit.domain.AdapterFactoryEditingDomain;
 import org.eclipse.emf.edit.provider.IItemPropertySource;
 import org.eclipse.emf.edit.ui.provider.PropertySource;
+import org.eclipse.emf.transaction.TransactionalEditingDomain;
+import org.eclipse.emf.transaction.util.TransactionUtil;
 import org.eclipse.gef.EditPart;
 import org.eclipse.gmf.runtime.diagram.ui.properties.sections.AdvancedPropertySection;
 import org.eclipse.gmf.runtime.notation.View;
@@ -54,6 +57,8 @@ public class PalladioComponentModelPropertySection extends AdvancedPropertySecti
     }
 
     /**
+     * Modify/unwrap selection.
+     * 
      * @generated
      */
     protected Object transformSelection(Object selected) {
@@ -102,19 +107,16 @@ public class PalladioComponentModelPropertySection extends AdvancedPropertySecti
      * @generated not
      */
     protected AdapterFactory getAdapterFactory(Object object) {
-        return PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance()
-                .getItemProvidersAdapterFactory();
         // if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
-        // return ((AdapterFactoryEditingDomain) getEditingDomain())
-        // .getAdapterFactory();
+        // return ((AdapterFactoryEditingDomain) getEditingDomain()).getAdapterFactory();
         // }
-        // TransactionalEditingDomain editingDomain = TransactionUtil
-        // .getEditingDomain(object);
+        // TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(object);
         // if (editingDomain != null) {
-        // return ((AdapterFactoryEditingDomain) editingDomain)
-        // .getAdapterFactory();
+        // return ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory();
         // }
         // return null;
+        return PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance()
+                .getItemProvidersAdapterFactory();
     }
 
 }

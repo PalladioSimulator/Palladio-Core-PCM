@@ -21,8 +21,9 @@ import org.eclipse.gef.editpolicies.LayoutEditPolicy;
 import org.eclipse.gef.editpolicies.NonResizableEditPolicy;
 import org.eclipse.gef.requests.CreateRequest;
 import org.eclipse.gmf.runtime.diagram.ui.editparts.AbstractBorderedShapeEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IBorderItemEditPart;
+import org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPolicy;
-import org.eclipse.gmf.runtime.diagram.ui.editpolicies.CreationEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.DragDropEditPolicy;
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
@@ -31,6 +32,7 @@ import org.eclipse.gmf.runtime.draw2d.ui.figures.WrappingLabel;
 import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
+import org.eclipse.gmf.tooling.runtime.edit.policies.reparent.CreationEditPolicyWithCustomReparent;
 import org.eclipse.swt.graphics.Color;
 
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiringEntity2CanonicalEditPolicy;
@@ -68,14 +70,14 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
      * @generated
      */
     protected void createDefaultEditPolicies() {
-        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicy());
+        installEditPolicy(EditPolicyRoles.CREATION_ROLE, new CreationEditPolicyWithCustomReparent(
+                PalladioComponentModelVisualIDRegistry.TYPED_INSTANCE));
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ComposedProvidingRequiringEntity2ItemSemanticEditPolicy());
         installEditPolicy(EditPolicyRoles.DRAG_DROP_ROLE, new DragDropEditPolicy());
         installEditPolicy(EditPolicyRoles.CANONICAL_ROLE, new ComposedProvidingRequiringEntity2CanonicalEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -83,7 +85,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 View childView = (View) child.getModel();
@@ -114,8 +116,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
      * @generated
      */
     protected IFigure createNodeShape() {
-        CompositeStructureFigure figure = new CompositeStructureFigure();
-        return primaryShape = figure;
+        return primaryShape = new CompositeStructureFigure();
     }
 
     /**
@@ -136,8 +137,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
         }
         if (childEditPart instanceof ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureCompositeStructureInternals();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) childEditPart)
                     .getFigure());
             return true;
@@ -166,8 +166,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
         }
         if (childEditPart instanceof ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureCompositeStructureInternals();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
             pane.remove(((ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) childEditPart)
                     .getFigure());
             return true;
@@ -208,12 +206,30 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     /**
      * @generated
      */
+    protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+        if (editPart instanceof ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart) {
+            return getPrimaryShape().getFigureCompositeStructureInternals();
+        }
+        if (editPart instanceof IBorderItemEditPart) {
+            return getBorderedFigure().getBorderItemContainer();
+        }
+        return getContentPane();
+    }
+
+    /**
+     * @generated
+     */
     protected NodeFigure createNodePlate() {
         DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(500, 500);
         return result;
     }
 
     /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
      * @generated
      */
     protected NodeFigure createMainFigure() {
@@ -226,6 +242,11 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
     }
 
     /**
+     * Default implementation treats passed figure as content pane. Respects layout one may have set
+     * for generated figure.
+     * 
+     * @param nodeShape
+     *            instance of generated figure class
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -300,7 +321,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
          * @generated
          */
         private WrappingLabel fFigureCompositeStructureNameLabelFigure;
-
         /**
          * @generated
          */
@@ -320,7 +340,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
             layoutThis.marginHeight = 0;
             this.setLayoutManager(layoutThis);
 
-            this.setLineWidth(1);
             this.setPreferredSize(new Dimension(getMapMode().DPtoLP(500), getMapMode().DPtoLP(500)));
             this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
             this.setLocation(new Point(getMapMode().DPtoLP(60), getMapMode().DPtoLP(60)));
@@ -333,6 +352,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
         private void createContents() {
 
             WrappingLabel compositeStructureStereotypeLabelFigure0 = new WrappingLabel();
+
             compositeStructureStereotypeLabelFigure0.setText("<<CompositeStructure>>");
             compositeStructureStereotypeLabelFigure0.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -348,6 +368,7 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
             this.add(compositeStructureStereotypeLabelFigure0, constraintCompositeStructureStereotypeLabelFigure0);
 
             fFigureCompositeStructureNameLabelFigure = new WrappingLabel();
+
             fFigureCompositeStructureNameLabelFigure.setText("<myComposite>");
             fFigureCompositeStructureNameLabelFigure.setBorder(new MarginBorder(getMapMode().DPtoLP(2), getMapMode()
                     .DPtoLP(0), getMapMode().DPtoLP(2), getMapMode().DPtoLP(0)));
@@ -363,9 +384,9 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
             this.add(fFigureCompositeStructureNameLabelFigure, constraintFFigureCompositeStructureNameLabelFigure);
 
             fFigureCompositeStructureInternals = new RectangleFigure();
+
             fFigureCompositeStructureInternals.setFill(false);
             fFigureCompositeStructureInternals.setOutline(false);
-            fFigureCompositeStructureInternals.setLineWidth(1);
             fFigureCompositeStructureInternals.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode()
                     .DPtoLP(0)));
 
@@ -393,25 +414,6 @@ public class ComposedProvidingRequiringEntity2EditPart extends AbstractBorderedS
          */
         public RectangleFigure getFigureCompositeStructureInternals() {
             return fFigureCompositeStructureInternals;
-        }
-
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
         }
 
     }

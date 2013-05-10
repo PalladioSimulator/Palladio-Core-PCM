@@ -15,7 +15,6 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
@@ -73,8 +72,26 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
         if (getContainer() == null) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canCreateEventChannelSourceConnector_4009(getContainer(), getSource(), getTarget());
+    }
+
+    /**
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        if (!canExecute()) {
+            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+        }
+
+        EventChannelSourceConnector newElement = CompositionFactory.eINSTANCE.createEventChannelSourceConnector();
+        getContainer().getConnectors__ComposedStructure().add(newElement);
+        newElement.setSourceRole__EventChannelSourceRole(getSource());
+        newElement.setEventChannel__EventChannelSourceConnector(getTarget());
+        doConfigure(newElement, monitor, info);
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+
     }
 
     /**
@@ -126,8 +143,10 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
      * Default approach is to traverse ancestors of the source to find instance of container. Modify
      * with appropriate logic.
      * 
-     * Modified to used the target element as starting point, since this is the EventChannel
-     * contained in the composed structure
+     * Modified to use the target element as starting point, since this is the EventChannel
+     * contained in the composed structure.
+     * 
+     * Cannot be moved to custom plugin.
      * 
      * @param source
      *            the source
@@ -140,11 +159,14 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
         // Find container element for the new link.
         // Climb up by containment hierarchy starting from the source
         // and return the first element that is instance of the container class.
+
+        // Modification: added the following for loop, traversing the *target* element hierarchy.
         for (EObject element = target; element != null; element = element.eContainer()) {
             if (element instanceof ComposedStructure) {
                 return (ComposedStructure) element;
             }
         }
+
         for (EObject element = source; element != null; element = element.eContainer()) {
             if (element instanceof ComposedStructure) {
                 return (ComposedStructure) element;
@@ -152,14 +174,5 @@ public class EventChannelSourceConnectorCreateCommand extends EditElementCommand
         }
         return null;
     }
-
-    /**
-     * @generated
-     */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		// FIXME regenerate
-		return null;
-	}
 
 }

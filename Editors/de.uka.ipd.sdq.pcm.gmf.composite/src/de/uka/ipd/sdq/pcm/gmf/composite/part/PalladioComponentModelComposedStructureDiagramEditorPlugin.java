@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.part;
 
@@ -29,6 +29,8 @@ import de.uka.ipd.sdq.pcm.allocation.provider.AllocationItemProviderAdapterFacto
 import de.uka.ipd.sdq.pcm.core.composition.provider.CompositionItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.entity.provider.EntityItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.core.provider.CoreItemProviderAdapterFactory;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
+import de.uka.ipd.sdq.pcm.gmf.composite.providers.ElementInitializers;
 import de.uka.ipd.sdq.pcm.parameter.provider.ParameterItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.protocol.provider.ProtocolItemProviderAdapterFactory;
 import de.uka.ipd.sdq.pcm.provider.PcmItemProviderAdapterFactory;
@@ -68,11 +70,22 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
 
     /** The adapter factory. @generated not */
     private AdapterFactory adapterFactory;
+    // private ComposedAdapterFactory adapterFactory;
 
     /**
      * @generated
      */
     private PalladioComponentModelDocumentProvider documentProvider;
+
+    /**
+     * @generated
+     */
+    private PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints linkConstraints;
+
+    /**
+     * @generated
+     */
+    private ElementInitializers initializers;
 
     /**
      * @generated
@@ -100,6 +113,12 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
      * @generated not
      */
     public void stop(BundleContext context) throws Exception {
+        // adapterFactory.dispose();
+        // adapterFactory = null;
+        // linkConstraints = null;
+        // initializers = null;
+        // instance = null;
+        // super.stop(context);
         ((PalladioItemProviderAdapterFactory) adapterFactory).dispose();
         adapterFactory = null;
         instance = null;
@@ -120,6 +139,9 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
      * @generated not
      */
     protected AdapterFactory createAdapterFactory() {
+        // ArrayList<AdapterFactory> factories = new ArrayList<AdapterFactory>();
+        // fillItemProviderFactories(factories);
+        // return new ComposedAdapterFactory(factories);
         List factories = new ArrayList();
         fillItemProviderFactories(factories);
         ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
@@ -137,7 +159,7 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
     /**
      * @generated
      */
-    protected void fillItemProviderFactories(List factories) {
+    protected void fillItemProviderFactories(List<AdapterFactory> factories) {
         factories.add(new PcmItemProviderAdapterFactory());
         factories.add(new CoreItemProviderAdapterFactory());
         factories.add(new EntityItemProviderAdapterFactory());
@@ -189,14 +211,27 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
     }
 
     /**
+     * Returns an image descriptor for the image file at the given plug-in relative path.
+     * 
      * @generated
+     * @param path
+     *            the path
+     * @return the image descriptor
      */
     public static ImageDescriptor getBundledImageDescriptor(String path) {
         return AbstractUIPlugin.imageDescriptorFromPlugin(ID, path);
     }
 
     /**
+     * Respects images residing in any plug-in. If path is relative, then this bundle is looked up
+     * for the image, otherwise, for absolute path, first segment is taken as id of plug-in with
+     * image
+     * 
      * @generated
+     * @param path
+     *            the path to image, either absolute (with plug-in id as first segment), or relative
+     *            for bundled images
+     * @return the image descriptor
      */
     public static ImageDescriptor findImageDescriptor(String path) {
         final IPath p = new Path(path);
@@ -209,14 +244,13 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
     }
 
     /**
+     * Returns an image for the image file at the given plug-in relative path. Client do not need to
+     * dispose this image. Images will be disposed automatically.
+     * 
      * @generated
-     */
-    public static String getString(String key) {
-        return Platform.getResourceString(getInstance().getBundle(), "%" + key); //$NON-NLS-1$
-    }
-
-    /**
-     * @generated
+     * @param path
+     *            the path
+     * @return image instance
      */
     public Image getBundledImage(String path) {
         Image image = getImageRegistry().get(path);
@@ -228,6 +262,15 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
     }
 
     /**
+     * Returns string from plug-in's resource bundle
+     * 
+     * @generated
+     */
+    public static String getString(String key) {
+        return Platform.getResourceString(getInstance().getBundle(), "%" + key); //$NON-NLS-1$
+    }
+
+    /**
      * @generated
      */
     public PalladioComponentModelDocumentProvider getDocumentProvider() {
@@ -235,6 +278,34 @@ public class PalladioComponentModelComposedStructureDiagramEditorPlugin extends 
             documentProvider = new PalladioComponentModelDocumentProvider();
         }
         return documentProvider;
+    }
+
+    /**
+     * @generated
+     */
+    public PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints getLinkConstraints() {
+        return linkConstraints;
+    }
+
+    /**
+     * @generated
+     */
+    public void setLinkConstraints(PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints lc) {
+        this.linkConstraints = lc;
+    }
+
+    /**
+     * @generated
+     */
+    public ElementInitializers getElementInitializers() {
+        return initializers;
+    }
+
+    /**
+     * @generated
+     */
+    public void setElementInitializers(ElementInitializers i) {
+        this.initializers = i;
     }
 
     /**

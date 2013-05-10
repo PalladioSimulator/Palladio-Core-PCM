@@ -34,7 +34,8 @@ public class CustomAssemblyConnectorReorientCommand extends AssemblyConnectorReo
      * @return the command result
      * @throws ExecutionException
      *             the execution exception
-     * @generated NOT
+     * 
+     * @generated not
      */
     protected CommandResult reorientSource() throws ExecutionException {
         Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();
@@ -51,7 +52,8 @@ public class CustomAssemblyConnectorReorientCommand extends AssemblyConnectorReo
      * @return the command result
      * @throws ExecutionException
      *             the execution exception
-     * @generated NOT
+     * 
+     * @generated not
      */
     protected CommandResult reorientTarget() throws ExecutionException {
         Shell shell = PlatformUI.getWorkbench().getActiveWorkbenchWindow().getShell();

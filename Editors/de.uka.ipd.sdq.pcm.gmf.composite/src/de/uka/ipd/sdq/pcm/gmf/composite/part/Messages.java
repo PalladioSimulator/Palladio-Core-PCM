@@ -376,7 +376,17 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_ComposedProvidingRequiringEntity_1000_links;
+    public static String NavigatorGroupName_AssemblyInfrastructureConnector_4008_target;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_AssemblyInfrastructureConnector_4008_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_EventChannel_3017_incominglinks;
 
     /**
      * @generated
@@ -387,106 +397,6 @@ public class Messages extends NLS {
      * @generated
      */
     public static String NavigatorGroupName_OperationProvidedRole_3007_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_OperationRequiredRole_3008_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_OperationRequiredRole_3008_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_SourceRole_3013_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_SinkRole_3014_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_SinkRole_3014_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_InfrastructureProvidedRole_3015_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_InfrastructureRequiredRole_3016_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_OperationProvidedRole_3011_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_OperationProvidedRole_3011_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_OperationRequiredRole_3012_outgoinglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_OperationRequiredRole_3012_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_EventChannel_3017_incominglinks;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_EventChannelSinkConnector_4010_target;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_EventChannelSinkConnector_4010_source;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_EventChannelSourceConnector_4009_target;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_EventChannelSourceConnector_4009_source;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_AssemblyConnector_4004_target;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_AssemblyConnector_4004_source;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_AssemblyEventConnector_4007_target;
-
-    /**
-     * @generated
-     */
-    public static String NavigatorGroupName_AssemblyEventConnector_4007_source;
 
     /**
      * @generated
@@ -511,12 +421,102 @@ public class Messages extends NLS {
     /**
      * @generated
      */
-    public static String NavigatorGroupName_AssemblyInfrastructureConnector_4008_target;
+    public static String NavigatorGroupName_AssemblyEventConnector_4007_target;
 
     /**
      * @generated
      */
-    public static String NavigatorGroupName_AssemblyInfrastructureConnector_4008_source;
+    public static String NavigatorGroupName_AssemblyEventConnector_4007_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_SinkRole_3014_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_SinkRole_3014_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_SourceRole_3013_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_InfrastructureProvidedRole_3015_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_OperationRequiredRole_3008_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_OperationRequiredRole_3008_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_OperationProvidedRole_3011_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_OperationProvidedRole_3011_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_ComposedProvidingRequiringEntity_1000_links;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_EventChannelSourceConnector_4009_target;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_EventChannelSourceConnector_4009_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_OperationRequiredRole_3012_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_OperationRequiredRole_3012_incominglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_InfrastructureRequiredRole_3016_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_AssemblyConnector_4004_target;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_AssemblyConnector_4004_source;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_EventChannelSinkConnector_4010_target;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_EventChannelSinkConnector_4010_source;
 
     /**
      * @generated

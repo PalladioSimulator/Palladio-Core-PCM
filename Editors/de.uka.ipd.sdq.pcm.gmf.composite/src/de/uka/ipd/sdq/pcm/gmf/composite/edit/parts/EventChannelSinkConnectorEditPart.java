@@ -41,6 +41,11 @@ public class EventChannelSinkConnectorEditPart extends ConnectionNodeEditPart im
     }
 
     /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
      * @generated
      */
 
@@ -64,7 +69,6 @@ public class EventChannelSinkConnectorEditPart extends ConnectionNodeEditPart im
          * @generated
          */
         public EventChannelSinkConnectorFigure() {
-            this.setLineWidth(1);
 
             setTargetDecoration(createTargetDecoration());
         }
@@ -74,7 +78,6 @@ public class EventChannelSinkConnectorEditPart extends ConnectionNodeEditPart im
          */
         private RotatableDecoration createTargetDecoration() {
             PolylineDecoration df = new PolylineDecoration();
-            df.setLineWidth(1);
             PointList pl = new PointList();
             pl.addPoint(getMapMode().DPtoLP(-1), getMapMode().DPtoLP(1));
             pl.addPoint(getMapMode().DPtoLP(-2), getMapMode().DPtoLP(0));
@@ -85,4 +88,5 @@ public class EventChannelSinkConnectorEditPart extends ConnectionNodeEditPart im
         }
 
     }
+
 }

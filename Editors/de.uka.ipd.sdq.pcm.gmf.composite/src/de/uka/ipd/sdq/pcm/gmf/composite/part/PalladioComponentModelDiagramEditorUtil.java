@@ -4,10 +4,10 @@
 package de.uka.ipd.sdq.pcm.gmf.composite.part;
 
 import java.io.IOException;
-import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -53,6 +53,7 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
 import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
@@ -65,8 +66,8 @@ public class PalladioComponentModelDiagramEditorUtil {
     /**
      * @generated
      */
-    public static Map getSaveOptions() {
-        Map saveOptions = new HashMap();
+    public static Map<?, ?> getSaveOptions() {
+        HashMap<String, Object> saveOptions = new HashMap<String, Object>();
         saveOptions.put(XMLResource.OPTION_ENCODING, "UTF-8"); //$NON-NLS-1$
         saveOptions.put(Resource.OPTION_SAVE_ONLY_IF_CHANGED, Resource.OPTION_SAVE_ONLY_IF_CHANGED_MEMORY_BUFFER);
         return saveOptions;
@@ -129,6 +130,8 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Runs the wizard in a dialog.
+     * 
      * @generated
      */
     public static void runWizard(Shell shell, Wizard wizard, String settingsKey) {
@@ -146,6 +149,8 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * This method should be called within a workspace modify operation since it creates resources.
+     * 
      * @generated
      */
     public static Resource createDiagram(URI diagramURI, URI modelURI, IProgressMonitor progressMonitor) {
@@ -156,7 +161,6 @@ public class PalladioComponentModelDiagramEditorUtil {
         final String diagramName = diagramURI.lastSegment();
         AbstractTransactionalCommand command = new AbstractTransactionalCommand(editingDomain,
                 Messages.PalladioComponentModelDiagramEditorUtil_CreateDiagramCommandLabel, Collections.EMPTY_LIST) {
-            @Override
             protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info)
                     throws ExecutionException {
                 ComposedProvidingRequiringEntity model = createInitialModel();
@@ -203,6 +207,8 @@ public class PalladioComponentModelDiagramEditorUtil {
      * @generated not
      */
     private static ComposedProvidingRequiringEntity createInitialModel() {
+        // return EntityFactory.eINSTANCE.createComposedProvidingRequiringEntity();
+
         System system = SystemFactory.eINSTANCE.createSystem();
 
         // set default entity name
@@ -212,6 +218,8 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * Store model element in the resource.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
      */
     private static void attachModelToResource(ComposedProvidingRequiringEntity model, Resource resource) {
@@ -221,12 +229,11 @@ public class PalladioComponentModelDiagramEditorUtil {
     /**
      * @generated
      */
-    public static void selectElementsInDiagram(IDiagramWorkbenchPart diagramPart, List/* EditPart */editParts) {
+    public static void selectElementsInDiagram(IDiagramWorkbenchPart diagramPart, List<EditPart> editParts) {
         diagramPart.getDiagramGraphicalViewer().deselectAll();
 
         EditPart firstPrimary = null;
-        for (Iterator it = editParts.iterator(); it.hasNext();) {
-            EditPart nextPart = (EditPart) it.next();
+        for (EditPart nextPart : editParts) {
             diagramPart.getDiagramGraphicalViewer().appendSelection(nextPart);
             if (firstPrimary == null && nextPart instanceof IPrimaryEditPart) {
                 firstPrimary = nextPart;
@@ -242,7 +249,8 @@ public class PalladioComponentModelDiagramEditorUtil {
     /**
      * @generated
      */
-    private static int findElementsInDiagramByID(DiagramEditPart diagramPart, EObject element, List editPartCollector) {
+    private static int findElementsInDiagramByID(DiagramEditPart diagramPart, EObject element,
+            List<EditPart> editPartCollector) {
         IDiagramGraphicalViewer viewer = (IDiagramGraphicalViewer) diagramPart.getViewer();
         final int intialNumOfEditParts = editPartCollector.size();
 
@@ -255,10 +263,10 @@ public class PalladioComponentModelDiagramEditorUtil {
         }
 
         String elementID = EMFCoreUtil.getProxyID(element);
-        List associatedParts = viewer.findEditPartsForElement(elementID, IGraphicalEditPart.class);
+        @SuppressWarnings("unchecked")
+        List<EditPart> associatedParts = viewer.findEditPartsForElement(elementID, IGraphicalEditPart.class);
         // perform the possible hierarchy disjoint -> take the top-most parts only
-        for (Iterator editPartIt = associatedParts.iterator(); editPartIt.hasNext();) {
-            EditPart nextPart = (EditPart) editPartIt.next();
+        for (EditPart nextPart : associatedParts) {
             EditPart parentPart = nextPart.getParent();
             while (parentPart != null && !associatedParts.contains(parentPart)) {
                 parentPart = parentPart.getParent();
@@ -270,7 +278,7 @@ public class PalladioComponentModelDiagramEditorUtil {
 
         if (intialNumOfEditParts == editPartCollector.size()) {
             if (!associatedParts.isEmpty()) {
-                editPartCollector.add(associatedParts.iterator().next());
+                editPartCollector.add(associatedParts.get(0));
             } else {
                 if (element.eContainer() != null) {
                     return findElementsInDiagramByID(diagramPart, element.eContainer(), editPartCollector);
@@ -291,11 +299,11 @@ public class PalladioComponentModelDiagramEditorUtil {
         }
 
         View view = null;
+        LinkedList<EditPart> editPartHolder = new LinkedList<EditPart>();
         if (hasStructuralURI && !lazyElement2ViewMap.getElement2ViewMap().isEmpty()) {
-            view = (View) lazyElement2ViewMap.getElement2ViewMap().get(targetElement);
-        } else if (findElementsInDiagramByID(diagramEditPart, targetElement, lazyElement2ViewMap.editPartTmpHolder) > 0) {
-            EditPart editPart = (EditPart) lazyElement2ViewMap.editPartTmpHolder.get(0);
-            lazyElement2ViewMap.editPartTmpHolder.clear();
+            view = lazyElement2ViewMap.getElement2ViewMap().get(targetElement);
+        } else if (findElementsInDiagramByID(diagramEditPart, targetElement, editPartHolder) > 0) {
+            EditPart editPart = editPartHolder.get(0);
             view = editPart.getModel() instanceof View ? (View) editPart.getModel() : null;
         }
 
@@ -303,34 +311,31 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
+     * XXX This is quite suspicious code (especially editPartTmpHolder) and likely to be removed
+     * soon
+     * 
      * @generated
      */
     public static class LazyElement2ViewMap {
+        /**
+         * @generated
+         */
+        private Map<EObject, View> element2ViewMap;
 
         /**
          * @generated
          */
-        private Map element2ViewMap;
+        private View scope;
 
         /**
          * @generated
          */
-        private final View scope;
+        private Set<? extends EObject> elementSet;
 
         /**
          * @generated
          */
-        private final Set elementSet;
-
-        /**
-         * @generated
-         */
-        public final List editPartTmpHolder = new ArrayList();
-
-        /**
-         * @generated
-         */
-        public LazyElement2ViewMap(View scope, Set elements) {
+        public LazyElement2ViewMap(View scope, Set<? extends EObject> elements) {
             this.scope = scope;
             this.elementSet = elements;
         }
@@ -338,18 +343,15 @@ public class PalladioComponentModelDiagramEditorUtil {
         /**
          * @generated
          */
-        public final Map getElement2ViewMap() {
+        public final Map<EObject, View> getElement2ViewMap() {
             if (element2ViewMap == null) {
-                element2ViewMap = new HashMap();
-                // map possible notation elements to itself as these can't be found by
-                // view.getElement()
-                for (Iterator it = elementSet.iterator(); it.hasNext();) {
-                    EObject element = (EObject) it.next();
+                element2ViewMap = new HashMap<EObject, View>();
+                // map possible notation elements to itself as these can't be found by view.getElement()
+                for (EObject element : elementSet) {
                     if (element instanceof View) {
                         View view = (View) element;
                         if (view.getDiagram() == scope.getDiagram()) {
-                            element2ViewMap.put(element, element); // take only those that part of
-                                                                   // our diagram
+                            element2ViewMap.put(element, view); // take only those that part of our diagram
                         }
                     }
                 }
@@ -362,38 +364,30 @@ public class PalladioComponentModelDiagramEditorUtil {
         /**
          * @generated
          */
-        static Map buildElement2ViewMap(View parentView, Map element2ViewMap, Set elements) {
+        private static boolean buildElement2ViewMap(View parentView, Map<EObject, View> element2ViewMap,
+                Set<? extends EObject> elements) {
             if (elements.size() == element2ViewMap.size()) {
-                return element2ViewMap;
+                return true;
             }
 
             if (parentView.isSetElement() && !element2ViewMap.containsKey(parentView.getElement())
                     && elements.contains(parentView.getElement())) {
                 element2ViewMap.put(parentView.getElement(), parentView);
                 if (elements.size() == element2ViewMap.size()) {
-                    return element2ViewMap;
+                    return true;
                 }
             }
-
-            for (Iterator it = parentView.getChildren().iterator(); it.hasNext();) {
-                buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
-                if (elements.size() == element2ViewMap.size()) {
-                    return element2ViewMap;
-                }
+            boolean complete = false;
+            for (Iterator<?> it = parentView.getChildren().iterator(); it.hasNext() && !complete;) {
+                complete = buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
             }
-            for (Iterator it = parentView.getSourceEdges().iterator(); it.hasNext();) {
-                buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
-                if (elements.size() == element2ViewMap.size()) {
-                    return element2ViewMap;
-                }
+            for (Iterator<?> it = parentView.getSourceEdges().iterator(); it.hasNext() && !complete;) {
+                complete = buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
             }
-            for (Iterator it = parentView.getSourceEdges().iterator(); it.hasNext();) {
-                buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
-                if (elements.size() == element2ViewMap.size()) {
-                    return element2ViewMap;
-                }
+            for (Iterator<?> it = parentView.getTargetEdges().iterator(); it.hasNext() && !complete;) {
+                complete = buildElement2ViewMap((View) it.next(), element2ViewMap, elements);
             }
-            return element2ViewMap;
+            return complete;
         }
     } // LazyElement2ViewMap
 

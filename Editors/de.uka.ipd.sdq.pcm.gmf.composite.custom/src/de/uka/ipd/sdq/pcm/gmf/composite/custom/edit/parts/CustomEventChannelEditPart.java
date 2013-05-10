@@ -51,7 +51,6 @@ public class CustomEventChannelEditPart extends EventChannelEditPart {
             }
         };
         return result;
-
     }
 
     /**

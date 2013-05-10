@@ -26,11 +26,12 @@ public class CustomEventChannelItemSemanticEditPolicy extends EventChannelItemSe
      */
     protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.EventChannelSinkConnector_4010 == req.getElementType()) {
-            return getGEFWrapper(new CustomEventChannelSinkConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+            return getGEFWrapper(new /* EventChannelSinkConnectorCreateCommand */CustomEventChannelSinkConnectorCreateCommand(
+                    req, req.getSource(), req.getTarget()));
         }
         if (PalladioComponentModelElementTypes.EventChannelSourceConnector_4009 == req.getElementType()) {
-            return getGEFWrapper(new CustomEventChannelSourceConnectorCreateCommand(req, req.getSource(),
-                    req.getTarget()));
+            return getGEFWrapper(new /* EventChannelSourceConnectorCreateCommand */CustomEventChannelSourceConnectorCreateCommand(
+                    req, req.getSource(), req.getTarget()));
         }
         return null;
     }

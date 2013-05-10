@@ -6,9 +6,7 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.UnexecutableCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
@@ -18,13 +16,11 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyInfrastructureConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 
 /**
  * @generated
@@ -41,12 +37,11 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     /**
      * @generated
      */
-    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == AssemblyInfrastructureConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
@@ -70,7 +65,6 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     /**
      * @generated
      */
-    @Override
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
         Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
                 : getCompleteCreateRelationshipCommand(req);
@@ -80,11 +74,12 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     /**
      * @generated
      */
-    protected Command getStartCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		// FIXME is only referenced in getCreateRelatioshipCommand? / regenerate
-		return null;
-	}
+    protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008 == req.getElementType()) {
+            return getGEFWrapper(new AssemblyInfrastructureConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        return null;
+    }
 
     /**
      * @generated
@@ -97,9 +92,11 @@ public class InfrastructureRequiredRoleItemSemanticEditPolicy extends PalladioCo
     }
 
     /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
      * @generated
      */
-    @Override
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {
         case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:

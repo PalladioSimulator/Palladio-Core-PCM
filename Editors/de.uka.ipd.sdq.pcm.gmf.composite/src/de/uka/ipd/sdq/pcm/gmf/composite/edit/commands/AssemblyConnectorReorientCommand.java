@@ -75,8 +75,8 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistAssemblyConnector_4004(
-                container, getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canExistAssemblyConnector_4004(
+                container, getLink(), getNewSource(), target);
     }
 
     /**
@@ -91,8 +91,8 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canExistAssemblyConnector_4004(
-                container, source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints().canExistAssemblyConnector_4004(
+                container, getLink(), source, getNewTarget());
     }
 
     /**
@@ -115,16 +115,16 @@ public class AssemblyConnectorReorientCommand extends EditElementCommand {
      * @generated
      */
     protected CommandResult reorientSource() throws ExecutionException {
-    	// FIXME regenerate
-    	return null;
+        getLink().setRequiredRole_AssemblyConnector(getNewSource());
+        return CommandResult.newOKCommandResult(getLink());
     }
 
     /**
      * @generated
      */
     protected CommandResult reorientTarget() throws ExecutionException {
-    	// FIXME regenerate
-    	return null;
+        getLink().setProvidedRole_AssemblyConnector(getNewTarget());
+        return CommandResult.newOKCommandResult(getLink());
     }
 
     /**

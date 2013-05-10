@@ -45,6 +45,9 @@ public class CustomAssemblyContextCreateCommand extends AssemblyContextCreateCom
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         AssemblyContext newElement = CompositionFactory.eINSTANCE.createAssemblyContext();
 
+        // InterfaceProvidingEntity owner = (InterfaceProvidingEntity) getElementToEdit();
+        // owner.getProvidedRoles_InterfaceProvidingEntity().add(newElement);
+        // Replaced previous lines with the following line:
         newElement.setParentStructure__AssemblyContext((ComposedStructure) getElementToEdit());
 
         doConfigure(newElement, monitor, info);

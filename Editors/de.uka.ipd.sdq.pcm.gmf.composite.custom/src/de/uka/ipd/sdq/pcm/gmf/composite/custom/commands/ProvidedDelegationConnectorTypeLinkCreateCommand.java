@@ -1,22 +1,26 @@
 /*
  *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
-package de.uka.ipd.sdq.pcm.gmf.composite.edit.commands;
+package de.uka.ipd.sdq.pcm.gmf.composite.custom.commands;
 
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.gmf.runtime.emf.type.core.commands.CreateRelationshipCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
 /**
+ * This class has been moved from GMF2.x. GMF3.x does no longer generate it. FIXME: Can this class
+ * be omitted?
+ * 
  * @generated
  */
-public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCommand {
+public class ProvidedDelegationConnectorTypeLinkCreateCommand extends CreateRelationshipCommand {
 
     /**
      * @generated
@@ -26,7 +30,7 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
     /**
      * @generated
      */
-    private OperationRequiredRole mySource;
+    private OperationProvidedRole mySource;
 
     /**
      * @generated
@@ -36,8 +40,8 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
     /**
      * @generated
      */
-    public AssemblyConnectorTypeLinkCreateCommand(CreateRelationshipRequest req, ComposedStructure container,
-            OperationRequiredRole source, OperationProvidedRole target) {
+    public ProvidedDelegationConnectorTypeLinkCreateCommand(CreateRelationshipRequest req, ComposedStructure container,
+            OperationProvidedRole source, OperationProvidedRole target) {
         super(req);
         super.setElementToEdit(container);
         myContainer = container;
@@ -79,4 +83,5 @@ public class AssemblyConnectorTypeLinkCreateCommand extends CreateRelationshipCo
     protected void setElementToEdit(EObject element) {
         throw new UnsupportedOperationException();
     }
+
 }

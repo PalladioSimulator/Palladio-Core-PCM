@@ -5,12 +5,14 @@ package de.uka.ipd.sdq.pcm.gmf.composite.edit.parts;
 
 import java.util.ArrayList;
 import java.util.Collections;
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.draw2d.IFigure;
 import org.eclipse.draw2d.PositionConstants;
 import org.eclipse.draw2d.RectangleFigure;
 import org.eclipse.draw2d.Shape;
+import org.eclipse.draw2d.StackLayout;
 import org.eclipse.draw2d.geometry.Dimension;
 import org.eclipse.draw2d.geometry.Point;
 import org.eclipse.gef.EditPart;
@@ -30,6 +32,7 @@ import org.eclipse.gmf.runtime.diagram.ui.editpolicies.BorderItemSelectionEditPo
 import org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles;
 import org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator;
 import org.eclipse.gmf.runtime.emf.type.core.IElementType;
+import org.eclipse.gmf.runtime.gef.ui.figures.DefaultSizeNodeFigure;
 import org.eclipse.gmf.runtime.gef.ui.figures.NodeFigure;
 import org.eclipse.gmf.runtime.notation.View;
 import org.eclipse.swt.graphics.Color;
@@ -73,8 +76,7 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
         installEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE, getPrimaryDragEditPolicy());
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new OperationProvidedRoleItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -82,7 +84,7 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        LayoutEditPolicy lep = new LayoutEditPolicy() {
+        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
             protected EditPolicy createChildEditPolicy(EditPart child) {
                 View childView = (View) child.getModel();
@@ -119,8 +121,7 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
      * @generated
      */
     protected IFigure createNodeShape() {
-        OperationProvidedRoleFigure figure = new OperationProvidedRoleFigure();
-        return primaryShape = figure;
+        return primaryShape = new OperationProvidedRoleFigure();
     }
 
     /**
@@ -146,6 +147,17 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     /**
      * @generated
      */
+    protected NodeFigure createNodePlate() {
+        DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(20, 20);
+
+        //FIXME: workaround for #154536
+        result.getBounds().setSize(result.getPreferredSize());
+        return result;
+    }
+
+    /**
+     * @generated
+     */
     public EditPolicy getPrimaryDragEditPolicy() {
         EditPolicy result = super.getPrimaryDragEditPolicy();
         if (result instanceof ResizableEditPolicy) {
@@ -156,6 +168,28 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     }
 
     /**
+     * Creates figure for this edit part.
+     * 
+     * Body of this method does not depend on settings in generation model so you may safely remove
+     * <i>generated</i> tag and modify it.
+     * 
+     * @generated
+     */
+    protected NodeFigure createMainFigure() {
+        NodeFigure figure = createNodePlate();
+        figure.setLayoutManager(new StackLayout());
+        IFigure shape = createNodeShape();
+        figure.add(shape);
+        contentPane = setupContentPane(shape);
+        return figure;
+    }
+
+    /**
+     * Default implementation treats passed figure as content pane. Respects layout one may have set
+     * for generated figure.
+     * 
+     * @param nodeShape
+     *            instance of generated figure class
      * @generated
      */
     protected IFigure setupContentPane(IFigure nodeShape) {
@@ -219,18 +253,8 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSource() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSource() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(1);
         types.add(PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006);
         return types;
     }
@@ -238,19 +262,8 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnSourceAndTarget(
-            IGraphicalEditPart targetEditPart) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnSourceAndTarget(IGraphicalEditPart targetEditPart) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (targetEditPart instanceof de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRoleEditPart) {
             types.add(PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006);
         }
@@ -263,23 +276,10 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForTarget(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForTarget(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006) {
             types.add(PalladioComponentModelElementTypes.OperationProvidedRole_3007);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006) {
             types.add(PalladioComponentModelElementTypes.OperationProvidedRole_3011);
         }
         return types;
@@ -288,18 +288,8 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMARelTypesOnTarget() {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMARelTypesOnTarget() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(2);
         types.add(PalladioComponentModelElementTypes.AssemblyConnector_4004);
         types.add(PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006);
         return types;
@@ -308,29 +298,13 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
     /**
      * @generated
      */
-    public List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */getMATypesForSource(
-            IElementType relationshipType) {
-        List/* <org.eclipse.gmf.runtime.emf.type.core.IElementType> */types = new ArrayList/*
-                                                                                            * <org.
-                                                                                            * eclipse
-                                                                                            * .gmf.
-                                                                                            * runtime
-                                                                                            * .
-                                                                                            * emf.type
-                                                                                            * .core.
-                                                                                            * IElementType
-                                                                                            * >
-                                                                                            */();
+    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
+        LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.AssemblyConnector_4004) {
             types.add(PalladioComponentModelElementTypes.OperationRequiredRole_3008);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.AssemblyConnector_4004) {
             types.add(PalladioComponentModelElementTypes.OperationRequiredRole_3012);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006) {
+        } else if (relationshipType == PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006) {
             types.add(PalladioComponentModelElementTypes.OperationProvidedRole_3007);
-        }
-        if (relationshipType == PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006) {
             types.add(PalladioComponentModelElementTypes.OperationProvidedRole_3011);
         }
         return types;
@@ -345,40 +319,12 @@ public class OperationProvidedRoleEditPart extends BorderedBorderItemEditPart {
          * @generated
          */
         public OperationProvidedRoleFigure() {
-            this.setLineWidth(1);
             this.setPreferredSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
-            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(0), getMapMode().DPtoLP(0)));
+            this.setMaximumSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
+            this.setMinimumSize(new Dimension(getMapMode().DPtoLP(20), getMapMode().DPtoLP(20)));
             this.setLocation(new Point(getMapMode().DPtoLP(40), getMapMode().DPtoLP(40)));
         }
 
-        /**
-         * @generated
-         */
-        private boolean myUseLocalCoordinates = false;
-
-        /**
-         * @generated
-         */
-        protected boolean useLocalCoordinates() {
-            return myUseLocalCoordinates;
-        }
-
-        /**
-         * @generated
-         */
-        protected void setUseLocalCoordinates(boolean useLocalCoordinates) {
-            myUseLocalCoordinates = useLocalCoordinates;
-        }
-
     }
-
-    /**
-     * @generated
-     */
-	@Override
-	protected NodeFigure createMainFigure() {
-		// FIXME: regenerate
-		return null;
-	}
 
 }

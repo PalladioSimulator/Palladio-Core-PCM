@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
+import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
@@ -49,7 +50,8 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
         super(request.getLabel(), null, request);
         this.source = source;
         this.target = target;
-        
+        // container = deduceContainer(source, target);
+        // Replaced last line with the following line:
         // The container has been placed in the request during the SinkRoleItemSemanticEditPolicy
         container = (ComposedStructure) request.getParameter("CONTAINER");
     }
@@ -74,8 +76,27 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
         if (getContainer() == null) {
             return false;
         }
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
                 .canCreateAssemblyInfrastructureConnector_4008(getContainer(), getSource(), getTarget());
+    }
+
+    /**
+     * @generated
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        if (!canExecute()) {
+            throw new ExecutionException("Invalid arguments in create link command"); //$NON-NLS-1$
+        }
+
+        AssemblyInfrastructureConnector newElement = CompositionFactory.eINSTANCE
+                .createAssemblyInfrastructureConnector();
+        getContainer().getConnectors__ComposedStructure().add(newElement);
+        newElement.setRequiredRole__AssemblyInfrastructureConnector(getSource());
+        newElement.setProvidedRole__AssemblyInfrastructureConnector(getTarget());
+        doConfigure(newElement, monitor, info);
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+
     }
 
     /**
@@ -124,6 +145,9 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     }
 
     /**
+     * Default approach is to traverse ancestors of the source to find instance of container. Modify
+     * with appropriate logic.
+     * 
      * @generated
      */
     private static ComposedStructure deduceContainer(EObject source, EObject target) {
@@ -137,14 +161,5 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
         }
         return null;
     }
-
-    /**
-     * @generated
-     */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		// FIXME regenerate
-		return null;
-	}
 
 }

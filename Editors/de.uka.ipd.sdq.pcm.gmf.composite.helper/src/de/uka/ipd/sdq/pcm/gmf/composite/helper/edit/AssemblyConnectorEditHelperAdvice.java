@@ -25,7 +25,7 @@ public class AssemblyConnectorEditHelperAdvice extends AbstractEditHelperAdvice 
      */
     @Override
     protected ICommand getAfterConfigureCommand(ConfigureRequest req) {
-    	AssemblyConnector con = (AssemblyConnector) req.getElementToConfigure();
+        AssemblyConnector con = (AssemblyConnector) req.getElementToConfigure();
         String name = "Connector ";
         name += con.getRequiringAssemblyContext_AssemblyConnector() == null ? "" : con
                 .getRequiringAssemblyContext_AssemblyConnector().getEntityName();

@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ProvidedDelegationConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ProvidedDelegationConnectorReorientCommand;
@@ -39,12 +40,11 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     /**
      * @generated
      */
-    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AssemblyConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -59,7 +59,7 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == ProvidedDelegationConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
@@ -83,7 +83,6 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     /**
      * @generated
      */
-    @Override
     protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
         Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
                 : getCompleteCreateRelationshipCommand(req);
@@ -91,15 +90,6 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     }
 
     /**
-     * @generated
-     */
-    private Command getCompleteCreateRelationshipCommand(
-			CreateRelationshipRequest req) {
-		// FIXME is only referenced in getCreateRelatioshipCommand? / regenerate
-		return null;
-	}
-
-	/**
      * @generated
      */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
@@ -115,7 +105,22 @@ public class OperationProvidedRole2ItemSemanticEditPolicy extends PalladioCompon
     /**
      * @generated
      */
-    @Override
+    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.AssemblyConnector_4004 == req.getElementType()) {
+            return getGEFWrapper(new AssemblyConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        if (PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006 == req.getElementType()) {
+            return getGEFWrapper(new ProvidedDelegationConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        return null;
+    }
+
+    /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
+     * @generated
+     */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {
         case AssemblyConnectorEditPart.VISUAL_ID:

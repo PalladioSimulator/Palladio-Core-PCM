@@ -16,6 +16,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.ReorientRelationshipReques
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSinkConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.EventChannelSinkConnectorReorientCommand;
@@ -39,12 +40,11 @@ public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseIt
     /**
      * @generated
      */
-    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == AssemblyEventConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -53,7 +53,7 @@ public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseIt
                 continue;
             }
         }
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == EventChannelSinkConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
@@ -77,6 +77,15 @@ public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseIt
     /**
      * @generated
      */
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+        Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+                : getCompleteCreateRelationshipCommand(req);
+        return command != null ? command : super.getCreateRelationshipCommand(req);
+    }
+
+    /**
+     * @generated
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.EventChannelSinkConnector_4010 == req.getElementType()) {
             return getGEFWrapper(new EventChannelSinkConnectorCreateCommand(req, req.getSource(), req.getTarget()));
@@ -90,7 +99,22 @@ public class SinkRoleItemSemanticEditPolicy extends PalladioComponentModelBaseIt
     /**
      * @generated
      */
-    @Override
+    protected Command getCompleteCreateRelationshipCommand(CreateRelationshipRequest req) {
+        if (PalladioComponentModelElementTypes.EventChannelSinkConnector_4010 == req.getElementType()) {
+            return null;
+        }
+        if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req.getElementType()) {
+            return getGEFWrapper(new AssemblyEventConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+        }
+        return null;
+    }
+
+    /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
+     * @generated
+     */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {
         case EventChannelSinkConnectorEditPart.VISUAL_ID:

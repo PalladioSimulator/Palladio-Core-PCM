@@ -17,6 +17,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
+import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 
 /**
@@ -32,9 +33,10 @@ public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCo
     }
 
     /**
+     * FIXME: replace with setElementToEdit()
+     * 
      * @generated
      */
-    @Override
     protected EObject getElementToEdit() {
         EObject container = ((CreateElementRequest) getRequest()).getContainer();
         if (container instanceof View) {
@@ -46,13 +48,14 @@ public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCo
     /**
      * @generated
      */
-    @Override
     public boolean canExecute() {
         return true;
     }
 
     /**
      * Do execute with result.
+     * 
+     * Cannot be moved to custom plugin because the generated code is buggy.
      * 
      * @param monitor
      *            the monitor
@@ -61,9 +64,8 @@ public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCo
      * @return the command result
      * @throws ExecutionException
      *             the execution exception
-     * @generated NOT
+     * @generated not
      */
-    @Override
     protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
         // Uncomment to put "phantom" objects into the diagram file.
         // org.eclipse.emf.ecore.resource.Resource resource =
@@ -73,6 +75,9 @@ public class ComposedProvidingRequiringEntityCreateCommand extends EditElementCo
         // return null;
         // }
         Resource resource = getElementToEdit().eResource();
+        // ComposedProvidingRequiringEntity newElement =
+        // EntityFactory.eINSTANCE.createComposedProvidingRequiringEntity();
+        // Replaced the previous line with the following line:
         ComposedProvidingRequiringEntity newElement = SystemFactory.eINSTANCE.createSystem();
 
         resource.getContents().add(newElement);

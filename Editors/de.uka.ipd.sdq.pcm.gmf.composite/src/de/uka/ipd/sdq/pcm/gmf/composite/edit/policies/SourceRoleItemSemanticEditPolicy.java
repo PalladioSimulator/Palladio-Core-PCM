@@ -40,12 +40,11 @@ public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBase
     /**
      * @generated
      */
-    @Override
     protected Command getDestroyElementCommand(DestroyElementRequest req) {
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getSourceEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getSourceEdges().iterator(); it.hasNext();) {
             Edge outgoingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(outgoingLink) == EventChannelSourceConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(outgoingLink.getElement(), false);
@@ -75,6 +74,15 @@ public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBase
     /**
      * @generated
      */
+    protected Command getCreateRelationshipCommand(CreateRelationshipRequest req) {
+        Command command = req.getTarget() == null ? getStartCreateRelationshipCommand(req)
+                : getCompleteCreateRelationshipCommand(req);
+        return command != null ? command : super.getCreateRelationshipCommand(req);
+    }
+
+    /**
+     * @generated
+     */
     protected Command getStartCreateRelationshipCommand(CreateRelationshipRequest req) {
         if (PalladioComponentModelElementTypes.EventChannelSourceConnector_4009 == req.getElementType()) {
             return getGEFWrapper(new EventChannelSourceConnectorCreateCommand(req, req.getSource(), req.getTarget()));
@@ -99,9 +107,11 @@ public class SourceRoleItemSemanticEditPolicy extends PalladioComponentModelBase
     }
 
     /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
      * @generated
      */
-    @Override
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {
         switch (getVisualID(req)) {
         case EventChannelSourceConnectorEditPart.VISUAL_ID:

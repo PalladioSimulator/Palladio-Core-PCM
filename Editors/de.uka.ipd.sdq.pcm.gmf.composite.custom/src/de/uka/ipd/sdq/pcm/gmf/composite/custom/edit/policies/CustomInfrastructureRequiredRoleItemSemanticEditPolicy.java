@@ -41,8 +41,7 @@ public class CustomInfrastructureRequiredRoleItemSemanticEditPolicy extends
             if (container == null) {
                 return UnexecutableCommand.INSTANCE;
             }
-            if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                    .canCreateAssemblyInfrastructureConnector_4008(container, source, null)) {
+            if (!getLinkConstraints().canCreateAssemblyInfrastructureConnector_4008(container, source, null)) {
                 return UnexecutableCommand.INSTANCE;
             }
             // added to provide assembly context in addition to source and target role

@@ -11,6 +11,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
+import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomAssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomEventChannelSourceConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
@@ -62,12 +63,10 @@ public class CustomSourceRoleItemSemanticEditPolicy extends SourceRoleItemSemant
         if (container == null) {
             return UnexecutableCommand.INSTANCE;
         }
-        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateAssemblyEventConnector_4007(
-                container, source, null)) {
+        if (!getLinkConstraints().canCreateAssemblyEventConnector_4007(container, source, null)) {
             return UnexecutableCommand.INSTANCE;
         }
-        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canCreateEventChannelSourceConnector_4009(container, source, null)) {
+        if (!getLinkConstraints().canCreateEventChannelSourceConnector_4009(container, source, null)) {
             return UnexecutableCommand.INSTANCE;
         }
         req.setParameter("SOURCE_CONTEXT", ((View) getHost().getParent().getModel()).getElement());
@@ -89,7 +88,7 @@ public class CustomSourceRoleItemSemanticEditPolicy extends SourceRoleItemSemant
                     req.getTarget()));
         }
         if (PalladioComponentModelElementTypes.AssemblyEventConnector_4007 == req.getElementType()) {
-            return getGEFWrapper(new AssemblyEventConnectorCreateCommand(req, req.getSource(), req.getTarget()));
+            return getGEFWrapper(new CustomAssemblyEventConnectorCreateCommand(req, req.getSource(), req.getTarget()));
         }
         return null;
     }

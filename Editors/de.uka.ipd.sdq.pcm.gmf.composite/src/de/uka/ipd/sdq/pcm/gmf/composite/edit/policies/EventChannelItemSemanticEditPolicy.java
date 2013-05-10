@@ -4,6 +4,7 @@
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 
 import java.util.Iterator;
+
 import org.eclipse.emf.ecore.EAnnotation;
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
@@ -43,7 +44,7 @@ public class EventChannelItemSemanticEditPolicy extends PalladioComponentModelBa
         View view = (View) getHost().getModel();
         CompositeTransactionalCommand cmd = new CompositeTransactionalCommand(getEditingDomain(), null);
         cmd.setTransactionNestingEnabled(false);
-        for (Iterator it = view.getTargetEdges().iterator(); it.hasNext();) {
+        for (Iterator<?> it = view.getTargetEdges().iterator(); it.hasNext();) {
             Edge incomingLink = (Edge) it.next();
             if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == EventChannelSinkConnectorEditPart.VISUAL_ID) {
                 DestroyElementRequest r = new DestroyElementRequest(incomingLink.getElement(), false);
@@ -106,6 +107,9 @@ public class EventChannelItemSemanticEditPolicy extends PalladioComponentModelBa
     }
 
     /**
+     * Returns command to reorient EClass based link. New link target or source should be the domain
+     * model element associated with this node.
+     * 
      * @generated
      */
     protected Command getReorientRelationshipCommand(ReorientRelationshipRequest req) {

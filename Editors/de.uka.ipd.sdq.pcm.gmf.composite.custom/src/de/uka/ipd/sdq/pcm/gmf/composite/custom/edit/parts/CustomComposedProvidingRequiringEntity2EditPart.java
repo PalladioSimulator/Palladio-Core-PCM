@@ -39,9 +39,9 @@ public class CustomComposedProvidingRequiringEntity2EditPart extends ComposedPro
 
         // TODO: Proof necessity of instance of type check
         // We found out that "return editPart.getFigure().getParent();" is sufficient
-        // for the InnerCompartment. It might be sufficient for the roles to.
+        // for the InnerCompartment. It might be sufficient for the roles, too.
         // This should be proven and instance of separation removed if possible
-        // (benjamin klatt)
+        // (Benjamin Klatt)
 
         if (editPart instanceof OperationProvidedRoleEditPart) {
             return getBorderedFigure().getBorderItemContainer();

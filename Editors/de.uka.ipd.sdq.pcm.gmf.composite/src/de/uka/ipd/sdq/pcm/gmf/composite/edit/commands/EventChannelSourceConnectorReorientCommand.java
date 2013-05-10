@@ -75,8 +75,8 @@ public class EventChannelSourceConnectorReorientCommand extends EditElementComma
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistEventChannelSourceConnector_4009(container, getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistEventChannelSourceConnector_4009(container, getLink(), getNewSource(), target);
     }
 
     /**
@@ -91,8 +91,8 @@ public class EventChannelSourceConnectorReorientCommand extends EditElementComma
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistEventChannelSourceConnector_4009(container, source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistEventChannelSourceConnector_4009(container, getLink(), source, getNewTarget());
     }
 
     /**

@@ -46,7 +46,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 /**
  * @generated
  */
-public class PalladioComponentModelElementTypes extends ElementInitializers {
+public class PalladioComponentModelElementTypes {
 
     /**
      * @generated
@@ -57,7 +57,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    private static Map elements;
+    private static Map<IElementType, ENamedElement> elements;
 
     /**
      * @generated
@@ -67,98 +67,80 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     /**
      * @generated
      */
-    private static Set KNOWN_ELEMENT_TYPES;
+    private static Set<IElementType> KNOWN_ELEMENT_TYPES;
 
     /**
      * @generated
      */
     public static final IElementType ComposedProvidingRequiringEntity_1000 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.ComposedProvidingRequiringEntity_1000"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType ComposedProvidingRequiringEntity_2002 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.ComposedProvidingRequiringEntity_2002"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType AssemblyContext_3006 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyContext_3006"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType OperationProvidedRole_3007 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationProvidedRole_3007"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType OperationRequiredRole_3008 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3008"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType SourceRole_3013 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.SourceRole_3013"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType SinkRole_3014 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.SinkRole_3014"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType InfrastructureProvidedRole_3015 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureProvidedRole_3015"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType InfrastructureRequiredRole_3016 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.InfrastructureRequiredRole_3016"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType OperationProvidedRole_3011 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationProvidedRole_3011"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType OperationRequiredRole_3012 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.OperationRequiredRole_3012"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType EventChannel_3017 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.EventChannel_3017"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType EventChannelSinkConnector_4010 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSinkConnector_4010"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType EventChannelSourceConnector_4009 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.EventChannelSourceConnector_4009"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType AssemblyConnector_4004 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyConnector_4004"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType AssemblyEventConnector_4007 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.AssemblyEventConnector_4007"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType RequiredDelegationConnector_4005 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.RequiredDelegationConnector_4005"); //$NON-NLS-1$
-
     /**
      * @generated
      */
     public static final IElementType ProvidedDelegationConnector_4006 = getElementType("de.uka.ipd.sdq.pcm.gmf.composite.ProvidedDelegationConnector_4006"); //$NON-NLS-1$
-
     /**
      * @generated
      */
@@ -262,12 +244,14 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
     }
 
     /**
+     * Returns 'type' of the ecore object associated with the hint.
+     * 
      * @generated
      */
     public static ENamedElement getElement(IAdaptable hint) {
         Object type = hint.getAdapter(IElementType.class);
         if (elements == null) {
-            elements = new IdentityHashMap();
+            elements = new IdentityHashMap<IElementType, ENamedElement>();
 
             elements.put(ComposedProvidingRequiringEntity_1000,
                     EntityPackage.eINSTANCE.getComposedProvidingRequiringEntity());
@@ -328,7 +312,7 @@ public class PalladioComponentModelElementTypes extends ElementInitializers {
      */
     public static boolean isKnownElementType(IElementType elementType) {
         if (KNOWN_ELEMENT_TYPES == null) {
-            KNOWN_ELEMENT_TYPES = new HashSet();
+            KNOWN_ELEMENT_TYPES = new HashSet<IElementType>();
             KNOWN_ELEMENT_TYPES.add(ComposedProvidingRequiringEntity_1000);
             KNOWN_ELEMENT_TYPES.add(ComposedProvidingRequiringEntity_2002);
             KNOWN_ELEMENT_TYPES.add(AssemblyContext_3006);

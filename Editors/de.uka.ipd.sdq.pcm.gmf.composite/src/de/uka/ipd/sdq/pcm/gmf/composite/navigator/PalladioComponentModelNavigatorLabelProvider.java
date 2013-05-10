@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.navigator;
 
@@ -117,63 +117,63 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
      */
     public Image getImage(View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
-        case ComposedProvidingRequiringEntityEditPart.VISUAL_ID:
+        case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0?ComposedProvidingRequiringEntity", PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_1000); //$NON-NLS-1$
-        case ComposedProvidingRequiringEntity2EditPart.VISUAL_ID:
+                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyInfrastructureConnector", PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008); //$NON-NLS-1$
+        case EventChannelSinkConnectorEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0?ComposedProvidingRequiringEntity", PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_2002); //$NON-NLS-1$
-        case AssemblyContextEditPart.VISUAL_ID:
+                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannelSinkConnector", PalladioComponentModelElementTypes.EventChannelSinkConnector_4010); //$NON-NLS-1$
+        case AssemblyEventConnectorEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyContext", PalladioComponentModelElementTypes.AssemblyContext_3006); //$NON-NLS-1$
-        case OperationProvidedRoleEditPart.VISUAL_ID:
+                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyEventConnector", PalladioComponentModelElementTypes.AssemblyEventConnector_4007); //$NON-NLS-1$
+        case ProvidedDelegationConnectorEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationProvidedRole", PalladioComponentModelElementTypes.OperationProvidedRole_3007); //$NON-NLS-1$
+                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?ProvidedDelegationConnector", PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006); //$NON-NLS-1$
+        case EventChannelEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannel", PalladioComponentModelElementTypes.EventChannel_3017); //$NON-NLS-1$
         case OperationRequiredRoleEditPart.VISUAL_ID:
             return getImage(
                     "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationRequiredRole", PalladioComponentModelElementTypes.OperationRequiredRole_3008); //$NON-NLS-1$
         case SourceRoleEditPart.VISUAL_ID:
             return getImage(
                     "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?SourceRole", PalladioComponentModelElementTypes.SourceRole_3013); //$NON-NLS-1$
-        case SinkRoleEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?SinkRole", PalladioComponentModelElementTypes.SinkRole_3014); //$NON-NLS-1$
-        case InfrastructureProvidedRoleEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureProvidedRole", PalladioComponentModelElementTypes.InfrastructureProvidedRole_3015); //$NON-NLS-1$
-        case InfrastructureRequiredRoleEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureRequiredRole", PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016); //$NON-NLS-1$
-        case OperationProvidedRole2EditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationProvidedRole", PalladioComponentModelElementTypes.OperationProvidedRole_3011); //$NON-NLS-1$
-        case OperationRequiredRole2EditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationRequiredRole", PalladioComponentModelElementTypes.OperationRequiredRole_3012); //$NON-NLS-1$
-        case EventChannelEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannel", PalladioComponentModelElementTypes.EventChannel_3017); //$NON-NLS-1$
-        case EventChannelSinkConnectorEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannelSinkConnector", PalladioComponentModelElementTypes.EventChannelSinkConnector_4010); //$NON-NLS-1$
-        case EventChannelSourceConnectorEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannelSourceConnector", PalladioComponentModelElementTypes.EventChannelSourceConnector_4009); //$NON-NLS-1$
-        case AssemblyConnectorEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyConnector", PalladioComponentModelElementTypes.AssemblyConnector_4004); //$NON-NLS-1$
-        case AssemblyEventConnectorEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyEventConnector", PalladioComponentModelElementTypes.AssemblyEventConnector_4007); //$NON-NLS-1$
         case RequiredDelegationConnectorEditPart.VISUAL_ID:
             return getImage(
                     "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?RequiredDelegationConnector", PalladioComponentModelElementTypes.RequiredDelegationConnector_4005); //$NON-NLS-1$
-        case ProvidedDelegationConnectorEditPart.VISUAL_ID:
+        case ComposedProvidingRequiringEntityEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?ProvidedDelegationConnector", PalladioComponentModelElementTypes.ProvidedDelegationConnector_4006); //$NON-NLS-1$
-        case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:
+                    "Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0?ComposedProvidingRequiringEntity", PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_1000); //$NON-NLS-1$
+        case SinkRoleEditPart.VISUAL_ID:
             return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyInfrastructureConnector", PalladioComponentModelElementTypes.AssemblyInfrastructureConnector_4008); //$NON-NLS-1$
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?SinkRole", PalladioComponentModelElementTypes.SinkRole_3014); //$NON-NLS-1$
+        case InfrastructureRequiredRoleEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureRequiredRole", PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016); //$NON-NLS-1$
+        case AssemblyContextEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyContext", PalladioComponentModelElementTypes.AssemblyContext_3006); //$NON-NLS-1$
+        case EventChannelSourceConnectorEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?EventChannelSourceConnector", PalladioComponentModelElementTypes.EventChannelSourceConnector_4009); //$NON-NLS-1$
+        case OperationProvidedRoleEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationProvidedRole", PalladioComponentModelElementTypes.OperationProvidedRole_3007); //$NON-NLS-1$
+        case OperationProvidedRole2EditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationProvidedRole", PalladioComponentModelElementTypes.OperationProvidedRole_3011); //$NON-NLS-1$
+        case ComposedProvidingRequiringEntity2EditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0?ComposedProvidingRequiringEntity", PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_2002); //$NON-NLS-1$
+        case AssemblyConnectorEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0?AssemblyConnector", PalladioComponentModelElementTypes.AssemblyConnector_4004); //$NON-NLS-1$
+        case OperationRequiredRole2EditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?OperationRequiredRole", PalladioComponentModelElementTypes.OperationRequiredRole_3012); //$NON-NLS-1$
+        case InfrastructureProvidedRoleEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0?InfrastructureProvidedRole", PalladioComponentModelElementTypes.InfrastructureProvidedRole_3015); //$NON-NLS-1$
         }
         return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
     }
@@ -225,44 +225,44 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
             return getUnresolvedDomainElementProxyText(view);
         }
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
-        case ComposedProvidingRequiringEntityEditPart.VISUAL_ID:
-            return getComposedProvidingRequiringEntity_1000Text(view);
-        case ComposedProvidingRequiringEntity2EditPart.VISUAL_ID:
-            return getComposedProvidingRequiringEntity_2002Text(view);
-        case AssemblyContextEditPart.VISUAL_ID:
-            return getAssemblyContext_3006Text(view);
-        case OperationProvidedRoleEditPart.VISUAL_ID:
-            return getOperationProvidedRole_3007Text(view);
+        case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:
+            return getAssemblyInfrastructureConnector_4008Text(view);
+        case EventChannelSinkConnectorEditPart.VISUAL_ID:
+            return getEventChannelSinkConnector_4010Text(view);
+        case AssemblyEventConnectorEditPart.VISUAL_ID:
+            return getAssemblyEventConnector_4007Text(view);
+        case ProvidedDelegationConnectorEditPart.VISUAL_ID:
+            return getProvidedDelegationConnector_4006Text(view);
+        case EventChannelEditPart.VISUAL_ID:
+            return getEventChannel_3017Text(view);
         case OperationRequiredRoleEditPart.VISUAL_ID:
             return getOperationRequiredRole_3008Text(view);
         case SourceRoleEditPart.VISUAL_ID:
             return getSourceRole_3013Text(view);
-        case SinkRoleEditPart.VISUAL_ID:
-            return getSinkRole_3014Text(view);
-        case InfrastructureProvidedRoleEditPart.VISUAL_ID:
-            return getInfrastructureProvidedRole_3015Text(view);
-        case InfrastructureRequiredRoleEditPart.VISUAL_ID:
-            return getInfrastructureRequiredRole_3016Text(view);
-        case OperationProvidedRole2EditPart.VISUAL_ID:
-            return getOperationProvidedRole_3011Text(view);
-        case OperationRequiredRole2EditPart.VISUAL_ID:
-            return getOperationRequiredRole_3012Text(view);
-        case EventChannelEditPart.VISUAL_ID:
-            return getEventChannel_3017Text(view);
-        case EventChannelSinkConnectorEditPart.VISUAL_ID:
-            return getEventChannelSinkConnector_4010Text(view);
-        case EventChannelSourceConnectorEditPart.VISUAL_ID:
-            return getEventChannelSourceConnector_4009Text(view);
-        case AssemblyConnectorEditPart.VISUAL_ID:
-            return getAssemblyConnector_4004Text(view);
-        case AssemblyEventConnectorEditPart.VISUAL_ID:
-            return getAssemblyEventConnector_4007Text(view);
         case RequiredDelegationConnectorEditPart.VISUAL_ID:
             return getRequiredDelegationConnector_4005Text(view);
-        case ProvidedDelegationConnectorEditPart.VISUAL_ID:
-            return getProvidedDelegationConnector_4006Text(view);
-        case AssemblyInfrastructureConnectorEditPart.VISUAL_ID:
-            return getAssemblyInfrastructureConnector_4008Text(view);
+        case ComposedProvidingRequiringEntityEditPart.VISUAL_ID:
+            return getComposedProvidingRequiringEntity_1000Text(view);
+        case SinkRoleEditPart.VISUAL_ID:
+            return getSinkRole_3014Text(view);
+        case InfrastructureRequiredRoleEditPart.VISUAL_ID:
+            return getInfrastructureRequiredRole_3016Text(view);
+        case AssemblyContextEditPart.VISUAL_ID:
+            return getAssemblyContext_3006Text(view);
+        case EventChannelSourceConnectorEditPart.VISUAL_ID:
+            return getEventChannelSourceConnector_4009Text(view);
+        case OperationProvidedRoleEditPart.VISUAL_ID:
+            return getOperationProvidedRole_3007Text(view);
+        case OperationProvidedRole2EditPart.VISUAL_ID:
+            return getOperationProvidedRole_3011Text(view);
+        case ComposedProvidingRequiringEntity2EditPart.VISUAL_ID:
+            return getComposedProvidingRequiringEntity_2002Text(view);
+        case AssemblyConnectorEditPart.VISUAL_ID:
+            return getAssemblyConnector_4004Text(view);
+        case OperationRequiredRole2EditPart.VISUAL_ID:
+            return getOperationRequiredRole_3012Text(view);
+        case InfrastructureProvidedRoleEditPart.VISUAL_ID:
+            return getInfrastructureProvidedRole_3015Text(view);
         }
         return getUnknownElementText(view);
     }
@@ -270,191 +270,13 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     /**
      * @generated
      */
-    private String getComposedProvidingRequiringEntity_1000Text(View view) {
-        ComposedProvidingRequiringEntity domainModelElement = (ComposedProvidingRequiringEntity) view.getElement();
+    private String getAssemblyInfrastructureConnector_4008Text(View view) {
+        AssemblyInfrastructureConnector domainModelElement = (AssemblyInfrastructureConnector) view.getElement();
         if (domainModelElement != null) {
             return domainModelElement.getId();
         } else {
             PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "No domain element for view with visualID = " + 1000); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getComposedProvidingRequiringEntity_2002Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_2002,
-                view.getElement() != null ? view.getElement() : view, PalladioComponentModelVisualIDRegistry
-                        .getType(ComposedProvidingRequiringEntityEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5012); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getAssemblyContext_3006Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.AssemblyContext_3006, view.getElement() != null ? view.getElement()
-                        : view, PalladioComponentModelVisualIDRegistry
-                        .getType(AssemblyContextEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5009); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getOperationProvidedRole_3007Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.OperationProvidedRole_3007,
-                view.getElement() != null ? view.getElement() : view,
-                PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5007); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getOperationRequiredRole_3008Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.OperationRequiredRole_3008,
-                view.getElement() != null ? view.getElement() : view,
-                PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5008); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getSourceRole_3013Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.SourceRole_3013, view.getElement() != null ? view.getElement()
-                        : view, PalladioComponentModelVisualIDRegistry.getType(SourceRoleEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5015); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getSinkRole_3014Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.SinkRole_3014, view.getElement() != null ? view.getElement() : view,
-                PalladioComponentModelVisualIDRegistry.getType(SinkRoleEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5016); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getInfrastructureProvidedRole_3015Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.InfrastructureProvidedRole_3015,
-                view.getElement() != null ? view.getElement() : view,
-                PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5017); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getInfrastructureRequiredRole_3016Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016,
-                view.getElement() != null ? view.getElement() : view,
-                PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEntityNameEditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5018); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getOperationProvidedRole_3011Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.OperationProvidedRole_3011,
-                view.getElement() != null ? view.getElement() : view,
-                PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEntityName2EditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5013); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getOperationRequiredRole_3012Text(View view) {
-        IParser parser = PalladioComponentModelParserProvider.getParser(
-                PalladioComponentModelElementTypes.OperationRequiredRole_3012,
-                view.getElement() != null ? view.getElement() : view,
-                PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEntityName2EditPart.VISUAL_ID));
-        if (parser != null) {
-            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
-                    ParserOptions.NONE.intValue());
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "Parser was not found for label " + 5014); //$NON-NLS-1$
+                    "No domain element for view with visualID = " + 4008); //$NON-NLS-1$
             return ""; //$NON-NLS-1$
         }
     }
@@ -480,55 +302,17 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     /**
      * @generated
      */
-    private String getEventChannelSinkConnector_4010Text(View view) {
-        EventChannelSinkConnector domainModelElement = (EventChannelSinkConnector) view.getElement();
-        if (domainModelElement != null) {
-            return domainModelElement.getId();
+    private String getOperationProvidedRole_3007Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.OperationProvidedRole_3007,
+                view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
         } else {
             PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "No domain element for view with visualID = " + 4010); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getEventChannelSourceConnector_4009Text(View view) {
-        EventChannelSourceConnector domainModelElement = (EventChannelSourceConnector) view.getElement();
-        if (domainModelElement != null) {
-            return domainModelElement.getId();
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "No domain element for view with visualID = " + 4009); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getAssemblyConnector_4004Text(View view) {
-        AssemblyConnector domainModelElement = (AssemblyConnector) view.getElement();
-        if (domainModelElement != null) {
-            return domainModelElement.getId();
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "No domain element for view with visualID = " + 4004); //$NON-NLS-1$
-            return ""; //$NON-NLS-1$
-        }
-    }
-
-    /**
-     * @generated
-     */
-    private String getAssemblyEventConnector_4007Text(View view) {
-        AssemblyEventConnector domainModelElement = (AssemblyEventConnector) view.getElement();
-        if (domainModelElement != null) {
-            return domainModelElement.getId();
-        } else {
-            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "No domain element for view with visualID = " + 4007); //$NON-NLS-1$
+                    "Parser was not found for label " + 5007); //$NON-NLS-1$
             return ""; //$NON-NLS-1$
         }
     }
@@ -564,13 +348,229 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
     /**
      * @generated
      */
-    private String getAssemblyInfrastructureConnector_4008Text(View view) {
-        AssemblyInfrastructureConnector domainModelElement = (AssemblyInfrastructureConnector) view.getElement();
+    private String getAssemblyContext_3006Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.AssemblyContext_3006, view.getElement() != null ? view.getElement()
+                        : view, PalladioComponentModelVisualIDRegistry
+                        .getType(AssemblyContextEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5009); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getAssemblyEventConnector_4007Text(View view) {
+        AssemblyEventConnector domainModelElement = (AssemblyEventConnector) view.getElement();
         if (domainModelElement != null) {
             return domainModelElement.getId();
         } else {
             PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
-                    "No domain element for view with visualID = " + 4008); //$NON-NLS-1$
+                    "No domain element for view with visualID = " + 4007); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getSinkRole_3014Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.SinkRole_3014, view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(SinkRoleEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5016); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getComposedProvidingRequiringEntity_2002Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.ComposedProvidingRequiringEntity_2002,
+                view.getElement() != null ? view.getElement() : view, PalladioComponentModelVisualIDRegistry
+                        .getType(ComposedProvidingRequiringEntityEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5012); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getSourceRole_3013Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.SourceRole_3013, view.getElement() != null ? view.getElement()
+                        : view, PalladioComponentModelVisualIDRegistry.getType(SourceRoleEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5015); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getInfrastructureProvidedRole_3015Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.InfrastructureProvidedRole_3015,
+                view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(InfrastructureProvidedRoleEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5017); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getOperationRequiredRole_3008Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.OperationRequiredRole_3008,
+                view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5008); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getOperationProvidedRole_3011Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.OperationProvidedRole_3011,
+                view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(OperationProvidedRoleEntityName2EditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5013); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getComposedProvidingRequiringEntity_1000Text(View view) {
+        ComposedProvidingRequiringEntity domainModelElement = (ComposedProvidingRequiringEntity) view.getElement();
+        if (domainModelElement != null) {
+            return domainModelElement.getId();
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "No domain element for view with visualID = " + 1000); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getEventChannelSourceConnector_4009Text(View view) {
+        EventChannelSourceConnector domainModelElement = (EventChannelSourceConnector) view.getElement();
+        if (domainModelElement != null) {
+            return domainModelElement.getId();
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "No domain element for view with visualID = " + 4009); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getOperationRequiredRole_3012Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.OperationRequiredRole_3012,
+                view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(OperationRequiredRoleEntityName2EditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5014); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getInfrastructureRequiredRole_3016Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.InfrastructureRequiredRole_3016,
+                view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(InfrastructureRequiredRoleEntityNameEditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "Parser was not found for label " + 5018); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getAssemblyConnector_4004Text(View view) {
+        AssemblyConnector domainModelElement = (AssemblyConnector) view.getElement();
+        if (domainModelElement != null) {
+            return domainModelElement.getId();
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "No domain element for view with visualID = " + 4004); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getEventChannelSinkConnector_4010Text(View view) {
+        EventChannelSinkConnector domainModelElement = (EventChannelSinkConnector) view.getElement();
+        if (domainModelElement != null) {
+            return domainModelElement.getId();
+        } else {
+            PalladioComponentModelComposedStructureDiagramEditorPlugin.getInstance().logError(
+                    "No domain element for view with visualID = " + 4010); //$NON-NLS-1$
             return ""; //$NON-NLS-1$
         }
     }

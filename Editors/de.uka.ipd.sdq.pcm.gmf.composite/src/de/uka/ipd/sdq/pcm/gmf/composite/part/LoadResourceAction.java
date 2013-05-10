@@ -16,7 +16,6 @@ import org.eclipse.ui.handlers.HandlerUtil;
  * @generated
  */
 public class LoadResourceAction extends AbstractHandler {
-
     /**
      * @generated
      */

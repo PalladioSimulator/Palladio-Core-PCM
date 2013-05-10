@@ -1,5 +1,5 @@
 /*
- *Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
+ * Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.commands;
 
@@ -18,6 +18,7 @@ import org.eclipse.gmf.runtime.notation.View;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 
 /**
  * @generated
@@ -32,9 +33,10 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
     }
 
     /**
+     * FIXME: replace with setElementToEdit()
+     * 
      * @generated
      */
-    @Override
     protected EObject getElementToEdit() {
         EObject container = ((CreateElementRequest) getRequest()).getContainer();
         if (container instanceof View) {
@@ -46,10 +48,35 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
     /**
      * @generated
      */
-    @Override
     public boolean canExecute() {
         return true;
 
+    }
+
+    /**
+     * Do execute with result. This method has been extracted to custom plugin.
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
+     * @generated not
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        AssemblyContext newElement = CompositionFactory.eINSTANCE.createAssemblyContext();
+
+        // InterfaceProvidingEntity owner = (InterfaceProvidingEntity) getElementToEdit();
+        // owner.getProvidedRoles_InterfaceProvidingEntity().add(newElement);
+        // Replaced previous lines with the following line:
+        newElement.setParentStructure__AssemblyContext((ComposedStructure) getElementToEdit());
+
+        doConfigure(newElement, monitor, info);
+
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
     }
 
     /**
@@ -66,14 +93,5 @@ public class AssemblyContextCreateCommand extends EditElementCommand {
             configureCommand.execute(monitor, info);
         }
     }
-
-    /**
-     * @generated
-     */
-    protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		// FIXME regenerate
-		return null;
-	}
 
 }

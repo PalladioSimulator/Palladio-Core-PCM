@@ -18,6 +18,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
       </parser>
    </extension>
 
+   <!-- Added extension 'system_diagram' -->
    <extension point="org.eclipse.ui.editors" id="gmf-editor">
       <?gmfgen generated="false"?>
       <editor
@@ -31,8 +32,19 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          contributorClass="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramActionBarContributor">
       </editor>
    </extension>
+   
+   <extension point="org.eclipse.ui.contexts" id="ui-context">
+      <?gmfgen generated="true"?>
+      <context
+         description="%context.description"
+         id="de.uka.ipd.sdq.pcm.gmf.composite.ui.diagramContext"
+         name="%context.name"
+         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
+      </context>
+   </extension>
 
-    <extension point="org.eclipse.ui.newWizards">
+   <!-- Changed category -->
+   <extension point="org.eclipse.ui.newWizards" id="creation-wizard">
       <?gmfgen generated="false"?>
   	  <wizard
   	     name="%newWizardName"
@@ -49,7 +61,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
    </extension>
 
    <extension point="org.eclipse.ui.popupMenus" id="init-diagram-action">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <objectContribution
             id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram"
             nameFilter="*.repository"
@@ -62,37 +74,10 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
                id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagramAction">
          </action>
       </objectContribution>
-   </extension>
-
-   <extension point="org.eclipse.ui.popupMenus">
-      <?gmfgen generated="false"?>
-      <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram.Repository"
-            nameFilter="*.repository"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagramAction">
-         </action>
-      </objectContribution>
+      <!-- Added the following file extension -->
       <objectContribution
             id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram.System"
             nameFilter="*.system"
-            objectClass="org.eclipse.core.resources.IFile">
-         <action
-               label="%initDiagramActionLabel"
-               class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelInitDiagramFileAction"
-               menubarPath="additions"
-               enablesFor="1"
-               id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagramAction">
-         </action>
-      </objectContribution>
-      <objectContribution
-            id="de.uka.ipd.sdq.pcm.gmf.composite.InitDiagram.Completions"
-            nameFilter="*.completions"
             objectClass="org.eclipse.core.resources.IFile">
          <action
                label="%initDiagramActionLabel"
@@ -117,6 +102,10 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.DiagramEditPart">
                <GlobalActionId actionId="save"/>
             </ElementType>
+            <ElementType class="org.eclipse.gmf.runtime.diagram.ui.editparts.IGraphicalEditPart">
+               <GlobalActionId actionId="save">
+               </GlobalActionId>
+            </ElementType>        
          </ViewId>
       </GlobalActionHandlerProvider>
       <GlobalActionHandlerProvider
@@ -153,7 +142,31 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
       </GlobalActionHandlerProvider>
    </extension>
 
-   
+
+   <extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
+      <?gmfgen generated="true"?>
+      <MarkerNavigationProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelMarkerNavigationProvider">
+         <MarkerType name="de.uka.ipd.sdq.pcm.gmf.composite.diagnostic"/>
+         <Priority name="Lowest"/>
+      </MarkerNavigationProvider>
+   </extension>
+
+   <extension id="diagnostic" name="PalladioComponentModel Composite Plugin problems" point="org.eclipse.core.resources.markers">
+      <?gmfgen generated="true"?>
+      <super type="org.eclipse.core.resources.problemmarker"/>
+      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
+      <persistent value="true"/>
+   </extension>   
+
+   <extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
+      <?gmfgen generated="true"?>
+      <decoratorProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelValidationDecoratorProvider">
+         <Priority name="Lowest"/>
+         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
+         <context decoratorTargets="PRIMARY_VIEW"/>
+      </decoratorProvider>
+   </extension>
+
    <extension point="org.eclipse.core.runtime.preferences" id="prefs">
       <?gmfgen generated="true"?>
       <initializer class="de.uka.ipd.sdq.pcm.gmf.composite.preferences.DiagramPreferenceInitializer"/>
@@ -218,17 +231,18 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
              category="domain"
              id="property.tab.domain"
              label="%tab.domain"/>
-          <propertyTab
-                category="extra"
-                id="property.tab.componentParam"
-                label="Parameters">
-          </propertyTab>
-          <propertyTab
-                category="extra"
-                id="property.tab.filter"
-                label="Filter">
-          </propertyTab>
       </propertyTabs>
+      <!-- Added the following two property tabs: -->
+      <propertyTab
+            category="extra"
+            id="property.tab.componentParam"
+            label="Parameters">
+      </propertyTab>
+      <propertyTab
+            category="extra"
+            id="property.tab.filter"
+            label="Filter">
+      </propertyTab>
    </extension>
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">
@@ -262,6 +276,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <input type="org.eclipse.gef.EditPart"/>
             <input type="de.uka.ipd.sdq.pcm.gmf.composite.navigator.PalladioComponentModelAbstractNavigatorItem"/>
          </propertySection>
+         <!-- Added the following two property sections: -->
          <propertySection
                class="de.uka.ipd.sdq.pcmbench.tabs.ComponentParametersPropertySection"
                enablesFor="1"
@@ -280,12 +295,12 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
    </extension>
 
    <extension point="org.eclipse.gmf.runtime.diagram.core.viewProviders" id="view-provider">
-      <?gmfgen generated="false"?>
+      <?gmfgen generated="true"?>
       <viewProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelViewProvider">
          <Priority name="Lowest"/>
          <context viewClass="org.eclipse.gmf.runtime.notation.Diagram" semanticHints="CompositeModel"/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints=""/>
-         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints=""/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Node" semanticHints="2002,3006,3007,3008,3013,3014,3015,3016,3011,3012,3017"/>
+         <context viewClass="org.eclipse.gmf.runtime.notation.Edge" semanticHints="4010,4009,4004,4007,4005,4006,4008"/>
       </viewProvider>
    </extension>
 
@@ -318,7 +333,17 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          <Priority name="Lowest"/>
          <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart" id="ComposedProvidingRequiringEntity_1000"/>
          <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntity2EditPart" id="ComposedProvidingRequiringEntity_2002"/>
-         <context elements="ComposedProvidingRequiringEntity_1000,ComposedProvidingRequiringEntity_2002"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart" id="AssemblyContext_3006"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRoleEditPart" id="OperationProvidedRole_3007"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationRequiredRoleEditPart" id="OperationRequiredRole_3008"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEditPart" id="SourceRole_3013"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SinkRoleEditPart" id="SinkRole_3014"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureProvidedRoleEditPart" id="InfrastructureProvidedRole_3015"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.InfrastructureRequiredRoleEditPart" id="InfrastructureRequiredRole_3016"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationProvidedRole2EditPart" id="OperationProvidedRole_3011"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.OperationRequiredRole2EditPart" id="OperationRequiredRole_3012"/>
+         <object class="de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart" id="EventChannel_3017"/>
+         <context elements="ComposedProvidingRequiringEntity_1000,ComposedProvidingRequiringEntity_2002,AssemblyContext_3006,OperationProvidedRole_3007,OperationRequiredRole_3008,SourceRole_3013,SinkRole_3014,InfrastructureProvidedRole_3015,InfrastructureRequiredRole_3016,OperationProvidedRole_3011,OperationRequiredRole_3012,EventChannel_3017"/>
       </modelingAssistantProvider>
    </extension>
 
@@ -570,7 +595,6 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
        </propertyTester>
    </extension>
 
-	   
 	   <extension point="org.eclipse.ui.navigator.viewer" id="navigator-viewbinding">
       <?gmfgen generated="true"?>
       <viewerContentBinding viewerId="org.eclipse.ui.navigator.ProjectExplorer">
@@ -673,17 +697,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          </selectionEnablement>
       </linkHelper>
    </extension>
-<extension point="org.eclipse.ui.contexts" id="ui-context">
-      <?gmfgen generated="true"?>
-      <context
-         description="%context.description"
-         id="de.uka.ipd.sdq.pcm.gmf.composite.ui.diagramContext"
-         name="%context.name"
-         parentId="org.eclipse.gmf.runtime.diagram.ui.diagramContext">
-      </context>
-   </extension>
-
-<extension point="org.eclipse.ui.commands" id="update-cmd">
+   <extension point="org.eclipse.ui.commands" id="update-cmd">
       <?gmfgen generated="true"?>
       <command
          categoryId="org.eclipse.ui.category.edit"
@@ -692,8 +706,8 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          id="de.uka.ipd.sdq.pcm.gmf.composite.updateDiagram"
          name="%update.diagram.name"/>
    </extension>
-
-<extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
+   
+   <extension point="org.eclipse.ui.bindings" id="update-cmd-binding">
       <?gmfgen generated="true"?>
       <key 
          commandId="de.uka.ipd.sdq.pcm.gmf.composite.updateDiagram"
@@ -702,7 +716,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          sequence="F5"/>
    </extension>
 
-<extension point="org.eclipse.ui.menus" id="context-menus">
+   <extension point="org.eclipse.ui.menus" id="context-menus">
       <?gmfgen generated="true"?>
       <!-- menuContribution locationURI="menu:org.eclipse.ui.main.menu?after=">
       </menuContribution>
@@ -722,7 +736,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
       </menuContribution>
    </extension>
 
-<extension point="org.eclipse.ui.commands" id="menu-commands">
+   <extension point="org.eclipse.ui.commands" id="menu-commands">
       <?gmfgen generated="true"?>
       <category id="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelDiagramEditorID" name="%cmdcategory.name" description="%cmdcategory.desc"/>
       <command id="de.uka.ipd.sdq.pcm.gmf.composite.LoadResourceAction"
@@ -731,42 +745,9 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
          defaultHandler="de.uka.ipd.sdq.pcm.gmf.composite.part.LoadResourceAction"/>
    </extension>
 
-<extension point="org.eclipse.ui.handlers" id="menu-handlers">
+   <extension point="org.eclipse.ui.handlers" id="menu-handlers">
       <?gmfgen generated="true"?>
    </extension>
-<extension point="org.eclipse.ui.newWizards" id="creation-wizard">
-      <?gmfgen generated="true"?>
-  	  <wizard
-  	     name="%newWizardName"
-  	     icon="icons/obj16/EntityDiagramFile.gif"
-  	     category="org.eclipse.ui.Examples"
-  	     class="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelCreationWizard"
-  	     id="de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelCreationWizardID">
-  	  	 <description>%newWizardDesc</description>  
-      </wizard>
-   </extension>
 
-<extension point="org.eclipse.gmf.runtime.common.ui.services.markerNavigationProviders" id="markers-navigation">
-      <?gmfgen generated="true"?>
-      <MarkerNavigationProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelMarkerNavigationProvider">
-         <MarkerType name="de.uka.ipd.sdq.pcm.gmf.composite.diagnostic"/>
-         <Priority name="Lowest"/>
-      </MarkerNavigationProvider>
-   </extension>
-
-<extension id="diagnostic" name="PalladioComponentModel Composite Plugin problems" point="org.eclipse.core.resources.markers">
-      <?gmfgen generated="true"?>
-      <super type="org.eclipse.core.resources.problemmarker"/>
-      <super type="org.eclipse.gmf.runtime.common.ui.services.marker"/>
-      <persistent value="true"/>
-   </extension><extension id="validationDecoratorProvider" name="ValidationDecorations" point="org.eclipse.gmf.runtime.diagram.ui.decoratorProviders">
-      <?gmfgen generated="true"?>
-      <decoratorProvider class="de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelValidationDecoratorProvider">
-         <Priority name="Lowest"/>
-         <object class="org.eclipse.gmf.runtime.diagram.ui.editparts.IPrimaryEditPart(org.eclipse.gmf.runtime.diagram.ui)" id="PRIMARY_VIEW"/>
-         <context decoratorTargets="PRIMARY_VIEW"/>
-      </decoratorProvider>
-   </extension>
-
-
+   <!-- optionally, specify keybindings -->
 </plugin>

@@ -75,8 +75,8 @@ public class AssemblyInfrastructureConnectorReorientCommand extends EditElementC
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistAssemblyInfrastructureConnector_4008(container, getNewSource(), target);
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistAssemblyInfrastructureConnector_4008(container, getLink(), getNewSource(), target);
     }
 
     /**
@@ -91,8 +91,8 @@ public class AssemblyInfrastructureConnectorReorientCommand extends EditElementC
             return false;
         }
         ComposedStructure container = (ComposedStructure) getLink().eContainer();
-        return PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canExistAssemblyInfrastructureConnector_4008(container, source, getNewTarget());
+        return PalladioComponentModelBaseItemSemanticEditPolicy.getLinkConstraints()
+                .canExistAssemblyInfrastructureConnector_4008(container, getLink(), source, getNewTarget());
     }
 
     /**

@@ -72,8 +72,7 @@ public class CustomOperationProvidedRoleItemSemanticEditPolicy extends Operation
         if (container == null) {
             return UnexecutableCommand.INSTANCE;
         }
-        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints.canCreateAssemblyConnector_4004(
-                container, source, target)) {
+        if (!getLinkConstraints().canCreateAssemblyConnector_4004(container, source, target)) {
             return UnexecutableCommand.INSTANCE;
         }
         if (req.getContainmentFeature() == null) {
@@ -106,8 +105,7 @@ public class CustomOperationProvidedRoleItemSemanticEditPolicy extends Operation
         if (container == null) {
             return UnexecutableCommand.INSTANCE;
         }
-        if (!PalladioComponentModelBaseItemSemanticEditPolicy.LinkConstraints
-                .canCreateProvidedDelegationConnector_4006(container, source, target)) {
+        if (!getLinkConstraints().canCreateProvidedDelegationConnector_4006(container, source, target)) {
             return UnexecutableCommand.INSTANCE;
         }
         if (req.getContainmentFeature() == null) {

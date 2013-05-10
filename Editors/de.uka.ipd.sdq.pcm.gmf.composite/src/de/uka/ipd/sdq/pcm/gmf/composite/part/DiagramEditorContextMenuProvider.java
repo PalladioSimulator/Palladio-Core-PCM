@@ -49,7 +49,16 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
     }
 
     /**
-     * @generated
+     * The hard-wired context menu "Delete From Model" needs to be removed here, so we can add a
+     * variant where we are able to disable it for certain diagram element types (here: roles
+     * attached to an assembly context). The variant is added via extension point
+     * org.eclipse.gmf.runtime.diagram.ui.providers.DiagramContextMenuProvider
+     * 
+     * @param menu
+     *            the menu manager to configure
+     * 
+     * @author Andreas Rentschler
+     * @generated not
      */
     public void buildContextMenu(final IMenuManager menu) {
         getViewer().flush();
@@ -60,8 +69,12 @@ public class DiagramEditorContextMenuProvider extends DiagramContextMenuProvider
                         public void run() {
                             ContributionItemService.getInstance().contributeToPopupMenu(
                                     DiagramEditorContextMenuProvider.this, part);
-                            menu.remove(ActionIds.ACTION_DELETE_FROM_MODEL);
-                            menu.appendToGroup("editGroup", deleteAction);
+                            /* > */
+                            // don't add delete action to context menu, it can't be disabled for
+                            // ports and parameters
+                            // menu.remove(ActionIds.ACTION_DELETE_FROM_MODEL);
+                            // menu.appendToGroup("editGroup", deleteAction);
+                            /* < */
                         }
                     });
         } catch (Exception e) {
