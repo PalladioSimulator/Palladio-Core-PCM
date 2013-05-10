@@ -5,7 +5,9 @@ package de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies;
 
 import org.eclipse.gef.commands.Command;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
+import org.eclipse.gmf.runtime.notation.View;
 
+import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
 
@@ -21,10 +23,9 @@ public class ResourceContainerAllocationCompartmentItemSemanticEditPolicy
 	public ResourceContainerAllocationCompartmentItemSemanticEditPolicy() {
 		super(PalladioComponentModelElementTypes.ResourceContainer_2003);
 	}
-
-	/**
-	 * @generated
-	 */
+    /**
+     * @generated
+     */
 	protected Command getCreateCommand(CreateElementRequest req) {
 		if (PalladioComponentModelElementTypes.AllocationContext_3002 == req
 				.getElementType()) {

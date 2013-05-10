@@ -6,6 +6,7 @@ import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
+import de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.commands.CustomAllocationContextCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies.ResourceContainerAllocationCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
@@ -19,19 +20,21 @@ public class CustomResourceContainerAllocationCompartmentItemSemanticEditPolicy 
     /**
      * Gets the CreateCommand.
      * 
+     * FIXME: This custom code is never called!?!
+     *      
      * @param req
      *            a CreateElementRequest
      * @return the CreateCommand
      */
 
     protected Command getCreateCommand(CreateElementRequest req) {
-        if (PalladioComponentModelElementTypes.AllocationContext_3002 == req.getElementType()) {
-            if (req.getContainmentFeature() == null) {
-                req.setContainmentFeature(AllocationPackage.eINSTANCE.getAllocation_AllocationContexts_Allocation());
-            }
+		if (PalladioComponentModelElementTypes.AllocationContext_3002 == req
+				.getElementType()) {
+//			return getGEFWrapper(new AllocationContextCreateCommand(req));
+			// Instead, added the following two lines:
             Allocation a = (Allocation) ((View) getHost().getParent().getParent().getModel()).getElement();
             return getGEFWrapper(new AllocationContextCreateCommand(req, a));
-        }
-        return super.getCreateCommand(req);
+		}
+		return super.getCreateCommand(req);
     }
 }

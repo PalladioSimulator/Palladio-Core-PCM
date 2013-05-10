@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.policies;
 
+import java.util.LinkedList;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EObject;
@@ -12,18 +13,39 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 
 /**
- * FIXME: unused.
- * a custom Allocation CanoncialEditPolicy.
- * 
+ * A custom allocation diagram canonical EditPolicy.
  */
 public class CustomAllocationCanonicalEditPolicy extends AllocationCanonicalEditPolicy {
 
-    @Override
-    protected List<ResourceContainer> getSemanticChildrenList() {
-        EObject modelObject = ((View) getHost().getModel()).getElement();
-        ResourceEnvironment re = ((Allocation) modelObject).getTargetResourceEnvironment_Allocation();
-        return re.getResourceContainer_ResourceEnvironment();
-    }
+	/**
+	 * Get the contained resource container for the resource environment.
+	 * 
+	 * In the allocation diagram, the root element is not represented by the canvas, but by the target
+	 * resource environment. To enable this, this edit policy needs to return the referenced resource 
+	 * environment and not the real children as done in the generated version of this method.
+	 * 
+	 * Since GMF3, this modification has to be applied to PalladioComponentModelDiagramUpdater, as well.
+	 * Even the generated code calls PalladioComponentModelDiagramUpdater, so this modification is no longer required.
+	 */
+//    @Override
+//    protected List<ResourceContainer> getSemanticChildrenList() {
+////    	View viewObject = (View) getHost().getModel();
+////    	LinkedList<EObject> result = new LinkedList<EObject>();
+////    	List<PalladioComponentModelNodeDescriptor> childDescriptors = PalladioComponentModelDiagramUpdater
+////    			.getAllocation_1000SemanticChildren(viewObject);
+////    	for (PalladioComponentModelNodeDescriptor d : childDescriptors) {
+////    		result.add(d.getModelElement());
+////    	}
+////    	return result;
+//    	
+//    	List result = new LinkedList();
+//    	EObject modelObject = ((View) getHost().getModel()).getElement();
+//    	View viewObject = (View) getHost().getModel();
+//    	ResourceEnvironment re = ((Allocation) modelObject)
+//    			.getTargetResourceEnvironment_Allocation();
+//
+//    	return re.getResourceContainer_ResourceEnvironment();
+//    }
 
     @Override
     protected boolean shouldDeleteView(View view) {
