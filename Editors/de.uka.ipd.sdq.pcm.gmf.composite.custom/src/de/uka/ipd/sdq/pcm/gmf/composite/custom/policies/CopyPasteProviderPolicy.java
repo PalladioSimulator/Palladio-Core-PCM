@@ -22,6 +22,14 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEditPart;
  */
 public class CopyPasteProviderPolicy /* extends AbstractGlobalActionHandlerProvider */implements IProviderPolicy {
 
+    /**
+     * (non-Javadoc).
+     * 
+     * @param operation
+     *            the operation
+     * @return true, if successful
+     * @see org.eclipse.gmf.runtime.common.core.service.IProviderPolicy#provides(org.eclipse.gmf.runtime.common.core.service.IOperation)
+     */
     public boolean provides(IOperation operation) {
         if (operation instanceof GlobalActionHandlerOperation) {
             Class elementType = ((GlobalActionHandlerOperation) operation).getContext().getElementType();
@@ -30,8 +38,9 @@ public class CopyPasteProviderPolicy /* extends AbstractGlobalActionHandlerProvi
                     || elementType == OperationRequiredRoleEditPart.class
                     || elementType == InfrastructureProvidedRoleEditPart.class
                     || elementType == InfrastructureRequiredRoleEditPart.class
-                    || elementType == SourceRoleEditPart.class || elementType == SinkRoleEditPart.class)
+                    || elementType == SourceRoleEditPart.class || elementType == SinkRoleEditPart.class) {
                 return false;
+            }
         }
         return true;
     }

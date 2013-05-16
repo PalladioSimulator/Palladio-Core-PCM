@@ -15,8 +15,7 @@ import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCo
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 
 /**
- * a custom AllocationContext CreateCommand.
- * FIXME: Never used?
+ * a custom AllocationContext CreateCommand. FIXME: Never used?
  */
 public class CustomAllocationContextCreateCommand extends AllocationContextCreateCommand {
 
@@ -38,41 +37,49 @@ public class CustomAllocationContextCreateCommand extends AllocationContextCreat
         this.allocation = a;
     }
 
-	/**
-	 * @generated not
-	 * 
-	 * @return the element to edit
-	 */
-	protected EObject getElementToEdit() {
-//		EObject container = ((CreateElementRequest) getRequest()).getContainer();
-		// Replaced previous line with the following line:
-		EObject container = allocation;
-		
-		if (container instanceof View) {
-			container = ((View) container).getElement();
-		}
-		return container;
-	}
+    /**
+     * @generated not
+     * 
+     * @return the element to edit
+     */
+    protected EObject getElementToEdit() {
+        // EObject container = ((CreateElementRequest) getRequest()).getContainer();
+        // Replaced previous line with the following line:
+        EObject container = allocation;
 
-	/**
-	 * * Extended to automatically set the ressourceContainer Reference
-	 * 
-	 * @generated not
-	 */
-	protected CommandResult doExecuteWithResult(IProgressMonitor monitor,
-			IAdaptable info) throws ExecutionException {
-		AllocationContext newElement = AllocationFactory.eINSTANCE.createAllocationContext();
+        if (container instanceof View) {
+            container = ((View) container).getElement();
+        }
+        return container;
+    }
 
-		// Added the following line:
-		newElement.setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this.getRequest()).getContainer());
+    /**
+     * * Extended to automatically set the ressourceContainer Reference.
+     * 
+     * @param monitor
+     *            the monitor
+     * @param info
+     *            the info
+     * @return the command result
+     * @throws ExecutionException
+     *             the execution exception
+     * @generated not
+     */
+    protected CommandResult doExecuteWithResult(IProgressMonitor monitor, IAdaptable info) throws ExecutionException {
+        AllocationContext newElement = AllocationFactory.eINSTANCE.createAllocationContext();
 
-		Allocation owner = (Allocation) getElementToEdit();
-		owner.getAllocationContexts_Allocation().add(newElement);
+        // Added the following line:
+        newElement
+                .setResourceContainer_AllocationContext((ResourceContainer) ((CreateElementRequest) this.getRequest())
+                        .getContainer());
 
-		doConfigure(newElement, monitor, info);
+        Allocation owner = (Allocation) getElementToEdit();
+        owner.getAllocationContexts_Allocation().add(newElement);
 
-		((CreateElementRequest) getRequest()).setNewElement(newElement);
-		return CommandResult.newOKCommandResult(newElement);
-	}
+        doConfigure(newElement, monitor, info);
+
+        ((CreateElementRequest) getRequest()).setNewElement(newElement);
+        return CommandResult.newOKCommandResult(newElement);
+    }
 
 }

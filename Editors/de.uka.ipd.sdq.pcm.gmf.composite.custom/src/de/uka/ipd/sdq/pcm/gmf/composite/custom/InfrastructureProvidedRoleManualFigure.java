@@ -76,6 +76,8 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
             graphics.drawRectangle(rect.getCenter().x - rect.width / 4, rect.getCenter().y, rect.height / 2,
                     rect.height / 2);
             break;
+        default:
+            // unspecified
         }
     }
 
@@ -109,6 +111,8 @@ public class InfrastructureProvidedRoleManualFigure extends AbstractBorderFigure
             result = new Rectangle(rect.getCenter().x - rect.width / 4, rect.getCenter().y, rect.height / 2,
                     rect.height / 2);
             break;
+        default:
+            // unspecified
         }
         return result;
     }

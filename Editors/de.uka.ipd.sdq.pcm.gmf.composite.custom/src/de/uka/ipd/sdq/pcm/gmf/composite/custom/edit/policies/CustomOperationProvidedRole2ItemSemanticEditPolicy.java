@@ -55,6 +55,8 @@ public class CustomOperationProvidedRole2ItemSemanticEditPolicy extends Operatio
             return getGEFWrapper(new CustomAssemblyConnectorReorientCommand(req));
         case ProvidedDelegationConnectorEditPart.VISUAL_ID:
             return getGEFWrapper(new ProvidedDelegationConnectorReorientCommand(req));
+        default:
+            // unspecified
         }
         return super.getReorientRelationshipCommand(req);
     }

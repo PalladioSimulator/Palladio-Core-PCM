@@ -10,7 +10,6 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
 import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.emf.common.util.EList;
@@ -31,8 +30,8 @@ import org.eclipse.gmf.runtime.notation.Diagram;
 import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
-
 import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
+
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
@@ -92,7 +91,8 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
      * @generated
      */
     protected void refreshOnActivate() {
-        // Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
+        // Need to activate editpart children before invoking the canonical refresh for EditParts to
+        // add event listeners
         List<?> c = getHost().getChildren();
         for (int i = 0; i < c.size(); i++) {
             ((EditPart) c.get(i)).activate();
@@ -161,33 +161,43 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
         }
         // alternative to #cleanCanonicalSemanticChildren(getViewChildren(), semanticChildren)
         //
-        // iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
-        // iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
-        // to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
+        // iteration happens over list of desired semantic elements, trying to find best matching
+        // View, while original CEP
+        // iterates views, potentially losing view (size/bounds) information - i.e. if there are few
+        // views to reference same EObject, only last one
+        // to answer isOrphaned == true will be used for the domain element representation, see
+        // #cleanCanonicalSemanticChildren()
         for (Iterator<PalladioComponentModelNodeDescriptor> descriptorsIterator = childDescriptors.iterator(); descriptorsIterator
                 .hasNext();) {
             PalladioComponentModelNodeDescriptor next = descriptorsIterator.next();
             String hint = PalladioComponentModelVisualIDRegistry.getType(next.getVisualID());
-            LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
+            LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint
+                                                                    // match that of NodeDescriptor
             for (View childView : getViewChildren()) {
                 EObject semanticElement = childView.getElement();
                 if (next.getModelElement().equals(semanticElement)) {
                     if (hint.equals(childView.getType())) {
                         perfectMatch.add(childView);
                         // actually, can stop iteration over view children here, but
-                        // may want to use not the first view but last one as a 'real' match (the way original CEP does
-                        // with its trick with viewToSemanticMap inside #cleanCanonicalSemanticChildren
+                        // may want to use not the first view but last one as a 'real' match (the
+                        // way original CEP does
+                        // with its trick with viewToSemanticMap inside
+                        // #cleanCanonicalSemanticChildren
                     }
                 }
             }
             if (perfectMatch.size() > 0) {
-                descriptorsIterator.remove(); // precise match found no need to create anything for the NodeDescriptor
-                // use only one view (first or last?), keep rest as orphaned for further consideration
+                descriptorsIterator.remove(); // precise match found no need to create anything for
+                                              // the NodeDescriptor
+                // use only one view (first or last?), keep rest as orphaned for further
+                // consideration
                 knownViewChildren.remove(perfectMatch.getFirst());
             }
         }
-        // those left in knownViewChildren are subject to removal - they are our diagram elements we didn't find match to,
-        // or those we have potential matches to, and thus need to be recreated, preserving size/location information.
+        // those left in knownViewChildren are subject to removal - they are our diagram elements we
+        // didn't find match to,
+        // or those we have potential matches to, and thus need to be recreated, preserving
+        // size/location information.
         orphaned.addAll(knownViewChildren);
         //
         ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
@@ -569,7 +579,7 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
      * @generated
      */
     private EditPart getEditPart(EObject domainModelElement, Domain2Notation domain2NotationMap) {
-        View view = (View) domain2NotationMap.get(domainModelElement);
+        View view = domain2NotationMap.get(domainModelElement);
         if (view != null) {
             return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
         }
@@ -595,8 +605,9 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
     private EditPart myGetEditPartFor(Role modelElement, AssemblyContext ctx) {
         View view = null;
         Diagram dia = getDiagram();
-        if (dia.getChildren().size() == 0)
+        if (dia.getChildren().size() == 0) {
             return null; // TODO: This check should never fail, else the diagram is empty
+        }
         Node pseudoNode = (Node) dia.getChildren().get(0);
         if (ctx == null) {
             for (Object n : pseudoNode.getChildren()) {
@@ -707,7 +718,7 @@ public class ComposedProvidingRequiringEntityCanonicalEditPolicy extends Canonic
      */
     protected final EditPart getHintedEditPart(EObject domainModelElement, Domain2Notation domain2NotationMap,
             int hintVisualId) {
-        View view = (View) domain2NotationMap.getHinted(domainModelElement,
+        View view = domain2NotationMap.getHinted(domainModelElement,
                 PalladioComponentModelVisualIDRegistry.getType(hintVisualId));
         if (view != null) {
             return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);

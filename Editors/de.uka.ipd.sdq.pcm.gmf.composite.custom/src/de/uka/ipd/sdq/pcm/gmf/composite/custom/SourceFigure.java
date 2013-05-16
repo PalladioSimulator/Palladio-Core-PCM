@@ -102,6 +102,8 @@ public class SourceFigure extends AbstractBorderFigure {
             graphics.drawLine(rect.getRight().x - rect.width / 4, rect.getCenter().y, rect.getCenter().x,
                     rect.getBottom().y - rect.height / 4);
             break;
+        default:
+            // unspecified
         }
     }
 
@@ -130,6 +132,8 @@ public class SourceFigure extends AbstractBorderFigure {
         case PositionConstants.SOUTH:
             result = new Point(rect.getCenter().x, rect.getBottom().y - rect.height / 4);
             break;
+        default:
+            // unspecified
         }
         return result;
     }

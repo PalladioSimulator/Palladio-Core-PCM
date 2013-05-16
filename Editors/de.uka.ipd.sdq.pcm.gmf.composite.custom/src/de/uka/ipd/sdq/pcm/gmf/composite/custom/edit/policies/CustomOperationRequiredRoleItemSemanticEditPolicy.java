@@ -19,7 +19,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.RequiredDelegationConnecto
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.RequiredDelegationConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.OperationRequiredRoleItemSemanticEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 
@@ -141,6 +140,8 @@ public class CustomOperationRequiredRoleItemSemanticEditPolicy extends Operation
             return getGEFWrapper(new CustomAssemblyConnectorReorientCommand(req));
         case RequiredDelegationConnectorEditPart.VISUAL_ID:
             return getGEFWrapper(new RequiredDelegationConnectorReorientCommand(req));
+        default:
+            // unspecified
         }
         return super.getReorientRelationshipCommand(req);
     }

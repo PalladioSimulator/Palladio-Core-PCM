@@ -102,6 +102,7 @@ public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2
     /**
      * Enable freely placeable labels.
      * 
+     * @return the layout edit policy
      * @author Andreas Rentschler
      * @generated not
      */
@@ -124,8 +125,8 @@ public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2
                     // Replace by the following:
                     /* > */
                     // no movability limited to NSEW locations
-                    return new NonResizableLabelEditPolicy()
-                    /* return new BorderItemSelectionEditPolicy() */{
+                    return new NonResizableLabelEditPolicy() {
+                        /* return new BorderItemSelectionEditPolicy() */
 
                         protected List<MoveHandle> createSelectionHandles() {
                             MoveHandle mh = new MoveHandle((GraphicalEditPart) getHost());
@@ -134,6 +135,8 @@ public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2
                         }
                     };
                     /* < */
+                default:
+                    // unspecified
                 }
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
                 if (result == null) {
@@ -156,6 +159,10 @@ public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2
     /**
      * Modify labels attached to border items to be freely placeable. Adjust default location.
      * 
+     * @param borderItemContainer
+     *            the border item container
+     * @param borderItemEditPart
+     *            the border item edit part
      * @author Andreas Rentschler
      * @generated not
      */
@@ -202,7 +209,7 @@ public class CustomOperationProvidedRole2EditPart extends OperationProvidedRole2
                 }
             };
             // initially place label nearer than suggested 20 units
-            locator.setBorderItemOffset(new Dimension(-5, -5));// -20, -20));
+            locator.setBorderItemOffset(new Dimension(-5, -5)); // -20, -20));
             /* < */
             borderItemContainer.add(borderItemEditPart.getFigure(), locator);
         } else {

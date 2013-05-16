@@ -3,8 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.usage.navigator;
 
-import java.util.Iterator;
-
 import org.eclipse.core.resources.IFile;
 import org.eclipse.emf.common.ui.URIEditorInput;
 import org.eclipse.emf.common.util.URI;

@@ -21,8 +21,17 @@ import de.uka.ipd.sdq.pcm.repository.EventGroup;
 import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 
+/**
+ * The Class EventChannelEditHelperAdvice.
+ */
 public class EventChannelEditHelperAdvice extends AbstractEditHelperAdvice {
 
+    /*
+     * (non-Javadoc)
+     * 
+     * @see org.eclipse.gmf.runtime.emf.type.core.edithelper.AbstractEditHelperAdvice#
+     * getBeforeConfigureCommand(org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest)
+     */
     @Override
     protected ICommand getBeforeConfigureCommand(ConfigureRequest request) {
         EventGroup resource = null;

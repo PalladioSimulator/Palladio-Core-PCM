@@ -3,19 +3,12 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.edit.policies;
 
-import java.util.ArrayList;
-import java.util.Collection;
-import java.util.Collections;
 import java.util.Iterator;
 
 import org.eclipse.emf.ecore.EAnnotation;
-import org.eclipse.gef.EditPart;
 import org.eclipse.gef.commands.Command;
-import org.eclipse.gef.commands.CompoundCommand;
 import org.eclipse.gmf.runtime.common.core.command.ICompositeCommand;
 import org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand;
-import org.eclipse.gmf.runtime.diagram.ui.editparts.BorderedBorderItemEditPart;
-import org.eclipse.gmf.runtime.diagram.ui.requests.EditCommandRequestWrapper;
 import org.eclipse.gmf.runtime.emf.commands.core.command.CompositeTransactionalCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.DestroyElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
@@ -31,7 +24,6 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.OperationRequiredRoleCreat
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.SinkRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.SourceRoleCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyConnectorEditPart;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyEventConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyInfrastructureConnectorEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelSinkConnectorEditPart;
@@ -139,8 +131,11 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: false
-                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
-                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+                // don't need explicit deletion of node as parent's view deletion would clean child
+                // views as well
+                // cmd.add(new
+                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                // node));
                 break;
             case OperationRequiredRoleEditPart.VISUAL_ID:
                 for (Iterator<?> it = node.getTargetEdges().iterator(); it.hasNext();) {
@@ -169,8 +164,11 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: false
-                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
-                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+                // don't need explicit deletion of node as parent's view deletion would clean child
+                // views as well
+                // cmd.add(new
+                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                // node));
                 break;
             case SourceRoleEditPart.VISUAL_ID:
                 for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
@@ -190,8 +188,11 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: false
-                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
-                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+                // don't need explicit deletion of node as parent's view deletion would clean child
+                // views as well
+                // cmd.add(new
+                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                // node));
                 break;
             case SinkRoleEditPart.VISUAL_ID:
                 for (Iterator<?> it = node.getTargetEdges().iterator(); it.hasNext();) {
@@ -214,8 +215,11 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: false
-                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
-                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+                // don't need explicit deletion of node as parent's view deletion would clean child
+                // views as well
+                // cmd.add(new
+                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                // node));
                 break;
             case InfrastructureProvidedRoleEditPart.VISUAL_ID:
                 for (Iterator<?> it = node.getTargetEdges().iterator(); it.hasNext();) {
@@ -229,8 +233,11 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: false
-                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
-                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+                // don't need explicit deletion of node as parent's view deletion would clean child
+                // views as well
+                // cmd.add(new
+                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                // node));
                 break;
             case InfrastructureRequiredRoleEditPart.VISUAL_ID:
                 for (Iterator<?> it = node.getSourceEdges().iterator(); it.hasNext();) {
@@ -244,8 +251,11 @@ public class AssemblyContextItemSemanticEditPolicy extends PalladioComponentMode
                 }
                 cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), node.getElement(),
                         false))); // directlyOwned: false
-                // don't need explicit deletion of node as parent's view deletion would clean child views as well 
-                // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), node));
+                // don't need explicit deletion of node as parent's view deletion would clean child
+                // views as well
+                // cmd.add(new
+                // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
+                // node));
                 break;
             }
         }

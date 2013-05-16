@@ -105,6 +105,8 @@ public class InfrastructureRequiredRoleManualFigure extends AbstractBorderFigure
             graphics.drawLine(rect.getRight().x - rect.width * 1 / 8, rect.getCenter().y, rect.getRight().x
                     - rect.width * 1 / 8, rect.getCenter().y + rect.height * 3 / 8);
             break;
+        default:
+            // unspecified
         }
     }
 
@@ -138,6 +140,8 @@ public class InfrastructureRequiredRoleManualFigure extends AbstractBorderFigure
             result = new Rectangle(rect.getCenter().x - rect.width * 3 / 8, rect.getCenter().y, rect.height * 6 / 8,
                     rect.height * 3 / 8);
             break;
+        default:
+            // unspecified
         }
         return result;
     }

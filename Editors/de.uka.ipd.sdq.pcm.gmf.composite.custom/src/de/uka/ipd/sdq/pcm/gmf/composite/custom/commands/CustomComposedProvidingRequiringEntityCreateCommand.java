@@ -14,8 +14,17 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.ComposedProvidingRequiringEntityCreateCommand;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 
+/**
+ * The Class CustomComposedProvidingRequiringEntityCreateCommand.
+ */
 public class CustomComposedProvidingRequiringEntityCreateCommand extends ComposedProvidingRequiringEntityCreateCommand {
 
+    /**
+     * Instantiates a new custom composed providing requiring entity create command.
+     * 
+     * @param req
+     *            the req
+     */
     public CustomComposedProvidingRequiringEntityCreateCommand(CreateElementRequest req) {
         super(req);
     }

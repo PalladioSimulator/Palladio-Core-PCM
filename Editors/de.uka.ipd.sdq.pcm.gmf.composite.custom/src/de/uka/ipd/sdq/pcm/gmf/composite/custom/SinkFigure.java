@@ -160,6 +160,8 @@ public class SinkFigure extends AbstractBorderFigure {
             graphics.drawLine(rect.getCenter().x, rect.getCenter().y, rect.getRight().x - rect.width / 4,
                     rect.getBottom().y - rect.height / 4);
             break;
+        default:
+            // unspecified
         }
     }
 
@@ -188,6 +190,8 @@ public class SinkFigure extends AbstractBorderFigure {
         case PositionConstants.SOUTH:
             result = new Point(rect.getCenter().x, rect.getCenter().y);
             break;
+        default:
+            // unspecified
         }
         return result;
     }

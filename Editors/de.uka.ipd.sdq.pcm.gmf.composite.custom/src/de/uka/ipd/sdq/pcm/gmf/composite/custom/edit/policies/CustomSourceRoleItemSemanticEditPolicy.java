@@ -13,8 +13,6 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomAssemblyEventConnectorCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.custom.commands.CustomEventChannelSourceConnectorCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.PalladioComponentModelBaseItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.SourceRoleItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.composite.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.SourceRole;

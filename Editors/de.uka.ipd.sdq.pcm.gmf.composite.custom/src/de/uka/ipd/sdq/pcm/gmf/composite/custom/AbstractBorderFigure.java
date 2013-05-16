@@ -141,6 +141,8 @@ public abstract class AbstractBorderFigure extends DefaultSizeNodeFigure {
         case PositionConstants.SOUTH:
             result = new Point(rect.getCenter().x, rect.getTop().y);
             break;
+        default:
+            // unspecified
         }
         return result;
     }

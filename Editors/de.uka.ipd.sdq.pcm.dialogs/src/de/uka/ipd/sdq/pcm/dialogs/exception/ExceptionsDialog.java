@@ -69,13 +69,13 @@ public class ExceptionsDialog extends TitleAreaDialog {
     public static final int NAME_COLUMN_INDEX = 2;
 
     /** Columns of a table, which is used into ParameterEditDialog. */
-    public final static String ICON_COLUMN = "";
+    public static final String ICON_COLUMN = "";
 
     /** The Constant CONTEXT_COLUMN. */
-    public final static String CONTEXT_COLUMN = "Context";
+    public static final String CONTEXT_COLUMN = "Context";
 
     /** The Constant NAME_COLUMN. */
-    public final static String NAME_COLUMN = "Name";
+    public static final String NAME_COLUMN = "Name";
 
     /** The title dialog. */
     private final String TITLE_DIALOG = "Create/Edit a ExceptionType...";

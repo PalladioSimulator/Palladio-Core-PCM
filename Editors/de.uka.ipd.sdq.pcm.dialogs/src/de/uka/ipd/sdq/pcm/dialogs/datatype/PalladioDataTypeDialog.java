@@ -363,11 +363,21 @@ public class PalladioDataTypeDialog extends DataTypeDialog {
         validateInput();
     }
 
-	protected DataType getInnerDataType() {
-		return innerDataType;
-	}
+    /**
+     * Gets the inner data type.
+     * 
+     * @return the inner data type
+     */
+    protected DataType getInnerDataType() {
+        return innerDataType;
+    }
 
-	protected Repository getEditedRepository() {
-		return editedRepository;
-	}
+    /**
+     * Gets the edited repository.
+     * 
+     * @return the edited repository
+     */
+    protected Repository getEditedRepository() {
+        return editedRepository;
+    }
 }

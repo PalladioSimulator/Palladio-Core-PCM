@@ -13,11 +13,12 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateRelationshipRequest;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyEventConnector;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionFactory;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyContextCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.commands.AssemblyEventConnectorCreateCommand;
 
+/**
+ * The Class CustomAssemblyEventConnectorCreateCommand.
+ */
 public class CustomAssemblyEventConnectorCreateCommand extends AssemblyEventConnectorCreateCommand {
 
     /**

@@ -30,6 +30,13 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEditPart;
 public class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart extends
         ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart {
 
+    /**
+     * Instantiates a new custom composed providing requiring entity composite structure inner
+     * compartment edit part.
+     * 
+     * @param view
+     *            the view
+     */
     public CustomComposedProvidingRequiringEntityCompositeStructureInnerCompartmentEditPart(View view) {
         super(view);
     }
@@ -68,7 +75,11 @@ public class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompar
      * This hack is just to omit the following exception when trying to resize an affixed side node
      * of the assembly contexts or the composite component: java.lang.ClassCastException:
      * org.eclipse.gmf.runtime.diagram.ui.figures.BorderItemLocator cannot be cast to
-     * org.eclipse.draw2d.geometry.Rectangle
+     * org.eclipse.draw2d.geometry.Rectangle.
+     * 
+     * @param request
+     *            the request
+     * @return the command
      */
     @Override
     public Command getCommand(Request request) {
@@ -79,8 +90,9 @@ public class CustomComposedProvidingRequiringEntityCompositeStructureInnerCompar
                         || ep instanceof OperationProvidedRole2EditPart || ep instanceof OperationRequiredRole2EditPart
                         || ep instanceof InfrastructureProvidedRoleEditPart
                         || ep instanceof InfrastructureRequiredRoleEditPart || ep instanceof SinkRoleEditPart
-                        || ep instanceof SourceRoleEditPart)
+                        || ep instanceof SourceRoleEditPart) {
                     return null;
+                }
             }
         }
         return super.getCommand(request);

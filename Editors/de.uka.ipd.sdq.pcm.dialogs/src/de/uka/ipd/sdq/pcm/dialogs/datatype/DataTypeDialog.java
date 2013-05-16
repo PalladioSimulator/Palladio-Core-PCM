@@ -70,7 +70,8 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
     /** The shell. */
     private Shell shell;
 
-	private Group choiceTypeGroup;
+    /** The choice type group. */
+    private Group choiceTypeGroup;
 
     /**
      * Instantiates a new data type dialog.
@@ -323,11 +324,16 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         return new Point(500, 446);
     }
 
+    /**
+     * Gets the edite data type.
+     * 
+     * @return the edite data type
+     */
     protected DataTypeEnum getEditeDataType() {
-		return editeDataType;
-	}
+        return editeDataType;
+    }
 
-	/*
+    /*
      * (non-Javadoc)
      * 
      * @see
@@ -358,7 +364,7 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         setOKButtonDisabled();
     }
 
-	/**
+    /**
      * Sets the ok button enabled.
      */
     protected void setOKButtonEnabled() {
@@ -475,23 +481,48 @@ public abstract class DataTypeDialog extends TitleAreaDialog {
         }
     }
 
-	protected Group getChoiceTypeGroup() {
-		return choiceTypeGroup;
-	}
+    /**
+     * Gets the choice type group.
+     * 
+     * @return the choice type group
+     */
+    protected Group getChoiceTypeGroup() {
+        return choiceTypeGroup;
+    }
 
-	protected Button getCompositeButton() {
-		return compositeButton;
-	}
-	
-	protected Button getCollectionButton() {
-		return collectionButton;
-	}
-	
-	protected StackLayout getStackLayout() {
-		return stackLayout;
-	}
-	
-	protected Composite getComposite() {
-		return composite;
-	}
+    /**
+     * Gets the composite button.
+     * 
+     * @return the composite button
+     */
+    protected Button getCompositeButton() {
+        return compositeButton;
+    }
+
+    /**
+     * Gets the collection button.
+     * 
+     * @return the collection button
+     */
+    protected Button getCollectionButton() {
+        return collectionButton;
+    }
+
+    /**
+     * Gets the stack layout.
+     * 
+     * @return the stack layout
+     */
+    protected StackLayout getStackLayout() {
+        return stackLayout;
+    }
+
+    /**
+     * Gets the composite.
+     * 
+     * @return the composite
+     */
+    protected Composite getComposite() {
+        return composite;
+    }
 }

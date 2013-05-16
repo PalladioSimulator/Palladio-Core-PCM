@@ -63,16 +63,16 @@ public final class CreateEditorContents {
     public static final int NAME_COLUMN_INDEX = 3;
 
     /** Columns of a table, which is used into ParameterEditDialog. */
-    public final static String ATTRIBUTE_ICON_COLUMN = "";
+    public static final String ATTRIBUTE_ICON_COLUMN = "";
 
     /** The Constant CONTEXT_COLUMN. */
-    public final static String CONTEXT_COLUMN = "Context";
+    public static final String CONTEXT_COLUMN = "Context";
 
     /** The Constant TYPE_COLUMN. */
-    public final static String TYPE_COLUMN = "Type";
+    public static final String TYPE_COLUMN = "Type";
 
     /** The Constant NAME_COLUMN. */
-    public final static String NAME_COLUMN = "Name";
+    public static final String NAME_COLUMN = "Name";
 
     // Set column names of Tabele
     /** The column names. */

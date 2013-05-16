@@ -21,9 +21,24 @@ import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.SourceRoleEditPart;
  */
 public class DuplicateActionFilterProvider extends AbstractActionFilterProvider {
 
-    // defined in org.eclipse.gmf.runtime.diagram.ui.actions plugin
+    /**
+     * defined in org.eclipse.gmf.runtime.diagram.ui.actions plugin.
+     */
     private static final String CAN_DUPLICATE = "canDuplicate";
 
+    /**
+     * (non-Javadoc).
+     * 
+     * @param target
+     *            the target
+     * @param name
+     *            the name
+     * @param value
+     *            the value
+     * @return true, if successful
+     * @see org.eclipse.ui.IActionFilter#testAttribute(java.lang.Object, java.lang.String,
+     *      java.lang.String)
+     */
     public boolean testAttribute(Object target, String name, String value) {
         // System.out.println(target + " " + name + " " + value);
         if (CAN_DUPLICATE.equals(name) && ENABLEMENT_VALUE.equals(value)) {
@@ -35,6 +50,14 @@ public class DuplicateActionFilterProvider extends AbstractActionFilterProvider 
         return false;
     }
 
+    /**
+     * (non-Javadoc).
+     * 
+     * @param operation
+     *            the operation
+     * @return true, if successful
+     * @see org.eclipse.gmf.runtime.common.core.service.IProvider#provides(org.eclipse.gmf.runtime.common.core.service.IOperation)
+     */
     public boolean provides(IOperation operation) {
         // System.out.println(operation);
         return true;

@@ -231,7 +231,7 @@ public class PalladioComponentModelDiagramUpdater {
      */
     public static List<PalladioComponentModelNodeDescriptor> getComposedProvidingRequiringEntityCompositeStructureInnerCompartment_7002SemanticChildren(
             View view) {
-        if (false == view.eContainer() instanceof View) {
+        if (!(view.eContainer() instanceof View)) {
             return Collections.emptyList();
         }
         View containerView = (View) view.eContainer();

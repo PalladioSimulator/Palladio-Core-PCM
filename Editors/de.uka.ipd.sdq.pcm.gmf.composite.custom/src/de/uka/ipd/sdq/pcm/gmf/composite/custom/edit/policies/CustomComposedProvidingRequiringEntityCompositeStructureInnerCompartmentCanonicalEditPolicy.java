@@ -3,19 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.composite.custom.edit.policies;
 
-import java.util.LinkedList;
-import java.util.List;
-
-import org.eclipse.emf.ecore.EObject;
-import org.eclipse.gmf.runtime.notation.View;
-
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.EventChannel;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.AssemblyContextEditPart;
-import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.EventChannelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.policies.ComposedProvidingRequiringEntityCompositeStructureInnerCompartmentCanonicalEditPolicy;
-import de.uka.ipd.sdq.pcm.gmf.composite.part.PalladioComponentModelVisualIDRegistry;
 
 /**
  * The Class

@@ -53,7 +53,6 @@ import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.part.FileEditorInput;
 
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
-import de.uka.ipd.sdq.pcm.core.entity.EntityFactory;
 import de.uka.ipd.sdq.pcm.gmf.composite.edit.parts.ComposedProvidingRequiringEntityEditPart;
 import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
@@ -218,8 +217,8 @@ public class PalladioComponentModelDiagramEditorUtil {
     }
 
     /**
-     * Store model element in the resource.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Store model element in the resource. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private static void attachModelToResource(ComposedProvidingRequiringEntity model, Resource resource) {
@@ -346,12 +345,14 @@ public class PalladioComponentModelDiagramEditorUtil {
         public final Map<EObject, View> getElement2ViewMap() {
             if (element2ViewMap == null) {
                 element2ViewMap = new HashMap<EObject, View>();
-                // map possible notation elements to itself as these can't be found by view.getElement()
+                // map possible notation elements to itself as these can't be found by
+                // view.getElement()
                 for (EObject element : elementSet) {
                     if (element instanceof View) {
                         View view = (View) element;
                         if (view.getDiagram() == scope.getDiagram()) {
-                            element2ViewMap.put(element, view); // take only those that part of our diagram
+                            element2ViewMap.put(element, view); // take only those that part of our
+                                                                // diagram
                         }
                     }
                 }

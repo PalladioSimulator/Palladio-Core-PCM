@@ -12,6 +12,9 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector;
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 
+/**
+ * The Class AssemblyConnectorEditHelperAdvice.
+ */
 public class AssemblyConnectorEditHelperAdvice extends AbstractEditHelperAdvice {
     /**
      * Get the configuration command for an AssemblyConnector.

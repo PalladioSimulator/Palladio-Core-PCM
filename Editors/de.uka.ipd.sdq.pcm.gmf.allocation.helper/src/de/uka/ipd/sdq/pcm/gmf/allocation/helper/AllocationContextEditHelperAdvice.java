@@ -112,6 +112,15 @@ public class AllocationContextEditHelperAdvice extends AbstractEditHelperAdvice 
         return cc;
     }
 
+    /**
+     * Construct initialization event channel command.
+     * 
+     * @param request
+     *            the request
+     * @param resource
+     *            the resource
+     * @return the composite command
+     */
     private CompositeCommand constructInitializationEventChannelCommand(final ConfigureRequest request,
             final EventChannel resource) {
         final ICommand cmd = new SetValueCommand(new SetRequest(request.getElementToConfigure(),

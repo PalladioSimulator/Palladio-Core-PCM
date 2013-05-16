@@ -98,7 +98,7 @@ public abstract class AbstractGrammerBasedEditDialog extends TitleAreaDialog {
     private static final String WARNING_TEXT_STYLE = "warningTextStyle";
 
     /** The Constant SHARED_COLORS. */
-    private final static ISharedTextColors SHARED_COLORS = new GrammarSharedColors();
+    private static final ISharedTextColors SHARED_COLORS = new GrammarSharedColors();
 
     // private Text editText;
     /** The text viewer. */

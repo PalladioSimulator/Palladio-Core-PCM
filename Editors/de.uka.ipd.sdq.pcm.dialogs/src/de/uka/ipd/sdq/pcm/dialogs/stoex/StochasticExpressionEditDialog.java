@@ -246,6 +246,8 @@ public class StochasticExpressionEditDialog extends AbstractGrammerBasedEditDial
         case BYTESIZE:
         case NUMBER_OF_ELEMENTS:
             return TypeEnum.INT;
+        default:
+            // unspecified
         }
         return TypeEnum.ANY;
     }

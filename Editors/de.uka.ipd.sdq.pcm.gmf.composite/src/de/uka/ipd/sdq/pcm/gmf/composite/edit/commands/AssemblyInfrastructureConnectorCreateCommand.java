@@ -43,6 +43,14 @@ public class AssemblyInfrastructureConnectorCreateCommand extends EditElementCom
     private final ComposedStructure container;
 
     /**
+     * Instantiates a new assembly infrastructure connector create command.
+     * 
+     * @param request
+     *            the request
+     * @param source
+     *            the source
+     * @param target
+     *            the target
      * @generated not
      */
     public AssemblyInfrastructureConnectorCreateCommand(CreateRelationshipRequest request, EObject source,

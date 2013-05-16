@@ -76,6 +76,8 @@ public class SocketFigure extends AbstractBorderFigure {
             graphics.drawArc(rect.getCenter().x - rect.width / 4, rect.getCenter().y, rect.height / 2, rect.height / 2,
                     0, 180);
             break;
+        default:
+            // unspecified
         }
     }
 
@@ -104,6 +106,8 @@ public class SocketFigure extends AbstractBorderFigure {
         case PositionConstants.SOUTH:
             result = new Point(rect.getCenter().x, rect.getCenter().y + rect.height / 4);
             break;
+        default:
+            // unspecified
         }
         return result;
     }

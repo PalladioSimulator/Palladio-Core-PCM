@@ -9,7 +9,7 @@ import org.eclipse.ui.plugin.AbstractUIPlugin;
 public class PCMDialogPluginActivator extends AbstractUIPlugin {
 
     /** The Constant PLUGIN_ID. */
-    public final static String PLUGIN_ID = "de.uka.ipd.sdq.pcm.dialogs";
+    public static final String PLUGIN_ID = "de.uka.ipd.sdq.pcm.dialogs";
 
     /** The plugin. */
     private static PCMDialogPluginActivator plugin;
@@ -23,7 +23,7 @@ public class PCMDialogPluginActivator extends AbstractUIPlugin {
 
     /**
      * Gets the default.
-     *
+     * 
      * @return the default
      */
     public static PCMDialogPluginActivator getDefault() {

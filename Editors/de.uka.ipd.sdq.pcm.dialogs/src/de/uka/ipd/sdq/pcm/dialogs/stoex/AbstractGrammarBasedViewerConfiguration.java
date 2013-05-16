@@ -127,7 +127,7 @@ public class AbstractGrammarBasedViewerConfiguration extends SourceViewerConfigu
 }
 
 /**
- * annotation hover manager
+ * annotation hover manager.
  * 
  */
 class AnnotationHover implements IAnnotationHover, ITextHover {
