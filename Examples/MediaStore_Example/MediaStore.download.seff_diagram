@@ -62,7 +62,7 @@
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_dUoL4ZJCEeKq4oi8Ure_zg"/>
     </children>
     <element xmi:type="seff:LoopAction" href="mediastore.repository#_gyFk0EhFEd2v5eXKEbOQ9g"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T02GngMaEeKkGv40lSkX_A" x="44" y="384" width="265" height="397"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_T02GngMaEeKkGv40lSkX_A" x="44" y="384" width="337" height="397"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_Ty93QQMaEeKkGv40lSkX_A"/>
   <element xmi:type="seff:ResourceDemandingSEFF" href="mediastore.repository#_xSaIACZ4EdywZLVVlfU7gQ"/>

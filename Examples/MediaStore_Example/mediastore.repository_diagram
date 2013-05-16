@@ -8,7 +8,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_AVBwZZI_EeKq4oi8Ure_zg"/>
       </children>
       <element xmi:type="repository:OperationInterface" href="mediastore.repository#_wflM0BpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVBwYZI_EeKq4oi8Ure_zg" x="1796"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVBwYZI_EeKq4oi8Ure_zg" x="20" y="185"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVBwZpI_EeKq4oi8Ure_zg" type="2107" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVCXcJI_EeKq4oi8Ure_zg" type="5108"/>
@@ -17,7 +17,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_AVCXc5I_EeKq4oi8Ure_zg"/>
       </children>
       <element xmi:type="repository:OperationInterface" href="mediastore.repository#_xSi60BpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVBwZ5I_EeKq4oi8Ure_zg" x="2052"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVBwZ5I_EeKq4oi8Ure_zg" x="340" y="185"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVCXdJI_EeKq4oi8Ure_zg" type="2107" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVCXdpI_EeKq4oi8Ure_zg" type="5108"/>
@@ -26,7 +26,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_AVCXeZI_EeKq4oi8Ure_zg"/>
       </children>
       <element xmi:type="repository:OperationInterface" href="mediastore.repository#_yNjKgBpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVCXdZI_EeKq4oi8Ure_zg" x="1368"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVCXdZI_EeKq4oi8Ure_zg" x="1030" y="475"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVCXepI_EeKq4oi8Ure_zg" type="2107" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVCXfJI_EeKq4oi8Ure_zg" type="5108"/>
@@ -35,7 +35,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_AVCXf5I_EeKq4oi8Ure_zg"/>
       </children>
       <element xmi:type="repository:OperationInterface" href="mediastore.repository#_zAzzcBpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVCXe5I_EeKq4oi8Ure_zg" x="2356"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVCXe5I_EeKq4oi8Ure_zg" x="1040" y="35"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVCXgJI_EeKq4oi8Ure_zg" type="2107" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVC-gJI_EeKq4oi8Ure_zg" type="5108"/>
@@ -44,7 +44,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_AVC-g5I_EeKq4oi8Ure_zg"/>
       </children>
       <element xmi:type="repository:OperationInterface" href="mediastore.repository#_7aHA8BwpEdyg5YJN38bxwQ"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVCXgZI_EeKq4oi8Ure_zg" x="2548"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVCXgZI_EeKq4oi8Ure_zg" x="1040" y="220"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVC-hJI_EeKq4oi8Ure_zg" type="2109" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVC-hpI_EeKq4oi8Ure_zg" type="5110"/>
@@ -53,7 +53,7 @@
         <styles xmi:type="notation:FilteringStyle" xmi:id="_AVC-iZI_EeKq4oi8Ure_zg"/>
       </children>
       <element xmi:type="repository:InfrastructureInterface" href="mediastore.repository#_dgX_oGagEeCCuI19Qg4dIw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVC-hZI_EeKq4oi8Ure_zg" x="2756"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVC-hZI_EeKq4oi8Ure_zg" x="1090" y="335"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVC-ipI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVC-jJI_EeKq4oi8Ure_zg" type="5102"/>
@@ -80,7 +80,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVDlmJI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_q5WkIBpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVC-i5I_EeKq4oi8Ure_zg" x="1824" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVC-i5I_EeKq4oi8Ure_zg" x="200" y="301"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVDlmZI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVDlm5I_EeKq4oi8Ure_zg" type="5102"/>
@@ -97,7 +97,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVEMpZI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_rzeDABpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVDlmpI_EeKq4oi8Ure_zg" x="2024" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVDlmpI_EeKq4oi8Ure_zg" x="754" y="1"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVEMppI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVEMqJI_EeKq4oi8Ure_zg" type="5102"/>
@@ -114,7 +114,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVEzsZI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_tJKDkBpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVEMp5I_EeKq4oi8Ure_zg" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVEMp5I_EeKq4oi8Ure_zg" x="670" y="565" width="228"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVEzspI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVEztJI_EeKq4oi8Ure_zg" type="5102"/>
@@ -131,7 +131,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVEzvZI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_t663sBpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVEzs5I_EeKq4oi8Ure_zg" x="2616" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVEzs5I_EeKq4oi8Ure_zg" x="1285" y="5"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVSPEJI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVSPEpI_EeKq4oi8Ure_zg" type="5102"/>
@@ -148,7 +148,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVSPG5I_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_vifScBpXEdyxqpPYxT_m3w"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVSPEZI_EeKq4oi8Ure_zg" x="2816" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVSPEZI_EeKq4oi8Ure_zg" x="1285" y="190"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVS2IJI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVS2IpI_EeKq4oi8Ure_zg" type="5102"/>
@@ -165,7 +165,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVS2K5I_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_5ua00BwhEdyigt_qJDxvbA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVS2IZI_EeKq4oi8Ure_zg" x="556" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVS2IZI_EeKq4oi8Ure_zg" x="970" y="581" width="244"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVS2LJI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVTdMJI_EeKq4oi8Ure_zg" type="5102"/>
@@ -182,7 +182,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVTdOZI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_CERy4BwqEdyg5YJN38bxwQ"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVS2LZI_EeKq4oi8Ure_zg" x="2224" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVS2LZI_EeKq4oi8Ure_zg" x="760" y="150"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVTdOpI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVTdPJI_EeKq4oi8Ure_zg" type="5102"/>
@@ -199,7 +199,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVUESJI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_q2UeYCAiEdyB2fTIEA4hbA"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVTdO5I_EeKq4oi8Ure_zg" x="1112" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVTdO5I_EeKq4oi8Ure_zg" x="1270" y="576" width="322"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVUESZI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVUES5I_EeKq4oi8Ure_zg" type="5102"/>
@@ -226,7 +226,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVUrUZI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_2ODPwGafEeCCuI19Qg4dIw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVUESpI_EeKq4oi8Ure_zg" x="2420" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVUESpI_EeKq4oi8Ure_zg" x="750" y="310"/>
     </children>
     <children xmi:type="notation:Shape" xmi:id="_AVUrUpI_EeKq4oi8Ure_zg" type="2102" fontName="Lucida Grande">
       <children xmi:type="notation:DecorationNode" xmi:id="_AVUrVJI_EeKq4oi8Ure_zg" type="5102"/>
@@ -243,7 +243,7 @@
         <styles xmi:type="notation:TitleStyle" xmi:id="_AVUrXZI_EeKq4oi8Ure_zg" showTitle="true"/>
       </children>
       <element xmi:type="repository:BasicComponent" href="mediastore.repository#_ln1O8GagEeCCuI19Qg4dIw"/>
-      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVUrU5I_EeKq4oi8Ure_zg" x="3016" y="116"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_AVUrU5I_EeKq4oi8Ure_zg" x="1280" y="330"/>
     </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="__1NA0ZI-EeKq4oi8Ure_zg"/>
     <element xmi:type="repository:Repository" href="mediastore.repository#_qPoRsBpXEdyxqpPYxT_m3w"/>
