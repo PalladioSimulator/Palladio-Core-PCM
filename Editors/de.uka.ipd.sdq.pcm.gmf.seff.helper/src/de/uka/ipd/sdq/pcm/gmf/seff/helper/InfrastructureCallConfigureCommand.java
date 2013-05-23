@@ -8,15 +8,22 @@ import org.eclipse.core.runtime.IAdaptable;
 import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.gmf.runtime.common.core.command.CommandResult;
 import org.eclipse.gmf.runtime.common.core.command.ICommand;
+import org.eclipse.gmf.runtime.emf.type.core.IElementType;
 import org.eclipse.gmf.runtime.emf.type.core.commands.ConfigureElementCommand;
 import org.eclipse.gmf.runtime.emf.type.core.commands.SetValueCommand;
 import org.eclipse.gmf.runtime.emf.type.core.requests.ConfigureRequest;
+import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.emf.type.core.requests.SetRequest;
 
+import de.uka.ipd.sdq.pcm.PcmFactory;
+import de.uka.ipd.sdq.pcm.core.CoreFactory;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.commands.PCMRandomVariableCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.seff.providers.PalladioComponentModelElementTypes;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
+import de.uka.ipd.sdq.stoex.StoexFactory;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 
 /**
@@ -169,6 +176,13 @@ public class InfrastructureCallConfigureCommand extends ConfigureElementCommand 
                     "The provided element which should be configured was not of type InfrastructureCall.");
         }
         final InfrastructureCall call = (InfrastructureCall) this.request.getElementToConfigure();
+        
+        if(call.getNumberOfCalls__InfrastructureCall() == null)
+        {
+           call.setNumberOfCalls__InfrastructureCall(CoreFactory.eINSTANCE.createPCMRandomVariable());
+        }
+            
+        
         final ICommand cmd = new SetValueCommand(new SetRequest(call.getNumberOfCalls__InfrastructureCall(),
                 StoexPackage.eINSTANCE.getRandomVariable_Specification(), this.numberOfCalls));
         cmd.execute(monitor, info);
