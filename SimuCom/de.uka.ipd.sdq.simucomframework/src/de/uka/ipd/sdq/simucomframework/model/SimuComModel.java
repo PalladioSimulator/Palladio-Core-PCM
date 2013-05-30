@@ -308,7 +308,7 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 
         // Print failure statistics:
         if (getConfiguration().getSimulateFailures()) {
-            FailureStatistics.getInstance().printFailureStatistics(logger);
+            FailureStatistics.getInstance().printFailureStatistics(logger, getSimulationControl().getCurrentSimulationTime());
         }
 
         this.getProbeSpecContext().getThreadManager().stopThreads();

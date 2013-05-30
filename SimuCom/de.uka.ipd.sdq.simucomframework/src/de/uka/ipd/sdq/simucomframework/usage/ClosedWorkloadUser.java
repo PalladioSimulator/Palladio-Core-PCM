@@ -74,7 +74,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 			try {
 				if (getModel().getConfiguration().getSimulateFailures()) {
 					FailureStatistics.getInstance().increaseRunCount();
-					FailureStatistics.getInstance().printRunCount(logger);
+					FailureStatistics.getInstance().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
 				}
 				blackboardGarbageCollector.enterRegion(getRequestContext()
 						.rootContext());

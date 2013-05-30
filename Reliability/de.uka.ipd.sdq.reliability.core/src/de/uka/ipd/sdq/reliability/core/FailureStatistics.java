@@ -393,16 +393,19 @@ public class FailureStatistics {
      * 
      * @param logger
      *            The logger to write the statistics to
+     * @param simulationTime 
      */
-    public void printFailureStatistics(final Logger logger) {
+    public void printFailureStatistics(final Logger logger, double simulationTime) {
         logger.warn("---- System Failure Statistics: START ----");
-        logger.warn("- Total usage scenario runs:        " + runCount);
-        logger.warn("- Total failed usage scenario runs: " + failedRuns.size());
-        logger.warn("- Total probability of success:     " + (1 - failedRuns.size() / ((double) runCount)));
-        for (String failureString : getFailureStringsSorted()) {
+        logger.warn("- Total usage scenario runs:            " + runCount);
+        logger.warn("- Total failed usage scenario runs:     " + failedRuns.size());
+        logger.warn("- Total probability of success:         " + (1 - failedRuns.size() / ((double) runCount)));
+        logger.warn("- Failure rate per simulated time unit: " + (failedRuns.size() / simulationTime));
+        logger.warn("- Mean time between failure: " + (simulationTime / failedRuns.size()) );
+        for (String failureString : getFailureStringsSorted(simulationTime)) {
             logger.warn(failureString);
         }
-        printHandledFailuresStatistics(logger);
+        printHandledFailuresStatistics(logger, simulationTime);
         logger.warn("---- System Failure Statistics: END -----");
 
         // ************* TEMPORORY START **************************
@@ -448,10 +451,11 @@ public class FailureStatistics {
      * 
      * @param logger
      *            The logger to write the statistics to
+     * @param simulationTime 
      */
-    public synchronized void printRunCount(final Logger logger) {
+    public synchronized void printRunCount(final Logger logger, double simulationTime) {
         if ((runCount % 50000) == 0) {
-            printFailureStatistics(logger);
+            printFailureStatistics(logger, simulationTime);
         } else if ((runCount % 10000) == 0) {
             logger.warn("Current usage scenario run count: " + runCount);
         }
@@ -517,14 +521,15 @@ public class FailureStatistics {
 
     /**
      * Retrieves the sorted list of recorded failure occurrences.
+     * @param simulationTime 
      * 
      * @return the failure occurrences list
      */
-    private TreeSet<String> getFailureStringsSorted() {
+    private TreeSet<String> getFailureStringsSorted(double simulationTime) {
         TreeSet<String> result = new TreeSet<String>();
         for (MarkovFailureType failureType : unhandledFailureCounters.keySet()) {
             double count = unhandledFailureCounters.get(failureType);
-            result.add("- " + failureType.getName() + ": " + (int) count + " (" + count / runCount + ")");
+            result.add("-- " + failureType.getName() + ": " + (int) count + " (" + count / runCount + ")");
         }
         return result;
     }
@@ -552,9 +557,13 @@ public class FailureStatistics {
      * 
      * @param logger
      *            The logger to write the statistics to
+     * @param simulationTime The overall simulated time to calculate rates
      */
-    private void printHandledFailuresStatistics(final Logger logger) {
+    private void printHandledFailuresStatistics(final Logger logger, double simulationTime) {
         boolean headerPrinted = false;
+        
+        Map<String, SoftwareFailureStatistics> softwareFailureStatisticsMap = new HashMap<String, SoftwareFailureStatistics>();
+        
         for (MarkovFailureType failureType : handledFailureCounters.keySet()) {
             int handledCount = handledFailureCounters.get(failureType);
             Integer totalFailureCount = totalFailureCounters.get(failureType);
@@ -567,6 +576,77 @@ public class FailureStatistics {
             }
             logger.warn("- " + failureType.getName() + ": Handled " + handledCount + " out of " + totalFailureCount
                     + " (" + ((double) handledCount) / (totalFailureCount) + ")");
+            logger.warn("  Fault rate: "+(totalFailureCount / simulationTime));
+            logger.warn("  Mean time to fault: "+(simulationTime / totalFailureCount));
+            logger.warn("  Non-recoverable fault rate: "+((totalFailureCount-handledCount) / simulationTime));
+            logger.warn("  Mean time to non-recoverable fault: "+(simulationTime / (totalFailureCount-handledCount)));
+        
+            // aggregate software failures by type
+            if ( failureType instanceof MarkovSoftwareInducedFailureType) {
+            	MarkovSoftwareInducedFailureType swFailureType = (MarkovSoftwareInducedFailureType)failureType;
+            	
+            	SoftwareFailureStatistics softwareFailureStatistics = softwareFailureStatisticsMap.get(swFailureType.getSoftwareFailureId());
+            	if (softwareFailureStatistics == null){
+            		softwareFailureStatistics = new SoftwareFailureStatistics(swFailureType.getSoftwareFailureId(), swFailureType.getSoftwareFailureName());
+            		softwareFailureStatisticsMap.put(swFailureType.getSoftwareFailureId(), softwareFailureStatistics);
+            	}
+            	softwareFailureStatistics.addTotalFailureCount(totalFailureCount);
+            	softwareFailureStatistics.addHandledCount(handledCount);
+            	
+            }
         }
+        
+        logger.warn("\n---- Handled failures aggregated by software failure type:");
+        for (SoftwareFailureStatistics softwareFailureStatistics : softwareFailureStatisticsMap.values()) {
+        	
+        	logger.warn("- " + softwareFailureStatistics.getName() + "("+softwareFailureStatistics.getId()+") : Handled " + softwareFailureStatistics.getHandledCount() + " out of " + softwareFailureStatistics.getTotalFailureCount()
+                    + " (" + ((double) softwareFailureStatistics.getHandledCount()) / (softwareFailureStatistics.getTotalFailureCount()) + ")");
+            logger.warn("  Fault rate: "+(softwareFailureStatistics.getTotalFailureCount() / simulationTime));
+            logger.warn("  Mean time to fault: "+(simulationTime / softwareFailureStatistics.getTotalFailureCount()));
+            logger.warn("  Non-recoverable fault rate: "+((softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount()) / simulationTime));
+            logger.warn("  Mean time to non-recoverable fault: "+(simulationTime / (softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount())));
+        }
+
     }
+}
+
+class SoftwareFailureStatistics{
+	private String id;
+	private String name;
+	private int totalFailureCount = 0;
+	private int handledCount = 0;
+	
+	public String getId() {
+		return id;
+	}
+
+	public int getTotalFailureCount() {
+		return totalFailureCount;
+	}
+
+	public int getHandledCount() {
+		return handledCount;
+	}
+	
+	public SoftwareFailureStatistics(String softwareFailureId,
+			String softwareFailureName) {
+		this.id = softwareFailureId;
+		this.name = softwareFailureName;
+	}
+	
+	public String getName() {
+		return this.name;
+	}
+
+	public void addHandledCount(int handledCount2) {
+		this.handledCount += handledCount2;
+		
+	}
+
+	public void addTotalFailureCount(Integer totalFailureCount2) {
+		this.totalFailureCount += totalFailureCount2;
+		
+	}
+
+
 }

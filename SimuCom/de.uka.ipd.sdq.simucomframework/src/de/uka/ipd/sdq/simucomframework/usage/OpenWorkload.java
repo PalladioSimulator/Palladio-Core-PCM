@@ -4,7 +4,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
-import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -68,7 +67,7 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 				// Count the new user:
 				if (this.getModel().getConfig().getSimulateFailures()) {
 					FailureStatistics.getInstance().increaseRunCount();
-					FailureStatistics.getInstance().printRunCount(logger);
+					FailureStatistics.getInstance().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
 				}
 			}
 			catch (OutOfMemoryError e) {
