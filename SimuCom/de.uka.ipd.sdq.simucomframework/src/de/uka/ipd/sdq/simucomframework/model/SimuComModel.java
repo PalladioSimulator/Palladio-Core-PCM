@@ -302,7 +302,7 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
         this.getResourceRegistry().deactivateAllPassiveResources();
 
         if(logger.isEnabledFor(Level.INFO))
-        	logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
+        	logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulated time units");
 
         AbstractActiveResource.cleanProcesses();
 
