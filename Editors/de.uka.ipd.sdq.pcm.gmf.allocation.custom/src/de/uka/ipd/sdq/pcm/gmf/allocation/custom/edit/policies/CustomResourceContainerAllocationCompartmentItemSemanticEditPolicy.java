@@ -5,7 +5,7 @@ import org.eclipse.gmf.runtime.emf.type.core.requests.CreateElementRequest;
 import org.eclipse.gmf.runtime.notation.View;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
-import de.uka.ipd.sdq.pcm.gmf.allocation.edit.commands.AllocationContextCreateCommand;
+import de.uka.ipd.sdq.pcm.gmf.allocation.custom.edit.commands.CustomAllocationContextCreateCommand;
 import de.uka.ipd.sdq.pcm.gmf.allocation.edit.policies.ResourceContainerAllocationCompartmentItemSemanticEditPolicy;
 import de.uka.ipd.sdq.pcm.gmf.allocation.providers.PalladioComponentModelElementTypes;
 
@@ -18,7 +18,8 @@ public class CustomResourceContainerAllocationCompartmentItemSemanticEditPolicy 
     /**
      * Gets the CreateCommand.
      * 
-     * FIXME: This custom code is never called!?!
+     * FIXME: This custom edit policy is never registered and thus not called! 
+     * Thus, original "@generated not" is still required.
      *      
      * @param req
      *            a CreateElementRequest
@@ -31,7 +32,7 @@ public class CustomResourceContainerAllocationCompartmentItemSemanticEditPolicy 
 //			return getGEFWrapper(new AllocationContextCreateCommand(req));
 			// Instead, added the following two lines:
             Allocation a = (Allocation) ((View) getHost().getParent().getParent().getModel()).getElement();
-            return getGEFWrapper(new AllocationContextCreateCommand(req, a));
+            return getGEFWrapper(new /*AllocationContextCreateCommand*/CustomAllocationContextCreateCommand(req, a));
 		}
 		return super.getCreateCommand(req);
     }

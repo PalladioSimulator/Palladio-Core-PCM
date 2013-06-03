@@ -68,7 +68,6 @@ public class AllocationContextCreateCommand extends EditElementCommand {
      */
     public boolean canExecute() {
         return true;
-
     }
 
     /**
