@@ -60,23 +60,20 @@ public class BallFigure extends AbstractBorderFigure {
         switch (side) {
         case PositionConstants.EAST:
             graphics.drawLine(rect.getLeft().x, rect.getCenter().y, rect.getCenter().x, rect.getCenter().y);
-            graphics.drawArc(rect.getCenter().x, rect.getTop().y + rect.height / 4, rect.height / 2, rect.height / 2,
-                    0, 360);
+            graphics.drawOval(rect.getCenter().x, rect.getTop().y + rect.height / 4, rect.height / 2, rect.height / 2);
             break;
         case PositionConstants.WEST:
             graphics.drawLine(rect.getRight().x, rect.getCenter().y, rect.getCenter().x, rect.getCenter().y);
-            graphics.drawArc(rect.getLeft().x, rect.getTop().y + rect.height / 4, rect.height / 2, rect.height / 2, 0,
-                    360);
+            graphics.drawOval(rect.getLeft().x, rect.getTop().y + rect.height / 4, rect.height / 2, rect.height / 2);
             break;
         case PositionConstants.NORTH:
             graphics.drawLine(rect.getCenter().x, rect.getBottom().y, rect.getCenter().x, rect.getCenter().y);
-            graphics.drawArc(rect.getCenter().x - rect.width / 4, rect.getTop().y, rect.height / 2, rect.height / 2, 0,
-                    360);
+            graphics.drawOval(rect.getCenter().x - rect.width / 4, rect.getTop().y, rect.height / 2, rect.height / 2);
+            
             break;
         case PositionConstants.SOUTH:
             graphics.drawLine(rect.getCenter().x, rect.getTop().y, rect.getCenter().x, rect.getCenter().y);
-            graphics.drawArc(rect.getCenter().x - rect.width / 4, rect.getCenter().y, rect.height / 2, rect.height / 2,
-                    0, 360);
+            graphics.drawOval(rect.getCenter().x - rect.width / 4, rect.getCenter().y, rect.height / 2, rect.height / 2);
             break;
         default:
             // unspecified
