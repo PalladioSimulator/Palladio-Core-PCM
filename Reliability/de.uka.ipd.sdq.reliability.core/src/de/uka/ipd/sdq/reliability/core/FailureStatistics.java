@@ -399,9 +399,17 @@ public class FailureStatistics {
         logger.warn("---- System Failure Statistics: START ----");
         logger.warn("- Total usage scenario runs:            " + runCount);
         logger.warn("- Total failed usage scenario runs:     " + failedRuns.size());
+        logger.warn("- Total simulated time units:           " + simulationTime);
         logger.warn("- Total probability of success:         " + (1 - failedRuns.size() / ((double) runCount)));
-        logger.warn("- Failure rate per simulated time unit: " + (failedRuns.size() / simulationTime));
-        logger.warn("- Mean time between failure: " + (simulationTime / failedRuns.size()) );
+        logger.warn("- Failure rate (failures per simulated time unit): " + (failedRuns.size() / simulationTime));
+        logger.warn("- Mean time between failure:            " + (simulationTime / failedRuns.size()) );
+        
+        logger.warn("- Total number of faults:               " + this.totalFailureCount);
+        logger.warn("- Total probability of fault:           " + (this.totalFailureCount / (double) runCount));
+        logger.warn("- Total probability of no fault:        " + (1 - (this.totalFailureCount / (double) runCount)));
+        logger.warn("- Fault rate (recovered and non-recovered, faults per simulated time unit): " + (this.totalFailureCount / simulationTime));
+        logger.warn("- Mean time between faults (recovered and non-recovered): " + (simulationTime / this.totalFailureCount) );
+        
         for (String failureString : getFailureStringsSorted(simulationTime)) {
             logger.warn(failureString);
         }
@@ -576,10 +584,10 @@ public class FailureStatistics {
             }
             logger.warn("- " + failureType.getName() + ": Handled " + handledCount + " out of " + totalFailureCount
                     + " (" + ((double) handledCount) / (totalFailureCount) + ")");
-            logger.warn("  Fault rate: "+(totalFailureCount / simulationTime));
-            logger.warn("  Mean time to fault: "+(simulationTime / totalFailureCount));
-            logger.warn("  Non-recoverable fault rate: "+((totalFailureCount-handledCount) / simulationTime));
-            logger.warn("  Mean time to non-recoverable fault: "+(simulationTime / (totalFailureCount-handledCount)));
+            logger.warn("  Fault rate (faults per time unit):                 "+(totalFailureCount / simulationTime));
+            logger.warn("  Mean time to fault (time units):                   "+(simulationTime / totalFailureCount));
+            logger.warn("  Non-recoverable fault rate (failures per time unit): "+((totalFailureCount-handledCount) / simulationTime));
+            logger.warn("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (totalFailureCount-handledCount)));
         
             // aggregate software failures by type
             if ( failureType instanceof MarkovSoftwareInducedFailureType) {
@@ -601,10 +609,10 @@ public class FailureStatistics {
         	
         	logger.warn("- " + softwareFailureStatistics.getName() + "("+softwareFailureStatistics.getId()+") : Handled " + softwareFailureStatistics.getHandledCount() + " out of " + softwareFailureStatistics.getTotalFailureCount()
                     + " (" + ((double) softwareFailureStatistics.getHandledCount()) / (softwareFailureStatistics.getTotalFailureCount()) + ")");
-            logger.warn("  Fault rate: "+(softwareFailureStatistics.getTotalFailureCount() / simulationTime));
-            logger.warn("  Mean time to fault: "+(simulationTime / softwareFailureStatistics.getTotalFailureCount()));
-            logger.warn("  Non-recoverable fault rate: "+((softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount()) / simulationTime));
-            logger.warn("  Mean time to non-recoverable fault: "+(simulationTime / (softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount())));
+            logger.warn("  Fault rate (faults per time unit):                 "+(softwareFailureStatistics.getTotalFailureCount() / simulationTime));
+            logger.warn("  Mean time to fault (time units):                   "+(simulationTime / softwareFailureStatistics.getTotalFailureCount()));
+            logger.warn("  Non-recoverable fault rate (failures per time unit): "+((softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount()) / simulationTime));
+            logger.warn("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount())));
         }
 
     }
