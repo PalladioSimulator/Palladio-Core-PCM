@@ -26,7 +26,9 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorPlugin;
@@ -89,24 +91,27 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
      */
     public Image getImage(View view) {
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
-        case ResourceEnvironmentEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceEnvironment", PalladioComponentModelElementTypes.ResourceEnvironment_1000); //$NON-NLS-1$
-        case LinkingResourceEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_2005); //$NON-NLS-1$
-        case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
-            return getImage(
-                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource?connectedResourceContainers_LinkingResource", PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003); //$NON-NLS-1$
         case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
             return getImage(
                     "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?CommunicationLinkResourceSpecification", PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004); //$NON-NLS-1$
+        case LinkingResourceEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource", PalladioComponentModelElementTypes.LinkingResource_2005); //$NON-NLS-1$
         case ProcessingResourceSpecificationEditPart.VISUAL_ID:
             return getImage(
                     "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ProcessingResourceSpecification", PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003); //$NON-NLS-1$
+        case ResourceContainer2EditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Node?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_3005); //$NON-NLS-1$
         case ResourceContainerEditPart.VISUAL_ID:
             return getImage(
                     "Navigator?TopLevelNode?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceContainer", PalladioComponentModelElementTypes.ResourceContainer_2004); //$NON-NLS-1$
+        case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Link?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?LinkingResource?connectedResourceContainers_LinkingResource", PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003); //$NON-NLS-1$
+        case ResourceEnvironmentEditPart.VISUAL_ID:
+            return getImage(
+                    "Navigator?Diagram?http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0?ResourceEnvironment", PalladioComponentModelElementTypes.ResourceEnvironment_1000); //$NON-NLS-1$
         }
         return getImage("Navigator?UnknownElement", null); //$NON-NLS-1$
     }
@@ -157,18 +162,20 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
             return getUnresolvedDomainElementProxyText(view);
         }
         switch (PalladioComponentModelVisualIDRegistry.getVisualID(view)) {
-        case ResourceEnvironmentEditPart.VISUAL_ID:
-            return getResourceEnvironment_1000Text(view);
-        case LinkingResourceEditPart.VISUAL_ID:
-            return getLinkingResource_2005Text(view);
-        case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
-            return getLinkingResourceConnectedResourceContainers_LinkingResource_4003Text(view);
         case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
             return getCommunicationLinkResourceSpecification_3004Text(view);
+        case LinkingResourceEditPart.VISUAL_ID:
+            return getLinkingResource_2005Text(view);
         case ProcessingResourceSpecificationEditPart.VISUAL_ID:
             return getProcessingResourceSpecification_3003Text(view);
+        case ResourceContainer2EditPart.VISUAL_ID:
+            return getResourceContainer_3005Text(view);
         case ResourceContainerEditPart.VISUAL_ID:
             return getResourceContainer_2004Text(view);
+        case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:
+            return getLinkingResourceConnectedResourceContainers_LinkingResource_4003Text(view);
+        case ResourceEnvironmentEditPart.VISUAL_ID:
+            return getResourceEnvironment_1000Text(view);
         }
         return getUnknownElementText(view);
     }
@@ -234,6 +241,23 @@ public class PalladioComponentModelNavigatorLabelProvider extends LabelProvider 
                     ParserOptions.NONE.intValue());
         } else {
             PalladioComponentModelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5013); //$NON-NLS-1$
+            return ""; //$NON-NLS-1$
+        }
+    }
+
+    /**
+     * @generated
+     */
+    private String getResourceContainer_3005Text(View view) {
+        IParser parser = PalladioComponentModelParserProvider.getParser(
+                PalladioComponentModelElementTypes.ResourceContainer_3005,
+                view.getElement() != null ? view.getElement() : view,
+                PalladioComponentModelVisualIDRegistry.getType(ResourceContainerEntityName2EditPart.VISUAL_ID));
+        if (parser != null) {
+            return parser.getPrintString(new EObjectAdapter(view.getElement() != null ? view.getElement() : view),
+                    ParserOptions.NONE.intValue());
+        } else {
+            PalladioComponentModelDiagramEditorPlugin.getInstance().logError("Parser was not found for label " + 5025); //$NON-NLS-1$
             return ""; //$NON-NLS-1$
         }
     }

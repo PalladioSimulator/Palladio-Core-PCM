@@ -25,7 +25,10 @@ import org.eclipse.swt.widgets.Shell;
 import org.eclipse.ui.dialogs.ElementListSelectionDialog;
 
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartment3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.Messages;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorPlugin;
@@ -56,6 +59,21 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
             types.add(PalladioComponentModelElementTypes.CommunicationLinkResourceSpecification_3004);
             return types;
         }
+        if (editPart instanceof ResourceContainer2EditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.ProcessingResourceSpecification_3003);
+            return types;
+        }
+        if (editPart instanceof ResourceContainerResourceContainerCompartment2EditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.ResourceContainer_3005);
+            return types;
+        }
+        if (editPart instanceof ResourceContainerResourceContainerCompartment3EditPart) {
+            ArrayList<IElementType> types = new ArrayList<IElementType>(1);
+            types.add(PalladioComponentModelElementTypes.ResourceContainer_3005);
+            return types;
+        }
         return Collections.EMPTY_LIST;
     }
 
@@ -77,6 +95,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
         IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
         if (targetEditPart instanceof ResourceContainerEditPart) {
             return ((ResourceContainerEditPart) targetEditPart).getMARelTypesOnTarget();
+        }
+        if (targetEditPart instanceof ResourceContainer2EditPart) {
+            return ((ResourceContainer2EditPart) targetEditPart).getMARelTypesOnTarget();
         }
         return Collections.EMPTY_LIST;
     }
@@ -100,6 +121,9 @@ public class PalladioComponentModelModelingAssistantProvider extends ModelingAss
         IGraphicalEditPart targetEditPart = (IGraphicalEditPart) target.getAdapter(IGraphicalEditPart.class);
         if (targetEditPart instanceof ResourceContainerEditPart) {
             return ((ResourceContainerEditPart) targetEditPart).getMATypesForSource(relationshipType);
+        }
+        if (targetEditPart instanceof ResourceContainer2EditPart) {
+            return ((ResourceContainer2EditPart) targetEditPart).getMATypesForSource(relationshipType);
         }
         return Collections.EMPTY_LIST;
     }

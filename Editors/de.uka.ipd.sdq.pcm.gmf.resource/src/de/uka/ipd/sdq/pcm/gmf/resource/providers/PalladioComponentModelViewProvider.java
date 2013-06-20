@@ -61,8 +61,13 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificatio
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerProcessingResourceCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartment3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart;
@@ -96,10 +101,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
      */
     protected boolean provides(CreateViewForKindOperation op) {
         /*
-         * if (op.getViewKind() == Node.class) return getNodeViewClass(op.getSemanticAdapter(),
-         * op.getContainerView(), op.getSemanticHint()) != null; if (op.getViewKind() == Edge.class)
-         * return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(),
-         * op.getSemanticHint()) != null;
+         if (op.getViewKind() == Node.class)
+         return getNodeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
+         if (op.getViewKind() == Edge.class)
+         return getEdgeViewClass(op.getSemanticAdapter(), op.getContainerView(), op.getSemanticHint()) != null;
          */
         return true;
     }
@@ -140,14 +145,12 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 }
                 String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
                 if (!op.getSemanticHint().equals(elementTypeHint)) {
-                    return false; // if semantic hint is specified it should be the same as in
-                                  // element type
+                    return false; // if semantic hint is specified it should be the same as in element type
                 }
                 if (domainElement != null
                         && visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID(op.getContainerView(),
                                 domainElement)) {
-                    return false; // visual id for node EClass should match visual id from element
-                                  // type
+                    return false; // visual id for node EClass should match visual id from element type
                 }
             } else {
                 if (!ResourceEnvironmentEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry.getModelID(op
@@ -159,11 +162,11 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 case LinkingResourceEditPart.VISUAL_ID:
                 case ProcessingResourceSpecificationEditPart.VISUAL_ID:
                 case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
+                case ResourceContainer2EditPart.VISUAL_ID:
                     if (domainElement == null
                             || visualID != PalladioComponentModelVisualIDRegistry.getNodeVisualID(
                                     op.getContainerView(), domainElement)) {
-                        return false; // visual id in semantic hint should match visual id for
-                                      // domain element
+                        return false; // visual id in semantic hint should match visual id for domain element
                     }
                     break;
                 default:
@@ -173,6 +176,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         }
         return ResourceContainerEditPart.VISUAL_ID == visualID || LinkingResourceEditPart.VISUAL_ID == visualID
                 || ProcessingResourceSpecificationEditPart.VISUAL_ID == visualID
+                || ResourceContainer2EditPart.VISUAL_ID == visualID
                 || CommunicationLinkResourceSpecificationEditPart.VISUAL_ID == visualID;
     }
 
@@ -187,8 +191,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         }
         String elementTypeHint = ((IHintedType) elementType).getSemanticHint();
         if (elementTypeHint == null || (op.getSemanticHint() != null && !elementTypeHint.equals(op.getSemanticHint()))) {
-            return false; // our hint is visual id and must be specified, and it should be the same
-                          // as in element type
+            return false; // our hint is visual id and must be specified, and it should be the same as in element type
         }
         int visualID = PalladioComponentModelVisualIDRegistry.getVisualID(elementTypeHint);
         EObject domainElement = getSemanticElement(op.getSemanticAdapter());
@@ -231,6 +234,8 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         case ProcessingResourceSpecificationEditPart.VISUAL_ID:
             return createProcessingResourceSpecification_3003(domainElement, containerView, index, persisted,
                     preferencesHint);
+        case ResourceContainer2EditPart.VISUAL_ID:
+            return createResourceContainer_3005(domainElement, containerView, index, persisted, preferencesHint);
         case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
             return createCommunicationLinkResourceSpecification_3004(domainElement, containerView, index, persisted,
                     preferencesHint);
@@ -266,7 +271,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -294,6 +299,10 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 PalladioComponentModelVisualIDRegistry
                         .getType(ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID), false, false, true,
                 true);
+        createCompartment(node,
+                PalladioComponentModelVisualIDRegistry
+                        .getType(ResourceContainerResourceContainerCompartment2EditPart.VISUAL_ID), false, false,
+                false, false);
         return node;
     }
 
@@ -308,7 +317,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
         stampShortcut(containerView, node);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -348,7 +357,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
         node.setType(PalladioComponentModelVisualIDRegistry.getType(ProcessingResourceSpecificationEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -397,6 +406,51 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
     /**
      * @generated
      */
+    public Node createResourceContainer_3005(EObject domainElement, View containerView, int index, boolean persisted,
+            PreferencesHint preferencesHint) {
+        Shape node = NotationFactory.eINSTANCE.createShape();
+        node.setLayoutConstraint(NotationFactory.eINSTANCE.createBounds());
+        node.setType(PalladioComponentModelVisualIDRegistry.getType(ResourceContainer2EditPart.VISUAL_ID));
+        ViewUtil.insertChildView(containerView, node, index, persisted);
+        node.setElement(domainElement);
+        // initializeFromPreferences 
+        final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
+
+        org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
+                IPreferenceConstants.PREF_LINE_COLOR);
+        ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getLineStyle_LineColor(),
+                FigureUtilities.RGBToInteger(lineRGB));
+        FontStyle nodeFontStyle = (FontStyle) node.getStyle(NotationPackage.Literals.FONT_STYLE);
+        if (nodeFontStyle != null) {
+            FontData fontData = PreferenceConverter.getFontData(prefStore, IPreferenceConstants.PREF_DEFAULT_FONT);
+            nodeFontStyle.setFontName(fontData.getName());
+            nodeFontStyle.setFontHeight(fontData.getHeight());
+            nodeFontStyle.setBold((fontData.getStyle() & SWT.BOLD) != 0);
+            nodeFontStyle.setItalic((fontData.getStyle() & SWT.ITALIC) != 0);
+            org.eclipse.swt.graphics.RGB fontRGB = PreferenceConverter.getColor(prefStore,
+                    IPreferenceConstants.PREF_FONT_COLOR);
+            nodeFontStyle.setFontColor(FigureUtilities.RGBToInteger(fontRGB).intValue());
+        }
+        org.eclipse.swt.graphics.RGB fillRGB = PreferenceConverter.getColor(prefStore,
+                IPreferenceConstants.PREF_FILL_COLOR);
+        ViewUtil.setStructuralFeatureValue(node, NotationPackage.eINSTANCE.getFillStyle_FillColor(),
+                FigureUtilities.RGBToInteger(fillRGB));
+        Node label5025 = createLabel(node,
+                PalladioComponentModelVisualIDRegistry.getType(ResourceContainerEntityName2EditPart.VISUAL_ID));
+        createCompartment(node,
+                PalladioComponentModelVisualIDRegistry
+                        .getType(ResourceContainerProcessingResourceCompartmentEditPart.VISUAL_ID), false, false, true,
+                true);
+        createCompartment(node,
+                PalladioComponentModelVisualIDRegistry
+                        .getType(ResourceContainerResourceContainerCompartment3EditPart.VISUAL_ID), false, false,
+                false, false);
+        return node;
+    }
+
+    /**
+     * @generated
+     */
     public Node createCommunicationLinkResourceSpecification_3004(EObject domainElement, View containerView, int index,
             boolean persisted, PreferencesHint preferencesHint) {
         Shape node = NotationFactory.eINSTANCE.createShape();
@@ -405,7 +459,7 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
                 .getType(CommunicationLinkResourceSpecificationEditPart.VISUAL_ID));
         ViewUtil.insertChildView(containerView, node, index, persisted);
         node.setElement(domainElement);
-        // initializeFromPreferences
+        // initializeFromPreferences 
         final IPreferenceStore prefStore = (IPreferenceStore) preferencesHint.getPreferenceStore();
 
         org.eclipse.swt.graphics.RGB lineRGB = PreferenceConverter.getColor(prefStore,
@@ -625,9 +679,9 @@ public class PalladioComponentModelViewProvider extends AbstractProvider impleme
      */
     private Node createCompartment(View owner, String hint, boolean canCollapse, boolean hasTitle, boolean canSort,
             boolean canFilter) {
-        // SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
-        // rv.setShowTitle(showTitle);
-        // rv.setCollapsed(isCollapsed);
+        //SemanticListCompartment rv = NotationFactory.eINSTANCE.createSemanticListCompartment();
+        //rv.setShowTitle(showTitle);
+        //rv.setCollapsed(isCollapsed);
         Node rv;
         if (canCollapse) {
             rv = NotationFactory.eINSTANCE.createBasicCompartment();

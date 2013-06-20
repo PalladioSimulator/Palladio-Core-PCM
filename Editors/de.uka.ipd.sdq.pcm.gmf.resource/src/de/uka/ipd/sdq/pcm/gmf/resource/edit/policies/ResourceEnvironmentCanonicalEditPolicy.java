@@ -34,9 +34,11 @@ import org.eclipse.gmf.runtime.notation.Edge;
 import org.eclipse.gmf.runtime.notation.Node;
 import org.eclipse.gmf.runtime.notation.View;
 
+import org.eclipse.gmf.tooling.runtime.update.UpdaterLinkDescriptor;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpecificationEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramUpdater;
@@ -59,8 +61,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
      * @generated
      */
     protected void refreshOnActivate() {
-        // Need to activate editpart children before invoking the canonical refresh for EditParts to
-        // add event listeners
+        // Need to activate editpart children before invoking the canonical refresh for EditParts to add event listeners
         List<?> c = getHost().getChildren();
         for (int i = 0; i < c.size(); i++) {
             ((EditPart) c.get(i)).activate();
@@ -132,43 +133,33 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
         }
         // alternative to #cleanCanonicalSemanticChildren(getViewChildren(), semanticChildren)
         //
-        // iteration happens over list of desired semantic elements, trying to find best matching
-        // View, while original CEP
-        // iterates views, potentially losing view (size/bounds) information - i.e. if there are few
-        // views to reference same EObject, only last one
-        // to answer isOrphaned == true will be used for the domain element representation, see
-        // #cleanCanonicalSemanticChildren()
+        // iteration happens over list of desired semantic elements, trying to find best matching View, while original CEP
+        // iterates views, potentially losing view (size/bounds) information - i.e. if there are few views to reference same EObject, only last one 
+        // to answer isOrphaned == true will be used for the domain element representation, see #cleanCanonicalSemanticChildren()
         for (Iterator<PalladioComponentModelNodeDescriptor> descriptorsIterator = childDescriptors.iterator(); descriptorsIterator
                 .hasNext();) {
             PalladioComponentModelNodeDescriptor next = descriptorsIterator.next();
             String hint = PalladioComponentModelVisualIDRegistry.getType(next.getVisualID());
-            LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint
-                                                                    // match that of NodeDescriptor
+            LinkedList<View> perfectMatch = new LinkedList<View>(); // both semanticElement and hint match that of NodeDescriptor
             for (View childView : getViewChildren()) {
                 EObject semanticElement = childView.getElement();
                 if (next.getModelElement().equals(semanticElement)) {
                     if (hint.equals(childView.getType())) {
                         perfectMatch.add(childView);
                         // actually, can stop iteration over view children here, but
-                        // may want to use not the first view but last one as a 'real' match (the
-                        // way original CEP does
-                        // with its trick with viewToSemanticMap inside
-                        // #cleanCanonicalSemanticChildren
+                        // may want to use not the first view but last one as a 'real' match (the way original CEP does
+                        // with its trick with viewToSemanticMap inside #cleanCanonicalSemanticChildren
                     }
                 }
             }
             if (perfectMatch.size() > 0) {
-                descriptorsIterator.remove(); // precise match found no need to create anything for
-                                              // the NodeDescriptor
-                // use only one view (first or last?), keep rest as orphaned for further
-                // consideration
+                descriptorsIterator.remove(); // precise match found no need to create anything for the NodeDescriptor
+                // use only one view (first or last?), keep rest as orphaned for further consideration
                 knownViewChildren.remove(perfectMatch.getFirst());
             }
         }
-        // those left in knownViewChildren are subject to removal - they are our diagram elements we
-        // didn't find match to,
-        // or those we have potential matches to, and thus need to be recreated, preserving
-        // size/location information.
+        // those left in knownViewChildren are subject to removal - they are our diagram elements we didn't find match to,
+        // or those we have potential matches to, and thus need to be recreated, preserving size/location information.
         orphaned.addAll(knownViewChildren);
         //
         ArrayList<CreateViewRequest.ViewDescriptor> viewDescriptors = new ArrayList<CreateViewRequest.ViewDescriptor>(
@@ -219,8 +210,65 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
     /**
      * @generated
      */
+    private EditPart getSourceEditPart(UpdaterLinkDescriptor descriptor, Domain2Notation domain2NotationMap) {
+        return getEditPart(descriptor.getSource(), domain2NotationMap);
+    }
+
+    /**
+     * @generated
+     */
+    private EditPart getTargetEditPart(UpdaterLinkDescriptor descriptor, Domain2Notation domain2NotationMap) {
+        return getEditPart(descriptor.getDestination(), domain2NotationMap);
+    }
+
+    /**
+     * @generated
+     */
+    protected final EditPart getHintedEditPart(EObject domainModelElement, Domain2Notation domain2NotationMap,
+            int hintVisualId) {
+        View view = (View) domain2NotationMap.getHinted(domainModelElement,
+                PalladioComponentModelVisualIDRegistry.getType(hintVisualId));
+        if (view != null) {
+            return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);
+        }
+        return null;
+    }
+
+    /**
+     * @generated
+     */
+    @SuppressWarnings("serial")
+    protected static class Domain2Notation extends HashMap<EObject, View> {
+        /**
+         * @generated
+         */
+        public boolean containsDomainElement(EObject domainElement) {
+            return this.containsKey(domainElement);
+        }
+
+        /**
+         * @generated
+         */
+        public View getHinted(EObject domainEObject, String hint) {
+            return this.get(domainEObject);
+        }
+
+        /**
+         * @generated
+         */
+        public void putView(EObject domainElement, View view) {
+            if (!containsKey(view.getElement())) {
+                this.put(domainElement, view);
+            }
+        }
+
+    }
+
+    /**
+     * @generated
+     */
     private Collection<IAdaptable> refreshConnections() {
-        Map<EObject, View> domain2NotationMap = new HashMap<EObject, View>();
+        Domain2Notation domain2NotationMap = new Domain2Notation();
         Collection<PalladioComponentModelLinkDescriptor> linkDescriptors = collectAllLinks(getDiagram(),
                 domain2NotationMap);
         Collection existingLinks = new LinkedList(getDiagram().getEdges());
@@ -257,7 +305,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
      * @generated
      */
     private Collection<PalladioComponentModelLinkDescriptor> collectAllLinks(View view,
-            Map<EObject, View> domain2NotationMap) {
+            Domain2Notation domain2NotationMap) {
         if (!ResourceEnvironmentEditPart.MODEL_ID.equals(PalladioComponentModelVisualIDRegistry.getModelID(view))) {
             return Collections.emptyList();
         }
@@ -267,27 +315,21 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
             if (!domain2NotationMap.containsKey(view.getElement())) {
                 result.addAll(PalladioComponentModelDiagramUpdater.getResourceEnvironment_1000ContainedLinks(view));
             }
-            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-                domain2NotationMap.put(view.getElement(), view);
-            }
+            domain2NotationMap.putView(view.getElement(), view);
             break;
         }
         case ResourceContainerEditPart.VISUAL_ID: {
             if (!domain2NotationMap.containsKey(view.getElement())) {
                 result.addAll(PalladioComponentModelDiagramUpdater.getResourceContainer_2004ContainedLinks(view));
             }
-            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-                domain2NotationMap.put(view.getElement(), view);
-            }
+            domain2NotationMap.putView(view.getElement(), view);
             break;
         }
         case LinkingResourceEditPart.VISUAL_ID: {
             if (!domain2NotationMap.containsKey(view.getElement())) {
                 result.addAll(PalladioComponentModelDiagramUpdater.getLinkingResource_2005ContainedLinks(view));
             }
-            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-                domain2NotationMap.put(view.getElement(), view);
-            }
+            domain2NotationMap.putView(view.getElement(), view);
             break;
         }
         case ProcessingResourceSpecificationEditPart.VISUAL_ID: {
@@ -295,9 +337,14 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
                 result.addAll(PalladioComponentModelDiagramUpdater
                         .getProcessingResourceSpecification_3003ContainedLinks(view));
             }
-            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-                domain2NotationMap.put(view.getElement(), view);
+            domain2NotationMap.putView(view.getElement(), view);
+            break;
+        }
+        case ResourceContainer2EditPart.VISUAL_ID: {
+            if (!domain2NotationMap.containsKey(view.getElement())) {
+                result.addAll(PalladioComponentModelDiagramUpdater.getResourceContainer_3005ContainedLinks(view));
             }
+            domain2NotationMap.putView(view.getElement(), view);
             break;
         }
         case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID: {
@@ -305,9 +352,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
                 result.addAll(PalladioComponentModelDiagramUpdater
                         .getCommunicationLinkResourceSpecification_3004ContainedLinks(view));
             }
-            if (!domain2NotationMap.containsKey(view.getElement()) || view.getEAnnotation("Shortcut") == null) { //$NON-NLS-1$
-                domain2NotationMap.put(view.getElement(), view);
-            }
+            domain2NotationMap.putView(view.getElement(), view);
             break;
         }
         }
@@ -324,11 +369,11 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
      * @generated
      */
     private Collection<IAdaptable> createConnections(Collection<PalladioComponentModelLinkDescriptor> linkDescriptors,
-            Map<EObject, View> domain2NotationMap) {
+            Domain2Notation domain2NotationMap) {
         LinkedList<IAdaptable> adapters = new LinkedList<IAdaptable>();
         for (PalladioComponentModelLinkDescriptor nextLinkDescriptor : linkDescriptors) {
-            EditPart sourceEditPart = getEditPart(nextLinkDescriptor.getSource(), domain2NotationMap);
-            EditPart targetEditPart = getEditPart(nextLinkDescriptor.getDestination(), domain2NotationMap);
+            EditPart sourceEditPart = getSourceEditPart(nextLinkDescriptor, domain2NotationMap);
+            EditPart targetEditPart = getTargetEditPart(nextLinkDescriptor, domain2NotationMap);
             if (sourceEditPart == null || targetEditPart == null) {
                 continue;
             }
@@ -357,7 +402,7 @@ public class ResourceEnvironmentCanonicalEditPolicy extends CanonicalEditPolicy 
     /**
      * @generated
      */
-    private EditPart getEditPart(EObject domainModelElement, Map<EObject, View> domain2NotationMap) {
+    private EditPart getEditPart(EObject domainModelElement, Domain2Notation domain2NotationMap) {
         View view = (View) domain2NotationMap.get(domainModelElement);
         if (view != null) {
             return (EditPart) getHost().getViewer().getEditPartRegistry().get(view);

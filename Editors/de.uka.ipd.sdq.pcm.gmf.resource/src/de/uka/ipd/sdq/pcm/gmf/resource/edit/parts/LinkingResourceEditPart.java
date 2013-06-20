@@ -74,8 +74,7 @@ public class LinkingResourceEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new LinkingResourceItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -270,6 +269,9 @@ public class LinkingResourceEditPart extends ShapeNodeEditPart {
         if (targetEditPart instanceof ResourceContainerEditPart) {
             types.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003);
         }
+        if (targetEditPart instanceof ResourceContainer2EditPart) {
+            types.add(PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003);
+        }
         return types;
     }
 
@@ -280,6 +282,7 @@ public class LinkingResourceEditPart extends ShapeNodeEditPart {
         LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.LinkingResourceConnectedResourceContainers_LinkingResource_4003) {
             types.add(PalladioComponentModelElementTypes.ResourceContainer_2004);
+            types.add(PalladioComponentModelElementTypes.ResourceContainer_3005);
         }
         return types;
     }

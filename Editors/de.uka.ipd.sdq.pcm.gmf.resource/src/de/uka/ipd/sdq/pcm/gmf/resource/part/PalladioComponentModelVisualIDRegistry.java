@@ -25,8 +25,13 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificatio
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingRateLabelEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationSchedulingPolicyLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerProcessingResourceCompartmentEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartment2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartment3EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.WrappingLabel6EditPart;
@@ -146,6 +151,22 @@ public class PalladioComponentModelVisualIDRegistry {
                 return ProcessingResourceSpecificationEditPart.VISUAL_ID;
             }
             break;
+        case ResourceContainerResourceContainerCompartment2EditPart.VISUAL_ID:
+            if (ResourceenvironmentPackage.eINSTANCE.getResourceContainer().isSuperTypeOf(domainElement.eClass())) {
+                return ResourceContainer2EditPart.VISUAL_ID;
+            }
+            break;
+        case ResourceContainerProcessingResourceCompartmentEditPart.VISUAL_ID:
+            if (ResourceenvironmentPackage.eINSTANCE.getProcessingResourceSpecification().isSuperTypeOf(
+                    domainElement.eClass())) {
+                return ProcessingResourceSpecificationEditPart.VISUAL_ID;
+            }
+            break;
+        case ResourceContainerResourceContainerCompartment3EditPart.VISUAL_ID:
+            if (ResourceenvironmentPackage.eINSTANCE.getResourceContainer().isSuperTypeOf(domainElement.eClass())) {
+                return ResourceContainer2EditPart.VISUAL_ID;
+            }
+            break;
         case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
             if (ResourceenvironmentPackage.eINSTANCE.getCommunicationLinkResourceSpecification().isSuperTypeOf(
                     domainElement.eClass())) {
@@ -192,6 +213,9 @@ public class PalladioComponentModelVisualIDRegistry {
             if (ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID == nodeVisualID) {
                 return true;
             }
+            if (ResourceContainerResourceContainerCompartment2EditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
             break;
         case LinkingResourceEditPart.VISUAL_ID:
             if (LinkingResourceEntityNameEditPart.VISUAL_ID == nodeVisualID) {
@@ -224,6 +248,17 @@ public class PalladioComponentModelVisualIDRegistry {
                 return true;
             }
             break;
+        case ResourceContainer2EditPart.VISUAL_ID:
+            if (ResourceContainerEntityName2EditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (ResourceContainerProcessingResourceCompartmentEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            if (ResourceContainerResourceContainerCompartment3EditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
         case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
             if (CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID == nodeVisualID) {
                 return true;
@@ -240,6 +275,21 @@ public class PalladioComponentModelVisualIDRegistry {
             break;
         case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
             if (ProcessingResourceSpecificationEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
+        case ResourceContainerResourceContainerCompartment2EditPart.VISUAL_ID:
+            if (ResourceContainer2EditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
+        case ResourceContainerProcessingResourceCompartmentEditPart.VISUAL_ID:
+            if (ProcessingResourceSpecificationEditPart.VISUAL_ID == nodeVisualID) {
+                return true;
+            }
+            break;
+        case ResourceContainerResourceContainerCompartment3EditPart.VISUAL_ID:
+            if (ResourceContainer2EditPart.VISUAL_ID == nodeVisualID) {
                 return true;
             }
             break;
@@ -274,7 +324,7 @@ public class PalladioComponentModelVisualIDRegistry {
      */
     public static boolean checkNodeVisualID(View containerView, EObject domainElement, int candidate) {
         if (candidate == -1) {
-            // unrecognized id is always bad
+            //unrecognized id is always bad
             return false;
         }
         int basic = getNodeVisualID(containerView, domainElement);
@@ -287,7 +337,10 @@ public class PalladioComponentModelVisualIDRegistry {
     public static boolean isCompartmentVisualID(int visualID) {
         switch (visualID) {
         case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
+        case ResourceContainerResourceContainerCompartment2EditPart.VISUAL_ID:
         case ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
+        case ResourceContainerProcessingResourceCompartmentEditPart.VISUAL_ID:
+        case ResourceContainerResourceContainerCompartment3EditPart.VISUAL_ID:
         case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
             return true;
         default:

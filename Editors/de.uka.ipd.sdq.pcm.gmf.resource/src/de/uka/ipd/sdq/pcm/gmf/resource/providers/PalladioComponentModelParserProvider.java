@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEntityNameEditP
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTFEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationMTTREditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationNumberOfReplicasEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityName2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEntityNameEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.parsers.MessageFormatParser;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
@@ -132,6 +133,23 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
     /**
      * @generated
      */
+    private IParser resourceContainerEntityName_5025Parser;
+
+    /**
+     * @generated
+     */
+    private IParser getResourceContainerEntityName_5025Parser() {
+        if (resourceContainerEntityName_5025Parser == null) {
+            EAttribute[] features = new EAttribute[] { EntityPackage.eINSTANCE.getNamedElement_EntityName() };
+            MessageFormatParser parser = new MessageFormatParser(features);
+            resourceContainerEntityName_5025Parser = parser;
+        }
+        return resourceContainerEntityName_5025Parser;
+    }
+
+    /**
+     * @generated
+     */
     private IParser communicationLinkResourceSpecificationFailureProbability_5020Parser;
 
     /**
@@ -165,6 +183,8 @@ public class PalladioComponentModelParserProvider extends AbstractProvider imple
             return getProcessingResourceSpecificationMTTR_5014Parser();
         case ProcessingResourceSpecificationNumberOfReplicasEditPart.VISUAL_ID:
             return getProcessingResourceSpecificationNumberOfReplicas_5016Parser();
+        case ResourceContainerEntityName2EditPart.VISUAL_ID:
+            return getResourceContainerEntityName_5025Parser();
         case CommunicationLinkResourceSpecificationFailureProbabilityEditPart.VISUAL_ID:
             return getCommunicationLinkResourceSpecificationFailureProbability_5020Parser();
         }

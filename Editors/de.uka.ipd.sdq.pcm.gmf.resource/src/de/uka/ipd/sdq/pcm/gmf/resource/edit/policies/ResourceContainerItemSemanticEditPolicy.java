@@ -24,6 +24,8 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResourceConnectedRes
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.commands.LinkingResourceConnectedResourceContainers_LinkingResourceReorientCommand;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartment2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerResourceContainerCompartmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelVisualIDRegistry;
 import de.uka.ipd.sdq.pcm.gmf.resource.providers.PalladioComponentModelElementTypes;
@@ -85,11 +87,31 @@ public class ResourceContainerItemSemanticEditPolicy extends PalladioComponentMo
                     case ProcessingResourceSpecificationEditPart.VISUAL_ID:
                         cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
                                 .getElement(), false))); // directlyOwned: true
-                        // don't need explicit deletion of cnode as parent's view deletion would
-                        // clean child views as well
-                        // cmd.add(new
-                        // org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(),
-                        // cnode));
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
+                        break;
+                    }
+                }
+                break;
+            case ResourceContainerResourceContainerCompartment2EditPart.VISUAL_ID:
+                for (Iterator<?> cit = node.getChildren().iterator(); cit.hasNext();) {
+                    Node cnode = (Node) cit.next();
+                    switch (PalladioComponentModelVisualIDRegistry.getVisualID(cnode)) {
+                    case ResourceContainer2EditPart.VISUAL_ID:
+                        for (Iterator<?> it = cnode.getTargetEdges().iterator(); it.hasNext();) {
+                            Edge incomingLink = (Edge) it.next();
+                            if (PalladioComponentModelVisualIDRegistry.getVisualID(incomingLink) == LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID) {
+                                DestroyReferenceRequest r = new DestroyReferenceRequest(incomingLink.getSource()
+                                        .getElement(), null, incomingLink.getTarget().getElement(), false);
+                                cmd.add(new DestroyReferenceCommand(r));
+                                cmd.add(new DeleteCommand(getEditingDomain(), incomingLink));
+                                continue;
+                            }
+                        }
+                        cmd.add(new DestroyElementCommand(new DestroyElementRequest(getEditingDomain(), cnode
+                                .getElement(), false))); // directlyOwned: true
+                        // don't need explicit deletion of cnode as parent's view deletion would clean child views as well 
+                        // cmd.add(new org.eclipse.gmf.runtime.diagram.core.commands.DeleteCommand(getEditingDomain(), cnode));
                         break;
                     }
                 }

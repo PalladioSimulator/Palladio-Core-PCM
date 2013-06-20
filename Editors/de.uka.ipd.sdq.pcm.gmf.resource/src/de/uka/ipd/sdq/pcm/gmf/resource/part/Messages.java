@@ -296,7 +296,22 @@ public class Messages extends NLS {
     /**
      * @generated
      */
+    public static String ResourceContainerResourceContainerCompartment2EditPart_title;
+
+    /**
+     * @generated
+     */
     public static String ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart_title;
+
+    /**
+     * @generated
+     */
+    public static String ResourceContainerProcessingResourceCompartmentEditPart_title;
+
+    /**
+     * @generated
+     */
+    public static String ResourceContainerResourceContainerCompartment3EditPart_title;
 
     /**
      * @generated
@@ -322,6 +337,11 @@ public class Messages extends NLS {
      * @generated
      */
     public static String NavigatorGroupName_LinkingResource_2005_outgoinglinks;
+
+    /**
+     * @generated
+     */
+    public static String NavigatorGroupName_ResourceContainer_3005_incominglinks;
 
     /**
      * @generated

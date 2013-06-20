@@ -78,8 +78,7 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new ResourceContainerItemSemanticEditPolicy());
         installEditPolicy(EditPolicy.LAYOUT_ROLE, createLayoutEditPolicy());
-        // XXX need an SCR to runtime to have another abstract superclass that would let children
-        // add reasonable editpolicies
+        // XXX need an SCR to runtime to have another abstract superclass that would let children add reasonable editpolicies
         // removeEditPolicy(org.eclipse.gmf.runtime.diagram.ui.editpolicies.EditPolicyRoles.CONNECTION_HANDLES_ROLE);
     }
 
@@ -133,9 +132,14 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
         }
         if (childEditPart instanceof ResourceContainerResourceContainerCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureResourceContainerCompartmentFigure();
-            setupContentPane(pane); // FIXME each comparment should handle his content pane in his
-                                    // own way
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
             pane.add(((ResourceContainerResourceContainerCompartmentEditPart) childEditPart).getFigure());
+            return true;
+        }
+        if (childEditPart instanceof ResourceContainerResourceContainerCompartment2EditPart) {
+            IFigure pane = getPrimaryShape().getFigureResourceContainerCompartmentFigure();
+            setupContentPane(pane); // FIXME each comparment should handle his content pane in his own way 
+            pane.add(((ResourceContainerResourceContainerCompartment2EditPart) childEditPart).getFigure());
             return true;
         }
         return false;
@@ -151,6 +155,11 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
         if (childEditPart instanceof ResourceContainerResourceContainerCompartmentEditPart) {
             IFigure pane = getPrimaryShape().getFigureResourceContainerCompartmentFigure();
             pane.remove(((ResourceContainerResourceContainerCompartmentEditPart) childEditPart).getFigure());
+            return true;
+        }
+        if (childEditPart instanceof ResourceContainerResourceContainerCompartment2EditPart) {
+            IFigure pane = getPrimaryShape().getFigureResourceContainerCompartmentFigure();
+            pane.remove(((ResourceContainerResourceContainerCompartment2EditPart) childEditPart).getFigure());
             return true;
         }
         return false;
@@ -181,6 +190,9 @@ public class ResourceContainerEditPart extends ShapeNodeEditPart {
      */
     protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
         if (editPart instanceof ResourceContainerResourceContainerCompartmentEditPart) {
+            return getPrimaryShape().getFigureResourceContainerCompartmentFigure();
+        }
+        if (editPart instanceof ResourceContainerResourceContainerCompartment2EditPart) {
             return getPrimaryShape().getFigureResourceContainerCompartmentFigure();
         }
         return getContentPane();

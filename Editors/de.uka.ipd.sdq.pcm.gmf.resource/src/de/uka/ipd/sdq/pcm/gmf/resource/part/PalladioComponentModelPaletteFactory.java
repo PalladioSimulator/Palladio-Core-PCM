@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.gmf.resource.part;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
@@ -46,9 +47,11 @@ public class PalladioComponentModelPaletteFactory {
      * @generated
      */
     private ToolEntry createResourceContainer1CreationTool() {
+        ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+        types.add(PalladioComponentModelElementTypes.ResourceContainer_2004);
+        types.add(PalladioComponentModelElementTypes.ResourceContainer_3005);
         NodeToolEntry entry = new NodeToolEntry(Messages.ResourceContainer1CreationTool_title,
-                Messages.ResourceContainer1CreationTool_desc,
-                Collections.singletonList(PalladioComponentModelElementTypes.ResourceContainer_2004));
+                Messages.ResourceContainer1CreationTool_desc, types);
         entry.setId("createResourceContainer1CreationTool"); //$NON-NLS-1$
         entry.setSmallIcon(PalladioComponentModelElementTypes
                 .getImageDescriptor(PalladioComponentModelElementTypes.ResourceContainer_2004));

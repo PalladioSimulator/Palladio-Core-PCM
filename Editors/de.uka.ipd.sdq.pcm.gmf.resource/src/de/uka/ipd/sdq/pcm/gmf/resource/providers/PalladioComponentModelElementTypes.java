@@ -23,6 +23,7 @@ import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.CommunicationLinkResourceSpeci
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceConnectedResourceContainers_LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.LinkingResourceEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ProcessingResourceSpecificationEditPart;
+import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainer2EditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceContainerEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.edit.parts.ResourceEnvironmentEditPart;
 import de.uka.ipd.sdq.pcm.gmf.resource.part.PalladioComponentModelDiagramEditorPlugin;
@@ -72,6 +73,11 @@ public class PalladioComponentModelElementTypes {
      * @generated
      */
     public static final IElementType ProcessingResourceSpecification_3003 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ProcessingResourceSpecification_3003"); //$NON-NLS-1$
+
+    /**
+     * @generated
+     */
+    public static final IElementType ResourceContainer_3005 = getElementType("de.uka.ipd.sdq.pcm.gmf.resource.ResourceContainer_3005"); //$NON-NLS-1$
 
     /**
      * @generated
@@ -197,6 +203,8 @@ public class PalladioComponentModelElementTypes {
             elements.put(ProcessingResourceSpecification_3003,
                     ResourceenvironmentPackage.eINSTANCE.getProcessingResourceSpecification());
 
+            elements.put(ResourceContainer_3005, ResourceenvironmentPackage.eINSTANCE.getResourceContainer());
+
             elements.put(CommunicationLinkResourceSpecification_3004,
                     ResourceenvironmentPackage.eINSTANCE.getCommunicationLinkResourceSpecification());
 
@@ -224,6 +232,7 @@ public class PalladioComponentModelElementTypes {
             KNOWN_ELEMENT_TYPES.add(ResourceContainer_2004);
             KNOWN_ELEMENT_TYPES.add(LinkingResource_2005);
             KNOWN_ELEMENT_TYPES.add(ProcessingResourceSpecification_3003);
+            KNOWN_ELEMENT_TYPES.add(ResourceContainer_3005);
             KNOWN_ELEMENT_TYPES.add(CommunicationLinkResourceSpecification_3004);
             KNOWN_ELEMENT_TYPES.add(LinkingResourceConnectedResourceContainers_LinkingResource_4003);
         }
@@ -243,6 +252,8 @@ public class PalladioComponentModelElementTypes {
             return LinkingResource_2005;
         case ProcessingResourceSpecificationEditPart.VISUAL_ID:
             return ProcessingResourceSpecification_3003;
+        case ResourceContainer2EditPart.VISUAL_ID:
+            return ResourceContainer_3005;
         case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
             return CommunicationLinkResourceSpecification_3004;
         case LinkingResourceConnectedResourceContainers_LinkingResourceEditPart.VISUAL_ID:

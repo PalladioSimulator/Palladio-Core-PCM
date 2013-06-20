@@ -61,6 +61,12 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
             case ProcessingResourceSpecificationActiveResourceTypeLabelEditPart.VISUAL_ID:
                 return new ProcessingResourceSpecificationActiveResourceTypeLabelEditPart(view);
 
+            case ResourceContainer2EditPart.VISUAL_ID:
+                return new ResourceContainer2EditPart(view);
+
+            case ResourceContainerEntityName2EditPart.VISUAL_ID:
+                return new ResourceContainerEntityName2EditPart(view);
+
             case CommunicationLinkResourceSpecificationEditPart.VISUAL_ID:
                 return new CommunicationLinkResourceSpecificationEditPart(view);
 
@@ -79,8 +85,17 @@ public class PalladioComponentModelEditPartFactory implements EditPartFactory {
             case ResourceContainerResourceContainerCompartmentEditPart.VISUAL_ID:
                 return new ResourceContainerResourceContainerCompartmentEditPart(view);
 
+            case ResourceContainerResourceContainerCompartment2EditPart.VISUAL_ID:
+                return new ResourceContainerResourceContainerCompartment2EditPart(view);
+
             case ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart.VISUAL_ID:
                 return new ProcessingResourceSpecificationProcessingResourceSpecificationCompartmentEditPart(view);
+
+            case ResourceContainerProcessingResourceCompartmentEditPart.VISUAL_ID:
+                return new ResourceContainerProcessingResourceCompartmentEditPart(view);
+
+            case ResourceContainerResourceContainerCompartment3EditPart.VISUAL_ID:
+                return new ResourceContainerResourceContainerCompartment3EditPart(view);
 
             case LinkingResourceNetworkSwitchCompartmentEditPart.VISUAL_ID:
                 return new LinkingResourceNetworkSwitchCompartmentEditPart(view);

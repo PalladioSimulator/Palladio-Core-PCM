@@ -213,9 +213,8 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 if (!resource.isLoaded()) {
                     try {
                         Map options = new HashMap(GMFResourceFactory.getDefaultLoadOptions());
-                        // @see 171060
-                        // options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE,
-                        // Boolean.TRUE);
+                        // @see 171060 
+                        // options.put(org.eclipse.emf.ecore.xmi.XMLResource.OPTION_RECORD_UNKNOWN_FEATURE, Boolean.TRUE);
                         resource.load(options);
                     } catch (IOException e) {
                         resource.unload();
@@ -340,8 +339,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 } catch (CoreException ex) {
                     PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
                             Messages.PalladioComponentModelDocumentProvider_isModifiable, ex);
-                    // Error message to log was initially taken from
-                    // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+                    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
                 }
             }
             return info.isReadOnly();
@@ -366,8 +364,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                 } catch (CoreException ex) {
                     PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
                             Messages.PalladioComponentModelDocumentProvider_isModifiable, ex);
-                    // Error message to log was initially taken from
-                    // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
+                    // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.StorageDocumentProvider_isModifiable
                 }
             }
             return info.isModifiable();
@@ -505,8 +502,10 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
         IResource parent = toCreateOrModify;
         do {
             /*
-             * XXX This is a workaround for https://bugs.eclipse.org/bugs/show_bug.cgi?id=67601
-             * IResourceRuleFactory.createRule should iterate the hierarchy itself.
+             * XXX This is a workaround for
+             * https://bugs.eclipse.org/bugs/show_bug.cgi?id=67601
+             * IResourceRuleFactory.createRule should iterate the hierarchy
+             * itself.
              */
             toCreateOrModify = parent;
             parent = toCreateOrModify.getParent();
@@ -546,7 +545,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             fireElementStateChanging(element);
             try {
                 monitor.beginTask(Messages.PalladioComponentModelDocumentProvider_SaveDiagramTask, info
-                        .getResourceSet().getResources().size() + 1); // "Saving diagram"
+                        .getResourceSet().getResources().size() + 1); //"Saving diagram"
                 for (Iterator<Resource> it = info.getLoadedResourcesIterator(); it.hasNext();) {
                     Resource nextResource = it.next();
                     monitor.setTaskName(NLS.bind(Messages.PalladioComponentModelDocumentProvider_SaveNextResourceTask,
@@ -636,8 +635,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
             } catch (CoreException ex) {
                 PalladioComponentModelDiagramEditorPlugin.getInstance().logError(
                         Messages.PalladioComponentModelDocumentProvider_handleElementContentChanged, ex);
-                // Error message to log was initially taken from
-                // org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
+                // Error message to log was initially taken from org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide.internal.l10n.EditorMessages.FileDocumentProvider_handleElementContentChanged
             }
         }
         changedResource.unload();
@@ -1001,7 +999,7 @@ public class PalladioComponentModelDocumentProvider extends AbstractDocumentProv
                     Resource resource = (Resource) notification.getNotifier();
                     if (resource.isLoaded()) {
                         boolean modified = false;
-                        for (Iterator/* <org.eclipse.emf.ecore.resource.Resource> */it = myInfo
+                        for (Iterator/*<org.eclipse.emf.ecore.resource.Resource>*/it = myInfo
                                 .getLoadedResourcesIterator(); it.hasNext() && !modified;) {
                             Resource nextResource = (Resource) it.next();
                             if (nextResource.isLoaded()) {
