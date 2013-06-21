@@ -23,6 +23,9 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.edit.ui,
+ org.eclipse.emf.validation;visibility:=reexport,
+ org.eclipse.draw2d;visibility:=reexport,
+ org.eclipse.gef;visibility:=reexport,
  org.eclipse.gmf.runtime.emf.core,
  org.eclipse.gmf.runtime.emf.commands.core,
  org.eclipse.gmf.runtime.emf.ui.properties,
@@ -36,7 +39,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor,
  org.eclipse.gmf.runtime.diagram.ui.resources.editor.ide,
  org.eclipse.gmf.tooling.runtime;visibility:=reexport,
- org.eclipse.draw2d;visibility:=reexport,
  org.eclipse.gmf.runtime.draw2d.ui;visibility:=reexport,
  de.uka.ipd.sdq.pcm;visibility:=reexport,
  de.uka.ipd.sdq.pcm.edit;visibility:=reexport,
@@ -48,8 +50,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.stoex.edit;visibility:=reexport,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
- org.eclipse.emf.validation;visibility:=reexport,
- org.eclipse.gef;visibility:=reexport
+ de.uka.ipd.sdq.pcmbench.tabs,
+ de.uka.ipd.sdq.pcmbench.ui
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Import-Package: de.uka.ipd.sdq.pcmbench.ui.provider

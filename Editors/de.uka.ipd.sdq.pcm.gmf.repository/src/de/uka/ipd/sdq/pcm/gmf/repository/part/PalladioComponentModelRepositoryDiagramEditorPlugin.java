@@ -68,10 +68,9 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
      */
     private static PalladioComponentModelRepositoryDiagramEditorPlugin instance;
 
-    /**
-     * @generated not
-     */
+    /** The adapter factory. @generated not */
     private AdapterFactory adapterFactory;
+    // private ComposedAdapterFactory adapterFactory;
 
     /**
      * @generated
@@ -126,17 +125,22 @@ public class PalladioComponentModelRepositoryDiagramEditorPlugin extends Abstrac
     }
 
     /**
-     * @generated not
+     * Creates the adapter factory.
      * 
-     * @return an AdapterFactory
+     * @return the adapter factory
+     * @generated not
      */
     protected AdapterFactory createAdapterFactory() {
+        // ArrayList<AdapterFactory> factories = new ArrayList<AdapterFactory>();
+        // fillItemProviderFactories(factories);
+        // return new ComposedAdapterFactory(factories);
         List factories = new ArrayList();
         fillItemProviderFactories(factories);
         ComposedAdapterFactory caf = new ComposedAdapterFactory(factories) {
 
             @Override
             public ComposeableAdapterFactory getRootAdapterFactory() {
+                // TODO Auto-generated method stub
                 return (PalladioItemProviderAdapterFactory) adapterFactory;
             }
 

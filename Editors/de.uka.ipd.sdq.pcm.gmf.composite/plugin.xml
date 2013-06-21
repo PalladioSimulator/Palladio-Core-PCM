@@ -231,18 +231,18 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
              category="domain"
              id="property.tab.domain"
              label="%tab.domain"/>
+          <!-- Added the following two property tabs: -->
+          <propertyTab
+               category="extra"
+               id="property.tab.componentParam"
+               label="Parameters">
+          </propertyTab>
+          <propertyTab
+               category="extra"
+               id="property.tab.filter"
+               label="Filter">
+          </propertyTab>
       </propertyTabs>
-      <!-- Added the following two property tabs: -->
-      <propertyTab
-            category="extra"
-            id="property.tab.componentParam"
-            label="Parameters">
-      </propertyTab>
-      <propertyTab
-            category="extra"
-            id="property.tab.filter"
-            label="Filter">
-      </propertyTab>
    </extension>
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertySections" id="propsections">

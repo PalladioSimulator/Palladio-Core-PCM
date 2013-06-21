@@ -157,7 +157,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
    </extension>
 
    <extension point="org.eclipse.ui.views.properties.tabbed.propertyContributor" id="prop-contrib">
-      <?gmfgen generated="false"?>
+      <?gmfgen generated="true"?>
       <propertyContributor
             contributorId="de.uka.ipd.sdq.pcm.gmf.repository"
             labelProvider="de.uka.ipd.sdq.pcm.gmf.repository.sheet.PalladioComponentModelSheetLabelProvider">
@@ -182,6 +182,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
              category="domain"
              id="property.tab.domain"
              label="%tab.domain"/>
+	      <!-- Added the following three property tabs: -->
           <propertyTab
              category="extra"
              id="property.tab.interfaceOps"
@@ -220,7 +221,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             filter="org.eclipse.gmf.runtime.diagram.ui.properties.filters.DiagramEditPartPropertySectionFilter" 
             class="org.eclipse.gmf.runtime.diagram.ui.properties.sections.grid.RulerGridPropertySection" 
             tab="property.tab.DiagramPropertySection">
-         </propertySection>     
+         </propertySection>
          <propertySection
             id="property.section.domain" 
             tab="property.tab.domain"
@@ -229,6 +230,7 @@ Copyright 2007, IPD, SDQ, University of Karlsruhe
             <input type="org.eclipse.gef.EditPart"/>
             <input type="de.uka.ipd.sdq.pcm.gmf.repository.navigator.PalladioComponentModelAbstractNavigatorItem"/>
          </propertySection>
+         <!-- Added the following three property sections: -->
          <propertySection
                class="de.uka.ipd.sdq.pcmbench.tabs.OperationsPropertySection"
                enablesFor="1"

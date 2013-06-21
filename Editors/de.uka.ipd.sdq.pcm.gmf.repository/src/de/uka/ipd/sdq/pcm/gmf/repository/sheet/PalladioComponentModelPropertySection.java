@@ -94,13 +94,24 @@ public class PalladioComponentModelPropertySection extends AdvancedPropertySecti
     }
 
     /**
-     * @generated not
+     * Gets the adapter factory.
+     * 
      * @param object
-     *            An object
-     * @return an AdapterFactory
+     *            the object
+     * @return the adapter factory
+     * @generated not
      */
     protected AdapterFactory getAdapterFactory(Object object) {
-        return PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance().getItemProvidersAdapterFactory();
+        // if (getEditingDomain() instanceof AdapterFactoryEditingDomain) {
+        // return ((AdapterFactoryEditingDomain) getEditingDomain()).getAdapterFactory();
+        // }
+        // TransactionalEditingDomain editingDomain = TransactionUtil.getEditingDomain(object);
+        // if (editingDomain != null) {
+        // return ((AdapterFactoryEditingDomain) editingDomain).getAdapterFactory();
+        // }
+        // return null;
+        return PalladioComponentModelRepositoryDiagramEditorPlugin.getInstance()
+                .getItemProvidersAdapterFactory();
     }
 
 }
