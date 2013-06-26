@@ -184,10 +184,10 @@ public class CustomPalladioComponentModelEditPartFactory implements EditPartFact
             case InfrastructureCallEditPart.VISUAL_ID:
                 return new InfrastructureCallEditPart(view);
 
-            case InfrastructureCallNumberOfCallsLabelEditPart.VISUAL_ID:
+            case WrappingLabel2EditPart.VISUAL_ID /*InfrastructureCallNumberOfCallsLabelEditPart.VISUAL_ID*/:
                 return new CustomInfrastructureCallNumberOfCallsLabelEditPart(view);
 
-            case InfrastructureCallTargetLabelEditPart.VISUAL_ID:
+            case WrappingLabel3EditPart.VISUAL_ID /*InfrastructureCallTargetLabelEditPart.VISUAL_ID*/:
                 return new CustomInfrastructureCallTargetLabelEditPart(view);
 
             case VariableUsage5EditPart.VISUAL_ID:

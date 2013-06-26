@@ -8,13 +8,13 @@ import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InfrastructureCallNumberOfCallsLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel2EditPart;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 
 /**
  * The customized infrastructure call number of calls label edit part class.
  */
-public class CustomInfrastructureCallNumberOfCallsLabelEditPart extends InfrastructureCallNumberOfCallsLabelEditPart {
+public class CustomInfrastructureCallNumberOfCallsLabelEditPart extends WrappingLabel2EditPart /*InfrastructureCallNumberOfCallsLabelEditPart*/ {
 
     /**
      * Instantiates a new customized infrastructure call number of calls label edit part.

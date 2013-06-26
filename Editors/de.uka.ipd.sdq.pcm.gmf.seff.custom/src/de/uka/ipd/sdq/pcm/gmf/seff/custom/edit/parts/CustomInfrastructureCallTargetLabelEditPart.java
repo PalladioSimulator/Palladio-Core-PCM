@@ -9,13 +9,13 @@ import org.eclipse.gmf.runtime.diagram.ui.l10n.DiagramColorRegistry;
 import org.eclipse.gmf.runtime.notation.NotationPackage;
 import org.eclipse.gmf.runtime.notation.View;
 
-import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.InfrastructureCallTargetLabelEditPart;
+import de.uka.ipd.sdq.pcm.gmf.seff.edit.parts.WrappingLabel3EditPart;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall;
 
 /**
  * The customized infrastructure call target label edit part class.
  */
-public class CustomInfrastructureCallTargetLabelEditPart extends InfrastructureCallTargetLabelEditPart {
+public class CustomInfrastructureCallTargetLabelEditPart extends WrappingLabel3EditPart /*InfrastructureCallTargetLabelEditPart*/ {
 
     /**
      * Instantiates a new customized infrastructure call target label edit part.
