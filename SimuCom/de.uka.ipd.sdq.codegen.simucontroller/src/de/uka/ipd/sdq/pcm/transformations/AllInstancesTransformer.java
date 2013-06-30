@@ -11,7 +11,7 @@ import org.eclipse.emf.query.statements.SELECT;
 import org.eclipse.emf.query.statements.WHERE;
 import org.eclipse.ocl.OCL;
 
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 
 public abstract class AllInstancesTransformer<T> {
 

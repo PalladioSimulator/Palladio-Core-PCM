@@ -4,7 +4,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs;
 
 import java.io.PrintStream;
 
-import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
 public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJob implements IJob {

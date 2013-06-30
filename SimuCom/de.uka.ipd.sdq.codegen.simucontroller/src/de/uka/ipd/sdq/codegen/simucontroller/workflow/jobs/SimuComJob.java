@@ -4,8 +4,7 @@ import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfiguration;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.IJobWithResult;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
 
 /**
  * Main job for the SDQ workflow engine which will run a SimuComSimulation
@@ -43,7 +42,7 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         this.addJob(new CompilePluginCodeJob(configuration));
 
         // 4. Jar the compiled code into a JAR bundle
-        IJobWithResult<byte[]> buildBundleJob = new BuildPluginJarJob(configuration);
+        BuildPluginJarJob buildBundleJob = new BuildPluginJarJob(configuration);
         this.addJob(buildBundleJob);
         
         // All Workflow extension jobs with the extension hook id

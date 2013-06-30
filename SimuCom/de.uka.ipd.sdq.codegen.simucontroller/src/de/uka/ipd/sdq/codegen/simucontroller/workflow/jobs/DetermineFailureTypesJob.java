@@ -6,10 +6,10 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComWorkflowConfigurat
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
 import de.uka.ipd.sdq.reliability.core.helper.MarkovFailureTypeHelper;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
@@ -91,11 +91,11 @@ public class DetermineFailureTypesJob implements
 	/*
 	 * (non-Javadoc)
 	 * 
-	 * @seede.uka.ipd.sdq.workflow.IJob#rollback(org.eclipse.core.runtime.
+	 * @seede.uka.ipd.sdq.workflow.IJob#cleanup(org.eclipse.core.runtime.
 	 * IProgressMonitor)
 	 */
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
 	}
 
 	/*

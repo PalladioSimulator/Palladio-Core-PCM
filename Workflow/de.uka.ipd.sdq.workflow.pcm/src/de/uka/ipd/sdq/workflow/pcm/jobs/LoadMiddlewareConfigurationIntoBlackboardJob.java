@@ -3,11 +3,11 @@ package de.uka.ipd.sdq.workflow.pcm.jobs;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
@@ -72,8 +72,8 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		return "Load Middleware Configuration into Blackboard";
 	}
 
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
 		this.blackboard.removePartition(MIDDLEWARE_PARTITION_ID);
 	}
 

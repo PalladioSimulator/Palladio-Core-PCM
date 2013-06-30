@@ -13,9 +13,9 @@ import org.eclipse.core.resources.IProject;
 import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
 
@@ -50,7 +50,7 @@ public abstract class AbstractCreateMetaDataFilesJob {
 		return "Create SimuCom Metadata Files";
 	}
 
-	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
+	public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
 		// Nothing to do
 	}
 

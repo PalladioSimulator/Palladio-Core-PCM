@@ -4,7 +4,7 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComExtensionConfigurationBuilder;
 import de.uka.ipd.sdq.simucomframework.SimuComConfigExtension;
-import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractExtensionJobConfiguration;
+import de.uka.ipd.sdq.workflow.extension.AbstractExtensionJobConfiguration;
 
 /**
  * This class provides functionality to configure reliability-enabled SimuCom runs.

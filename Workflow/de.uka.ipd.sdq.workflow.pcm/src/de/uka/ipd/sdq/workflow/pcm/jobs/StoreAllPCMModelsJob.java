@@ -6,11 +6,11 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
@@ -61,9 +61,9 @@ public class StoreAllPCMModelsJob implements IJob,
 		return "Update working copy of models";
 	}
 
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
-		// nothing to roll back
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
+		// nothing to clean up
 	}
 
 	public void setBlackboard(MDSDBlackboard blackboard) {

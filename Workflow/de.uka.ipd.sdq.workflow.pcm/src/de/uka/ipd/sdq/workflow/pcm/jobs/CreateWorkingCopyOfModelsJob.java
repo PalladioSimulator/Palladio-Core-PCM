@@ -12,11 +12,11 @@ import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
 
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
@@ -118,9 +118,9 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 		return "Create working copy of models";
 	}
 
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
-		// nothing to roll back
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
+		// nothing to clean up
 	}
 
 	public void setBlackboard(MDSDBlackboard blackboard) {

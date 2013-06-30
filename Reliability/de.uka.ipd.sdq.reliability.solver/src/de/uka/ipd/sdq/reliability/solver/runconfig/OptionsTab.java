@@ -35,7 +35,7 @@ import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.pcmsolver.runconfig.MessageStrings;
 import de.uka.ipd.sdq.reliability.core.MarkovEvaluationType;
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
+import de.uka.ipd.sdq.workflow.launchconfig.ImageRegistryHelper;
 
 /**
  * This tab page shows additional options for the PCM Solver Reliability launch.
@@ -871,7 +871,7 @@ public class OptionsTab extends AbstractLaunchConfigurationTab {
      * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
      */
     public Image getImage() {
-        return RunConfigImages.getTabImage(PLUGIN_ID, FILENAME_TAB_IMAGE_PATH);
+        return ImageRegistryHelper.getTabImage(PLUGIN_ID, FILENAME_TAB_IMAGE_PATH);
     }
 
     /*

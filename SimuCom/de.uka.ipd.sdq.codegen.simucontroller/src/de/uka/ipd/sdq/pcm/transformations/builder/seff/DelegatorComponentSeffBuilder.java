@@ -9,7 +9,6 @@ import de.uka.ipd.sdq.completions.DelegatingExternalCallAction;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.SeffFactory;

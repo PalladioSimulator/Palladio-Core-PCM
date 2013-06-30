@@ -9,15 +9,15 @@ import java.net.URI;
 
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.workflow.IJobWithResult;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
 import edu.rice.cs.util.jar.JarBuilder;
 
-public class BuildPluginJarJob implements IJobWithResult<byte[]> {
+public class BuildPluginJarJob implements IJob {
 
 	private byte[] result = null;
 	private AbstractCodeGenerationWorkflowRunConfiguration configuration;
@@ -88,7 +88,7 @@ public class BuildPluginJarJob implements IJobWithResult<byte[]> {
 		return "Building simulation plugin JAR archive";
 	}
 
-	public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
+	public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
 	}
 
 	private byte[] loadBundle(String location) throws IOException {

@@ -8,11 +8,10 @@ import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DockModel;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockService;
 import de.uka.ipd.sdq.simucomframework.simulationdock.SimulationDockServiceImpl;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.IJobWithResult;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
-import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractExtendableJob;
+import de.uka.ipd.sdq.workflow.extension.AbstractExtendableJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 
 /**
@@ -25,7 +24,7 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 	/**
 	 * This job's parent job which creates a JAR archive of the simulation bundle 
 	 */
-	private IJobWithResult<byte[]> myCreatePluginProjectJob;
+	private BuildPluginJarJob myCreatePluginProjectJob;
 	
 	/**
 	 * Configuration object for the simulation 
@@ -39,7 +38,7 @@ public class TransferSimulationBundleToDock extends AbstractExtendableJob<MDSDBl
 	public TransferSimulationBundleToDock(
 			AbstractSimulationWorkflowConfiguration configuration,
 			IDebugListener debugListener,
-			IJobWithResult<byte[]> createPluginJarJob) {
+			BuildPluginJarJob createPluginJarJob) {
 		super();
 		
 		this.myCreatePluginProjectJob = createPluginJarJob;

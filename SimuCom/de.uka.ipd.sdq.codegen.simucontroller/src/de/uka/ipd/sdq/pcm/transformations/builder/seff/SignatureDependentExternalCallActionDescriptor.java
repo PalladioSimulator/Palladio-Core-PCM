@@ -5,7 +5,6 @@ import java.util.Collection;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.Signature;
 
 public abstract class SignatureDependentExternalCallActionDescriptor extends
 		ExternalCallActionDescriptor implements ISignatureDependentAction {

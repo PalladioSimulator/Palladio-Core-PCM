@@ -19,10 +19,10 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.usagemodel.ClosedWorkload;
 import de.uka.ipd.sdq.pcm.usagemodel.OpenWorkload;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
@@ -101,8 +101,8 @@ public class TransformPCMForSensitivityAnalysisJob implements
 					"Sensistivity analaysis transformation was unable to find the sensitivity variable");
 	}
 
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
 	}
 
 	public String getName() {

@@ -20,8 +20,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.ImageRegistryHelper;
+import de.uka.ipd.sdq.workflow.launchconfig.LaunchConfigPlugin;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
 /**
@@ -54,7 +54,7 @@ public class AbstractConfigurationTab extends AbstractLaunchConfigurationTab {
 	 * @see org.eclipse.debug.ui.AbstractLaunchConfigurationTab#getImage()
 	 */
 	public Image getImage() {
-		return RunConfigImages.getTabImage(PLUGIN_ID,
+		return ImageRegistryHelper.getTabImage(PLUGIN_ID,
 				CONFIGURATION_TAB_IMAGE_PATH);
 	}
 
@@ -263,7 +263,7 @@ public class AbstractConfigurationTab extends AbstractLaunchConfigurationTab {
 				setTemporaryLocationElementsEnabled(true);
 			}
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),
+			LaunchConfigPlugin.errorLogger(getName(),
 					"Temporary Location Settings", e.getMessage());
 			defaultLocationButton.setSelection(true);
 		}

@@ -6,11 +6,10 @@ import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CompilePluginCodeJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.CreateProtoComMetaDataFilesJob;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.TransformPCMToCodeJob;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
-import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
 
@@ -19,7 +18,7 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
  * @author Steffen
  */
 public class EJBCodeGenerationJob 
-extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard>
+extends SequentialBlackboardInteractingJob<MDSDBlackboard>
 implements IBlackboardInteractingJob<MDSDBlackboard> {
 
 	public EJBCodeGenerationJob(EjbCodeGenerationConfiguration configuration, IDebugListener listener) throws CoreException {
@@ -32,7 +31,7 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 	}
 	
 	public EJBCodeGenerationJob(EjbCodeGenerationConfiguration configuration, IDebugListener listener, boolean loadModels) throws CoreException {
-		super();
+		super(false);
 		
 		if (listener == null && configuration.isDebug())
 			throw new IllegalArgumentException("Debug listener has to be non-null for debug runs");

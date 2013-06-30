@@ -15,11 +15,11 @@ import de.fzi.se.quality.parameters.pcm.PCMPackage;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 import de.uka.ipd.sdq.workflow.mdsd.oaw.XpandGeneratorJob;
@@ -33,7 +33,7 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
  * Start the Workflow-Engine of oAW - Generator
  */
 public class TransformPCMToCodeJob
-extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard>
+extends SequentialBlackboardInteractingJob<MDSDBlackboard>
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	private static final String REPOSITORY_ROOT_EXPAND_EXPRESSION = "m2t_transforms::repository::Root FOR pcmmodel";

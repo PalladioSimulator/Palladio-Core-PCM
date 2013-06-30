@@ -10,7 +10,7 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import de.fzi.se.accuracy.jobs.AccuracyInfluenceAnalysisJob;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverLaunchConfigurationDelegate;
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
-import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.logging.console.LoggerAppenderStruct;
 
 /**

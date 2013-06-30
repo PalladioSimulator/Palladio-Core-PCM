@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.pcm.codegen.m2m.reliability.jobs;
 
-import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractExtensionJobConfiguration;
+import de.uka.ipd.sdq.workflow.extension.AbstractExtensionJobConfiguration;
 
 /**
  * This class holds reliability-specific configuration data for SimuCom runs.

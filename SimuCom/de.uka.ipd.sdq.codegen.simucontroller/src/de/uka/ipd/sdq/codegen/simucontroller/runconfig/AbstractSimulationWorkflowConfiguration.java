@@ -4,7 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
-import de.uka.ipd.sdq.workflow.launchconfig.extension.ExtendableJobConfiguration;
+import de.uka.ipd.sdq.workflow.extension.ExtendableJobConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 
 public abstract class AbstractSimulationWorkflowConfiguration extends AbstractCodeGenerationWorkflowRunConfiguration

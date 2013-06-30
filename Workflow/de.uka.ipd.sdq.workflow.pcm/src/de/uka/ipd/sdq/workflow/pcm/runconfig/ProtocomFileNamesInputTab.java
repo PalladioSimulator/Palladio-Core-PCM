@@ -12,8 +12,8 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.ImageRegistryHelper;
+import de.uka.ipd.sdq.workflow.launchconfig.LaunchConfigPlugin;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
@@ -46,7 +46,7 @@ public class ProtocomFileNamesInputTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public Image getImage() {
-		return RunConfigImages.getTabImage(PLUGIN_ID,FILENAME_TAB_IMAGE_PATH);
+		return ImageRegistryHelper.getTabImage(PLUGIN_ID,FILENAME_TAB_IMAGE_PATH);
 	}
 
 	/* (non-Javadoc)
@@ -94,13 +94,13 @@ public class ProtocomFileNamesInputTab extends AbstractLaunchConfigurationTab {
 			textAllocation.setText(configuration.getAttribute(
 					ConstantsContainer.ALLOCATION_FILE, ConstantsContainer.DEFAULT_ALLOCATION_FILE));
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"Allocation File", e.getMessage());
+			LaunchConfigPlugin.errorLogger(getName(),"Allocation File", e.getMessage());
 		}
 		try {
 			textUsage.setText(configuration.getAttribute(
 					ConstantsContainer.USAGE_FILE, ConstantsContainer.DEFAULT_USAGE_FILE));
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"Usage File", e.getMessage());
+			LaunchConfigPlugin.errorLogger(getName(),"Usage File", e.getMessage());
 		}
 	}
 	

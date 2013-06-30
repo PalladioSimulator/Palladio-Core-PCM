@@ -2,8 +2,8 @@ package de.fzi.se.accuracy.jobs;
 
 import org.eclipse.core.runtime.CoreException;
 
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.LowMemoryFootprintCompositeJob;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder;
@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
  *
  */
 public class AccuracyInfluenceAnalysisJob
-extends LowMemoryFootprintCompositeJob<MDSDBlackboard>
+extends SequentialBlackboardInteractingJob<MDSDBlackboard>
 implements IBlackboardInteractingJob<MDSDBlackboard> {
 
 	/**Creates a new accuracy influence analysis job.
@@ -27,6 +27,7 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 	public AccuracyInfluenceAnalysisJob(
 			AbstractPCMWorkflowRunConfiguration config,
 			PCMWorkflowJobBuilder jobBuilder) throws CoreException {
+		super(true);
 		if (config.isAccuracyInfluenceAnalysisEnabled()) {
 			ShowAccuracyInfluenceAnalysisErrorsJob issuesJob = new ShowAccuracyInfluenceAnalysisErrorsJob(config);
 			config.setAccuracyInfluenceIssueReceivingJob(issuesJob);

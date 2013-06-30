@@ -21,7 +21,7 @@ import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.Text;
 
 import de.uka.ipd.sdq.featureinstance.FeatureConfigWidget;
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigImages;
+import de.uka.ipd.sdq.workflow.launchconfig.ImageRegistryHelper;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
@@ -281,7 +281,7 @@ public class FeatureOptionsTab extends AbstractLaunchConfigurationTab {
 	 */
 	@Override
 	public Image getImage() {
-		return RunConfigImages.getTabImage(PLUGIN_ID,FEATURE_OPTIONS_TAB_IMAGE_PATH);
+		return ImageRegistryHelper.getTabImage(PLUGIN_ID,FEATURE_OPTIONS_TAB_IMAGE_PATH);
 	}
 
     /*

@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.codegen.simucontroller.runconfig;
 import java.util.Map;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfigExtension;
-import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractWorkflowExtensionConfigurationBuilder;
+import de.uka.ipd.sdq.workflow.extension.AbstractWorkflowExtensionConfigurationBuilder;
 
 /**
  * Provides an abstract class for which an implementation has to be provided

@@ -9,7 +9,7 @@ import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.workflow.jobs.SensitivityAnalysisJob;
-import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder;
 

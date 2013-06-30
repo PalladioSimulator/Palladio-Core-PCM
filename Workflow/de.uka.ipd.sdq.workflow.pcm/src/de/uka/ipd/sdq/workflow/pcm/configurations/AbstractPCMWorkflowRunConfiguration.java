@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.probfunction.ProbfunctionPackage;
 import de.uka.ipd.sdq.stoex.StoexPackage;
 import de.uka.ipd.sdq.units.UnitsPackage;
-import de.uka.ipd.sdq.workflow.exceptions.InvalidWorkflowJobConfiguration;
+import de.uka.ipd.sdq.workflow.configuration.InvalidWorkflowJobConfigurationException;
 import de.uka.ipd.sdq.workflow.launchconfig.AbstractWorkflowBasedRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import de.uka.ipd.sdq.workflow.pcm.jobs.IIssueReceiver;
@@ -284,11 +284,11 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 	 * #validateAndFreeze()
 	 */
 	@Override
-	public void validateAndFreeze() throws InvalidWorkflowJobConfiguration {
+	public void validateAndFreeze() throws InvalidWorkflowJobConfigurationException {
 		super.validateAndFreeze();
 		for (String fileURI : getPCMModelFiles()) {
 			if (fileURI == null)
-				throw new InvalidWorkflowJobConfiguration(
+				throw new InvalidWorkflowJobConfigurationException(
 						"Workflow configuration is invalid, not all PCM models are set");
 			URI fileLocation = URI.createURI(fileURI);
 			// TODO: Check whether file exists

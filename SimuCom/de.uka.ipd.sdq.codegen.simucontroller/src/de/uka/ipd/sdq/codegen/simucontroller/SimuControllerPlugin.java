@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.codegen.simucontroller;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.Status;
-import org.eclipse.ui.PlatformUI;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 import org.osgi.framework.Bundle;
 import org.osgi.framework.BundleContext;
@@ -12,7 +11,6 @@ import org.osgi.framework.BundleException;
 import org.osgi.framework.BundleListener;
 
 import de.uka.ipd.sdq.codegen.simucontroller.dockmodel.DocksModel;
-import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewPart;
 import de.uka.ipd.sdq.codegen.simucontroller.gui.DockStatusViewer;
 
 /**

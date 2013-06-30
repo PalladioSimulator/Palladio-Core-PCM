@@ -6,7 +6,7 @@ import de.fzi.se.accuracy.jobs.TransformPCMForAccuracyInfluenceAnalysisJob;
 import de.uka.ipd.sdq.codegen.simucontroller.debug.IDebugListener;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
-import de.uka.ipd.sdq.workflow.launchconfig.extension.AbstractExtendableJob;
+import de.uka.ipd.sdq.workflow.extension.AbstractExtendableJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.jobs.EventsTransformationJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
@@ -36,7 +36,7 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
     }
 
     public AbstractSimulationJob(C configuration, IDebugListener listener, boolean loadModels) throws CoreException {
-        super();
+        super(false);
 
         if (listener == null && configuration.isDebug())
             throw new IllegalArgumentException("Debug listener has to be non-null for debug runs");

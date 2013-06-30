@@ -3,7 +3,7 @@
  */
 package de.uka.ipd.sdq.workflow.pcm.jobs;
 
-import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
 /**Builder for jobs with configurations of type {@link AbstractPCMWorkflowRunConfiguration}.

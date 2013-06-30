@@ -1,8 +1,8 @@
 package de.uka.ipd.sdq.workflow.pcm.jobs;
 
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
  * @author Steffen Becker
  */
 public class LoadPCMModelsIntoBlackboardJob
-extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard>
+extends SequentialBlackboardInteractingJob<MDSDBlackboard>
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 
 	/**
@@ -41,7 +41,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	 * @param config A PCM workflow configuration containing the list of URIs where to find the PCM model files
 	 */
 	public LoadPCMModelsIntoBlackboardJob(AbstractPCMWorkflowRunConfiguration config) {
-		super();
+		super(false);
 		this.add(new PreparePCMBlackboardPartionJob());
 		this.add(new LoadPCMModelsJob(config));
 		// store models in temporary eclipse plug-in

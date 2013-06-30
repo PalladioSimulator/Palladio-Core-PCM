@@ -9,10 +9,10 @@ import de.uka.ipd.sdq.pcmsolver.transformations.SolverStrategy;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.PDFConfiguration;
 import de.uka.ipd.sdq.reliability.solver.pcm2markov.Pcm2MarkovStrategy;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
@@ -101,7 +101,7 @@ public class RunPCMReliabilityAnalysisJob implements IBlackboardInteractingJob<M
         return strategy;
     }
 
-    public void rollback(IProgressMonitor monitor) throws RollbackFailedException {
+    public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
         // Nothing to do here
     }
 

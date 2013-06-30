@@ -11,7 +11,7 @@ import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.LaunchConfigPlugin;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
@@ -121,7 +121,7 @@ public class ConfigurationTab extends AbstractConfigurationTab {
 									ConstantsContainer.DELETE_TEMPORARY_DATA_AFTER_ANALYSIS,
 									ConstantsContainer.DEFAULT_DELETE_TEMPORARY_DATA_AFTER_ANALYSIS));
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),
+			LaunchConfigPlugin.errorLogger(getName(),
 					"Delete temporaray data after analysis.", e.getMessage());
 		}
 		try {

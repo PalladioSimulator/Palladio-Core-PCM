@@ -13,10 +13,10 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.jface.dialogs.MessageDialog;
 import org.eclipse.ui.PlatformUI;
 
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 
 /**
@@ -115,10 +115,10 @@ public class CreatePluginProjectJob implements IJob {
 	 * (non-Javadoc)
 	 *
 	 * @see
-	 * de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#rollback()
+	 * de.uka.ipd.sdq.codegen.simucontroller.runconfig.ISimuComJob#cleanup()
 	 */
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
 		if (deleteProject) {
 			IProject myProject = getProject(this.myProjectId);
 			if (myProject == null) {
@@ -128,7 +128,7 @@ public class CreatePluginProjectJob implements IJob {
 			try {
 				deleteProject(monitor, myProject);
 			} catch (CoreException e) {
-				throw new RollbackFailedException("Delete project failed", e);
+				throw new CleanupFailedException("Delete project failed", e);
 			}
 		}
 	}

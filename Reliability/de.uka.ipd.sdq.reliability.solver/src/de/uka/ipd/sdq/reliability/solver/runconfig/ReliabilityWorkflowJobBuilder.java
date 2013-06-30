@@ -3,7 +3,7 @@ package de.uka.ipd.sdq.reliability.solver.runconfig;
 import org.eclipse.debug.core.ILaunch;
 
 import de.uka.ipd.sdq.pcmsolver.runconfig.PCMSolverWorkflowRunConfiguration;
-import de.uka.ipd.sdq.workflow.IJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.PCMWorkflowJobBuilder;
 

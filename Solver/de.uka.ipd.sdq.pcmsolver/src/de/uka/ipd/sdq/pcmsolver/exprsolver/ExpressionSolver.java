@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.pcmsolver.exprsolver;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.apache.commons.math.complex.Complex;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcmsolver.visitors.ExpressionHelper;
@@ -27,7 +28,6 @@ import de.uka.ipd.sdq.spa.expression.Symbol;
 import de.uka.ipd.sdq.spa.expression.util.ExpressionSwitch;
 import de.uka.ipd.sdq.spa.resourcemodel.ResourceUsage;
 import de.uka.ipd.sdq.stoex.ProbabilityFunctionLiteral;
-import org.apache.commons.math.complex.Complex;
 
 public class ExpressionSolver {
 

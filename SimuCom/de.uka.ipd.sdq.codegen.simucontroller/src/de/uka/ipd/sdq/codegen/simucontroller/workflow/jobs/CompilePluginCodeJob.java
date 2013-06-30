@@ -20,8 +20,8 @@ import org.eclipse.pde.core.plugin.PluginRegistry;
 import org.eclipse.pde.internal.core.ClasspathComputer;
 import org.eclipse.pde.internal.core.natures.PDE;
 
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
 
@@ -175,7 +175,7 @@ public class CompilePluginCodeJob implements IJob {
 		return "Compile Plugin Code";
 	}
 
-	public void rollback(IProgressMonitor monitor) {
+	public void cleanup(IProgressMonitor monitor) {
 		// do nothing
 	}
 }

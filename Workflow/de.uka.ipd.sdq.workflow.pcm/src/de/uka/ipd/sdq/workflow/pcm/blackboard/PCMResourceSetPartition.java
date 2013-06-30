@@ -21,7 +21,7 @@ import de.uka.ipd.sdq.pcm.system.System;
 import de.uka.ipd.sdq.pcm.system.SystemFactory;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelFactory;
-import de.uka.ipd.sdq.workflow.Blackboard;
+import de.uka.ipd.sdq.workflow.blackboard.Blackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 
 /**

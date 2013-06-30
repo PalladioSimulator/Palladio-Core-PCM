@@ -4,12 +4,12 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.IProgressMonitor;
 
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.IJob;
-import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.RollbackFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.IJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.ResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
@@ -20,14 +20,14 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
  * @author groenda
  *
  */
-public class LoadPCMModelsJob extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard>
+public class LoadPCMModelsJob extends SequentialBlackboardInteractingJob<MDSDBlackboard>
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	private static final Logger logger = Logger.getLogger(LoadPCMModelsJob.class);
 	private MDSDBlackboard blackboard;
 	private AbstractPCMWorkflowRunConfiguration configuration = null;
 
 	public LoadPCMModelsJob(AbstractPCMWorkflowRunConfiguration configuration) {
-		super();
+		super(false);
 		this.configuration = configuration;
 	}
 
@@ -72,7 +72,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	}
 
 	@Override
-	public void rollback(IProgressMonitor monitor)
-			throws RollbackFailedException {
+	public void cleanup(IProgressMonitor monitor)
+			throws CleanupFailedException {
 	}
 }

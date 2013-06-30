@@ -20,10 +20,10 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
-import de.uka.ipd.sdq.workflow.IBlackboardInteractingJob;
-import de.uka.ipd.sdq.workflow.OrderPreservingBlackboardCompositeJob;
-import de.uka.ipd.sdq.workflow.exceptions.JobFailedException;
-import de.uka.ipd.sdq.workflow.exceptions.UserCanceledException;
+import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.JobFailedException;
+import de.uka.ipd.sdq.workflow.jobs.SequentialBlackboardInteractingJob;
+import de.uka.ipd.sdq.workflow.jobs.UserCanceledException;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
 import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfiguration;
@@ -34,7 +34,7 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
  * @author groenda
  *
  */
-public class TransformPCMForAccuracyInfluenceAnalysisJob extends OrderPreservingBlackboardCompositeJob<MDSDBlackboard> implements
+public class TransformPCMForAccuracyInfluenceAnalysisJob extends SequentialBlackboardInteractingJob<MDSDBlackboard> implements
 		IBlackboardInteractingJob<MDSDBlackboard> {
 
 	/** Logger for this class. */

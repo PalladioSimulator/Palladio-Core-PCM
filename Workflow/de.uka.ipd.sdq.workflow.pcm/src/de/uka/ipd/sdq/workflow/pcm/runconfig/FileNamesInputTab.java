@@ -7,7 +7,7 @@ import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Text;
 
-import de.uka.ipd.sdq.workflow.launchconfig.RunConfigPlugin;
+import de.uka.ipd.sdq.workflow.launchconfig.LaunchConfigPlugin;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.TabHelper;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
@@ -53,14 +53,14 @@ public class FileNamesInputTab extends ProtocomFileNamesInputTab {
 			mwtextRepository.setText(configuration.getAttribute(
 					ConstantsContainer.MWREPOSITORY_FILE, ConstantsContainer.DEFAULT_MIDDLEWARE_REPOSITORY_FILE));
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"Middleware Repository File", e.getMessage());
+			LaunchConfigPlugin.errorLogger(getName(),"Middleware Repository File", e.getMessage());
 		}
 
 		try {
 			eventMiddlewareRepository.setText(configuration.getAttribute(
 					ConstantsContainer.EVENT_MIDDLEWARE_REPOSITORY_FILE, ConstantsContainer.DEFAULT_EVENT_MIDDLEWARE_FILE));
 		} catch (CoreException e) {
-			RunConfigPlugin.errorLogger(getName(),"Event Middleware Repository File", e.getMessage());
+			LaunchConfigPlugin.errorLogger(getName(),"Event Middleware Repository File", e.getMessage());
 		}
 		
 	}
