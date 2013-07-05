@@ -121,5 +121,20 @@
          </model_file>
       </model_template>
    </extension>
+   <extension
+         point="de.uka.ipd.sdq.pcmbench.ui.wizard.template">
+      <model_template
+            description="Creates a repository that models the component type example of the Palladio Techreport (Section &quot;Type Hierarchy&quot;)."
+            name="Techreport Component Type Example">
+         <model_file
+               target_file="default.repository"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/techreport_component_type_example/default.repository">
+         </model_file>
+         <model_file
+               target_file="default.repository_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/techreport_component_type_example/default.repository_diagram">
+         </model_file>
+      </model_template>
+   </extension>
 
 </plugin>
