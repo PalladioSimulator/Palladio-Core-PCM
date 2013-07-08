@@ -12,6 +12,12 @@ import seff_performance;
 
 extension m2t_transforms::pcm;
 
+context ComposedStructure ERROR 'ProvidesComponentTypes cannot be generated but are used in AssemblyContext.':
+	this.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext.typeSelect(CompleteComponentType).size == 0;
+	
+context ComposedStructure ERROR 'CompleteComponentTypes cannot be generated but are used in AssemblyContext.':
+	this.assemblyContexts__ComposedStructure.encapsulatedComponent__AssemblyContext.typeSelect(CompleteComponentType).size == 0;
+
 context InterfaceProvidingEntity ERROR 'Entity providing an interface must have an id.':
 	this.id != '';
 
