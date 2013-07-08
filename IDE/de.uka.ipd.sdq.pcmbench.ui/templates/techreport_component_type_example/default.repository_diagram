@@ -108,6 +108,11 @@
       <element xsi:nil="true"/>
       <layoutConstraint xmi:type="notation:Bounds" xmi:id="_GyXJ8-VyEeKIBagHmWZp3Q" x="-285" y="-110"/>
     </children>
+    <children xmi:type="notation:Shape" xmi:id="_1Wts4OeqEeKIBagHmWZp3Q" type="2105" fontName="Segoe UI">
+      <children xmi:type="notation:DecorationNode" xmi:id="_1Wts4ueqEeKIBagHmWZp3Q" type="5105"/>
+      <element xmi:type="repository:ProvidesComponentType" href="default.repository#_1WnmQOeqEeKIBagHmWZp3Q"/>
+      <layoutConstraint xmi:type="notation:Bounds" xmi:id="_1Wts4eeqEeKIBagHmWZp3Q" x="247" y="447"/>
+    </children>
     <styles xmi:type="notation:DiagramStyle" xmi:id="_QfSEsSpFEeK09YX3rD7vgg"/>
     <element xmi:type="repository:Repository" href="default.repository#_dqFLECHbEd6tG9VclJz3cw"/>
     <edges xmi:type="notation:Connector" xmi:id="_cCCi0OVpEeKIBagHmWZp3Q" type="4103" source="_cZaZoOVsEeKIBagHmWZp3Q" target="_TFKHYOVpEeKIBagHmWZp3Q">
@@ -358,6 +363,15 @@
       <element xsi:nil="true"/>
       <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_kt2l8uV1EeKIBagHmWZp3Q" points="[-36, -12, 596, 200]$[-627, -192, 5, 20]"/>
       <sourceAnchor xmi:type="notation:IdentityAnchor" xmi:id="_kt8skOV1EeKIBagHmWZp3Q" id="(0.3131868131868132,0.11214953271028037)"/>
+    </edges>
+    <edges xmi:type="notation:Connector" xmi:id="_3g-lAOeqEeKIBagHmWZp3Q" type="4105" source="_1Wts4OeqEeKIBagHmWZp3Q" target="_ERDZ4OVpEeKIBagHmWZp3Q">
+      <children xmi:type="notation:DecorationNode" xmi:id="_3g-lA-eqEeKIBagHmWZp3Q" type="6105">
+        <styles xmi:type="notation:DescriptionStyle" xmi:id="_3g-lBOeqEeKIBagHmWZp3Q"/>
+        <layoutConstraint xmi:type="notation:Location" xmi:id="_3g-lBeeqEeKIBagHmWZp3Q" y="40"/>
+      </children>
+      <styles xmi:type="notation:FontStyle" xmi:id="_3g-lAeeqEeKIBagHmWZp3Q" fontName="Segoe UI"/>
+      <element xmi:type="repository:OperationProvidedRole" href="default.repository#_3g998OeqEeKIBagHmWZp3Q"/>
+      <bendpoints xmi:type="notation:RelativeBendpoints" xmi:id="_3g-lAueqEeKIBagHmWZp3Q" points="[2, -20, -5, 142]$[15, -182, 8, -20]"/>
     </edges>
   </notation:Diagram>
   <notation:Diagram xmi:id="_FmL5cOVsEeKIBagHmWZp3Q" type="CompositeModel" measurementUnit="Pixel">

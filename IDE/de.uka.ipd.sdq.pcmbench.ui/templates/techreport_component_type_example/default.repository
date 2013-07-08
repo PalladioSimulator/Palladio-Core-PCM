@@ -48,6 +48,9 @@
       <steps_Behaviour xsi:type="seff:StopAction" id="_Zf1SgOVuEeKIBagHmWZp3Q" entityName="stop" predecessor_AbstractAction="_Zf0rcOVuEeKIBagHmWZp3Q"/>
     </serviceEffectSpecifications__BasicComponent>
   </components__Repository>
+  <components__Repository xsi:type="repository:ProvidesComponentType" id="_1WnmQOeqEeKIBagHmWZp3Q" entityName="ProvideC">
+    <providedRoles_InterfaceProvidingEntity xsi:type="repository:OperationProvidedRole" id="_3g998OeqEeKIBagHmWZp3Q" entityName="Provided_IC_ProvideC" providedInterface__OperationProvidedRole="_ERBksOVpEeKIBagHmWZp3Q"/>
+  </components__Repository>
   <interfaces__Repository xsi:type="repository:OperationInterface" id="_n7g-oCHbEd62GabW1zGSBw" entityName="IA">
     <signatures__OperationInterface id="_KjhikgzkEeCFg86gxKwVPw" entityName="doA"/>
   </interfaces__Repository>
