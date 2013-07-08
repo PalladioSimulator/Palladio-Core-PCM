@@ -119,7 +119,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public UserData getUserData_VariableUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE) return null;
-		return (UserData)eContainer();
+		return (UserData)eInternalContainer();
 	}
 
     /**
@@ -157,7 +157,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public SynchronisationPoint getSynchronisationPoint_VariableUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE) return null;
-		return (SynchronisationPoint)eContainer();
+		return (SynchronisationPoint)eInternalContainer();
 	}
 
     /**
@@ -196,7 +196,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public CallAction getCallAction__VariableUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE) return null;
-		return (CallAction)eContainer();
+		return (CallAction)eInternalContainer();
 	}
 
     /**
@@ -235,7 +235,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public CallReturnAction getCallReturnAction__VariableUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE) return null;
-		return (CallReturnAction)eContainer();
+		return (CallReturnAction)eInternalContainer();
 	}
 
     /**
@@ -274,7 +274,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public SetVariableAction getSetVariableAction_VariableUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE) return null;
-		return (SetVariableAction)eContainer();
+		return (SetVariableAction)eInternalContainer();
 	}
 
     /**
@@ -313,7 +313,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public AssemblyContext getAssemblyContext__VariableUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE) return null;
-		return (AssemblyContext)eContainer();
+		return (AssemblyContext)eInternalContainer();
 	}
 
     /**
@@ -352,7 +352,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public EntryLevelSystemCall getEntryLevelSystemCall_InputParameterUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE) return null;
-		return (EntryLevelSystemCall)eContainer();
+		return (EntryLevelSystemCall)eInternalContainer();
 	}
 
     /**
@@ -392,7 +392,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public EntryLevelSystemCall getEntryLevelSystemCall_OutputParameterUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE) return null;
-		return (EntryLevelSystemCall)eContainer();
+		return (EntryLevelSystemCall)eInternalContainer();
 	}
 
     /**
@@ -432,7 +432,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
 	 */
     public SpecifiedOutputParameterAbstraction getSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE) return null;
-		return (SpecifiedOutputParameterAbstraction)eContainer();
+		return (SpecifiedOutputParameterAbstraction)eInternalContainer();
 	}
 
     /**

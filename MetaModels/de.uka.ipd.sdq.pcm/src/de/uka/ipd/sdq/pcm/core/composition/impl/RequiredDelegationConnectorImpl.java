@@ -41,7 +41,7 @@ import de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl;
  *
  * @generated
  */
-public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl implements RequiredDelegationConnector {
+public class RequiredDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl implements RequiredDelegationConnector {
     /**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

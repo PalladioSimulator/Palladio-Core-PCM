@@ -107,7 +107,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
 	 */
     public ResourceInterfaceRequiringEntity getResourceInterfaceRequiringEntity__ResourceRequiredRole() {
 		if (eContainerFeatureID() != EntityPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE) return null;
-		return (ResourceInterfaceRequiringEntity)eContainer();
+		return (ResourceInterfaceRequiringEntity)eInternalContainer();
 	}
 
     /**

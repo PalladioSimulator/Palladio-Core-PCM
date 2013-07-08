@@ -104,7 +104,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 	 */
     public AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour() {
 		if (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR) return null;
-		return (AbstractLoopAction)eContainer();
+		return (AbstractLoopAction)eInternalContainer();
 	}
 
     /**
@@ -144,7 +144,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 	 */
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
 		if (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR) return null;
-		return (AbstractBranchTransition)eContainer();
+		return (AbstractBranchTransition)eInternalContainer();
 	}
 
     /**
@@ -206,7 +206,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
 	 */
     public RecoveryAction getRecoveryAction__RecoveryActionBehaviour() {
 		if (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR) return null;
-		return (RecoveryAction)eContainer();
+		return (RecoveryAction)eInternalContainer();
 	}
 
     /**

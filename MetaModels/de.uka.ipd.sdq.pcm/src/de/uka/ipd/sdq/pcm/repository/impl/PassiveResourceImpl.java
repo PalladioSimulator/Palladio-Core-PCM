@@ -126,7 +126,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
 	 */
     public BasicComponent getBasicComponent_PassiveResource() {
 		if (eContainerFeatureID() != RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE) return null;
-		return (BasicComponent)eContainer();
+		return (BasicComponent)eInternalContainer();
 	}
 
     /**

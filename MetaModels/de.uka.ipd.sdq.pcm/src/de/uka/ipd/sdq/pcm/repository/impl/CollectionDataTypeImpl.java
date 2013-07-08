@@ -71,7 +71,7 @@ public class CollectionDataTypeImpl extends EntityImpl implements CollectionData
 	 */
     public Repository getRepository__DataType() {
 		if (eContainerFeatureID() != RepositoryPackage.COLLECTION_DATA_TYPE__REPOSITORY_DATA_TYPE) return null;
-		return (Repository)eContainer();
+		return (Repository)eInternalContainer();
 	}
 
     /**

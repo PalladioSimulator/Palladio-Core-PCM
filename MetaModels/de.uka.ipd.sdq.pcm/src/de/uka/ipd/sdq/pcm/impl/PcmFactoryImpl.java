@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.impl;
 
+import de.uka.ipd.sdq.pcm.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -33,7 +34,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
 	 */
     public static PcmFactory init() {
 		try {
-			PcmFactory thePcmFactory = (PcmFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/5.0"); 
+			PcmFactory thePcmFactory = (PcmFactory)EPackage.Registry.INSTANCE.getEFactory(PcmPackage.eNS_URI);
 			if (thePcmFactory != null) {
 				return thePcmFactory;
 			}

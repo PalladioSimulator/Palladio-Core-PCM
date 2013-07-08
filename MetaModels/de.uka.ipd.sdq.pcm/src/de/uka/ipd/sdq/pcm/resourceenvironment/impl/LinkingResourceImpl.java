@@ -140,7 +140,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
 	 */
     public ResourceEnvironment getResourceEnvironment_LinkingResource() {
 		if (eContainerFeatureID() != ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE) return null;
-		return (ResourceEnvironment)eContainer();
+		return (ResourceEnvironment)eInternalContainer();
 	}
 
     /**

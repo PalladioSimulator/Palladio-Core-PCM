@@ -87,7 +87,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
 	 */
     public InfrastructureInterface getInfrastructureInterface__InfrastructureSignature() {
 		if (eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE) return null;
-		return (InfrastructureInterface)eContainer();
+		return (InfrastructureInterface)eInternalContainer();
 	}
 
     /**

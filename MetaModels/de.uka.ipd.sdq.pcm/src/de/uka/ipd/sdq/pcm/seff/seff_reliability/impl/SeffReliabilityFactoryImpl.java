@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_reliability.impl;
 
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -32,7 +33,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 	 */
     public static SeffReliabilityFactory init() {
 		try {
-			SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Reliability/5.0"); 
+			SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory(SeffReliabilityPackage.eNS_URI);
 			if (theSeffReliabilityFactory != null) {
 				return theSeffReliabilityFactory;
 			}

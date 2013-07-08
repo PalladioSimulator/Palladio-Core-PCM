@@ -109,7 +109,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
 	 */
     public de.uka.ipd.sdq.pcm.system.System getSystem_QoSAnnotations() {
 		if (eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS) return null;
-		return (de.uka.ipd.sdq.pcm.system.System)eContainer();
+		return (de.uka.ipd.sdq.pcm.system.System)eInternalContainer();
 	}
 
     /**

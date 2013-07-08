@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.subsystem.impl;
 
+import de.uka.ipd.sdq.pcm.subsystem.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -33,7 +34,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
 	 */
     public static SubsystemFactory init() {
 		try {
-			SubsystemFactory theSubsystemFactory = (SubsystemFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SubSystem/5.0"); 
+			SubsystemFactory theSubsystemFactory = (SubsystemFactory)EPackage.Registry.INSTANCE.getEFactory(SubsystemPackage.eNS_URI);
 			if (theSubsystemFactory != null) {
 				return theSubsystemFactory;
 			}

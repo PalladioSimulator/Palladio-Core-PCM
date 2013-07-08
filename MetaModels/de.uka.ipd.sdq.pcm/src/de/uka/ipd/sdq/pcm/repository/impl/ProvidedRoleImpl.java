@@ -59,7 +59,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
 	 */
     public InterfaceProvidingEntity getProvidingEntity_ProvidedRole() {
 		if (eContainerFeatureID() != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE) return null;
-		return (InterfaceProvidingEntity)eContainer();
+		return (InterfaceProvidingEntity)eInternalContainer();
 	}
 
     /**

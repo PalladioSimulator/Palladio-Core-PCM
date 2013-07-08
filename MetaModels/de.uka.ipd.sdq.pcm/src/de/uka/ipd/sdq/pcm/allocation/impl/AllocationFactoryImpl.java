@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.allocation.impl;
 
+import de.uka.ipd.sdq.pcm.allocation.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -34,7 +35,7 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
 	 */
     public static AllocationFactory init() {
 		try {
-			AllocationFactory theAllocationFactory = (AllocationFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0"); 
+			AllocationFactory theAllocationFactory = (AllocationFactory)EPackage.Registry.INSTANCE.getEFactory(AllocationPackage.eNS_URI);
 			if (theAllocationFactory != null) {
 				return theAllocationFactory;
 			}

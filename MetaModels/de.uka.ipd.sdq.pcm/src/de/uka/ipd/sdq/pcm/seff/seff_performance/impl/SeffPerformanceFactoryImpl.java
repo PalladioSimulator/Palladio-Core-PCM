@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.seff_performance.impl;
 
+import de.uka.ipd.sdq.pcm.seff.seff_performance.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -33,7 +34,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 	 */
     public static SeffPerformanceFactory init() {
 		try {
-			SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/SEFF_Performance/5.0"); 
+			SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory)EPackage.Registry.INSTANCE.getEFactory(SeffPerformancePackage.eNS_URI);
 			if (theSeffPerformanceFactory != null) {
 				return theSeffPerformanceFactory;
 			}

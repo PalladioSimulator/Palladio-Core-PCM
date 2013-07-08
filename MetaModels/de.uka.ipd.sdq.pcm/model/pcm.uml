@@ -1215,7 +1215,19 @@ TODO: ? Possibly add constraint that the VariableUsages must have unique names w
         <ownedRule xmi:id="_bQOZsAhgEeCQFc0YYtBKsw" name="ProvidedInterfaceHaveToConformToComponentType" constrainedElement="_4XfF4JJGEdqIo-u3cE9-DA">
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_bQhUoAhgEeCQFc0YYtBKsw">
             <language>OCL</language>
-            <body>if self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0&#xD;&#xA;else if self.componentType = ComponentType::BUSINESS_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0&#xD;&#xA;else&#xD;&#xA;&#x9;1 = 0&#xD;&#xA;endif&#xD;&#xA;endif</body>
+            <body>-- assures that InfrastructureComponents only have InfrastructureInterfaces and that BusinessComponents only have OperationInterfaces or EventGroups&#xD;&#xA;if self.componentType = ComponentType::INFRASTRUCTURE_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(OperationInterface) or role.oclIsTypeOf(EventGroup))->size() = 0&#xD;&#xA;else if self.componentType = ComponentType::BUSINESS_COMPONENT then&#xD;&#xA;&#x9;self.providedRoles_InterfaceProvidingEntity->select(role | role.oclIsTypeOf(InfrastructureInterface))->size() = 0&#xD;&#xA;else&#xD;&#xA;&#x9;1 = 0&#xD;&#xA;endif&#xD;&#xA;endif</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_g-Bc0OenEeKXtsx_4kE3jA" name="ProvideSameOrMoreInterfacesAsCompleteComponentType" constrainedElement="_4XfF4JJGEdqIo-u3cE9-DA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_g-Bc0eenEeKXtsx_4kE3jA">
+            <language>OCL</language>
+            <body>-- ImplementationComponent has to provide the same or more interfaces like the CompleteComponentType (if set) #&#xD;&#xA;&#x9;if&#xD;&#xA;&#x9;&#x9; -- apply constraint only for non-empty CompleteComponentTypes #&#xD;&#xA;&#x9;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;&#x9;then&#xD;&#xA;&#x9;&#x9;let&#xD;&#xA;&#x9;&#x9;&#x9;--own interfaces:&#xD;&#xA;&#x9;&#x9;&#x9;ownInterfaces : Set(OperationInterface)&#xD;&#xA;&#x9;&#x9;&#x9;  = self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()&#xD;&#xA;    in    &#xD;&#xA;    &#x9;--complete type interfaces:&#xD;&#xA;    &#x9;self.parentCompleteComponentTypes->forAll&#xD;&#xA;      ( p : CompleteComponentType |&#xD;&#xA;        (&#xD;&#xA;        &#x9;p.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole)->asSet()&#xD;&#xA;        &#x9;-&#xD;&#xA;        &#x9;ownInterfaces&#xD;&#xA;      &#x9;)->isEmpty()&#xD;&#xA;    &#x9;)&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;&#x9;true&#xD;&#xA;&#x9;endif</body>
+          </specification>
+        </ownedRule>
+        <ownedRule xmi:id="_qgl_QOenEeKXtsx_4kE3jA" name="RequireSameOrFewerInterfacesAsCompleteComponentType" constrainedElement="_4XfF4JJGEdqIo-u3cE9-DA">
+          <specification xmi:type="uml:OpaqueExpression" xmi:id="_qgl_QeenEeKXtsx_4kE3jA">
+            <language>OCL</language>
+            <body>-- ImplementationComponent has to require the same or fewer interfaces like the CompleteComponentType (if set) #&#xD;&#xA;&#x9;if&#xD;&#xA;&#x9;&#x9;-- apply constraint only for non-empty CompleteComponentTypes #&#xD;&#xA;&#x9;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;&#x9;then&#xD;&#xA;&#x9;    let&#xD;&#xA;&#x9;      --own interfaces:&#xD;&#xA;&#x9;      ownInterfaces : Set(OperationInterface) &#xD;&#xA;&#x9;        = self.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()&#xD;&#xA;&#x9;    in&#xD;&#xA;&#x9;      --complete type interfaces:&#xD;&#xA;&#x9;      self.parentCompleteComponentTypes->forAll&#xD;&#xA;&#x9;      ( p : CompleteComponentType |&#xD;&#xA;&#x9;      &#x9;(&#xD;&#xA;&#x9;&#x9;      &#x9;ownInterfaces&#xD;&#xA;&#x9;&#x9;        -&#xD;&#xA;&#x9;&#x9;        p.requiredRoles_InterfaceRequiringEntity->select(rr|rr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole)->asSet()&#xD;&#xA;&#x9;      &#x9;)->isEmpty()&#xD;&#xA;&#x9;    &#x9;)&#xD;&#xA;&#x9;else&#xD;&#xA;&#x9;&#x9;true&#xD;&#xA;&#x9;endif</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_LgNsYKBaEd24Bv0x9CNKpg" general="_rGa6kKBZEd24Bv0x9CNKpg"/>
@@ -1265,18 +1277,6 @@ TODO: ? Possibly add constraint that the VariableUsages must have unique names w
         <ownedComment xmi:id="_tu_S8H5lEd2w8a0eK9hypA" annotatedElement="_mhK5sJJIEdqSSImFLKDkSg">
           <body>Composite components are special implementation component types, which are composed from inner components. Component developers compose inner components within composite components with assembly connectors. An assembly connector binds a provided role with a required role. To access the inner components, composite components themselves provide or require interfaces. A delegation connector binds a provided (required) role of the composite component with an inner component provided (required) role. A composite component may contain other composite components, which are also themselves composed out of inner components. This enables building arbitrary hierarchies of nested components. Like a basic component, a composite component may contain a SEFF.  However, this SEFF is not specified manually by the composite component developer, but can be computed by combining the SEFFs of the inner components.</body>
         </ownedComment>
-        <ownedRule xmi:id="_eTrlAKU6EdqWue6EZILF7w" name="ProvideSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_eTrlAaU6EdqWue6EZILF7w">
-            <language>OCL</language>
-            <body>-- CC has to provide the same interfaces like the implementationComponentType (if set) (same OCL code like BC)#&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.providedRoles_InterfaceProvidingEntity->select(pr|pr.oclIsTypeOf(OperationProvidedRole))->collect(pr : ProvidedRole | pr.oclAsType (OperationProvidedRole).providedInterface__OperationProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:id="_nGrEoKU6EdqWue6EZILF7w" name="RequireSameInterfaces" constrainedElement="_mhK5sJJIEdqSSImFLKDkSg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_nGrEoaU6EdqWue6EZILF7w">
-            <language>OCL</language>
-            <body>-- CC has to require the same interfaces like the implementationComponentType (if set) (same OCL code like BC) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(pr|pr.oclIsTypeOf(OperationRequiredRole))->collect(rr : RequiredRole | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
-          </specification>
-        </ownedRule>
         <generalization xmi:id="_q7ASUAHfEdy9bvYbdCHdZw" general="_ZFrPgAHfEdy9bvYbdCHdZw"/>
         <generalization xmi:id="_kxLUoAVqEd2X__HvaO6pZg" general="_4XfF4JJGEdqIo-u3cE9-DA"/>
       </packagedElement>
@@ -1310,18 +1310,6 @@ TODO: ? Possibly add constraint that the VariableUsages must have unique names w
           <specification xmi:type="uml:OpaqueExpression" xmi:id="_KU_-oJyrEdqX-LqEpACX-A">
             <language>OCL</language>
             <body>self.serviceEffectSpecifications__BasicComponent->forAll(p1, p2 |&#xD;&#xA;  p1 &lt;> p2 implies (p1.describedService__SEFF = p2.describedService__SEFF implies p1.seffTypeID &lt;> p2.seffTypeID))</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:id="_4ukaUKU4EdqWue6EZILF7w" name="ProvideSameInterfaces As Implementation Type" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_4u2uMKU4EdqWue6EZILF7w">
-            <language>OCL</language>
-            <body>-- BC has to provide the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.providedRoles_InterfaceProvidingEntity->collect(pr : ProvidedRole | pr.providingEntity_ProvidedRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes->collect(pr | pr.providedRoles_InterfaceProvidingEntity.providingEntity_ProvidedRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
-          </specification>
-        </ownedRule>
-        <ownedRule xmi:id="_AKrKEKU6EdqWue6EZILF7w" name="Require Same Interfaces As Implementation Type" constrainedElement="_oz-CwJJIEdqSSImFLKDkSg">
-          <specification xmi:type="uml:OpaqueExpression" xmi:id="_AKrKEaU6EdqWue6EZILF7w">
-            <language>OCL</language>
-            <body>-- BC has to require the same interfaces like the implementationComponentType (if set) #&#xD;&#xA;if&#xD;&#xA;&#x9; -- apply constraint only for non-empty ImplementationComponentTypes of a BC #&#xD;&#xA;&#x9;self.parentCompleteComponentTypes->notEmpty()&#xD;&#xA;then&#xD;&#xA;&#x9;--own interface IDs:&#xD;&#xA;    self.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;    =&#xD;&#xA;    --complete type interface IDs:&#xD;&#xA;    self.parentCompleteComponentTypes.requiredRoles_InterfaceRequiringEntity->select(rr |rr.oclIsTypeOf(OperationRequiredRole))->collect(rr | rr.oclAsType (OperationRequiredRole).requiredInterface__OperationRequiredRole.id)->asSet()&#xD;&#xA;else&#xD;&#xA;&#x9;true&#xD;&#xA;endif</body>
           </specification>
         </ownedRule>
         <generalization xmi:id="_kNmtgAVqEd2X__HvaO6pZg" general="_4XfF4JJGEdqIo-u3cE9-DA"/>

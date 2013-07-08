@@ -174,7 +174,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
 	 */
     public AbstractInternalControlFlowAction getAction_ParametricResourceDemand() {
 		if (eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND) return null;
-		return (AbstractInternalControlFlowAction)eContainer();
+		return (AbstractInternalControlFlowAction)eInternalContainer();
 	}
 
     /**

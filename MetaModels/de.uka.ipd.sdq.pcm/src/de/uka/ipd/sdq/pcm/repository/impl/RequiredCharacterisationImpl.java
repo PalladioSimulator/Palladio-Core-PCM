@@ -147,7 +147,7 @@ public class RequiredCharacterisationImpl extends EObjectImpl implements Require
 	 */
     public Interface getInterface_RequiredCharacterisation() {
 		if (eContainerFeatureID() != RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION) return null;
-		return (Interface)eContainer();
+		return (Interface)eInternalContainer();
 	}
 
     /**

@@ -90,7 +90,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
 	 */
     public ComposedStructure getParentStructure__AssemblyContext() {
 		if (eContainerFeatureID() != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT) return null;
-		return (ComposedStructure)eContainer();
+		return (ComposedStructure)eInternalContainer();
 	}
 
     /**

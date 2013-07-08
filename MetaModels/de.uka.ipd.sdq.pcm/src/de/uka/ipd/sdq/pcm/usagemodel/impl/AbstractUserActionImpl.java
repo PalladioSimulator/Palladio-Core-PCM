@@ -193,7 +193,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
 	 */
     public ScenarioBehaviour getScenarioBehaviour_AbstractUserAction() {
 		if (eContainerFeatureID() != UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION) return null;
-		return (ScenarioBehaviour)eContainer();
+		return (ScenarioBehaviour)eInternalContainer();
 	}
 
     /**

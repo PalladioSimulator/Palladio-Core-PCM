@@ -32,7 +32,7 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 	 */
     public static SystemFactory init() {
 		try {
-			SystemFactory theSystemFactory = (SystemFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0"); 
+			SystemFactory theSystemFactory = (SystemFactory)EPackage.Registry.INSTANCE.getEFactory(SystemPackage.eNS_URI);
 			if (theSystemFactory != null) {
 				return theSystemFactory;
 			}

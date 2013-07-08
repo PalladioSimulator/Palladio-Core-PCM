@@ -59,7 +59,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
 	 */
     public ComposedStructure getParentStructure__Connector() {
 		if (eContainerFeatureID() != CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR) return null;
-		return (ComposedStructure)eContainer();
+		return (ComposedStructure)eInternalContainer();
 	}
 
     /**

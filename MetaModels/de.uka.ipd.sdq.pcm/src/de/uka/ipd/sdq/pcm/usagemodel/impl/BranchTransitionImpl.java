@@ -109,7 +109,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
 	 */
     public Branch getBranch_BranchTransition() {
 		if (eContainerFeatureID() != UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION) return null;
-		return (Branch)eContainer();
+		return (Branch)eInternalContainer();
 	}
 
     /**

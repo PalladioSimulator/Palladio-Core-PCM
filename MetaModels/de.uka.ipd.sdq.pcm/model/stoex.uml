@@ -325,7 +325,7 @@
     </profileApplication>
     <profileApplication xmi:id="_wRehbX4BEduxavwLjLThgg">
       <eAnnotations xmi:id="_wRehbn4BEduxavwLjLThgg" source="http://www.eclipse.org/uml2/2.0.0/UML">
-        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_IN8k8MmBEdqBcN1R6EvWUw"/>
+        <references xmi:type="ecore:EPackage" href="Default.profile.uml#_fNwoAAqoEd6-N_NOT9vsCA"/>
       </eAnnotations>
       <appliedProfile href="Default.profile.uml#_a_S3wNWLEdiy4IqP8whjFA"/>
     </profileApplication>

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository.impl;
 
+import de.uka.ipd.sdq.pcm.repository.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -61,7 +62,7 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
 	 */
     public static RepositoryFactory init() {
 		try {
-			RepositoryFactory theRepositoryFactory = (RepositoryFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0"); 
+			RepositoryFactory theRepositoryFactory = (RepositoryFactory)EPackage.Registry.INSTANCE.getEFactory(RepositoryPackage.eNS_URI);
 			if (theRepositoryFactory != null) {
 				return theRepositoryFactory;
 			}

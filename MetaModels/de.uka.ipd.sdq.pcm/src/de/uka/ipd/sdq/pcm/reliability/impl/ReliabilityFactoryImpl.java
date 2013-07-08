@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.reliability.impl;
 
+import de.uka.ipd.sdq.pcm.reliability.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -38,7 +39,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 	 */
     public static ReliabilityFactory init() {
 		try {
-			ReliabilityFactory theReliabilityFactory = (ReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0"); 
+			ReliabilityFactory theReliabilityFactory = (ReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory(ReliabilityPackage.eNS_URI);
 			if (theReliabilityFactory != null) {
 				return theReliabilityFactory;
 			}

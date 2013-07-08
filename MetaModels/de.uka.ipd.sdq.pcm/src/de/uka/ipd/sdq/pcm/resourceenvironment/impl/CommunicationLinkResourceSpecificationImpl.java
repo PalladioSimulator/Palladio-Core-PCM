@@ -116,7 +116,7 @@ public class CommunicationLinkResourceSpecificationImpl extends IdentifierImpl i
 	 */
     public LinkingResource getLinkingResource_CommunicationLinkResourceSpecification() {
 		if (eContainerFeatureID() != ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION__LINKING_RESOURCE_COMMUNICATION_LINK_RESOURCE_SPECIFICATION) return null;
-		return (LinkingResource)eContainer();
+		return (LinkingResource)eInternalContainer();
 	}
 
     /**

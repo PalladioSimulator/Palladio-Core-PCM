@@ -154,7 +154,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
 	 */
     public QoSAnnotations getQosAnnotations_SpecifiedQoSAnnotation() {
 		if (eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION) return null;
-		return (QoSAnnotations)eContainer();
+		return (QoSAnnotations)eInternalContainer();
 	}
 
     /**

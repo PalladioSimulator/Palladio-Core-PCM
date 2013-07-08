@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util;
 
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.*;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;

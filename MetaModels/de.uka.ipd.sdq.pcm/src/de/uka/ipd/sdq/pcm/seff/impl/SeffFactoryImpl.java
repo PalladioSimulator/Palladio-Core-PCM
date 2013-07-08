@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.seff.impl;
 
+import de.uka.ipd.sdq.pcm.seff.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -53,7 +54,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 	 */
     public static SeffFactory init() {
 		try {
-			SeffFactory theSeffFactory = (SeffFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0"); 
+			SeffFactory theSeffFactory = (SeffFactory)EPackage.Registry.INSTANCE.getEFactory(SeffPackage.eNS_URI);
 			if (theSeffFactory != null) {
 				return theSeffFactory;
 			}

@@ -156,7 +156,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
 	 */
     public ComposedStructure getParentStructure__EventChannel() {
 		if (eContainerFeatureID() != CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL) return null;
-		return (ComposedStructure)eContainer();
+		return (ComposedStructure)eInternalContainer();
 	}
 
     /**

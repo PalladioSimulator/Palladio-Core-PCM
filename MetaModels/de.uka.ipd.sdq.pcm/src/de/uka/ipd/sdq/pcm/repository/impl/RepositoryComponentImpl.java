@@ -60,7 +60,7 @@ public abstract class RepositoryComponentImpl extends InterfaceProvidingRequirin
 	 */
     public Repository getRepository__RepositoryComponent() {
 		if (eContainerFeatureID() != RepositoryPackage.REPOSITORY_COMPONENT__REPOSITORY_REPOSITORY_COMPONENT) return null;
-		return (Repository)eContainer();
+		return (Repository)eInternalContainer();
 	}
 
     /**

@@ -87,7 +87,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 	 */
     public AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour() {
 		if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR) return null;
-		return (AbstractLoopAction)eContainer();
+		return (AbstractLoopAction)eInternalContainer();
 	}
 
     /**
@@ -127,7 +127,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
 	 */
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
 		if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR) return null;
-		return (AbstractBranchTransition)eContainer();
+		return (AbstractBranchTransition)eInternalContainer();
 	}
 
     /**

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -37,7 +38,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 	 */
     public static ResourceenvironmentFactory init() {
 		try {
-			ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0"); 
+			ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory)EPackage.Registry.INSTANCE.getEFactory(ResourceenvironmentPackage.eNS_URI);
 			if (theResourceenvironmentFactory != null) {
 				return theResourceenvironmentFactory;
 			}

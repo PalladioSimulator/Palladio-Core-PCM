@@ -97,7 +97,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
 	 */
     public OperationInterface getInterface__OperationSignature() {
 		if (eContainerFeatureID() != RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE) return null;
-		return (OperationInterface)eContainer();
+		return (OperationInterface)eInternalContainer();
 	}
 
     /**

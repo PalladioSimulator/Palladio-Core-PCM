@@ -107,7 +107,7 @@ public class InnerDeclarationImpl extends NamedElementImpl implements InnerDecla
 	 */
     public CompositeDataType getCompositeDataType_InnerDeclaration() {
 		if (eContainerFeatureID() != RepositoryPackage.INNER_DECLARATION__COMPOSITE_DATA_TYPE_INNER_DECLARATION) return null;
-		return (CompositeDataType)eContainer();
+		return (CompositeDataType)eInternalContainer();
 	}
 
     /**

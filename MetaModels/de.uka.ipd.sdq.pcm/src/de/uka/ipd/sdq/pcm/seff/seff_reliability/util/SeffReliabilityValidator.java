@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
+import de.uka.ipd.sdq.pcm.seff.seff_reliability.*;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction;
 import de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour;

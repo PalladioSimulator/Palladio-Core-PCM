@@ -621,4 +621,18 @@ public class CompletionImpl extends ComposedProvidingRequiringEntityImpl impleme
 		return result.toString();
 	}
 
+	@Override
+	public boolean ProvideSameOrMoreInterfacesAsCompleteComponentType(
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	@Override
+	public boolean RequireSameOrFewerInterfacesAsCompleteComponentType(
+			DiagnosticChain diagnostics, Map<Object, Object> context) {
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 } //CompletionImpl

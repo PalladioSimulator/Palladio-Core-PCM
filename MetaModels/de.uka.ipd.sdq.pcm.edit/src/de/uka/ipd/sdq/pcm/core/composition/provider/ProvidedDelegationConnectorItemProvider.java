@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.repository.provider.DelegationConnectorItemProvider;
  * @generated
  */
 public class ProvidedDelegationConnectorItemProvider
-	extends DelegationConnectorItemProvider
+	extends de.uka.ipd.sdq.pcm.core.composition.provider.DelegationConnectorItemProvider
 	implements
 		IEditingDomainItemProvider,
 		IStructuredItemContentProvider,

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.protocol.impl;
 
+import de.uka.ipd.sdq.pcm.protocol.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -32,7 +33,7 @@ public class ProtocolFactoryImpl extends EFactoryImpl implements ProtocolFactory
 	 */
     public static ProtocolFactory init() {
 		try {
-			ProtocolFactory theProtocolFactory = (ProtocolFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Protocol/5.0"); 
+			ProtocolFactory theProtocolFactory = (ProtocolFactory)EPackage.Registry.INSTANCE.getEFactory(ProtocolPackage.eNS_URI);
 			if (theProtocolFactory != null) {
 				return theProtocolFactory;
 			}

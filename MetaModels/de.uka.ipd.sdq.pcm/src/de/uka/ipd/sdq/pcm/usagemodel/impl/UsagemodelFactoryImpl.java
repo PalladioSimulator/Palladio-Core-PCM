@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel.impl;
 
+import de.uka.ipd.sdq.pcm.usagemodel.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -45,7 +46,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 	 */
     public static UsagemodelFactory init() {
 		try {
-			UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0"); 
+			UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory)EPackage.Registry.INSTANCE.getEFactory(UsagemodelPackage.eNS_URI);
 			if (theUsagemodelFactory != null) {
 				return theUsagemodelFactory;
 			}

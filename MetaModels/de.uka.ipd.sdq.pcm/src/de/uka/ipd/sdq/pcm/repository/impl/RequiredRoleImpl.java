@@ -59,7 +59,7 @@ public abstract class RequiredRoleImpl extends RoleImpl implements RequiredRole 
 	 */
     public InterfaceRequiringEntity getRequiringEntity_RequiredRole() {
 		if (eContainerFeatureID() != RepositoryPackage.REQUIRED_ROLE__REQUIRING_ENTITY_REQUIRED_ROLE) return null;
-		return (InterfaceRequiringEntity)eContainer();
+		return (InterfaceRequiringEntity)eInternalContainer();
 	}
 
     /**

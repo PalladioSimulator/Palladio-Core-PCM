@@ -143,7 +143,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
 	 */
     public Repository getRepository__Interface() {
 		if (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE) return null;
-		return (Repository)eContainer();
+		return (Repository)eInternalContainer();
 	}
 
     /**

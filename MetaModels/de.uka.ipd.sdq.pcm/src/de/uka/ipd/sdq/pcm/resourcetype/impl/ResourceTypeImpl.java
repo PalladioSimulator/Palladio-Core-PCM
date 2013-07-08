@@ -163,7 +163,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
 	 */
     public ResourceRepository getResourceRepository_ResourceType() {
 		if (eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE) return null;
-		return (ResourceRepository)eContainer();
+		return (ResourceRepository)eInternalContainer();
 	}
 
     /**

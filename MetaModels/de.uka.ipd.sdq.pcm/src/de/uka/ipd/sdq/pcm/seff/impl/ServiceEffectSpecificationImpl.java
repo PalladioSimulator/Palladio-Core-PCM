@@ -157,7 +157,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
 	 */
     public BasicComponent getBasicComponent_ServiceEffectSpecification() {
 		if (eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION) return null;
-		return (BasicComponent)eContainer();
+		return (BasicComponent)eInternalContainer();
 	}
 
     /**

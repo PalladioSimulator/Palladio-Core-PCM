@@ -71,7 +71,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
 	 */
     public ResourceInterfaceProvidingEntity getResourceInterfaceProvidingEntity__ResourceProvidedRole() {
 		if (eContainerFeatureID() != EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE) return null;
-		return (ResourceInterfaceProvidingEntity)eContainer();
+		return (ResourceInterfaceProvidingEntity)eInternalContainer();
 	}
 
     /**

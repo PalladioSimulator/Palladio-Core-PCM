@@ -107,7 +107,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
 	 */
     public AbstractInternalControlFlowAction getAction__ResourceCall() {
 		if (eContainerFeatureID() != SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL) return null;
-		return (AbstractInternalControlFlowAction)eContainer();
+		return (AbstractInternalControlFlowAction)eInternalContainer();
 	}
 
     /**

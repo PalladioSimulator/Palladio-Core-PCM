@@ -124,7 +124,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
 	 */
     public UsageModel getUsageModel_UsageScenario() {
 		if (eContainerFeatureID() != UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO) return null;
-		return (UsageModel)eContainer();
+		return (UsageModel)eInternalContainer();
 	}
 
     /**

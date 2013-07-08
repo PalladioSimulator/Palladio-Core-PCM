@@ -190,7 +190,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 	 */
     public InternalAction getInternalAction__InternalFailureOccurrenceDescription() {
 		if (eContainerFeatureID() != ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION) return null;
-		return (InternalAction)eContainer();
+		return (InternalAction)eInternalContainer();
 	}
 
     /**

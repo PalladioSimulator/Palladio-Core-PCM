@@ -191,7 +191,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 */
     public BasicComponent getBasicComponent_ServiceEffectSpecification() {
 		if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION) return null;
-		return (BasicComponent)eContainer();
+		return (BasicComponent)eInternalContainer();
 	}
 
     /**
@@ -230,7 +230,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 */
     public AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour() {
 		if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR) return null;
-		return (AbstractLoopAction)eContainer();
+		return (AbstractLoopAction)eInternalContainer();
 	}
 
     /**
@@ -270,7 +270,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
 	 */
     public AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour() {
 		if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR) return null;
-		return (AbstractBranchTransition)eContainer();
+		return (AbstractBranchTransition)eInternalContainer();
 	}
 
     /**

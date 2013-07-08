@@ -60,7 +60,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	 */
     public SynchronisationPoint getSynchronisationPoint_ForkedBehaviour() {
 		if (eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR) return null;
-		return (SynchronisationPoint)eContainer();
+		return (SynchronisationPoint)eInternalContainer();
 	}
 
     /**
@@ -99,7 +99,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
 	 */
     public ForkAction getForkAction_ForkedBehaivour() {
 		if (eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR) return null;
-		return (ForkAction)eContainer();
+		return (ForkAction)eInternalContainer();
 	}
 
     /**

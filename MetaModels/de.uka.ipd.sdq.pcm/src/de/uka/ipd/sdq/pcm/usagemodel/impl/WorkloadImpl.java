@@ -59,7 +59,7 @@ public abstract class WorkloadImpl extends EObjectImpl implements Workload {
 	 */
     public UsageScenario getUsageScenario_Workload() {
 		if (eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD) return null;
-		return (UsageScenario)eContainer();
+		return (UsageScenario)eInternalContainer();
 	}
 
     /**

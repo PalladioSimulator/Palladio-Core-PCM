@@ -59,7 +59,7 @@ public class ResourceDemandingInternalBehaviourImpl extends ResourceDemandingBeh
 	 */
     public ResourceDemandingSEFF getResourceDemandingSEFF_ResourceDemandingInternalBehaviour() {
 		if (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR__RESOURCE_DEMANDING_SEFF_RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR) return null;
-		return (ResourceDemandingSEFF)eContainer();
+		return (ResourceDemandingSEFF)eInternalContainer();
 	}
 
     /**

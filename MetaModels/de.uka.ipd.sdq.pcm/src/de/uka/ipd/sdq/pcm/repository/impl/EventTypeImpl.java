@@ -69,7 +69,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
 	 */
     public EventGroup getEventGroup__EventType() {
 		if (eContainerFeatureID() != RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE) return null;
-		return (EventGroup)eContainer();
+		return (EventGroup)eInternalContainer();
 	}
 
     /**

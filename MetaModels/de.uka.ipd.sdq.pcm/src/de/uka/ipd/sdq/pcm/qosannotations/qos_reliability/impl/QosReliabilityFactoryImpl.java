@@ -3,6 +3,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -31,7 +32,7 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
 	 */
     public static QosReliabilityFactory init() {
 		try {
-			QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Reliability/5.0"); 
+			QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory(QosReliabilityPackage.eNS_URI);
 			if (theQosReliabilityFactory != null) {
 				return theQosReliabilityFactory;
 			}

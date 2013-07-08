@@ -100,7 +100,7 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
 	 */
     public ForkAction getForkAction_SynchronisationPoint() {
 		if (eContainerFeatureID() != SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT) return null;
-		return (ForkAction)eContainer();
+		return (ForkAction)eInternalContainer();
 	}
 
     /**

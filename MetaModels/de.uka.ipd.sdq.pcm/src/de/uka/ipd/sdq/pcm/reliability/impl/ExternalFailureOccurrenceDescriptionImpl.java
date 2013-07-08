@@ -84,7 +84,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
 	 */
     public SpecifiedReliabilityAnnotation getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription() {
 		if (eContainerFeatureID() != ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION) return null;
-		return (SpecifiedReliabilityAnnotation)eContainer();
+		return (SpecifiedReliabilityAnnotation)eInternalContainer();
 	}
 
     /**

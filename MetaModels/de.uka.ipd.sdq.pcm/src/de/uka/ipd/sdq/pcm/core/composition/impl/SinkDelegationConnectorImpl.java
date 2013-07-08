@@ -30,7 +30,7 @@ import de.uka.ipd.sdq.pcm.repository.impl.DelegationConnectorImpl;
  *
  * @generated
  */
-public class SinkDelegationConnectorImpl extends DelegationConnectorImpl implements SinkDelegationConnector {
+public class SinkDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl implements SinkDelegationConnector {
     /**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated

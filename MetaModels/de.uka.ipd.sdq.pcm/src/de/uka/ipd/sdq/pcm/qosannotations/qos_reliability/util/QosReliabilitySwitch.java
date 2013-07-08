@@ -9,6 +9,7 @@ import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.*;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation;
 

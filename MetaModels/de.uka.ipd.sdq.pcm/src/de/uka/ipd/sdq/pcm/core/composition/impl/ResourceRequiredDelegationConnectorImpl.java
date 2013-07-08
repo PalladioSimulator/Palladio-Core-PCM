@@ -80,7 +80,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
 	 */
     public ComposedStructure getParentStructure_ResourceRequiredDelegationConnector() {
 		if (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR) return null;
-		return (ComposedStructure)eContainer();
+		return (ComposedStructure)eInternalContainer();
 	}
 
     /**

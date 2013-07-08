@@ -101,7 +101,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImp
 	 */
     public QoSAnnotations getQosAnnotations_SpecifiedOutputParameterAbstraction() {
 		if (eContainerFeatureID() != QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION) return null;
-		return (QoSAnnotations)eContainer();
+		return (QoSAnnotations)eInternalContainer();
 	}
 
     /**

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition.impl;
 
+import de.uka.ipd.sdq.pcm.core.composition.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -47,7 +48,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 	 */
     public static CompositionFactory init() {
 		try {
-			CompositionFactory theCompositionFactory = (CompositionFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0"); 
+			CompositionFactory theCompositionFactory = (CompositionFactory)EPackage.Registry.INSTANCE.getEFactory(CompositionPackage.eNS_URI);
 			if (theCompositionFactory != null) {
 				return theCompositionFactory;
 			}

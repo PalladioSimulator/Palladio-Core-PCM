@@ -15,6 +15,7 @@ import org.eclipse.emf.ecore.util.EObjectValidator;
 import de.uka.ipd.sdq.identifier.util.IdentifierValidator;
 import de.uka.ipd.sdq.pcm.core.composition.util.CompositionValidator;
 import de.uka.ipd.sdq.pcm.core.entity.util.EntityValidator;
+import de.uka.ipd.sdq.pcm.repository.*;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompleteComponentType;
@@ -89,29 +90,13 @@ public class RepositoryValidator extends EObjectValidator {
     public static final int BASIC_COMPONENT__NO_SEFF_TYPE_USED_TWICE = 1;
 
     /**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provide Same Interfaces As Implementation Type' of 'Basic Component'.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-	 * @generated
-	 */
-    public static final int BASIC_COMPONENT__PROVIDE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE = 2;
-
-    /**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Interfaces As Implementation Type' of 'Basic Component'.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-	 * @generated
-	 */
-    public static final int BASIC_COMPONENT__REQUIRE_SAME_INTERFACES_AS_IMPLEMENTATION_TYPE = 3;
-
-    /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Required
      * Interfaces Have To Conform To Complete Type' of 'Implementation Component Type'. <!--
      * begin-user-doc --> <!-- end-user-doc -->
      * 
      * @generated
      */
-    public static final int IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 4;
+    public static final int IMPLEMENTATION_COMPONENT_TYPE__REQUIRED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 2;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided
@@ -120,7 +105,7 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public static final int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 5;
+    public static final int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_COMPLETE_TYPE = 3;
 
     /**
      * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provided
@@ -129,9 +114,25 @@ public class RepositoryValidator extends EObjectValidator {
      * 
      * @generated
      */
-    public static final int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE = 6;
+    public static final int IMPLEMENTATION_COMPONENT_TYPE__PROVIDED_INTERFACE_HAVE_TO_CONFORM_TO_COMPONENT_TYPE = 4;
 
     /**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provide Same Or More Interfaces As Complete Component Type' of 'Implementation Component Type'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int IMPLEMENTATION_COMPONENT_TYPE__PROVIDE_SAME_OR_MORE_INTERFACES_AS_COMPLETE_COMPONENT_TYPE = 5;
+
+				/**
+	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Or Fewer Interfaces As Complete Component Type' of 'Implementation Component Type'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public static final int IMPLEMENTATION_COMPONENT_TYPE__REQUIRE_SAME_OR_FEWER_INTERFACES_AS_COMPLETE_COMPONENT_TYPE = 6;
+
+				/**
 	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'No Protocol Type ID Used Twice' of 'Interface'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
@@ -178,25 +179,11 @@ public class RepositoryValidator extends EObjectValidator {
     public static final int PROVIDES_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_BY_AUSEFULL_PROVIDES_COMPONENT_TYPE = 12;
 
     /**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Provide Same Interfaces' of 'Composite Component'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public static final int COMPOSITE_COMPONENT__PROVIDE_SAME_INTERFACES = 13;
-
-    /**
-	 * The {@link org.eclipse.emf.common.util.Diagnostic#getCode() code} for constraint 'Require Same Interfaces' of 'Composite Component'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public static final int COMPOSITE_COMPONENT__REQUIRE_SAME_INTERFACES = 14;
-
-    /**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 14;
+    private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 12;
 
     /**
 	 * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
@@ -370,9 +357,9 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(basicComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(basicComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(basicComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateBasicComponent_NoSeffTypeUsedTwice(basicComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBasicComponent_ProvideSameInterfacesAsImplementationType(basicComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateBasicComponent_RequireSameInterfacesAsImplementationType(basicComponent, diagnostics, context);
 		return result;
 	}
 
@@ -385,26 +372,6 @@ public class RepositoryValidator extends EObjectValidator {
     public boolean validateBasicComponent_NoSeffTypeUsedTwice(BasicComponent basicComponent,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
 		return basicComponent.NoSeffTypeUsedTwice(diagnostics, context);
-	}
-
-    /**
-	 * Validates the ProvideSameInterfacesAsImplementationType constraint of '<em>Basic Component</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public boolean validateBasicComponent_ProvideSameInterfacesAsImplementationType(BasicComponent basicComponent,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return basicComponent.ProvideSameInterfacesAsImplementationType(diagnostics, context);
-	}
-
-    /**
-	 * Validates the RequireSameInterfacesAsImplementationType constraint of '<em>Basic Component</em>'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public boolean validateBasicComponent_RequireSameInterfacesAsImplementationType(BasicComponent basicComponent,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return basicComponent.RequireSameInterfacesAsImplementationType(diagnostics, context);
 	}
 
     /**
@@ -425,6 +392,8 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(implementationComponentType, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(implementationComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(implementationComponentType, diagnostics, context);
+		if (result || diagnostics != null) result &= validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(implementationComponentType, diagnostics, context);
 		return result;
 	}
 
@@ -462,6 +431,26 @@ public class RepositoryValidator extends EObjectValidator {
 	}
 
     /**
+	 * Validates the ProvideSameOrMoreInterfacesAsCompleteComponentType constraint of '<em>Implementation Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return implementationComponentType.ProvideSameOrMoreInterfacesAsCompleteComponentType(diagnostics, context);
+	}
+
+				/**
+	 * Validates the RequireSameOrFewerInterfacesAsCompleteComponentType constraint of '<em>Implementation Component Type</em>'.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public boolean validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(ImplementationComponentType implementationComponentType, DiagnosticChain diagnostics, Map<Object, Object> context) {
+		return implementationComponentType.RequireSameOrFewerInterfacesAsCompleteComponentType(diagnostics, context);
+	}
+
+				/**
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
@@ -913,31 +902,9 @@ public class RepositoryValidator extends EObjectValidator {
 		if (result || diagnostics != null) result &= validateImplementationComponentType_RequiredInterfacesHaveToConformToCompleteType(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_providedInterfacesHaveToConformToCompleteType(compositeComponent, diagnostics, context);
 		if (result || diagnostics != null) result &= validateImplementationComponentType_ProvidedInterfaceHaveToConformToComponentType(compositeComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateCompositeComponent_ProvideSameInterfaces(compositeComponent, diagnostics, context);
-		if (result || diagnostics != null) result &= validateCompositeComponent_RequireSameInterfaces(compositeComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateImplementationComponentType_ProvideSameOrMoreInterfacesAsCompleteComponentType(compositeComponent, diagnostics, context);
+		if (result || diagnostics != null) result &= validateImplementationComponentType_RequireSameOrFewerInterfacesAsCompleteComponentType(compositeComponent, diagnostics, context);
 		return result;
-	}
-
-    /**
-     * Validates the ProvideSameInterfaces constraint of '<em>Composite Component</em>'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public boolean validateCompositeComponent_ProvideSameInterfaces(CompositeComponent compositeComponent,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return compositeComponent.ProvideSameInterfaces(diagnostics, context);
-	}
-
-    /**
-     * Validates the RequireSameInterfaces constraint of '<em>Composite Component</em>'. <!--
-     * begin-user-doc --> <!-- end-user-doc -->
-     * 
-     * @generated
-     */
-    public boolean validateCompositeComponent_RequireSameInterfaces(CompositeComponent compositeComponent,
-            DiagnosticChain diagnostics, Map<Object, Object> context) {
-		return compositeComponent.RequireSameInterfaces(diagnostics, context);
 	}
 
     /**

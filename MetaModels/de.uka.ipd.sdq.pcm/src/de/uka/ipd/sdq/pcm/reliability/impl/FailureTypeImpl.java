@@ -60,7 +60,7 @@ public abstract class FailureTypeImpl extends EntityImpl implements FailureType 
 	 */
     public Repository getRepository__FailureType() {
 		if (eContainerFeatureID() != ReliabilityPackage.FAILURE_TYPE__REPOSITORY_FAILURE_TYPE) return null;
-		return (Repository)eContainer();
+		return (Repository)eInternalContainer();
 	}
 
     /**

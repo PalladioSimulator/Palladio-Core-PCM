@@ -71,7 +71,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
 	 */
     public BranchAction getBranchAction_AbstractBranchTransition() {
 		if (eContainerFeatureID() != SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION) return null;
-		return (BranchAction)eContainer();
+		return (BranchAction)eInternalContainer();
 	}
 
     /**

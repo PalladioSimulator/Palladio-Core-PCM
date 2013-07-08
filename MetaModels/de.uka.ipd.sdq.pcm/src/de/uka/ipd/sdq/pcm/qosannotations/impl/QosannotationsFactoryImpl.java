@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.impl;
 
+import de.uka.ipd.sdq.pcm.qosannotations.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -33,7 +34,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 	 */
     public static QosannotationsFactory init() {
 		try {
-			QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/5.0"); 
+			QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory)EPackage.Registry.INSTANCE.getEFactory(QosannotationsPackage.eNS_URI);
 			if (theQosannotationsFactory != null) {
 				return theQosannotationsFactory;
 			}

@@ -77,7 +77,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
 	 */
     public ResourceRepository getResourceRepository__ResourceInterface() {
 		if (eContainerFeatureID() != ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE) return null;
-		return (ResourceRepository)eContainer();
+		return (ResourceRepository)eInternalContainer();
 	}
 
     /**

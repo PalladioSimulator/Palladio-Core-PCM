@@ -59,7 +59,7 @@ public abstract class DataTypeImpl extends EObjectImpl implements DataType {
 	 */
     public Repository getRepository__DataType() {
 		if (eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE) return null;
-		return (Repository)eContainer();
+		return (Repository)eInternalContainer();
 	}
 
     /**

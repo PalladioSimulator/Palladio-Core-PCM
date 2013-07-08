@@ -115,7 +115,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public VariableCharacterisation getVariableCharacterisation_Specification() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION) return null;
-		return (VariableCharacterisation)eContainer();
+		return (VariableCharacterisation)eInternalContainer();
 	}
 
     /**
@@ -155,7 +155,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public PassiveResource getPassiveResource_capacity_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE) return null;
-		return (PassiveResource)eContainer();
+		return (PassiveResource)eInternalContainer();
 	}
 
     /**
@@ -195,7 +195,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public ParametricResourceDemand getParametricResourceDemand_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE) return null;
-		return (ParametricResourceDemand)eContainer();
+		return (ParametricResourceDemand)eInternalContainer();
 	}
 
     /**
@@ -235,7 +235,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public LoopAction getLoopAction_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE) return null;
-		return (LoopAction)eContainer();
+		return (LoopAction)eInternalContainer();
 	}
 
     /**
@@ -274,7 +274,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public GuardedBranchTransition getGuardedBranchTransition_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE) return null;
-		return (GuardedBranchTransition)eContainer();
+		return (GuardedBranchTransition)eInternalContainer();
 	}
 
     /**
@@ -314,7 +314,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public Loop getLoop_LoopIteration() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION) return null;
-		return (Loop)eContainer();
+		return (Loop)eInternalContainer();
 	}
 
     /**
@@ -352,7 +352,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public SpecifiedExecutionTime getSpecifiedExecutionTime_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE) return null;
-		return (SpecifiedExecutionTime)eContainer();
+		return (SpecifiedExecutionTime)eInternalContainer();
 	}
 
     /**
@@ -392,7 +392,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public AssemblyEventConnector getAssemblyEventConnector__FilterCondition() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION) return null;
-		return (AssemblyEventConnector)eContainer();
+		return (AssemblyEventConnector)eInternalContainer();
 	}
 
     /**
@@ -432,7 +432,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public EventChannelSinkConnector getEventChannelSinkConnector__FilterCondition() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION) return null;
-		return (EventChannelSinkConnector)eContainer();
+		return (EventChannelSinkConnector)eInternalContainer();
 	}
 
     /**
@@ -472,7 +472,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public InfrastructureCall getInfrastructureCall__PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE) return null;
-		return (InfrastructureCall)eContainer();
+		return (InfrastructureCall)eInternalContainer();
 	}
 
     /**
@@ -511,7 +511,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public ResourceCall getResourceCall__PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE) return null;
-		return (ResourceCall)eContainer();
+		return (ResourceCall)eInternalContainer();
 	}
 
     /**
@@ -550,7 +550,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public OpenWorkload getOpenWorkload_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE) return null;
-		return (OpenWorkload)eContainer();
+		return (OpenWorkload)eInternalContainer();
 	}
 
     /**
@@ -589,7 +589,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public ClosedWorkload getClosedWorkload_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE) return null;
-		return (ClosedWorkload)eContainer();
+		return (ClosedWorkload)eInternalContainer();
 	}
 
     /**
@@ -628,7 +628,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public Delay getDelay_TimeSpecification() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION) return null;
-		return (Delay)eContainer();
+		return (Delay)eInternalContainer();
 	}
 
     /**
@@ -666,7 +666,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE) return null;
-		return (CommunicationLinkResourceSpecification)eContainer();
+		return (CommunicationLinkResourceSpecification)eInternalContainer();
 	}
 
     /**
@@ -707,7 +707,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public ProcessingResourceSpecification getProcessingResourceSpecification_processingRate_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE) return null;
-		return (ProcessingResourceSpecification)eContainer();
+		return (ProcessingResourceSpecification)eInternalContainer();
 	}
 
     /**
@@ -748,7 +748,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
 	 */
     public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecification_latency_PCMRandomVariable() {
 		if (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE) return null;
-		return (CommunicationLinkResourceSpecification)eContainer();
+		return (CommunicationLinkResourceSpecification)eInternalContainer();
 	}
 
     /**

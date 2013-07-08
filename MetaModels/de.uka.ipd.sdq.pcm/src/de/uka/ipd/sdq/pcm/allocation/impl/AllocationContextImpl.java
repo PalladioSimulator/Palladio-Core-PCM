@@ -176,7 +176,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
 	 */
     public Allocation getAllocation_AllocationContext() {
 		if (eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT) return null;
-		return (Allocation)eContainer();
+		return (Allocation)eInternalContainer();
 	}
 
     /**

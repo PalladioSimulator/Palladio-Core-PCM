@@ -151,7 +151,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 	 */
     public ResourceInterface getResourceInterface__ResourceSignature() {
 		if (eContainerFeatureID() != ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE) return null;
-		return (ResourceInterface)eContainer();
+		return (ResourceInterface)eInternalContainer();
 	}
 
     /**

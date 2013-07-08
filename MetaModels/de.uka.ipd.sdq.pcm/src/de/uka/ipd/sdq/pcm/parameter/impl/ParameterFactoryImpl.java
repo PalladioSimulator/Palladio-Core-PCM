@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.parameter.impl;
 
+import de.uka.ipd.sdq.pcm.parameter.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EDataType;
 import org.eclipse.emf.ecore.EObject;
@@ -37,7 +38,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 	 */
     public static ParameterFactory init() {
 		try {
-			ParameterFactory theParameterFactory = (ParameterFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0"); 
+			ParameterFactory theParameterFactory = (ParameterFactory)EPackage.Registry.INSTANCE.getEFactory(ParameterPackage.eNS_URI);
 			if (theParameterFactory != null) {
 				return theParameterFactory;
 			}

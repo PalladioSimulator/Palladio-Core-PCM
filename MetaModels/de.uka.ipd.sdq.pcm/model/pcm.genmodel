@@ -5,8 +5,8 @@
     modelDirectory="/de.uka.ipd.sdq.pcm/src" modelPluginID="de.uka.ipd.sdq.pcm" templateDirectory="/de.uka.ipd.sdq.pcm/templates"
     dynamicTemplates="true" redirection="" modelName="PalladioComponentModel" editPluginClass="de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin"
     editorPluginClass="de.uka.ipd.sdq.pcm.core.presentation.PalladioComponentModelEditorPlugin"
-    importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0" runtimeVersion="2.5"
-    language="en" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
+    importerID="org.eclipse.uml2.uml.ecore.importer" complianceLevel="6.0" runtimeVersion="2.5"
+    language="en" usedGenPackages="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.genmodel#//identifier platform:/plugin/de.uka.ipd.sdq.probfunction/model/ProbabilityFunction.genmodel#//probfunction platform:/plugin/de.uka.ipd.sdq.stoex/model/stoex.genmodel#//stoex ../../org.eclipse.uml2.types/model/Types.genmodel#//types platform:/plugin/de.uka.ipd.sdq.units/model/Units.genmodel#//units">
   <genAnnotations source="http://www.eclipse.org/emf/2002/GenModel/importer/org.eclipse.uml2.uml.ecore.importer">
     <details key="ECORE_TAGGED_VALUES" value="PROCESS"/>
     <details key="UNION_PROPERTIES" value="REPORT"/>
@@ -25,7 +25,11 @@
     <details key="SUPER_CLASS_ORDER" value="IGNORE"/>
     <details key="CAMEL_CASE_NAMES" value="IGNORE"/>
   </genAnnotations>
-  <foreignModel>pcm.ecore</foreignModel>
+  <foreignModel>identifier.uml</foreignModel>
+  <foreignModel>pcm.uml</foreignModel>
+  <foreignModel>ProbabilityFunction.uml</foreignModel>
+  <foreignModel>stoex.uml</foreignModel>
+  <foreignModel>Units.uml</foreignModel>
   <modelPluginVariables>OCL=org.eclipse.ocl</modelPluginVariables>
   <modelPluginVariables>EMF_OCL=org.eclipse.ocl.ecore</modelPluginVariables>
   <genPackages xsi:type="genmodel:GenPackage" prefix="Pcm" basePackage="de.uka.ipd.sdq"
@@ -481,14 +485,6 @@
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/BasicComponent/NoSeffTypeUsedTwice/diagnostics"/>
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/BasicComponent/NoSeffTypeUsedTwice/context"/>
         </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/BasicComponent/ProvideSameInterfacesAsImplementationType">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/BasicComponent/ProvideSameInterfacesAsImplementationType/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/BasicComponent/ProvideSameInterfacesAsImplementationType/context"/>
-        </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/BasicComponent/RequireSameInterfacesAsImplementationType">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/BasicComponent/RequireSameInterfacesAsImplementationType/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/BasicComponent/RequireSameInterfacesAsImplementationType/context"/>
-        </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//repository/ImplementationComponentType">
         <genFeatures xsi:type="genmodel:GenFeature" notify="false" createChild="false"
@@ -507,6 +503,14 @@
         <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/ImplementationComponentType/ProvidedInterfaceHaveToConformToComponentType">
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/ImplementationComponentType/ProvidedInterfaceHaveToConformToComponentType/diagnostics"/>
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/ImplementationComponentType/ProvidedInterfaceHaveToConformToComponentType/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/ImplementationComponentType/ProvideSameOrMoreInterfacesAsCompleteComponentType">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/ImplementationComponentType/ProvideSameOrMoreInterfacesAsCompleteComponentType/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/ImplementationComponentType/ProvideSameOrMoreInterfacesAsCompleteComponentType/context"/>
+        </genOperations>
+        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/ImplementationComponentType/RequireSameOrFewerInterfacesAsCompleteComponentType">
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/ImplementationComponentType/RequireSameOrFewerInterfacesAsCompleteComponentType/diagnostics"/>
+          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/ImplementationComponentType/RequireSameOrFewerInterfacesAsCompleteComponentType/context"/>
         </genOperations>
       </genClasses>
       <genClasses xsi:type="genmodel:GenClass" image="false" ecoreClass="pcm.ecore#//repository/RepositoryComponent">
@@ -663,16 +667,7 @@
           <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/ProvidesComponentType/AtLeastOneInterfaceHasToBeProvidedByAUsefullProvidesComponentType/context"/>
         </genOperations>
       </genClasses>
-      <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/CompositeComponent">
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/CompositeComponent/ProvideSameInterfaces/context"/>
-        </genOperations>
-        <genOperations xsi:type="genmodel:GenOperation" ecoreOperation="pcm.ecore#//repository/CompositeComponent/RequireSameInterfaces">
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/CompositeComponent/RequireSameInterfaces/diagnostics"/>
-          <genParameters xsi:type="genmodel:GenParameter" ecoreParameter="pcm.ecore#//repository/CompositeComponent/RequireSameInterfaces/context"/>
-        </genOperations>
-      </genClasses>
+      <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/CompositeComponent"/>
       <genClasses xsi:type="genmodel:GenClass" ecoreClass="pcm.ecore#//repository/PrimitiveDataType">
         <genFeatures xsi:type="genmodel:GenFeature" createChild="false" ecoreFeature="ecore:EAttribute pcm.ecore#//repository/PrimitiveDataType/type"/>
       </genClasses>

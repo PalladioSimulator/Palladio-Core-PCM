@@ -154,7 +154,7 @@ public class VariableCharacterisationImpl extends EObjectImpl implements Variabl
 	 */
     public VariableUsage getVariableUsage_VariableCharacterisation() {
 		if (eContainerFeatureID() != ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION) return null;
-		return (VariableUsage)eContainer();
+		return (VariableUsage)eInternalContainer();
 	}
 
     /**

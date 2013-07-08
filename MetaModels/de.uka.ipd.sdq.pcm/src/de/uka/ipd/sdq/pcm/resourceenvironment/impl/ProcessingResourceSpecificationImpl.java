@@ -365,7 +365,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
 	 */
     public ResourceContainer getResourceContainer_ProcessingResourceSpecification() {
 		if (eContainerFeatureID() != ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION) return null;
-		return (ResourceContainer)eContainer();
+		return (ResourceContainer)eInternalContainer();
 	}
 
     /**

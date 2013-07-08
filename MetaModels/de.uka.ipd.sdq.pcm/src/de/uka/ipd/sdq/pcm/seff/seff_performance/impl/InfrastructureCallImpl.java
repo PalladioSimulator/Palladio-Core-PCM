@@ -185,7 +185,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
 	 */
     public AbstractInternalControlFlowAction getAction__InfrastructureCall() {
 		if (eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL) return null;
-		return (AbstractInternalControlFlowAction)eContainer();
+		return (AbstractInternalControlFlowAction)eInternalContainer();
 	}
 
     /**

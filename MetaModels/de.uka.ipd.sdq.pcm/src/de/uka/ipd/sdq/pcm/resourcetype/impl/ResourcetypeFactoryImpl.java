@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
+import de.uka.ipd.sdq.pcm.resourcetype.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -38,7 +39,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 	 */
     public static ResourcetypeFactory init() {
 		try {
-			ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0"); 
+			ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory)EPackage.Registry.INSTANCE.getEFactory(ResourcetypePackage.eNS_URI);
 			if (theResourcetypeFactory != null) {
 				return theResourcetypeFactory;
 			}

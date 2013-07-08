@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity.impl;
 
+import de.uka.ipd.sdq.pcm.core.entity.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -37,7 +38,7 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
 	 */
     public static EntityFactory init() {
 		try {
-			EntityFactory theEntityFactory = (EntityFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0"); 
+			EntityFactory theEntityFactory = (EntityFactory)EPackage.Registry.INSTANCE.getEFactory(EntityPackage.eNS_URI);
 			if (theEntityFactory != null) {
 				return theEntityFactory;
 			}

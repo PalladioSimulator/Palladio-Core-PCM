@@ -91,7 +91,7 @@ public class UserDataImpl extends EObjectImpl implements UserData {
 	 */
     public UsageModel getUsageModel_UserData() {
 		if (eContainerFeatureID() != UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA) return null;
-		return (UsageModel)eContainer();
+		return (UsageModel)eInternalContainer();
 	}
 
     /**

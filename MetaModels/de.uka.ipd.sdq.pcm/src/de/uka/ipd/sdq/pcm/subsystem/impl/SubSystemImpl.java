@@ -61,7 +61,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
 	 */
     public Repository getRepository__RepositoryComponent() {
 		if (eContainerFeatureID() != SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT) return null;
-		return (Repository)eContainer();
+		return (Repository)eInternalContainer();
 	}
 
     /**

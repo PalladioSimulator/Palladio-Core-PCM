@@ -195,7 +195,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
 	 */
     public ResourceDemandingBehaviour getResourceDemandingBehaviour_AbstractAction() {
 		if (eContainerFeatureID() != SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION) return null;
-		return (ResourceDemandingBehaviour)eContainer();
+		return (ResourceDemandingBehaviour)eInternalContainer();
 	}
 
     /**

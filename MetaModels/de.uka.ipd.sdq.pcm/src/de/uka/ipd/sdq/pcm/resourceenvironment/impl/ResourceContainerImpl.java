@@ -101,7 +101,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 */
     public ResourceEnvironment getResourceEnvironment_ResourceContainer() {
 		if (eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER) return null;
-		return (ResourceEnvironment)eContainer();
+		return (ResourceEnvironment)eInternalContainer();
 	}
 
     /**
@@ -151,7 +151,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
 	 */
     public ResourceContainer getParentResourceContainer__ResourceContainer() {
 		if (eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER) return null;
-		return (ResourceContainer)eContainer();
+		return (ResourceContainer)eInternalContainer();
 	}
 
     /**

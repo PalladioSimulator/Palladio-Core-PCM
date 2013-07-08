@@ -155,7 +155,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 */
     public OperationSignature getOperationSignature__Parameter() {
 		if (eContainerFeatureID() != RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER) return null;
-		return (OperationSignature)eContainer();
+		return (OperationSignature)eInternalContainer();
 	}
 
     /**
@@ -229,7 +229,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 */
     public ResourceSignature getResourceSignature__Parameter() {
 		if (eContainerFeatureID() != RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER) return null;
-		return (ResourceSignature)eContainer();
+		return (ResourceSignature)eInternalContainer();
 	}
 
     /**
@@ -268,7 +268,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 */
     public InfrastructureSignature getInfrastructureSignature__Parameter() {
 		if (eContainerFeatureID() != RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER) return null;
-		return (InfrastructureSignature)eContainer();
+		return (InfrastructureSignature)eInternalContainer();
 	}
 
     /**
@@ -307,7 +307,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
 	 */
     public EventType getEventType__Parameter() {
 		if (eContainerFeatureID() != RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER) return null;
-		return (EventType)eContainer();
+		return (EventType)eInternalContainer();
 	}
 
     /**

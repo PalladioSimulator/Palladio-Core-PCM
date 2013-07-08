@@ -250,7 +250,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 */
     public BranchTransition getBranchTransition_ScenarioBehaviour() {
 		if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR) return null;
-		return (BranchTransition)eContainer();
+		return (BranchTransition)eInternalContainer();
 	}
 
     /**
@@ -289,7 +289,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 */
     public Loop getLoop_ScenarioBehaviour() {
 		if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR) return null;
-		return (Loop)eContainer();
+		return (Loop)eInternalContainer();
 	}
 
     /**
@@ -327,7 +327,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 	 */
     public UsageScenario getUsageScenario_SenarioBehaviour() {
 		if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR) return null;
-		return (UsageScenario)eContainer();
+		return (UsageScenario)eInternalContainer();
 	}
 
     /**

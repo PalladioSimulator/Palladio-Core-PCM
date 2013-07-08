@@ -57,7 +57,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
 	 */
     public ResourceRepository getResourceRepository__SchedulingPolicy() {
 		if (eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY) return null;
-		return (ResourceRepository)eContainer();
+		return (ResourceRepository)eInternalContainer();
 	}
 
     /**
