@@ -36,6 +36,7 @@ public class SimuComJob extends AbstractSimulationJob<SimuComWorkflowConfigurati
         
         // 2. Generate the plugin's code using oAW
         this.addJob(new TransformPCMToCodeJob(configuration));
+        this.addJob(new XtendTransformPCMToCodeJob(configuration));
         this.addJob(new CreateSimuComMetaDataFilesJob(configuration));
 
         // 3. Compile the plugin
