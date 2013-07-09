@@ -1,0 +1,22 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+
+«DEFINE StartResponseTimeMeasurement FOR String»
+	// Take current time
+	ctx.getModel().getProbeSpecContext().getSampleBlackboard().addSample(
+		de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
+			ctx.getModel().getProbeSpecContext().getProbeStrategyRegistry().getProbeStrategy(
+				de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
+					"start«this»", ctx.getModel().getSimulationControl()),
+						ctx.getThread().getRequestContext(), "«this»", ctx.getModel().getProbeSpecContext().obtainProbeSetId("start«this»")));
+«ENDDEFINE»
+
+«DEFINE EndResponseTimeMeasurement FOR String»
+	// Take current time
+	ctx.getModel().getProbeSpecContext().getSampleBlackboard().addSample(
+		de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
+			ctx.getModel().getProbeSpecContext().getProbeStrategyRegistry().getProbeStrategy(
+				de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
+					"end«this»", ctx.getModel().getSimulationControl()),
+						ctx.getThread().getRequestContext(), "«this»", ctx.getModel().getProbeSpecContext().obtainProbeSetId("end«this»")));
+«ENDDEFINE»

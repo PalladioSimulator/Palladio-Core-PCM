@@ -1,0 +1,73 @@
+«EXTENSION m2t_transforms::sim::accuracyInfluence»
+«IMPORT seff»
+«IMPORT qualityannotation»
+«IMPORT quality»
+«IMPORT parameters::pcm»
+
+«DEFINE CheckAccuracy(ResourceDemandingSEFF rdseff, AbstractAction action) FOR CharacterisedPCMParameterPartitionInterval»
+	de.uka.ipd.sdq.simucomframework.accuracy.AccuracyAnalysisHelper.checkBoundsInterval(
+		"«this.id»",
+		"«this.getResourceName()»",
+		ctx.getModel(),
+		«IF PCMOperationParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			methodBodyStackFrame
+		«ELSEIF PCMRequiredBusinessOperationReturnParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			callResult
+		«ELSEIF PCMComponentParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			methodBodyStackFrame
+		«ELSE»
+			«ERROR "This type of parameter reference is not supported by this implementation."»
+		«ENDIF»,
+		«IF PCMOperationParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			"«this.pcmParameterPartition.parameterReference.getSimuComId()».«this.forCharacterisation»"
+		«ELSEIF PCMRequiredBusinessOperationReturnParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			"RETURN.«this.forCharacterisation»"
+		«ELSEIF PCMComponentParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			"«this.pcmParameterPartition.parameterReference.getSimuComId()».«this.forCharacterisation»"
+		«ELSE»
+			«ERROR "This type of parameter reference is not supported by this implementation."»
+		«ENDIF»,
+		"«rdseff.id»",
+		"«action.id»",
+		"«rdseff.getResourceName()»",
+		"«this.from.specification»",
+		"«this.to.specification»");
+«ENDDEFINE»
+
+«DEFINE CheckAccuracy(ResourceDemandingSEFF rdseff, AbstractAction action) FOR CharacterisedPCMParameterPartitionRange»
+	de.uka.ipd.sdq.simucomframework.accuracy.AccuracyAnalysisHelper.checkBoundsRange(
+		"«this.id»",
+		"«this.getResourceName()»",
+		ctx.getModel(),
+		«IF PCMOperationParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			ctx.getStack().currentStackFrame()
+		«ELSEIF PCMRequiredBusinessOperationReturnParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			callResult
+		«ELSEIF PCMComponentParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			ctx.getStack().currentStackFrame()
+		«ELSE»
+			«ERROR "This type of parameter reference is not supported by this implementation."»
+		«ENDIF»,
+		«IF PCMOperationParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			"«this.pcmParameterPartition.parameterReference.getSimuComId()».«this.forCharacterisation»"
+		«ELSEIF PCMRequiredBusinessOperationReturnParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			"RETURN.«this.forCharacterisation»"
+		«ELSEIF PCMComponentParameterReference.isInstance(this.pcmParameterPartition.parameterReference)»
+			"«this.pcmParameterPartition.parameterReference.getSimuComId()».«this.forCharacterisation»"
+		«ELSE»
+			«ERROR "This type of parameter reference is not supported by this implementation."»
+		«ENDIF»,
+		"«rdseff.id»",
+		"«action.id»",
+		"«rdseff.getResourceName()»",
+		«FOREACH this.values AS value SEPARATOR ', '»"«value.specification»"«ENDFOREACH»
+		);
+«ENDDEFINE»
+
+«DEFINE CheckAccuracy(ResourceDemandingSEFF rdseff, AbstractAction action) FOR CharacterisedPCMParameterPartition»
+	«ERROR "Implementation of transformation for accuracy influence analysis does not support this partition type."»
+«ENDDEFINE»
+
+«DEFINE CheckAccuracy(ResourceDemandingSEFF rdseff, AbstractAction action) FOR PCMParameterPartition»
+	«EXPAND CheckAccuracy(rdseff, action) FOREACH this.characerisedParameterPartitions»
+«ENDDEFINE»
