@@ -23,6 +23,7 @@ extends
 		EjbCodeGenerationConfiguration config = (EjbCodeGenerationConfiguration) configuration;
 		
 		config.setDebug(this.isDebug);
+		config.setInteractive(true);
 		
 		config.setSensitivityAnalysisEnabled(
 				hasValidSensitvityVariableAttribute(ConstantsContainer.VARIABLE_TEXT));
