@@ -6,9 +6,9 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.kit.edu
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.1.0",
- de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
- de.uka.ipd.sdq.workflow.launchconfig;bundle-version="1.1.0";visibility:=reexport,
- de.uka.ipd.sdq.workflow.mdsd;bundle-version="1.0.0",
+ de.uka.ipd.sdq.workflow;bundle-version="2.0.1",
+ de.uka.ipd.sdq.workflow.launchconfig;bundle-version="2.0.0";visibility:=reexport,
+ de.uka.ipd.sdq.workflow.mdsd;bundle-version="2.0.1",
  de.uka.ipd.sdq.completions;bundle-version="1.0.0",
  org.eclipse.ui;visibility:=reexport,
  org.eclipse.core.runtime;visibility:=reexport,
