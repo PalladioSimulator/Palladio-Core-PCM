@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.variables.tests;
 
+import java.util.Arrays;
+
 import junit.framework.Assert;
 import junit.framework.TestCase;
 
@@ -8,6 +10,8 @@ import org.apache.log4j.ConsoleAppender;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.apache.log4j.PatternLayout;
+
+import com.sun.tools.javac.code.Attribute.Array;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
@@ -102,18 +106,47 @@ public class StoExVisitorTests extends TestCase {
 		result = (Boolean)StackContext.evaluateStatic("true XOR true");
 		Assert.assertEquals(false, result);
 	}
+	
+	public void testUniIntFunction() {
+	    logger.info("UniInt");
+	    int[] uiv;
+        int min = 1;
+        int max = 4;
+        uiv = new int[max];
+        
+        for (int i=0; i<2000; i++) {
+            int result = (Integer)StackContext.evaluateStatic("UniInt("+min+","+max+")");
+            Assert.assertTrue("Value of UniInt(1,4) out of borders: value is " + result, result >= min && result <= max);
+            ++uiv[result-1];
+        }
+        
+        //Check for the uniformity of the distribution
+        int[] sorted = Arrays.copyOf(uiv, 4);
+        Arrays.sort(sorted);
+        int median = sorted[(max-1)/2];
+        double percentile = 0.10;
+        int lowerBound = (int) (median*(1.0-percentile));
+        int upperBound = (int) (median*(1.0+percentile));
+        
+        for (int i = 0; i < max; i++) {
+            Assert.assertTrue("Frequency of " + i + " is not within 10% of the median frequency ", uiv[i] > lowerBound && uiv[i] < upperBound);    
+        }
+        
+	}
 
+	
+	
 	public void testFunctions() {
 		logger.info("UniDouble");
 		for (int i=0; i<2000; i++) {
 			double result3 = (Double)StackContext.evaluateStatic("UniDouble(1,4)");
 			Assert.assertTrue(result3 >= 1 && result3 <= 4);
 		}
-		logger.info("UniInt");
-		for (int i=0; i<2000; i++) {
-			int result3 = (Integer)StackContext.evaluateStatic("UniInt(1,4)");
-			Assert.assertTrue(result3 >= 1 && result3 <= 4);
-		}
+		
+		
+		
+		
+		
 		logger.info("Norm");
 		for (int i=0; i<200; i++) {
 			double result3 = (Double)StackContext.evaluateStatic("Norm(0,1)");
