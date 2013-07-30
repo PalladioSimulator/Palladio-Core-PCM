@@ -122,7 +122,7 @@ public class PalladioComponentModelCreationWizard extends Wizard implements INew
                     String fileName = diagramModelFilePage.getFileName();
                     fileName = fileName.substring(0, fileName.length() - ".system_diagram".length()); //$NON-NLS-1$
                     setFileName(PalladioComponentModelDiagramEditorUtil.getUniqueFileName(getContainerFullPath(),
-                            fileName, "repository")); //$NON-NLS-1$
+                            fileName, "system")); //$NON-NLS-1$
                 }
                 super.setVisible(visible);
             }

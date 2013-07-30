@@ -612,7 +612,7 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
    </extension>
 
    <extension point="org.eclipse.ui.navigator.navigatorContent" id="navigator-content">
-      <?gmfgen generated="true"?>
+      <?gmfgen generated="false"?>
       <navigatorContent
             id="de.uka.ipd.sdq.pcm.gmf.composite.resourceContent" 
             name="%navigatorContentName" 
@@ -661,7 +661,8 @@ Copyright 2007, SDQ, IPD, Uni Karlsruhe (TH)
             <or>
 	           <and>
     	          <instanceof value="org.eclipse.core.resources.IFile"/>
-        	      <test property="org.eclipse.core.resources.extension" value="repository"/>
+                  <!-- Corrected generated extension "repository" to "system" -->
+        	      <test property="org.eclipse.core.resources.extension" value="system"/>
                </and>
                <instanceof value="de.uka.ipd.sdq.pcm.gmf.composite.navigator.PalladioComponentModelDomainNavigatorItem"/>
             </or>
