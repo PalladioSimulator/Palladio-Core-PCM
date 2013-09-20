@@ -171,7 +171,8 @@ public class EventsTransformationJob
 			
 			if(fileExtension.equals("repository") 
 					&& repositoryModelLocation == null
-					&& !modelURI.toString().startsWith("pathmap://")){
+					&& !modelURI.toString().startsWith("pathmap://")
+					&& !modelURI.toString().contains("PrimitiveTypes.repository")){
 				repositoryModelLocation = new ModelLocation(pcmModelPartitionId, modelURI);
 			}
 		}
