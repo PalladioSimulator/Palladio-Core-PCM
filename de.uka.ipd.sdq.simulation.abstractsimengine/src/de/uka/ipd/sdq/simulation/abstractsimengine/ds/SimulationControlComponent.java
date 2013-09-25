@@ -6,6 +6,12 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 
+/**
+ * 
+ * Implementation of the simulation control declarative service.
+ * 
+ * @author Christoph Föhrdes
+ */
 public class SimulationControlComponent implements ISimulationControlComponent {
 
     private ISimulationModel simModel;

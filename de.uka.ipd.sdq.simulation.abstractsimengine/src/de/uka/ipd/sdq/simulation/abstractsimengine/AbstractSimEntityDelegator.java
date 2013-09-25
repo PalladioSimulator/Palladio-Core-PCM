@@ -4,8 +4,6 @@ package de.uka.ipd.sdq.simulation.abstractsimengine;
  * @author Steffen Becker (this code has been factored out from SimuCom)
  * @author Philipp Merkle
  * 
- * @param <M>
- *            the type of the simulation model
  * @see IEntity
  */
 public abstract class AbstractSimEntityDelegator extends SimulationElement implements IEntity {

@@ -5,9 +5,6 @@ import java.util.Observer;
 /**
  * @author Steffen Becker (this code has been factored out from SimuCom)
  * @author Philipp Merkle
- * 
- * @param <M>
- *            the type of the simulation model
  */
 public interface ISimulationControl {
 
