@@ -7,6 +7,6 @@ public class BusSimConfig implements ISimulationConfig  {
     @Override
     public String getNameExperimentRun() {
         return "Bus Simulation";
-    } 
+    }
 
 }

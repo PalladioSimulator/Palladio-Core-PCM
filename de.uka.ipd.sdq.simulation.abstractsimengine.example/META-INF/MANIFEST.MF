@@ -10,3 +10,5 @@ Require-Bundle: de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.
  de.uka.ipd.sdq.simulation;bundle-version="1.0.0",
  org.apache.log4j;bundle-version="1.2.15",
  de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0"
+Bundle-ActivationPolicy: lazy
+Bundle-Activator: de.uka.ipd.sdq.simulation.abstractsimengine.example.Activator
