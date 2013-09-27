@@ -77,7 +77,7 @@
    <extension
          point="de.uka.ipd.sdq.pcmbench.ui.wizard.template">
       <model_template
-            description="Creates a Palladio project containing a minimum example project using a event-based communication."
+            description="Creates a Palladio project containing a minimum example project using an event-based communication."
             name="Minimum Event Template">
          <model_file
                target_file="default.allocation"
