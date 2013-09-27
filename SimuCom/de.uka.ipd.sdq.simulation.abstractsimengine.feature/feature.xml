@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.simulation.abstractsimengine.feature"
       label="Abstract Simulation Engine Feature"
-      version="3.4.0.qualifier"
+      version="3.4.1.qualifier"
       provider-name="sdq.ipd.kit.edu"
       plugin="de.uka.ipd.sdq.branding">
 

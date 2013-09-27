@@ -27,35 +27,35 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
    	  <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/commons/releases/1.2/" />
+      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/commons/releases/1.3/" />
     </rm:provider>
   </rm:searchPath>
     <rm:searchPath name="SensorFramework">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
    	  <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/releases/1.2/" />
+      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/releases/1.3/" />
     </rm:provider>
   </rm:searchPath>
       <rm:searchPath name="ProbeSpec">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
    	  <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/probespec/releases/1.1/" />
+      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/probespec/releases/1.2/" />
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="FeatureModel">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
    	  <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/featuremodel/releases/1.2/" />
+      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/featuremodel/releases/1.3/" />
     </rm:provider>
   </rm:searchPath>
     <rm:searchPath name="WorkflowEngine">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
    	  <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/workflowengine/releases/2.0.1/" />
+      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/workflowengine/releases/2.0.2/" />
     </rm:provider>
   </rm:searchPath>
     <rm:searchPath name="mediniqvt">
@@ -98,7 +98,7 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/R20110523182458/repository/"/>
+      <rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="juno">

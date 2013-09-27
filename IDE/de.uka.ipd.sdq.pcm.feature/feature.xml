@@ -2,7 +2,7 @@
 <feature
       id="de.uka.ipd.sdq.pcm.feature"
       label="Palladio Component Model Feature"
-      version="3.4.0.qualifier"
+      version="3.4.1.qualifier"
       provider-name="sdq.ipd.uka.de"
       plugin="de.uka.ipd.sdq.branding">
 
