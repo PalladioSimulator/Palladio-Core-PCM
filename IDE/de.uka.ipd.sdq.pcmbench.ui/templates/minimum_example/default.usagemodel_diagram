@@ -10,11 +10,11 @@
             <styles xmi:type="notation:FontStyle" xmi:id="_cMLwsipFEeK09YX3rD7vgg" fontName="Segoe UI"/>
             <styles xmi:type="notation:LineStyle" xmi:id="_cMLwsypFEeK09YX3rD7vgg"/>
             <element xmi:type="usagemodel:Start" href="default.usagemodel#_LPwS4SHdEd6lJo4DCALHMw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMLwtCpFEeK09YX3rD7vgg" x="85" y="29"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMLwtCpFEeK09YX3rD7vgg" x="115" y="29"/>
           </children>
           <children xmi:type="notation:Shape" xmi:id="_cMLwtSpFEeK09YX3rD7vgg" type="3002" fontName="Segoe UI">
             <element xmi:type="usagemodel:Stop" href="default.usagemodel#_LPwS4iHdEd6lJo4DCALHMw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMLwtipFEeK09YX3rD7vgg" x="80" y="349"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMLwtipFEeK09YX3rD7vgg" x="115" y="344"/>
           </children>
           <children xmi:type="notation:Shape" xmi:id="_cMLwtypFEeK09YX3rD7vgg" type="3003" fontName="Segoe UI">
             <children xmi:type="notation:DecorationNode" xmi:id="_cMR3UCpFEeK09YX3rD7vgg" type="5004"/>
@@ -23,13 +23,13 @@
               <styles xmi:type="notation:FilteringStyle" xmi:id="_cMR3UypFEeK09YX3rD7vgg"/>
             </children>
             <element xmi:type="usagemodel:EntryLevelSystemCall" href="default.usagemodel#_NC8HwCHdEd6lJo4DCALHMw"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMLwuCpFEeK09YX3rD7vgg" x="30" y="109"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMLwuCpFEeK09YX3rD7vgg" x="10" y="109"/>
           </children>
           <children xmi:type="notation:Shape" xmi:id="_cMR3VCpFEeK09YX3rD7vgg" type="3017" fontName="Segoe UI">
             <children xmi:type="notation:DecorationNode" xmi:id="_cMR3VipFEeK09YX3rD7vgg" type="5018"/>
             <children xmi:type="notation:DecorationNode" xmi:id="_cMR3VypFEeK09YX3rD7vgg" type="5019"/>
             <element xmi:type="usagemodel:Delay" href="default.usagemodel#_H8BfsA3zEeCgT6LmvPDQdQ"/>
-            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMR3VSpFEeK09YX3rD7vgg" x="40" y="219"/>
+            <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cMR3VSpFEeK09YX3rD7vgg" x="70" y="219"/>
           </children>
         </children>
         <element xmi:type="usagemodel:ScenarioBehaviour" href="default.usagemodel#_LPwS4CHdEd6lJo4DCALHMw"/>
@@ -43,14 +43,14 @@
         <styles xmi:type="notation:FontStyle" xmi:id="_cLhCVSpFEeK09YX3rD7vgg" fontName="Segoe UI"/>
         <styles xmi:type="notation:LineStyle" xmi:id="_cLhCVipFEeK09YX3rD7vgg"/>
         <element xmi:type="usagemodel:ClosedWorkload" href="default.usagemodel#//@usageScenario_UsageModel.0/@workload_UsageScenario"/>
-        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cLhCVypFEeK09YX3rD7vgg" x="253" y="31"/>
+        <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cLhCVypFEeK09YX3rD7vgg" x="318" y="29"/>
       </children>
     </children>
     <styles xmi:type="notation:DescriptionStyle" xmi:id="_cKkAESpFEeK09YX3rD7vgg"/>
     <styles xmi:type="notation:FontStyle" xmi:id="_cKkAEipFEeK09YX3rD7vgg" fontName="Segoe UI"/>
     <styles xmi:type="notation:FillStyle" xmi:id="_cKkAEypFEeK09YX3rD7vgg"/>
     <element xmi:type="usagemodel:UsageScenario" href="default.usagemodel#_LPnI8CHdEd6lJo4DCALHMw"/>
-    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cKkAFCpFEeK09YX3rD7vgg" x="30" y="30"/>
+    <layoutConstraint xmi:type="notation:Bounds" xmi:id="_cKkAFCpFEeK09YX3rD7vgg" x="30" y="30" width="486" height="486"/>
   </children>
   <styles xmi:type="notation:DiagramStyle" xmi:id="_cEjesSpFEeK09YX3rD7vgg"/>
   <element xmi:type="usagemodel:UsageModel" href="default.usagemodel#/"/>
