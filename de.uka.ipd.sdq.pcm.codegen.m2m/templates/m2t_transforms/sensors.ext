@@ -1,0 +1,28 @@
+import entity;
+import core::entity;
+import repository;
+import seff;
+import emf;
+extension m2t_transforms::pcm;
+extension m2t_transforms::java_names;
+
+String externalCallActionDescription(OperationSignature os, Object call) :
+  "Call "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+((EObject)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">";
+
+String internalActionDescription(InfrastructureSignature os, Object call) :
+  "Call "+os.infrastructureInterface__InfrastructureSignature.entityName+"."+os.javaSignature()+" <Component: "+((EObject)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((InternalAction)call).id+">";
+ 
+String entryLevelSystemCallActionDescription(OperationSignature os, Object call) :
+  "Call_"+os.javaSignature()+" <EntryLevelSystemCall id: "+((Entity)call).id+" >"; 
+
+String entryLevelSystemCallActionDescription(InfrastructureSignature os, Object call) :
+  "Call_"+os.javaSignature()+" <EntryLevelSystemCall id: "+((Entity)call).id+" >"; 
+  
+Set[ExternalCallAction] getExternalCallActions(BasicComponent component) : 
+  component.serviceEffectSpecifications__BasicComponent.collect(e|e.eAllContents.select(action|ExternalCallAction.isInstance(action))).flatten();
+  
+String seffDescription(OperationSignature os, RepositoryComponent component) : 
+  "SEFF "+os.interface__OperationSignature.entityName+"."+os.javaSignature()+" <Component: "+component.entityName+", AssemblyCtx: \"+this.assemblyContextID+\">";
+  
+  String seffDescription(InfrastructureSignature os, RepositoryComponent component) : 
+  "SEFF "+os.infrastructureInterface__InfrastructureSignature.entityName+"."+os.javaSignature()+" <Component: "+component.entityName+", AssemblyCtx: \"+this.assemblyContextID+\">";

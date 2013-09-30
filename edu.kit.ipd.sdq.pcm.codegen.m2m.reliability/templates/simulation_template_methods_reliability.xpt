@@ -1,0 +1,23 @@
+«EXTENSION m2t_transforms::java_names»
+«IMPORT seff::seff_performance»
+
+
+«AROUND m2t_transforms::sim::resources::ResourceDemand FOR ParametricResourceDemand»
+	«targetDef.proceed()»
+	«EXPAND ResourceDemand FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::sim::resources::ResourceDemand FOR ResourceCall»
+«REM»Call  «targetDef.proceed()» in order to execute the underlying template.
+Otherwise, this template replaces the original template, which is usually not wanted.«ENDREM»
+	«targetDef.proceed()»
+	«EXPAND ResourceDemand FOR this»
+«ENDAROUND»
+
+«DEFINE ResourceDemand FOR ParametricResourceDemand»
+   // What else should be done here?
+«ENDDEFINE»
+
+«DEFINE ResourceDemand FOR ResourceCall»
+   // What else should be done here?
+«ENDDEFINE»

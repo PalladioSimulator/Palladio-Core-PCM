@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?NLS TYPE="org.eclipse.help.toc"?>
+
+<toc label="Getting Started" link_to="toc.xml#gettingstarted"> 
+	<topic label="PCM Model"  href="html/gettingstarted/PCM_Model.html" > 
+	</topic> 
+	<topic label="Resourcetyp Model" href="html/gettingstarted/ResourcetypeModel.htm">
+	</topic> 
+	<topic label="Repository Model" href="html/gettingstarted/RepositoryModel.htm">
+	</topic> 
+	<topic label="System Model" href="html/gettingstarted/SystemModel.htm">
+	</topic> 
+	<topic label="Resourceenvironment Model" href="html/gettingstarted/ResourceenvironmentModel.htm">
+	</topic> 
+	<topic label="Allocation Model" href="html/gettingstarted/AllocationModel.htm">
+	</topic> 
+	<topic label="Usage Model" href="html/gettingstarted/UsageModel.htm">
+	</topic> 
+</toc>

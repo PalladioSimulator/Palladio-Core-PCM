@@ -1,0 +1,221 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT seff»
+«IMPORT completions»
+«IMPORT repository»
+«IMPORT seff::seff_reliability»
+«IMPORT seff::seff_performance»
+«IMPORT reliability»
+
+// ----------------------------
+// General templates for parts of a SEFF
+// ----------------------------
+«DEFINE Action FOR AbstractAction»
+   // Unknown Action found «this.entityName»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: Abstract Action Unknown: "+this.metaType.toString()»
+«ENDDEFINE»
+
+«DEFINE Action FOR StartAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR StopAction»
+«ENDDEFINE»
+
+«DEFINE Action FOR CollectionIteratorAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: CollectionIterationAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR LoopAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: LoopAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ExternalCallAction»
+/* ExternalCallAction - START */
+ 	{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
+
+		    «EXPAND m2t_transforms::calls::Call(this,
+		       	"myContext.getRole"+this.role_ExternalService.javaName()+"().",
+		    	this.inputVariableUsages__CallAction, this.returnVariableUsage__CallReturnAction) FOR this.calledService_ExternalService»
+		    	
+	}
+/* ExternalCallAction - END */
+«ENDDEFINE»
+
+«DEFINE Action FOR RecoveryAction»
+{ /* RecoveryAction - START */
+
+	«EXPAND RecoveryActionAlternative FOR this.primaryBehaviour__RecoveryAction»
+
+} /* RecoveryAction - END */
+«ENDDEFINE»
+
+«DEFINE RecoveryActionAlternative FOR RecoveryActionBehaviour»
+/* RecoveryActionBehaviour - START */
+	
+«LET this.id.javaVariableName() AS id»
+	«EXPAND InitFailureHandling(id) FOR this-»
+	try {
+		«EXPAND m2t_transforms::java_core::Actions FOR this.steps_Behaviour.findStart()-»
+	} catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex_«id») {
+			
+		// Remember the type of the failure-on-demand occurrence:
+		failureException_«id» = ex_«id»;
+
+		// Remove all additional stack frames; they are invalid now:
+		for(int frameCount_«id» = 0; frameCount_«id» < ctx.getStack().size() - stackSize_«id»; ++frameCount_«id») {
+			ctx.getStack().removeStackFrame();
+		}
+
+		«EXPAND NextRecoveryActionAlternative(id) FOREACH this.failureHandlingAlternatives__RecoveryActionBehaviour-»
+	} finally {}
+
+	// no more alternatives.
+	if(failureException_«id»!=null) { // failure occurred? 
+		throw failureException_«id»;
+	}
+«ENDLET»
+
+/* RecoveryActionBehaviour - END */
+«ENDDEFINE»
+
+«DEFINE CheckIfExceptionIsHandled(String id) FOR FailureHandlingEntity»
+    (
+	«IF this.failureTypes_FailureHandlingEntity.size==0» «REM» No failure types handled!«ENDREM»
+		false
+	«ELSE»
+		«FOREACH this.failureTypes_FailureHandlingEntity AS failureType SEPARATOR "||"»
+			«EXPAND CheckFailureTypeMatch(id) FOR failureType»
+		«ENDFOREACH»
+	«ENDIF»
+	)
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR FailureType»
+«ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: Unknown FailureType "+this.entityName»
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR SoftwareInducedFailureType»
+	«IF ResourceTimeoutFailureType.isInstance(this)»
+		«LET (ResourceTimeoutFailureType)this AS resourceFailureType»
+			(
+			  (failureException_«id».getFailureType() instanceof
+			  de.uka.ipd.sdq.reliability.core.MarkovResourceTimeoutFailureType)
+			  &&
+			  (((de.uka.ipd.sdq.reliability.core.MarkovResourceTimeoutFailureType)
+			  failureException_«id».getFailureType()).getPassiveResourceId().equals(
+			  "«resourceFailureType.passiveResource__ResourceTimeoutFailureType.id»"))
+			)
+		«ENDLET»
+	«ELSE»
+		(
+		  (failureException_«id».getFailureType() instanceof
+		  de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType)
+		  &&
+		  (((de.uka.ipd.sdq.reliability.core.MarkovSoftwareInducedFailureType)
+		  failureException_«id».getFailureType()).getSoftwareFailureId().equals("«this.id»"))
+	    )
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR HardwareInducedFailureType»
+	(
+	  (failureException_«id».getFailureType() instanceof
+	  de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType)
+	  &&
+	  (((de.uka.ipd.sdq.reliability.core.MarkovHardwareInducedFailureType)
+	  failureException_«id».getFailureType()).getResourceTypeId().equals(
+	  "«this.processingResourceType__HardwareInducedFailureType.id»"))
+	)
+«ENDDEFINE»
+
+«DEFINE CheckFailureTypeMatch(String id) FOR NetworkInducedFailureType»
+	(
+	  (failureException_«id».getFailureType() instanceof
+	  de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType)
+	  &&
+	  (((de.uka.ipd.sdq.reliability.core.MarkovNetworkInducedFailureType)
+	  failureException_«id».getFailureType()).getCommLinkResourceTypeId().equals(
+	  "«this.communicationLinkResourceType__NetworkInducedFailureType.id»"))
+	)
+«ENDDEFINE»
+
+«DEFINE InitFailureHandling(String id) FOR Object»
+	de.uka.ipd.sdq.simucomframework.exceptions.FailureException failureException_«id»=null;
+	int stackSize_«id»=ctx.getStack().size();
+«ENDDEFINE»
+
+«DEFINE NextRecoveryActionAlternative(String id) FOR RecoveryActionBehaviour»
+		// Let the next alternative behaviour handle the failure, if
+		// (i)  the previous alternatives did not already handle it, and
+		// (ii) the handled failure types of the next alternative include
+		//      the occurred failure type:
+		if(failureException_«id» != null)
+		{
+			if(«EXPAND CheckIfExceptionIsHandled(id) FOR this») {
+		
+				// Mark the original exception as handled (even if the
+				// handling alternative fails itself, this will be a new
+				// failure, and the original failure is counted as handled):
+				de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseHandledFailureCounter(failureException_«id».getFailureType());
+				failureException_«id» = null;
+		
+				«EXPAND RecoveryActionAlternative FOR this»			
+			}
+		}
+«ENDDEFINE»
+
+«DEFINE CatchFailureExceptions(String id) FOR ExternalCallAction»
+	«IF this != null»
+		catch(de.uka.ipd.sdq.simucomframework.exceptions.FailureException ex) {
+			
+			// Remember the type of the failure-on-demand occurrence:
+			failureException_«id» = ex;
+
+			// Remove all additional stack frames; they are invalid now:
+			for(int frameCount_«id» = 0; frameCount_«id» < ctx.getStack().size() - stackSize_«id»; ++frameCount_«id») {
+				ctx.getStack().removeStackFrame();
+			}
+		}
+	«ELSE»
+		finally {}
+	«ENDIF»
+«ENDDEFINE»
+
+«DEFINE Action FOR DelegatingExternalCallAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: Action is a template method and must be overridden for DelegatingExternalCallAction"»
+«ENDDEFINE»
+
+«DEFINE Action FOR InternalAction»
+/* InternalAction - START */
+    // software failures:
+	«EXPAND FailureInternalActionPreTM FOR this»
+	// direct resource demands:
+	«EXPAND m2t_transforms::resources::ResourceDemands FOR this»
+	// infrastructure calls:
+    «EXPAND m2t_transforms::calls::Call(this) FOREACH this.infrastructureCall__Action»
+/* InternalAction - END */
+«ENDDEFINE»
+
+«DEFINE FailureInternalActionPreTM FOR InternalAction»
+	«REM»Nothing to do in the general case.«ENDREM»
+«ENDDEFINE»
+ 
+«DEFINE Action FOR BranchAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: BranchAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR AcquireAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: AquireAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ReleaseAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: ReleaseAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR SetVariableAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: SetVariableAction is a template method and must be overridden"»
+«ENDDEFINE»
+
+«DEFINE Action FOR ForkAction»
+   «ERROR "OAW GENERATION ERROR [m2t_transforms/seff_body.xpt]: ForkAction is a template method and must be overridden"»
+«ENDDEFINE»

@@ -1,0 +1,352 @@
+import Commons;
+import OperationSignatureRegistry;
+import VariableUtil;
+import SEFFRegistry;
+
+modeltype PCM_ALLOC uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0';
+modeltype PCM_REP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0';
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0';
+modeltype PCM_SYS uses 'http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0';
+modeltype PCM_RES_ENV uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0';
+modeltype PCM_RES_TYPE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0';
+modeltype PCM_USAGE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0';
+modeltype PCM_FEATURE_CONF uses 'http://sdq.ipd.uka.de/FeatureConfig/2.0';
+modeltype PCM_FEATURE_MOD uses 'http://sdq.ipd.uka.de/FeatureModel/2.0';
+modeltype PCM_CORE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0';
+modeltype PCM_COMP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0';
+modeltype PCM_ENTITY uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0';
+modeltype PCM_PARAM uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0';
+modeltype PCM_STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/1.0';
+
+/**
+ * Library with helpers to create elements
+ *
+ * @author Benjamin Klatt
+ * @author Evgeniy Shin
+ */
+library SEFFUtil;
+
+/**
+ * Place an external call action in a seff.
+ *
+ * For this, the seff needs to be manipulated and the new action is added
+ * after the start action of the seff.
+ *
+ * This operation does not specify any variable usages.
+ *
+ * @param seff 			The seff to add the action to
+ * @param signature 	The service called by the external action
+ * @param requiredRole	The required role to call the service on
+ */
+helper SEFFUtil_addExternalCallActionToSeff(	inout seff : ResourceDemandingSEFF,
+												signature : OperationSignature,
+												requiredRole : OperationRequiredRole)  : ExternalCallAction {
+				
+				
+	// get the actions to place the enw external call inbetween
+	// Todo: try to use just ->any(s | s.oclIsTypeOf(StartAction))		
+	var firstAction : AbstractAction = seff.steps_Behaviour->any(s | s.oclIsTypeOf(StartAction));
+	var nextStepAction := firstAction.successor_AbstractAction;
+		
+	var action := object ExternalCallAction {
+		entityName := 'ExternalCall'+signature.entityName;
+		predecessor_AbstractAction := firstAction;
+		successor_AbstractAction := nextStepAction;
+		calledService_ExternalService := signature;
+		role_ExternalService := requiredRole;
+	};
+	
+	// when the External call action is prepared add it to the seff
+	seff.steps_Behaviour += Set{action};	
+	
+	return action;
+}
+
+/**
+ * Create an ExternalCallAction including the variable usages 
+ * to forward all characteristics of the seffs signature parameters
+ *
+ * @param signature 		The service called by the external action
+ * @param requiredRole		The required role to call the service on
+ * @param predecessorAction The action to be set as predecessor for this action
+ */
+helper SEFFUtil_createForwardingExternalCallAction(	signature : OperationSignature,
+													requiredRole : OperationRequiredRole,
+													predecessorAction : AbstractAction)  : ExternalCallAction {
+				
+	var nextStepAction := predecessorAction.successor_AbstractAction;
+	var variableUsages : Set(VariableUsage) = VariableUtil_buildCompleteForwardingVariableUsageSet(signature);
+	
+	var action := object ExternalCallAction {
+		entityName := 'ExternalCall'+signature.entityName;
+		predecessor_AbstractAction := predecessorAction;
+		successor_AbstractAction := nextStepAction;
+		calledService_ExternalService := signature;
+		role_ExternalService := requiredRole;
+		inputVariableUsages__CallAction := variableUsages;
+	};
+
+	// link between the variableUsages and the call action
+	variableUsages->forEach(usage){
+		usage.callAction__VariableUsage := action;
+	};
+	return action;
+}
+
+/**
+ * Create a ForkAction
+ *
+ * @param signature 		The service called by the external action
+ * @param predecessorAction The action to be set as predecessor for this action
+ */
+helper SEFFUtil_createForkAction(predecessorAction : AbstractAction)  : ForkAction {
+	
+	var nextStepAction := predecessorAction.successor_AbstractAction;
+	
+	var forkAction := object ForkAction {	
+		entityName := 'DistributeEvents';
+		predecessor_AbstractAction := predecessorAction;
+		successor_AbstractAction := nextStepAction;
+	};
+	return forkAction;
+}
+
+/**
+ * Create a fork behaviour with an external call to distribute an event
+ *
+ * @param requiredRole	The role to trigger.
+ * @param signature		The service to trigger in the required role
+ * @return The prepared fork behaviour
+ */
+helper SEFFUtil_createForkBehaviour(	requiredRole : OperationRequiredRole,
+										signature : OperationSignature ) : ForkedBehaviour {
+	
+	// create the actions
+	var startAction := SEFFUtil_createStartAction();
+	var callAction := SEFFUtil_createForwardingExternalCallAction(	signature,
+																	requiredRole,
+																	startAction);
+	var stopAction := SEFFUtil_createStopAction(callAction);
+	
+	return object ForkedBehaviour {
+		steps_Behaviour := Set{startAction,callAction,stopAction};
+	}
+}
+
+
+
+/**
+ * Create the source port seff.
+ * This includes an external call to a required role. 
+ * The external call should be pointed to the same signature
+ * as the seff handles on the required role.
+ * 
+ * @param sourcePort The basic component representing the source port
+ * @param requiredRole The required role to send an external call to
+ * @return The SEFF for a specific event type emit method
+ */
+helper OperationSignature::SEFFUtil_createForwardingSEFF(	sourcePort : BasicComponent,
+															requiredRole : OperationRequiredRole) : ResourceDemandingSEFF {
+	
+	// create the actions
+	var startAction := SEFFUtil_createStartAction();
+	var callAction := SEFFUtil_createForwardingExternalCallAction(	self,
+																	requiredRole,
+																	startAction);
+	var stopAction := SEFFUtil_createStopAction(callAction);
+
+	var seff := object ResourceDemandingSEFF {
+		describedService__SEFF := self;
+		basicComponent_ServiceEffectSpecification := sourcePort;
+		steps_Behaviour := Set{startAction,callAction,stopAction};
+	};
+	
+	// register the seff for global accessibility
+	SEFFRegistry_registerSEFF(sourcePort,self,seff);
+	
+	return seff;
+}
+
+
+
+/**
+ * Create a basic seff with an empty fork action.
+ * 
+ * @param component The basic component to place the seff in
+ * @return The SEFF for a specific event type emit method
+ */
+helper OperationSignature::SEFFUtil_createBasicSEFFWithForkAction(	component : BasicComponent) : ResourceDemandingSEFF {
+	
+	// create the actions
+	var startAction := SEFFUtil_createStartAction();
+	var forkAction := SEFFUtil_createForkAction(startAction);
+	var stopAction := SEFFUtil_createStopAction(forkAction);
+
+	var seff := object ResourceDemandingSEFF {
+		describedService__SEFF := self;
+		basicComponent_ServiceEffectSpecification := component;
+		steps_Behaviour := Set{startAction,forkAction,stopAction};
+	};
+	
+	// register the seff for global accessibility
+	SEFFRegistry_registerSEFF(component,self,seff);
+	
+	return seff;
+}
+
+/**
+ * Create a basic start action
+ *
+ * @return the start action object
+ */
+helper SEFFUtil_createStartAction() : StartAction {
+	return object StartAction {
+		entityName := 'start';		
+	};
+}
+
+
+/**
+ * Create a basic stop action
+ *
+ * @param predecessorAction The action to be set as predecessor for this one
+ * @return the stop action object
+ */
+helper SEFFUtil_createStopAction(predecessorAction : AbstractAction):StopAction {
+	return object StopAction {
+		entityName := 'stop';
+		predecessor_AbstractAction := predecessorAction;
+	}
+}	
+
+/**
+ * Switch a seff that is referencing an event type to the corresponding
+ * operation signature.
+ * If the seff does not reference an event type it will not be modified.
+ *
+ * @param seff The seff to be changed
+ */
+helper SEFFUtil_switchToOperationSignature(seff : ServiceEffectSpecification) {
+	
+	// ensure, that the seff is currently referencing an event type 
+	// and switch it to the according operation signature
+	var currentSignature := seff.describedService__SEFF;
+	if (currentSignature.oclIsTypeOf(EventType))
+		then {
+			var eventType := currentSignature[EventType]->any(true);
+			var eventGroup := currentSignature[EventType].eventGroup__EventType->any(true);
+			seff[ResourceDemandingSEFF]->any(true).describedService__SEFF := findSignature(eventGroup,eventType);
+		}
+	endif;
+	
+	return;
+}
+
+/**
+ * Create a BranchAction
+ *
+ * @param predecessorAction The action to be set as predecessor for this action
+ */
+helper SEFFUtil_createEmptyBranchAction(predecessorAction : AbstractAction)  : BranchAction {
+	
+	var nextStepAction := predecessorAction.successor_AbstractAction;
+	
+	var branchAction := object BranchAction {	
+		entityName := 'Evaluate filter condition';
+		predecessor_AbstractAction := predecessorAction;
+		successor_AbstractAction := nextStepAction;
+	};
+	return branchAction;
+}
+
+/**
+ * Create a seff with a branch action.
+ * This includes two guarded branch transitions in the seff,
+ * where the required role that is called from the guarded branch transition,
+ * if the filter condition evaluates to true.
+ *
+ * 
+ * @param component The basic component to place the seff in
+ * @return The SEFF for a specific event type emit method
+ */
+helper OperationSignature::SEFFUtil_createSEFFWithBranchAction(	component : BasicComponent,
+																requiredRole : OperationRequiredRole,
+																filterCondition : PCMRandomVariable) : ResourceDemandingSEFF {
+
+	// Setup filterCondition. If null assumed true.
+	var positiveFilterCondition := filterCondition;
+	if(filterCondition != null)
+			then {positiveFilterCondition := filterCondition}
+			else {positiveFilterCondition := object PCMRandomVariable{specification := 'true'}}
+	endif;	
+	var negativeFilterCondition := object PCMRandomVariable {specification := 'NOT (' + positiveFilterCondition.specification + ')'};
+	// create the actions
+	var startAction := SEFFUtil_createStartAction();
+	var branchAction := SEFFUtil_createEmptyBranchAction(startAction);
+	branchAction.branches_Branch += SEFFUtil_createGuardedBranchTransitionWithExternalCall(requiredRole,self,positiveFilterCondition);
+	branchAction.branches_Branch += SEFFUtil_createGuardedBranchTransitionWithOnlyStartToStop(negativeFilterCondition);
+	var stopAction := SEFFUtil_createStopAction(branchAction);
+
+	var seff := object ResourceDemandingSEFF {
+		describedService__SEFF := self;
+		basicComponent_ServiceEffectSpecification := component;
+		steps_Behaviour := Set{startAction,branchAction,stopAction};
+	};
+	
+	// register the seff for global accessibility
+	SEFFRegistry_registerSEFF(component,self,seff);
+	
+	return seff;
+}
+
+/**
+ * Create a guarded branch transition including a resource demanding behaviour with an external call to send an event
+ *
+ * @param requiredRole		The role to trigger.
+ * @param signature			The service to trigger in the required role
+ * @param branchCondition	Condition to pass the branch
+ * @return The prepared branch transition
+ */
+helper SEFFUtil_createGuardedBranchTransitionWithExternalCall(	requiredRole : OperationRequiredRole,
+																signature : OperationSignature,
+																branchCondition : PCMRandomVariable) : GuardedBranchTransition {
+	// create the actions
+	var startAction := SEFFUtil_createStartAction();
+	var callAction := SEFFUtil_createForwardingExternalCallAction(	signature,
+																	requiredRole,
+																	startAction);
+	var stopAction := SEFFUtil_createStopAction(callAction);
+	
+	var rdBehaviour := object ResourceDemandingBehaviour {
+		steps_Behaviour := Set{startAction,callAction,stopAction};
+	};
+	
+	return object GuardedBranchTransition {
+			entityName := 'Guarded branch transition';
+			branchCondition_GuardedBranchTransition := branchCondition;
+			branchBehaviour_BranchTransition := rdBehaviour;
+		};
+}
+
+/**
+ * Create a guarded branch transition including a resource demanding behaviour with only start followed by stop actions.
+ *
+ * @param branchCondition	Condition to pass the branch
+ * @return The prepared branch transition
+ */
+helper SEFFUtil_createGuardedBranchTransitionWithOnlyStartToStop(branchCondition : PCMRandomVariable) : GuardedBranchTransition {
+	
+	// create the actions
+	var startAction := SEFFUtil_createStartAction();
+	var stopAction := SEFFUtil_createStopAction(startAction);
+	
+	var rdBehaviour := object ResourceDemandingBehaviour {
+		steps_Behaviour := Set{startAction,stopAction};
+	};
+	
+	return object GuardedBranchTransition {
+			entityName := 'Guarded branch transition';
+			branchCondition_GuardedBranchTransition := branchCondition;
+			branchBehaviour_BranchTransition := rdBehaviour;
+		};
+}

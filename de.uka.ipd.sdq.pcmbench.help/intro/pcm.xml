@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<introContent>
+  	<extensionContent id="deukaipdsdqpcmbenchhelp-introExtension" style="css/pcm.css" name="PCM Overview part" path="overview/@">
+		<group style-id="content-group" id="deukaipdsdqpcmbenchhelp-introLink-group">
+       		<link label="The Palladio Component Model" url="http://www.palladio-simulator.com" id="deukaipdsdqpcmbenchhelp-introLink" style-id="content-link">
+          		<text>The Palladio-Bench offers editors and prediction methods to model and predict performance, reliability, and costs of Component-Based Software Systems
+          		using Model-Driven Techniques. For screenshots, screencasts, tutorials, examples and technical documentation click on the title of this paragraph to link to the
+          		Palladio-Bench Homepage.</text>
+       		</link>
+       	</group>
+  	</extensionContent>
+</introContent>

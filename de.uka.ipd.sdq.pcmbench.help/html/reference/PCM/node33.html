@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Allocation</TITLE>
+<META NAME="description" CONTENT="Allocation">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="previous" HREF="node32.html">
+<LINK REL="up" HREF="node30.html">
+<LINK REL="next" HREF="node34.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html815"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html809"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html805"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html811"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html813"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html816"
+  HREF="node34.html">An Explicit Context Model</A>
+<B> Up:</B> <A NAME="tex2html810"
+  HREF="node30.html">Context Influences</A>
+<B> Previous:</B> <A NAME="tex2html806"
+  HREF="node32.html">Hierarchy - Vertical Composition</A>
+ &nbsp; <B>  <A NAME="tex2html812"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html814"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H4><A NAME="SECTION00352030000000000000"></A>
+<A NAME="sec:Context:Allocation"></A>
+<BR>
+Allocation
+</H4>
+
+<P>
+An explicit context model is especially advantageous to model the allocation of components on hardware and software resources. 
+Figure&nbsp;<A HREF="#fig:context:Allocation">2.11</A> depicts a system that uses replicated components to fullfil requests.  In our example, server I is assumed to be slow and server II is assumed to be fast. Hence, the workload is not distributed equally, but 30% of the requests are directed to server I and 70% are directed to server II. 
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:context:Allocation"></A><A NAME="783"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 2.11:</STRONG>
+Component allocation.</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">
+<IMG
+  WIDTH="500" HEIGHT="278" ALIGN="BOTTOM" BORDER="0"
+ SRC="./Allocation.gif"
+ ALT="Image Allocation">
+  
+</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+Here, we see several context influences. We have two copies of the same component allocated on different machines and, thus, in different contexts. The workload of each replicated component is different because of the distribution strategy. The processing power available to both replicated components is varying with the underlying hardware systems. However, both components are connected with an identical logical link going from the required interface of the workload balancer to the provided service of the replicated component. But again, each of these logical connections is most likely using a different physical communication channel, i.e., different network links. 
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html815"
+  HREF="node34.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html809"
+  HREF="node30.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html805"
+  HREF="node32.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html811"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html813"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html816"
+  HREF="node34.html">An Explicit Context Model</A>
+<B> Up:</B> <A NAME="tex2html810"
+  HREF="node30.html">Context Influences</A>
+<B> Previous:</B> <A NAME="tex2html806"
+  HREF="node32.html">Hierarchy - Vertical Composition</A>
+ &nbsp; <B>  <A NAME="tex2html812"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html814"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

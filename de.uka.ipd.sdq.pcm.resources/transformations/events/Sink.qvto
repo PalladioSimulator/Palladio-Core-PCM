@@ -1,0 +1,203 @@
+import SEFFRegistry;
+import SEFFUtil;
+import Commons;
+
+modeltype PCM_ALLOC uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0';
+modeltype PCM_REP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Repository/5.0';
+modeltype PCM_SEFF uses 'http://sdq.ipd.uka.de/PalladioComponentModel/SEFF/5.0';
+modeltype PCM_SYS uses 'http://sdq.ipd.uka.de/PalladioComponentModel/System/5.0';
+modeltype PCM_RES_ENV uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceEnvironment/5.0';
+modeltype PCM_RES_TYPE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/ResourceType/5.0';
+modeltype PCM_USAGE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/UsageModel/5.0';
+modeltype PCM_FEATURE_CONF uses 'http://sdq.ipd.uka.de/FeatureConfig/2.0';
+modeltype PCM_FEATURE_MOD uses 'http://sdq.ipd.uka.de/FeatureModel/2.0';
+modeltype PCM_CORE uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/5.0';
+modeltype PCM_COMP uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/Composition/5.0';
+modeltype PCM_ENTITY uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Core/Entity/5.0';
+modeltype PCM_PARAM uses 'http://sdq.ipd.uka.de/PalladioComponentModel/Parameter/5.0';
+modeltype PCM_STOEX uses 'http://sdq.ipd.uka.de/StochasticExpressions/1.0';
+
+/**
+ * Sink Operations
+ * The operations in this section are
+ * all about the modification of the original 
+ * sink component
+ *
+ * @author Benjamin Klatt
+ */
+library Sink;
+
+
+/**
+ * Adopt the Sink Component to serve the new OperationInterface
+ * instead of the event group and trigger the connector creation
+ *
+ * @param sourcePortAssemblyContext The source port assembly to connect
+ * @param eventConnector The assembly event connector identifying the event connectio to connect the sink for.
+ */
+helper Sink_adoptAndConnect(	predecessorAssembly : AssemblyContext,
+								predecessorRequiredRole : OperationRequiredRole,
+								eventConnector : AssemblyEventConnector,
+								inout system : System) {
+	
+	// get the sink component of the connector
+	var sinkComponent := eventConnector.sinkAssemblyContext__AssemblyEventConnector.encapsulatedComponent__AssemblyContext;
+	var sinkRole := eventConnector.sinkRole__AssemblyEventConnector;
+	var operationInterface : OperationInterface = findOperationInterface(sinkRole);
+	
+	// create OperationProvidedRole for the sink
+	var operationProvidedRole :=map Sink_createSinkOperationProvidedRole(sinkComponent,operationInterface);
+	
+	// link SEFF with OperationInterface Signature
+	if(sinkComponent.oclIsTypeOf(BasicComponent))
+	then {
+		sinkComponent[BasicComponent].serviceEffectSpecifications__BasicComponent->forEach(seff){
+			SEFFUtil_switchToOperationSignature(seff);
+		}
+	}
+	endif;
+								
+	
+	// Create AssemblyConnector between source port sink
+	Sink_connectComponent(	predecessorAssembly,
+								sinkComponent,
+								operationProvidedRole,
+								predecessorRequiredRole,
+								eventConnector,
+								system);
+	return;
+}
+
+
+/**
+ * Adopt the Sink Component to serve the new OperationInterface
+ * instead of the event group and trigger the connector creation
+ *
+ * @param sourcePortAssemblyContext The source port assembly to connect
+ * @param eventConnector The assembly event connector identifying the event connectio to connect the sink for.
+ */
+helper Sink_adoptAndConnect(	predecessorAssembly : AssemblyContext,
+								predecessorRequiredRole : OperationRequiredRole,
+								eventConnector : EventChannelSinkConnector,
+								inout system : System) {
+	
+	// get the sink component of the connector
+	var sinkComponent := eventConnector.assemblyContext__EventChannelSinkConnector.encapsulatedComponent__AssemblyContext;
+	var sinkRole := eventConnector.sinkRole__EventChannelSinkConnector;
+	var operationInterface : OperationInterface = findOperationInterface(sinkRole);
+	
+	// create OperationProvidedRole for the sink
+	var operationProvidedRole :=map Sink_createSinkOperationProvidedRole(sinkComponent,operationInterface);
+	
+	// link SEFF with OperationInterface Signature
+	if(sinkComponent.oclIsTypeOf(BasicComponent))
+	then {
+		sinkComponent[BasicComponent].serviceEffectSpecifications__BasicComponent->forEach(seff){
+			SEFFUtil_switchToOperationSignature(seff);
+		}
+	}
+	endif;
+								
+	
+	// Create AssemblyConnector between source port sink
+	Sink_connectComponent(	predecessorAssembly,
+								sinkComponent,
+								operationProvidedRole,
+								predecessorRequiredRole,
+								eventConnector,
+								system);
+	return;
+}
+
+/**
+ * Create the assembly and allocation context for the SourcePortComponent
+ * and the assembly connector between the source and the source port.
+ *
+ * @param fromAssemblyContext The assembly context to connect the source port to
+ * @param sourceRole	The source role to connect to the source port
+ * @param providedRole	The provided role to connect
+ * @param requiredRole 	The required role to connect
+ * @return The prepared assembly connector
+ */
+helper Sink_connectComponent(	fromAssemblyContext : AssemblyContext, 
+								toComponent : RepositoryComponent, 
+								providedRole : OperationProvidedRole,
+								requiredRole : OperationRequiredRole,
+								eventConnector: AssemblyEventConnector,
+								inout system : System) : AssemblyConnector {
+	
+	// get the source assembly context
+	var sinkAssemblyContext := eventConnector.sinkAssemblyContext__AssemblyEventConnector;
+	
+	// build the connector name
+	var connectorName : String = toComponent.entityName + 'SinkConnector'+Commons_getUniqueElementNameSuffix();
+										
+	// create the connector
+	var connector := object AssemblyConnector {
+		entityName := connectorName;
+		requiringAssemblyContext_AssemblyConnector := fromAssemblyContext;
+		providingAssemblyContext_AssemblyConnector := sinkAssemblyContext;
+		providedRole_AssemblyConnector := providedRole;
+		requiredRole_AssemblyConnector := requiredRole;
+		parentStructure__Connector := sinkAssemblyContext.parentStructure__AssemblyContext;
+	};
+	
+	// when the connector is creaed add it to the system
+	system.connectors__ComposedStructure += connector;
+	
+	return connector;
+}
+
+/**
+ * Create the assembly and allocation context for the SourcePortComponent
+ * and the assembly connector between the source and the source port.
+ *
+ * @param fromAssemblyContext The assembly context to connect the source port to
+ * @param sourceRole	The source role to connect to the source port
+ * @param providedRole	The provided role to connect
+ * @param requiredRole 	The required role to connect
+ * @return The prepared assembly connector
+ */
+helper Sink_connectComponent(	fromAssemblyContext : AssemblyContext, 
+								toComponent : RepositoryComponent, 
+								providedRole : OperationProvidedRole,
+								requiredRole : OperationRequiredRole,
+								eventConnector: EventChannelSinkConnector,
+								inout system : System) : AssemblyConnector {
+	
+	// get the source assembly context
+	var sinkAssemblyContext := eventConnector.assemblyContext__EventChannelSinkConnector;
+	
+	// build the connector name
+	var connectorName : String = toComponent.entityName + 'EventChannelSinkConnector'+Commons_getUniqueElementNameSuffix();
+										
+	// create the connector
+	var connector := object AssemblyConnector {
+		entityName := connectorName;
+		requiringAssemblyContext_AssemblyConnector := fromAssemblyContext;
+		providingAssemblyContext_AssemblyConnector := sinkAssemblyContext;
+		providedRole_AssemblyConnector := providedRole;
+		requiredRole_AssemblyConnector := requiredRole;
+		parentStructure__Connector := sinkAssemblyContext.parentStructure__AssemblyContext;
+	};
+	
+	// when the connector is creaed add it to the system
+	system.connectors__ComposedStructure += connector;
+	
+	return connector;
+}
+
+
+
+/**
+ * Create the operation provided role for the sink component
+ *
+ * @param sinkComponent The sink component to create the provided role for
+ * @param sinkRole	The sink role to align the provided role with
+ * @return The operation provided role for the sink role
+ */
+mapping Sink_createSinkOperationProvidedRole(sinkComponent : RepositoryComponent, operationInterface : OperationInterface) : OperationProvidedRole {
+		entityName := operationInterface.entityName+'OperationProvidedRole'+Commons_getUniqueElementNameSuffix();
+		providingEntity_ProvidedRole := sinkComponent;
+		providedInterface__OperationProvidedRole := operationInterface;
+}

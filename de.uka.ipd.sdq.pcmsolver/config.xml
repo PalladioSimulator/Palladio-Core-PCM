@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE properties SYSTEM "http://java.sun.com/dtd/properties.dtd">
+<properties>
+<comment></comment>
+
+<!--
+<entry key="Filename_Allocation">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore2\MediaStore.allocation</entry>
+<entry key="Filename_Repository">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore2\MediaStore.repository</entry>
+<entry key="Filename_ResourceEnvironment">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore2\MediaStore.resourceenvironment</entry>
+<entry key="Filename_ResourceType">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore2\MediaStore.resourcetype</entry>
+<entry key="Filename_System">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore2\MediaStore.system</entry>
+<entry key="Filename_UsageModel">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore2\MediaStore.usagemodel</entry>
+<entry key="Storage_Path">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore2</entry>
+-->
+
+<!--
+<entry key="Filename_Allocation">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore\MediaStore.allocation</entry>
+<entry key="Filename_Repository">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore\MediaStore.repository</entry>
+<entry key="Filename_ResourceEnvironment">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore\MediaStore.resourceenvironment</entry>
+<entry key="Filename_ResourceType">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore\MediaStore.resourcetype</entry>
+<entry key="Filename_System">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore\MediaStore.system</entry>
+<entry key="Filename_UsageModel">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore\MediaStore.usagemodel</entry>
+<entry key="Storage_Path">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\MediaStore</entry>
+-->
+
+<!--
+<entry key="Filename_Allocation">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples_Steffen\DSolverExample1.allocation</entry>
+<entry key="Filename_Repository">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples_Steffen\DSolverExample1.repository</entry>
+<entry key="Filename_ResourceEnvironment">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples_Steffen\DSolverExample1.resourceenvironment</entry>
+<entry key="Filename_ResourceType">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples_Steffen\DSolverExample1.resourcetype</entry>
+<entry key="Filename_System">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples_Steffen\DSolverExample1.system</entry>
+<entry key="Filename_UsageModel">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples_Steffen\DSolverExample1.usagemodel</entry>
+<entry key="Storage_Path">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples_Steffen</entry>
+-->
+
+
+<entry key="Filename_Allocation">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example2\DSolverExample2.allocation</entry>
+<entry key="Filename_Repository">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example2\DSolverExample2.repository</entry>
+<entry key="Filename_ResourceEnvironment">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example2\DSolverExample2.resourceenvironment</entry>
+<entry key="Filename_ResourceType">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example2\DSolverExample2.resourcetype</entry>
+<entry key="Filename_System">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example2\DSolverExample2.system</entry>
+<entry key="Filename_UsageModel">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example2\DSolverExample2.usagemodel</entry>
+<entry key="Storage_Path">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example2</entry>
+
+
+<!--
+<entry key="Filename_Allocation">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example3\DSolverExample3.allocation</entry>
+<entry key="Filename_Repository">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example3\DSolverExample3.repository</entry>
+<entry key="Filename_ResourceEnvironment">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example3\DSolverExample3.resourceenvironment</entry>
+<entry key="Filename_ResourceType">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example3\DSolverExample3.resourcetype</entry>
+<entry key="Filename_System">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example3\DSolverExample3.system</entry>
+<entry key="Filename_UsageModel">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example3\DSolverExample3.usagemodel</entry>
+<entry key="Storage_Path">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Example3</entry>
+-->
+
+<!--
+<entry key="Filename_Allocation">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples\DSolverExample1.allocation</entry>
+<entry key="Filename_Repository">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples\DSolverExample1.repository</entry>
+<entry key="Filename_ResourceEnvironment">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples\DSolverExample1.resourceenvironment</entry>
+<entry key="Filename_ResourceType">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples\DSolverExample1.resourcetype</entry>
+<entry key="Filename_System">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples\DSolverExample1.system</entry>
+<entry key="Filename_UsageModel">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples\DSolverExample1.usagemodel</entry>
+<entry key="Storage_Path">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples</entry>
+-->
+
+<!--
+<entry key="Filename_Allocation">D:\Diss\svn\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.allocation</entry> 
+<entry key="Filename_Repository">D:\Diss\svn\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.repository</entry> 
+<entry key="Filename_ResourceEnvironment">D:\Diss\svn\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.resourceenvironment</entry> 
+<entry key="Filename_ResourceType">D:\Diss\svn\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\Palladio.resourcetype</entry> 
+<entry key="Filename_System">D:\Diss\svn\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.system</entry> 
+<entry key="Filename_UsageModel">D:\Diss\svn\code\Palladio.EMFComponentModel\trunk\ModelExample.QoSA06\qosa.usagemodel</entry> 
+<entry key="Storage_Path">D:\Diss\svn\code\PalladioCM.DerivedContext\trunk\de.uka.ipd.sdq.dsolver\Examples</entry>
+-->
+
+</properties>

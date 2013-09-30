@@ -1,0 +1,11 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Desmo-J Simulation Engine
+Bundle-SymbolicName: de.uka.ipd.sdq.simulation.abstractsimengine.desmoj;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Require-Bundle: de.desmoj,
+ org.apache.log4j,
+ de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0"
+Bundle-Vendor: sdq.ipd.uka.de
+Export-Package: de.uka.ipd.sdq.simulation.abstractsimengine.desmoj
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

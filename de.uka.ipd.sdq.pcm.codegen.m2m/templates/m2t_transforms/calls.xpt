@@ -1,0 +1,57 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT parameter»
+«IMPORT seff»
+«IMPORT seff::seff_performance»
+
+//-----------------------------------
+// Templates for the call to an external method
+// An instance of a port can be passed as prefix
+// The list of parameter usages characterises the paramter contents
+// ----------------------------------
+«DEFINE Call(Entity call, String prefix, List[VariableUsage] parameterUsages, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+	«EXPAND PreCallTM(call, prefix, parameterUsages) FOR this»
+   	«prefix»«this.javaSignature()»
+	   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this»);
+	«EXPAND PostCallTM(call, prefix, outParameterUsages) FOR this»
+«ENDDEFINE»
+
+«DEFINE Call(Entity call) FOR InfrastructureCall»
+ 	{ //CALL SCOPE: this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
+	    long numberOfCalls = ctx.evaluate("«this.numberOfCalls__InfrastructureCall.specification.specificationString()»",Double.class).longValue();
+		for (long callNumber = 0; callNumber < numberOfCalls; callNumber++) {
+ 	«LET "myContext.getRole"+this.requiredRole__InfrastructureCall.javaName()+"()." AS prefix»
+		«EXPAND PreCallTM(call, prefix, this.inputVariableUsages__CallAction) FOR this.signature__InfrastructureCall»
+	   	«prefix»«this.signature__InfrastructureCall.javaSignature()»
+		   	(«EXPAND m2t_transforms::java_core::ParameterUsageListTM FOR this.signature__InfrastructureCall»);
+		«EXPAND PostCallTM(call, prefix) FOR this.signature__InfrastructureCall»
+	«ENDLET»
+		}
+	} // END CALL SCOPE
+«ENDDEFINE»
+
+// ----------------------------------
+// Template method for code to be executed before
+// an external call
+// ----------------------------------
+«DEFINE PreCallTM(Entity call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
+«ENDDEFINE»
+
+«DEFINE PreCallTM(Entity call, String prefix, List[VariableUsage] parameterUsages) FOR InfrastructureSignature»
+«ENDDEFINE»
+
+// ----------------------------------
+// Template method for code to be executed after
+// an external call
+// ----------------------------------
+«DEFINE PostCallTM(Entity call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+«ENDDEFINE»
+
+«DEFINE PostCallTM(Entity call, String prefix) FOR InfrastructureSignature»
+«ENDDEFINE»
+

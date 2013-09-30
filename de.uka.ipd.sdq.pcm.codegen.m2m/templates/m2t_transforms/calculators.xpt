@@ -1,0 +1,29 @@
+«EXTENSION m2t_transforms::pcm»
+«IMPORT usagemodel»
+«IMPORT seff»
+
+«DEFINE SetupCalculatorResponseTime(String startProbeSetId, String endProbeSetId) FOR String»
+	getModel().getProbeSpecContext().getCalculatorRegistry().registerCalculator(
+			"«this»", getModel().getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator(
+					"«this»", 
+					getModel().getProbeSpecContext().obtainProbeSetId("«startProbeSetId»"),
+					getModel().getProbeSpecContext().obtainProbeSetId("«endProbeSetId»")));
+«ENDDEFINE»
+
+«DEFINE SetupCalculatorExecutionResult FOR UsageScenario»
+	getModel().getProbeSpecContext().getCalculatorRegistry().registerCalculator(
+		"«this.entityName»/«this.id»/ExecutionResult",
+		getModel().getProbeSpecContext().getCalculatorFactory().buildExecutionResultCalculator(
+			"UsageScenario «this.entityName» <«this.id»>", 
+			getModel().getProbeSpecContext().obtainProbeSetId(
+				de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.getScenarioProbeSetId(
+					"«this.id»"))));
+«ENDDEFINE»
+
+«DEFINE SetupCalculatorExecutionResult(String callName) FOR ExternalCallAction»
+	getModel().getProbeSpecContext().getCalculatorRegistry().registerCalculator(
+		"«this.entityName»/«this.id»/ExecutionResult",
+		getModel().getProbeSpecContext().getCalculatorFactory().buildExecutionResultCalculator(
+			"«callName»", 
+			getModel().getProbeSpecContext().obtainProbeSetId("«callName»")));
+«ENDDEFINE»

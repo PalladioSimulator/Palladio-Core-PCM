@@ -1,0 +1,7 @@
+# Tracing options for the de.uka.ipd.sdq.pcm.gmf.resource plug-in
+
+# Common issues
+de.uka.ipd.sdq.pcm.gmf.resource/debug=false
+
+# Visual IDs
+de.uka.ipd.sdq.pcm.gmf.resource/debug/visualID=false

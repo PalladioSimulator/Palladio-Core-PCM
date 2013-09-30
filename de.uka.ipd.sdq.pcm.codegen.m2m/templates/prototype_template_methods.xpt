@@ -1,0 +1,360 @@
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::java_names»
+«IMPORT system»
+«IMPORT core::composition»
+«IMPORT usagemodel»
+«IMPORT core::entity»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT resourcetype»
+«IMPORT allocation»
+«IMPORT parameter»
+«IMPORT qosannotations»
+«IMPORT seff::seff_performance»
+
+«AROUND m2t_transforms::system::Root FOR System»
+	«EXPAND m2t_transforms::prototype::java_core::ComponentImplementationInterface FOR this»
+	«targetDef.proceed()»
+«ENDAROUND»
+
+«AROUND m2t_transforms::system::SystemAdditionsTM FOR System»
+	«EXPAND m2t_transforms::ejb3::system::DeploymentDescriptor FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::system::SystemInnerAdditionsTM FOR System»
+	«EXPAND m2t_transforms::prototype::java_core::MainImplementation FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ComponentConstructorTM FOR RepositoryComponent»
+    «EXPAND m2t_transforms::prototype::java_core::ComponentConstructor FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::ComponentConstructorParametersTM FOR AssemblyContext»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::SpecificImplementationPartTM FOR RepositoryComponent»
+	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartTM FOR this»
+	
+	«IF BasicComponent.isInstance(this)»
+		«EXPAND m2t_transforms::prototype::java_core::MainImplementation FOR (BasicComponent)this»
+	«ENDIF»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::SpecificImplementationPartForInterfaceTM FOR RepositoryComponent»
+	«EXPAND m2t_transforms::sim::java_core::SpecificImplementationPartForInterfaceTM FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::composed_structure::ChildInitTM(ComposedStructure s) FOR AssemblyContext»
+	«IF BasicComponent.isInstance(this.encapsulatedComponent__AssemblyContext)»
+		«EXPAND m2t_transforms::prototype::composed_structure::ChildInitTM(s) FOR this»
+	«ENDIF»
+«ENDAROUND»
+
+«AROUND m2t_transforms::allocation::AllocationTM FOR Allocation»
+	«EXPAND m2t_transforms::prototype::resources::ResourceEnvironmentRoot FOR this.targetResourceEnvironment_Allocation»
+	«EXPAND m2t_transforms::prototype::allocation::AllocationRoot FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::SystemMemberVar FOR OperationProvidedRole»
+	«EXPAND m2t_transforms::prototype::usage::SystemMemberVar FOR this»
+«ENDAROUND» 
+
+
+//-------------------------
+// Ports
+//-------------------------
+
+«AROUND m2t_transforms::provided_ports::PortImpl FOR OperationProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::PortImpl FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortImpl FOR InfrastructureProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::PortImpl FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortImpl(ComposedProvidingRequiringEntity cs) FOR OperationProvidedRole»
+   «EXPAND m2t_transforms::prototype::provided_ports::ComposedStructurePortImpl(cs) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortMemberVars FOR OperationProvidedRole»
+	«EXPAND m2t_transforms::prototype::provided_ports::PortMemberVars FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortMemberVars FOR InfrastructureProvidedRole»
+	«EXPAND m2t_transforms::prototype::provided_ports::PortMemberVars FOR this»
+«ENDAROUND»
+
+//-------------------------
+// Sensors TM
+//-------------------------
+«AROUND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::prototype::sensors::StartResponseTimeMeasurement FOR this»	
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR String»
+	«EXPAND m2t_transforms::prototype::sensors::EndResponseTimeMeasurement FOR this»
+«ENDAROUND»
+
+//-------------------------
+// Call parameter Template Methods
+//-------------------------
+«AROUND m2t_transforms::java_core::ParameterListTM FOR Signature»
+	de.uka.ipd.sdq.simucomframework.variables.StackContext ctx
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ParameterUsageListTM FOR Signature»
+	ctx
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ReturnTypeTM FOR Signature»
+   de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR OperationSignature»
+   «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::PortDelegationDelegatingCallTM FOR InfrastructureSignature»
+   «EXPAND m2t_transforms::sim::provided_ports::PortDelegationDelegatingCall FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR OperationSignature»
+   «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ComposedStructurePortDelegationDelegatingCallTM(ComposedProvidingRequiringEntity cs) FOR InfrastructureSignature»
+   «EXPAND m2t_transforms::sim::provided_ports::ComposedStructurePortDelegationDelegatingCall(cs) FOR this»
+«ENDAROUND»
+
+
+//-------------------------
+// Pre-/Post-Call TM
+//-------------------------
+
+«AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR OperationSignature»
+	«EXPAND m2t_transforms::prototype::calls::GenericPreCall(call, parameterUsages, prefix) FOR this»
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::calls::PreCallTM(Object call, String prefix, List[VariableUsage] parameterUsages) FOR InfrastructureSignature»
+«REM»	«EXPAND m2t_transforms::prototype::calls::GenericPreCall(call,parameterUsages) FOR this»«ENDREM»
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::calls::PostCallTM(Object call, String prefix, List[VariableUsage] outParameterUsages) FOR OperationSignature»
+	«EXPAND m2t_transforms::prototype::calls::GenericPostCall(call, outParameterUsages) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::calls::PostCallTM(Object call, String prefix) FOR InfrastructureSignature»
+«REM»	«EXPAND m2t_transforms::sim::calls::PostCall(call, prefix) FOR this»«ENDREM»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::calls::Call(Entity call) FOR InfrastructureCall»
+	logger.debug("ProtoCom does not simulate infrastructure calls.");
+«ENDAROUND»
+
+
+// ----------------------------
+// Resource Demand
+// ----------------------------
+
+«AROUND m2t_transforms::resources::ResourceDemandTM FOR ParametricResourceDemand»
+	«EXPAND m2t_transforms::prototype::resources::ResourceDemand FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::resources::ResourceDemandTM FOR ResourceCall»
+	«EXPAND m2t_transforms::prototype::resources::ResourceDemand FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::resources::PassiveResourceInitTM FOR PassiveResource»
+	«EXPAND m2t_transforms::prototype::resources::PassiveResourceInit FOR this»
+«ENDAROUND»
+
+
+// ----------------------------
+// Actions Dispatcher ---> SEFF
+// ----------------------------
+«AROUND m2t_transforms::seff_body::Action FOR StartAction»
+    «EXPAND m2t_transforms::prototype::seff_body::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff_body::Action FOR StopAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::java_core::ContextTypeTM FOR AbstractAction»
+	de.uka.ipd.sdq.simucomframework.variables.StackContext
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff_body::Action FOR SetVariableAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff_body::Action FOR CollectionIteratorAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::seff_body::Action FOR LoopAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
+«ENDAROUND»
+ 
+«AROUND m2t_transforms::seff_body::Action FOR BranchAction»
+	«EXPAND m2t_transforms::sim::seff_body::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff_body::Action FOR AcquireAction»
+	«EXPAND m2t_transforms::prototype::seff_body::Action FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::seff_body::Action FOR ReleaseAction»
+	«EXPAND m2t_transforms::prototype::seff_body::Action FOR this»
+«ENDAROUND»
+// ----------------------------
+// End of Actions Dispatcher 
+// ----------------------------
+
+//-----------------------------
+// Dummies TM
+//-----------------------------
+«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR OperationRequiredRole»
+	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
+	new «s.implementationPackage()».«this.fqnDummyComponent()»()
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::DummyRequiredSystemTM(System s) FOR InfrastructureRequiredRole»
+	«EXPAND m2t_transforms::dummies::DummyComponent(s) FOR this»
+	new «s.implementationPackage()».«this.fqnDummyComponent()»()
+«ENDAROUND»
+
+«AROUND m2t_transforms::dummies::DummyMethodBodyTM(System s,OperationRequiredRole r) FOR OperationSignature»
+	«EXPAND m2t_transforms::prototype::dummies::DummyMethodBody(s,r) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::dummies::DummyMethodBodyTM(System s,InfrastructureRequiredRole r) FOR InfrastructureSignature»
+	«EXPAND m2t_transforms::prototype::dummies::DummyMethodBody(s,r) FOR this»
+«ENDAROUND»
+
+//-----------------------------
+// Usage TM
+//-----------------------------
+«AROUND m2t_transforms::usage::MainTM FOR UsageModel»
+	«EXPAND m2t_transforms::prototype::usage::Main FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::usage::UsageScenarioTM(Allocation a) FOR UsageScenario»
+	«EXPAND m2t_transforms::prototype::usage::UsageScenario(a) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::user_actions::UserAction FOR Loop»
+	«EXPAND m2t_transforms::sim::user_actions::UserAction FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::user_actions::UserAction FOR EntryLevelSystemCall»
+	«EXPAND m2t_transforms::prototype::user_actions::UserAction FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::user_actions::UserAction FOR Branch»
+	«EXPAND m2t_transforms::prototype::user_actions::UserAction FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::prototype::usage::UsageScenarioAdditionsTM FOR UsageScenario»
+    «EXPAND m2t_transforms::prototype::usage::UsageScenarioAddition FOR this»
+«ENDAROUND»
+
+
+//----------------------------
+// Repository
+//----------------------------
+
+«AROUND m2t_transforms::java_core::OperationSignature FOR OperationSignature»
+	«targetDef.proceed()» throws java.rmi.RemoteException
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::ChildMemberVar FOR AssemblyContext»
+   protected
+      «this.encapsulatedComponent__AssemblyContext.fqnInterface()» 
+         my«this.javaName()» = null;
+«ENDAROUND»
+
+«AROUND m2t_transforms::repository::InterfaceHeader FOR OperationInterface»
+   «targetDef.proceed()» extends java.rmi.Remote
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ContentImplementationInterfaceHeader FOR InterfaceProvidingEntity»
+	package «this.implementationPackage()»;
+    
+	public interface «this.interfaceName()» 
+	«IF BasicComponent.isInstance(this)»
+		extends de.uka.ipd.sdq.prototype.framework.IComponent
+	«ENDIF»
+«ENDAROUND»
+
+«AROUND m2t_transforms::context_pattern::ComponentContextSetter FOR InterfaceRequiringEntity»
+	«EXPAND m2t_transforms::prototype::context_pattern::ComponentContextSetter FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::context_pattern::ComponentContextSetterDefinition FOR InterfaceRequiringEntity»
+	«EXPAND m2t_transforms::prototype::context_pattern::ComponentContextSetterDefinition FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::AllChildMemberVarInit FOR ComposedProvidingRequiringEntity»
+	«EXPAND m2t_transforms::prototype::composed_structure::AllChildMemberVarInit FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::Constructor FOR ComposedProvidingRequiringEntity»
+	«EXPAND m2t_transforms::prototype::composed_structure::Constructor FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::InnerImplementation FOR ComposedStructure»
+	«EXPAND m2t_transforms::prototype::composed_structure::InnerImplementation FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::Init(ComposedStructure s) FOR AssemblyContext»
+	«EXPAND m2t_transforms::prototype::composed_structure::Init(s) FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::repository::CompositeComponentRoot FOR ComposedProvidingRequiringEntity»
+	«EXPAND m2t_transforms::prototype::repository::CompositeComponentRoot FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::ComposedStructureStart FOR ComposedProvidingRequiringEntity»
+	«EXPAND m2t_transforms::prototype::composed_structure::ComposedStructureStart FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::composed_structure::ComposedPREConstructorStartTM FOR ComposedProvidingRequiringEntity»
+	«EXPAND m2t_transforms::prototype::composed_structure::ComposedPREConstructorStartTM FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::java_core::ComponentImplementationForImplComponentTypesAndSubSystems FOR RepositoryComponent» 
+	«EXPAND m2t_transforms::prototype::java_core::ComponentImplementationForImplComponentTypesAndSubSystems FOR this»
+«ENDAROUND»
+
+«AROUND m2t_transforms::provided_ports::ContextPortGetter(ComposedStructure cs) FOR OperationProvidedRole» 
+	«EXPAND m2t_transforms::prototype::provided_ports::ContextPortGetter(cs) FOR this»
+«ENDAROUND»
+
+//----------------------------
+// Method override: Add a context to the scenario runner
+//----------------------------
+«AROUND m2t_transforms::pojo::usage::ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
+	private de.uka.ipd.sdq.simucomframework.variables.StackContext ctx = new de.uka.ipd.sdq.simucomframework.variables.StackContext();
+	«targetDef.proceed()»
+«ENDAROUND»
+
+// ----------------------------
+// Separate each mapped action to an own method.
+// ----------------------------
+«AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR OperationSignature»
+	«EXPAND m2t_transforms::sim::java_core::ComponentService(component) FOR this»
+«ENDAROUND» 
+
+«AROUND m2t_transforms::java_core::ComponentServiceTM(RepositoryComponent component) FOR InfrastructureSignature»
+«REM»ProtoCom does not call Infrastructure Components. However, they're still generated.«ENDREM»
+	«EXPAND m2t_transforms::sim::java_core::ComponentService(component) FOR this»
+«ENDAROUND» 
+
+
+//-----------------------------
+// Resource Container Availability TM
+//-----------------------------
+
+«AROUND m2t_transforms::java_core::ContainerAvailabilityCheckTM FOR OperationSignature»
+«ENDAROUND»

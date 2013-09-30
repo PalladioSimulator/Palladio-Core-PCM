@@ -1,0 +1,7 @@
+# Tracing options for the de.uka.ipd.sdq.pcm.gmf.repository plug-in
+
+# Common issues
+de.uka.ipd.sdq.pcm.gmf.repository/debug=false
+
+# Visual IDs
+de.uka.ipd.sdq.pcm.gmf.repository/debug/visualID=false

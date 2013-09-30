@@ -1,0 +1,33 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT qosannotations::qos_performance»
+
+//-------------------------------
+// In the simulation, generate a time delay
+// according to the specification in the QoS
+// annotations of the system
+//-------------------------------
+«DEFINE DummyMethodBody(System s,OperationRequiredRole r) FOR OperationSignature»
+	«LET s.qosAnnotations_System.specifiedQoSAnnotations_QoSAnnotations.select(spet| (SpecifiedExecutionTime.isInstance(spet)) && (spet.role_SpecifiedQoSAnnotation==r) && (spet.signature_SpecifiedQoSAnnation==this)) AS annotations»
+		«IF annotations.size == 1»
+			double delay = ctx.evaluate("«((SpecifiedExecutionTime)annotations.get(0)).specification_SpecifiedExecutionTime.specification.javaString()»", Double.class);
+			// TODO: Maybe improve this... Because of context switches, etc...
+			Thread.sleep(demand);
+		«ENDIF»
+	«ENDLET»
+«ENDDEFINE»
+
+«DEFINE DummyMethodBody(System s, InfrastructureRequiredRole r) FOR InfrastructureSignature»
+	«LET s.qosAnnotations_System.specifiedQoSAnnotations_QoSAnnotations.select(spet| (SpecifiedExecutionTime.isInstance(spet)) && (spet.role_SpecifiedQoSAnnotation==r) && (spet.signature_SpecifiedQoSAnnation==this)) AS annotations»
+		«IF annotations.size == 1»
+			double delay = ctx.evaluate("«((SpecifiedExecutionTime)annotations.get(0)).specification_SpecifiedExecutionTime.specification.javaString()»", Double.class);
+			// TODO: Maybe improve this... Because of context switches, etc...
+			Thread.sleep(demand);
+		«ENDIF»
+	«ENDLET»
+«ENDDEFINE»

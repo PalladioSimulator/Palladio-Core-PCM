@@ -1,0 +1,175 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pojo::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sensors»
+«IMPORT system»
+«IMPORT repository»
+«IMPORT seff»
+«IMPORT core::entity»
+
+
+«DEFINE ComponentConstructor FOR RepositoryComponent»
+«ENDDEFINE»
+
+
+«DEFINE SpecificConstructor FOR RepositoryComponent» 
+	private static org.apache.log4j.Logger logger = 
+			org.apache.log4j.Logger.getLogger(«this.javaName()».class.getName());	
+				
+	public «this.javaName()»(String assemblyContext) { 
+		super(assemblyContext);
+	}
+«ENDDEFINE»
+
+
+
+«DEFINE ComponentService(RepositoryComponent component) FOR OperationSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   {
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
+    	«ENDLET»
+   	  «ENDIF»
+   }   
+«ENDDEFINE»
+
+«DEFINE ComponentService(RepositoryComponent component) FOR InfrastructureSignature»
+   public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»
+   { 
+   	  «IF this.hasSEFF(component)»
+   	  	«LET ((ResourceDemandingSEFF)this.getSEFF(component)) AS seff»
+	      «EXPAND m2t_transforms::java_core::Actions FOR seff.steps_Behaviour.findStart()»
+    	«ENDLET»
+   	  «ENDIF»
+   }   
+«ENDDEFINE»
+
+«DEFINE AbstractComponentService(RepositoryComponent component) FOR OperationSignature»
+   abstract public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»;
+«ENDDEFINE»
+
+«DEFINE AbstractComponentService(RepositoryComponent component) FOR InfrastructureSignature»
+   abstract public «EXPAND m2t_transforms::java_core::ComponentServiceSignature FOR this»;
+«ENDDEFINE»
+
+
+«DEFINE AbstractInnerImplementation FOR RepositoryComponent»
+	«EXPAND AbstractComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
+«REM» TODO	«EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(InfrastructureProvidedRole).providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface»
+«ENDREM»
+
+	public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> myComponentStackFrame) {
+	}
+«ENDDEFINE»
+
+
+«DEFINE ComponentImplementationForImplComponentTypesAndSubSystems FOR RepositoryComponent»
+	«FILE this.getFileName()»
+	   «EXPAND m2t_transforms::java_core::ComponentImplementationInterface FOR this»
+	   «EXPAND m2t_transforms::java_core::ComponentPackage FOR this»
+	      
+	   «EXPAND AbstractClassHeader FOR this»
+	   «EXPAND m2t_transforms::java_core::SuperClassesTM FOR this»
+	   implements «this.fqnInterface()», java.io.Serializable
+	   {
+	   	  «EXPAND m2t_transforms::java_core::ComponentConstructorTM FOR this» 
+	      «EXPAND m2t_transforms::provided_ports::ProvidedPorts FOR this»
+	      «EXPAND m2t_transforms::context_pattern::RequiredInterfaces FOR this»
+	      «EXPAND AbstractInnerImplementation FOR this» «REM»change to abstarct inner«ENDREM»
+«REM»		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»«ENDREM»
+	   }
+	   «EXPAND m2t_transforms::java_core::ComponentImplementationChildClassTM FOR this»
+	«ENDFILE»
+
+	«FILE this.getCustomFileName()»
+		package «this.customImplementationPackage()»;
+		
+	   «EXPAND m2t_transforms::java_core::ClassHeader FOR this»
+	   «EXPAND AbstractSuperClasses FOR this»
+	   {
+	      «EXPAND SpecificConstructor FOR this»
+	      «EXPAND m2t_transforms::java_core::InnerImplementation FOR this» «REM»add new inner impl«ENDREM»
+		  «EXPAND m2t_transforms::java_core::SpecificImplementationPartTM FOR this»
+		  «EXPAND ComponentService(this) FOREACH this.providedRoles_InterfaceProvidingEntity.typeSelect(OperationProvidedRole).providedInterface__OperationProvidedRole.signatures__OperationInterface»
+	   }
+
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE AbstractClassHeader FOR RepositoryComponent»
+public abstract class «this.javaName()»
+«ENDDEFINE»
+
+«DEFINE AbstractSuperClasses FOR RepositoryComponent»
+	extends «this.fqn()»
+«ENDDEFINE»
+
+
+«DEFINE Type FOR DataType»
+«ENDDEFINE»
+
+«DEFINE Type FOR PrimitiveDataType»
+	«this.type.toString().toLowerCase()»
+«ENDDEFINE»
+
+«DEFINE Type FOR CompositeDataType»
+	«this.repository__DataType.basePackageName()».model.«this.entityName»
+«ENDDEFINE»
+
+«DEFINE Type FOR CollectionDataType»
+	Collection<«EXPAND Type FOR this.innerType_CollectionDataType»>
+«ENDDEFINE»
+
+«DEFINE ParameterList FOR Signature»
+«ENDDEFINE»
+
+«DEFINE ParameterList FOR OperationSignature»
+	«FOREACH this.parameters__OperationSignature AS parameter SEPARATOR ", "»
+		«EXPAND Type FOR parameter.dataType__Parameter» «parameter.parameterName»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageList FOR Signature»
+«ENDDEFINE»
+
+«DEFINE ParameterUsageList FOR OperationSignature»
+	«FOREACH this.parameters__OperationSignature AS parameter SEPARATOR ", "»
+		«parameter.parameterName»
+	«ENDFOREACH»
+«ENDDEFINE»
+
+
+«DEFINE MainImplementation FOR BasicComponent»
+	public static void main(String... args) {
+		logger.info("Main method of basic component «this.entityName» called");
+
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
+		
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
+		
+		new «this.repository__RepositoryComponent.basePackageName()».impl.custom.«this.entityName»(assemblyContext);
+	}
+«ENDDEFINE»
+
+«REM»
+«DEFINE MainImplementation FOR ComposedProvidingRequiringEntity»
+	public static void main(String... args) {
+		logger.info("Main method of composed structure «this.entityName» called");
+
+		String ip = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getIpFromArguments(args);
+		int port = de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.getPortFromArguments(args);
+		
+		String assemblyContext = de.uka.ipd.sdq.prototype.framework.AbstractMain.getAssemblyContextFromArguments(args);
+		
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(ip);
+		de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRegistryPort(port);		
+		
+		new «this.fqn()»(assemblyContext);
+	}
+«ENDDEFINE»
+«ENDREM»

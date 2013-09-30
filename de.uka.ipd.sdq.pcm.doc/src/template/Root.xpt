@@ -1,0 +1,236 @@
+«EXTENSION template::umlhelper»
+«IMPORT uml»
+
+«DEFINE Root FOR List[Package]-»
+
+«FILE "doc.tex"»
+«EXPAND LatexHeader FOR this»
+\input{doc_contents.tex}
+«EXPAND LatexFooter FOR this»
+«ENDFILE»
+
+«FILE "doc_contents.tex"»
+«FOREACH this.typeSelect(Package) AS pack»
+«EXPAND PackageNavigation FOR pack»
+«ENDFOREACH»
+«ENDFILE»
+
+«ENDDEFINE»
+
+«DEFINE LatexHeader FOR List[Package]-»
+%
+% This file contains the generated LaTeX documentation for the UML Model 
+% Generated via openArchitectureWare
+% packages:
+«FOREACH this AS currentPackage»
+% «currentPackage.fullName()»
+«ENDFOREACH»
+\documentclass[12pt]{report}
+«EXPAND WriteManualInclude FOR "usepackages.tex"-»
+
+\begin{document}
+«EXPAND WriteManualInclude FOR "title.tex"-»
+«EXPAND WriteManualInclude FOR "changelog.tex"-»
+\begin{sffamily}
+\tableofcontents
+\end{sffamily}
+\newpage
+\chapter{Low Level Model Description}
+\label{chap:lowlevel}
+«ENDDEFINE»
+
+
+
+«DEFINE PackageNavigation FOR Package-»
+«EXPAND PackageDoc FOR this-»
+«EXPAND PackageNavigation FOREACH this.packagedElement.typeSelect(uml::Package).sortBy(e|e.name)-»
+«ENDDEFINE»
+
+
+
+«DEFINE LatexFooter FOR List[Package]-»
+\printindex
+\printglossary
+
+\end{document}
+«ENDDEFINE»
+
+
+
+«DEFINE PackageDoc FOR Package»
+\section{Package \bfseries \texttt{«this.fullName()»}\normalfont}
+
+% Here comes the package documentation
+\subsection{Package Overview}
+«EXPAND WriteDoc FOR this-»
+«IF this.ownedElement.typeSelect(uml::Class).select(c|!c.getAppliedStereotypes().name.contains("Nondocumented")).size > 0-»
+«LET getDiagrams(this) AS diagramList-»
+«IF diagramList.size > 0-»
+\subsection{Package Diagrams}
+«FOREACH diagramList AS list-»
+«LET list.split("\\n") AS s»
+\paragraph{Figure «s.get(1).saveLatexString()-» Description}«s.get(2).saveLatexString()-» (see Figure~\ref{fig:«s.get(0)-»})
+%\begin{center}
+\begin{figure}[htbp]
+\centering
+\includegraphics[scale=.5]{pcm-images/«s.get(0).decodeFileName()-»}
+\caption{«s.get(1).saveLatexString()-»}
+\label{fig:«s.get(0)-»}
+\end{figure}
+%\end{center}
+«ENDLET»
+«ENDFOREACH»
+«ENDIF»
+«ENDLET»
+«EXPAND WriteManualInclude FOR this.name.toString()+"/graphics.tex"»
+\subsection{Detailed Class Documentation}
+	«EXPAND ClassDoc FOREACH this.ownedElement.typeSelect(uml::Classifier).select(c|!c.getAppliedStereotypes().name.contains("Nondocumented")).sortBy(e|e.name)-»
+«ELSE»
+
+\textbf{Note: }This package does not contain any classes. Please see the contained sub-packages for classes.
+«ENDIF»
+«ENDDEFINE»
+
+
+«DEFINE ClassDoc FOR uml::Classifier-»
+«ENDDEFINE»
+
+«DEFINE ClassDoc FOR uml::Class-»
+\subsubsection{\Large{Class \bfseries \texttt{«this.name»}\normalfont}}
+\label{cls:«this.fullName()»} \index{«this.fullIndex()»}
+\paragraph{Overview}
+«EXPAND WriteDoc FOR this-»
+
+«EXPAND ClassifierInnerDoc FOR this-»
+
+«IF this.generalization.size > 0-»
+\paragraph{Parent Classes}
+\begin{itemize}
+«FOREACH this.generalization AS parentClass SEPARATOR ", "-»
+\item «parentClass.general.name-» (see section~\ref{cls:«parentClass.general.fullName()-»} on page~\pageref{cls:«parentClass.general.fullName()-»})
+«ENDFOREACH-»
+\end{itemize}
+«ENDIF-»
+«ENDDEFINE»
+
+«DEFINE ClassDoc FOR uml::Interface-»
+\subsubsection{\Large{Interface \bfseries \texttt{«this.name»}\normalfont}}
+\label{cls:«this.fullName()»} \index{«this.fullIndex()»}
+\paragraph{Overview}
+«EXPAND WriteDoc FOR this-»
+
+«EXPAND ClassifierInnerDoc FOR this-»
+
+«IF this.generalization.size > 0-»
+\paragraph{Parent Classes}
+\begin{itemize}
+«FOREACH this.generalization AS parentClass SEPARATOR ", "-»
+\item «parentClass.general.name-» (see section~\ref{cls:«parentClass.general.fullName()-»} on page~\pageref{cls:«parentClass.general.fullName()-»}) 
+«ENDFOREACH-»
+\end{itemize}
+«ENDIF-»
+
+
+«ENDDEFINE»
+
+
+«DEFINE ClassifierInnerDoc FOR Classifier»
+«ENDDEFINE»
+«DEFINE ClassifierInnerDoc FOR Class»
+«IF this.ownedAttribute.select(a|a.isNavigable()).select(c|!c.getAppliedStereotypes().name.contains("Nondocumented")).size > 0 || this.ownedElement.typeSelect(Constraint).size > 0-»
+%\begin{description}
+
+	«IF this.ownedAttribute.select(a|a.isNavigable()).select(c|!c.getAppliedStereotypes().name.contains("Nondocumented")).size > 0-»
+	\subparagraph{\textbf{Class Properties}} Class \texttt{«this.name»} has the following properties:
+	
+	%\begin{description}
+	«EXPAND AttributeDoc FOREACH this.ownedAttribute.select(a|a.isNavigable()).select(c|!c.getAppliedStereotypes().name.contains("Nondocumented")).sortBy(e|e.name)-»
+	%\end{description}
+	«ENDIF-»
+
+	«IF this.ownedElement.typeSelect(Constraint).size > 0-»
+	\subparagraph{\textbf{Constraints}}
+	%\begin{description}
+	«EXPAND ConstraintDoc FOREACH this.ownedElement.typeSelect(Constraint)-»
+	%\end{description}
+	«ENDIF-»
+
+%\end{description}
+«ENDIF-»
+«ENDDEFINE»
+«DEFINE ClassifierInnerDoc FOR Interface»
+«IF this.ownedElement.typeSelect(Constraint).size > 0-»
+%\begin{description}
+
+	«IF this.ownedElement.typeSelect(Constraint).size > 0-»
+	%\subparagraph{\textbf{Constraints}}
+	%\begin{description}
+	«EXPAND ConstraintDoc FOREACH this.ownedElement.typeSelect(Constraint)-»
+	%\end{description}
+	«ENDIF-»
+
+%\end{description}
+«ENDIF-»
+
+«ENDDEFINE»
+
+«DEFINE AttributeDoc FOR uml::Property-»
+\subparagraph{«this.name.toString().saveLatexString()-» : «this.type.name.toString().saveLatexString()-» «if (this.lower.toInt()==1 && this.upper.toInt()==1) then "" else "\\symbol{\"5B}" + this.lower.toInt() + ".." + (this.upper.toInt() < 0 ? "$*$" : this.upper) + "\\symbol{\"5D}"-»} \hspace{\fill}\nopagebreak
+«EXPAND WriteDoc FOR this-»
+«ENDDEFINE»
+
+
+
+«DEFINE ConstraintDoc FOR uml::Constraint-»
+\subparagraph{«this.name.toString().saveLatexString()-»:} \hspace{\fill}\nopagebreak
+\begin{lstlisting}
+«LET ((OpaqueExpression)this.ownedElement.get(0)).body AS b»
+«IF String.isInstance(b)-»
+«b-»
+«ELSE»
+«b.first()-»
+«ENDIF»
+«ENDLET»
+\end{lstlisting}
+«ENDDEFINE»
+
+
+
+«DEFINE WriteDoc FOR uml::Element»
+	«IF this.ownedComment.body.size == 0-»
+TODO: This model element is missing its documentation. Please fix the source model!
+	«ELSE»	
+		«FOREACH this.ownedComment.body AS s-»
+	«s.toString().saveLatexString()-»
+		«ENDFOREACH»
+	«ENDIF»
+«ENDDEFINE»
+
+
+
+«DEFINE WriteManualInclude(String chapterTitle) FOR String-»
+% Here a manual modifiable file is included: «this»
+\chapter{«chapterTitle»}
+\input{../src-man/«this.replaceAll(".tex","")»}
+«FILE this MAN-»
+%
+% This file has been generated by UML to LaTeX written in oAW Xpand
+% It is save to alter this file as it WILL NOT be overwritten.
+% The file is included by the main latex file in the appropriate place, not further
+% actions are required
+%
+«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE WriteManualInclude FOR String-»
+% Here a manual modifiable file is included: «this»
+\input{../src-man/«this.replaceAll(".tex","")»}
+«FILE this MAN-»
+%
+% This file has been generated by UML to LaTeX written in oAW Xpand
+% It is save to alter this file as it WILL NOT be overwritten.
+% The file is included by the main latex file in the appropriate place, not further
+% actions are required
+%
+«ENDFILE»
+«ENDDEFINE»

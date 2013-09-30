@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
+
+<!--Converted with LaTeX2HTML 2002-2-1 (1.70)
+original version by:  Nikos Drakos, CBLU, University of Leeds
+* revised and updated by:  Marcus Hennecke, Ross Moore, Herb Swan
+* with significant contributions from:
+  Jens Lippmann, Marek Rouchal, Martin Wilck and others -->
+<HTML>
+<HEAD>
+<TITLE>Example</TITLE>
+<META NAME="description" CONTENT="Example">
+<META NAME="keywords" CONTENT="PCM">
+<META NAME="resource-type" CONTENT="document">
+<META NAME="distribution" CONTENT="global">
+
+<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+<META NAME="Generator" CONTENT="LaTeX2HTML v2002-2-1">
+<META HTTP-EQUIV="Content-Style-Type" CONTENT="text/css">
+
+<LINK REL="STYLESHEET" HREF="PCM.css">
+
+<LINK REL="next" HREF="node153.html">
+<LINK REL="previous" HREF="node151.html">
+<LINK REL="up" HREF="node150.html">
+<LINK REL="next" HREF="node153.html">
+</HEAD>
+
+<BODY >
+<!--Navigation Panel-->
+<A NAME="tex2html2751"
+  HREF="node153.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2745"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2739"
+  HREF="node151.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2749"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2752"
+  HREF="node153.html">Structure</A>
+<B> Up:</B> <A NAME="tex2html2746"
+  HREF="node150.html">Parameter Model</A>
+<B> Previous:</B> <A NAME="tex2html2740"
+  HREF="node151.html">Motivation</A>
+ &nbsp; <B>  <A NAME="tex2html2748"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2750"
+  HREF="node178.html">Index</A></B> 
+<BR>
+<BR>
+<!--End of Navigation Panel-->
+
+<H3><A NAME="SECTION00453200000000000000">
+Example</A>
+</H3>
+Before describing the parameter model in detail, two short examples are shown in Figure&nbsp;<A HREF="#fig:UMEP">3.36</A> to give the reader a feel for the modelling capabilities. These examples extend certain actions from the usage model example in Figure&nbsp;<A HREF="node147.html#fig:um_example">3.33</A> with parameter characterisations.
+
+<P>
+
+<DIV ALIGN="CENTER"><A NAME="fig:UMEP1"></A><A NAME="fig:UMEP2"></A><A NAME="fig:UMEP"></A><A NAME="3092"></A>
+<TABLE>
+<CAPTION ALIGN="BOTTOM"><STRONG>Figure 3.36:</STRONG>
+Parameter Characterisation Examples</CAPTION>
+<TR><TD>
+<DIV ALIGN="CENTER">		[]
+    	<IMG
+  WIDTH="183" HEIGHT="158" ALIGN="BOTTOM" BORDER="0"
+ SRC="./UsageModelExample_Par1.gif"
+ ALT="Image UsageModelExample_Par1">
+       
+		 
+		[]
+   	<IMG
+  WIDTH="285" HEIGHT="158" ALIGN="BOTTOM" BORDER="0"
+ SRC="./UsageModelExample_Par2.gif"
+ ALT="Image UsageModelExample_Par2">
+       
+	</DIV></TD></TR>
+</TABLE>
+</DIV>
+
+<P>
+<P>
+<DIV><I>Example  3.12</I> &nbsp; 
+In Figure&nbsp;<A HREF="#fig:UMEP1">3.36(a)</A>, a parameter 'searchTerm' has been introduced to the 'Search' action. The <TT>Parameter</TT> class of the PCM enables specifying a name and a data type (not shown here) for a parameter. Thus, it includes only information about the formal parameter. The actual parameter, i.e., the value a parameter takes when the service is actually called, can be characterised with a <TT>VariableUsage</TT>. In this case, the parameter is a string, which is the name of the item to be searched for. The database is assumed to contain 40 items. The domain expert has characterised the <I>value</I> of the input parameter and has specified a probability distribution for the search terms users pass to the service. Therefore, the domain expert has divided the input domain of the service into four subdomains (item1-10, item11-20, item21-30, item31-40) to reduce the modelling effort, and has provided probabilities for each of these subdomains. If the behaviour of the component service changes depending on which item is searched for (e.g., because of calling different databases), this can be included in the performance prediction, because the parameter has been characterised.</DIV><P></P>
+
+<P>
+<P>
+<DIV><I>Example  3.13</I> &nbsp; 
+In Figure&nbsp;<A HREF="#fig:UMEP2">3.36(b)</A>, an array 'listOfItems' is passed to the 'BuyItems' action. The domain expert has not characterised the <I>value</I> of this array, but just the <I>number of elements</I> it contains. It is a suitable abstraction of the parameter in this case, because the value of the array is not relevant in this example. The service 'Buy Items' calls required services for each item in the array (not shown here because this is part of the service's SEFF and not the usage model), so that the number of elements in the array is sufficient for the performance predictions, as it is directly related to the number of loop iterations in the SEFF of this service. The number of elements is specified as a probability distribution, so that the loop is iterated with the same probability distribution.</DIV><P></P>
+
+<P>
+<HR>
+<!--Navigation Panel-->
+<A NAME="tex2html2751"
+  HREF="node153.html">
+<IMG WIDTH="37" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="next"
+ SRC="file:///C|/programme/latex2html/icons/next.png"></A> 
+<A NAME="tex2html2745"
+  HREF="node150.html">
+<IMG WIDTH="26" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="up"
+ SRC="file:///C|/programme/latex2html/icons/up.png"></A> 
+<A NAME="tex2html2739"
+  HREF="node151.html">
+<IMG WIDTH="63" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="previous"
+ SRC="file:///C|/programme/latex2html/icons/prev.png"></A> 
+<A NAME="tex2html2747"
+  HREF="node1.html">
+<IMG WIDTH="65" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="contents"
+ SRC="file:///C|/programme/latex2html/icons/contents.png"></A> 
+<A NAME="tex2html2749"
+  HREF="node178.html">
+<IMG WIDTH="43" HEIGHT="24" ALIGN="BOTTOM" BORDER="0" ALT="index"
+ SRC="file:///C|/programme/latex2html/icons/index.png"></A> 
+<BR>
+<B> Next:</B> <A NAME="tex2html2752"
+  HREF="node153.html">Structure</A>
+<B> Up:</B> <A NAME="tex2html2746"
+  HREF="node150.html">Parameter Model</A>
+<B> Previous:</B> <A NAME="tex2html2740"
+  HREF="node151.html">Motivation</A>
+ &nbsp; <B>  <A NAME="tex2html2748"
+  HREF="node1.html">Contents</A></B> 
+ &nbsp; <B>  <A NAME="tex2html2750"
+  HREF="node178.html">Index</A></B> 
+<!--End of Navigation Panel-->
+<ADDRESS>
+Snowball
+2007-03-16
+</ADDRESS>
+</BODY>
+</HTML>

@@ -1,0 +1,248 @@
+«EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::pcm»
+«EXTENSION org::eclipse::xtend::util::stdlib::counter»
+«IMPORT system»
+«IMPORT composition»
+«IMPORT usagemodel»
+«IMPORT entity»
+«IMPORT repository»
+«IMPORT allocation»
+					
+«DEFINE Main FOR UsageModel»
+	«counterReset("c1")»
+	«counterReset("c2")»
+	
+	«FILE "Main.java"»
+	«FOREACH this.usageScenario_UsageModel AS us»
+		«EXPAND WorkloadDriverClass(us) FOR us.workload_UsageScenario»
+	«ENDFOREACH»
+		public class Main extends de.uka.ipd.sdq.prototype.framework.AbstractMain {
+
+			@Override
+			protected void initialiseThreads(
+					de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
+					de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun)
+			{
+				«FOREACH this.usageScenario_UsageModel AS us»
+					«EXPAND WorkloadDriver(us) FOR us.workload_UsageScenario»
+				«ENDFOREACH»
+			}
+		
+			@Override
+			protected void setupResources()
+			{	
+				ResourceEnvironment.setUpResources(runProps.getOptionValue('p'), runProps.getOptionValue('H'), runProps.getOptionValue('s'), getAccuracy());
+			}
+			
+			@Override
+			protected void initialiseSystems() 
+			{
+				«FOREACH this.usageScenario_UsageModel.querySystemCalls().getSystemsFromCalls() AS us»
+					«us.fqn()».main(runProps.getOptionValue('R'), runProps.getOptionValue('O'));
+				«ENDFOREACH»			
+			}
+			
+			@Override
+			protected String[][] getSystems()
+			{
+				String[][] systems = {
+				«FOREACH this.usageScenario_UsageModel.querySystemCalls().getSystemsFromCalls() AS sys SEPARATOR ","»
+					{"«sys.fqn()»", "«sys.javaName()»"}
+				«ENDFOREACH»
+				};
+				
+				return systems;
+			}
+			
+			@Override
+			protected void initAllocationStorage() {
+				AllocationStorage.initSingleton(new AllocationStorage());
+			}
+			
+			/**
+			 * @param args
+			 */
+			public static void main(String[] args)
+			{
+				new Main().run(args);
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE»
+
+«DEFINE UsageScenario(Allocation a) FOR UsageScenario»
+	«FILE this.implementationPackage().fqnToDirectoryPath() + "/" + this.javaName() + ".java"»
+		package «this.implementationPackage()»;
+		public class «this.javaName()» implements java.lang.Runnable
+		{
+			protected static org.apache.log4j.Logger logger = org.apache.log4j.Logger.getRootLogger();
+		
+			«EXPAND m2t_transforms::prototype::java_core::SensorDefinition FOREACH this.scenarioBehaviour_UsageScenario.querySystemCalls()»
+		
+			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+
+			private de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun;
+
+			public «this.javaName()»() {
+				«EXPAND CreateSystemVar FOREACH this.querySystemCalls().getSystemsFromCalls()»
+			
+				«EXPAND m2t_transforms::prototype::java_core::SensorInitialisation FOREACH this.scenarioBehaviour_UsageScenario.querySystemCalls()»	
+			
+	            «EXPAND ContextInit FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
+				
+		        «EXPAND UsageScenarioAdditionsTM FOR this»
+			}
+			
+			«EXPAND ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
+			
+			public void run() {
+				scenarioRunner();
+			}
+		}
+	«ENDFILE»
+«ENDDEFINE» 
+
+«DEFINE UsageScenarioAdditionsTM FOR UsageScenario»
+«ENDDEFINE»
+
+«DEFINE CreateSystemVar FOR System»
+«ENDDEFINE»
+
+«DEFINE ContextInit FOR OperationProvidedRole»  
+    {
+		//get the business interface
+		
+		«REM»
+		// This is the old EJB version
+		//Object obj=context.lookup(«this.providedInterface__OperationProvidedRole.fqn()».class.getName());
+		//convert obj
+		//«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)obj;
+		//«this.portMemberVar()» = my«this.providingEntity_ProvidedRole.javaName()».«this.portGetter()»();
+		«ENDREM»
+		
+		// Wait for system
+		«this.portMemberVar()» = («this.providedInterface__OperationProvidedRole.fqn()»)de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.lookup("«this.portClassName()»_");
+	}
+
+«ENDDEFINE»
+
+
+
+«DEFINE WorkloadDriverClass(UsageScenario u) FOR Workload»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/usage.xpt]: WorkloadDriverClass(UsageScenario u) should never get called here!"»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriver(UsageScenario u) FOR Workload»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/prototype/usage.xpt]: WorkloadDriver(UsageScenario u) should never get called here!"»
+«ENDDEFINE»
+
+«DEFINE WorkloadDriver(UsageScenario u) FOR OpenWorkload»
+   this.threads.add(new «u.javaName()»Thread(exp, expRun, runProps));
+«ENDDEFINE»
+
+«DEFINE WorkloadDriverClass(UsageScenario u) FOR OpenWorkload»
+class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.usage.AbstractOpenScenarioThread {
+
+	public «u.javaName()»Thread(
+			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
+			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
+			de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
+	{
+		super(exp, expRun, "Response Time of «u.entityName»",runProps,"«this.interArrivalTime_OpenWorkload.specification.specificationString()»");
+	}
+
+	@Override
+	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
+	{
+		if (runProps.hasOption('R'))
+		{
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+		}
+		else
+		{
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.LOCALHOST);
+		}
+		return new «u.fqn()»();
+	}
+}
+
+
+«ENDDEFINE»
+
+
+«DEFINE WorkloadDriver(UsageScenario u) FOR ClosedWorkload»
+	{
+		int count = «this.population»;
+		if (runProps.hasOption("c")) {
+			count = (Integer)runProps.getOptionObject("c");
+		}
+		for (int i = 0; i < count; i++) {
+			threads.add(new «u.javaName()»Thread(exp, expRun, runProps));
+		}
+	}
+«ENDDEFINE»
+
+«DEFINE WorkloadDriverClass(UsageScenario u) FOR ClosedWorkload»
+class «u.javaName()»Thread extends de.uka.ipd.sdq.prototype.framework.usage.AbstractClosedScenarioThread {
+	
+	public «u.javaName()»Thread(
+			de.uka.ipd.sdq.sensorframework.entities.Experiment exp,
+			de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun,
+			de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
+	{
+		super(exp, expRun, "Response Time of «u.entityName»",runProps);
+	}
+
+	@Override
+	protected Runnable getScenarioRunner(de.uka.ipd.sdq.prototype.framework.utils.RunProperties runProps)
+	{
+		if (runProps.hasOption('R'))
+		{
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+		}
+		else
+		{
+			de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.setRemoteAddress(de.uka.ipd.sdq.prototype.framework.registry.RmiRegistry.LOCALHOST);
+		}
+		return new «u.fqn()»();
+	}
+}
+«ENDDEFINE»
+
+«DEFINE UsageScenarioAddition FOR UsageScenario»
+        expRun = de.uka.ipd.sdq.prototype.framework.experiment.ExperimentManager.getLatestExperimentRun();
+        
+		ctx.getStack().createAndPushNewStackFrame();
+		
+		// de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache
+		//		.initialiseStoExCache(new de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator());
+		
+		de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory probFunctionFactory = de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl.getInstance();
+		
+		probFunctionFactory.setRandomGenerator(new de.uka.ipd.sdq.probfunction.math.impl.DefaultRandomGenerator());
+		de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache.initialiseStoExCache(probFunctionFactory);
+
+«ENDDEFINE»
+
+«DEFINE ScenarioRunner(UsageScenario us) FOR ScenarioBehaviour»
+	private	de.uka.ipd.sdq.simucomframework.variables.StackContext ctx = new de.uka.ipd.sdq.simucomframework.variables.StackContext();
+	
+	@org.junit.Test public void scenarioRunner()
+	{
+		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> outerStackframe = ctx.getStack().createAndPushNewStackFrame();
+		
+		«REM»We are using sensors on EntryLevelSystemCalls now. «EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName.javaString()»«ENDREM»
+		{	
+			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+
+		}
+		«REM»«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName.javaString()»«ENDREM»
+		
+		ctx.getStack().removeStackFrame();
+	}
+«ENDDEFINE»
+
+
+«DEFINE SystemMemberVar FOR OperationProvidedRole»
+   protected «this.providedInterface__OperationProvidedRole.fqn()» «this.portMemberVar()» = null;
+«ENDDEFINE»
