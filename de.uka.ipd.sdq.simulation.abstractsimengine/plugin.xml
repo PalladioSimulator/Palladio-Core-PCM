@@ -2,4 +2,19 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="de.uka.ipd.sdq.simulation.abstractsimengine.engine" name="Simulation Engine" schema="schema/de.uka.ipd.sdq.simulation.abstractsimengine.engine.exsd"/>
+   <extension
+         point="org.eclipse.core.runtime.preferences">
+      <initializer
+            class="de.uka.ipd.sdq.simulation.preferences.SimulationPreferenceInitialiser">
+      </initializer>
+   </extension>
+   <extension
+         point="org.eclipse.ui.preferencePages">
+      <page
+            category="de.uka.ipd.sdq.pcmbench.palladio"
+            class="de.uka.ipd.sdq.simulation.preferences.SimulationPreferencePage"
+            id="de.uka.ipd.sdq.simulation.preferences.page"
+            name="Simulation">
+      </page>
+   </extension>
 </plugin>

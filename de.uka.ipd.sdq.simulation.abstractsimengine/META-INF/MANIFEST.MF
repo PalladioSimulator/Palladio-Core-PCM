@@ -7,10 +7,12 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: de.uka.ipd.sdq.simulation.abstractsimengine,
  de.uka.ipd.sdq.simulation.abstractsimengine.ds,
  de.uka.ipd.sdq.simulation.abstractsimengine.processes,
- de.uka.ipd.sdq.simulation.abstractsimengine.util
+ de.uka.ipd.sdq.simulation.abstractsimengine.util,
+ de.uka.ipd.sdq.simulation.preferences
 Require-Bundle: org.apache.log4j,
  org.eclipse.core.runtime,
- org.apache.commons.javaflow;bundle-version="1.0.0"
+ org.apache.commons.javaflow;bundle-version="1.0.0",
+ org.eclipse.ui
 Bundle-Vendor: sdq.ipd.kit.edu
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/SimulationControl.xml
