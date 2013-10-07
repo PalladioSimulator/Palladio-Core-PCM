@@ -6,6 +6,7 @@ import org.apache.log4j.Logger;
 import org.eclipse.equinox.app.IApplication;
 import org.eclipse.equinox.app.IApplicationContext;
 
+import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ds.ISimulationControlComponent;
 
 public class BusSimulationExample implements IApplication {
@@ -18,9 +19,11 @@ public class BusSimulationExample implements IApplication {
     public BusSimulationExample() {
         this.simControlService = Activator.getDefault().getSimulationControlService();
 
+        // fetch 
+        ISimEngineFactory factory = this.simControlService.getSimEngineFactory();
         BusSimConfig config = new BusSimConfig();
-        BusModel model = BusModel.create(config);
-
+        
+        BusModel model = new BusModel(config, factory);
         this.simControlService.setSimulationModel(model);
         this.simControlService.setMaxSimTime((long) MAX_SIMULATION_TIME.toSeconds().value());
     }
