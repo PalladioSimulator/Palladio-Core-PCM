@@ -5,6 +5,7 @@ import java.util.Observer;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
+import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
 
 /**
  * 
@@ -18,7 +19,12 @@ public class SimulationControlComponent implements ISimulationControlComponent {
 
     @Override
     public ISimEngineFactory getSimEngineFactory() {
-        throw new UnsupportedOperationException("Not yet implemented");
+        ISimEngineFactory factory = SimulationPreferencesHelper.getPreferredSimulationEngine();
+        if (factory == null) {
+            throw new RuntimeException("There is no simulation engine available. Install at least one engine.");
+        }
+
+        return factory;
     }
 
     @Override
