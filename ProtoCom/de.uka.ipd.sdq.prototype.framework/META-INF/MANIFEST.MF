@@ -11,7 +11,8 @@ Export-Package: .,
  de.uka.ipd.sdq.prototype.framework.strategies,
  de.uka.ipd.sdq.prototype.framework.tests,
  de.uka.ipd.sdq.prototype.framework.usage,
- de.uka.ipd.sdq.prototype.framework.utils
+ de.uka.ipd.sdq.prototype.framework.utils,
+ de.uka.ipd.sdq.prototype.framework.visitor
 Require-Bundle: org.junit4,
  org.apache.log4j,
  de.uka.ipd.sdq.resourcestrategies,
