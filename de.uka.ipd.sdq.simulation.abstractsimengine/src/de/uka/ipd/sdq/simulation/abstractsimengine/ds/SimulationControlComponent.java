@@ -8,10 +8,9 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
 
 /**
+ * Implementation of the provided simulation control declarative service.
  * 
- * Implementation of the simulation control declarative service.
- * 
- * @author Christoph Föhrdes
+ * @author Christoph Foehrdes
  */
 public class SimulationControlComponent implements ISimulationControlComponent {
 

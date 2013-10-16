@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 /**
  * Definition of the simulation control declarative service.
  * 
- * @author Christoph Föhrdes
+ * @author Christoph Foehrdes
  */
 public interface ISimulationControlComponent extends ISimulationControl {
 
@@ -21,7 +21,8 @@ public interface ISimulationControlComponent extends ISimulationControl {
     /**
      * Sets the model for the simulation.
      * 
-     * @param model A simulation model
+     * @param model
+     *            A simulation model
      */
     public void setSimulationModel(ISimulationModel model);
 
