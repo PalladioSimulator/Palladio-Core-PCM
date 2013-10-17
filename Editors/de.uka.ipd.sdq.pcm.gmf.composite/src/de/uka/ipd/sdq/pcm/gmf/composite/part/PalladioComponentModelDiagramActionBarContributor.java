@@ -9,6 +9,7 @@ import org.eclipse.gmf.runtime.diagram.ui.printing.render.actions.RenderedPrintP
 import org.eclipse.jface.action.GroupMarker;
 import org.eclipse.jface.action.IAction;
 import org.eclipse.jface.action.IMenuManager;
+import org.eclipse.jface.action.IToolBarManager;
 import org.eclipse.ui.IActionBars;
 import org.eclipse.ui.IWorkbenchActionConstants;
 import org.eclipse.ui.IWorkbenchPage;
@@ -33,10 +34,19 @@ public class PalladioComponentModelDiagramActionBarContributor extends DiagramAc
     }
 
     /**
-     * @generated
+     * @generated not Manual change in this Method: Changed lines remove hideConnectorLabels and
+     *            showConnectorLabels Contribution Items from the Editor's tool bar. These two
+     *            actions where severely bugged and added unnecessary features to begin with.
      */
     public void init(IActionBars bars, IWorkbenchPage page) {
         super.init(bars, page);
+
+        // begin: custom code
+        IToolBarManager tbm = bars.getToolBarManager();
+        tbm.remove("hideConnectorLabels");
+        tbm.remove("showConnectorLabels");
+        // end: custom code
+
         // print preview
         IMenuManager fileMenu = bars.getMenuManager().findMenuUsingPath(IWorkbenchActionConstants.M_FILE);
         assert fileMenu != null;
