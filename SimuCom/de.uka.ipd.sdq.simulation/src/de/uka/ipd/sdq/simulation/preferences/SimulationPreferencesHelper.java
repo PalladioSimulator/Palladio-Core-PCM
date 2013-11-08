@@ -43,15 +43,15 @@ public class SimulationPreferencesHelper {
             engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(preferredEngineId);
         } catch (CoreException e) {
         	logger.warn("Could not load preferred simulation engine " + preferredEngineId + ".", e);
-        }
         
-        // if no factory has been found for the preferred engine, use the default engine
-        try {
-            engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(getDefaultEngineId());
-        } catch (CoreException e) {
-        	logger.warn("Could not load default simulation engine " + getDefaultEngineId() + ".", e);
-        }
+	        // if no factory has been found for the preferred engine, use the default engine
+	        try {
+	            engineFactory = AbstractSimEngineExtensionHelper.getEngineFactory(getDefaultEngineId());
+	        } catch (CoreException e2) {
+	        	logger.warn("Could not load default simulation engine " + getDefaultEngineId() + ".", e2);
+	        }
         
+        }
         return engineFactory;
     }
 
