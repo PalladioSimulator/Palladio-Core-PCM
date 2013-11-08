@@ -13,10 +13,7 @@ import org.apache.log4j.Logger;
  */
 public abstract class AbstractExperiment implements ISimulationControl {
 
-    private static Logger logger = Logger.getLogger(AbstractExperiment.class);
-
-    protected final IEvent STOP_EVENT = new StopEvent();
-    protected final IEvent CHECK_EVENT = new CheckEvent();
+    private final static Logger logger = Logger.getLogger(AbstractExperiment.class);
 
     private final ArrayList<SimCondition> stopConditions = new ArrayList<SimCondition>();
     private final ArrayList<Observer> timeObservers = new ArrayList<Observer>();
@@ -26,11 +23,19 @@ public abstract class AbstractExperiment implements ISimulationControl {
     protected final ISimulationModel model;
 
     public AbstractExperiment(ISimulationModel model) {
+    	super();
         this.model = model;
     }
 
     public void setMaxSimTime(final long simTime) {
-        scheduleEvent(new StopEvent(), simTime);
+    	addStopCondition(new SimCondition() {
+			
+			@Override
+			public boolean check() {
+				return getCurrentSimulationTime() >= simTime;
+			}
+
+    	});
     }
 
     public void addStopCondition(final SimCondition condition) {
@@ -82,60 +87,31 @@ public abstract class AbstractExperiment implements ISimulationControl {
         return this.isRunning.get();
     }
 
-    public void checkStopConditions() {
-        if (this.lastNotificationTime != this.getCurrentSimulationTime()) {
-            this.lastNotificationTime = this.getCurrentSimulationTime();
-            for (final Observer o : this.timeObservers) {
-                o.update(null, this.lastNotificationTime);
-            }
-        }
+    public boolean checkStopConditions() {
+        notifyTimeObservers();
         for (final SimCondition c : this.stopConditions) {
             if (c.check()) {
-                scheduleEvent(STOP_EVENT, 0);
-                return;
+                return true;
             }
         }
+        return false;
     }
 
     public void addTimeObserver(final Observer observer) {
         this.timeObservers.add(observer);
     }
 
-    public abstract void scheduleEvent(final IEvent event, final double delay);
-
     public abstract void startSimulator();
 
     public abstract void stopSimulator();
-
-    protected class StopEvent implements IEvent {
-
-        @Override
-        public void run() {
-            if (AbstractExperiment.this.isRunning()) {
-            	if(logger.isDebugEnabled())
-            		logger.debug("Executing Stop Event");
-                AbstractExperiment.this.stop();
+    
+	protected void notifyTimeObservers() {
+		if (this.lastNotificationTime != this.getCurrentSimulationTime()) {
+            this.lastNotificationTime = this.getCurrentSimulationTime();
+            for (final Observer o : this.timeObservers) {
+                o.update(null, this.lastNotificationTime);
             }
         }
-
-    }
-
-    protected class CheckEvent implements IEvent {
-
-        @Override
-        public void run() {
-            AbstractExperiment.this.checkStopConditions();
-            if (model.getSimulationControl().isRunning()) {
-                scheduleEvent(this, 1);
-            }
-        }
-
-    }
-
-    protected interface IEvent {
-
-        public void run();
-
-    }
+	}
 
 }
