@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.simulation.abstractsimengine.desmoj;
 
-import sun.reflect.generics.reflectiveObjects.NotImplementedException;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimProcessDelegator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.processes.ProcessState;
 import de.uka.ipd.sdq.simulation.abstractsimengine.processes.SimProcessThreadingStrategy;
@@ -96,12 +95,12 @@ public class DesmoJSimProcess extends SimulatedProcess {
 
     @Override
     public boolean isScheduled() {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
     @Override
     public void reschedule(double delay) {
-        throw new NotImplementedException();
+        throw new UnsupportedOperationException();
     }
 
 }

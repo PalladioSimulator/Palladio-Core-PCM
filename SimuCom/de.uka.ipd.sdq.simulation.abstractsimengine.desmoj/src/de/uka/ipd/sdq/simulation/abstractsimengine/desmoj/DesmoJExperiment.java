@@ -1,17 +1,11 @@
 package de.uka.ipd.sdq.simulation.abstractsimengine.desmoj;
 
-import java.util.Observable;
-import java.util.Observer;
 import java.util.concurrent.TimeUnit;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractExperiment;
 import desmoj.core.simulator.Experiment;
-import desmoj.core.simulator.ExternalEvent;
 import desmoj.core.simulator.ModelCondition;
 import desmoj.core.simulator.SingleUnitTimeFormatter;
-import desmoj.core.simulator.TimeFormatter;
-import desmoj.core.simulator.TimeInstant;
-import desmoj.core.simulator.TimeSpan;
 
 /**
  * @author Steffen Becker
