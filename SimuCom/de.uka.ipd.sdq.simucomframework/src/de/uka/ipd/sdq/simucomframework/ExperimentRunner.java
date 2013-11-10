@@ -16,9 +16,7 @@ import de.uka.ipd.sdq.statistics.estimation.SampleMeanEstimator;
 public class ExperimentRunner {
 	
     private static final double ONE_HUNDERT_PERCENT = 100.0;
-    
-	private static final long UNLIMITED_SIMULATION_TIME = Long.MAX_VALUE - 1;
-    
+        
     private final static Logger logger = 
 		Logger.getLogger(ExperimentRunner.class.getName());
 	

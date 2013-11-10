@@ -1,10 +1,14 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Observer;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.osgi.framework.BundleActivator;
+import org.osgi.framework.BundleContext;
+import org.osgi.framework.ServiceRegistration;
 
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.DisplayIssuesDialog;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
@@ -14,6 +18,7 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
+import de.uka.ipd.sdq.simulation.ISimulationControl;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
@@ -33,13 +38,13 @@ import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
  * @author Steffen Becker
  * 
  */
-public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulationControl,
-		org.osgi.framework.BundleActivator {
+public abstract class AbstractMain 
+	implements ISimulationControl, BundleActivator {
 
 	// Service registry entry for registering this object in Eclipse's service
 	// registry where
 	// it can be found by the simulation runner
-	private org.osgi.framework.ServiceRegistration serviceRegistryEntry;
+	private ServiceRegistration<ISimulationControl> serviceRegistryEntry;
 
 	/*
 	 * (non-Javadoc)
@@ -48,11 +53,12 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 	 * org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext
 	 * )
 	 */
-	@SuppressWarnings("unchecked")
-	public void start(org.osgi.framework.BundleContext context) throws Exception {
+	public void start(BundleContext context) throws Exception {
 		// register the service
-		serviceRegistryEntry = context.registerService(de.uka.ipd.sdq.simulation.ISimulationControl.class
-				.getName(), this, new java.util.Hashtable());
+		serviceRegistryEntry = context.registerService(
+				ISimulationControl.class, 
+				this, 
+				new Hashtable<String,ISimulationControl>());
 	}
 
 	/*
@@ -93,7 +99,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 
 			public void update(Observable clock, Object data) {
 				int timePercent = (int) (model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME);
-				int measurementsPercent = (int) (model.getMainMeasurementsCount() * 100 / model.getConfig()
+				int measurementsPercent = (int) (model.getMainMeasurementsCount() * 100 / model.getConfiguration()
 						.getMaxMeasurementsCount());
 				statusObserver.updateStatus(timePercent < measurementsPercent ? measurementsPercent : timePercent,
 						model.getSimulationControl().getCurrentSimulationTime(), model.getMainMeasurementsCount());
@@ -101,7 +107,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 
 		});
 		getStatus().setCurrentSimulationTime(0);
-		double simRealTime = ExperimentRunner.run(model, SIM_STOP_TIME);
+		double simRealTime = ExperimentRunner.run(model);
 		model.getProbeSpecContext().finish();
 		// check if there are accuracy influence analysis issues
 		if (model.getIssues().size() > 0) {
@@ -118,7 +124,7 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 		// TODO
 		// storeRunDescription(config.getExperimentRunDescriptor());
 
-		model.getConfig().disposeRandomGenerator();
+		model.getConfiguration().disposeRandomGenerator();
 		return model.getErrorStatus();
 	}
 
@@ -157,36 +163,6 @@ public abstract class AbstractMain implements de.uka.ipd.sdq.simulation.ISimulat
 	// return SensorHelper.createOrReuseTimeSensor(model.getDAOFactory(),
 	// model.getExperimentDatastore(), name);
 	// }
-
-	/**
-	 * Setup log4j
-	 * 
-	 * @param config
-	 *            SimuCom config which is queried for the logging settings
-	 */
-	private void initializeLogger(SimuComConfig config) {
-		Logger simuComLogger = Logger.getLogger("de.uka.ipd.sdq.simucomframework");
-		if (config.getVerboseLogging())
-			// Set to Level.ALL if verbose logging is enabled,
-			simuComLogger.setLevel(Level.ALL);
-		else {
-			// Set to INFO if verbose level is not enabled but global logging
-			// level
-			// is lower than INFO, otherwise keep global level.
-			// In this way the global logging settings
-			// are kept if they are INFO, WARN or ERROR
-			Level currentLevel = simuComLogger.getEffectiveLevel();
-			if (!currentLevel.isGreaterOrEqual(Level.INFO)) {
-				simuComLogger.setLevel(Level.INFO);
-			}
-		}
-		if(logger.isDebugEnabled())
-			logger.debug("Extended Simulation Logging enabled!");
-
-		// Set this class' log level to info to see start and stop messages of
-		// SimuCom
-		logger.setLevel(Level.INFO);
-	}
 
 	/**
 	 * Request a simulation stop

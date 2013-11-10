@@ -65,7 +65,7 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 				waitForNextUser();
 				
 				// Count the new user:
-				if (this.getModel().getConfig().getSimulateFailures()) {
+				if (this.getModel().getConfiguration().getSimulateFailures()) {
 					FailureStatistics.getInstance().increaseRunCount();
 					FailureStatistics.getInstance().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
 				}

@@ -100,7 +100,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
 				.getMeasurementMetrics(), (SensorFrameworkConfig) model
-				.getConfig().getRecorderConfig());
+				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);		
 		metaData.setMeasurementName("Wait time at " + calculatorName);

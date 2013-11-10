@@ -88,6 +88,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 		return confidenceReached;
 	}
 
+	@SuppressWarnings("unchecked")
 	public void calculated(Vector<Measure<?, ? extends Quantity>> resultTuple) {
 		Measure<Double, Duration> responseTimeMeasure = (Measure<Double, Duration>) resultTuple.get(0);
 		double responseTime = responseTimeMeasure.doubleValue(SI.SECOND);

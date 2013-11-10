@@ -20,6 +20,11 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 public abstract class Context extends StackContext {
 
 	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1869414754329617190L;
+
+	/**
 	 * Central registry which contains all simulated resources
 	 */
 	private ResourceRegistry registry = null;
