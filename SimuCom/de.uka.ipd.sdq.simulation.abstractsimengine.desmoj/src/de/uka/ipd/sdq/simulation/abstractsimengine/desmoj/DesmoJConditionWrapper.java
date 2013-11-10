@@ -8,7 +8,7 @@ import desmoj.core.simulator.Entity;
  * @author Steffen Becker
  * @author Philipp Merkle
  */
-public class DesmoJConditionWrapper extends Condition {
+public class DesmoJConditionWrapper extends Condition<Entity> {
 
     private SimCondition abstractCondition;
 

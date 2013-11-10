@@ -51,7 +51,7 @@ public class DesmoJSimEvent<E extends IEntity> extends Event<DesmoJEntity> imple
 
     @Override
     public double scheduledAtTime() {
-        return this.scheduledAt().getTimeAsDouble();
+        return this.scheduledNext().getTimeAsDouble();
     }
     
 }
