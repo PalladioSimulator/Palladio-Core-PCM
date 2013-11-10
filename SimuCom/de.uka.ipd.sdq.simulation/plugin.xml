@@ -4,10 +4,9 @@
    <extension
          point="org.eclipse.ui.preferencePages">
       <page
-            category="de.uka.ipd.sdq.pcmbench.palladio"
             class="de.uka.ipd.sdq.simulation.preferences.SimulationPreferencePage"
             id="de.uka.ipd.sdq.simulation.preferences.page"
-            name="Simulation">
+            name="Palladio Simulation">
       </page>
    </extension>
    <extension
