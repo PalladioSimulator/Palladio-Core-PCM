@@ -64,6 +64,11 @@ class SetupConcurrentPipesAndFiltersStrategy extends SetupPipesAndFiltersStrateg
 			}
 		}
 
+		@SuppressWarnings("unused")
+		// TODO: This method is not called, the thread will never stop...
+		// Additionally, this will not work as take() is blocking so the
+		// Runnable will not pick up the state change without calling
+		// interrupt() on the hosting thread!
 		public void stop() {
 			keepRunning = false;
 		}

@@ -81,7 +81,7 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 		this.simulationStatus = status;
 		issues = new ArrayList<SeverityAndIssue>();		
 
-		// All following uses of static objects have severy issues. Nobody really thought of
+		// TODO: All following uses of static objects have severy issues. Nobody really thought of
 		// e.g. running Simucom in parallel (e.g. to utilise many cores)!
 		
 		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
@@ -97,6 +97,9 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 		
         // set up the measurement framework
         this.probeSpecContext = probeSpecContext == null ? initialiseProbeSpecification() : probeSpecContext;
+        
+        // setup debug log for console
+        initialiseSimStatus();
 	}
     
     private ProbeSpecContext initialiseProbeSpecification() {

@@ -92,7 +92,7 @@ public abstract class AbstractMain
 
 		if(logger.isEnabledFor(Level.INFO)) {
 			logger.info("Starting Simulation");
-			logger.info("Simulation controll class used: "+model.getSimulationControl().getClass().getSimpleName());
+			logger.info("Simulation engine used: "+model.getSimulationControl().getClass().getSimpleName());
 		}
 
 		final long SIM_STOP_TIME = config.getSimuTime();

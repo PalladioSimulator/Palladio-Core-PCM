@@ -4,7 +4,6 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
-import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -123,11 +122,6 @@ public class ScheduledResource extends AbstractScheduledResource {
 		}
 
 		return scheduledResource;
-	}
-
-	private void registerProcessWindows(ISchedulableProcess process,
-			IActiveResource resource) {
-		resource.registerProcess(process);
 	}
 
 	@Override
