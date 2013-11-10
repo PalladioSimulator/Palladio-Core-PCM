@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import javax.measure.quantity.Quantity;
+
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
@@ -52,7 +54,7 @@ public class CalculatorHelper {
             @Override
             public void request(ISchedulableProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
+                ProbeSample<?,? extends Quantity> currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
                 ctx.getSampleBlackboard().addSample(
@@ -63,7 +65,7 @@ public class CalculatorHelper {
             @Override
             public void acquire(ISchedulableProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
+                ProbeSample<?,? extends Quantity> currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
                 ctx.getSampleBlackboard().addSample(
@@ -111,7 +113,7 @@ public class CalculatorHelper {
             @Override
             public void acquire(ISchedulableProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
+                ProbeSample<?,? extends Quantity> currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
                 ctx.getSampleBlackboard().addSample(
@@ -122,7 +124,7 @@ public class CalculatorHelper {
             @Override
             public void release(ISchedulableProcess process, int num) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
+                ProbeSample<?,? extends Quantity> currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
                 ctx.getSampleBlackboard().addSample(
@@ -152,10 +154,10 @@ public class CalculatorHelper {
 
             public void demand(double demand) {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(r, ctx);
+                ProbeSample<?,? extends Quantity> currentTimeSample = takeCurrentTimeSample(r, ctx);
 
                 // take demanded time
-                ProbeSample demandedTimeSample = takeDemandedTimeSample(r, demand, ctx);
+                ProbeSample<?,? extends Quantity> demandedTimeSample = takeDemandedTimeSample(r, demand, ctx);
 
                 // TODO Check whether the context is unique so that there is at
                 // most one job per SimProcess
@@ -200,14 +202,13 @@ public class CalculatorHelper {
             ctx.getCalculatorFactory().buildStateCalculator(instanceDescription, stateProbeSetID);
 
             r.addStateListener(new IStateListener() {
-                @SuppressWarnings("unchecked")
                 @Override
                 public void stateChanged(int state, int instanceId) {
                     // take current time
-                    ProbeSample currentTimeSample = takeCurrentTimeSample(r, ctx);
+                    ProbeSample<?,? extends Quantity> currentTimeSample = takeCurrentTimeSample(r, ctx);
 
                     // take state
-                    ProbeSample stateSample = takeStateProbe(state, ctx);
+                    ProbeSample<?,? extends Quantity> stateSample = takeStateProbe(state, ctx);
 
                     // build ProbeSetSample and publish it on the blackboard
                     // TODO maybe null instead of empty string is better here
@@ -277,13 +278,12 @@ public class CalculatorHelper {
                 measureState();
             }
 
-            @SuppressWarnings("unchecked")
             private void measureState() {
                 // take current time
-                ProbeSample currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
+                ProbeSample<?,? extends Quantity> currentTimeSample = takeCurrentTimeSample(model.getSimulationControl(), ctx);
 
                 // take state
-                ProbeSample stateSample = takeStateProbe(resource, ctx);
+                ProbeSample<?,? extends Quantity> stateSample = takeStateProbe(resource, ctx);
 
                 // build ProbeSetSample and publish it on the blackboard
                 // TODO maybe null instead of empty string is better here
@@ -296,62 +296,41 @@ public class CalculatorHelper {
         });
     }
 
-    @SuppressWarnings("unchecked")
-    private static ProbeSample takeCurrentTimeSample(SimuComSimProcess thread, ProbeSpecContext ctx) {
+    private static ProbeSample<?,? extends Quantity> takeCurrentTimeSample(ISimulationControl simControl, ProbeSpecContext ctx) {
         IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.CURRENT_TIME, null);
-        ProbeSample currentTimeSample = probeStrategy.takeSample("TODO: probeId",
-        // TODO add probeID as soon as a ProbeSpec model is used
-                thread.getModel().getSimulationControl());
-        return currentTimeSample;
-    }
-
-    @SuppressWarnings("unchecked")
-    private static ProbeSample takeCurrentTimeSample(ISimulationControl simControl, ProbeSpecContext ctx) {
-        IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.CURRENT_TIME, null);
-        ProbeSample currentTimeSample = probeStrategy.takeSample("TODO: probeId",
+        return probeStrategy.takeSample("TODO: probeId",
         // TODO add probeID as soon as a ProbeSpec model is used
                 simControl);
-        return currentTimeSample;
     }
 
-    @SuppressWarnings("unchecked")
-    private static ProbeSample takeCurrentTimeSample(final AbstractScheduledResource r, ProbeSpecContext ctx) {
+    private static ProbeSample<?,? extends Quantity> takeCurrentTimeSample(final AbstractScheduledResource r, ProbeSpecContext ctx) {
         IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.CURRENT_TIME, null);
-        ProbeSample currentTimeSample = probeStrategy.takeSample("TODO: probeId", r.getModel().getSimulationControl());
-        return currentTimeSample;
+        return probeStrategy.takeSample("TODO: probeId", r.getModel().getSimulationControl());
     }
 
-    @SuppressWarnings("unchecked")
-    private static ProbeSample takeTimeSample(Double time, ProbeSpecContext ctx) {
+    private static ProbeSample<?,? extends Quantity> takeTimeSample(Double time, ProbeSpecContext ctx) {
         IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.CURRENT_TIME, null);
-        ProbeSample currentTimeSample = probeStrategy.takeSample("TODO: probeId", time);
-        return currentTimeSample;
+        return probeStrategy.takeSample("TODO: probeId", time);
     }
 
-    @SuppressWarnings("unchecked")
-    private static ProbeSample takeDemandedTimeSample(AbstractScheduledResource r, Double demand, ProbeSpecContext ctx) {
+    private static ProbeSample<?,? extends Quantity> takeDemandedTimeSample(AbstractScheduledResource r, Double demand, ProbeSpecContext ctx) {
         IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.RESOURCE_DEMAND,
                 AbstractScheduledResource.class);
-        ProbeSample demandedTimeSample = probeStrategy.takeSample("TODO: probeId",
+        return probeStrategy.takeSample("TODO: probeId",
         // TODO add probeID as soon as a ProbeSpec model is used
                 demand);
-        return demandedTimeSample;
     }
 
-    @SuppressWarnings("unchecked")
-    private static ProbeSample takeStateProbe(int state, ProbeSpecContext ctx) {
+    private static ProbeSample<?,? extends Quantity> takeStateProbe(int state, ProbeSpecContext ctx) {
         IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.RESOURCE_STATE,
                 AbstractScheduledResource.class);
-        ProbeSample stateSample = probeStrategy.takeSample("TODO: probeId", state);
-        return stateSample;
+        return probeStrategy.takeSample("TODO: probeId", state);
     }
 
-    @SuppressWarnings("unchecked")
-    private static ProbeSample takeStateProbe(final IPassiveResource r, ProbeSpecContext ctx) {
+    private static ProbeSample<?,? extends Quantity> takeStateProbe(final IPassiveResource r, ProbeSpecContext ctx) {
         IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.RESOURCE_STATE,
                 IPassiveResource.class);
-        ProbeSample stateSample = probeStrategy.takeSample("TODO: probeId", r);
-        return stateSample;
+        return probeStrategy.takeSample("TODO: probeId", r);
     }
 
 }

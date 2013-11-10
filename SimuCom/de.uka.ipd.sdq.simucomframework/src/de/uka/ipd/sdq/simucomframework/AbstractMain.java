@@ -90,15 +90,17 @@ public abstract class AbstractMain
 	 */
 	protected SimulationResult run(final IStatusObserver statusObserver, SimuComConfig config, boolean isRemoteRun) {
 
-		if(logger.isEnabledFor(Level.INFO))
+		if(logger.isEnabledFor(Level.INFO)) {
 			logger.info("Starting Simulation");
+			logger.info("Simulation controll class used: "+model.getSimulationControl().getClass().getSimpleName());
+		}
 
 		final long SIM_STOP_TIME = config.getSimuTime();
 
 		model.getSimulationControl().addTimeObserver(new Observer() {
 
 			public void update(Observable clock, Object data) {
-				int timePercent = (int) (model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME);
+				int timePercent = SIM_STOP_TIME < 0 ? 0 : (int) (model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME);
 				int measurementsPercent = (int) (model.getMainMeasurementsCount() * 100 / model.getConfiguration()
 						.getMaxMeasurementsCount());
 				statusObserver.updateStatus(timePercent < measurementsPercent ? measurementsPercent : timePercent,

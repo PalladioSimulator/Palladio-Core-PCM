@@ -4,7 +4,6 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
-import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.exceptions.ThroughputZeroOrNegativeException;
@@ -30,7 +29,6 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 	private static long resourceId = 1;
 	private String id;
 
-	private double totalDemandedTime;
 	private boolean utilizationSet = false;
 
 	// private SimpleTimeSpanSensor demandedTimeSensor;
@@ -122,7 +120,6 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 		
 		// logger.info("Recording " + concreteDemand);
 		fireDemand(concreteDemand);
-		this.totalDemandedTime += concreteDemand;
 		aResource.process(process, resourceServiceID, concreteDemand);
 	}
 	
@@ -140,21 +137,6 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 	public IActiveResource getScheduledResource() {
 		return aResource;
 		// return null;
-	}
-
-	private void registerProcessWindows(ISchedulableProcess process,
-			IActiveResource resource) {
-		/*
-		 * if (resourceConf != null) { ProcessConfiguration processConf =
-		 * ConfigurationFactory.eINSTANCE .createProcessConfiguration();
-		 * processConf.setName(process.getId());
-		 * processConf.setPriority(PriorityClass.DEFAULT);
-		 * processConf.setReplicas(1); ProcessWithPriority p =
-		 * (ProcessWithPriority) ISchedulingFactory.eINSTANCE
-		 * .createRunningProcess(process, processConf, resourceConf);
-		 * 
-		 * resource.registerProcess(p); }
-		 */
 	}
 
 	@Override

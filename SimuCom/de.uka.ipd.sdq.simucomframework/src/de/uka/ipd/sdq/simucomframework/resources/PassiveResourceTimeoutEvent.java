@@ -41,8 +41,6 @@ public class PassiveResourceTimeoutEvent extends AbstractSimEventDelegator<Simpl
 		this.process = process;
 	}
 
-	private static int count = 0;
-
 	/*
 	 * (non-Javadoc)
 	 * 

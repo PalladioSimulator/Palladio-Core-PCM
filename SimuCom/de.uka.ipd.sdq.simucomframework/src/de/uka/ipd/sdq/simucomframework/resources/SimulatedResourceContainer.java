@@ -13,8 +13,6 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 public class SimulatedResourceContainer extends
 		AbstractSimulatedResourceContainer {
 
-	private String operatingSystem = null;
-	private AbstractScheduledResource managingResource = null;
 	protected SimulatedResourceContainer parentResourceContainer = null;
 	protected List<SimulatedResourceContainer> nestedResourceContainers = null;
 
