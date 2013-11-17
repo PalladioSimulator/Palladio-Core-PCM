@@ -38,9 +38,9 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.FailureHandlingEntity;
  */
 public interface ExternalCallAction extends AbstractAction, CallReturnAction, FailureHandlingEntity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -61,13 +61,13 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
     OperationSignature getCalledService_ExternalService();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService <em>Called Service External Service</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getCalledService_ExternalService <em>Called Service External Service</em>}' reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Called Service External Service</em>' reference.
-	 * @see #getCalledService_ExternalService()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Called Service External Service</em>' reference.
+     * @see #getCalledService_ExternalService()
+     * @generated
+     */
     void setCalledService_ExternalService(OperationSignature value);
 
     /**
@@ -88,12 +88,12 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
     OperationRequiredRole getRole_ExternalService();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Role External Service</em>' reference.
-	 * @see #getRole_ExternalService()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRole_ExternalService <em>Role External Service</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Role External Service</em>' reference.
+     * @see #getRole_ExternalService()
+     * @generated
+     */
     void setRole_ExternalService(OperationRequiredRole value);
 
     /**
@@ -111,12 +111,12 @@ public interface ExternalCallAction extends AbstractAction, CallReturnAction, Fa
     int getRetryCount();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRetryCount <em>Retry Count</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Retry Count</em>' attribute.
-	 * @see #getRetryCount()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ExternalCallAction#getRetryCount <em>Retry Count</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Retry Count</em>' attribute.
+     * @see #getRetryCount()
+     * @generated
+     */
     void setRetryCount(int value);
 
     /**

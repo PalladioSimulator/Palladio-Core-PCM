@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -28,95 +29,96 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface BranchTransition extends EObject {
+public interface BranchTransition extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Branch Probability</b></em>' attribute.
-	 * <!-- begin-user-doc
+     * Returns the value of the '<em><b>Branch Probability</b></em>' attribute.
+     * <!-- begin-user-doc
      * -->
      * <p>
      * If the meaning of the '<em>Branch Probability</em>' attribute isn't clear, there really
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branch Probability</em>' attribute.
-	 * @see #setBranchProbability(double)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_BranchProbability()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Branch Probability</em>' attribute.
+     * @see #setBranchProbability(double)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_BranchProbability()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     double getBranchProbability();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch Probability</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch Probability</em>' attribute.
-	 * @see #getBranchProbability()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchProbability <em>Branch Probability</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Branch Probability</em>' attribute.
+     * @see #getBranchProbability()
+     * @generated
+     */
     void setBranchProbability(double value);
 
     /**
-	 * Returns the value of the '<em><b>Branch Branch Transition</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchTransitions_Branch <em>Branch Transitions Branch</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Branch Branch Transition</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchTransitions_Branch <em>Branch Transitions Branch</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branch Branch Transition</em>' container reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branch Branch Transition</em>' container reference.
-	 * @see #setBranch_BranchTransition(Branch)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_Branch_BranchTransition()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchTransitions_Branch
-	 * @model opposite="branchTransitions_Branch" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Branch Branch Transition</em>' container reference.
+     * @see #setBranch_BranchTransition(Branch)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_Branch_BranchTransition()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.Branch#getBranchTransitions_Branch
+     * @model opposite="branchTransitions_Branch" required="true" transient="false" ordered="false"
+     * @generated
+     */
     Branch getBranch_BranchTransition();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition <em>Branch Branch Transition</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranch_BranchTransition <em>Branch Branch Transition</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Branch Branch Transition</em>' container reference.
-	 * @see #getBranch_BranchTransition()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Branch Branch Transition</em>' container reference.
+     * @see #getBranch_BranchTransition()
+     * @generated
+     */
     void setBranch_BranchTransition(Branch value);
 
     /**
-	 * Returns the value of the '<em><b>Branched Behaviour Branch Transition</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour <em>Branch Transition Scenario Behaviour</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Branched Behaviour Branch Transition</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour <em>Branch Transition Scenario Behaviour</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branched Behaviour Branch Transition</em>' containment reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branched Behaviour Branch Transition</em>' containment reference.
-	 * @see #setBranchedBehaviour_BranchTransition(ScenarioBehaviour)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_BranchedBehaviour_BranchTransition()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
-	 * @model opposite="branchTransition_ScenarioBehaviour" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Branched Behaviour Branch Transition</em>' containment reference.
+     * @see #setBranchedBehaviour_BranchTransition(ScenarioBehaviour)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition_BranchedBehaviour_BranchTransition()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour
+     * @model opposite="branchTransition_ScenarioBehaviour" containment="true" required="true" ordered="false"
+     * @generated
+     */
     ScenarioBehaviour getBranchedBehaviour_BranchTransition();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition <em>Branched Behaviour Branch Transition</em>}' containment reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition <em>Branched Behaviour Branch Transition</em>}' containment reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branched Behaviour Branch Transition</em>' containment reference.
-	 * @see #getBranchedBehaviour_BranchTransition()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Branched Behaviour Branch Transition</em>' containment reference.
+     * @see #getBranchedBehaviour_BranchTransition()
+     * @generated
+     */
     void setBranchedBehaviour_BranchTransition(ScenarioBehaviour value);
 
 } // BranchTransition

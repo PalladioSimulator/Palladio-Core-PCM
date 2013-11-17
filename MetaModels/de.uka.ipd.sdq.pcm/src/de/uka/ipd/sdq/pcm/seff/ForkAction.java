@@ -30,55 +30,55 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ForkAction extends AbstractInternalControlFlowAction {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Asynchronous Forked Behaviours Fork Action</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork Action Forked Behaivour</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Asynchronous Forked Behaviours Fork Action</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork Action Forked Behaivour</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Asynchronous Forked Behaviours Fork Action</em>' containment
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Asynchronous Forked Behaviours Fork Action</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkAction_AsynchronousForkedBehaviours_ForkAction()
-	 * @see de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour
-	 * @model opposite="forkAction_ForkedBehaivour" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Asynchronous Forked Behaviours Fork Action</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkAction_AsynchronousForkedBehaviours_ForkAction()
+     * @see de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour
+     * @model opposite="forkAction_ForkedBehaivour" containment="true" ordered="false"
+     * @generated
+     */
     EList<ForkedBehaviour> getAsynchronousForkedBehaviours_ForkAction();
 
     /**
-	 * Returns the value of the '<em><b>Synchronising Behaviours Fork Action</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint <em>Fork Action Synchronisation Point</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Synchronising Behaviours Fork Action</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint <em>Fork Action Synchronisation Point</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Synchronising Behaviours Fork Action</em>' containment reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Synchronising Behaviours Fork Action</em>' containment reference.
-	 * @see #setSynchronisingBehaviours_ForkAction(SynchronisationPoint)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkAction_SynchronisingBehaviours_ForkAction()
-	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
-	 * @model opposite="forkAction_SynchronisationPoint" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Synchronising Behaviours Fork Action</em>' containment reference.
+     * @see #setSynchronisingBehaviours_ForkAction(SynchronisationPoint)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkAction_SynchronisingBehaviours_ForkAction()
+     * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getForkAction_SynchronisationPoint
+     * @model opposite="forkAction_SynchronisationPoint" containment="true" ordered="false"
+     * @generated
+     */
     SynchronisationPoint getSynchronisingBehaviours_ForkAction();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction <em>Synchronising Behaviours Fork Action</em>}' containment reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ForkAction#getSynchronisingBehaviours_ForkAction <em>Synchronising Behaviours Fork Action</em>}' containment reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Synchronising Behaviours Fork Action</em>' containment reference.
-	 * @see #getSynchronisingBehaviours_ForkAction()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Synchronising Behaviours Fork Action</em>' containment reference.
+     * @see #getSynchronisingBehaviours_ForkAction()
+     * @generated
+     */
     void setSynchronisingBehaviours_ForkAction(SynchronisationPoint value);
 
 } // ForkAction

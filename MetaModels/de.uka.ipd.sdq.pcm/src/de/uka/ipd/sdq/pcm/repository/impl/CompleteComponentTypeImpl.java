@@ -39,97 +39,97 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  */
 public class CompleteComponentTypeImpl extends RepositoryComponentImpl implements CompleteComponentType {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The cached value of the '{@link #getParentProvidesComponentTypes() <em>Parent Provides Component Types</em>}' reference list.
-	 * <!-- begin-user-doc --> <!--
+     * The cached value of the '{@link #getParentProvidesComponentTypes() <em>Parent Provides Component Types</em>}' reference list.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @see #getParentProvidesComponentTypes()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getParentProvidesComponentTypes()
+     * @generated
+     * @ordered
+     */
     protected EList<ProvidesComponentType> parentProvidesComponentTypes;
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     protected CompleteComponentTypeImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     protected EClass eStaticClass() {
-		return RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE;
-	}
+        return RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE;
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public EList<ProvidesComponentType> getParentProvidesComponentTypes() {
-		if (parentProvidesComponentTypes == null) {
-			parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(ProvidesComponentType.class, this, RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
-		}
-		return parentProvidesComponentTypes;
-	}
+        if (parentProvidesComponentTypes == null) {
+            parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(ProvidesComponentType.class, this, RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
+        }
+        return parentProvidesComponentTypes;
+    }
 
     /**
-	 * The cached OCL expression body for the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
+     * The cached OCL expression body for the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' operation.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
     protected static final String AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(\n"+"	self.oclIsTypeOf(CompleteComponentType)\n"+"	or\n"+"	self.oclIsTypeOf(ImplementationComponentType)\n"+"	or\n"+"	self.oclIsTypeOf(CompositeComponent)\n"+"	or\n"+"	self.oclIsTypeOf(BasicComponent)\n"+")\n"+"implies\n"+"(\n"+"	self.providedRoles_InterfaceProvidingEntity->size() >= 1\n"+"	or\n"+"	self.requiredRoles_InterfaceRequiringEntity->size() >= 1\n"+")";
 
     /**
-	 * The cached OCL invariant for the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' invariant operation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
-	 * @generated
-	 * @ordered
-	 */
+     * The cached OCL invariant for the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' invariant operation.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * @generated
+     * @ordered
+     */
     protected static Constraint AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public boolean AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-		if (AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
-			try {
-				AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
+        if (AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
+            try {
+                AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            }
+            catch (ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add
+                    (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                         RepositoryValidator.DIAGNOSTIC_SOURCE,
+                         RepositoryValidator.COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE,
+                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType", EObjectValidator.getObjectLabel(this, context) }),
+                         new Object [] { this }));
+            }
+            return false;
+        }
+        return true;
+    }
 
     /**
      * The cached OCL expression body for the '
@@ -158,99 +158,99 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
     protected static Constraint PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV;
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public boolean providedInterfacesHaveToConformToProvidedType2(DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-		if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
-			OCL.Helper helper = EOCL_ENV.createOCLHelper();
-			helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
-			try {
-				PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-			}
-			catch (ParserException pe) {
-				throw new UnsupportedOperationException(pe.getLocalizedMessage());
-			}
-		}
-		if (!EOCL_ENV.createQuery(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 RepositoryValidator.DIAGNOSTIC_SOURCE,
-						 RepositoryValidator.COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "providedInterfacesHaveToConformToProvidedType2", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
+        if (PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV == null) {
+            OCL.Helper helper = EOCL_ENV.createOCLHelper();
+            helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
+            try {
+                PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            }
+            catch (ParserException pe) {
+                throw new UnsupportedOperationException(pe.getLocalizedMessage());
+            }
+        }
+        if (!EOCL_ENV.createQuery(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+            if (diagnostics != null) {
+                diagnostics.add
+                    (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                         RepositoryValidator.DIAGNOSTIC_SOURCE,
+                         RepositoryValidator.COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2,
+                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "providedInterfacesHaveToConformToProvidedType2", EObjectValidator.getObjectLabel(this, context) }),
+                         new Object [] { this }));
+            }
+            return false;
+        }
+        return true;
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-				return getParentProvidesComponentTypes();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+                return getParentProvidesComponentTypes();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-				getParentProvidesComponentTypes().clear();
-				getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+                getParentProvidesComponentTypes().clear();
+                getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public void eUnset(int featureID) {
-		switch (featureID) {
-			case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-				getParentProvidesComponentTypes().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+                getParentProvidesComponentTypes().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-				return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+                return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
     /**
-	 * The cached environment for evaluating OCL expressions.
-	 * <!-- begin-user-doc --> <!--
+     * The cached environment for evaluating OCL expressions.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     protected static final OCL EOCL_ENV = OCL.newInstance();
 
 } // CompleteComponentTypeImpl

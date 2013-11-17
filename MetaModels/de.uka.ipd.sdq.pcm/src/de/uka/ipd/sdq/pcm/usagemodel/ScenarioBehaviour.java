@@ -56,27 +56,27 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface ScenarioBehaviour extends Entity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Actions Scenario Behaviour</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction <em>Scenario Behaviour Abstract User Action</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Actions Scenario Behaviour</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction <em>Scenario Behaviour Abstract User Action</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Actions Scenario Behaviour</em>' containment reference list isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Actions Scenario Behaviour</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Actions_ScenarioBehaviour()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
-	 * @model opposite="scenarioBehaviour_AbstractUserAction" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Actions Scenario Behaviour</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Actions_ScenarioBehaviour()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction
+     * @model opposite="scenarioBehaviour_AbstractUserAction" containment="true" ordered="false"
+     * @generated
+     */
     EList<AbstractUserAction> getActions_ScenarioBehaviour();
 
     /**
@@ -120,87 +120,87 @@ public interface ScenarioBehaviour extends Entity {
             Map<Object, Object> context);
 
     /**
-	 * Returns the value of the '<em><b>Branch Transition Scenario Behaviour</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition <em>Branched Behaviour Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Branch Transition Scenario Behaviour</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition <em>Branched Behaviour Branch Transition</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branch Transition Scenario Behaviour</em>' container reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branch Transition Scenario Behaviour</em>' container reference.
-	 * @see #setBranchTransition_ScenarioBehaviour(BranchTransition)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_BranchTransition_ScenarioBehaviour()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
-	 * @model opposite="branchedBehaviour_BranchTransition" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Branch Transition Scenario Behaviour</em>' container reference.
+     * @see #setBranchTransition_ScenarioBehaviour(BranchTransition)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_BranchTransition_ScenarioBehaviour()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.BranchTransition#getBranchedBehaviour_BranchTransition
+     * @model opposite="branchedBehaviour_BranchTransition" transient="false" ordered="false"
+     * @generated
+     */
     BranchTransition getBranchTransition_ScenarioBehaviour();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour <em>Branch Transition Scenario Behaviour</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getBranchTransition_ScenarioBehaviour <em>Branch Transition Scenario Behaviour</em>}' container reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Branch Transition Scenario Behaviour</em>' container reference.
-	 * @see #getBranchTransition_ScenarioBehaviour()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Branch Transition Scenario Behaviour</em>' container reference.
+     * @see #getBranchTransition_ScenarioBehaviour()
+     * @generated
+     */
     void setBranchTransition_ScenarioBehaviour(BranchTransition value);
 
     /**
-	 * Returns the value of the '<em><b>Loop Scenario Behaviour</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Loop Scenario Behaviour</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Loop Scenario Behaviour</em>' container reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Loop Scenario Behaviour</em>' container reference.
-	 * @see #setLoop_ScenarioBehaviour(Loop)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Loop_ScenarioBehaviour()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop
-	 * @model opposite="bodyBehaviour_Loop" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Loop Scenario Behaviour</em>' container reference.
+     * @see #setLoop_ScenarioBehaviour(Loop)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_Loop_ScenarioBehaviour()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.Loop#getBodyBehaviour_Loop
+     * @model opposite="bodyBehaviour_Loop" transient="false" ordered="false"
+     * @generated
+     */
     Loop getLoop_ScenarioBehaviour();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour <em>Loop Scenario Behaviour</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getLoop_ScenarioBehaviour <em>Loop Scenario Behaviour</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Loop Scenario Behaviour</em>' container reference.
-	 * @see #getLoop_ScenarioBehaviour()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Loop Scenario Behaviour</em>' container reference.
+     * @see #getLoop_ScenarioBehaviour()
+     * @generated
+     */
     void setLoop_ScenarioBehaviour(Loop value);
 
     /**
-	 * Returns the value of the '<em><b>Usage Scenario Senario Behaviour</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario <em>Scenario Behaviour Usage Scenario</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Usage Scenario Senario Behaviour</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario <em>Scenario Behaviour Usage Scenario</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Scenario Senario Behaviour</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Usage Scenario Senario Behaviour</em>' container reference.
-	 * @see #setUsageScenario_SenarioBehaviour(UsageScenario)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_UsageScenario_SenarioBehaviour()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
-	 * @model opposite="scenarioBehaviour_UsageScenario" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Usage Scenario Senario Behaviour</em>' container reference.
+     * @see #setUsageScenario_SenarioBehaviour(UsageScenario)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getScenarioBehaviour_UsageScenario_SenarioBehaviour()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getScenarioBehaviour_UsageScenario
+     * @model opposite="scenarioBehaviour_UsageScenario" transient="false" ordered="false"
+     * @generated
+     */
     UsageScenario getUsageScenario_SenarioBehaviour();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour <em>Usage Scenario Senario Behaviour</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getUsageScenario_SenarioBehaviour <em>Usage Scenario Senario Behaviour</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Usage Scenario Senario Behaviour</em>' container reference.
-	 * @see #getUsageScenario_SenarioBehaviour()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Usage Scenario Senario Behaviour</em>' container reference.
+     * @see #getUsageScenario_SenarioBehaviour()
+     * @generated
+     */
     void setUsageScenario_SenarioBehaviour(UsageScenario value);
 
 } // ScenarioBehaviour

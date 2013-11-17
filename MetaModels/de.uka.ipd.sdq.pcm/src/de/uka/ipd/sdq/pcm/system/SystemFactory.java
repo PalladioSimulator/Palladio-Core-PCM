@@ -15,16 +15,16 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface SystemFactory extends EFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     SystemFactory eINSTANCE = de.uka.ipd.sdq.pcm.system.impl.SystemFactoryImpl.init();
 
     /**
@@ -37,11 +37,11 @@ public interface SystemFactory extends EFactory {
     System createSystem();
 
     /**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
     SystemPackage getSystemPackage();
 
 } // SystemFactory

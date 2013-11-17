@@ -15,19 +15,19 @@ import org.eclipse.emf.ecore.xmi.impl.XMIResourceImpl;
  */
 public class SubsystemResourceImpl extends XMIResourceImpl {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param uri the URI of the new resource.
-	 * @generated
-	 */
+     * Creates an instance of the resource.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param uri the URI of the new resource.
+     * @generated
+     */
     public SubsystemResourceImpl(URI uri) {
-		super(uri);
-	}
+        super(uri);
+    }
 
 } // SubsystemResourceImpl

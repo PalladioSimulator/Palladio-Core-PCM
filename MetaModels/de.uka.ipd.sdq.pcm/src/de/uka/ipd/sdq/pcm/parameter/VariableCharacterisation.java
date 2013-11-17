@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.parameter;
 import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -30,13 +31,14 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface VariableCharacterisation extends EObject {
+public interface VariableCharacterisation extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -56,13 +58,13 @@ public interface VariableCharacterisation extends EObject {
     VariableCharacterisationType getType();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Type</em>' attribute.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
-	 * @see #getType()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getType <em>Type</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Type</em>' attribute.
+     * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
+     * @see #getType()
+     * @generated
+     */
     void setType(VariableCharacterisationType value);
 
     /**
@@ -87,41 +89,41 @@ public interface VariableCharacterisation extends EObject {
     PCMRandomVariable getSpecification_VariableCharacterisation();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation <em>Specification Variable Characterisation</em>}' containment reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getSpecification_VariableCharacterisation <em>Specification Variable Characterisation</em>}' containment reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specification Variable Characterisation</em>' containment reference.
-	 * @see #getSpecification_VariableCharacterisation()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Specification Variable Characterisation</em>' containment reference.
+     * @see #getSpecification_VariableCharacterisation()
+     * @generated
+     */
     void setSpecification_VariableCharacterisation(PCMRandomVariable value);
 
     /**
-	 * Returns the value of the '<em><b>Variable Usage Variable Characterisation</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage <em>Variable Characterisation Variable Usage</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Variable Usage Variable Characterisation</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage <em>Variable Characterisation Variable Usage</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Variable Usage Variable Characterisation</em>' container reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Variable Usage Variable Characterisation</em>' container reference.
-	 * @see #setVariableUsage_VariableCharacterisation(VariableUsage)
-	 * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation_VariableUsage_VariableCharacterisation()
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
-	 * @model opposite="variableCharacterisation_VariableUsage" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Variable Usage Variable Characterisation</em>' container reference.
+     * @see #setVariableUsage_VariableCharacterisation(VariableUsage)
+     * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation_VariableUsage_VariableCharacterisation()
+     * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getVariableCharacterisation_VariableUsage
+     * @model opposite="variableCharacterisation_VariableUsage" transient="false" ordered="false"
+     * @generated
+     */
     VariableUsage getVariableUsage_VariableCharacterisation();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation <em>Variable Usage Variable Characterisation</em>}' container reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation#getVariableUsage_VariableCharacterisation <em>Variable Usage Variable Characterisation</em>}' container reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Variable Usage Variable Characterisation</em>' container reference.
-	 * @see #getVariableUsage_VariableCharacterisation()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Variable Usage Variable Characterisation</em>' container reference.
+     * @see #getVariableUsage_VariableCharacterisation()
+     * @generated
+     */
     void setVariableUsage_VariableCharacterisation(VariableUsage value);
 
 } // VariableCharacterisation

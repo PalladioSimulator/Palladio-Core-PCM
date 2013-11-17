@@ -30,87 +30,87 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
  */
 public interface RequiredDelegationConnector extends DelegationConnector {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Inner Required Role Required Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Inner Required Role Required Delegation Connector</b></em>' reference.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Inner Required Role Required Delegation Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Inner Required Role Required Delegation Connector</em>' reference.
-	 * @see #setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Inner Required Role Required Delegation Connector</em>' reference.
+     * @see #setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_InnerRequiredRole_RequiredDelegationConnector()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     OperationRequiredRole getInnerRequiredRole_RequiredDelegationConnector();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector <em>Inner Required Role Required Delegation Connector</em>}' reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getInnerRequiredRole_RequiredDelegationConnector <em>Inner Required Role Required Delegation Connector</em>}' reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Inner Required Role Required Delegation Connector</em>' reference.
-	 * @see #getInnerRequiredRole_RequiredDelegationConnector()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Inner Required Role Required Delegation Connector</em>' reference.
+     * @see #getInnerRequiredRole_RequiredDelegationConnector()
+     * @generated
+     */
     void setInnerRequiredRole_RequiredDelegationConnector(OperationRequiredRole value);
 
     /**
-	 * Returns the value of the '<em><b>Outer Required Role Required Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Outer Required Role Required Delegation Connector</b></em>' reference.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Outer Required Role Required Delegation Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Outer Required Role Required Delegation Connector</em>' reference.
-	 * @see #setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Outer Required Role Required Delegation Connector</em>' reference.
+     * @see #setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole)
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_OuterRequiredRole_RequiredDelegationConnector()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     OperationRequiredRole getOuterRequiredRole_RequiredDelegationConnector();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector <em>Outer Required Role Required Delegation Connector</em>}' reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getOuterRequiredRole_RequiredDelegationConnector <em>Outer Required Role Required Delegation Connector</em>}' reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Outer Required Role Required Delegation Connector</em>' reference.
-	 * @see #getOuterRequiredRole_RequiredDelegationConnector()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Outer Required Role Required Delegation Connector</em>' reference.
+     * @see #getOuterRequiredRole_RequiredDelegationConnector()
+     * @generated
+     */
     void setOuterRequiredRole_RequiredDelegationConnector(OperationRequiredRole value);
 
     /**
-	 * Returns the value of the '<em><b>Assembly Context Required Delegation Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Assembly Context Required Delegation Connector</b></em>' reference.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Context Required Delegation Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
-	 * @see #setAssemblyContext_RequiredDelegationConnector(AssemblyContext)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
+     * @see #setAssemblyContext_RequiredDelegationConnector(AssemblyContext)
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getRequiredDelegationConnector_AssemblyContext_RequiredDelegationConnector()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     AssemblyContext getAssemblyContext_RequiredDelegationConnector();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector <em>Assembly Context Required Delegation Connector</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector#getAssemblyContext_RequiredDelegationConnector <em>Assembly Context Required Delegation Connector</em>}' reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
-	 * @see #getAssemblyContext_RequiredDelegationConnector()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Assembly Context Required Delegation Connector</em>' reference.
+     * @see #getAssemblyContext_RequiredDelegationConnector()
+     * @generated
+     */
     void setAssemblyContext_RequiredDelegationConnector(AssemblyContext value);
 
     /**

@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -36,41 +37,42 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getWorkload()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface Workload extends EObject {
+public interface Workload extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Usage Scenario Workload</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>Workload Usage Scenario</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Usage Scenario Workload</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario <em>Workload Usage Scenario</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Scenario Workload</em>' container reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Usage Scenario Workload</em>' container reference.
-	 * @see #setUsageScenario_Workload(UsageScenario)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getWorkload_UsageScenario_Workload()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
-	 * @model opposite="workload_UsageScenario" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Usage Scenario Workload</em>' container reference.
+     * @see #setUsageScenario_Workload(UsageScenario)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getWorkload_UsageScenario_Workload()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getWorkload_UsageScenario
+     * @model opposite="workload_UsageScenario" required="true" transient="false" ordered="false"
+     * @generated
+     */
     UsageScenario getUsageScenario_Workload();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage Scenario Workload</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.Workload#getUsageScenario_Workload <em>Usage Scenario Workload</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Usage Scenario Workload</em>' container reference.
-	 * @see #getUsageScenario_Workload()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Usage Scenario Workload</em>' container reference.
+     * @see #getUsageScenario_Workload()
+     * @generated
+     */
     void setUsageScenario_Workload(UsageScenario value);
 
 } // Workload

@@ -30,27 +30,27 @@ import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType;
  */
 public interface ProcessingResourceType extends ResourceType {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Hardware Induced Failure Type Processing Resource Type</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType <em>Processing Resource Type Hardware Induced Failure Type</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Hardware Induced Failure Type Processing Resource Type</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType <em>Processing Resource Type Hardware Induced Failure Type</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Hardware Induced Failure Type Processing Resource Type</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Hardware Induced Failure Type Processing Resource Type</em>' reference.
-	 * @see #setHardwareInducedFailureType__ProcessingResourceType(HardwareInducedFailureType)
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType()
-	 * @see de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType
-	 * @model opposite="processingResourceType__HardwareInducedFailureType" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Hardware Induced Failure Type Processing Resource Type</em>' reference.
+     * @see #setHardwareInducedFailureType__ProcessingResourceType(HardwareInducedFailureType)
+     * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getProcessingResourceType_HardwareInducedFailureType__ProcessingResourceType()
+     * @see de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType
+     * @model opposite="processingResourceType__HardwareInducedFailureType" ordered="false"
+     * @generated
+     */
     HardwareInducedFailureType getHardwareInducedFailureType__ProcessingResourceType();
 
     /**

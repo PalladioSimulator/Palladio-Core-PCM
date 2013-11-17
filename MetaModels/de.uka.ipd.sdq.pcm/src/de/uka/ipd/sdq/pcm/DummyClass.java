@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm;
 
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -14,13 +15,14 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.PcmPackage#getDummyClass()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface DummyClass extends EObject {
+public interface DummyClass extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // DummyClass

@@ -32,7 +32,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.workflow.mdsd,
  de.uka.ipd.sdq.workflow.pcm,
  de.fzi.se.accuracy;bundle-version="1.0.0",
- org.apache.commons.math;bundle-version="2.1.0"
+ org.apache.commons.math;bundle-version="2.1.0",
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.exprsolver,

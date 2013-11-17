@@ -51,6 +51,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.units;visibility:=reexport,
  de.uka.ipd.sdq.units.edit;visibility:=reexport,
  de.uka.ipd.sdq.pcmbench.tabs,
- de.uka.ipd.sdq.pcmbench.ui
+ de.uka.ipd.sdq.pcmbench.ui,
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

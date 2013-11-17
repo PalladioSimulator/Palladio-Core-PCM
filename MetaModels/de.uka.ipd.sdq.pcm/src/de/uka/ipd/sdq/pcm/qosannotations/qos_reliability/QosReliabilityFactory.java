@@ -13,16 +13,16 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface QosReliabilityFactory extends EFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     QosReliabilityFactory eINSTANCE = de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl.QosReliabilityFactoryImpl.init();
 
     /**
@@ -35,11 +35,11 @@ public interface QosReliabilityFactory extends EFactory {
     SpecifiedReliabilityAnnotation createSpecifiedReliabilityAnnotation();
 
     /**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
     QosReliabilityPackage getQosReliabilityPackage();
 
 } // QosReliabilityFactory

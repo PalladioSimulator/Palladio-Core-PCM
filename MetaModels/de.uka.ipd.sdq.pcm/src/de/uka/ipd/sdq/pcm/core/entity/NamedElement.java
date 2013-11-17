@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity;
 
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -24,39 +25,40 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface NamedElement extends EObject {
+public interface NamedElement extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Entity Name</b></em>' attribute.
-	 * The default value is <code>"aName"</code>.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Entity Name</b></em>' attribute.
+     * The default value is <code>"aName"</code>.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Entity Name</em>' attribute isn't clear, there really should be
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Entity Name</em>' attribute.
-	 * @see #setEntityName(String)
-	 * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement_EntityName()
-	 * @model default="aName" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Entity Name</em>' attribute.
+     * @see #setEntityName(String)
+     * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement_EntityName()
+     * @model default="aName" required="true" ordered="false"
+     * @generated
+     */
     String getEntityName();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName <em>Entity Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Entity Name</em>' attribute.
-	 * @see #getEntityName()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.entity.NamedElement#getEntityName <em>Entity Name</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Entity Name</em>' attribute.
+     * @see #getEntityName()
+     * @generated
+     */
     void setEntityName(String value);
 
 } // NamedElement

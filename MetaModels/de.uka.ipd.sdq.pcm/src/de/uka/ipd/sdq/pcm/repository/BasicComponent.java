@@ -34,9 +34,9 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
  */
 public interface BasicComponent extends ImplementationComponentType {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -60,19 +60,19 @@ public interface BasicComponent extends ImplementationComponentType {
     EList<ServiceEffectSpecification> getServiceEffectSpecifications__BasicComponent();
 
     /**
-	 * Returns the value of the '<em><b>Passive Resource Basic Component</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource <em>Basic Component Passive Resource</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * This property represents the passive resources, e.g., semaphores, that are owned by this basic component.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Passive Resource Basic Component</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_PassiveResource_BasicComponent()
-	 * @see de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
-	 * @model opposite="basicComponent_PassiveResource" containment="true" ordered="false"
-	 * @generated
-	 */
+     * Returns the value of the '<em><b>Passive Resource Basic Component</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.PassiveResource}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource <em>Basic Component Passive Resource</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * This property represents the passive resources, e.g., semaphores, that are owned by this basic component.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Passive Resource Basic Component</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getBasicComponent_PassiveResource_BasicComponent()
+     * @see de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource
+     * @model opposite="basicComponent_PassiveResource" containment="true" ordered="false"
+     * @generated
+     */
     EList<PassiveResource> getPassiveResource_BasicComponent();
 
     /**

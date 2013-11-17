@@ -18,7 +18,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm.gmf.usage,
  de.uka.ipd.sdq.pcm.gmf.repository,
  org.eclipse.emf.edit.ui,
- de.uka.ipd.sdq.pcm.dialogs
+ de.uka.ipd.sdq.pcm.dialogs,
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

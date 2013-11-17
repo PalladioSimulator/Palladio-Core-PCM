@@ -31,28 +31,28 @@ import de.uka.ipd.sdq.identifier.Identifier;
  */
 public interface ResourceDemandingSEFF extends Identifier, ServiceEffectSpecification, ResourceDemandingBehaviour {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Resource Demanding Internal Behaviours</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}'.
-	 * <!-- begin-user-doc
+     * Returns the value of the '<em><b>Resource Demanding Internal Behaviours</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour <em>Resource Demanding SEFF Resource Demanding Internal Behaviour</em>}'.
+     * <!-- begin-user-doc
      * -->
      * <p>
      * If the meaning of the '<em>Resource Demanding Internal Behaviours</em>' containment reference
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Demanding Internal Behaviours</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingSEFF_ResourceDemandingInternalBehaviours()
-	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
-	 * @model opposite="resourceDemandingSEFF_ResourceDemandingInternalBehaviour" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Resource Demanding Internal Behaviours</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingSEFF_ResourceDemandingInternalBehaviours()
+     * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingInternalBehaviour#getResourceDemandingSEFF_ResourceDemandingInternalBehaviour
+     * @model opposite="resourceDemandingSEFF_ResourceDemandingInternalBehaviour" containment="true" ordered="false"
+     * @generated
+     */
     EList<ResourceDemandingInternalBehaviour> getResourceDemandingInternalBehaviours();
 
 } // ResourceDemandingSEFF

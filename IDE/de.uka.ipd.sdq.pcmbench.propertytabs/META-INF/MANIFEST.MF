@@ -13,7 +13,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.edit,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcm.dialogs
+ de.uka.ipd.sdq.pcm.dialogs,
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.pcmbench.propertytabs
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

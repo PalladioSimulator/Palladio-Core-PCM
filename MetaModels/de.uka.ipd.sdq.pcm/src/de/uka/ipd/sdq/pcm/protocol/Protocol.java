@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.protocol;
 
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -39,13 +40,14 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.protocol.ProtocolPackage#getProtocol()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface Protocol extends EObject {
+public interface Protocol extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -63,12 +65,12 @@ public interface Protocol extends EObject {
     String getProtocolTypeID();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID <em>Protocol Type ID</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Protocol Type ID</em>' attribute.
-	 * @see #getProtocolTypeID()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.protocol.Protocol#getProtocolTypeID <em>Protocol Type ID</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Protocol Type ID</em>' attribute.
+     * @see #getProtocolTypeID()
+     * @generated
+     */
     void setProtocolTypeID(String value);
 
 } // Protocol

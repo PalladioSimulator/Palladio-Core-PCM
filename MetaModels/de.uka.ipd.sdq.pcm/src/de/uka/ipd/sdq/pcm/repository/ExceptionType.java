@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 import org.eclipse.emf.ecore.EObject;
 
 /**
@@ -25,13 +26,14 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getExceptionType()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface ExceptionType extends EObject {
+public interface ExceptionType extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -49,12 +51,12 @@ public interface ExceptionType extends EObject {
     String getExceptionName();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName <em>Exception Name</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Exception Name</em>' attribute.
-	 * @see #getExceptionName()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionName <em>Exception Name</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Exception Name</em>' attribute.
+     * @see #getExceptionName()
+     * @generated
+     */
     void setExceptionName(String value);
 
     /**
@@ -71,12 +73,12 @@ public interface ExceptionType extends EObject {
     String getExceptionMessage();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage <em>Exception Message</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Exception Message</em>' attribute.
-	 * @see #getExceptionMessage()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.ExceptionType#getExceptionMessage <em>Exception Message</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Exception Message</em>' attribute.
+     * @see #getExceptionMessage()
+     * @generated
+     */
     void setExceptionMessage(String value);
 
 } // ExceptionType

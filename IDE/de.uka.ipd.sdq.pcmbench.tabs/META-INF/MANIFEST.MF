@@ -15,7 +15,8 @@ Require-Bundle: org.eclipse.ui.views.properties.tabbed,
  de.uka.ipd.sdq.dialogs,
  de.uka.ipd.sdq.pcm.dialogs,
  de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcm.stochasticexpressions
+ de.uka.ipd.sdq.pcm.stochasticexpressions,
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator
 Export-Package: de.uka.ipd.sdq.pcmbench.tabs,

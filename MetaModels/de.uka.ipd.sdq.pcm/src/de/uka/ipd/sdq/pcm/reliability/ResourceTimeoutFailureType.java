@@ -31,9 +31,9 @@ import de.uka.ipd.sdq.pcm.repository.PassiveResource;
  */
 public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -59,13 +59,13 @@ public interface ResourceTimeoutFailureType extends SoftwareInducedFailureType {
     PassiveResource getPassiveResource__ResourceTimeoutFailureType();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType <em>Passive Resource Resource Timeout Failure Type</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType <em>Passive Resource Resource Timeout Failure Type</em>}' reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Passive Resource Resource Timeout Failure Type</em>' reference.
-	 * @see #getPassiveResource__ResourceTimeoutFailureType()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Passive Resource Resource Timeout Failure Type</em>' reference.
+     * @see #getPassiveResource__ResourceTimeoutFailureType()
+     * @generated
+     */
     void setPassiveResource__ResourceTimeoutFailureType(PassiveResource value);
 
 } // ResourceTimeoutFailureType

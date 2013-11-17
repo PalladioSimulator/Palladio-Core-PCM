@@ -15,24 +15,24 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface ProtocolFactory extends EFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     ProtocolFactory eINSTANCE = de.uka.ipd.sdq.pcm.protocol.impl.ProtocolFactoryImpl.init();
 
     /**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
     ProtocolPackage getProtocolPackage();
 
 } // ProtocolFactory

@@ -37,91 +37,91 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface AbstractUserAction extends Entity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Successor</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Successor</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Successor</em>' reference isn't clear, there really should be more
      * of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Successor</em>' reference.
-	 * @see #setSuccessor(AbstractUserAction)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Successor()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor
-	 * @model opposite="predecessor" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Successor</em>' reference.
+     * @see #setSuccessor(AbstractUserAction)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Successor()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor
+     * @model opposite="predecessor" ordered="false"
+     * @generated
+     */
     AbstractUserAction getSuccessor();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor <em>Successor</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Successor</em>' reference.
-	 * @see #getSuccessor()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor <em>Successor</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Successor</em>' reference.
+     * @see #getSuccessor()
+     * @generated
+     */
     void setSuccessor(AbstractUserAction value);
 
     /**
-	 * Returns the value of the '<em><b>Predecessor</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor <em>Successor</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Predecessor</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor <em>Successor</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Predecessor</em>' reference isn't clear, there really should be
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Predecessor</em>' reference.
-	 * @see #setPredecessor(AbstractUserAction)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Predecessor()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor
-	 * @model opposite="successor" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Predecessor</em>' reference.
+     * @see #setPredecessor(AbstractUserAction)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_Predecessor()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getSuccessor
+     * @model opposite="successor" ordered="false"
+     * @generated
+     */
     AbstractUserAction getPredecessor();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Predecessor</em>' reference.
-	 * @see #getPredecessor()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getPredecessor <em>Predecessor</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Predecessor</em>' reference.
+     * @see #getPredecessor()
+     * @generated
+     */
     void setPredecessor(AbstractUserAction value);
 
     /**
-	 * Returns the value of the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour <em>Actions Scenario Behaviour</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Scenario Behaviour Abstract User Action</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour <em>Actions Scenario Behaviour</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Scenario Behaviour Abstract User Action</em>' container reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Scenario Behaviour Abstract User Action</em>' container reference.
-	 * @see #setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour)
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_ScenarioBehaviour_AbstractUserAction()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
-	 * @model opposite="actions_ScenarioBehaviour" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Scenario Behaviour Abstract User Action</em>' container reference.
+     * @see #setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour)
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getAbstractUserAction_ScenarioBehaviour_AbstractUserAction()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour#getActions_ScenarioBehaviour
+     * @model opposite="actions_ScenarioBehaviour" required="true" transient="false" ordered="false"
+     * @generated
+     */
     ScenarioBehaviour getScenarioBehaviour_AbstractUserAction();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction <em>Scenario Behaviour Abstract User Action</em>}' container reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction#getScenarioBehaviour_AbstractUserAction <em>Scenario Behaviour Abstract User Action</em>}' container reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Scenario Behaviour Abstract User Action</em>' container reference.
-	 * @see #getScenarioBehaviour_AbstractUserAction()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Scenario Behaviour Abstract User Action</em>' container reference.
+     * @see #getScenarioBehaviour_AbstractUserAction()
+     * @generated
+     */
     void setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour value);
 
 } // AbstractUserAction

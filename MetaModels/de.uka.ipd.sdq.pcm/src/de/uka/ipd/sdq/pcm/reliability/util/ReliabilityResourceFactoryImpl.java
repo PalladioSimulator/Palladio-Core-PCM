@@ -18,29 +18,29 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  */
 public class ReliabilityResourceFactoryImpl extends ResourceFactoryImpl {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Creates an instance of the resource factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the resource factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public ReliabilityResourceFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the resource.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Resource createResource(URI uri) {
-		XMLResource result = new ReliabilityResourceImpl(uri);
-		return result;
-	}
+        XMLResource result = new ReliabilityResourceImpl(uri);
+        return result;
+    }
 
 } // ReliabilityResourceFactoryImpl

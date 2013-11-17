@@ -39,9 +39,9 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
  */
 public interface Interface extends Entity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -72,19 +72,19 @@ public interface Interface extends Entity {
     EList<Protocol> getProtocols__Interface();
 
     /**
-	 * Returns the value of the '<em><b>Required Characterisations</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation <em>Interface Required Characterisation</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * documentation of required variable characterisations
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Required Characterisations</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
-	 * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
-	 * @model opposite="interface_RequiredCharacterisation" containment="true" ordered="false"
-	 * @generated
-	 */
+     * Returns the value of the '<em><b>Required Characterisations</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation <em>Interface Required Characterisation</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-model-doc -->
+     * documentation of required variable characterisations
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Required Characterisations</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
+     * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
+     * @model opposite="interface_RequiredCharacterisation" containment="true" ordered="false"
+     * @generated
+     */
     EList<RequiredCharacterisation> getRequiredCharacterisations();
 
     /**
@@ -105,13 +105,13 @@ public interface Interface extends Entity {
     Repository getRepository__Interface();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface <em>Repository Interface</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface <em>Repository Interface</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Repository Interface</em>' container reference.
-	 * @see #getRepository__Interface()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Repository Interface</em>' container reference.
+     * @see #getRepository__Interface()
+     * @generated
+     */
     void setRepository__Interface(Repository value);
 
     /**

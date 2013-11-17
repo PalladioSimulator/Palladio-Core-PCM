@@ -28,9 +28,9 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
  */
 public interface RequiredRole extends Role {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -52,13 +52,13 @@ public interface RequiredRole extends Role {
     InterfaceRequiringEntity getRequiringEntity_RequiredRole();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.RequiredRole#getRequiringEntity_RequiredRole <em>Requiring Entity Required Role</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Requiring Entity Required Role</em>' container reference.
-	 * @see #getRequiringEntity_RequiredRole()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Requiring Entity Required Role</em>' container reference.
+     * @see #getRequiringEntity_RequiredRole()
+     * @generated
+     */
     void setRequiringEntity_RequiredRole(InterfaceRequiringEntity value);
 
 } // RequiredRole

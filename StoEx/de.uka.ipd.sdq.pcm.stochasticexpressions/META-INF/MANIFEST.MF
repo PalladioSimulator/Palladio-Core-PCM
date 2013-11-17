@@ -8,6 +8,7 @@ Require-Bundle: de.uka.ipd.sdq.stoex,
  de.uka.ipd.sdq.stoex.analyser,
  de.uka.ipd.sdq.pcm,
  org.junit4,
- de.uka.ipd.sdq.errorhandling
+ de.uka.ipd.sdq.errorhandling,
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.pcm.stochasticexpressions
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6

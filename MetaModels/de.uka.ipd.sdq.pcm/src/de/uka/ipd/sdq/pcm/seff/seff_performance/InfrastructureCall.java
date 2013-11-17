@@ -35,9 +35,9 @@ import de.uka.ipd.sdq.pcm.seff.CallAction;
  */
 public interface InfrastructureCall extends CallAction {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -71,59 +71,59 @@ public interface InfrastructureCall extends CallAction {
     void setSignature__InfrastructureCall(InfrastructureSignature value);
 
     /**
-	 * Returns the value of the '<em><b>Number Of Calls Infrastructure Call</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable <em>Infrastructure Call PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Number Of Calls Infrastructure Call</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable <em>Infrastructure Call PCM Random Variable</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Number Of Calls Infrastructure Call</em>' containment reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number Of Calls Infrastructure Call</em>' containment reference.
-	 * @see #setNumberOfCalls__InfrastructureCall(PCMRandomVariable)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_NumberOfCalls__InfrastructureCall()
-	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable
-	 * @model opposite="infrastructureCall__PCMRandomVariable" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Number Of Calls Infrastructure Call</em>' containment reference.
+     * @see #setNumberOfCalls__InfrastructureCall(PCMRandomVariable)
+     * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_NumberOfCalls__InfrastructureCall()
+     * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getInfrastructureCall__PCMRandomVariable
+     * @model opposite="infrastructureCall__PCMRandomVariable" containment="true" required="true" ordered="false"
+     * @generated
+     */
     PCMRandomVariable getNumberOfCalls__InfrastructureCall();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall <em>Number Of Calls Infrastructure Call</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getNumberOfCalls__InfrastructureCall <em>Number Of Calls Infrastructure Call</em>}' containment reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Calls Infrastructure Call</em>' containment reference.
-	 * @see #getNumberOfCalls__InfrastructureCall()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Number Of Calls Infrastructure Call</em>' containment reference.
+     * @see #getNumberOfCalls__InfrastructureCall()
+     * @generated
+     */
     void setNumberOfCalls__InfrastructureCall(PCMRandomVariable value);
 
     /**
-	 * Returns the value of the '<em><b>Action Infrastructure Call</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action <em>Infrastructure Call Action</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Action Infrastructure Call</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action <em>Infrastructure Call Action</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Action Infrastructure Call</em>' container reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Action Infrastructure Call</em>' container reference.
-	 * @see #setAction__InfrastructureCall(AbstractInternalControlFlowAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_Action__InfrastructureCall()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
-	 * @model opposite="infrastructureCall__Action" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Action Infrastructure Call</em>' container reference.
+     * @see #setAction__InfrastructureCall(AbstractInternalControlFlowAction)
+     * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getInfrastructureCall_Action__InfrastructureCall()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getInfrastructureCall__Action
+     * @model opposite="infrastructureCall__Action" required="true" transient="false" ordered="false"
+     * @generated
+     */
     AbstractInternalControlFlowAction getAction__InfrastructureCall();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall <em>Action Infrastructure Call</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getAction__InfrastructureCall <em>Action Infrastructure Call</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Action Infrastructure Call</em>' container reference.
-	 * @see #getAction__InfrastructureCall()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Action Infrastructure Call</em>' container reference.
+     * @see #getAction__InfrastructureCall()
+     * @generated
+     */
     void setAction__InfrastructureCall(AbstractInternalControlFlowAction value);
 
     /**
@@ -144,13 +144,13 @@ public interface InfrastructureCall extends CallAction {
     InfrastructureRequiredRole getRequiredRole__InfrastructureCall();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall <em>Required Role Infrastructure Call</em>}' reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall#getRequiredRole__InfrastructureCall <em>Required Role Infrastructure Call</em>}' reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Required Role Infrastructure Call</em>' reference.
-	 * @see #getRequiredRole__InfrastructureCall()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Required Role Infrastructure Call</em>' reference.
+     * @see #getRequiredRole__InfrastructureCall()
+     * @generated
+     */
     void setRequiredRole__InfrastructureCall(InfrastructureRequiredRole value);
 
     /**

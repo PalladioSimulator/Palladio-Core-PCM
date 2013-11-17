@@ -28,61 +28,61 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
  */
 public interface AssemblyInfrastructureConnector extends Connector {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Provided Role Assembly Infrastructure Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Provided Role Assembly Infrastructure Connector</b></em>' reference.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Provided Role Assembly Infrastructure Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Provided Role Assembly Infrastructure Connector</em>' reference.
-	 * @see #setProvidedRole__AssemblyInfrastructureConnector(InfrastructureProvidedRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Provided Role Assembly Infrastructure Connector</em>' reference.
+     * @see #setProvidedRole__AssemblyInfrastructureConnector(InfrastructureProvidedRole)
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_ProvidedRole__AssemblyInfrastructureConnector()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     InfrastructureProvidedRole getProvidedRole__AssemblyInfrastructureConnector();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector <em>Provided Role Assembly Infrastructure Connector</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getProvidedRole__AssemblyInfrastructureConnector <em>Provided Role Assembly Infrastructure Connector</em>}' reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Provided Role Assembly Infrastructure Connector</em>' reference.
-	 * @see #getProvidedRole__AssemblyInfrastructureConnector()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Provided Role Assembly Infrastructure Connector</em>' reference.
+     * @see #getProvidedRole__AssemblyInfrastructureConnector()
+     * @generated
+     */
     void setProvidedRole__AssemblyInfrastructureConnector(InfrastructureProvidedRole value);
 
     /**
-	 * Returns the value of the '<em><b>Required Role Assembly Infrastructure Connector</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Required Role Assembly Infrastructure Connector</b></em>' reference.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Required Role Assembly Infrastructure Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Role Assembly Infrastructure Connector</em>' reference.
-	 * @see #setRequiredRole__AssemblyInfrastructureConnector(InfrastructureRequiredRole)
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Required Role Assembly Infrastructure Connector</em>' reference.
+     * @see #setRequiredRole__AssemblyInfrastructureConnector(InfrastructureRequiredRole)
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getAssemblyInfrastructureConnector_RequiredRole__AssemblyInfrastructureConnector()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     InfrastructureRequiredRole getRequiredRole__AssemblyInfrastructureConnector();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector <em>Required Role Assembly Infrastructure Connector</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector#getRequiredRole__AssemblyInfrastructureConnector <em>Required Role Assembly Infrastructure Connector</em>}' reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Role Assembly Infrastructure Connector</em>' reference.
-	 * @see #getRequiredRole__AssemblyInfrastructureConnector()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Required Role Assembly Infrastructure Connector</em>' reference.
+     * @see #getRequiredRole__AssemblyInfrastructureConnector()
+     * @generated
+     */
     void setRequiredRole__AssemblyInfrastructureConnector(InfrastructureRequiredRole value);
 
     /**

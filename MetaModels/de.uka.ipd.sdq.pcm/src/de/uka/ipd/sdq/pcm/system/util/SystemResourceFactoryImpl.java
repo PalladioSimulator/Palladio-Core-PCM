@@ -18,29 +18,29 @@ import org.eclipse.emf.ecore.xmi.XMLResource;
  */
 public class SystemResourceFactoryImpl extends ResourceFactoryImpl {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Creates an instance of the resource factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the resource factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public SystemResourceFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * Creates an instance of the resource.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the resource.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public Resource createResource(URI uri) {
-		XMLResource result = new SystemResourceImpl(uri);
-		return result;
-	}
+        XMLResource result = new SystemResourceImpl(uri);
+        return result;
+    }
 
 } // SystemResourceFactoryImpl

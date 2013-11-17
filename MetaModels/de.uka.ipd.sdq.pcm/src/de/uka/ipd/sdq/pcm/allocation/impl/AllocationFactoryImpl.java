@@ -23,86 +23,86 @@ import de.uka.ipd.sdq.pcm.allocation.AllocationPackage;
  */
 public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static AllocationFactory init() {
-		try {
-			AllocationFactory theAllocationFactory = (AllocationFactory)EPackage.Registry.INSTANCE.getEFactory(AllocationPackage.eNS_URI);
-			if (theAllocationFactory != null) {
-				return theAllocationFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new AllocationFactoryImpl();
-	}
+        try {
+            AllocationFactory theAllocationFactory = (AllocationFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/PalladioComponentModel/Allocation/5.0"); 
+            if (theAllocationFactory != null) {
+                return theAllocationFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new AllocationFactoryImpl();
+    }
 
     /**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public AllocationFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case AllocationPackage.ALLOCATION_CONTEXT: return createAllocationContext();
-			case AllocationPackage.ALLOCATION: return createAllocation();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case AllocationPackage.ALLOCATION_CONTEXT: return createAllocationContext();
+            case AllocationPackage.ALLOCATION: return createAllocation();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public AllocationContext createAllocationContext() {
-		AllocationContextImpl allocationContext = new AllocationContextImpl();
-		return allocationContext;
-	}
+        AllocationContextImpl allocationContext = new AllocationContextImpl();
+        return allocationContext;
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public Allocation createAllocation() {
-		AllocationImpl allocation = new AllocationImpl();
-		return allocation;
-	}
+        AllocationImpl allocation = new AllocationImpl();
+        return allocation;
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public AllocationPackage getAllocationPackage() {
-		return (AllocationPackage)getEPackage();
-	}
+        return (AllocationPackage)getEPackage();
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @deprecated
+     * @generated
+     */
     @Deprecated
     public static AllocationPackage getPackage() {
-		return AllocationPackage.eINSTANCE;
-	}
+        return AllocationPackage.eINSTANCE;
+    }
 
 } // AllocationFactoryImpl

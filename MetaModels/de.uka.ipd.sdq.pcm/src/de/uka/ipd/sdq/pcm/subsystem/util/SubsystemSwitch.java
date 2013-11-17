@@ -35,85 +35,85 @@ import de.uka.ipd.sdq.pcm.subsystem.SubsystemPackage;
  */
 public class SubsystemSwitch<T> {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The cached model package
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The cached model package
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     protected static SubsystemPackage modelPackage;
 
     /**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the switch.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public SubsystemSwitch() {
-		if (modelPackage == null) {
-			modelPackage = SubsystemPackage.eINSTANCE;
-		}
-	}
+        if (modelPackage == null) {
+            modelPackage = SubsystemPackage.eINSTANCE;
+        }
+    }
 
     /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
     public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
-	}
+        return doSwitch(theEObject.eClass(), theEObject);
+    }
 
     /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
     protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch(eSuperTypes.get(0), theEObject);
-		}
-	}
+        if (theEClass.eContainer() == modelPackage) {
+            return doSwitch(theEClass.getClassifierID(), theEObject);
+        }
+        else {
+            List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return
+                eSuperTypes.isEmpty() ?
+                    defaultCase(theEObject) :
+                    doSwitch(eSuperTypes.get(0), theEObject);
+        }
+    }
 
     /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
     protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case SubsystemPackage.SUB_SYSTEM: {
-				SubSystem subSystem = (SubSystem)theEObject;
-				T result = caseSubSystem(subSystem);
-				if (result == null) result = caseComposedProvidingRequiringEntity(subSystem);
-				if (result == null) result = caseRepositoryComponent(subSystem);
-				if (result == null) result = caseComposedStructure(subSystem);
-				if (result == null) result = caseInterfaceProvidingRequiringEntity(subSystem);
-				if (result == null) result = caseInterfaceProvidingEntity(subSystem);
-				if (result == null) result = caseInterfaceRequiringEntity(subSystem);
-				if (result == null) result = caseIdentifier(subSystem);
-				if (result == null) result = caseNamedElement(subSystem);
-				if (result == null) result = caseResourceInterfaceRequiringEntity(subSystem);
-				if (result == null) result = caseEntity(subSystem);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
-		}
-	}
+        switch (classifierID) {
+            case SubsystemPackage.SUB_SYSTEM: {
+                SubSystem subSystem = (SubSystem)theEObject;
+                T result = caseSubSystem(subSystem);
+                if (result == null) result = caseComposedProvidingRequiringEntity(subSystem);
+                if (result == null) result = caseRepositoryComponent(subSystem);
+                if (result == null) result = caseComposedStructure(subSystem);
+                if (result == null) result = caseInterfaceProvidingRequiringEntity(subSystem);
+                if (result == null) result = caseInterfaceProvidingEntity(subSystem);
+                if (result == null) result = caseInterfaceRequiringEntity(subSystem);
+                if (result == null) result = caseIdentifier(subSystem);
+                if (result == null) result = caseNamedElement(subSystem);
+                if (result == null) result = caseResourceInterfaceRequiringEntity(subSystem);
+                if (result == null) result = caseEntity(subSystem);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            default: return defaultCase(theEObject);
+        }
+    }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Sub System</em>'. <!--
@@ -127,8 +127,8 @@ public class SubsystemSwitch<T> {
      * @generated
      */
     public T caseSubSystem(SubSystem object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Identifier</em>'. <!--
@@ -142,21 +142,21 @@ public class SubsystemSwitch<T> {
      * @generated
      */
     public T caseIdentifier(Identifier object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
-	 * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
     public T caseNamedElement(NamedElement object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Entity</em>'. <!--
@@ -170,86 +170,86 @@ public class SubsystemSwitch<T> {
      * @generated
      */
     public T caseEntity(Entity object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
-	 * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
-	 * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * Returns the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
+     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Composed Structure</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
     public T caseComposedStructure(ComposedStructure object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
-	 * <!-- begin-user-doc --> This implementation returns
+     * Returns the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
+     * <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Interface Providing Entity</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
     public T caseInterfaceProvidingEntity(InterfaceProvidingEntity object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
-	 * <!-- begin-user-doc --> This implementation returns
+     * Returns the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
+     * <!-- begin-user-doc --> This implementation returns
      * null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Interface Requiring Entity</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
     public T caseInterfaceRequiringEntity(InterfaceRequiringEntity object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
-	 * Returns the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
-	 * <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+     * <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Resource Interface Requiring Entity</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
     public T caseResourceInterfaceRequiringEntity(ResourceInterfaceRequiringEntity object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
-	 * Returns the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
-	 * <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+     * <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Interface Providing Requiring Entity</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
     public T caseInterfaceProvidingRequiringEntity(InterfaceProvidingRequiringEntity object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
-	 * Returns the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
-	 * <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+     * <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-	 * @param object the target of the switch.
-	 * @return the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
-	 * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
-	 * @generated
-	 */
+     * @param object the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Composed Providing Requiring Entity</em>'.
+     * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+     * @generated
+     */
     public T caseComposedProvidingRequiringEntity(ComposedProvidingRequiringEntity object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Component</em>'. <!--
@@ -263,8 +263,8 @@ public class SubsystemSwitch<T> {
      * @generated
      */
     public T caseRepositoryComponent(RepositoryComponent object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!--
@@ -278,7 +278,7 @@ public class SubsystemSwitch<T> {
      * @generated
      */
     public T defaultCase(EObject object) {
-		return null;
-	}
+        return null;
+    }
 
 } // SubsystemSwitch

@@ -28,27 +28,27 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface EventGroup extends Interface {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Event Types Event Group</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.EventType}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType <em>Event Group Event Type</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Event Types Event Group</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.EventType}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType <em>Event Group Event Type</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Types Event Group</em>' containment reference list isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Event Types Event Group</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getEventGroup_EventTypes__EventGroup()
-	 * @see de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType
-	 * @model opposite="eventGroup__EventType" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Event Types Event Group</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getEventGroup_EventTypes__EventGroup()
+     * @see de.uka.ipd.sdq.pcm.repository.EventType#getEventGroup__EventType
+     * @model opposite="eventGroup__EventType" containment="true" ordered="false"
+     * @generated
+     */
     EList<EventType> getEventTypes__EventGroup();
 
 } // EventGroup

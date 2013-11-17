@@ -38,73 +38,73 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface QoSAnnotations extends Entity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction <em>Qos Annotations Specified Output Parameter Abstraction</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Specified Output Parameter Abstractions Qo SAnnotations</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction <em>Qos Annotations Specified Output Parameter Abstraction</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>'
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations()
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
-	 * @model opposite="qosAnnotations_SpecifiedOutputParameterAbstraction" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Specified Output Parameter Abstractions Qo SAnnotations</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedOutputParameterAbstractions_QoSAnnotations()
+     * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction#getQosAnnotations_SpecifiedOutputParameterAbstraction
+     * @model opposite="qosAnnotations_SpecifiedOutputParameterAbstraction" containment="true" ordered="false"
+     * @generated
+     */
     EList<SpecifiedOutputParameterAbstraction> getSpecifiedOutputParameterAbstractions_QoSAnnotations();
 
     /**
-	 * Returns the value of the '<em><b>System Qo SAnnotations</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System <em>Qos Annotations System</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>System Qo SAnnotations</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System <em>Qos Annotations System</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>System Qo SAnnotations</em>' container reference isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>System Qo SAnnotations</em>' container reference.
-	 * @see #setSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System)
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_System_QoSAnnotations()
-	 * @see de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System
-	 * @model opposite="qosAnnotations_System" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>System Qo SAnnotations</em>' container reference.
+     * @see #setSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System)
+     * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_System_QoSAnnotations()
+     * @see de.uka.ipd.sdq.pcm.system.System#getQosAnnotations_System
+     * @model opposite="qosAnnotations_System" required="true" transient="false" ordered="false"
+     * @generated
+     */
     de.uka.ipd.sdq.pcm.system.System getSystem_QoSAnnotations();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>System Qo SAnnotations</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations#getSystem_QoSAnnotations <em>System Qo SAnnotations</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>System Qo SAnnotations</em>' container reference.
-	 * @see #getSystem_QoSAnnotations()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>System Qo SAnnotations</em>' container reference.
+     * @see #getSystem_QoSAnnotations()
+     * @generated
+     */
     void setSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System value);
 
     /**
-	 * Returns the value of the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation <em>Qos Annotations Specified Qo SAnnotation</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Specified Qo SAnnotations Qo SAnnotations</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation <em>Qos Annotations Specified Qo SAnnotation</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations()
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
-	 * @model opposite="qosAnnotations_SpecifiedQoSAnnotation" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Specified Qo SAnnotations Qo SAnnotations</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getQoSAnnotations_SpecifiedQoSAnnotations_QoSAnnotations()
+     * @see de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation#getQosAnnotations_SpecifiedQoSAnnotation
+     * @model opposite="qosAnnotations_SpecifiedQoSAnnotation" containment="true" ordered="false"
+     * @generated
+     */
     EList<SpecifiedQoSAnnotation> getSpecifiedQoSAnnotations_QoSAnnotations();
 
     /**

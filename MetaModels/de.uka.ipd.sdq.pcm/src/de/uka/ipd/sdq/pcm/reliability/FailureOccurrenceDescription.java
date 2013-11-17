@@ -5,6 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.reliability;
 
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
@@ -31,39 +32,40 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface FailureOccurrenceDescription extends EObject {
+public interface FailureOccurrenceDescription extends EStereotypableObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
-	 * <!-- begin-user-doc
+     * Returns the value of the '<em><b>Failure Probability</b></em>' attribute.
+     * <!-- begin-user-doc
      * -->
      * <p>
      * If the meaning of the '<em>Failure Probability</em>' attribute isn't clear, there really
      * should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Failure Probability</em>' attribute.
-	 * @see #setFailureProbability(double)
-	 * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription_FailureProbability()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Failure Probability</em>' attribute.
+     * @see #setFailureProbability(double)
+     * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription_FailureProbability()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     double getFailureProbability();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability <em>Failure Probability</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Failure Probability</em>' attribute.
-	 * @see #getFailureProbability()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability <em>Failure Probability</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Failure Probability</em>' attribute.
+     * @see #getFailureProbability()
+     * @generated
+     */
     void setFailureProbability(double value);
 
     /**

@@ -15,7 +15,7 @@ import org.eclipse.emf.common.util.EList;
  * <em><b>Complete Component Type</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * Complete (Component) types abstract from the realisation of components. They only contain provided and required roles omitting the components? internal structure, i.e., the service effect specifications or assemblies. Thus, complete types represent a black box view on components. Leaving the implementation open allows for a higher flexibility of software architects and defines substitutability in the PCM.
+ * Complete (Component) types abstract from the realisation of components. They only contain provided and required roles omitting the components’ internal structure, i.e., the service effect specifications or assemblies. Thus, complete types represent a black box view on components. Leaving the implementation open allows for a higher flexibility of software architects and defines substitutability in the PCM.
  * <!-- end-model-doc -->
  *
  * <p>
@@ -31,25 +31,25 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface CompleteComponentType extends RepositoryComponent {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Parent Provides Component Types</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Parent Provides Component Types</b></em>' reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.ProvidesComponentType}.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Parent Provides Component Types</em>' reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Provides Component Types</em>' reference list.
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompleteComponentType_ParentProvidesComponentTypes()
-	 * @model ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Parent Provides Component Types</em>' reference list.
+     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getCompleteComponentType_ParentProvidesComponentTypes()
+     * @model ordered="false"
+     * @generated
+     */
     EList<ProvidesComponentType> getParentProvidesComponentTypes();
 
     /**

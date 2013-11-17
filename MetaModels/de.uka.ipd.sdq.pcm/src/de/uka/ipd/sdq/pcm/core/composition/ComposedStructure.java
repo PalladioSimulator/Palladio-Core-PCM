@@ -37,81 +37,81 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface ComposedStructure extends Entity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Assembly Contexts Composed Structure</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext <em>Parent Structure Assembly Context</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Assembly Contexts Composed Structure</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext <em>Parent Structure Assembly Context</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Contexts Composed Structure</em>' containment reference
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Assembly Contexts Composed Structure</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_AssemblyContexts__ComposedStructure()
-	 * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
-	 * @model opposite="parentStructure__AssemblyContext" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Assembly Contexts Composed Structure</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_AssemblyContexts__ComposedStructure()
+     * @see de.uka.ipd.sdq.pcm.core.composition.AssemblyContext#getParentStructure__AssemblyContext
+     * @model opposite="parentStructure__AssemblyContext" containment="true" ordered="false"
+     * @generated
+     */
     EList<AssemblyContext> getAssemblyContexts__ComposedStructure();
 
     /**
-	 * Returns the value of the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Resource Required Delegation Connectors Composed Structure</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector <em>Parent Structure Resource Required Delegation Connector</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Required Delegation Connectors Composed Structure</em>'
      * containment reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
-	 * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
-	 * @model opposite="parentStructure_ResourceRequiredDelegationConnector" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Resource Required Delegation Connectors Composed Structure</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_ResourceRequiredDelegationConnectors_ComposedStructure()
+     * @see de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector#getParentStructure_ResourceRequiredDelegationConnector
+     * @model opposite="parentStructure_ResourceRequiredDelegationConnector" containment="true" ordered="false"
+     * @generated
+     */
     EList<ResourceRequiredDelegationConnector> getResourceRequiredDelegationConnectors_ComposedStructure();
 
     /**
-	 * Returns the value of the '<em><b>Event Channel Composed Structure</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel <em>Parent Structure Event Channel</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Event Channel Composed Structure</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.EventChannel}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel <em>Parent Structure Event Channel</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Channel Composed Structure</em>' containment reference list
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Event Channel Composed Structure</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_EventChannel__ComposedStructure()
-	 * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel
-	 * @model opposite="parentStructure__EventChannel" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Event Channel Composed Structure</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_EventChannel__ComposedStructure()
+     * @see de.uka.ipd.sdq.pcm.core.composition.EventChannel#getParentStructure__EventChannel
+     * @model opposite="parentStructure__EventChannel" containment="true" ordered="false"
+     * @generated
+     */
     EList<EventChannel> getEventChannel__ComposedStructure();
 
     /**
-	 * Returns the value of the '<em><b>Connectors Composed Structure</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.Connector}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector <em>Parent Structure Connector</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Connectors Composed Structure</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.core.composition.Connector}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector <em>Parent Structure Connector</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Connectors Composed Structure</em>' containment reference list
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Connectors Composed Structure</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_Connectors__ComposedStructure()
-	 * @see de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector
-	 * @model opposite="parentStructure__Connector" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Connectors Composed Structure</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getComposedStructure_Connectors__ComposedStructure()
+     * @see de.uka.ipd.sdq.pcm.core.composition.Connector#getParentStructure__Connector
+     * @model opposite="parentStructure__Connector" containment="true" ordered="false"
+     * @generated
+     */
     EList<Connector> getConnectors__ComposedStructure();
 
     /**

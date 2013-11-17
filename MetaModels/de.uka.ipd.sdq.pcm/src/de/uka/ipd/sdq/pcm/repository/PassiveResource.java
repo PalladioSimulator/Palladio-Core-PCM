@@ -32,9 +32,9 @@ import de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType;
  */
 public interface PassiveResource extends Entity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -56,41 +56,41 @@ public interface PassiveResource extends Entity {
     PCMRandomVariable getCapacity_PassiveResource();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>Capacity Passive Resource</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getCapacity_PassiveResource <em>Capacity Passive Resource</em>}' containment reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Capacity Passive Resource</em>' containment reference.
-	 * @see #getCapacity_PassiveResource()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Capacity Passive Resource</em>' containment reference.
+     * @see #getCapacity_PassiveResource()
+     * @generated
+     */
     void setCapacity_PassiveResource(PCMRandomVariable value);
 
     /**
-	 * Returns the value of the '<em><b>Basic Component Passive Resource</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Basic Component Passive Resource</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent <em>Passive Resource Basic Component</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Basic Component Passive Resource</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Basic Component Passive Resource</em>' container reference.
-	 * @see #setBasicComponent_PassiveResource(BasicComponent)
-	 * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPassiveResource_BasicComponent_PassiveResource()
-	 * @see de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
-	 * @model opposite="passiveResource_BasicComponent" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Basic Component Passive Resource</em>' container reference.
+     * @see #setBasicComponent_PassiveResource(BasicComponent)
+     * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPassiveResource_BasicComponent_PassiveResource()
+     * @see de.uka.ipd.sdq.pcm.repository.BasicComponent#getPassiveResource_BasicComponent
+     * @model opposite="passiveResource_BasicComponent" required="true" transient="false" ordered="false"
+     * @generated
+     */
     BasicComponent getBasicComponent_PassiveResource();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource <em>Basic Component Passive Resource</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getBasicComponent_PassiveResource <em>Basic Component Passive Resource</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Basic Component Passive Resource</em>' container reference.
-	 * @see #getBasicComponent_PassiveResource()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Basic Component Passive Resource</em>' container reference.
+     * @see #getBasicComponent_PassiveResource()
+     * @generated
+     */
     void setBasicComponent_PassiveResource(BasicComponent value);
 
     /**
@@ -117,13 +117,13 @@ public interface PassiveResource extends Entity {
     ResourceTimeoutFailureType getResourceTimeoutFailureType__PassiveResource();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource <em>Resource Timeout Failure Type Passive Resource</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PassiveResource#getResourceTimeoutFailureType__PassiveResource <em>Resource Timeout Failure Type Passive Resource</em>}' reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource Timeout Failure Type Passive Resource</em>' reference.
-	 * @see #getResourceTimeoutFailureType__PassiveResource()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Resource Timeout Failure Type Passive Resource</em>' reference.
+     * @see #getResourceTimeoutFailureType__PassiveResource()
+     * @generated
+     */
     void setResourceTimeoutFailureType__PassiveResource(ResourceTimeoutFailureType value);
 
 } // PassiveResource

@@ -30,37 +30,37 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  */
 public interface ReliabilityPackage extends EPackage {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The package name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The package name.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String eNAME = "reliability";
 
     /**
-	 * The package namespace URI.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The package namespace URI.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/Reliability/5.0";
 
     /**
-	 * The package namespace name.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The package namespace name.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String eNS_PREFIX = "reliability";
 
     /**
-	 * The singleton instance of the package.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The singleton instance of the package.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     ReliabilityPackage eINSTANCE = de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl.init();
 
     /**
@@ -76,47 +76,47 @@ public interface ReliabilityPackage extends EPackage {
     int FAILURE_OCCURRENCE_DESCRIPTION = 0;
 
     /**
-	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
-	 * <!-- begin-user-doc
+     * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = 0;
 
     /**
-	 * The number of structural features of the '<em>Failure Occurrence Description</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The number of structural features of the '<em>Failure Occurrence Description</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = 1;
 
     /**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl <em>Failure Type</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getFailureType()
-	 * @generated
-	 */
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl <em>Failure Type</em>}' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getFailureType()
+     * @generated
+     */
     int FAILURE_TYPE = 7;
 
     /**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int FAILURE_TYPE__ID = EntityPackage.ENTITY__ID;
 
     /**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int FAILURE_TYPE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
@@ -129,39 +129,39 @@ public interface ReliabilityPackage extends EPackage {
     int FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = EntityPackage.ENTITY_FEATURE_COUNT + 0;
 
     /**
-	 * The number of structural features of the '<em>Failure Type</em>' class.
-	 * <!-- begin-user-doc
+     * The number of structural features of the '<em>Failure Type</em>' class.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int FAILURE_TYPE_FEATURE_COUNT = EntityPackage.ENTITY_FEATURE_COUNT + 1;
 
     /**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.HardwareInducedFailureTypeImpl <em>Hardware Induced Failure Type</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.HardwareInducedFailureTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getHardwareInducedFailureType()
-	 * @generated
-	 */
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.HardwareInducedFailureTypeImpl <em>Hardware Induced Failure Type</em>}' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.HardwareInducedFailureTypeImpl
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getHardwareInducedFailureType()
+     * @generated
+     */
     int HARDWARE_INDUCED_FAILURE_TYPE = 1;
 
     /**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int HARDWARE_INDUCED_FAILURE_TYPE__ID = FAILURE_TYPE__ID;
 
     /**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int HARDWARE_INDUCED_FAILURE_TYPE__ENTITY_NAME = FAILURE_TYPE__ENTITY_NAME;
 
     /**
@@ -193,68 +193,68 @@ public interface ReliabilityPackage extends EPackage {
     int HARDWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT = FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl <em>External Failure Occurrence Description</em>}' class.
-	 * <!-- begin-user-doc --> <!--
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl <em>External Failure Occurrence Description</em>}' class.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getExternalFailureOccurrenceDescription()
-	 * @generated
-	 */
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getExternalFailureOccurrenceDescription()
+     * @generated
+     */
     int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = 5;
 
     /**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl <em>Resource Timeout Failure Type</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getResourceTimeoutFailureType()
-	 * @generated
-	 */
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl <em>Resource Timeout Failure Type</em>}' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getResourceTimeoutFailureType()
+     * @generated
+     */
     int RESOURCE_TIMEOUT_FAILURE_TYPE = 6;
 
     /**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.NetworkInducedFailureTypeImpl <em>Network Induced Failure Type</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.NetworkInducedFailureTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getNetworkInducedFailureType()
-	 * @generated
-	 */
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.NetworkInducedFailureTypeImpl <em>Network Induced Failure Type</em>}' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.NetworkInducedFailureTypeImpl
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getNetworkInducedFailureType()
+     * @generated
+     */
     int NETWORK_INDUCED_FAILURE_TYPE = 4;
 
     /**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl <em>Internal Failure Occurrence Description</em>}' class.
-	 * <!-- begin-user-doc --> <!--
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl <em>Internal Failure Occurrence Description</em>}' class.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getInternalFailureOccurrenceDescription()
-	 * @generated
-	 */
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getInternalFailureOccurrenceDescription()
+     * @generated
+     */
     int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = 3;
 
     /**
-	 * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.SoftwareInducedFailureTypeImpl <em>Software Induced Failure Type</em>}' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.SoftwareInducedFailureTypeImpl
-	 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getSoftwareInducedFailureType()
-	 * @generated
-	 */
+     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.SoftwareInducedFailureTypeImpl <em>Software Induced Failure Type</em>}' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.SoftwareInducedFailureTypeImpl
+     * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getSoftwareInducedFailureType()
+     * @generated
+     */
     int SOFTWARE_INDUCED_FAILURE_TYPE = 2;
 
     /**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int SOFTWARE_INDUCED_FAILURE_TYPE__ID = FAILURE_TYPE__ID;
 
     /**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int SOFTWARE_INDUCED_FAILURE_TYPE__ENTITY_NAME = FAILURE_TYPE__ENTITY_NAME;
 
     /**
@@ -267,11 +267,11 @@ public interface ReliabilityPackage extends EPackage {
     int SOFTWARE_INDUCED_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = FAILURE_TYPE__REPOSITORY_FAILURE_TYPE;
 
     /**
-	 * The feature id for the '<em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>' reference list.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
 
     /**
@@ -284,54 +284,54 @@ public interface ReliabilityPackage extends EPackage {
     int SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT = FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
-	 * <!-- begin-user-doc
+     * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY;
 
     /**
-	 * The feature id for the '<em><b>Internal Action Internal Failure Occurrence Description</b></em>' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Internal Action Internal Failure Occurrence Description</b></em>' container reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
-	 * The feature id for the '<em><b>Software Induced Failure Type Internal Failure Occurrence Description</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Software Induced Failure Type Internal Failure Occurrence Description</b></em>' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 1;
 
     /**
-	 * The number of structural features of the '<em>Internal Failure Occurrence Description</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The number of structural features of the '<em>Internal Failure Occurrence Description</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 2;
 
     /**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int NETWORK_INDUCED_FAILURE_TYPE__ID = FAILURE_TYPE__ID;
 
     /**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int NETWORK_INDUCED_FAILURE_TYPE__ENTITY_NAME = FAILURE_TYPE__ENTITY_NAME;
 
     /**
@@ -344,11 +344,11 @@ public interface ReliabilityPackage extends EPackage {
     int NETWORK_INDUCED_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = FAILURE_TYPE__REPOSITORY_FAILURE_TYPE;
 
     /**
-	 * The feature id for the '<em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE = FAILURE_TYPE_FEATURE_COUNT + 0;
 
     /**
@@ -361,54 +361,54 @@ public interface ReliabilityPackage extends EPackage {
     int NETWORK_INDUCED_FAILURE_TYPE_FEATURE_COUNT = FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-	 * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
-	 * <!-- begin-user-doc
+     * The feature id for the '<em><b>Failure Probability</b></em>' attribute.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY;
 
     /**
-	 * The feature id for the '<em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em>' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em>' container reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 0;
 
     /**
-	 * The feature id for the '<em><b>Failure Type External Failure Occurrence Description</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Failure Type External Failure Occurrence Description</b></em>' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 1;
 
     /**
-	 * The number of structural features of the '<em>External Failure Occurrence Description</em>' class.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The number of structural features of the '<em>External Failure Occurrence Description</em>' class.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT = FAILURE_OCCURRENCE_DESCRIPTION_FEATURE_COUNT + 2;
 
     /**
-	 * The feature id for the '<em><b>Id</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Id</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int RESOURCE_TIMEOUT_FAILURE_TYPE__ID = SOFTWARE_INDUCED_FAILURE_TYPE__ID;
 
     /**
-	 * The feature id for the '<em><b>Entity Name</b></em>' attribute.
-	 * <!-- begin-user-doc --> <!--
+     * The feature id for the '<em><b>Entity Name</b></em>' attribute.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * @generated
+     * @ordered
+     */
     int RESOURCE_TIMEOUT_FAILURE_TYPE__ENTITY_NAME = SOFTWARE_INDUCED_FAILURE_TYPE__ENTITY_NAME;
 
     /**
@@ -421,19 +421,19 @@ public interface ReliabilityPackage extends EPackage {
     int RESOURCE_TIMEOUT_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE__REPOSITORY_FAILURE_TYPE;
 
     /**
-	 * The feature id for the '<em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>' reference list.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>' reference list.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int RESOURCE_TIMEOUT_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE;
 
     /**
-	 * The feature id for the '<em><b>Passive Resource Resource Timeout Failure Type</b></em>' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 * @ordered
-	 */
+     * The feature id for the '<em><b>Passive Resource Resource Timeout Failure Type</b></em>' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     * @ordered
+     */
     int RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE = SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT + 0;
 
     /**
@@ -446,42 +446,42 @@ public interface ReliabilityPackage extends EPackage {
     int RESOURCE_TIMEOUT_FAILURE_TYPE_FEATURE_COUNT = SOFTWARE_INDUCED_FAILURE_TYPE_FEATURE_COUNT + 1;
 
     /**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription <em>Failure Occurrence Description</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Failure Occurrence Description</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription
-	 * @generated
-	 */
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription <em>Failure Occurrence Description</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for class '<em>Failure Occurrence Description</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription
+     * @generated
+     */
     EClass getFailureOccurrenceDescription();
 
     /**
-	 * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability <em>Failure Probability</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the attribute '<em>Failure Probability</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability()
-	 * @see #getFailureOccurrenceDescription()
-	 * @generated
-	 */
+     * Returns the meta object for the attribute '{@link de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability <em>Failure Probability</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for the attribute '<em>Failure Probability</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription#getFailureProbability()
+     * @see #getFailureOccurrenceDescription()
+     * @generated
+     */
     EAttribute getFailureOccurrenceDescription_FailureProbability();
 
     /**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType <em>Hardware Induced Failure Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Hardware Induced Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType
-	 * @generated
-	 */
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType <em>Hardware Induced Failure Type</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for class '<em>Hardware Induced Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType
+     * @generated
+     */
     EClass getHardwareInducedFailureType();
 
     /**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType <em>Processing Resource Type Hardware Induced Failure Type</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType <em>Processing Resource Type Hardware Induced Failure Type</em>}'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Processing Resource Type Hardware Induced Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType()
-	 * @see #getHardwareInducedFailureType()
-	 * @generated
-	 */
+     * @return the meta object for the reference '<em>Processing Resource Type Hardware Induced Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType()
+     * @see #getHardwareInducedFailureType()
+     * @generated
+     */
     EReference getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType();
 
     /**
@@ -511,54 +511,54 @@ public interface ReliabilityPackage extends EPackage {
     EReference getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription();
 
     /**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription <em>Failure Type External Failure Occurrence Description</em>}'.
-	 * <!-- begin-user-doc --> <!--
+     * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription <em>Failure Type External Failure Occurrence Description</em>}'.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return the meta object for the reference '<em>Failure Type External Failure Occurrence Description</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription()
-	 * @see #getExternalFailureOccurrenceDescription()
-	 * @generated
-	 */
+     * @return the meta object for the reference '<em>Failure Type External Failure Occurrence Description</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getFailureType__ExternalFailureOccurrenceDescription()
+     * @see #getExternalFailureOccurrenceDescription()
+     * @generated
+     */
     EReference getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription();
 
     /**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType <em>Resource Timeout Failure Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Resource Timeout Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType
-	 * @generated
-	 */
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType <em>Resource Timeout Failure Type</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for class '<em>Resource Timeout Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType
+     * @generated
+     */
     EClass getResourceTimeoutFailureType();
 
     /**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType <em>Passive Resource Resource Timeout Failure Type</em>}'.
-	 * <!-- begin-user-doc --> <!--
+     * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType <em>Passive Resource Resource Timeout Failure Type</em>}'.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return the meta object for the reference '<em>Passive Resource Resource Timeout Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType()
-	 * @see #getResourceTimeoutFailureType()
-	 * @generated
-	 */
+     * @return the meta object for the reference '<em>Passive Resource Resource Timeout Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.ResourceTimeoutFailureType#getPassiveResource__ResourceTimeoutFailureType()
+     * @see #getResourceTimeoutFailureType()
+     * @generated
+     */
     EReference getResourceTimeoutFailureType_PassiveResource__ResourceTimeoutFailureType();
 
     /**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType <em>Network Induced Failure Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Network Induced Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType
-	 * @generated
-	 */
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType <em>Network Induced Failure Type</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for class '<em>Network Induced Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType
+     * @generated
+     */
     EClass getNetworkInducedFailureType();
 
     /**
-	 * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType <em>Communication Link Resource Type Network Induced Failure Type</em>}'.
-	 * <!-- begin-user-doc
+     * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType <em>Communication Link Resource Type Network Induced Failure Type</em>}'.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @return the meta object for the reference '<em>Communication Link Resource Type Network Induced Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType()
-	 * @see #getNetworkInducedFailureType()
-	 * @generated
-	 */
+     * @return the meta object for the reference '<em>Communication Link Resource Type Network Induced Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType()
+     * @see #getNetworkInducedFailureType()
+     * @generated
+     */
     EReference getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType();
 
     /**
@@ -588,23 +588,23 @@ public interface ReliabilityPackage extends EPackage {
     EReference getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription();
 
     /**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription <em>Internal Action Internal Failure Occurrence Description</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription <em>Internal Action Internal Failure Occurrence Description</em>}'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Internal Action Internal Failure Occurrence Description</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription()
-	 * @see #getInternalFailureOccurrenceDescription()
-	 * @generated
-	 */
+     * @return the meta object for the container reference '<em>Internal Action Internal Failure Occurrence Description</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.InternalFailureOccurrenceDescription#getInternalAction__InternalFailureOccurrenceDescription()
+     * @see #getInternalFailureOccurrenceDescription()
+     * @generated
+     */
     EReference getInternalFailureOccurrenceDescription_InternalAction__InternalFailureOccurrenceDescription();
 
     /**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType <em>Software Induced Failure Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Software Induced Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
-	 * @generated
-	 */
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType <em>Software Induced Failure Type</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for class '<em>Software Induced Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
+     * @generated
+     */
     EClass getSoftwareInducedFailureType();
 
     /**
@@ -622,35 +622,35 @@ public interface ReliabilityPackage extends EPackage {
     EReference getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType();
 
     /**
-	 * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.FailureType <em>Failure Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for class '<em>Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.FailureType
-	 * @generated
-	 */
+     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.reliability.FailureType <em>Failure Type</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for class '<em>Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.FailureType
+     * @generated
+     */
     EClass getFailureType();
 
     /**
-	 * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType <em>Repository Failure Type</em>}'.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the container reference '<em>Repository Failure Type</em>'.
-	 * @see de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType()
-	 * @see #getFailureType()
-	 * @generated
-	 */
+     * Returns the meta object for the container reference '{@link de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType <em>Repository Failure Type</em>}'.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the meta object for the container reference '<em>Repository Failure Type</em>'.
+     * @see de.uka.ipd.sdq.pcm.reliability.FailureType#getRepository__FailureType()
+     * @see #getFailureType()
+     * @generated
+     */
     EReference getFailureType_Repository__FailureType();
 
     /**
-	 * Returns the factory that creates the instances of the model.
-	 * <!-- begin-user-doc --> <!--
+     * Returns the factory that creates the instances of the model.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return the factory that creates the instances of the model.
-	 * @generated
-	 */
+     * @return the factory that creates the instances of the model.
+     * @generated
+     */
     ReliabilityFactory getReliabilityFactory();
 
     /**
-	 * <!-- begin-user-doc --> Defines literals for the meta objects that represent
+     * <!-- begin-user-doc --> Defines literals for the meta objects that represent
      * <ul>
      * <li>each class,</li>
      * <li>each feature of each class,</li>
@@ -658,24 +658,24 @@ public interface ReliabilityPackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
     interface Literals {
         /**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.FailureOccurrenceDescriptionImpl <em>Failure Occurrence Description</em>}' class.
-		 * <!-- begin-user-doc --> <!--
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.FailureOccurrenceDescriptionImpl <em>Failure Occurrence Description</em>}' class.
+         * <!-- begin-user-doc --> <!--
          * end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.FailureOccurrenceDescriptionImpl
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getFailureOccurrenceDescription()
-		 * @generated
-		 */
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.FailureOccurrenceDescriptionImpl
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getFailureOccurrenceDescription()
+         * @generated
+         */
         EClass FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getFailureOccurrenceDescription();
 
         /**
-		 * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Failure Probability</b></em>' attribute feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EAttribute FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_PROBABILITY = eINSTANCE.getFailureOccurrenceDescription_FailureProbability();
 
         /**
@@ -691,34 +691,34 @@ public interface ReliabilityPackage extends EPackage {
         EClass HARDWARE_INDUCED_FAILURE_TYPE = eINSTANCE.getHardwareInducedFailureType();
 
         /**
-		 * The meta object literal for the '<em><b>Processing Resource Type Hardware Induced Failure Type</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Processing Resource Type Hardware Induced Failure Type</b></em>' reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE = eINSTANCE.getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType();
 
         /**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl <em>External Failure Occurrence Description</em>}' class.
-		 * <!-- begin-user-doc --> <!--
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl <em>External Failure Occurrence Description</em>}' class.
+         * <!-- begin-user-doc --> <!--
          * end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getExternalFailureOccurrenceDescription()
-		 * @generated
-		 */
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.ExternalFailureOccurrenceDescriptionImpl
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getExternalFailureOccurrenceDescription()
+         * @generated
+         */
         EClass EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getExternalFailureOccurrenceDescription();
 
         /**
-		 * The meta object literal for the '<em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em>' container reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Specified Reliability Annotation External Failure Occurrence Description</b></em>' container reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getExternalFailureOccurrenceDescription_SpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription();
 
         /**
-		 * The meta object literal for the '<em><b>Failure Type External Failure Occurrence Description</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Failure Type External Failure Occurrence Description</b></em>' reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__FAILURE_TYPE_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getExternalFailureOccurrenceDescription_FailureType__ExternalFailureOccurrenceDescription();
 
         /**
@@ -755,34 +755,34 @@ public interface ReliabilityPackage extends EPackage {
         EClass NETWORK_INDUCED_FAILURE_TYPE = eINSTANCE.getNetworkInducedFailureType();
 
         /**
-		 * The meta object literal for the '<em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Communication Link Resource Type Network Induced Failure Type</b></em>' reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference NETWORK_INDUCED_FAILURE_TYPE__COMMUNICATION_LINK_RESOURCE_TYPE_NETWORK_INDUCED_FAILURE_TYPE = eINSTANCE.getNetworkInducedFailureType_CommunicationLinkResourceType__NetworkInducedFailureType();
 
         /**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl <em>Internal Failure Occurrence Description</em>}' class.
-		 * <!-- begin-user-doc --> <!--
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl <em>Internal Failure Occurrence Description</em>}' class.
+         * <!-- begin-user-doc --> <!--
          * end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getInternalFailureOccurrenceDescription()
-		 * @generated
-		 */
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.InternalFailureOccurrenceDescriptionImpl
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getInternalFailureOccurrenceDescription()
+         * @generated
+         */
         EClass INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getInternalFailureOccurrenceDescription();
 
         /**
-		 * The meta object literal for the '<em><b>Software Induced Failure Type Internal Failure Occurrence Description</b></em>' reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Software Induced Failure Type Internal Failure Occurrence Description</b></em>' reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SOFTWARE_INDUCED_FAILURE_TYPE_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getInternalFailureOccurrenceDescription_SoftwareInducedFailureType__InternalFailureOccurrenceDescription();
 
         /**
-		 * The meta object literal for the '<em><b>Internal Action Internal Failure Occurrence Description</b></em>' container reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Internal Action Internal Failure Occurrence Description</b></em>' container reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION = eINSTANCE.getInternalFailureOccurrenceDescription_InternalAction__InternalFailureOccurrenceDescription();
 
         /**
@@ -798,26 +798,26 @@ public interface ReliabilityPackage extends EPackage {
         EClass SOFTWARE_INDUCED_FAILURE_TYPE = eINSTANCE.getSoftwareInducedFailureType();
 
         /**
-		 * The meta object literal for the '<em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>' reference list feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Internal Failure Occurrence Descriptions Software Induced Failure Type</b></em>' reference list feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference SOFTWARE_INDUCED_FAILURE_TYPE__INTERNAL_FAILURE_OCCURRENCE_DESCRIPTIONS_SOFTWARE_INDUCED_FAILURE_TYPE = eINSTANCE.getSoftwareInducedFailureType_InternalFailureOccurrenceDescriptions__SoftwareInducedFailureType();
 
         /**
-		 * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl <em>Failure Type</em>}' class.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl
-		 * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getFailureType()
-		 * @generated
-		 */
+         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl <em>Failure Type</em>}' class.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.FailureTypeImpl
+         * @see de.uka.ipd.sdq.pcm.reliability.impl.ReliabilityPackageImpl#getFailureType()
+         * @generated
+         */
         EClass FAILURE_TYPE = eINSTANCE.getFailureType();
 
         /**
-		 * The meta object literal for the '<em><b>Repository Failure Type</b></em>' container reference feature.
-		 * <!-- begin-user-doc --> <!-- end-user-doc -->
-		 * @generated
-		 */
+         * The meta object literal for the '<em><b>Repository Failure Type</b></em>' container reference feature.
+         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * @generated
+         */
         EReference FAILURE_TYPE__REPOSITORY_FAILURE_TYPE = eINSTANCE.getFailureType_Repository__FailureType();
 
     }

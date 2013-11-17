@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm,
  org.eclipse.emf.edit.ui,
  org.eclipse.ui.forms;bundle-version="3.5.200",
- org.eclipse.ui.ide
+ org.eclipse.ui.ide,
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.pcmbench.ui,
  de.uka.ipd.sdq.pcmbench.ui.provider,
  de.uka.ipd.sdq.pcmbench.ui.provider.categoryaware
