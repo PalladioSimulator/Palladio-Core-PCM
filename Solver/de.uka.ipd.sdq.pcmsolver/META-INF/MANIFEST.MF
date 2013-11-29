@@ -10,7 +10,6 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.stoex.analyser,
- org.junit4,
  org.eclipse.emf.ecore.xmi,
  de.uka.ipd.sdq.spa,
  de.uka.ipd.sdq.spa.basicsolver,
@@ -32,7 +31,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.workflow.mdsd,
  de.uka.ipd.sdq.workflow.pcm,
  de.fzi.se.accuracy;bundle-version="1.0.0",
- org.apache.commons.math;bundle-version="2.1.0"
+ org.apache.commons.math;bundle-version="2.1.0",
+ org.junit;bundle-version="4.11.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.pcmsolver.exprsolver,

@@ -13,12 +13,12 @@ Export-Package: .,
  de.uka.ipd.sdq.prototype.framework.usage,
  de.uka.ipd.sdq.prototype.framework.utils,
  de.uka.ipd.sdq.prototype.framework.visitor
-Require-Bundle: org.junit4,
- org.apache.log4j,
+Require-Bundle: org.apache.log4j,
  de.uka.ipd.sdq.resourcestrategies,
  de.uka.ipd.sdq.sensorframework,
  org.apache.commons.cli;visibility:=reexport,
  de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0",
- de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0"
+ de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0",
+ org.junit;bundle-version="4.11.0"
 Bundle-Vendor: sdq.ipd.uka.de
-Bundle-RequiredExecutionEnvironment: J2SE-1.5
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6

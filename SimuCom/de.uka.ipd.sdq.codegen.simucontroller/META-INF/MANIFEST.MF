@@ -21,7 +21,6 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.simucomframework.simucomstatus,
  ch.ethz.iks.r_osgi.remote;bundle-version="1.0.0",
  de.uka.ipd.sdq.featureconfig;bundle-version="1.0.0",
- org.junit4;bundle-version="4.3.1",
  org.eclipse.emf.query.ocl;bundle-version="1.2.0",
  org.eclipse.ocl.ecore;bundle-version="1.2.1",
  de.uka.ipd.sdq.workflow.mdsd;bundle-version="2.0.1";visibility:=reexport,
@@ -43,7 +42,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.fzi.se.quality;bundle-version="1.0.0",
  de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0",
  de.uka.ipd.sdq.simulation;bundle-version="1.0.0",
- de.uka.ipd.sdq.completions;bundle-version="1.0.0"
+ de.uka.ipd.sdq.completions;bundle-version="1.0.0",
+ org.junit;bundle-version="4.11.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.debug,
  de.uka.ipd.sdq.codegen.simucontroller.runconfig,
