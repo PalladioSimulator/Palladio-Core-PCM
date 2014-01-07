@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.stoex.BoolLiteral;
 import de.uka.ipd.sdq.stoex.BooleanOperatorExpression;
 import de.uka.ipd.sdq.stoex.CompareExpression;
 import de.uka.ipd.sdq.stoex.DoubleLiteral;
+import de.uka.ipd.sdq.stoex.Expression;
 import de.uka.ipd.sdq.stoex.FunctionLiteral;
 import de.uka.ipd.sdq.stoex.IfElseExpression;
 import de.uka.ipd.sdq.stoex.IntLiteral;
@@ -28,19 +29,32 @@ import de.uka.ipd.sdq.stoex.VariableReference;
 import de.uka.ipd.sdq.stoex.util.StoexSwitch;
 
 public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
-	@Override
+    
+    private static final int AVERAGE_STOEX_SIZE = 30;
+    private final StringBuilder resultBuilder = new StringBuilder(AVERAGE_STOEX_SIZE);
+    private final static DecimalFormat df = new DecimalFormat("#0.0###########", new DecimalFormatSymbols(Locale.US));
+
+
+    @Override
 	public String caseBoolLiteral(BoolLiteral object) {
-		return object.isValue() ? "true" : "false";
+		resultBuilder.append(object.isValue() ? "true" : "false");
+		return resultBuilder.toString();
 	}
 
 	@Override
 	public String casePowerExpression(PowerExpression object) {
-		return ((String)doSwitch(object.getBase()))+" ^ "+((String)doSwitch(object.getExponent()));
+	    doSwitch(object.getBase());
+	    resultBuilder.append(" ^ ");
+	    doSwitch(object.getExponent());
+		return resultBuilder.toString();
 	}
 
 	@Override
 	public String caseStringLiteral(StringLiteral object) {
-		return "\""+object.getValue()+"\"";
+	    resultBuilder.append("\"");
+	    resultBuilder.append(object.getValue());
+	    resultBuilder.append("\"");
+		return resultBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -48,7 +62,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseCompareExpression(CompareExpression object) {
-		String op = "";
+		String op;
 		switch(object.getOperation())
 		{
 		case EQUALS:
@@ -69,8 +83,13 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 		case NOTEQUAL:
 			op = " <> ";
 			break;
+		default:
+		    throw new RuntimeException("Unsupported StoEx comparison detected.");
 		}
-		return ((String)doSwitch(object.getLeft()))+op+((String)doSwitch(object.getRight()));
+		doSwitch(object.getLeft());
+		resultBuilder.append(op);
+		doSwitch(object.getRight());
+		return resultBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -78,9 +97,8 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseDoubleLiteral(DoubleLiteral object) {
-		DecimalFormat df = new DecimalFormat("#0.0###########", new DecimalFormatSymbols(Locale.US));
-		//DecimalFormat df = new DecimalFormat("#0.0#", new DecimalFormatSymbols(Locale.US));
-		return df.format(object.getValue());
+		resultBuilder.append(df.format(object.getValue()));
+		return resultBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -88,7 +106,8 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseIntLiteral(IntLiteral object) {
-		return Integer.toString(object.getValue());
+		resultBuilder.append(Integer.toString(object.getValue()));
+		return resultBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -96,7 +115,10 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseParenthesis(Parenthesis object) {
-		return "( " + (String)doSwitch(object.getInnerExpression())+" )";
+	    resultBuilder.append("(");
+	    resultBuilder.append(doSwitch(object.getInnerExpression()));
+	    resultBuilder.append(")");
+	    return resultBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -104,7 +126,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseProbabilityFunctionLiteral(ProbabilityFunctionLiteral object) {
-		return new ProbFunctionPrettyPrint().doSwitch(object.getFunction_ProbabilityFunctionLiteral());
+		return new ProbFunctionPrettyPrint(resultBuilder).doSwitch(object.getFunction_ProbabilityFunctionLiteral());
 	}
 
 	/* (non-Javadoc)
@@ -112,7 +134,7 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseProductExpression(ProductExpression object) {
-		String op = "";
+		String op;
 		switch(object.getOperation())
 		{
 		case MULT:
@@ -124,15 +146,21 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 		case DIV:
 			op = " / ";
 			break;
+		default:
+		    throw new RuntimeException("Unknown operator found in StoEx!");
 		}
-		return ((String)doSwitch(object.getLeft()))+op+((String)doSwitch(object.getRight()));	}
+		doSwitch(object.getLeft());
+		resultBuilder.append(op);
+		doSwitch(object.getRight());
+		return resultBuilder.toString();	
+	}
 
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.pcm.core.stochastics.util.StochasticsSwitch#caseTermExpression(de.uka.ipd.sdq.pcm.core.stochastics.TermExpression)
 	 */
 	@Override
 	public String caseTermExpression(TermExpression object) {
-		String op = "";
+		String op;
 		switch(object.getOperation())
 		{
 		case ADD:
@@ -141,8 +169,13 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 		case SUB:
 			op = " - ";
 			break;
+		default:
+            throw new RuntimeException("Unknown operator found in StoEx!");
 		}
-		return ((String)doSwitch(object.getLeft()))+op+((String)doSwitch(object.getRight()));
+        doSwitch(object.getLeft());
+        resultBuilder.append(op);
+        doSwitch(object.getRight());
+        return resultBuilder.toString();    
 	}
 
 	/* (non-Javadoc)
@@ -150,7 +183,10 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseNamespaceReference(NamespaceReference object) {
-		return object.getReferenceName()+"."+(String)doSwitch(object.getInnerReference_NamespaceReference());
+	    resultBuilder.append(object.getReferenceName());
+	    resultBuilder.append(".");
+	    doSwitch(object.getInnerReference_NamespaceReference());
+	    return resultBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -158,7 +194,8 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseVariableReference(VariableReference object) {
-		return object.getReferenceName();
+	    resultBuilder.append(object.getReferenceName());
+		return resultBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -166,47 +203,63 @@ public class StoExPrettyPrintVisitor extends StoexSwitch<String> {
 	 */
 	@Override
 	public String caseVariable(Variable object) {
-		String result = (String)doSwitch(object.getId_Variable());
-		// TODO: Move this part: result += "." + object.getCharacterisationType().getLiteral();
-		return result;
+		doSwitch(object.getId_Variable());
+		return resultBuilder.toString();
 	}
 
-	public String prettyPrint(EObject theObject)
-	{
-		return (String)doSwitch(theObject);
+	public String prettyPrint(EObject theObject) {
+		return doSwitch(theObject);
 	}
 
 	@Override
 	public String caseBooleanOperatorExpression(BooleanOperatorExpression object) {
-		String result = this.doSwitch(object.getLeft());
-		result += " "+object.getOperation().getLiteral()+" ";
-		return result + this.doSwitch(object.getRight());
+		this.doSwitch(object.getLeft());
+		resultBuilder.append(" ");
+		resultBuilder.append(object.getOperation().getLiteral());
+		resultBuilder.append(" ");
+		this.doSwitch(object.getRight());
+		return resultBuilder.toString();
 	}
 
 	@Override
 	public String caseNegativeExpression(NegativeExpression object) {
-		return "-"+this.doSwitch(object.getInner());
+	    resultBuilder.append("-");
+	    this.doSwitch(object.getInner());
+		return resultBuilder.toString();
 	}
 
 	@Override
 	public String caseNotExpression(NotExpression object) {
-		return "NOT "+this.doSwitch(object.getInner())+"";
+	    resultBuilder.append("NOT ");
+	    this.doSwitch(object.getInner());
+	    return resultBuilder.toString();
 	}
 
 	@Override
 	public String caseFunctionLiteral(FunctionLiteral object) {
-		String result = object.getId() + "(";
-		for (int i=0; i < object.getParameters_FunctionLiteral().size()-1; i++)
-			result += this.doSwitch(object.getParameters_FunctionLiteral().get(i)) + ", ";
-		result += this.doSwitch(object.getParameters_FunctionLiteral().get(object.getParameters_FunctionLiteral().size()-1)) + ")";
-		return result;
+	    resultBuilder.append(object.getId());
+	    resultBuilder.append("(");
+
+	    if (object.getParameters_FunctionLiteral().size() > 0) {
+    		for (Expression parameter : object.getParameters_FunctionLiteral()) {
+    		    this.doSwitch(parameter);
+    		    resultBuilder.append(", ");
+    		}
+    		resultBuilder.delete(resultBuilder.length() - 2, resultBuilder.length());
+	    }
+        resultBuilder.append(")");
+
+		return resultBuilder.toString();
 	}
 
 	@Override
 	public String caseIfElseExpression(IfElseExpression object) {
-		return this.doSwitch(object.getConditionExpression()) + " ? " +
-				this.doSwitch(object.getIfExpression()) + " : " +
-				this.doSwitch(object.getElseExpression());
+	    this.doSwitch(object.getConditionExpression());
+	    resultBuilder.append(" ? ");
+	    this.doSwitch(object.getIfExpression());
+	    resultBuilder.append(" : ");
+	    this.doSwitch(object.getElseExpression());
+		return  resultBuilder.toString();
 	}
 	
 }

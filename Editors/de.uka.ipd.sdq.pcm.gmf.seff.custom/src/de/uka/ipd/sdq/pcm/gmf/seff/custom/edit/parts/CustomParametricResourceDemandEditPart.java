@@ -25,6 +25,8 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
  */
 public class CustomParametricResourceDemandEditPart extends ParametricResourceDemandEditPart {
 
+    private static final int MAX_STOEX_DISPLAY_SIZE = 50;
+
     /** The change listener. */
     private EContentAdapter changeListener = null;
 
@@ -88,6 +90,9 @@ public class CustomParametricResourceDemandEditPart extends ParametricResourceDe
                 if (text == null) {
                     text = "";
                 } else {
+                    if (text.length() > MAX_STOEX_DISPLAY_SIZE) {
+                        text = text.substring(0, MAX_STOEX_DISPLAY_SIZE) + "...";
+                    }
                     text += " ";
                 }
                 text += "<" + demand.getRequiredResource_ParametricResourceDemand().getEntityName() + ">";
