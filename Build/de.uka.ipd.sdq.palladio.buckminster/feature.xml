@@ -36,10 +36,6 @@
          version="0.0.0"/>
 
    <includes
-         id="de.uka.ipd.sdq.prototype.feature"
-         version="0.0.0"/>
-
-   <includes
          id="de.uka.ipd.sdq.pcm.resultdecorator.feature"
          version="0.0.0"/>
 
@@ -53,6 +49,10 @@
 
    <includes
          id="de.uka.ipd.sdq.simucom.feature"
+         version="0.0.0"/>
+
+   <includes
+         id="com.palladio_simulator.protocom.feature"
          version="0.0.0"/>
 
    <plugin
