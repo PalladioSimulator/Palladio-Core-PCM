@@ -55,11 +55,6 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	 */
 	private static final Logger logger = 
 		Logger.getLogger(PCMStoExEvaluationVisitor.class.getName());
-
-	/**
-	 * Pretty printer. This class is stateless hence it is save to have just one object of it
-	 */
-	private final static PCMStoExPrettyPrintVisitor printVisitor = new PCMStoExPrettyPrintVisitor();
 	
 	/**
 	 * Subvisitor to evaluate probability functions inside the visited stoex
@@ -105,7 +100,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	
 	@Override
 	public Object caseCharacterisedVariable(CharacterisedVariable object) {
-		String variableID = (String)printVisitor.caseCharacterisedVariable(object);
+		String variableID = new PCMStoExPrettyPrintVisitor().caseCharacterisedVariable(object);
 		try {
 			Object value = this.myStackFrame.getValue(variableID); 
 			if (value instanceof EvaluationProxy) {

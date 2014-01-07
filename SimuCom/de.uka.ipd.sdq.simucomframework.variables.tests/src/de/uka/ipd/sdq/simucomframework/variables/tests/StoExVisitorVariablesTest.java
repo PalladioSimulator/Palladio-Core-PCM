@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.variables.tests;
 
-import junit.framework.Assert;
 import junit.framework.TestCase;
 
 import org.apache.log4j.BasicConfigurator;
@@ -44,11 +43,11 @@ public class StoExVisitorVariablesTest extends TestCase {
 	
 	public void testStackEvaluate() {
 		int i = (Integer)StackContext.evaluateStatic("anInt.BYTESIZE", stackFrame);
-		Assert.assertEquals(i, 10);
+		assertEquals(i, 10);
 		boolean b = (Boolean)StackContext.evaluateStatic("anBoolean.VALUE", stackFrame);
-		Assert.assertEquals(b, false);
+		assertEquals(b, false);
 		double d = (Double)StackContext.evaluateStatic("anDouble.VALUE", stackFrame);
-		Assert.assertEquals(d, 10.0);
+		assertEquals(d, 10.0);
 	}
 	
 	public void testStackEvaluateAutoTypeConversion() {
@@ -77,52 +76,52 @@ public class StoExVisitorVariablesTest extends TestCase {
 		stackFrame.addValue(DOUBLE_VALUE, d);
 		// test
 		// byte/char
-		Assert.assertEquals(Character.valueOf(c), StackContext.evaluateStatic(CHAR_VALUE, Character.class, stackFrame));
-		Assert.assertEquals(Byte.valueOf(b), StackContext.evaluateStatic(BYTE_VALUE, Byte.class, stackFrame));
+		assertEquals(Character.valueOf(c), StackContext.evaluateStatic(CHAR_VALUE, Character.class, stackFrame));
+		assertEquals(Byte.valueOf(b), StackContext.evaluateStatic(BYTE_VALUE, Byte.class, stackFrame));
 		// short
-		Assert.assertEquals((Short) Byte.valueOf(b).shortValue(), 
+		assertEquals((Short) Byte.valueOf(b).shortValue(), 
 				StackContext.evaluateStatic(BYTE_VALUE, Short.class, stackFrame));
-		Assert.assertEquals((Short) Byte.valueOf((byte)Character.valueOf(c).charValue()).shortValue(), 
+		assertEquals((Short) Byte.valueOf((byte)Character.valueOf(c).charValue()).shortValue(), 
 				StackContext.evaluateStatic(CHAR_VALUE, Short.class, stackFrame));
 		// int
-		Assert.assertEquals((Integer) Byte.valueOf(b).intValue(), 
+		assertEquals((Integer) Byte.valueOf(b).intValue(), 
 				StackContext.evaluateStatic(BYTE_VALUE, Integer.class, stackFrame));
-		Assert.assertEquals((Integer) Byte.valueOf((byte)Character.valueOf(c).charValue()).intValue(), 
+		assertEquals((Integer) Byte.valueOf((byte)Character.valueOf(c).charValue()).intValue(), 
 				StackContext.evaluateStatic(CHAR_VALUE, Integer.class, stackFrame));
-		Assert.assertEquals((Integer) Short.valueOf(s).intValue(), 
+		assertEquals((Integer) Short.valueOf(s).intValue(), 
 				StackContext.evaluateStatic(SHORT_VALUE, Integer.class, stackFrame));
 		// long
-		Assert.assertEquals((Long) Byte.valueOf(b).longValue(), 
+		assertEquals((Long) Byte.valueOf(b).longValue(), 
 				StackContext.evaluateStatic(BYTE_VALUE, Long.class, stackFrame));
-		Assert.assertEquals((Long) Byte.valueOf((byte)Character.valueOf(c).charValue()).longValue(), 
+		assertEquals((Long) Byte.valueOf((byte)Character.valueOf(c).charValue()).longValue(), 
 				StackContext.evaluateStatic(CHAR_VALUE, Long.class, stackFrame));
-		Assert.assertEquals((Long) Short.valueOf(s).longValue(), 
+		assertEquals((Long) Short.valueOf(s).longValue(), 
 				StackContext.evaluateStatic(SHORT_VALUE, Long.class, stackFrame));
-		Assert.assertEquals((Long) Integer.valueOf(i).longValue(), 
+		assertEquals((Long) Integer.valueOf(i).longValue(), 
 				StackContext.evaluateStatic(INTEGER_VALUE, Long.class, stackFrame));
 		// float
-		Assert.assertEquals(Byte.valueOf(b).floatValue(), 
+		assertEquals(Byte.valueOf(b).floatValue(), 
 				StackContext.evaluateStatic(BYTE_VALUE, Float.class, stackFrame));
-		Assert.assertEquals(Byte.valueOf((byte)Character.valueOf(c).charValue()).floatValue(), 
+		assertEquals(Byte.valueOf((byte)Character.valueOf(c).charValue()).floatValue(), 
 				StackContext.evaluateStatic(CHAR_VALUE, Float.class, stackFrame));
-		Assert.assertEquals(Short.valueOf(s).floatValue(), 
+		assertEquals(Short.valueOf(s).floatValue(), 
 				StackContext.evaluateStatic(SHORT_VALUE, Float.class, stackFrame));
-		Assert.assertEquals(Integer.valueOf(i).floatValue(), 
+		assertEquals(Integer.valueOf(i).floatValue(), 
 				StackContext.evaluateStatic(INTEGER_VALUE, Float.class, stackFrame));
-		Assert.assertEquals(Long.valueOf(l).floatValue(), 
+		assertEquals(Long.valueOf(l).floatValue(), 
 				StackContext.evaluateStatic(LONG_VALUE, Float.class, stackFrame));
 		// double
-		Assert.assertEquals(Byte.valueOf(b).doubleValue(), 
+		assertEquals(Byte.valueOf(b).doubleValue(), 
 				StackContext.evaluateStatic(BYTE_VALUE, Double.class, stackFrame));
-		Assert.assertEquals(Byte.valueOf((byte)Character.valueOf(c).charValue()).doubleValue(), 
+		assertEquals(Byte.valueOf((byte)Character.valueOf(c).charValue()).doubleValue(), 
 				StackContext.evaluateStatic(CHAR_VALUE, Double.class, stackFrame));
-		Assert.assertEquals(Short.valueOf(s).doubleValue(), 
+		assertEquals(Short.valueOf(s).doubleValue(), 
 				StackContext.evaluateStatic(SHORT_VALUE, Double.class, stackFrame));
-		Assert.assertEquals(Integer.valueOf(i).doubleValue(), 
+		assertEquals(Integer.valueOf(i).doubleValue(), 
 				StackContext.evaluateStatic(INTEGER_VALUE, Double.class, stackFrame));
-		Assert.assertEquals(Long.valueOf(l).doubleValue(), 
+		assertEquals(Long.valueOf(l).doubleValue(), 
 				StackContext.evaluateStatic(LONG_VALUE, Double.class, stackFrame));
-		Assert.assertEquals(Float.valueOf(f).doubleValue(), 
+		assertEquals(Float.valueOf(f).doubleValue(), 
 				StackContext.evaluateStatic(FLOAT_VALUE, Double.class, stackFrame));
 	}
 	
@@ -138,20 +137,20 @@ public class StoExVisitorVariablesTest extends TestCase {
 			StackContext.evaluateStatic("sssdffg.VALUE", stackFrame);
 			ca.setThreshold(Level.INFO);
 		} catch (Exception ex){
-			Assert.assertEquals("An unexpected type of exception has been thrown",StochasticExpressionEvaluationFailedException.class, ex.getClass());
+			assertEquals("An unexpected type of exception has been thrown",StochasticExpressionEvaluationFailedException.class, ex.getClass());
 			return;
 		}
-		Assert.fail("Parser error expected, but did not occur");
+		fail("Parser error expected, but did not occur");
 	}
 
 	public void testPowVar() {
 		double result3 = (Double)StackContext.evaluateStatic("10^(anInt.BYTESIZE)",stackFrame);
-		Assert.assertEquals(Math.pow(10, 10), result3);
+		assertEquals(Math.pow(10, 10), result3);
 	}
 	
 	public void testReturnDefault() {
 		int bs = (Integer)StackContext.evaluateStatic("a.BYTESIZE", stackFrame, VariableMode.RETURN_DEFAULT_ON_NOT_FOUND);
-		Assert.assertEquals(bs, 0);
+		assertEquals(bs, 0);
 	}
 
 }
