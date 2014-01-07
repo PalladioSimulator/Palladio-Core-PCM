@@ -22,8 +22,6 @@ import de.uka.ipd.sdq.pcm.stochasticexpressions.PCMStoExPrettyPrintVisitor;
 public class ParametersTabItemProvider extends ItemProviderDecorator implements
 		ITableItemLabelProvider, IItemLabelProvider {
 	
-	private PCMStoExPrettyPrintVisitor print;
-
 	/**
 	 * Inherited default constructor
 	 * 
@@ -32,7 +30,6 @@ public class ParametersTabItemProvider extends ItemProviderDecorator implements
 	 */
 	public ParametersTabItemProvider(AdapterFactory factory) {
 		super(factory);
-		print = new PCMStoExPrettyPrintVisitor();
 	}
 
 	/*
@@ -62,7 +59,7 @@ public class ParametersTabItemProvider extends ItemProviderDecorator implements
 		case ComponentParametersEditorSection.ICON_COLUMN_INDEX:
 			break;
 		case ComponentParametersEditorSection.VARIABLE_COLUMN_INDEX:
-			result = print.prettyPrint(variable.getVariableUsage());
+			result = new PCMStoExPrettyPrintVisitor().prettyPrint(variable.getVariableUsage());
 			break;
 		case ComponentParametersEditorSection.STOEX_COLUMN_INDEX:
 			result = getSpecification(variable.getVariableUsage());

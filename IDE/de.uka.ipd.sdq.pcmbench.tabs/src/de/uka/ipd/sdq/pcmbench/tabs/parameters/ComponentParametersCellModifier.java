@@ -35,7 +35,6 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 	/** In diagram selected AssemblyContext. */
 	private AssemblyContext context;
 	/** The value wont for print VariableUsage name uses. */
-	private PCMStoExPrettyPrintVisitor print;
 
 	/**
 	 * The transactional editing domain which is used to get the commands and
@@ -46,7 +45,6 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 	public ComponentParametersCellModifier() {
 		this.columnNames = Arrays
 				.asList(ComponentParametersEditorSection.columnNames);
-		this.print = new PCMStoExPrettyPrintVisitor();
 	}
 
 	/**
@@ -192,9 +190,9 @@ public class ComponentParametersCellModifier extends ObservableCellModifier {
 		EList<VariableUsage> variables = context
 				.getConfigParameterUsages__AssemblyContext();
 
-		String newName = print.prettyPrint(newVariable);
+		String newName = new PCMStoExPrettyPrintVisitor().prettyPrint(newVariable);
 		for (VariableUsage existedVariable : variables) {
-			String existedName = print.prettyPrint(existedVariable);
+			String existedName = new PCMStoExPrettyPrintVisitor().prettyPrint(existedVariable);
 			if (newName.equals(existedName)) {
 				return existedVariable;
 			}
