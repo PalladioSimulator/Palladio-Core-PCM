@@ -1,26 +1,7 @@
 package com.palladio_simulator.protocom.lang.java.util;
 
-import com.google.common.base.Objects;
-import com.palladio_simulator.protocom.lang.java.util.JavaNames;
-import com.palladio_simulator.protocom.lang.java.util.PcmCalls;
-import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
-import de.uka.ipd.sdq.pcm.core.composition.Connector;
-import de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.composition.RequiredDelegationConnector;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
-import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
-import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import java.util.List;
-import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
-import org.eclipse.xtext.xbase.lib.Conversions;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
 
 /**
  * Common PCM stuff.
@@ -59,109 +40,73 @@ public class PcmCommons {
     return _builder.toString();
   }
   
-  public static String call(final OperationSignature signature, final Entity call, final String prefix, final List<VariableUsage> parameterUsages, final List<VariableUsage> outParameterUsages) {
-    String _javaSignature = JavaNames.javaSignature(signature);
-    String _plus = (prefix + _javaSignature);
-    String _plus_1 = (_plus + "(");
-    String _plus_2 = (_plus_1 + "ctx");
-    String _plus_3 = (_plus_2 + ");");
-    return _plus_3;
+  public static String call(final /* OperationSignature */Object signature, final /* Entity */Object call, final String prefix, final /* List<VariableUsage> */Object parameterUsages, final /* List<VariableUsage> */Object outParameterUsages) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nAmbiguous feature call.\nThe methods\n\tjavaSignature(OperationSignature) in JavaNames and\n\tjavaSignature(InfrastructureSignature) in JavaNames\nboth match.");
   }
   
-  public static ProvidedDelegationConnector getProvidedDelegationConnector(final ComposedStructure s, final ProvidedRole p) {
-    EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
-    final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector it) {
-          boolean _isInstance = ProvidedDelegationConnector.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
-    Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
-    final Function1<Connector,Boolean> _function_1 = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector it) {
-          OperationProvidedRole _outerProvidedRole_ProvidedDelegationConnector = ((ProvidedDelegationConnector) it).getOuterProvidedRole_ProvidedDelegationConnector();
-          boolean _equals = Objects.equal(_outerProvidedRole_ProvidedDelegationConnector, p);
-          return Boolean.valueOf(_equals);
-        }
-      };
-    Iterable<Connector> _filter_1 = IterableExtensions.<Connector>filter(_filter, _function_1);
-    List<Connector> _list = IterableExtensions.<Connector>toList(_filter_1);
-    Connector _get = _list.get(0);
-    return ((ProvidedDelegationConnector) _get);
+  public static /* ProvidedDelegationConnector */Object getProvidedDelegationConnector(final /* ComposedStructure */Object s, final /* ProvidedRole */Object p) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nProvidedDelegationConnector cannot be resolved to a type."
+      + "\nProvidedDelegationConnector cannot be resolved to a type."
+      + "\nThe method or field ProvidedDelegationConnector is undefined for the type PcmCommons"
+      + "\nconnectors__ComposedStructure cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nisInstance cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nouterProvidedRole_ProvidedDelegationConnector cannot be resolved"
+      + "\n== cannot be resolved"
+      + "\ntoList cannot be resolved"
+      + "\nget cannot be resolved");
   }
   
-  public static List<Connector> getProvidedDelegationConnector(final ComposedStructure s) {
-    EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
-    final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector it) {
-          boolean _isInstance = ProvidedDelegationConnector.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
-    Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
-    List<Connector> _list = IterableExtensions.<Connector>toList(_filter);
-    return ((List<Connector>) _list);
+  public static /* List<Connector> */Object getProvidedDelegationConnector(final /* ComposedStructure */Object s) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nConnector cannot be resolved to a type."
+      + "\nThe method or field ProvidedDelegationConnector is undefined for the type PcmCommons"
+      + "\nconnectors__ComposedStructure cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nisInstance cannot be resolved"
+      + "\ntoList cannot be resolved");
   }
   
-  public static RequiredDelegationConnector getRequiredDelegationConnector(final ComposedStructure s, final RequiredRole p) {
-    EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
-    final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector it) {
-          boolean _isInstance = RequiredDelegationConnector.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
-    Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
-    final Function1<Connector,Boolean> _function_1 = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector it) {
-          OperationRequiredRole _outerRequiredRole_RequiredDelegationConnector = ((RequiredDelegationConnector) it).getOuterRequiredRole_RequiredDelegationConnector();
-          boolean _equals = Objects.equal(_outerRequiredRole_RequiredDelegationConnector, p);
-          return Boolean.valueOf(_equals);
-        }
-      };
-    Iterable<Connector> _filter_1 = IterableExtensions.<Connector>filter(_filter, _function_1);
-    List<Connector> _list = IterableExtensions.<Connector>toList(_filter_1);
-    Connector _get = _list.get(0);
-    return ((RequiredDelegationConnector) _get);
+  public static /* RequiredDelegationConnector */Object getRequiredDelegationConnector(final /* ComposedStructure */Object s, final /* RequiredRole */Object p) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nRequiredDelegationConnector cannot be resolved to a type."
+      + "\nRequiredDelegationConnector cannot be resolved to a type."
+      + "\nThe method or field RequiredDelegationConnector is undefined for the type PcmCommons"
+      + "\nconnectors__ComposedStructure cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nisInstance cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nouterRequiredRole_RequiredDelegationConnector cannot be resolved"
+      + "\n== cannot be resolved"
+      + "\ntoList cannot be resolved"
+      + "\nget cannot be resolved");
   }
   
-  public static List<Connector> getRequiredDelegationConnector(final ComposedStructure s) {
-    EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
-    final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector it) {
-          boolean _isInstance = RequiredDelegationConnector.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
-    Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
-    List<Connector> _list = IterableExtensions.<Connector>toList(_filter);
-    return ((List<Connector>) _list);
+  public static /* List<Connector> */Object getRequiredDelegationConnector(final /* ComposedStructure */Object s) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nConnector cannot be resolved to a type."
+      + "\nThe method or field RequiredDelegationConnector is undefined for the type PcmCommons"
+      + "\nconnectors__ComposedStructure cannot be resolved"
+      + "\nfilter cannot be resolved"
+      + "\nisInstance cannot be resolved"
+      + "\ntoList cannot be resolved");
   }
   
-  public static boolean hasConnector(final ComposedStructure s, final AssemblyContext ctx, final RequiredRole r) {
-    Iterable<Connector> _connectors = PcmCalls.connectors(s);
-    final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector con) {
-          boolean _test = PcmCalls.test(con, ctx, r);
-          return Boolean.valueOf(_test);
-        }
-      };
-    Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors, _function);
-    int _size = IterableExtensions.size(_filter);
-    boolean _equals = (_size == 1);
-    return _equals;
+  public static boolean hasConnector(final /* ComposedStructure */Object s, final /* AssemblyContext */Object ctx, final /* RequiredRole */Object r) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nfilter cannot be resolved"
+      + "\nsize cannot be resolved"
+      + "\n== cannot be resolved");
   }
   
-  public static Connector getConnector(final ComposedStructure s, final AssemblyContext ctx, final RequiredRole r) {
-    Iterable<Connector> _connectors = PcmCalls.connectors(s);
-    final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector con) {
-          boolean _test = PcmCalls.test(con, ctx, r);
-          return Boolean.valueOf(_test);
-        }
-      };
-    Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors, _function);
-    Connector _get = ((Connector[])Conversions.unwrapArray(_filter, Connector.class))[0];
-    return _get;
+  public static Object getConnector(final /* ComposedStructure */Object s, final /* AssemblyContext */Object ctx, final /* RequiredRole */Object r) {
+    throw new Error("Unresolved compilation problems:"
+      + "\nThere is no context to infer the closure\'s argument types from. Consider typing the arguments or put the closures into a typed context."
+      + "\nfilter cannot be resolved"
+      + "\nget cannot be resolved");
   }
 }

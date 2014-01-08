@@ -5,7 +5,6 @@ import com.palladio_simulator.protocom.lang.java.IJInterface;
 import com.palladio_simulator.protocom.lang.java.IJMethod;
 import com.palladio_simulator.protocom.lang.java.util.JavaNames;
 import com.palladio_simulator.protocom.tech.ConceptMapping;
-import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import java.util.Collection;
 import java.util.LinkedList;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -17,14 +16,14 @@ import org.eclipse.xtext.xbase.lib.CollectionLiterals;
  * @author Thomas Zolynski
  */
 @SuppressWarnings("all")
-public abstract class PojoInterface<E extends Entity> extends ConceptMapping<E> implements IJInterface {
+public abstract class PojoInterface<E/*  extends Entity */> extends ConceptMapping<E> implements IJInterface {
   public PojoInterface(final E pcmEntity) {
     super(pcmEntity);
   }
   
   public String packageName() {
-    String _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
-    return _implementationPackage;
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from E to System");
   }
   
   public String compilationUnitName() {
@@ -33,7 +32,7 @@ public abstract class PojoInterface<E extends Entity> extends ConceptMapping<E> 
   }
   
   public String filePath() {
-    String _fileName = JavaNames.getFileName(this.pcmEntity);
+    Object _fileName = JavaNames.getFileName(this.pcmEntity);
     return _fileName;
   }
   

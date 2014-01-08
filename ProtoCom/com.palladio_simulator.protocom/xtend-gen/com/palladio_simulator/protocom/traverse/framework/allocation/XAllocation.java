@@ -1,7 +1,6 @@
 package com.palladio_simulator.protocom.traverse.framework.allocation;
 
 import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative;
-import de.uka.ipd.sdq.pcm.allocation.Allocation;
 
 /**
  * Entry point for transformations of Allocation entities.
@@ -15,5 +14,5 @@ import de.uka.ipd.sdq.pcm.allocation.Allocation;
  * @author Thomas Zolynski
  */
 @SuppressWarnings("all")
-public class XAllocation extends PcmRepresentative<Allocation> {
+public class XAllocation /* extends /* PcmRepresentative<Allocation> */  */{
 }

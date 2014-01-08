@@ -2,19 +2,10 @@ package com.palladio_simulator.protocom.tech.rmi;
 
 import com.google.common.collect.Lists;
 import com.palladio_simulator.protocom.lang.java.IJMethod;
-import com.palladio_simulator.protocom.lang.java.impl.JMethod;
 import com.palladio_simulator.protocom.lang.java.util.JavaConstants;
-import com.palladio_simulator.protocom.lang.java.util.JavaNames;
-import com.palladio_simulator.protocom.lang.java.util.PcmCommons;
 import com.palladio_simulator.protocom.tech.rmi.PojoInterface;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
-import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.xbase.lib.Functions.Function1;
-import org.eclipse.xtext.xbase.lib.ListExtensions;
 
 /**
  * Defining the content of OperationInterface classes.
@@ -22,8 +13,8 @@ import org.eclipse.xtext.xbase.lib.ListExtensions;
  * @author Thomas Zolynski
  */
 @SuppressWarnings("all")
-public class PojoInfrastructureInterface extends PojoInterface<InfrastructureInterface> {
-  public PojoInfrastructureInterface(final InfrastructureInterface entity) {
+public class PojoInfrastructureInterface /* extends /* PojoInterface<InfrastructureInterface> */  */{
+  public PojoInfrastructureInterface(final /* InfrastructureInterface */Object entity) {
     super(entity);
   }
   
@@ -32,21 +23,9 @@ public class PojoInfrastructureInterface extends PojoInterface<InfrastructureInt
   }
   
   public Collection<? extends IJMethod> methods() {
-    EList<InfrastructureSignature> _infrastructureSignatures__InfrastructureInterface = this.pcmEntity.getInfrastructureSignatures__InfrastructureInterface();
-    final Function1<InfrastructureSignature,JMethod> _function = new Function1<InfrastructureSignature,JMethod>() {
-        public JMethod apply(final InfrastructureSignature it) {
-          JMethod _jMethod = new JMethod();
-          String _javaSignature = JavaNames.javaSignature(it);
-          JMethod _withName = _jMethod.withName(_javaSignature);
-          String _stackframeType = PcmCommons.stackframeType();
-          JMethod _withReturnType = _withName.withReturnType(_stackframeType);
-          String _stackContextParameterList = PcmCommons.stackContextParameterList();
-          JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-          JMethod _withThrows = _withParameters.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-          return _withThrows;
-        }
-      };
-    List<JMethod> _map = ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
-    return _map;
+    throw new Error("Unresolved compilation problems:"
+      + "\nType mismatch: cannot convert from Object to OperationSignature"
+      + "\ninfrastructureSignatures__InfrastructureInterface cannot be resolved"
+      + "\nmap cannot be resolved");
   }
 }

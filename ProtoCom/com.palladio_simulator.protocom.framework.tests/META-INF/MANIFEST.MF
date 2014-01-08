@@ -3,9 +3,9 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ProtoCom Framework Tests
 Bundle-SymbolicName: com.palladio_simulator.protocom.framework.tests
 Bundle-Version: 1.0.0.qualifier
+Fragment-Host: com.palladio_simulator.protocom.framework
 Bundle-Vendor: palladio-simulator.com
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Require-Bundle: org.junit;bundle-version="4.11.0",
  org.apache.log4j;bundle-version="1.2.15",
- com.palladio_simulator.protocom.framework;bundle-version="1.0.0",
  com.palladio_simulator.protocom.resourcestrategies;bundle-version="1.0.0"

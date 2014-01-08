@@ -130,7 +130,7 @@ public class JClass extends JCompilationUnit<IJClass> implements IJClass {
     _builder.newLine();
     _builder.append("\t");
     String _body = method.body();
-    _builder.append(_body, "	");
+    _builder.append(_body, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -172,7 +172,7 @@ public class JClass extends JCompilationUnit<IJClass> implements IJClass {
         _builder.newLine();
         _builder.append("\t");
         String _body_1 = method.body();
-        _builder.append(_body_1, "	");
+        _builder.append(_body_1, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append("}");
         _builder.newLine();

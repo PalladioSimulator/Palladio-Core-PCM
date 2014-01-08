@@ -1,7 +1,6 @@
 package com.palladio_simulator.protocom.traverse.framework.repository;
 
 import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative;
-import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 
 /**
  * Leaf for Operation Interfaces.
@@ -12,5 +11,5 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface;
  * @author Thomas Zolynski
  */
 @SuppressWarnings("all")
-public class XOperationInterface extends PcmRepresentative<OperationInterface> {
+public class XOperationInterface /* extends /* PcmRepresentative<OperationInterface> */  */{
 }
