@@ -1,6 +1,7 @@
 package com.palladio_simulator.protocom.traverse.framework.repository;
 
 import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative;
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
 
 /**
  * Leaf for Composite Components.
@@ -11,5 +12,5 @@ import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative;
  * @author Thomas Zolynski
  */
 @SuppressWarnings("all")
-public class XCompositeComponent /* extends /* PcmRepresentative<CompositeComponent> */  */{
+public class XCompositeComponent extends PcmRepresentative<CompositeComponent> {
 }

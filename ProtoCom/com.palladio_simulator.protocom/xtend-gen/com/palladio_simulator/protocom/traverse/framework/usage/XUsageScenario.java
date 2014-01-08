@@ -1,6 +1,7 @@
 package com.palladio_simulator.protocom.traverse.framework.usage;
 
 import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 
 /**
  * Entry point for transformations of Usage Scenario entities.
@@ -11,5 +12,5 @@ import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative;
  * @author Thomas Zolynski
  */
 @SuppressWarnings("all")
-public class XUsageScenario /* extends /* PcmRepresentative<UsageScenario> */  */{
+public class XUsageScenario extends PcmRepresentative<UsageScenario> {
 }

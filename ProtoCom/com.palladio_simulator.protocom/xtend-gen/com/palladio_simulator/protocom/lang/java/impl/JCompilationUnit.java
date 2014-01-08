@@ -79,7 +79,7 @@ public abstract class JCompilationUnit<E extends IJCompilationUnit> extends Gene
     _builder.newLine();
     _builder.append("\t");
     String _body = this.body();
-    _builder.append(_body, "\t");
+    _builder.append(_body, "	");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();

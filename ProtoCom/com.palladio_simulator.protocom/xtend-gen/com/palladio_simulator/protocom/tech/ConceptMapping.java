@@ -1,5 +1,7 @@
 package com.palladio_simulator.protocom.tech;
 
+import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+
 /**
  * Subclasses of ConceptMapping are mapping language classes to entity representing ones.
  * The represented entity is the generic type of this class.
@@ -9,7 +11,7 @@ package com.palladio_simulator.protocom.tech;
  * @author Thomas Zolynski
  */
 @SuppressWarnings("all")
-public abstract class ConceptMapping<E/*  extends NamedElement */> {
+public abstract class ConceptMapping<E extends NamedElement> {
   /**
    * Instance of a PCM entity.
    */

@@ -5,13 +5,14 @@ import com.palladio_simulator.protocom.lang.java.IJMethod;
 import com.palladio_simulator.protocom.lang.java.impl.JMethod;
 import com.palladio_simulator.protocom.lang.java.util.JavaNames;
 import com.palladio_simulator.protocom.tech.rmi.PojoClass;
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import java.util.Collection;
 import java.util.Collections;
 import org.eclipse.xtend2.lib.StringConcatenation;
 
 @SuppressWarnings("all")
-public class PojoUsageClosedScenarioThread /* extends /* PojoClass<UsageScenario> */  */{
-  public PojoUsageClosedScenarioThread(final /* UsageScenario */Object pcmEntity) {
+public class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
+  public PojoUsageClosedScenarioThread(final UsageScenario pcmEntity) {
     super(pcmEntity);
   }
   
@@ -22,8 +23,17 @@ public class PojoUsageClosedScenarioThread /* extends /* PojoClass<UsageScenario
   }
   
   public Collection<? extends IJMethod> constructors() {
-    throw new Error("Unresolved compilation problems:"
-      + "\nentityName cannot be resolved");
+    JMethod _jMethod = new JMethod();
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("de.uka.ipd.sdq.sensorframework.entities.Experiment exp, de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun, com.palladio_simulator.protocom.framework.utils.RunProperties runProps");
+    JMethod _withParameters = _jMethod.withParameters(_builder.toString());
+    StringConcatenation _builder_1 = new StringConcatenation();
+    _builder_1.append("super(exp, expRun, \"Response Time of ");
+    String _entityName = this.pcmEntity.getEntityName();
+    _builder_1.append(_entityName, "");
+    _builder_1.append("\", runProps);");
+    JMethod _withImplementation = _withParameters.withImplementation(_builder_1.toString());
+    return Collections.<JMethod>unmodifiableList(Lists.<JMethod>newArrayList(_withImplementation));
   }
   
   public String compilationUnitName() {
@@ -53,7 +63,7 @@ public class PojoUsageClosedScenarioThread /* extends /* PojoClass<UsageScenario
     _builder.append("}");
     _builder.newLine();
     _builder.append("return new ");
-    Object _fqn = JavaNames.fqn(this.pcmEntity);
+    String _fqn = JavaNames.fqn(this.pcmEntity);
     _builder.append(_fqn, "");
     _builder.append("();");
     _builder.newLineIfNotEmpty();
@@ -62,7 +72,7 @@ public class PojoUsageClosedScenarioThread /* extends /* PojoClass<UsageScenario
   }
   
   public String filePath() {
-    Object _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
+    String _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_implementationPackage);
     String _plus = (_fqnToDirectoryPath + "/");
     String _javaName = JavaNames.javaName(this.pcmEntity);

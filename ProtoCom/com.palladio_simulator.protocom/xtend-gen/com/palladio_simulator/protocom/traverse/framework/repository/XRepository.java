@@ -6,7 +6,19 @@ import com.palladio_simulator.protocom.traverse.framework.repository.XCompositeC
 import com.palladio_simulator.protocom.traverse.framework.repository.XEventGroup;
 import com.palladio_simulator.protocom.traverse.framework.repository.XInfrastructureInterface;
 import com.palladio_simulator.protocom.traverse.framework.repository.XOperationInterface;
+import de.uka.ipd.sdq.pcm.core.entity.Entity;
+import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.CompositeComponent;
+import de.uka.ipd.sdq.pcm.repository.EventGroup;
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
+import de.uka.ipd.sdq.pcm.repository.Interface;
+import de.uka.ipd.sdq.pcm.repository.OperationInterface;
+import de.uka.ipd.sdq.pcm.repository.Repository;
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import java.util.Arrays;
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 
 /**
  * Traversing Repository. Child elements are:
@@ -19,19 +31,28 @@ import java.util.Arrays;
  * </ul>
  */
 @SuppressWarnings("all")
-public class XRepository /* extends /* PcmRepresentative<Repository> */  */{
+public class XRepository extends PcmRepresentative<Repository> {
   public void traverse() {
-    throw new Error("Unresolved compilation problems:"
-      + "\ninterfaces__Repository cannot be resolved"
-      + "\nforEach cannot be resolved"
-      + "\ncomponents__Repository cannot be resolved"
-      + "\nforEach cannot be resolved");
+    EList<Interface> _interfaces__Repository = this.entity.getInterfaces__Repository();
+    final Procedure1<Interface> _function = new Procedure1<Interface>() {
+        public void apply(final Interface it) {
+          XRepository.this.createInterface(it);
+        }
+      };
+    IterableExtensions.<Interface>forEach(_interfaces__Repository, _function);
+    EList<RepositoryComponent> _components__Repository = this.entity.getComponents__Repository();
+    final Procedure1<RepositoryComponent> _function_1 = new Procedure1<RepositoryComponent>() {
+        public void apply(final RepositoryComponent it) {
+          XRepository.this.createComponent(it);
+        }
+      };
+    IterableExtensions.<RepositoryComponent>forEach(_components__Repository, _function_1);
   }
   
   /**
    * Traverse through Composite Components.
    */
-  protected void _createComponent(final /* CompositeComponent */Object componentEntity) {
+  protected void _createComponent(final CompositeComponent componentEntity) {
     XCompositeComponent _instance = this.injector.<XCompositeComponent>getInstance(XCompositeComponent.class);
     PcmRepresentative<CompositeComponent> _setEntity = _instance.setEntity(componentEntity);
     _setEntity.transform();
@@ -40,7 +61,7 @@ public class XRepository /* extends /* PcmRepresentative<Repository> */  */{
   /**
    * Traverse through Basic Components.
    */
-  protected void _createComponent(final /* BasicComponent */Object componentEntity) {
+  protected void _createComponent(final BasicComponent componentEntity) {
     XBasicComponent _instance = this.injector.<XBasicComponent>getInstance(XBasicComponent.class);
     PcmRepresentative<BasicComponent> _setEntity = _instance.setEntity(componentEntity);
     _setEntity.transform();
@@ -49,7 +70,7 @@ public class XRepository /* extends /* PcmRepresentative<Repository> */  */{
   /**
    * Fallback for component traversing.
    */
-  protected void _createComponent(final /* Entity */Object componentEntity) {
+  protected void _createComponent(final Entity componentEntity) {
     UnsupportedOperationException _unsupportedOperationException = new UnsupportedOperationException("Unsupported component type.");
     throw _unsupportedOperationException;
   }
@@ -57,7 +78,7 @@ public class XRepository /* extends /* PcmRepresentative<Repository> */  */{
   /**
    * Traverse through Infrastructure Interfaces.
    */
-  protected void _createInterface(final /* InfrastructureInterface */Object interfaceEntity) {
+  protected void _createInterface(final InfrastructureInterface interfaceEntity) {
     XInfrastructureInterface _instance = this.injector.<XInfrastructureInterface>getInstance(XInfrastructureInterface.class);
     PcmRepresentative<InfrastructureInterface> _setEntity = _instance.setEntity(interfaceEntity);
     _setEntity.transform();
@@ -66,7 +87,7 @@ public class XRepository /* extends /* PcmRepresentative<Repository> */  */{
   /**
    * Traverse through Operation Interfaces.
    */
-  protected void _createInterface(final /* OperationInterface */Object interfaceEntity) {
+  protected void _createInterface(final OperationInterface interfaceEntity) {
     XOperationInterface _instance = this.injector.<XOperationInterface>getInstance(XOperationInterface.class);
     PcmRepresentative<OperationInterface> _setEntity = _instance.setEntity(interfaceEntity);
     _setEntity.transform();
@@ -75,14 +96,20 @@ public class XRepository /* extends /* PcmRepresentative<Repository> */  */{
   /**
    * Traverse through Event Groups.
    */
-  protected void _createInterface(final /* EventGroup */Object interfaceEntity) {
+  protected void _createInterface(final EventGroup interfaceEntity) {
     XEventGroup _instance = this.injector.<XEventGroup>getInstance(XEventGroup.class);
     PcmRepresentative<EventGroup> _setEntity = _instance.setEntity(interfaceEntity);
     _setEntity.transform();
   }
   
-  public void createComponent(final CompositeComponent componentEntity) {
-    if (componentEntity != null) {
+  public void createComponent(final Entity componentEntity) {
+    if (componentEntity instanceof BasicComponent) {
+      _createComponent((BasicComponent)componentEntity);
+      return;
+    } else if (componentEntity instanceof CompositeComponent) {
+      _createComponent((CompositeComponent)componentEntity);
+      return;
+    } else if (componentEntity != null) {
       _createComponent(componentEntity);
       return;
     } else {
@@ -91,9 +118,15 @@ public class XRepository /* extends /* PcmRepresentative<Repository> */  */{
     }
   }
   
-  public void createInterface(final InfrastructureInterface interfaceEntity) {
-    if (interfaceEntity != null) {
-      _createInterface(interfaceEntity);
+  public void createInterface(final Interface interfaceEntity) {
+    if (interfaceEntity instanceof EventGroup) {
+      _createInterface((EventGroup)interfaceEntity);
+      return;
+    } else if (interfaceEntity instanceof InfrastructureInterface) {
+      _createInterface((InfrastructureInterface)interfaceEntity);
+      return;
+    } else if (interfaceEntity instanceof OperationInterface) {
+      _createInterface((OperationInterface)interfaceEntity);
       return;
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
