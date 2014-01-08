@@ -247,6 +247,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probespec.framework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pipesandfilters" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pipesandfilters.framework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.jscience" version="4.1.3" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework" version="1.0.0" match="greaterOrEqual"/>
