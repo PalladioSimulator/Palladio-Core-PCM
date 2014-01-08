@@ -445,7 +445,9 @@ public class ExpressionSolveVisitor extends StoexSwitch<Object> {
 		ProbabilityFunctionLiteral literal = StoexFactory.eINSTANCE.createProbabilityFunctionLiteral();
 		literal.setFunction_ProbabilityFunctionLiteral(pmf);
 		
-		logger.debug("Trunc result: "+new StoExPrettyPrintVisitor().prettyPrint(literal));
+		if (logger.isDebugEnabled()) {
+		    logger.debug("Trunc result: "+new StoExPrettyPrintVisitor().doSwitch(literal));
+		}
 		
 		return literal;
 	}
