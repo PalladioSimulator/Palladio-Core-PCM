@@ -20,7 +20,7 @@
       <discovery label="Eclipse M2T Xpand" url="http://download.eclipse.org/modeling/m2t/xpand/updates/releases"/>
       <discovery label="Eclipse Orbit" url="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
       <discovery label="Eclipse EMF" url="http://download.eclipse.org/modeling/emf/emf/updates/releases/"/>
-      <discovery label="Juno" url="http://download.eclipse.org/releases/juno"/>
+      <discovery label="Kepler" url="http://download.eclipse.org/releases/kepler"/>
    </url>
 
    <includes
