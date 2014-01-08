@@ -39,7 +39,7 @@ public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJ
 		out.println("				."); //$NON-NLS-1$
 	}
 
-	private final static String[] BUNDLES = new String[] {
+	private static final String[] BUNDLES = new String[] {
 		 "de.uka.ipd.sdq.simucomframework",
 		 "de.uka.ipd.sdq.simucomframework.simucomstatus",
 		 "de.uka.ipd.sdq.sensorframework",
