@@ -73,10 +73,9 @@ public class ExpressionToPDFWrapper {
 			Double value = getDoubleValueForNumericLiteral((NumericLiteral)rdExpression);
 			return new ExpressionToPDFWrapper(value);
 		} else {
-			StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
 			String solvedExprString = null;
 			if (rdExpression != null){
-				solvedExprString = (String)printer.doSwitch(rdExpression);
+				solvedExprString = new StoExPrettyPrintVisitor().doSwitch(rdExpression).toString();
 			}
 			throw new IllegalArgumentException("Handling expression "+solvedExprString+" in the ResourceDemandWrapper failed, could not cast it to "+ProbabilityFunctionLiteral.class+" or "+ FunctionLiteral.class);
 		}

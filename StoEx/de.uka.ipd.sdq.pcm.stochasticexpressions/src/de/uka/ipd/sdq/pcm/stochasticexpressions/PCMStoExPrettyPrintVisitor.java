@@ -9,43 +9,52 @@ import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.stoex.analyser.visitors.StoExPrettyPrintVisitor;
 
-public class PCMStoExPrettyPrintVisitor extends StoExPrettyPrintVisitor {
+public class PCMStoExPrettyPrintVisitor {
+    
+    private class PCMStoExPrettyPrintVisitorInner extends StoExPrettyPrintVisitor {
 
-	protected String doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass == ParameterPackage.eINSTANCE.getCharacterisedVariable()) {
-			return caseCharacterisedVariable((CharacterisedVariable) theEObject);
-		} else if (theEClass == ParameterPackage.eINSTANCE.getVariableUsage()){
-			return caseVariableUsage((VariableUsage) theEObject);
-		} else if (theEClass == ParameterPackage.eINSTANCE.getVariableCharacterisation()){
-			return caseVariableCharacterisation((VariableCharacterisation) theEObject);
-		} else {
-			return super.doSwitch(theEClass, theEObject);
-		}
-	}
-	
-	public String caseCharacterisedVariable(CharacterisedVariable object) {
-		String result = (String)doSwitch(object.getId_Variable());
-		result += "." + object.getCharacterisationType().getLiteral();
-		return result;
-	}
-	
-	public String caseVariableUsage(VariableUsage object) {
-		String result = "";
-		if (object.getNamedReference__VariableUsage() != null)
-			result += doSwitch(object.getNamedReference__VariableUsage());
-		else
-			result += "<not set yet>";
-		if (object.getVariableCharacterisation_VariableUsage().size() > 0)
-			result += "." + doSwitch((VariableCharacterisation)object.getVariableCharacterisation_VariableUsage().get(0));
-		else
-			result += ".<missing characterisation> = <missing expression>";
-		return result;
-	}
-	
-	public String caseVariableCharacterisation(VariableCharacterisation object) {
-		String result = "";
-		result += object.getType().getLiteral();
-		//result += " = " + object.getSpecification_VariableCharacterisation().getSpecification();
-		return result;
-	}
+        protected StringBuilder doSwitch(EClass theEClass, EObject theEObject) {
+            if (theEClass == ParameterPackage.eINSTANCE.getCharacterisedVariable()) {
+                return caseCharacterisedVariable((CharacterisedVariable) theEObject);
+            } else if (theEClass == ParameterPackage.eINSTANCE.getVariableUsage()) {
+                return caseVariableUsage((VariableUsage) theEObject);
+            } else if (theEClass == ParameterPackage.eINSTANCE.getVariableCharacterisation()) {
+                return caseVariableCharacterisation((VariableCharacterisation) theEObject);
+            } else {
+                return super.doSwitch(theEClass, theEObject);
+            }
+        }
+
+        public StringBuilder caseCharacterisedVariable(CharacterisedVariable object) {
+            StringBuilder result = doSwitch(object.getId_Variable());
+            result.append("." + object.getCharacterisationType().getLiteral());
+            return result;
+        }
+
+        public StringBuilder caseVariableUsage(VariableUsage object) {
+            if (object.getNamedReference__VariableUsage() != null)
+                doSwitch(object.getNamedReference__VariableUsage());
+            else
+                resultBuilder.append("<not set yet>");
+            
+            if (object.getVariableCharacterisation_VariableUsage().size() > 0) {
+                resultBuilder.append(".");
+                doSwitch((VariableCharacterisation) object.getVariableCharacterisation_VariableUsage().get(0));
+            } else {
+                resultBuilder.append(".<missing characterisation> = <missing expression>");
+            }
+            return resultBuilder;
+        }
+
+        public StringBuilder caseVariableCharacterisation(VariableCharacterisation object) {
+            resultBuilder.append(object.getType().getLiteral());
+            // result += " = " +
+            // object.getSpecification_VariableCharacterisation().getSpecification();
+            return resultBuilder;
+        }
+    }
+    
+    public String prettyPrint(EObject theObject) {
+        return new PCMStoExPrettyPrintVisitorInner().doSwitch(theObject).toString();
+    }
 }

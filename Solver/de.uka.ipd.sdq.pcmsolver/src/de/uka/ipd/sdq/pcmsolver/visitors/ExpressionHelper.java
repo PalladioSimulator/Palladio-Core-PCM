@@ -38,8 +38,7 @@ public class ExpressionHelper {
 	public static String getSolvedExpressionAsString(String specification, ContextWrapper ctxWrp){
 		Expression solvedExpression = getSolvedExpression(specification, ctxWrp);
 		
-		StoExPrettyPrintVisitor printer = new StoExPrettyPrintVisitor();
-		String solvedExprString = (String)printer.doSwitch(solvedExpression);
+		String solvedExprString = new StoExPrettyPrintVisitor().doSwitch(solvedExpression).toString();
 		
 		if (solvedExpression == null){
 			throw new RuntimeException("Could not print solved expression "+specification);

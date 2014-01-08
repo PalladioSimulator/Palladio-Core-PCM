@@ -100,7 +100,7 @@ public class PCMStoExEvaluationVisitor extends PCMStoExSwitch {
 	
 	@Override
 	public Object caseCharacterisedVariable(CharacterisedVariable object) {
-		String variableID = new PCMStoExPrettyPrintVisitor().caseCharacterisedVariable(object);
+		String variableID = new PCMStoExPrettyPrintVisitor().prettyPrint(object);
 		try {
 			Object value = this.myStackFrame.getValue(variableID); 
 			if (value instanceof EvaluationProxy) {
