@@ -151,7 +151,7 @@ This Agreement is governed by the laws of the State of New York and the intellec
       <import plugin="org.eclipse.gmf.runtime.diagram.ui" version="1.2.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.editors" version="3.7.0" match="greaterOrEqual"/>
       <import feature="de.uka.ipd.sdq.sensorframework.visualisation.feature" version="3.3.1.201209131537"/>
-      <import feature="de.uka.ipd.sdq.identifier.feature" version="1.1.0.qualifier" match="greaterOrEqual"/>
+      <import feature="de.uka.ipd.sdq.identifier.feature" version="1.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin
