@@ -153,8 +153,6 @@ public class PrototypePlatformTests {
 		// TODO: Noch mehr Tests.
 	}
 	
-	@Test
-
 	private void consumeRandomHDDDemand(ReadLargeChunksDemand hddStrategy,
 			BufferedWriter bw, int iterations) throws IOException {
 		double[] demand = new double[iterations];
