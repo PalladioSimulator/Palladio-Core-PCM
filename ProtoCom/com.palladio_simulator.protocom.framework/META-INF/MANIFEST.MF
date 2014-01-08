@@ -9,7 +9,6 @@ Export-Package: .,
  com.palladio_simulator.protocom.framework.port,
  com.palladio_simulator.protocom.framework.registry,
  com.palladio_simulator.protocom.framework.strategies,
- com.palladio_simulator.protocom.framework.tests,
  com.palladio_simulator.protocom.framework.usage,
  com.palladio_simulator.protocom.framework.utils,
  com.palladio_simulator.protocom.framework.visitor
