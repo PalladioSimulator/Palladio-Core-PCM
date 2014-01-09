@@ -12,7 +12,7 @@
       <discovery label="Palladio Commons" url="http://sdqweb.ipd.kit.edu/eclipse/commons/releases/1.4"/>
       <discovery label="Palladio Workflow Engine" url="http://sdqweb.ipd.kit.edu/eclipse/workflowengine/releases/2.0.2"/>
       <discovery label="Palladio Feature Model" url="http://sdqweb.ipd.kit.edu/eclipse/featuremodel/releases/1.3"/>
-      <discovery label="Palladio Sensor Framework" url="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/releases/3.5"/>
+      <discovery label="Palladio Sensor Framework" url="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/releases/3.5.0"/>
       <discovery label="Palladio Probe Specification" url="http://sdqweb.ipd.kit.edu/eclipse/probespec/releases/1.2"/>
       <discovery label="Medini QVT" url="http://www.ikv.de/qvt/update-site-indigo"/>
       <discovery label="Guava" url="http://guava-osgi.googlecode.com/svn/trunk/repository"/>
