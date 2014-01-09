@@ -178,7 +178,7 @@ public class PojoCompositeComponentClass extends PojoComposedStructureClass<Comp
           _builder.append("\t");
           _builder.append("init");
           String _javaName = JavaNames.javaName(assemblyContext);
-          _builder.append(_javaName, "\t");
+          _builder.append(_javaName, "	");
           _builder.append("();");
           _builder.newLineIfNotEmpty();
         }

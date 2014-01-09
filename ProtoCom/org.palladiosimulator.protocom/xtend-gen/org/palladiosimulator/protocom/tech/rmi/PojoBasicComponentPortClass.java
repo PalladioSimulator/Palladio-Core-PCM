@@ -87,7 +87,7 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
     _builder.append("\t");
     _builder.append("org.palladiosimulator.protocom.framework.registry.RmiRegistry.getRegistryPort(), this, \"");
     String _portClassName = JavaNames.portClassName(this.pcmEntity);
-    _builder.append(_portClassName, "\t");
+    _builder.append(_portClassName, "	");
     _builder.append("_\" + assemblyContext);");
     _builder.newLineIfNotEmpty();
     JMethod _withImplementation = _withThrows.withImplementation(_builder.toString());
