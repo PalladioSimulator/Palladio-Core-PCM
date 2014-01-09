@@ -57,23 +57,23 @@ public class PojoComposedStructureInterface extends ConceptMapping<InterfaceProv
       Iterables.<JMethod>addAll(results, Collections.<JMethod>unmodifiableList(Lists.<JMethod>newArrayList(_withParameters)));
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
       final Function1<ProvidedRole,JMethod> _function_1 = new Function1<ProvidedRole,JMethod>() {
-          public JMethod apply(final ProvidedRole it) {
-            JMethod _jMethod = new JMethod();
-            String _portGetter = JavaNames.portGetter(it);
-            JMethod _withName = _jMethod.withName(_portGetter);
-            OperationInterface _providedInterface__OperationProvidedRole = ((OperationProvidedRole) it).getProvidedInterface__OperationProvidedRole();
-            String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-            JMethod _withReturnType = _withName.withReturnType(_fqn);
-            return _withReturnType;
-          }
-        };
+        public JMethod apply(final ProvidedRole it) {
+          JMethod _jMethod = new JMethod();
+          String _portGetter = JavaNames.portGetter(it);
+          JMethod _withName = _jMethod.withName(_portGetter);
+          OperationInterface _providedInterface__OperationProvidedRole = ((OperationProvidedRole) it).getProvidedInterface__OperationProvidedRole();
+          String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
+          JMethod _withReturnType = _withName.withReturnType(_fqn);
+          return _withReturnType;
+        }
+      };
       Iterable<JMethod> _map = IterableExtensions.<ProvidedRole, JMethod>map(_filter, _function_1);
       Iterables.<JMethod>addAll(results, _map);
       _xblockexpression = (results);

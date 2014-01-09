@@ -34,18 +34,18 @@ public class PojoOperationInterface extends PojoInterface<OperationInterface> {
   public Collection<? extends IJMethod> methods() {
     EList<OperationSignature> _signatures__OperationInterface = this.pcmEntity.getSignatures__OperationInterface();
     final Function1<OperationSignature,JMethod> _function = new Function1<OperationSignature,JMethod>() {
-        public JMethod apply(final OperationSignature it) {
-          JMethod _jMethod = new JMethod();
-          String _javaSignature = JavaNames.javaSignature(it);
-          JMethod _withName = _jMethod.withName(_javaSignature);
-          String _stackframeType = PcmCommons.stackframeType();
-          JMethod _withReturnType = _withName.withReturnType(_stackframeType);
-          String _stackContextParameterList = PcmCommons.stackContextParameterList();
-          JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-          JMethod _withThrows = _withParameters.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-          return _withThrows;
-        }
-      };
+      public JMethod apply(final OperationSignature it) {
+        JMethod _jMethod = new JMethod();
+        String _javaSignature = JavaNames.javaSignature(it);
+        JMethod _withName = _jMethod.withName(_javaSignature);
+        String _stackframeType = PcmCommons.stackframeType();
+        JMethod _withReturnType = _withName.withReturnType(_stackframeType);
+        String _stackContextParameterList = PcmCommons.stackContextParameterList();
+        JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
+        JMethod _withThrows = _withParameters.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
+        return _withThrows;
+      }
+    };
     List<JMethod> _map = ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
     return _map;
   }

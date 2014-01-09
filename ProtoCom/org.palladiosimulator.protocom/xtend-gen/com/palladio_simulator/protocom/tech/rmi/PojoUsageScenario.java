@@ -46,17 +46,17 @@ public class PojoUsageScenario extends PojoClass<UsageScenario> {
       ScenarioBehaviour _scenarioBehaviour_UsageScenario = this.pcmEntity.getScenarioBehaviour_UsageScenario();
       Iterable<EntryLevelSystemCall> _querySystemCalls = PcmCalls.querySystemCalls(_scenarioBehaviour_UsageScenario);
       final Function1<EntryLevelSystemCall,OperationProvidedRole> _function = new Function1<EntryLevelSystemCall,OperationProvidedRole>() {
-          public OperationProvidedRole apply(final EntryLevelSystemCall it) {
-            OperationProvidedRole _providedRole_EntryLevelSystemCall = it.getProvidedRole_EntryLevelSystemCall();
-            return _providedRole_EntryLevelSystemCall;
-          }
-        };
+        public OperationProvidedRole apply(final EntryLevelSystemCall it) {
+          OperationProvidedRole _providedRole_EntryLevelSystemCall = it.getProvidedRole_EntryLevelSystemCall();
+          return _providedRole_EntryLevelSystemCall;
+        }
+      };
       Iterable<OperationProvidedRole> _map = IterableExtensions.<EntryLevelSystemCall, OperationProvidedRole>map(_querySystemCalls, _function);
       Set<OperationProvidedRole> _set = IterableExtensions.<OperationProvidedRole>toSet(_map);
       for(final OperationProvidedRole providedRole : _set) {
         _builder.append("\t");
         String _contextInit = this.contextInit(providedRole);
-        _builder.append(_contextInit, "	");
+        _builder.append(_contextInit, "\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -109,11 +109,11 @@ public class PojoUsageScenario extends PojoClass<UsageScenario> {
     ScenarioBehaviour _scenarioBehaviour_UsageScenario = this.pcmEntity.getScenarioBehaviour_UsageScenario();
     EList<AbstractUserAction> _actions_ScenarioBehaviour = _scenarioBehaviour_UsageScenario.getActions_ScenarioBehaviour();
     final Function1<AbstractUserAction,Boolean> _function = new Function1<AbstractUserAction,Boolean>() {
-        public Boolean apply(final AbstractUserAction it) {
-          boolean _isInstance = Start.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
+      public Boolean apply(final AbstractUserAction it) {
+        boolean _isInstance = Start.class.isInstance(it);
+        return Boolean.valueOf(_isInstance);
+      }
+    };
     Iterable<AbstractUserAction> _filter = IterableExtensions.<AbstractUserAction>filter(_actions_ScenarioBehaviour, _function);
     AbstractUserAction _get = ((AbstractUserAction[])Conversions.unwrapArray(_filter, AbstractUserAction.class))[0];
     String _userActions = PcmActions.userActions(_get);
@@ -139,24 +139,24 @@ public class PojoUsageScenario extends PojoClass<UsageScenario> {
       ScenarioBehaviour _scenarioBehaviour_UsageScenario = this.pcmEntity.getScenarioBehaviour_UsageScenario();
       Iterable<EntryLevelSystemCall> _querySystemCalls = PcmCalls.querySystemCalls(_scenarioBehaviour_UsageScenario);
       final Function1<EntryLevelSystemCall,OperationProvidedRole> _function = new Function1<EntryLevelSystemCall,OperationProvidedRole>() {
-          public OperationProvidedRole apply(final EntryLevelSystemCall it) {
-            OperationProvidedRole _providedRole_EntryLevelSystemCall = it.getProvidedRole_EntryLevelSystemCall();
-            return _providedRole_EntryLevelSystemCall;
-          }
-        };
+        public OperationProvidedRole apply(final EntryLevelSystemCall it) {
+          OperationProvidedRole _providedRole_EntryLevelSystemCall = it.getProvidedRole_EntryLevelSystemCall();
+          return _providedRole_EntryLevelSystemCall;
+        }
+      };
       Iterable<OperationProvidedRole> _map = IterableExtensions.<EntryLevelSystemCall, OperationProvidedRole>map(_querySystemCalls, _function);
       Set<OperationProvidedRole> _set = IterableExtensions.<OperationProvidedRole>toSet(_map);
       final Function1<OperationProvidedRole,JField> _function_1 = new Function1<OperationProvidedRole,JField>() {
-          public JField apply(final OperationProvidedRole it) {
-            JField _jField = new JField();
-            String _portMemberVar = JavaNames.portMemberVar(((OperationProvidedRole) it));
-            JField _withName = _jField.withName(_portMemberVar);
-            OperationInterface _providedInterface__OperationProvidedRole = ((OperationProvidedRole) it).getProvidedInterface__OperationProvidedRole();
-            String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-            JField _withType = _withName.withType(_fqn);
-            return _withType;
-          }
-        };
+        public JField apply(final OperationProvidedRole it) {
+          JField _jField = new JField();
+          String _portMemberVar = JavaNames.portMemberVar(((OperationProvidedRole) it));
+          JField _withName = _jField.withName(_portMemberVar);
+          OperationInterface _providedInterface__OperationProvidedRole = ((OperationProvidedRole) it).getProvidedInterface__OperationProvidedRole();
+          String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
+          JField _withType = _withName.withType(_fqn);
+          return _withType;
+        }
+      };
       Iterable<JField> _map_1 = IterableExtensions.<OperationProvidedRole, JField>map(_set, _function_1);
       Iterables.<JField>addAll(results, _map_1);
       _xblockexpression = (results);

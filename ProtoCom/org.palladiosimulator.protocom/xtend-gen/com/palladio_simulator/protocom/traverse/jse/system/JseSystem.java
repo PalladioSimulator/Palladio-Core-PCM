@@ -49,13 +49,13 @@ public class JseSystem extends XSystem {
     this.generatedFiles.add(_createFor_3);
     EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.entity.getProvidedRoles_InterfaceProvidingEntity();
     final Procedure1<ProvidedRole> _function = new Procedure1<ProvidedRole>() {
-        public void apply(final ProvidedRole it) {
-          JClass _instance = JseSystem.this.injector.<JClass>getInstance(JClass.class);
-          PojoComposedStructurePortClass _pojoComposedStructurePortClass = new PojoComposedStructurePortClass(it);
-          GeneratedFile<IJClass> _createFor = _instance.createFor(_pojoComposedStructurePortClass);
-          JseSystem.this.generatedFiles.add(_createFor);
-        }
-      };
+      public void apply(final ProvidedRole it) {
+        JClass _instance = JseSystem.this.injector.<JClass>getInstance(JClass.class);
+        PojoComposedStructurePortClass _pojoComposedStructurePortClass = new PojoComposedStructurePortClass(it);
+        GeneratedFile<IJClass> _createFor = _instance.createFor(_pojoComposedStructurePortClass);
+        JseSystem.this.generatedFiles.add(_createFor);
+      }
+    };
     IterableExtensions.<ProvidedRole>forEach(_providedRoles_InterfaceProvidingEntity, _function);
   }
 }

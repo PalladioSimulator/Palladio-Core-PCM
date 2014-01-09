@@ -87,7 +87,7 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
     _builder.append("\t");
     _builder.append("com.palladio_simulator.protocom.framework.registry.RmiRegistry.getRegistryPort(), this, \"");
     String _portClassName = JavaNames.portClassName(this.pcmEntity);
-    _builder.append(_portClassName, "	");
+    _builder.append(_portClassName, "\t");
     _builder.append("_\" + assemblyContext);");
     _builder.newLineIfNotEmpty();
     JMethod _withImplementation = _withThrows.withImplementation(_builder.toString());
@@ -113,38 +113,38 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
     OperationInterface _providedInterface__OperationProvidedRole = role.getProvidedInterface__OperationProvidedRole();
     EList<OperationSignature> _signatures__OperationInterface = _providedInterface__OperationProvidedRole.getSignatures__OperationInterface();
     final Function1<OperationSignature,JMethod> _function = new Function1<OperationSignature,JMethod>() {
-        public JMethod apply(final OperationSignature it) {
-          JMethod _jMethod = new JMethod();
-          String _javaSignature = JavaNames.javaSignature(it);
-          JMethod _withName = _jMethod.withName(_javaSignature);
-          String _stackframeType = PcmCommons.stackframeType();
-          JMethod _withReturnType = _withName.withReturnType(_stackframeType);
-          String _stackContextParameterList = PcmCommons.stackContextParameterList();
-          JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-          StringConcatenation _builder = new StringConcatenation();
-          _builder.append("preCallVisitor(ctx, \"");
-          String _serviceName = JavaNames.serviceName(it);
-          _builder.append(_serviceName, "");
-          _builder.append("\");");
-          _builder.newLineIfNotEmpty();
-          _builder.append("de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> result = myComponent.");
-          String _serviceName_1 = JavaNames.serviceName(it);
-          _builder.append(_serviceName_1, "");
-          _builder.append("(ctx);");
-          _builder.newLineIfNotEmpty();
-          _builder.append("postCallVisitor(ctx, \"");
-          String _serviceName_2 = JavaNames.serviceName(it);
-          _builder.append(_serviceName_2, "");
-          _builder.append("\");");
-          _builder.newLineIfNotEmpty();
-          _builder.newLine();
-          _builder.append("return result;");
-          _builder.newLine();
-          JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
-          JMethod _withThrows = _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-          return _withThrows;
-        }
-      };
+      public JMethod apply(final OperationSignature it) {
+        JMethod _jMethod = new JMethod();
+        String _javaSignature = JavaNames.javaSignature(it);
+        JMethod _withName = _jMethod.withName(_javaSignature);
+        String _stackframeType = PcmCommons.stackframeType();
+        JMethod _withReturnType = _withName.withReturnType(_stackframeType);
+        String _stackContextParameterList = PcmCommons.stackContextParameterList();
+        JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
+        StringConcatenation _builder = new StringConcatenation();
+        _builder.append("preCallVisitor(ctx, \"");
+        String _serviceName = JavaNames.serviceName(it);
+        _builder.append(_serviceName, "");
+        _builder.append("\");");
+        _builder.newLineIfNotEmpty();
+        _builder.append("de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> result = myComponent.");
+        String _serviceName_1 = JavaNames.serviceName(it);
+        _builder.append(_serviceName_1, "");
+        _builder.append("(ctx);");
+        _builder.newLineIfNotEmpty();
+        _builder.append("postCallVisitor(ctx, \"");
+        String _serviceName_2 = JavaNames.serviceName(it);
+        _builder.append(_serviceName_2, "");
+        _builder.append("\");");
+        _builder.newLineIfNotEmpty();
+        _builder.newLine();
+        _builder.append("return result;");
+        _builder.newLine();
+        JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
+        JMethod _withThrows = _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
+        return _withThrows;
+      }
+    };
     List<JMethod> _map = ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
     return _map;
   }
@@ -153,19 +153,19 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
     InfrastructureInterface _providedInterface__InfrastructureProvidedRole = role.getProvidedInterface__InfrastructureProvidedRole();
     EList<InfrastructureSignature> _infrastructureSignatures__InfrastructureInterface = _providedInterface__InfrastructureProvidedRole.getInfrastructureSignatures__InfrastructureInterface();
     final Function1<InfrastructureSignature,JMethod> _function = new Function1<InfrastructureSignature,JMethod>() {
-        public JMethod apply(final InfrastructureSignature it) {
-          JMethod _jMethod = new JMethod();
-          String _javaSignature = JavaNames.javaSignature(it);
-          JMethod _withName = _jMethod.withName(_javaSignature);
-          String _stackframeType = PcmCommons.stackframeType();
-          JMethod _withReturnType = _withName.withReturnType(_stackframeType);
-          String _stackContextParameterList = PcmCommons.stackContextParameterList();
-          JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-          JMethod _withImplementation = _withParameters.withImplementation("return null;");
-          JMethod _withThrows = _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-          return _withThrows;
-        }
-      };
+      public JMethod apply(final InfrastructureSignature it) {
+        JMethod _jMethod = new JMethod();
+        String _javaSignature = JavaNames.javaSignature(it);
+        JMethod _withName = _jMethod.withName(_javaSignature);
+        String _stackframeType = PcmCommons.stackframeType();
+        JMethod _withReturnType = _withName.withReturnType(_stackframeType);
+        String _stackContextParameterList = PcmCommons.stackContextParameterList();
+        JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
+        JMethod _withImplementation = _withParameters.withImplementation("return null;");
+        JMethod _withThrows = _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
+        return _withThrows;
+      }
+    };
     List<JMethod> _map = ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
     return _map;
   }

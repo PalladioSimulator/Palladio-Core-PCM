@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: ProtoCom
 Bundle-SymbolicName: com.palladio_simulator.protocom;singleton:=true
 Bundle-Version: 1.0.0.qualifier
-Bundle-Activator: com.palladio_simulator.protocom.Activator
+Bundle-Activator: org.palladiosimulator.protocom.Activator
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
@@ -22,12 +22,12 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.xbase.lib
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
-Export-Package: com.palladio_simulator.protocom.traverse.framework,
- com.palladio_simulator.protocom.traverse.framework.allocation,
- com.palladio_simulator.protocom.traverse.framework.repository,
- com.palladio_simulator.protocom.traverse.framework.resourceenvironment,
- com.palladio_simulator.protocom.traverse.framework.system,
- com.palladio_simulator.protocom.traverse.framework.usage,
- com.palladio_simulator.protocom.traverse.jee,
- com.palladio_simulator.protocom.traverse.jse
+Export-Package: org.palladiosimulator.protocom.traverse.framework,
+ org.palladiosimulator.protocom.traverse.framework.allocation,
+ org.palladiosimulator.protocom.traverse.framework.repository,
+ org.palladiosimulator.protocom.traverse.framework.resourceenvironment,
+ org.palladiosimulator.protocom.traverse.framework.system,
+ org.palladiosimulator.protocom.traverse.framework.usage,
+ org.palladiosimulator.protocom.traverse.jee,
+ org.palladiosimulator.protocom.traverse.jse
 Bundle-Vendor: palladio-simulator.com

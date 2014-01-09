@@ -51,17 +51,17 @@ public class PcmCalls {
       final LinkedList<EntryLevelSystemCall> results = CollectionLiterals.<EntryLevelSystemCall>newLinkedList();
       EList<AbstractUserAction> _actions_ScenarioBehaviour = scenBe.getActions_ScenarioBehaviour();
       final Function1<AbstractUserAction,Boolean> _function = new Function1<AbstractUserAction,Boolean>() {
-          public Boolean apply(final AbstractUserAction it) {
-            boolean _isInstance = EntryLevelSystemCall.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final AbstractUserAction it) {
+          boolean _isInstance = EntryLevelSystemCall.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<AbstractUserAction> _filter = IterableExtensions.<AbstractUserAction>filter(_actions_ScenarioBehaviour, _function);
       final Function1<AbstractUserAction,EntryLevelSystemCall> _function_1 = new Function1<AbstractUserAction,EntryLevelSystemCall>() {
-          public EntryLevelSystemCall apply(final AbstractUserAction it) {
-            return ((EntryLevelSystemCall) it);
-          }
-        };
+        public EntryLevelSystemCall apply(final AbstractUserAction it) {
+          return ((EntryLevelSystemCall) it);
+        }
+      };
       Iterable<EntryLevelSystemCall> _map = IterableExtensions.<AbstractUserAction, EntryLevelSystemCall>map(_filter, _function_1);
       Iterables.<EntryLevelSystemCall>addAll(results, _map);
       Iterable<EntryLevelSystemCall> _querySystemCallsInLoops = PcmCalls.querySystemCallsInLoops(scenBe);
@@ -77,25 +77,25 @@ public class PcmCalls {
   public static Iterable<EntryLevelSystemCall> querySystemCallsInLoops(final ScenarioBehaviour sb) {
     EList<AbstractUserAction> _actions_ScenarioBehaviour = sb.getActions_ScenarioBehaviour();
     final Function1<AbstractUserAction,Boolean> _function = new Function1<AbstractUserAction,Boolean>() {
-        public Boolean apply(final AbstractUserAction it) {
-          boolean _isInstance = Loop.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
+      public Boolean apply(final AbstractUserAction it) {
+        boolean _isInstance = Loop.class.isInstance(it);
+        return Boolean.valueOf(_isInstance);
+      }
+    };
     Iterable<AbstractUserAction> _filter = IterableExtensions.<AbstractUserAction>filter(_actions_ScenarioBehaviour, _function);
     final Function1<AbstractUserAction,Loop> _function_1 = new Function1<AbstractUserAction,Loop>() {
-        public Loop apply(final AbstractUserAction it) {
-          return ((Loop) it);
-        }
-      };
+      public Loop apply(final AbstractUserAction it) {
+        return ((Loop) it);
+      }
+    };
     Iterable<Loop> _map = IterableExtensions.<AbstractUserAction, Loop>map(_filter, _function_1);
     final Function1<Loop,Iterable<EntryLevelSystemCall>> _function_2 = new Function1<Loop,Iterable<EntryLevelSystemCall>>() {
-        public Iterable<EntryLevelSystemCall> apply(final Loop it) {
-          ScenarioBehaviour _bodyBehaviour_Loop = it.getBodyBehaviour_Loop();
-          Iterable<EntryLevelSystemCall> _querySystemCalls = PcmCalls.querySystemCalls(_bodyBehaviour_Loop);
-          return _querySystemCalls;
-        }
-      };
+      public Iterable<EntryLevelSystemCall> apply(final Loop it) {
+        ScenarioBehaviour _bodyBehaviour_Loop = it.getBodyBehaviour_Loop();
+        Iterable<EntryLevelSystemCall> _querySystemCalls = PcmCalls.querySystemCalls(_bodyBehaviour_Loop);
+        return _querySystemCalls;
+      }
+    };
     Iterable<Iterable<EntryLevelSystemCall>> _map_1 = IterableExtensions.<Loop, Iterable<EntryLevelSystemCall>>map(_map, _function_2);
     Iterable<EntryLevelSystemCall> _flatten = Iterables.<EntryLevelSystemCall>concat(_map_1);
     return _flatten;
@@ -104,33 +104,33 @@ public class PcmCalls {
   public static Iterable<EntryLevelSystemCall> querySystemCallsInBraches(final ScenarioBehaviour scenBe) {
     EList<AbstractUserAction> _actions_ScenarioBehaviour = scenBe.getActions_ScenarioBehaviour();
     final Function1<AbstractUserAction,Boolean> _function = new Function1<AbstractUserAction,Boolean>() {
-        public Boolean apply(final AbstractUserAction it) {
-          boolean _isInstance = Branch.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
+      public Boolean apply(final AbstractUserAction it) {
+        boolean _isInstance = Branch.class.isInstance(it);
+        return Boolean.valueOf(_isInstance);
+      }
+    };
     Iterable<AbstractUserAction> _filter = IterableExtensions.<AbstractUserAction>filter(_actions_ScenarioBehaviour, _function);
     final Function1<AbstractUserAction,Branch> _function_1 = new Function1<AbstractUserAction,Branch>() {
-        public Branch apply(final AbstractUserAction it) {
-          return ((Branch) it);
-        }
-      };
+      public Branch apply(final AbstractUserAction it) {
+        return ((Branch) it);
+      }
+    };
     Iterable<Branch> _map = IterableExtensions.<AbstractUserAction, Branch>map(_filter, _function_1);
     final Function1<Branch,EList<BranchTransition>> _function_2 = new Function1<Branch,EList<BranchTransition>>() {
-        public EList<BranchTransition> apply(final Branch it) {
-          EList<BranchTransition> _branchTransitions_Branch = it.getBranchTransitions_Branch();
-          return _branchTransitions_Branch;
-        }
-      };
+      public EList<BranchTransition> apply(final Branch it) {
+        EList<BranchTransition> _branchTransitions_Branch = it.getBranchTransitions_Branch();
+        return _branchTransitions_Branch;
+      }
+    };
     Iterable<EList<BranchTransition>> _map_1 = IterableExtensions.<Branch, EList<BranchTransition>>map(_map, _function_2);
     Iterable<BranchTransition> _flatten = Iterables.<BranchTransition>concat(_map_1);
     final Function1<BranchTransition,Iterable<EntryLevelSystemCall>> _function_3 = new Function1<BranchTransition,Iterable<EntryLevelSystemCall>>() {
-        public Iterable<EntryLevelSystemCall> apply(final BranchTransition it) {
-          ScenarioBehaviour _branchedBehaviour_BranchTransition = it.getBranchedBehaviour_BranchTransition();
-          Iterable<EntryLevelSystemCall> _querySystemCalls = PcmCalls.querySystemCalls(_branchedBehaviour_BranchTransition);
-          return _querySystemCalls;
-        }
-      };
+      public Iterable<EntryLevelSystemCall> apply(final BranchTransition it) {
+        ScenarioBehaviour _branchedBehaviour_BranchTransition = it.getBranchedBehaviour_BranchTransition();
+        Iterable<EntryLevelSystemCall> _querySystemCalls = PcmCalls.querySystemCalls(_branchedBehaviour_BranchTransition);
+        return _querySystemCalls;
+      }
+    };
     Iterable<Iterable<EntryLevelSystemCall>> _map_2 = IterableExtensions.<BranchTransition, Iterable<EntryLevelSystemCall>>map(_flatten, _function_3);
     Iterable<EntryLevelSystemCall> _flatten_1 = Iterables.<EntryLevelSystemCall>concat(_map_2);
     return _flatten_1;
@@ -138,18 +138,18 @@ public class PcmCalls {
   
   public static Iterable<de.uka.ipd.sdq.pcm.system.System> getSystemsFromCalls(final Iterable<EntryLevelSystemCall> calls) {
     final Function1<EntryLevelSystemCall,InterfaceProvidingEntity> _function = new Function1<EntryLevelSystemCall,InterfaceProvidingEntity>() {
-        public InterfaceProvidingEntity apply(final EntryLevelSystemCall it) {
-          OperationProvidedRole _providedRole_EntryLevelSystemCall = it.getProvidedRole_EntryLevelSystemCall();
-          InterfaceProvidingEntity _providingEntity_ProvidedRole = _providedRole_EntryLevelSystemCall.getProvidingEntity_ProvidedRole();
-          return _providingEntity_ProvidedRole;
-        }
-      };
+      public InterfaceProvidingEntity apply(final EntryLevelSystemCall it) {
+        OperationProvidedRole _providedRole_EntryLevelSystemCall = it.getProvidedRole_EntryLevelSystemCall();
+        InterfaceProvidingEntity _providingEntity_ProvidedRole = _providedRole_EntryLevelSystemCall.getProvidingEntity_ProvidedRole();
+        return _providingEntity_ProvidedRole;
+      }
+    };
     Iterable<InterfaceProvidingEntity> _map = IterableExtensions.<EntryLevelSystemCall, InterfaceProvidingEntity>map(calls, _function);
     final Function1<InterfaceProvidingEntity,de.uka.ipd.sdq.pcm.system.System> _function_1 = new Function1<InterfaceProvidingEntity,de.uka.ipd.sdq.pcm.system.System>() {
-        public de.uka.ipd.sdq.pcm.system.System apply(final InterfaceProvidingEntity it) {
-          return ((de.uka.ipd.sdq.pcm.system.System) it);
-        }
-      };
+      public de.uka.ipd.sdq.pcm.system.System apply(final InterfaceProvidingEntity it) {
+        return ((de.uka.ipd.sdq.pcm.system.System) it);
+      }
+    };
     Iterable<de.uka.ipd.sdq.pcm.system.System> _map_1 = IterableExtensions.<InterfaceProvidingEntity, de.uka.ipd.sdq.pcm.system.System>map(_map, _function_1);
     Set<de.uka.ipd.sdq.pcm.system.System> _set = IterableExtensions.<de.uka.ipd.sdq.pcm.system.System>toSet(_map_1);
     return _set;
@@ -188,11 +188,11 @@ public class PcmCalls {
   public static Connector getConnector(final ComposedStructure cs, final AssemblyContext context, final OperationRequiredRole role) {
     Iterable<Connector> _connectors = PcmCalls.connectors(cs);
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector con) {
-          boolean _test = PcmCalls.test(con, context, role);
-          return Boolean.valueOf(_test);
-        }
-      };
+      public Boolean apply(final Connector con) {
+        boolean _test = PcmCalls.test(con, context, role);
+        return Boolean.valueOf(_test);
+      }
+    };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors, _function);
     Connector _get = ((Connector[])Conversions.unwrapArray(_filter, Connector.class))[0];
     return _get;
@@ -205,12 +205,12 @@ public class PcmCalls {
   public static Iterable<Connector> connectors(final ComposedStructure s) {
     EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
-        public Boolean apply(final Connector it) {
-          boolean _isInstance = DelegationConnector.class.isInstance(it);
-          boolean _not = (!_isInstance);
-          return Boolean.valueOf(_not);
-        }
-      };
+      public Boolean apply(final Connector it) {
+        boolean _isInstance = DelegationConnector.class.isInstance(it);
+        boolean _not = (!_isInstance);
+        return Boolean.valueOf(_not);
+      }
+    };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
     return _filter;
   }

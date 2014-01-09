@@ -82,7 +82,7 @@ public class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment>
                 _builder.append("setUpCPU(cpuStrategy, calibrationPath, accuracy, \"");
                 PCMRandomVariable _processingRate_ProcessingResourceSpecification = processingResource.getProcessingRate_ProcessingResourceSpecification();
                 String _specification = _processingRate_ProcessingResourceSpecification.getSpecification();
-                _builder.append(_specification, "	");
+                _builder.append(_specification, "\t");
                 _builder.append("\");\t");
                 _builder.newLineIfNotEmpty();
               } else {
@@ -95,7 +95,7 @@ public class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment>
                   _builder.append("setUpHDD(hddStrategy, calibrationPath, accuracy, \"");
                   PCMRandomVariable _processingRate_ProcessingResourceSpecification_1 = processingResource.getProcessingRate_ProcessingResourceSpecification();
                   String _specification_1 = _processingRate_ProcessingResourceSpecification_1.getSpecification();
-                  _builder.append(_specification_1, "	");
+                  _builder.append(_specification_1, "\t");
                   _builder.append("\");\t");
                   _builder.newLineIfNotEmpty();
                 }

@@ -153,7 +153,7 @@ public class PcmActions {
     EList<AbstractAction> _steps_Behaviour = _bodyBehaviour_Loop.getSteps_Behaviour();
     StartAction _findStart = PcmActions.findStart(_steps_Behaviour);
     String _actions = PcmActions.actions(_findStart);
-    _builder.append(_actions, "	");
+    _builder.append(_actions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -197,7 +197,7 @@ public class PcmActions {
     EList<VariableUsage> _inputVariableUsages__CallAction = action.getInputVariableUsages__CallAction();
     EList<VariableUsage> _returnVariableUsage__CallReturnAction = action.getReturnVariableUsage__CallReturnAction();
     String _call = PcmCommons.call(_calledService_ExternalService, _calledService_ExternalService_1, _plus_1, _inputVariableUsages__CallAction, _returnVariableUsage__CallReturnAction);
-    _builder.append(_call, "		");
+    _builder.append(_call, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("} catch (java.rmi.RemoteException e) {");
@@ -240,7 +240,7 @@ public class PcmActions {
         PCMRandomVariable _specification_ParametericResourceDemand = resourceDemand.getSpecification_ParametericResourceDemand();
         String _specification = _specification_ParametericResourceDemand.getSpecification();
         String _specificationString = JavaNames.specificationString(_specification);
-        _builder.append(_specificationString, "	");
+        _builder.append(_specificationString, "\t");
         _builder.append("\", Double.class);");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
@@ -370,7 +370,7 @@ public class PcmActions {
     EList<AbstractAction> _steps_Behaviour = _branchBehaviour_BranchTransition.getSteps_Behaviour();
     StartAction _findStart = PcmActions.findStart(_steps_Behaviour);
     String _actions = PcmActions.actions(_findStart);
-    _builder.append(_actions, "	");
+    _builder.append(_actions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -394,7 +394,7 @@ public class PcmActions {
     EList<AbstractAction> _steps_Behaviour = _branchBehaviour_BranchTransition.getSteps_Behaviour();
     StartAction _findStart = PcmActions.findStart(_steps_Behaviour);
     String _actions = PcmActions.actions(_findStart);
-    _builder.append(_actions, "	");
+    _builder.append(_actions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -413,7 +413,7 @@ public class PcmActions {
     PassiveResource _passiveresource_AcquireAction = action.getPassiveresource_AcquireAction();
     String _entityName = _passiveresource_AcquireAction.getEntityName();
     String _javaString = JavaNames.javaString(_entityName);
-    _builder.append(_javaString, "	");
+    _builder.append(_javaString, "\t");
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -421,7 +421,7 @@ public class PcmActions {
     PassiveResource _passiveresource_AcquireAction_1 = action.getPassiveresource_AcquireAction();
     String _entityName_1 = _passiveresource_AcquireAction_1.getEntityName();
     String _javaVariableName = JavaNames.javaVariableName(_entityName_1);
-    _builder.append(_javaVariableName, "	");
+    _builder.append(_javaVariableName, "\t");
     _builder.append(".acquire();");
     _builder.newLineIfNotEmpty();
     _builder.append("} catch (InterruptedException e) {");
@@ -431,7 +431,7 @@ public class PcmActions {
     PassiveResource _passiveresource_AcquireAction_2 = action.getPassiveresource_AcquireAction();
     String _entityName_2 = _passiveresource_AcquireAction_2.getEntityName();
     String _javaString_1 = JavaNames.javaString(_entityName_2);
-    _builder.append(_javaString_1, "	");
+    _builder.append(_javaString_1, "\t");
     _builder.append(" interrupted\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -543,7 +543,7 @@ public class PcmActions {
     String _call = PcmCommons.call(_operationSignature__EntryLevelSystemCall, 
       null, _plus, _inputParameterUsages_EntryLevelSystemCall, 
       null);
-    _builder.append(_call, "	");
+    _builder.append(_call, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t\t\t\t\t");
     _builder.newLine();
@@ -607,15 +607,15 @@ public class PcmActions {
     _builder.append("iterationCount_");
     String _id_2 = userAction.getId();
     String _javaVariableName_2 = JavaNames.javaVariableName(_id_2);
-    _builder.append(_javaVariableName_2, "	");
+    _builder.append(_javaVariableName_2, "\t");
     _builder.append(" < maxIterationCount_");
     String _id_3 = userAction.getId();
     String _javaVariableName_3 = JavaNames.javaVariableName(_id_3);
-    _builder.append(_javaVariableName_3, "	");
+    _builder.append(_javaVariableName_3, "\t");
     _builder.append("; iterationCount_");
     String _id_4 = userAction.getId();
     String _javaVariableName_4 = JavaNames.javaVariableName(_id_4);
-    _builder.append(_javaVariableName_4, "	");
+    _builder.append(_javaVariableName_4, "\t");
     _builder.append(" ++) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -623,7 +623,7 @@ public class PcmActions {
     EList<AbstractUserAction> _actions_ScenarioBehaviour = _bodyBehaviour_Loop.getActions_ScenarioBehaviour();
     Start _findUserStart = PcmActions.findUserStart(_actions_ScenarioBehaviour);
     String _userActions = PcmActions.userActions(_findUserStart);
-    _builder.append(_userActions, "	");
+    _builder.append(_userActions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("} ");
     _builder.newLine();
@@ -677,7 +677,7 @@ public class PcmActions {
         EList<AbstractUserAction> _actions_ScenarioBehaviour = _branchedBehaviour_BranchTransition.getActions_ScenarioBehaviour();
         Start _findUserStart = PcmActions.findUserStart(_actions_ScenarioBehaviour);
         String _userActions = PcmActions.userActions(_findUserStart);
-        _builder.append(_userActions, "	");
+        _builder.append(_userActions, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append("}\t");
         _builder.newLine();
@@ -700,11 +700,11 @@ public class PcmActions {
    */
   public static StartAction findStart(final Iterable<AbstractAction> actions) {
     final Function1<AbstractAction,Boolean> _function = new Function1<AbstractAction,Boolean>() {
-        public Boolean apply(final AbstractAction it) {
-          boolean _isInstance = StartAction.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
+      public Boolean apply(final AbstractAction it) {
+        boolean _isInstance = StartAction.class.isInstance(it);
+        return Boolean.valueOf(_isInstance);
+      }
+    };
     AbstractAction _findFirst = IterableExtensions.<AbstractAction>findFirst(actions, _function);
     return ((StartAction) _findFirst);
   }
@@ -715,11 +715,11 @@ public class PcmActions {
    */
   public static Start findUserStart(final Iterable<AbstractUserAction> actions) {
     final Function1<AbstractUserAction,Boolean> _function = new Function1<AbstractUserAction,Boolean>() {
-        public Boolean apply(final AbstractUserAction it) {
-          boolean _isInstance = Start.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
-        }
-      };
+      public Boolean apply(final AbstractUserAction it) {
+        boolean _isInstance = Start.class.isInstance(it);
+        return Boolean.valueOf(_isInstance);
+      }
+    };
     AbstractUserAction _findFirst = IterableExtensions.<AbstractUserAction>findFirst(actions, _function);
     return ((Start) _findFirst);
   }

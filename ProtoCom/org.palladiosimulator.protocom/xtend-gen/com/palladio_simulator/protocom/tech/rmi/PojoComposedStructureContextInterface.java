@@ -38,47 +38,47 @@ public class PojoComposedStructureContextInterface extends PojoInterface<Interfa
       final LinkedList<JMethod> results = CollectionLiterals.<JMethod>newLinkedList();
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function = new Function1<RequiredRole,Boolean>() {
-          public Boolean apply(final RequiredRole it) {
-            boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final RequiredRole it) {
+          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<RequiredRole> _filter = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity, _function);
       final Function1<RequiredRole,JMethod> _function_1 = new Function1<RequiredRole,JMethod>() {
-          public JMethod apply(final RequiredRole it) {
-            JMethod _jMethod = new JMethod();
-            String _javaName = JavaNames.javaName(it);
-            String _plus = ("getRole" + _javaName);
-            JMethod _withName = _jMethod.withName(_plus);
-            OperationInterface _requiredInterface__OperationRequiredRole = ((OperationRequiredRole) it).getRequiredInterface__OperationRequiredRole();
-            String _fqn = JavaNames.fqn(_requiredInterface__OperationRequiredRole);
-            JMethod _withReturnType = _withName.withReturnType(_fqn);
-            return _withReturnType;
-          }
-        };
+        public JMethod apply(final RequiredRole it) {
+          JMethod _jMethod = new JMethod();
+          String _javaName = JavaNames.javaName(it);
+          String _plus = ("getRole" + _javaName);
+          JMethod _withName = _jMethod.withName(_plus);
+          OperationInterface _requiredInterface__OperationRequiredRole = ((OperationRequiredRole) it).getRequiredInterface__OperationRequiredRole();
+          String _fqn = JavaNames.fqn(_requiredInterface__OperationRequiredRole);
+          JMethod _withReturnType = _withName.withReturnType(_fqn);
+          return _withReturnType;
+        }
+      };
       Iterable<JMethod> _map = IterableExtensions.<RequiredRole, JMethod>map(_filter, _function_1);
       Iterables.<JMethod>addAll(results, _map);
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity_1 = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function_2 = new Function1<RequiredRole,Boolean>() {
-          public Boolean apply(final RequiredRole it) {
-            boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final RequiredRole it) {
+          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<RequiredRole> _filter_1 = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity_1, _function_2);
       final Function1<RequiredRole,JMethod> _function_3 = new Function1<RequiredRole,JMethod>() {
-          public JMethod apply(final RequiredRole it) {
-            JMethod _jMethod = new JMethod();
-            String _javaName = JavaNames.javaName(it);
-            String _plus = ("setRole" + _javaName);
-            JMethod _withName = _jMethod.withName(_plus);
-            OperationInterface _requiredInterface__OperationRequiredRole = ((OperationRequiredRole) it).getRequiredInterface__OperationRequiredRole();
-            String _fqn = JavaNames.fqn(_requiredInterface__OperationRequiredRole);
-            String _plus_1 = (_fqn + " newValue");
-            JMethod _withParameters = _withName.withParameters(_plus_1);
-            return _withParameters;
-          }
-        };
+        public JMethod apply(final RequiredRole it) {
+          JMethod _jMethod = new JMethod();
+          String _javaName = JavaNames.javaName(it);
+          String _plus = ("setRole" + _javaName);
+          JMethod _withName = _jMethod.withName(_plus);
+          OperationInterface _requiredInterface__OperationRequiredRole = ((OperationRequiredRole) it).getRequiredInterface__OperationRequiredRole();
+          String _fqn = JavaNames.fqn(_requiredInterface__OperationRequiredRole);
+          String _plus_1 = (_fqn + " newValue");
+          JMethod _withParameters = _withName.withParameters(_plus_1);
+          return _withParameters;
+        }
+      };
       Iterable<JMethod> _map_1 = IterableExtensions.<RequiredRole, JMethod>map(_filter_1, _function_3);
       Iterables.<JMethod>addAll(results, _map_1);
       _xblockexpression = (results);

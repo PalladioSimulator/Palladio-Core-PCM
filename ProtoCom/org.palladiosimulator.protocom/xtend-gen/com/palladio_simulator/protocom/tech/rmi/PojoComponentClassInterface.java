@@ -58,45 +58,45 @@ public class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
       Iterables.<JMethod>addAll(results, Collections.<JMethod>unmodifiableList(Lists.<JMethod>newArrayList(_withParameters, _withParameters_1)));
       EList<ServiceEffectSpecification> _serviceEffectSpecifications__BasicComponent = this.pcmEntity.getServiceEffectSpecifications__BasicComponent();
       final Function1<ServiceEffectSpecification,JMethod> _function = new Function1<ServiceEffectSpecification,JMethod>() {
-          public JMethod apply(final ServiceEffectSpecification it) {
-            JMethod _jMethod = new JMethod();
-            Signature _describedService__SEFF = it.getDescribedService__SEFF();
-            String _serviceName = JavaNames.serviceName(_describedService__SEFF);
-            JMethod _withName = _jMethod.withName(_serviceName);
-            String _stackframeType = PcmCommons.stackframeType();
-            JMethod _withReturnType = _withName.withReturnType(_stackframeType);
-            String _stackContextParameterList = PcmCommons.stackContextParameterList();
-            JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-            return _withParameters;
-          }
-        };
+        public JMethod apply(final ServiceEffectSpecification it) {
+          JMethod _jMethod = new JMethod();
+          Signature _describedService__SEFF = it.getDescribedService__SEFF();
+          String _serviceName = JavaNames.serviceName(_describedService__SEFF);
+          JMethod _withName = _jMethod.withName(_serviceName);
+          String _stackframeType = PcmCommons.stackframeType();
+          JMethod _withReturnType = _withName.withReturnType(_stackframeType);
+          String _stackContextParameterList = PcmCommons.stackContextParameterList();
+          JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
+          return _withParameters;
+        }
+      };
       List<JMethod> _map = ListExtensions.<ServiceEffectSpecification, JMethod>map(_serviceEffectSpecifications__BasicComponent, _function);
       Iterables.<JMethod>addAll(results, _map);
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function_1 = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function_1);
       final Function1<ProvidedRole,OperationProvidedRole> _function_2 = new Function1<ProvidedRole,OperationProvidedRole>() {
-          public OperationProvidedRole apply(final ProvidedRole it) {
-            return ((OperationProvidedRole) it);
-          }
-        };
+        public OperationProvidedRole apply(final ProvidedRole it) {
+          return ((OperationProvidedRole) it);
+        }
+      };
       Iterable<OperationProvidedRole> _map_1 = IterableExtensions.<ProvidedRole, OperationProvidedRole>map(_filter, _function_2);
       final Function1<OperationProvidedRole,JMethod> _function_3 = new Function1<OperationProvidedRole,JMethod>() {
-          public JMethod apply(final OperationProvidedRole it) {
-            JMethod _jMethod = new JMethod();
-            String _portGetter = JavaNames.portGetter(it);
-            JMethod _withName = _jMethod.withName(_portGetter);
-            OperationInterface _providedInterface__OperationProvidedRole = it.getProvidedInterface__OperationProvidedRole();
-            String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-            JMethod _withReturnType = _withName.withReturnType(_fqn);
-            return _withReturnType;
-          }
-        };
+        public JMethod apply(final OperationProvidedRole it) {
+          JMethod _jMethod = new JMethod();
+          String _portGetter = JavaNames.portGetter(it);
+          JMethod _withName = _jMethod.withName(_portGetter);
+          OperationInterface _providedInterface__OperationProvidedRole = it.getProvidedInterface__OperationProvidedRole();
+          String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
+          JMethod _withReturnType = _withName.withReturnType(_fqn);
+          return _withReturnType;
+        }
+      };
       Iterable<JMethod> _map_2 = IterableExtensions.<OperationProvidedRole, JMethod>map(_map_1, _function_3);
       Iterables.<JMethod>addAll(results, _map_2);
       _xblockexpression = (results);

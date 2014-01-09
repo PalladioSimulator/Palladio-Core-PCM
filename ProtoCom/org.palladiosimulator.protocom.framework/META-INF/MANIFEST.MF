@@ -4,14 +4,14 @@ Bundle-Name: ProtoCom Framework
 Bundle-SymbolicName: com.palladio_simulator.protocom.framework
 Bundle-Version: 1.0.0.qualifier
 Export-Package: .,
- com.palladio_simulator.protocom.framework,
- com.palladio_simulator.protocom.framework.experiment,
- com.palladio_simulator.protocom.framework.port,
- com.palladio_simulator.protocom.framework.registry,
- com.palladio_simulator.protocom.framework.strategies,
- com.palladio_simulator.protocom.framework.usage,
- com.palladio_simulator.protocom.framework.utils,
- com.palladio_simulator.protocom.framework.visitor
+ org.palladiosimulator.protocom.framework,
+ org.palladiosimulator.protocom.framework.experiment,
+ org.palladiosimulator.protocom.framework.port,
+ org.palladiosimulator.protocom.framework.registry,
+ org.palladiosimulator.protocom.framework.strategies,
+ org.palladiosimulator.protocom.framework.usage,
+ org.palladiosimulator.protocom.framework.utils,
+ org.palladiosimulator.protocom.framework.visitor
 Require-Bundle: org.apache.log4j,
  com.palladio_simulator.protocom.resourcestrategies,
  de.uka.ipd.sdq.sensorframework,

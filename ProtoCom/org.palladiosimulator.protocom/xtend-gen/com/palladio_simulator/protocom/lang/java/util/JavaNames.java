@@ -107,8 +107,7 @@ public class JavaNames {
     if (_equals) {
       _xifexpression = pos;
     } else {
-      int _plus = (pos + 1);
-      int _posInInterface = JavaNames.posInInterface(s, _plus);
+      int _posInInterface = JavaNames.posInInterface(s, (pos + 1));
       _xifexpression = _posInInterface;
     }
     return _xifexpression;
@@ -130,8 +129,7 @@ public class JavaNames {
     if (_equals) {
       _xifexpression = pos;
     } else {
-      int _plus = (pos + 1);
-      int _posInInterface = JavaNames.posInInterface(s, _plus);
+      int _posInInterface = JavaNames.posInInterface(s, (pos + 1));
       _xifexpression = _posInInterface;
     }
     return _xifexpression;

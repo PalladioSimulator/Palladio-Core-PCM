@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.debug.core.launchConfigurationTypes">
       <launchConfigurationType
-            delegate="com.palladio_simulator.protocom.workflow.ProtoComCodegenWorkflowLauncher"
+            delegate="org.palladiosimulator.protocom.workflow.ProtoComCodegenWorkflowLauncher"
             id="com.palladio_simulator.protocom.launchConfigurationType"
             modes="run, debug"
             name="ProtoCom Generator"
@@ -14,7 +14,7 @@
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
       <launchConfigurationTabGroup
-            class="com.palladio_simulator.protocom.workflow.ProtoComGeneratorTabGroup"
+            class="org.palladiosimulator.protocom.workflow.ProtoComGeneratorTabGroup"
             id="com.palladio_simulator.protocom.launchConfigurationTabGroup1"
             type="com.palladio_simulator.protocom.launchConfigurationType">
       </launchConfigurationTabGroup>

@@ -49,13 +49,13 @@ public class JseBasicComponent extends XBasicComponent {
     this.generatedFiles.add(_createFor_3);
     EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.entity.getProvidedRoles_InterfaceProvidingEntity();
     final Procedure1<ProvidedRole> _function = new Procedure1<ProvidedRole>() {
-        public void apply(final ProvidedRole it) {
-          JClass _instance = JseBasicComponent.this.injector.<JClass>getInstance(JClass.class);
-          PojoBasicComponentPortClass _pojoBasicComponentPortClass = new PojoBasicComponentPortClass(it);
-          GeneratedFile<IJClass> _createFor = _instance.createFor(_pojoBasicComponentPortClass);
-          JseBasicComponent.this.generatedFiles.add(_createFor);
-        }
-      };
+      public void apply(final ProvidedRole it) {
+        JClass _instance = JseBasicComponent.this.injector.<JClass>getInstance(JClass.class);
+        PojoBasicComponentPortClass _pojoBasicComponentPortClass = new PojoBasicComponentPortClass(it);
+        GeneratedFile<IJClass> _createFor = _instance.createFor(_pojoBasicComponentPortClass);
+        JseBasicComponent.this.generatedFiles.add(_createFor);
+      }
+    };
     IterableExtensions.<ProvidedRole>forEach(_providedRoles_InterfaceProvidingEntity, _function);
   }
 }

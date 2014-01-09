@@ -54,17 +54,17 @@ public class PojoSystemClass extends PojoComposedStructureClass<de.uka.ipd.sdq.p
     {
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
       final Function1<ProvidedRole,OperationProvidedRole> _function_1 = new Function1<ProvidedRole,OperationProvidedRole>() {
-          public OperationProvidedRole apply(final ProvidedRole it) {
-            return ((OperationProvidedRole) it);
-          }
-        };
+        public OperationProvidedRole apply(final ProvidedRole it) {
+          return ((OperationProvidedRole) it);
+        }
+      };
       Iterable<OperationProvidedRole> _map = IterableExtensions.<ProvidedRole, OperationProvidedRole>map(_filter, _function_1);
       boolean _hasElements = false;
       for(final OperationProvidedRole role : _map) {
@@ -111,19 +111,19 @@ public class PojoSystemClass extends PojoComposedStructureClass<de.uka.ipd.sdq.p
       Iterables.<IJField>addAll(results, _fields);
       EList<AssemblyContext> _assemblyContexts__ComposedStructure = this.pcmEntity.getAssemblyContexts__ComposedStructure();
       final Function1<AssemblyContext,JField> _function = new Function1<AssemblyContext,JField>() {
-          public JField apply(final AssemblyContext it) {
-            JField _jField = new JField();
-            String _javaName = JavaNames.javaName(it);
-            String _plus = ("my" + _javaName);
-            JField _withName = _jField.withName(_plus);
-            RepositoryComponent _encapsulatedComponent__AssemblyContext = it.getEncapsulatedComponent__AssemblyContext();
-            String _fqn = JavaNames.fqn(_encapsulatedComponent__AssemblyContext);
-            String _plus_1 = ("com.palladio_simulator.protocom.framework.port.IPort<" + _fqn);
-            String _plus_2 = (_plus_1 + ">");
-            JField _withType = _withName.withType(_plus_2);
-            return _withType;
-          }
-        };
+        public JField apply(final AssemblyContext it) {
+          JField _jField = new JField();
+          String _javaName = JavaNames.javaName(it);
+          String _plus = ("my" + _javaName);
+          JField _withName = _jField.withName(_plus);
+          RepositoryComponent _encapsulatedComponent__AssemblyContext = it.getEncapsulatedComponent__AssemblyContext();
+          String _fqn = JavaNames.fqn(_encapsulatedComponent__AssemblyContext);
+          String _plus_1 = ("com.palladio_simulator.protocom.framework.port.IPort<" + _fqn);
+          String _plus_2 = (_plus_1 + ">");
+          JField _withType = _withName.withType(_plus_2);
+          return _withType;
+        }
+      };
       List<IJField> _map = ListExtensions.<AssemblyContext, IJField>map(_assemblyContexts__ComposedStructure, _function);
       Iterables.<IJField>addAll(results, _map);
       _xblockexpression = (results);
@@ -150,11 +150,11 @@ public class PojoSystemClass extends PojoComposedStructureClass<de.uka.ipd.sdq.p
             RepositoryComponent _encapsulatedComponent__AssemblyContext = assemblyContext.getEncapsulatedComponent__AssemblyContext();
             EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = _encapsulatedComponent__AssemblyContext.getProvidedRoles_InterfaceProvidingEntity();
             final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
-                public Boolean apply(final ProvidedRole it) {
-                  boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-                  return Boolean.valueOf(_isInstance);
-                }
-              };
+              public Boolean apply(final ProvidedRole it) {
+                boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+                return Boolean.valueOf(_isInstance);
+              }
+            };
             Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
             int _size = IterableExtensions.size(_filter);
             boolean _greaterThan = (_size > 0);
@@ -162,27 +162,27 @@ public class PojoSystemClass extends PojoComposedStructureClass<de.uka.ipd.sdq.p
               _builder.append("\t");
               _builder.append("my");
               String _javaName = JavaNames.javaName(assemblyContext);
-              _builder.append(_javaName, "	");
+              _builder.append(_javaName, "\t");
               _builder.append(" = (com.palladio_simulator.protocom.framework.port.IPort<");
               RepositoryComponent _encapsulatedComponent__AssemblyContext_1 = assemblyContext.getEncapsulatedComponent__AssemblyContext();
               String _fqn = JavaNames.fqn(_encapsulatedComponent__AssemblyContext_1);
-              _builder.append(_fqn, "	");
+              _builder.append(_fqn, "\t");
               _builder.append(">) com.palladio_simulator.protocom.framework.registry.RmiRegistry.lookup(\"");
               RepositoryComponent _encapsulatedComponent__AssemblyContext_2 = assemblyContext.getEncapsulatedComponent__AssemblyContext();
               EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity_1 = _encapsulatedComponent__AssemblyContext_2.getProvidedRoles_InterfaceProvidingEntity();
               final Function1<ProvidedRole,Boolean> _function_1 = new Function1<ProvidedRole,Boolean>() {
-                  public Boolean apply(final ProvidedRole it) {
-                    boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-                    return Boolean.valueOf(_isInstance);
-                  }
-                };
+                public Boolean apply(final ProvidedRole it) {
+                  boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+                  return Boolean.valueOf(_isInstance);
+                }
+              };
               Iterable<ProvidedRole> _filter_1 = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity_1, _function_1);
               ProvidedRole _get = ((ProvidedRole[])Conversions.unwrapArray(_filter_1, ProvidedRole.class))[0];
               String _portClassName = JavaNames.portClassName(((OperationProvidedRole) _get));
-              _builder.append(_portClassName, "	");
+              _builder.append(_portClassName, "\t");
               _builder.append("_");
               String _id = assemblyContext.getId();
-              _builder.append(_id, "	");
+              _builder.append(_id, "\t");
               _builder.append("\");");
               _builder.newLineIfNotEmpty();
             }
@@ -198,11 +198,11 @@ public class PojoSystemClass extends PojoComposedStructureClass<de.uka.ipd.sdq.p
             RepositoryComponent _encapsulatedComponent__AssemblyContext_3 = assemblyContext_1.getEncapsulatedComponent__AssemblyContext();
             EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity_2 = _encapsulatedComponent__AssemblyContext_3.getProvidedRoles_InterfaceProvidingEntity();
             final Function1<ProvidedRole,Boolean> _function_2 = new Function1<ProvidedRole,Boolean>() {
-                public Boolean apply(final ProvidedRole it) {
-                  boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
-                  return Boolean.valueOf(_isInstance);
-                }
-              };
+              public Boolean apply(final ProvidedRole it) {
+                boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
+                return Boolean.valueOf(_isInstance);
+              }
+            };
             Iterable<ProvidedRole> _filter_2 = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity_2, _function_2);
             int _size_1 = IterableExtensions.size(_filter_2);
             boolean _greaterThan_1 = (_size_1 > 0);
@@ -210,27 +210,27 @@ public class PojoSystemClass extends PojoComposedStructureClass<de.uka.ipd.sdq.p
               _builder.append("\t");
               _builder.append("my");
               String _javaName_1 = JavaNames.javaName(assemblyContext_1);
-              _builder.append(_javaName_1, "	");
+              _builder.append(_javaName_1, "\t");
               _builder.append(" = (com.palladio_simulator.protocom.framework.port.IPort<");
               RepositoryComponent _encapsulatedComponent__AssemblyContext_4 = assemblyContext_1.getEncapsulatedComponent__AssemblyContext();
               String _fqn_1 = JavaNames.fqn(_encapsulatedComponent__AssemblyContext_4);
-              _builder.append(_fqn_1, "	");
+              _builder.append(_fqn_1, "\t");
               _builder.append(">) com.palladio_simulator.protocom.framework.registry.RmiRegistry.lookup(\"");
               RepositoryComponent _encapsulatedComponent__AssemblyContext_5 = assemblyContext_1.getEncapsulatedComponent__AssemblyContext();
               EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity_3 = _encapsulatedComponent__AssemblyContext_5.getProvidedRoles_InterfaceProvidingEntity();
               final Function1<ProvidedRole,Boolean> _function_3 = new Function1<ProvidedRole,Boolean>() {
-                  public Boolean apply(final ProvidedRole it) {
-                    boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
-                    return Boolean.valueOf(_isInstance);
-                  }
-                };
+                public Boolean apply(final ProvidedRole it) {
+                  boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
+                  return Boolean.valueOf(_isInstance);
+                }
+              };
               Iterable<ProvidedRole> _filter_3 = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity_3, _function_3);
               ProvidedRole _get_1 = ((ProvidedRole[])Conversions.unwrapArray(_filter_3, ProvidedRole.class))[0];
               String _portClassName_1 = JavaNames.portClassName(((InfrastructureProvidedRole) _get_1));
-              _builder.append(_portClassName_1, "	");
+              _builder.append(_portClassName_1, "\t");
               _builder.append("_");
               String _id_1 = assemblyContext_1.getId();
-              _builder.append(_id_1, "	");
+              _builder.append(_id_1, "\t");
               _builder.append("\");");
               _builder.newLineIfNotEmpty();
             }
@@ -245,7 +245,7 @@ public class PojoSystemClass extends PojoComposedStructureClass<de.uka.ipd.sdq.p
           _builder.append("\t");
           _builder.append("init");
           String _javaName_2 = JavaNames.javaName(assemblyContext_2);
-          _builder.append(_javaName_2, "	");
+          _builder.append(_javaName_2, "\t");
           _builder.append("();");
           _builder.newLineIfNotEmpty();
         }

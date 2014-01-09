@@ -78,17 +78,17 @@ public class PojoCompositeComponentClass extends PojoComposedStructureClass<Comp
     {
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
       final Function1<ProvidedRole,OperationProvidedRole> _function_1 = new Function1<ProvidedRole,OperationProvidedRole>() {
-          public OperationProvidedRole apply(final ProvidedRole it) {
-            return ((OperationProvidedRole) it);
-          }
-        };
+        public OperationProvidedRole apply(final ProvidedRole it) {
+          return ((OperationProvidedRole) it);
+        }
+      };
       Iterable<OperationProvidedRole> _map = IterableExtensions.<ProvidedRole, OperationProvidedRole>map(_filter, _function_1);
       boolean _hasElements = false;
       for(final OperationProvidedRole role : _map) {
@@ -142,17 +142,17 @@ public class PojoCompositeComponentClass extends PojoComposedStructureClass<Comp
       Iterables.<IJField>addAll(results, Collections.<JField>unmodifiableList(Lists.<JField>newArrayList(_withType, _withType_1)));
       EList<AssemblyContext> _assemblyContexts__ComposedStructure = this.pcmEntity.getAssemblyContexts__ComposedStructure();
       final Function1<AssemblyContext,JField> _function = new Function1<AssemblyContext,JField>() {
-          public JField apply(final AssemblyContext it) {
-            JField _jField = new JField();
-            String _javaName = JavaNames.javaName(it);
-            String _plus = ("my" + _javaName);
-            JField _withName = _jField.withName(_plus);
-            RepositoryComponent _encapsulatedComponent__AssemblyContext = it.getEncapsulatedComponent__AssemblyContext();
-            String _fqn = JavaNames.fqn(_encapsulatedComponent__AssemblyContext);
-            JField _withType = _withName.withType(_fqn);
-            return _withType;
-          }
-        };
+        public JField apply(final AssemblyContext it) {
+          JField _jField = new JField();
+          String _javaName = JavaNames.javaName(it);
+          String _plus = ("my" + _javaName);
+          JField _withName = _jField.withName(_plus);
+          RepositoryComponent _encapsulatedComponent__AssemblyContext = it.getEncapsulatedComponent__AssemblyContext();
+          String _fqn = JavaNames.fqn(_encapsulatedComponent__AssemblyContext);
+          JField _withType = _withName.withType(_fqn);
+          return _withType;
+        }
+      };
       List<IJField> _map = ListExtensions.<AssemblyContext, IJField>map(_assemblyContexts__ComposedStructure, _function);
       Iterables.<IJField>addAll(results, _map);
       _xblockexpression = (results);
@@ -178,7 +178,7 @@ public class PojoCompositeComponentClass extends PojoComposedStructureClass<Comp
           _builder.append("\t");
           _builder.append("init");
           String _javaName = JavaNames.javaName(assemblyContext);
-          _builder.append(_javaName, "	");
+          _builder.append(_javaName, "\t");
           _builder.append("();");
           _builder.newLineIfNotEmpty();
         }

@@ -35,17 +35,17 @@ public class XRepository extends PcmRepresentative<Repository> {
   public void traverse() {
     EList<Interface> _interfaces__Repository = this.entity.getInterfaces__Repository();
     final Procedure1<Interface> _function = new Procedure1<Interface>() {
-        public void apply(final Interface it) {
-          XRepository.this.createInterface(it);
-        }
-      };
+      public void apply(final Interface it) {
+        XRepository.this.createInterface(it);
+      }
+    };
     IterableExtensions.<Interface>forEach(_interfaces__Repository, _function);
     EList<RepositoryComponent> _components__Repository = this.entity.getComponents__Repository();
     final Procedure1<RepositoryComponent> _function_1 = new Procedure1<RepositoryComponent>() {
-        public void apply(final RepositoryComponent it) {
-          XRepository.this.createComponent(it);
-        }
-      };
+      public void apply(final RepositoryComponent it) {
+        XRepository.this.createComponent(it);
+      }
+    };
     IterableExtensions.<RepositoryComponent>forEach(_components__Repository, _function_1);
   }
   

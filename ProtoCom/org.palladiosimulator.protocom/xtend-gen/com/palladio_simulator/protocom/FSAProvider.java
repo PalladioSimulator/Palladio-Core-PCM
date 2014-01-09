@@ -67,7 +67,7 @@ public class FSAProvider implements Provider<AbstractFileSystemAccess2> {
       defaultOutput.setCreateOutputDirectory(true);
       defaultOutput.setCleanUpDerivedResources(true);
       defaultOutput.setSetDerivedProperty(true);
-      HashMap<String,OutputConfiguration> _hashMap = new HashMap<String,OutputConfiguration>();
+      HashMap<String,OutputConfiguration> _hashMap = new HashMap<String, OutputConfiguration>();
       final Map<String,OutputConfiguration> map = _hashMap;
       map.put("PCM", defaultOutput);
       _xblockexpression = (map);

@@ -53,17 +53,17 @@ public class PojoBasicComponentClass extends PojoClass<BasicComponent> {
     {
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
       final Function1<ProvidedRole,OperationProvidedRole> _function_1 = new Function1<ProvidedRole,OperationProvidedRole>() {
-          public OperationProvidedRole apply(final ProvidedRole it) {
-            return ((OperationProvidedRole) it);
-          }
-        };
+        public OperationProvidedRole apply(final ProvidedRole it) {
+          return ((OperationProvidedRole) it);
+        }
+      };
       Iterable<OperationProvidedRole> _map = IterableExtensions.<ProvidedRole, OperationProvidedRole>map(_filter, _function_1);
       boolean _hasElements = false;
       for(final OperationProvidedRole role : _map) {
@@ -87,17 +87,17 @@ public class PojoBasicComponentClass extends PojoClass<BasicComponent> {
     {
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity_1 = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function_2 = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter_1 = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity_1, _function_2);
       final Function1<ProvidedRole,InfrastructureProvidedRole> _function_3 = new Function1<ProvidedRole,InfrastructureProvidedRole>() {
-          public InfrastructureProvidedRole apply(final ProvidedRole it) {
-            return ((InfrastructureProvidedRole) it);
-          }
-        };
+        public InfrastructureProvidedRole apply(final ProvidedRole it) {
+          return ((InfrastructureProvidedRole) it);
+        }
+      };
       Iterable<InfrastructureProvidedRole> _map_1 = IterableExtensions.<ProvidedRole, InfrastructureProvidedRole>map(_filter_1, _function_3);
       boolean _hasElements_1 = false;
       for(final InfrastructureProvidedRole role_1 : _map_1) {
@@ -161,70 +161,70 @@ public class PojoBasicComponentClass extends PojoClass<BasicComponent> {
       Iterables.<JField>addAll(results, Collections.<JField>unmodifiableList(Lists.<JField>newArrayList(_withType_3)));
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
       final Function1<ProvidedRole,OperationProvidedRole> _function_1 = new Function1<ProvidedRole,OperationProvidedRole>() {
-          public OperationProvidedRole apply(final ProvidedRole it) {
-            return ((OperationProvidedRole) it);
-          }
-        };
+        public OperationProvidedRole apply(final ProvidedRole it) {
+          return ((OperationProvidedRole) it);
+        }
+      };
       Iterable<OperationProvidedRole> _map = IterableExtensions.<ProvidedRole, OperationProvidedRole>map(_filter, _function_1);
       final Function1<OperationProvidedRole,JField> _function_2 = new Function1<OperationProvidedRole,JField>() {
-          public JField apply(final OperationProvidedRole it) {
-            JField _jField = new JField();
-            String _portMemberVar = JavaNames.portMemberVar(it);
-            JField _withName = _jField.withName(_portMemberVar);
-            OperationInterface _providedInterface__OperationProvidedRole = it.getProvidedInterface__OperationProvidedRole();
-            String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-            JField _withType = _withName.withType(_fqn);
-            return _withType;
-          }
-        };
+        public JField apply(final OperationProvidedRole it) {
+          JField _jField = new JField();
+          String _portMemberVar = JavaNames.portMemberVar(it);
+          JField _withName = _jField.withName(_portMemberVar);
+          OperationInterface _providedInterface__OperationProvidedRole = it.getProvidedInterface__OperationProvidedRole();
+          String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
+          JField _withType = _withName.withType(_fqn);
+          return _withType;
+        }
+      };
       Iterable<JField> _map_1 = IterableExtensions.<OperationProvidedRole, JField>map(_map, _function_2);
       Iterables.<JField>addAll(results, _map_1);
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity_1 = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function_3 = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = InfrastructureProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter_1 = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity_1, _function_3);
       final Function1<ProvidedRole,InfrastructureProvidedRole> _function_4 = new Function1<ProvidedRole,InfrastructureProvidedRole>() {
-          public InfrastructureProvidedRole apply(final ProvidedRole it) {
-            return ((InfrastructureProvidedRole) it);
-          }
-        };
+        public InfrastructureProvidedRole apply(final ProvidedRole it) {
+          return ((InfrastructureProvidedRole) it);
+        }
+      };
       Iterable<InfrastructureProvidedRole> _map_2 = IterableExtensions.<ProvidedRole, InfrastructureProvidedRole>map(_filter_1, _function_4);
       final Function1<InfrastructureProvidedRole,JField> _function_5 = new Function1<InfrastructureProvidedRole,JField>() {
-          public JField apply(final InfrastructureProvidedRole it) {
-            JField _jField = new JField();
-            String _portMemberVar = JavaNames.portMemberVar(it);
-            JField _withName = _jField.withName(_portMemberVar);
-            InfrastructureInterface _providedInterface__InfrastructureProvidedRole = it.getProvidedInterface__InfrastructureProvidedRole();
-            String _fqn = JavaNames.fqn(_providedInterface__InfrastructureProvidedRole);
-            JField _withType = _withName.withType(_fqn);
-            return _withType;
-          }
-        };
+        public JField apply(final InfrastructureProvidedRole it) {
+          JField _jField = new JField();
+          String _portMemberVar = JavaNames.portMemberVar(it);
+          JField _withName = _jField.withName(_portMemberVar);
+          InfrastructureInterface _providedInterface__InfrastructureProvidedRole = it.getProvidedInterface__InfrastructureProvidedRole();
+          String _fqn = JavaNames.fqn(_providedInterface__InfrastructureProvidedRole);
+          JField _withType = _withName.withType(_fqn);
+          return _withType;
+        }
+      };
       Iterable<JField> _map_3 = IterableExtensions.<InfrastructureProvidedRole, JField>map(_map_2, _function_5);
       Iterables.<JField>addAll(results, _map_3);
       EList<PassiveResource> _passiveResource_BasicComponent = this.pcmEntity.getPassiveResource_BasicComponent();
       final Function1<PassiveResource,JField> _function_6 = new Function1<PassiveResource,JField>() {
-          public JField apply(final PassiveResource it) {
-            JField _jField = new JField();
-            String _entityName = it.getEntityName();
-            String _javaVariableName = JavaNames.javaVariableName(_entityName);
-            String _plus = ("passive_resource_" + _javaVariableName);
-            JField _withName = _jField.withName(_plus);
-            JField _withType = _withName.withType("java.util.concurrent.Semaphore");
-            return _withType;
-          }
-        };
+        public JField apply(final PassiveResource it) {
+          JField _jField = new JField();
+          String _entityName = it.getEntityName();
+          String _javaVariableName = JavaNames.javaVariableName(_entityName);
+          String _plus = ("passive_resource_" + _javaVariableName);
+          JField _withName = _jField.withName(_plus);
+          JField _withType = _withName.withType("java.util.concurrent.Semaphore");
+          return _withType;
+        }
+      };
       List<JField> _map_4 = ListExtensions.<PassiveResource, JField>map(_passiveResource_BasicComponent, _function_6);
       Iterables.<JField>addAll(results, _map_4);
       _xblockexpression = (results);
@@ -251,52 +251,52 @@ public class PojoBasicComponentClass extends PojoClass<BasicComponent> {
       Iterables.<JMethod>addAll(results, Collections.<JMethod>unmodifiableList(Lists.<JMethod>newArrayList(_withImplementation, _withImplementation_1)));
       EList<ServiceEffectSpecification> _serviceEffectSpecifications__BasicComponent = this.pcmEntity.getServiceEffectSpecifications__BasicComponent();
       final Function1<ServiceEffectSpecification,JMethod> _function = new Function1<ServiceEffectSpecification,JMethod>() {
-          public JMethod apply(final ServiceEffectSpecification it) {
-            JMethod _jMethod = new JMethod();
-            Signature _describedService__SEFF = it.getDescribedService__SEFF();
-            String _serviceName = JavaNames.serviceName(_describedService__SEFF);
-            JMethod _withName = _jMethod.withName(_serviceName);
-            String _stackframeType = PcmCommons.stackframeType();
-            JMethod _withReturnType = _withName.withReturnType(_stackframeType);
-            String _stackContextParameterList = PcmCommons.stackContextParameterList();
-            JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-            StringConcatenation _builder = new StringConcatenation();
-            EList<AbstractAction> _steps_Behaviour = ((ResourceDemandingBehaviour) it).getSteps_Behaviour();
-            AbstractAction _get = _steps_Behaviour.get(0);
-            String _actions = PcmActions.actions(_get);
-            _builder.append(_actions, "");
-            _builder.newLineIfNotEmpty();
-            _builder.append("return null;");
-            _builder.newLine();
-            JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
-            return _withImplementation;
-          }
-        };
+        public JMethod apply(final ServiceEffectSpecification it) {
+          JMethod _jMethod = new JMethod();
+          Signature _describedService__SEFF = it.getDescribedService__SEFF();
+          String _serviceName = JavaNames.serviceName(_describedService__SEFF);
+          JMethod _withName = _jMethod.withName(_serviceName);
+          String _stackframeType = PcmCommons.stackframeType();
+          JMethod _withReturnType = _withName.withReturnType(_stackframeType);
+          String _stackContextParameterList = PcmCommons.stackContextParameterList();
+          JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
+          StringConcatenation _builder = new StringConcatenation();
+          EList<AbstractAction> _steps_Behaviour = ((ResourceDemandingBehaviour) it).getSteps_Behaviour();
+          AbstractAction _get = _steps_Behaviour.get(0);
+          String _actions = PcmActions.actions(_get);
+          _builder.append(_actions, "");
+          _builder.newLineIfNotEmpty();
+          _builder.append("return null;");
+          _builder.newLine();
+          JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
+          return _withImplementation;
+        }
+      };
       List<JMethod> _map = ListExtensions.<ServiceEffectSpecification, JMethod>map(_serviceEffectSpecifications__BasicComponent, _function);
       Iterables.<JMethod>addAll(results, _map);
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function_1 = new Function1<ProvidedRole,Boolean>() {
-          public Boolean apply(final ProvidedRole it) {
-            boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-            return Boolean.valueOf(_isInstance);
-          }
-        };
+        public Boolean apply(final ProvidedRole it) {
+          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
+          return Boolean.valueOf(_isInstance);
+        }
+      };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function_1);
       final Function1<ProvidedRole,JMethod> _function_2 = new Function1<ProvidedRole,JMethod>() {
-          public JMethod apply(final ProvidedRole it) {
-            JMethod _jMethod = new JMethod();
-            String _portGetter = JavaNames.portGetter(it);
-            JMethod _withName = _jMethod.withName(_portGetter);
-            OperationInterface _providedInterface__OperationProvidedRole = ((OperationProvidedRole) it).getProvidedInterface__OperationProvidedRole();
-            String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-            JMethod _withReturnType = _withName.withReturnType(_fqn);
-            String _portMemberVar = JavaNames.portMemberVar(((OperationProvidedRole) it));
-            String _plus = ("return " + _portMemberVar);
-            String _plus_1 = (_plus + ";");
-            JMethod _withImplementation = _withReturnType.withImplementation(_plus_1);
-            return _withImplementation;
-          }
-        };
+        public JMethod apply(final ProvidedRole it) {
+          JMethod _jMethod = new JMethod();
+          String _portGetter = JavaNames.portGetter(it);
+          JMethod _withName = _jMethod.withName(_portGetter);
+          OperationInterface _providedInterface__OperationProvidedRole = ((OperationProvidedRole) it).getProvidedInterface__OperationProvidedRole();
+          String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
+          JMethod _withReturnType = _withName.withReturnType(_fqn);
+          String _portMemberVar = JavaNames.portMemberVar(((OperationProvidedRole) it));
+          String _plus = ("return " + _portMemberVar);
+          String _plus_1 = (_plus + ";");
+          JMethod _withImplementation = _withReturnType.withImplementation(_plus_1);
+          return _withImplementation;
+        }
+      };
       Iterable<JMethod> _map_1 = IterableExtensions.<ProvidedRole, JMethod>map(_filter, _function_2);
       Iterables.<JMethod>addAll(results, _map_1);
       JMethod _jMethod_2 = new JMethod();
