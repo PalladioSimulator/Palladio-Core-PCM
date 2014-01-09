@@ -56,7 +56,7 @@ public class PrototypePlatformTests {
 										// measurement
 
 		final int TEST_ITERATIONS = 1;
-		final double OUTLIER_RATIO = 0.1; // How many measurements may be
+		final double OUTLIER_RATIO = 1.0; // How many measurements may be
 										  // outside bounds
 		final int START_UNIT = 512;		  // Lower units cause larger relative overhead
 
