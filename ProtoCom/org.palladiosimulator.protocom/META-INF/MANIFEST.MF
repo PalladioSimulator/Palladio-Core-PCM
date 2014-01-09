@@ -5,29 +5,21 @@ Bundle-SymbolicName: org.palladiosimulator.protocom;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.palladiosimulator.protocom.Activator
 Require-Bundle: org.eclipse.ui,
- org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.core.runtime,
  org.eclipse.core.resources,
+ org.eclipse.xtend.lib,
+ com.google.guava,
+ org.eclipse.xtext.xbase.lib,
  org.eclipse.emf.common,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
- com.google.guava,
- org.eclipse.xtext.xbase.lib,
  org.eclipse.xtext.builder;bundle-version="2.4.0",
  org.eclipse.xtext;bundle-version="2.4.0",
+ org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.xtext.ui;bundle-version="2.4.1",
  org.eclipse.xtext.generator;bundle-version="2.4.1",
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtend.lib,
- org.eclipse.xtend.core;bundle-version="2.4.3",
- org.eclipse.xtend.doc;bundle-version="2.4.3",
- org.eclipse.xtend.ide;bundle-version="2.4.3",
- org.eclipse.xtend.m2e;bundle-version="2.4.3",
- org.eclipse.xtend.standalone;bundle-version="2.4.3",
- org.eclipse.xtend.util.stdlib;bundle-version="1.4.0",
- org.eclipse.xtend2.lib;bundle-version="2.4.3",
- org.eclipse.xtend.examples;bundle-version="2.4.3"
+ org.eclipse.xtext.xbase.lib
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.palladiosimulator.protocom.traverse.framework,
