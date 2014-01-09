@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.lang.java
+package org.palladiosimulator.protocom.lang.java
 
 import java.util.Collection
 

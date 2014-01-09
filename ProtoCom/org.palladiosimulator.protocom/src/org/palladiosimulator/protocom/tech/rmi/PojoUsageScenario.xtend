@@ -1,14 +1,14 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
-import com.palladio_simulator.protocom.lang.java.impl.JField
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.PcmCalls
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JField
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.PcmCalls
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import com.palladio_simulator.protocom.lang.java.util.PcmActions
+import org.palladiosimulator.protocom.lang.java.util.PcmActions
 import de.uka.ipd.sdq.pcm.usagemodel.Start
-import com.palladio_simulator.protocom.lang.java.util.PcmCommons
+import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 
 class PojoUsageScenario extends PojoClass<UsageScenario> {
 	
@@ -27,7 +27,7 @@ class PojoUsageScenario extends PojoClass<UsageScenario> {
 						«ENDFOR»
 					}
 
-					expRun = com.palladio_simulator.protocom.framework.experiment.ExperimentManager.getLatestExperimentRun();
+					expRun = org.palladiosimulator.protocom.framework.experiment.ExperimentManager.getLatestExperimentRun();
 					ctx.getStack().createAndPushNewStackFrame();
 
 					de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory probFunctionFactory = de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl.getInstance();
@@ -40,7 +40,7 @@ class PojoUsageScenario extends PojoClass<UsageScenario> {
 	
 	def String contextInit(OperationProvidedRole role) {
 		'''
-		«JavaNames::portMemberVar(role)» = («JavaNames::fqn(role.providedInterface__OperationProvidedRole)»)com.palladio_simulator.protocom.framework.registry.RmiRegistry.lookup("«JavaNames::portClassName(role)»_");
+		«JavaNames::portMemberVar(role)» = («JavaNames::fqn(role.providedInterface__OperationProvidedRole)»)org.palladiosimulator.protocom.framework.registry.RmiRegistry.lookup("«JavaNames::portClassName(role)»_");
 		'''
 	}
 	

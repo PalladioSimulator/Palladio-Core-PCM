@@ -1,7 +1,7 @@
-package com.palladio_simulator.protocom.lang.java.impl
+package org.palladiosimulator.protocom.lang.java.impl
 
-import com.palladio_simulator.protocom.lang.GeneratedFile
-import com.palladio_simulator.protocom.lang.java.IJCompilationUnit
+import org.palladiosimulator.protocom.lang.GeneratedFile
+import org.palladiosimulator.protocom.lang.java.IJCompilationUnit
 
 abstract class JCompilationUnit<E extends IJCompilationUnit> extends GeneratedFile<E> implements IJCompilationUnit {
 	

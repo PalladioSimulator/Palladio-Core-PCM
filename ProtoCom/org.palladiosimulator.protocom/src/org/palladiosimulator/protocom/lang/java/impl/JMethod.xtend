@@ -1,6 +1,6 @@
-package com.palladio_simulator.protocom.lang.java.impl
+package org.palladiosimulator.protocom.lang.java.impl
 
-import com.palladio_simulator.protocom.lang.java.IJMethod
+import org.palladiosimulator.protocom.lang.java.IJMethod
 
 /**
  * Class representing a Java method.

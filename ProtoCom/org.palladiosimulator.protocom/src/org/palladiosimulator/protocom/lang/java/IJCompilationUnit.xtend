@@ -1,7 +1,7 @@
-package com.palladio_simulator.protocom.lang.java
+package org.palladiosimulator.protocom.lang.java
 
 import java.util.Collection
-import com.palladio_simulator.protocom.lang.ICompilationUnit
+import org.palladiosimulator.protocom.lang.ICompilationUnit
 
 /**
  * Common attributes of Java compilation units.

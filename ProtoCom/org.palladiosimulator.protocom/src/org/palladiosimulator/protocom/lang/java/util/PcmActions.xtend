@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.lang.java.util
+package org.palladiosimulator.protocom.lang.java.util
 
 import de.uka.ipd.sdq.pcm.seff.StartAction
 import de.uka.ipd.sdq.pcm.seff.StopAction
@@ -127,11 +127,11 @@ class PcmActions {
 				double demand = ctx.evaluate("«JavaNames::specificationString(resourceDemand.specification_ParametericResourceDemand.specification)»", Double.class);
 				
 				«IF resourceDemand.requiredResource_ParametricResourceDemand.entityName.toLowerCase.matches("cpu")»
-					com.palladio_simulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry.singleton().getStrategyFor(com.palladio_simulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum.CPU).consume(demand);
+					org.palladiosimulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry.singleton().getStrategyFor(org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum.CPU).consume(demand);
 				«ELSEIF resourceDemand.requiredResource_ParametricResourceDemand.entityName.toLowerCase.matches("hdd")»
-					com.palladio_simulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry.singleton().getStrategyFor(com.palladio_simulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum.HDD).consume(demand);
+					org.palladiosimulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry.singleton().getStrategyFor(org.palladiosimulator.protocom.resourcestrategies.activeresource.ResourceTypeEnum.HDD).consume(demand);
 				«ELSEIF resourceDemand.requiredResource_ParametricResourceDemand.entityName.toLowerCase().matches("delay")»
-					com.palladio_simulator.protocom.framework.AbstractResourceEnvironment.performDelay(demand);
+					org.palladiosimulator.protocom.framework.AbstractResourceEnvironment.performDelay(demand);
 				«ELSE»
 					throw new java.lang.UnsupportedOperationException("Resourcetype not yet supported in prototype");
 				«ENDIF»

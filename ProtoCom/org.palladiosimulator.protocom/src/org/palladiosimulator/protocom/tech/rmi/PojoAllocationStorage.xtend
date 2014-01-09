@@ -1,8 +1,8 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 
 class PojoAllocationStorage extends PojoClass<Allocation> {
 	
@@ -11,7 +11,7 @@ class PojoAllocationStorage extends PojoClass<Allocation> {
 	}
 	
 	override superClass() {
-		"com.palladio_simulator.protocom.framework.AbstractAllocationStorage"
+		"org.palladiosimulator.protocom.framework.AbstractAllocationStorage"
 	}
 	
 	override packageName() {

@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ProtoCom Resourcestrategies
-Bundle-SymbolicName: com.palladio_simulator.protocom.resourcestrategies
+Bundle-SymbolicName: org.palladiosimulator.protocom.resourcestrategies
 Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: palladio-simulator.com
 Require-Bundle: org.apache.log4j,

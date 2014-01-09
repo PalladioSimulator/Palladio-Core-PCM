@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.traverse.framework.repository
+package org.palladiosimulator.protocom.traverse.framework.repository
 
 import de.uka.ipd.sdq.pcm.repository.Repository
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.pcm.repository.EventGroup
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
 import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.core.entity.Entity
-import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative
+import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative
 
 /**
  * Traversing Repository. Child elements are:

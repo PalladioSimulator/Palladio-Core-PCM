@@ -1,8 +1,8 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
 
 class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
 	
@@ -11,13 +11,13 @@ class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
 	}
 	
 	override superClass() {
-		'''com.palladio_simulator.protocom.framework.usage.AbstractClosedScenarioThread'''
+		'''org.palladiosimulator.protocom.framework.usage.AbstractClosedScenarioThread'''
 	}
 	
 	override constructors() {
 		#[
 			new JMethod()
-				.withParameters('''de.uka.ipd.sdq.sensorframework.entities.Experiment exp, de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun, com.palladio_simulator.protocom.framework.utils.RunProperties runProps''')
+				.withParameters('''de.uka.ipd.sdq.sensorframework.entities.Experiment exp, de.uka.ipd.sdq.sensorframework.entities.ExperimentRun expRun, org.palladiosimulator.protocom.framework.utils.RunProperties runProps''')
 				.withImplementation('''super(exp, expRun, "Response Time of «pcmEntity.entityName»", runProps);''')
 		]
 	}
@@ -30,14 +30,14 @@ class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
 		#[
 			new JMethod()
 				.withName("getScenarioRunner")
-				.withParameters("com.palladio_simulator.protocom.framework.utils.RunProperties runProps")
+				.withParameters("org.palladiosimulator.protocom.framework.utils.RunProperties runProps")
 				.withReturnType("Runnable")
 				.withImplementation('''
 					if (runProps.hasOption('R')) {
-						com.palladio_simulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
+						org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(runProps.getOptionValue('R'));
 					}
 					else {
-						com.palladio_simulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(com.palladio_simulator.protocom.framework.registry.RmiRegistry.LOCALHOST);
+						org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(org.palladiosimulator.protocom.framework.registry.RmiRegistry.LOCALHOST);
 					}
 					return new «JavaNames::fqn(pcmEntity)»();
 				''')

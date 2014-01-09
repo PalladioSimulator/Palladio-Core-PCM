@@ -1,7 +1,7 @@
-package com.palladio_simulator.protocom.traverse.framework.resourceenvironment
+package org.palladiosimulator.protocom.traverse.framework.resourceenvironment
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
-import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative
+import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative
 
 /**
  * Entry point for transformations of Resource Environment entities.

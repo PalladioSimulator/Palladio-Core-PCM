@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.lang.java
+package org.palladiosimulator.protocom.lang.java
 
 /**
  * Nothing special in here yet. So here's a picture of a rabbit instead:

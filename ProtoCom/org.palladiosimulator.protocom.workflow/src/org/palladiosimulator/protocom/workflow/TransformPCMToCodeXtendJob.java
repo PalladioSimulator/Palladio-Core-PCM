@@ -22,11 +22,11 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
-import com.palladio_simulator.protocom.traverse.framework.allocation.XAllocation;
-import com.palladio_simulator.protocom.traverse.framework.repository.XRepository;
-import com.palladio_simulator.protocom.traverse.framework.resourceenvironment.XResourceEnvironment;
-import com.palladio_simulator.protocom.traverse.framework.system.XSystem;
-import com.palladio_simulator.protocom.traverse.framework.usage.XUsageScenario;
+import org.palladiosimulator.protocom.traverse.framework.allocation.XAllocation;
+import org.palladiosimulator.protocom.traverse.framework.repository.XRepository;
+import org.palladiosimulator.protocom.traverse.framework.resourceenvironment.XResourceEnvironment;
+import org.palladiosimulator.protocom.traverse.framework.system.XSystem;
+import org.palladiosimulator.protocom.traverse.framework.usage.XUsageScenario;
 
 
 public class TransformPCMToCodeXtendJob extends

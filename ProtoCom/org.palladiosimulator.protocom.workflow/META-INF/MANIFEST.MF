@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ProtoCom Workflow
-Bundle-SymbolicName: com.palladio_simulator.protocom.workflow;singleton:=true
+Bundle-SymbolicName: org.palladiosimulator.protocom.workflow;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
@@ -12,7 +12,7 @@ Require-Bundle: org.eclipse.ui,
  com.google.inject;bundle-version="3.0.0",
  org.eclipse.xtext.generator;bundle-version="2.4.2",
  de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
- com.palladio_simulator.protocom;bundle-version="1.0.0"
+ org.palladiosimulator.protocom;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Import-Package: de.uka.ipd.sdq.pcm.dialogs.selection,
  de.uka.ipd.sdq.workflow.pcm,

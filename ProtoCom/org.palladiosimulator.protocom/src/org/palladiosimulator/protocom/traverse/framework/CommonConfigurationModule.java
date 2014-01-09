@@ -12,7 +12,7 @@ import org.eclipse.xtext.ui.resource.Storage2UriMapperImpl;
 import com.google.inject.AbstractModule;
 import com.google.inject.Singleton;
 import com.google.inject.name.Names;
-import com.palladio_simulator.protocom.FSAProvider;
+import org.palladiosimulator.protocom.FSAProvider;
 
 /**
  * Common binding for Google Guice. It includes every binding needed by 

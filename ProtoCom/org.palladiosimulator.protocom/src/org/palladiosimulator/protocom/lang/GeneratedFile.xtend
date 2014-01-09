@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.lang
+package org.palladiosimulator.protocom.lang
 
 import com.google.inject.Inject
 import com.google.inject.Injector

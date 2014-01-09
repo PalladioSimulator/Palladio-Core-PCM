@@ -1,13 +1,13 @@
-package com.palladio_simulator.protocom.traverse.jse.repository
+package org.palladiosimulator.protocom.traverse.jse.repository
 
-import com.palladio_simulator.protocom.traverse.framework.repository.XCompositeComponent
-import com.palladio_simulator.protocom.lang.java.impl.JInterface
-import com.palladio_simulator.protocom.lang.java.impl.JClass
-import com.palladio_simulator.protocom.tech.rmi.PojoCompositeComponentClass
-import com.palladio_simulator.protocom.tech.rmi.PojoComposedStructureContextClass
-import com.palladio_simulator.protocom.tech.rmi.PojoComposedStructureContextInterface
-import com.palladio_simulator.protocom.tech.rmi.PojoComposedStructureInterface
-import com.palladio_simulator.protocom.tech.rmi.PojoComposedStructurePortClass
+import org.palladiosimulator.protocom.traverse.framework.repository.XCompositeComponent
+import org.palladiosimulator.protocom.lang.java.impl.JInterface
+import org.palladiosimulator.protocom.lang.java.impl.JClass
+import org.palladiosimulator.protocom.tech.rmi.PojoCompositeComponentClass
+import org.palladiosimulator.protocom.tech.rmi.PojoComposedStructureContextClass
+import org.palladiosimulator.protocom.tech.rmi.PojoComposedStructureContextInterface
+import org.palladiosimulator.protocom.tech.rmi.PojoComposedStructureInterface
+import org.palladiosimulator.protocom.tech.rmi.PojoComposedStructurePortClass
 
 /**
  * An CompositeComponent translates into the following Java compilation units:

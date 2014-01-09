@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.lang
+package org.palladiosimulator.protocom.lang
 
 /**
  * This interface is the smallest common subset of attributes for generated 

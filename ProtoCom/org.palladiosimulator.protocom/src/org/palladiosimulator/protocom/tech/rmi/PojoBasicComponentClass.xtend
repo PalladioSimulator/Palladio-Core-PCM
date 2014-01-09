@@ -1,13 +1,13 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
-import com.palladio_simulator.protocom.lang.java.impl.JField
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.PcmCommons
-import com.palladio_simulator.protocom.lang.java.util.PcmActions
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JField
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.PcmCommons
+import org.palladiosimulator.protocom.lang.java.util.PcmActions
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 
 class PojoBasicComponentClass extends PojoClass<BasicComponent> {
@@ -134,13 +134,13 @@ class PojoBasicComponentClass extends PojoClass<BasicComponent> {
 			.withParameters("String[] args")
 			.withStaticModifier		
 			.withImplementation('''
-				String ip = com.palladio_simulator.protocom.framework.registry.RmiRegistry.getIpFromArguments(args);
-				int port = com.palladio_simulator.protocom.framework.registry.RmiRegistry.getPortFromArguments(args);
+				String ip = org.palladiosimulator.protocom.framework.registry.RmiRegistry.getIpFromArguments(args);
+				int port = org.palladiosimulator.protocom.framework.registry.RmiRegistry.getPortFromArguments(args);
 				
-				String assemblyContext = com.palladio_simulator.protocom.framework.AbstractMain.getAssemblyContextFromArguments(args);
+				String assemblyContext = org.palladiosimulator.protocom.framework.AbstractMain.getAssemblyContextFromArguments(args);
 				
-				com.palladio_simulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(ip);
-				com.palladio_simulator.protocom.framework.registry.RmiRegistry.setRegistryPort(port);
+				org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRemoteAddress(ip);
+				org.palladiosimulator.protocom.framework.registry.RmiRegistry.setRegistryPort(port);
 				
 				new «JavaNames::fqn(pcmEntity)»(assemblyContext);
 			''')

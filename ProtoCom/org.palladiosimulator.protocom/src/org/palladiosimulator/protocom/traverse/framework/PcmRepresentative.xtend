@@ -1,10 +1,10 @@
-package com.palladio_simulator.protocom.traverse.framework
+package org.palladiosimulator.protocom.traverse.framework
 
 import com.google.inject.Inject
 import com.google.inject.Injector
 import java.util.List
-import com.palladio_simulator.protocom.lang.GeneratedFile
-import com.palladio_simulator.protocom.lang.ICompilationUnit
+import org.palladiosimulator.protocom.lang.GeneratedFile
+import org.palladiosimulator.protocom.lang.ICompilationUnit
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement
 
 /**

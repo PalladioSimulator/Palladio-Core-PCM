@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom
+package org.palladiosimulator.protocom
 
 import com.google.inject.Provider
 import org.eclipse.xtext.generator.AbstractFileSystemAccess2

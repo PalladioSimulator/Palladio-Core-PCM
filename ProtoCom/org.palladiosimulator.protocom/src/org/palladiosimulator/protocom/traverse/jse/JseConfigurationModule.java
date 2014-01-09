@@ -2,22 +2,22 @@ package org.palladiosimulator.protocom.traverse.jse;
 
 import org.palladiosimulator.protocom.traverse.framework.CommonConfigurationModule;
 
-import com.palladio_simulator.protocom.traverse.framework.allocation.XAllocation;
-import com.palladio_simulator.protocom.traverse.framework.repository.XBasicComponent;
-import com.palladio_simulator.protocom.traverse.framework.repository.XCompositeComponent;
-import com.palladio_simulator.protocom.traverse.framework.repository.XInfrastructureInterface;
-import com.palladio_simulator.protocom.traverse.framework.repository.XOperationInterface;
-import com.palladio_simulator.protocom.traverse.framework.resourceenvironment.XResourceEnvironment;
-import com.palladio_simulator.protocom.traverse.framework.system.XSystem;
-import com.palladio_simulator.protocom.traverse.framework.usage.XUsageScenario;
-import com.palladio_simulator.protocom.traverse.jse.allocation.JseAllocation;
-import com.palladio_simulator.protocom.traverse.jse.repository.JseBasicComponent;
-import com.palladio_simulator.protocom.traverse.jse.repository.JseCompositeComponent;
-import com.palladio_simulator.protocom.traverse.jse.repository.JseInfrastructureInterface;
-import com.palladio_simulator.protocom.traverse.jse.repository.JseOperationInterface;
-import com.palladio_simulator.protocom.traverse.jse.resourceenvironment.JseResourceEnvironment;
-import com.palladio_simulator.protocom.traverse.jse.system.JseSystem;
-import com.palladio_simulator.protocom.traverse.jse.usage.JseUsageScenario;
+import org.palladiosimulator.protocom.traverse.framework.allocation.XAllocation;
+import org.palladiosimulator.protocom.traverse.framework.repository.XBasicComponent;
+import org.palladiosimulator.protocom.traverse.framework.repository.XCompositeComponent;
+import org.palladiosimulator.protocom.traverse.framework.repository.XInfrastructureInterface;
+import org.palladiosimulator.protocom.traverse.framework.repository.XOperationInterface;
+import org.palladiosimulator.protocom.traverse.framework.resourceenvironment.XResourceEnvironment;
+import org.palladiosimulator.protocom.traverse.framework.system.XSystem;
+import org.palladiosimulator.protocom.traverse.framework.usage.XUsageScenario;
+import org.palladiosimulator.protocom.traverse.jse.allocation.JseAllocation;
+import org.palladiosimulator.protocom.traverse.jse.repository.JseBasicComponent;
+import org.palladiosimulator.protocom.traverse.jse.repository.JseCompositeComponent;
+import org.palladiosimulator.protocom.traverse.jse.repository.JseInfrastructureInterface;
+import org.palladiosimulator.protocom.traverse.jse.repository.JseOperationInterface;
+import org.palladiosimulator.protocom.traverse.jse.resourceenvironment.JseResourceEnvironment;
+import org.palladiosimulator.protocom.traverse.jse.system.JseSystem;
+import org.palladiosimulator.protocom.traverse.jse.usage.JseUsageScenario;
 
 /**
  * Google Guice binding for Java Standard Edition Protocom.

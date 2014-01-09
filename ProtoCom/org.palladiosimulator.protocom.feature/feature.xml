@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
-      id="com.palladio_simulator.protocom.feature"
+      id="org.palladiosimulator.protocom.feature"
       label="ProtoCom CBSE Prototype"
       version="3.5.0.qualifier"
       provider-name="palladio-simulator.com">
@@ -238,7 +238,7 @@ litigation.
       <import plugin="com.google.inject" version="3.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtext.generator" version="2.4.2" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcm" version="3.2.0" match="greaterOrEqual"/>
-      <import plugin="com.palladio_simulator.protocom" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.protocom" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.common"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.junit" version="4.11.0" match="greaterOrEqual"/>
@@ -255,21 +255,21 @@ litigation.
    </requires>
 
    <plugin
-         id="com.palladio_simulator.protocom.workflow"
+         id="org.palladiosimulator.protocom.workflow"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.palladio_simulator.protocom.framework"
+         id="org.palladiosimulator.protocom.framework"
          download-size="0"
          install-size="0"
          version="0.0.0"
          unpack="false"/>
 
    <plugin
-         id="com.palladio_simulator.protocom.resourcestrategies"
+         id="org.palladiosimulator.protocom.resourcestrategies"
          download-size="0"
          install-size="0"
          version="0.0.0"
@@ -283,7 +283,7 @@ litigation.
          unpack="false"/>
 
    <plugin
-         id="com.palladio_simulator.protocom"
+         id="org.palladiosimulator.protocom"
          download-size="0"
          install-size="0"
          version="0.0.0"

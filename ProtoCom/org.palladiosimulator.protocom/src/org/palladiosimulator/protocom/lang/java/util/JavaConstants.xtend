@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.lang.java.util
+package org.palladiosimulator.protocom.lang.java.util
 
 /**
  * Java-related constants.

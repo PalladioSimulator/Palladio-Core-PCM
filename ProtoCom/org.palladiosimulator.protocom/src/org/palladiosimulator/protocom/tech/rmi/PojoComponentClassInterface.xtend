@@ -1,10 +1,10 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.PcmCommons
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 
 /**
  * Defining the content of component implementation interfaces (the interfaces for the 
@@ -23,7 +23,7 @@ class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
 	}
 	
 	override interfaces() {
-		#["com.palladio_simulator.protocom.framework.IComponent"]
+		#["org.palladiosimulator.protocom.framework.IComponent"]
 	}
 	
 	override methods() {

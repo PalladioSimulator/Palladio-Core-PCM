@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ProtoCom
-Bundle-SymbolicName: com.palladio_simulator.protocom;singleton:=true
+Bundle-SymbolicName: org.palladiosimulator.protocom;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: org.palladiosimulator.protocom.Activator
 Require-Bundle: org.eclipse.ui,

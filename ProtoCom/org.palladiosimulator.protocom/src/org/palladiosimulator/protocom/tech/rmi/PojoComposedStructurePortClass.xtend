@@ -1,13 +1,13 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
-import com.palladio_simulator.protocom.lang.java.impl.JField
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.PcmCommons
-import com.palladio_simulator.protocom.lang.java.util.JavaConstants
+import org.palladiosimulator.protocom.lang.java.impl.JField
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.PcmCommons
+import org.palladiosimulator.protocom.lang.java.util.JavaConstants
 
 class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
 	
@@ -40,7 +40,7 @@ class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
 	
 	override interfaces() {
 		#[ 
-			"com.palladio_simulator.protocom.framework.port.IPort<" + JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole) + ">",
+			"org.palladiosimulator.protocom.framework.port.IPort<" + JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole) + ">",
 			JavaNames::fqn((pcmEntity as OperationProvidedRole).providedInterface__OperationProvidedRole),
 			JavaConstants::RMI_REMOTE_INTERFACE, 
 			JavaConstants::SERIALIZABLE_INTERFACE
@@ -55,8 +55,8 @@ class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
 				.withImplementation('''
 					this.myInnerPort = myInnerPort;
 					this.myCompositeComponent = myComponent;
-					com.palladio_simulator.protocom.framework.registry.RmiRegistry.registerPort(com.palladio_simulator.protocom.framework.registry.RmiRegistry.getRemoteAddress(),
-					com.palladio_simulator.protocom.framework.registry.RmiRegistry.getRegistryPort(), this, "«JavaNames::portClassName(pcmEntity)»_" + assemblyContext);
+					org.palladiosimulator.protocom.framework.registry.RmiRegistry.registerPort(org.palladiosimulator.protocom.framework.registry.RmiRegistry.getRemoteAddress(),
+					org.palladiosimulator.protocom.framework.registry.RmiRegistry.getRegistryPort(), this, "«JavaNames::portClassName(pcmEntity)»_" + assemblyContext);
 					''')
 		]
 	}

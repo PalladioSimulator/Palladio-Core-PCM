@@ -1,6 +1,6 @@
-package com.palladio_simulator.protocom.lang.java.impl
+package org.palladiosimulator.protocom.lang.java.impl
 
-import com.palladio_simulator.protocom.lang.java.IJField
+import org.palladiosimulator.protocom.lang.java.IJField
 
 /**
  * Class representing a field in Java. 

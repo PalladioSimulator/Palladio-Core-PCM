@@ -1,8 +1,8 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
-import com.palladio_simulator.protocom.tech.ConceptMapping
-import com.palladio_simulator.protocom.lang.java.IJClass
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.tech.ConceptMapping
+import org.palladiosimulator.protocom.lang.java.IJClass
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import de.uka.ipd.sdq.pcm.core.entity.Entity
 
 /**

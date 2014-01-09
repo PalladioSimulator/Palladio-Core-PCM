@@ -1,7 +1,7 @@
-package com.palladio_simulator.protocom.traverse.framework.repository
+package org.palladiosimulator.protocom.traverse.framework.repository
 
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
-import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative
+import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative
 
 /**
  * Leaf for Infrastructure Interfaces.

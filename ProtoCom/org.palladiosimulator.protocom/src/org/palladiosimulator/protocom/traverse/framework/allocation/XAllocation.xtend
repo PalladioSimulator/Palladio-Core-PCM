@@ -1,7 +1,7 @@
-package com.palladio_simulator.protocom.traverse.framework.allocation
+package org.palladiosimulator.protocom.traverse.framework.allocation
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation
-import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative
+import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative
 
 /**
  * Entry point for transformations of Allocation entities.

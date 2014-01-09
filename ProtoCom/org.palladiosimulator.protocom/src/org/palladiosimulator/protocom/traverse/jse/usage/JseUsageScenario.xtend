@@ -1,10 +1,10 @@
-package com.palladio_simulator.protocom.traverse.jse.usage
+package org.palladiosimulator.protocom.traverse.jse.usage
 
-import com.palladio_simulator.protocom.traverse.framework.usage.XUsageScenario
-import com.palladio_simulator.protocom.lang.java.impl.JClass
-import com.palladio_simulator.protocom.tech.rmi.PojoUsageScenario
-import com.palladio_simulator.protocom.tech.rmi.PojoUsageClosedScenarioThread
-import com.palladio_simulator.protocom.tech.rmi.PojoSystemMain
+import org.palladiosimulator.protocom.traverse.framework.usage.XUsageScenario
+import org.palladiosimulator.protocom.lang.java.impl.JClass
+import org.palladiosimulator.protocom.tech.rmi.PojoUsageScenario
+import org.palladiosimulator.protocom.tech.rmi.PojoUsageClosedScenarioThread
+import org.palladiosimulator.protocom.tech.rmi.PojoSystemMain
 
 class JseUsageScenario extends XUsageScenario {
 	

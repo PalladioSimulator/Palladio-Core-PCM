@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.tech
+package org.palladiosimulator.protocom.tech
 
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement
 

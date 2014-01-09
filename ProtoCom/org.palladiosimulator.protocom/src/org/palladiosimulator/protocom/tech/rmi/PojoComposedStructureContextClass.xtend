@@ -1,10 +1,10 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import com.palladio_simulator.protocom.lang.java.impl.JField
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.JavaConstants
+import org.palladiosimulator.protocom.lang.java.impl.JField
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaConstants
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
 
 class PojoComposedStructureContextClass extends PojoClass<InterfaceRequiringEntity> {

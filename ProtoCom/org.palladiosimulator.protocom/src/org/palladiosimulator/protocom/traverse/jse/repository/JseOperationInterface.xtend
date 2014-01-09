@@ -1,8 +1,8 @@
-package com.palladio_simulator.protocom.traverse.jse.repository
+package org.palladiosimulator.protocom.traverse.jse.repository
 
-import com.palladio_simulator.protocom.traverse.framework.repository.XOperationInterface
-import com.palladio_simulator.protocom.lang.java.impl.JInterface
-import com.palladio_simulator.protocom.tech.rmi.PojoOperationInterface
+import org.palladiosimulator.protocom.traverse.framework.repository.XOperationInterface
+import org.palladiosimulator.protocom.lang.java.impl.JInterface
+import org.palladiosimulator.protocom.tech.rmi.PojoOperationInterface
 
 /**
  * An Operation Interface translates into the following Java compilation units:

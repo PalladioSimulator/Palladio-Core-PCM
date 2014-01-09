@@ -1,9 +1,9 @@
-package com.palladio_simulator.protocom.lang.java.impl
+package org.palladiosimulator.protocom.lang.java.impl
 
 import java.util.Collection
-import com.palladio_simulator.protocom.lang.java.IJClass
-import com.palladio_simulator.protocom.lang.java.IJMethod
-import com.palladio_simulator.protocom.lang.java.IJField
+import org.palladiosimulator.protocom.lang.java.IJClass
+import org.palladiosimulator.protocom.lang.java.IJMethod
+import org.palladiosimulator.protocom.lang.java.IJField
 
 class JClass extends JCompilationUnit<IJClass> implements IJClass {
 

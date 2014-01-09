@@ -1,4 +1,4 @@
-package com.palladio_simulator.protocom.lang.java.util
+package org.palladiosimulator.protocom.lang.java.util
 
 //import de.uka.ipd.sdq.completions.Completion
 import de.uka.ipd.sdq.pcm.core.entity.Entity

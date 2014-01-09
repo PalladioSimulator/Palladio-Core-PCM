@@ -1,8 +1,8 @@
-package com.palladio_simulator.protocom.traverse.jse.allocation
+package org.palladiosimulator.protocom.traverse.jse.allocation
 
-import com.palladio_simulator.protocom.traverse.framework.allocation.XAllocation
-import com.palladio_simulator.protocom.lang.java.impl.JClass
-import com.palladio_simulator.protocom.tech.rmi.PojoAllocationStorage
+import org.palladiosimulator.protocom.traverse.framework.allocation.XAllocation
+import org.palladiosimulator.protocom.lang.java.impl.JClass
+import org.palladiosimulator.protocom.tech.rmi.PojoAllocationStorage
 
 /**
  * An Allocation for JSE translates into one additional container information file.

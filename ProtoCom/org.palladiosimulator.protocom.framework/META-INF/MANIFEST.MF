@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: ProtoCom Framework
-Bundle-SymbolicName: com.palladio_simulator.protocom.framework
+Bundle-SymbolicName: org.palladiosimulator.protocom.framework
 Bundle-Version: 1.0.0.qualifier
 Export-Package: .,
  org.palladiosimulator.protocom.framework,
@@ -13,7 +13,7 @@ Export-Package: .,
  org.palladiosimulator.protocom.framework.utils,
  org.palladiosimulator.protocom.framework.visitor
 Require-Bundle: org.apache.log4j,
- com.palladio_simulator.protocom.resourcestrategies,
+ org.palladiosimulator.protocom.resourcestrategies,
  de.uka.ipd.sdq.sensorframework,
  org.apache.commons.cli;visibility:=reexport,
  de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0",

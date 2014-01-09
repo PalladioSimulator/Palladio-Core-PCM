@@ -1,9 +1,9 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.tech.ConceptMapping
-import com.palladio_simulator.protocom.lang.java.IJClass
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.tech.ConceptMapping
+import org.palladiosimulator.protocom.lang.java.IJClass
 
 /**
  * Creates a configuration file for the ResourceEnvironment.
@@ -19,7 +19,7 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 	}
 	
 	override superClass() {
-		"com.palladio_simulator.protocom.framework.AbstractResourceEnvironment"
+		"org.palladiosimulator.protocom.framework.AbstractResourceEnvironment"
 	}
 	
 	override packageName() {
@@ -34,10 +34,10 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 		#[
 			new JMethod()
 				.withName("setUpResources")
-				.withParameters("String cpuStrategy, String hddStrategy, String calibrationPath, com.palladio_simulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum accuracy")
+				.withParameters("String cpuStrategy, String hddStrategy, String calibrationPath, org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum accuracy")
 				.withStaticModifier
 				.withImplementation('''
-					String idContainer = com.palladio_simulator.protocom.framework.AbstractAllocationStorage.getActiveContainer();
+					String idContainer = org.palladiosimulator.protocom.framework.AbstractAllocationStorage.getActiveContainer();
 					«FOR container : pcmEntity.resourceContainer_ResourceEnvironment SEPARATOR " else"»
 					// Active resources of container «container.entityName»
 					if (idContainer.equals("«container.id»")) {

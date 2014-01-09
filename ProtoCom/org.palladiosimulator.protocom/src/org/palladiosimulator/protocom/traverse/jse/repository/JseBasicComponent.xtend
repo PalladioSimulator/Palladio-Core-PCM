@@ -1,13 +1,13 @@
-package com.palladio_simulator.protocom.traverse.jse.repository
+package org.palladiosimulator.protocom.traverse.jse.repository
 
-import com.palladio_simulator.protocom.traverse.framework.repository.XBasicComponent
-import com.palladio_simulator.protocom.lang.java.impl.JInterface
-import com.palladio_simulator.protocom.lang.java.impl.JClass
-import com.palladio_simulator.protocom.tech.rmi.PojoComponentClassInterface
-import com.palladio_simulator.protocom.tech.rmi.PojoBasicComponentClass
-import com.palladio_simulator.protocom.tech.rmi.PojoBasicComponentContextClass
-import com.palladio_simulator.protocom.tech.rmi.PojoBasicComponentContextInterface
-import com.palladio_simulator.protocom.tech.rmi.PojoBasicComponentPortClass
+import org.palladiosimulator.protocom.traverse.framework.repository.XBasicComponent
+import org.palladiosimulator.protocom.lang.java.impl.JInterface
+import org.palladiosimulator.protocom.lang.java.impl.JClass
+import org.palladiosimulator.protocom.tech.rmi.PojoComponentClassInterface
+import org.palladiosimulator.protocom.tech.rmi.PojoBasicComponentClass
+import org.palladiosimulator.protocom.tech.rmi.PojoBasicComponentContextClass
+import org.palladiosimulator.protocom.tech.rmi.PojoBasicComponentContextInterface
+import org.palladiosimulator.protocom.tech.rmi.PojoBasicComponentPortClass
 
 /**
  * A Basic Component translates into the following Java compilation units:

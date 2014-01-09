@@ -1,11 +1,11 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import com.palladio_simulator.protocom.tech.ConceptMapping
-import com.palladio_simulator.protocom.lang.java.IJInterface
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.JavaConstants
+import org.palladiosimulator.protocom.tech.ConceptMapping
+import org.palladiosimulator.protocom.lang.java.IJInterface
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaConstants
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
 
 /**

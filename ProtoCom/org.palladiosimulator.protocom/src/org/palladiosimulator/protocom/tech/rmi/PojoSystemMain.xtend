@@ -1,9 +1,9 @@
-package com.palladio_simulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.rmi
 
-import com.palladio_simulator.protocom.lang.java.impl.JMethod
-import com.palladio_simulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import com.palladio_simulator.protocom.lang.java.util.PcmCalls
+import org.palladiosimulator.protocom.lang.java.util.PcmCalls
 
 class PojoSystemMain extends PojoClass<UsageScenario> {
 
@@ -12,7 +12,7 @@ class PojoSystemMain extends PojoClass<UsageScenario> {
 	}
 	
 	override superClass() {
-		"com.palladio_simulator.protocom.framework.AbstractMain"
+		"org.palladiosimulator.protocom.framework.AbstractMain"
 	}
 		
 	override packageName() {

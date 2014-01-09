@@ -1,6 +1,6 @@
-package com.palladio_simulator.protocom.traverse.framework.usage
+package org.palladiosimulator.protocom.traverse.framework.usage
 
-import com.palladio_simulator.protocom.traverse.framework.PcmRepresentative
+import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
 
 /**
