@@ -3,7 +3,7 @@
       id="org.palladiosimulator.protocom.feature"
       label="ProtoCom CBSE Prototype"
       version="3.5.0.qualifier"
-      provider-name="palladio-simulator.com">
+      provider-name="palladiosimulator.org">
 
    <description url="http://sdq.ipd.kit.edu">
       Code generator for PCM models for QoS prototypes or POJO/EJB/RMI

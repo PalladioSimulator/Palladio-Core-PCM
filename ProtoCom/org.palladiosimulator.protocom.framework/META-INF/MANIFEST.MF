@@ -18,5 +18,5 @@ Require-Bundle: org.apache.log4j,
  org.apache.commons.cli;visibility:=reexport,
  de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0",
  de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0"
-Bundle-Vendor: palladio-simulator.com
+Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7

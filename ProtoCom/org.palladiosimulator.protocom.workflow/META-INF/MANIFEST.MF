@@ -23,4 +23,4 @@ Import-Package: de.uka.ipd.sdq.pcm.dialogs.selection,
  org.eclipse.emf.ecore.resource,
  org.eclipse.emf.ecore.resource.impl,
  org.eclipse.emf.ecore.util
-Bundle-Vendor: palladio-simulator.com
+Bundle-Vendor: palladiosimulator.org
