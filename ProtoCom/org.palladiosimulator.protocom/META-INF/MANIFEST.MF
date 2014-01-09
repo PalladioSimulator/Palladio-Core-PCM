@@ -19,9 +19,7 @@ Require-Bundle: org.eclipse.ui,
  org.apache.log4j;bundle-version="1.2.15",
  org.eclipse.xtext.ui;bundle-version="2.4.1",
  org.eclipse.xtext.generator;bundle-version="2.4.1",
- org.eclipse.xtext.xbase.lib,
- org.eclipse.xtend.core;bundle-version="2.4.3",
- org.eclipse.xtend.ide;bundle-version="2.4.3"
+ org.eclipse.xtext.xbase.lib
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: org.palladiosimulator.protocom.traverse.framework,
