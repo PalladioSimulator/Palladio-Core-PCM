@@ -53,7 +53,7 @@ public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJ
 		 "de.uka.ipd.sdq.pipesandfilters.framework",		 
 		 "org.palladiosimulator.protocom.framework",
 		 "org.palladiosimulator.protocom.resourcestrategies",
-		 "org.junit4",
+		 "org.junit",
 		 "de.uka.ipd.sdq.stoex",
 		 "de.uka.ipd.sdq.stoex.analyser",
 		 "de.uka.ipd.sdq.pcm.stochasticexpressions",
