@@ -52,7 +52,7 @@
          version="0.0.0"/>
 
    <includes
-         id="com.palladio_simulator.protocom.feature"
+         id="org.palladiosimulator.protocom.feature"
          version="0.0.0"/>
 
    <plugin
@@ -87,10 +87,11 @@
          unpack="false"/>
 
    <plugin
-         id="com.palladio_simulator.protocom.framework.tests"
+         id="org.palladiosimulator.protocom.framework.tests"
          download-size="0"
          install-size="0"
          version="0.0.0"
+         fragment="true"
          unpack="false"/>
 
 </feature>
