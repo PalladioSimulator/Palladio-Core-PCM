@@ -24,7 +24,7 @@ import org.jscience.physics.amount.Amount;
  *       In Performance Evaluation: Metrics, Models and Benchmarks (SIPEW 2008), volume 5119 of Lecture Notes in Computer Science, pages 79-98. 
  *       Springer-Verlag Berlin Heidelberg, 2008.
  * 
- * @author Tobias Denker, Anne Koziolek, Steffen Becker, Thomas Zolynski
+ * @author Tobias Denker, Anne Koziolek, Steffen Becker, Thomas Zolynski, Sebastian Lehrig
  */
 public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	
@@ -220,10 +220,16 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		// Create path if it does not exist
 		if (!path.exists())
 		{
-			path.mkdirs();
-			logger.info("Created Calibration Path "+path);
+			if(path.mkdirs())
+			{
+			    logger.info("Created Calibration Path "+path);
+			}
+			else
+			{
+			    logger.error("Could not create "+path+". Assure you have the rights to create and write to this folder.");
+			    System.exit(0);
+			}
 		}
-
 		return path;
 	}
 
