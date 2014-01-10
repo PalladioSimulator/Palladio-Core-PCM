@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <feature
       id="org.palladiosimulator.protocom.feature"
-      label="ProtoCom CBSE Prototype"
+      label="ProtoCom CBSE Performance Prototypes and Code Stubs"
       version="3.5.0.qualifier"
       provider-name="palladiosimulator.org">
 
    <description url="http://sdq.ipd.kit.edu">
-      Code generator for PCM models for QoS prototypes or POJO/EJB/RMI
+      Code generator for PCM models for QoS performance prototypes or code stubs for Java SE (RMI) and Java EE (EJB)
 implementations.
    </description>
 

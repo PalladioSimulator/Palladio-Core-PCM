@@ -56,9 +56,9 @@ public class ConstantsContainer {
 	public static final String EJBSOUT_PATH = "ejbsOutpath";
 
 	public static final String MODEL_TO_TEXT_CHOICE = "modelToTextTarget";
-	public static final String MODEL_TO_TEXT_TARGET_EJB = "Model Target EJB";
-	public static final String MODEL_TO_TEXT_TARGET_STUBS = "Model Target Code Stubs";
-	public static final String MODEL_TO_TEXT_TARGET_PROTO = "Model Target Protocom";
+	public static final String MODEL_TO_TEXT_TARGET_JAVA_EE_EJB = "Java EE EJB Performance Prototype";
+	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI_STUBS = "Java SE RMI Code Stubs";
+	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI = "Java SE RMI Performance Prototype";
 
 	// Simulation features
 	public static final String FEATURE_CONFIG = "featureConfig";

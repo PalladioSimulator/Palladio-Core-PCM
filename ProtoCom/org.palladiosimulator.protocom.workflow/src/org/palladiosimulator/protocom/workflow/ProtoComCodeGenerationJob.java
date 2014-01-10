@@ -12,8 +12,8 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
 
 /**
- * Main job for the SDQ workflow engine which will run a SimuComSimulation
- * @author Steffen
+ * Main job for the SDQ workflow engine which will run a ProtoCom generation
+ * @author Steffen Becker, Thomas Zolynski, Sebastian Lehrig
  */
 public class ProtoComCodeGenerationJob 
 extends SequentialBlackboardInteractingJob<MDSDBlackboard>
@@ -47,18 +47,19 @@ implements IBlackboardInteractingJob<MDSDBlackboard> {
 		// plugin project twice! [zolynski]
 		//this.addJob(new CreatePluginProjectJob(configuration));
 
-		// 4. Generate the plugin's code using oAW
-//		this.addJob(new TransformPCMToCodeJob(configuration));
+		// 4. Generate the plugin's code using Xtend
 		this.addJob(new TransformPCMToCodeXtendJob(configuration));
 
+		// 5. Generate MANIFEST.MF file
 		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO ||
 				configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
 			this.addJob(new CreateProtoComMetaDataFilesJob(configuration));			
 		} else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO) {
+		    // TODO POJO needs a dedicated Manifest, without performance measuring dependencies.
 			this.addJob(new CreateProtoComMetaDataFilesJob(configuration));						
 		}
 
-		// 5. Compile the plugin (otherwise the source files are not properly found)
+		// 6. Compile the plugin (otherwise the source files are not properly found)
 		this.addJob(new CompilePluginCodeJob(configuration));
 
 	}

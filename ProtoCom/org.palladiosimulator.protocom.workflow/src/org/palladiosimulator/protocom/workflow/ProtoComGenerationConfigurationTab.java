@@ -93,7 +93,7 @@ public class ProtoComGenerationConfigurationTab extends AbstractConfigurationTab
 		try {
 			String solverStr = configuration.getAttribute(
 					ConstantsContainer.MODEL_TO_TEXT_CHOICE,
-					ConstantsContainer.MODEL_TO_TEXT_TARGET_PROTO);
+					ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_SE_RMI);
 			String[] items = comboModelToTextTarget.getItems();
 			for (int i = 0; i < items.length; i++) {
 				String str = items[i];
@@ -199,9 +199,14 @@ public class ProtoComGenerationConfigurationTab extends AbstractConfigurationTab
 				false));
 		stepWidthText.addModifyListener(modifyListener);
 
-		final Group modelTarget = new Group(container, SWT.NONE);
-		modelTarget.setText("Transformation Target");
-
+		final Group modelTargetGroup = new Group(container, SWT.NONE);
+		modelTargetGroup.setText("Transformation Target");
+		final GridData gd_modelTarget = new GridData(SWT.FILL, SWT.CENTER, true, false);
+		modelTargetGroup.setLayoutData(gd_modelTarget);
+        final GridLayout gridLayout_modelTarget = new GridLayout();
+        gridLayout_modelTarget.numColumns = 1;
+        modelTargetGroup.setLayout(gridLayout_modelTarget);
+		
 		final ModifyListener modifyListener = new ModifyListener() {
 
 			public void modifyText(ModifyEvent e) {
@@ -211,10 +216,11 @@ public class ProtoComGenerationConfigurationTab extends AbstractConfigurationTab
 			}
 		};
 
-		comboModelToTextTarget = new Combo(modelTarget, SWT.READ_ONLY);
+		comboModelToTextTarget = new Combo(modelTargetGroup, SWT.READ_ONLY);
 		comboModelToTextTarget.setItems(new String[] {
-				ConstantsContainer.MODEL_TO_TEXT_TARGET_PROTO,
-				ConstantsContainer.MODEL_TO_TEXT_TARGET_STUBS });
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_SE_RMI,
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_SE_RMI_STUBS,
+				ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_EE_EJB });
 		comboModelToTextTarget.setSize(350, 50);
 		comboModelToTextTarget.addModifyListener(modifyListener);
 	}

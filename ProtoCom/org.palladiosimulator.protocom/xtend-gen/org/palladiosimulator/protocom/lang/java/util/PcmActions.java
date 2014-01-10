@@ -47,7 +47,7 @@ import org.palladiosimulator.protocom.lang.java.util.PcmCommons;
  * TODO: Remove programming language and technology-depend source from this class
  * and use template methods instead. Also move it to .lang then.
  * 
- * @author Thomas Zolynski
+ * @author Thomas Zolynski, Sebastian Lehrig
  */
 @SuppressWarnings("all")
 public class PcmActions {
@@ -107,6 +107,7 @@ public class PcmActions {
   
   /**
    * No idea. We didn't implement this for the last ProtoCom either.
+   * FIXME Implement this as it is a crucial part of the bahavior
    */
   protected static String _action(final CollectionIteratorAction action) {
     StringConcatenation _builder = new StringConcatenation();
@@ -225,7 +226,7 @@ public class PcmActions {
   
   /**
    * InteralAction uses a load generator to simulate CPU/HDD usage.
-   * Note that ProtoCom does NOT use InfrastructureCalls from the PCM model, since these
+   * Note that ProtoCom does NOT use InfrastructureCalls from the PCM model, because these
    * should be reflected by the underlying middleware and OS!
    */
   protected static String _action(final InternalAction action) {
@@ -564,6 +565,9 @@ public class PcmActions {
     return _builder.toString();
   }
   
+  /**
+   * FIXME Implement and test this action with Thread.sleep
+   */
   protected static String _userAction(final Delay userAction) {
     StringConcatenation _builder = new StringConcatenation();
     return _builder.toString();

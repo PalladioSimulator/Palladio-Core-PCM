@@ -6,6 +6,7 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.palladiosimulator.protocom.traverse.framework.CommonConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jee.JeeConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jse.JseConfigurationModule;
+import org.palladiosimulator.protocom.traverse.jsestub.JseStubConfigurationModule;
 
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -22,6 +23,7 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
 import com.google.inject.Guice;
 import com.google.inject.Injector;
+
 import org.palladiosimulator.protocom.traverse.framework.allocation.XAllocation;
 import org.palladiosimulator.protocom.traverse.framework.repository.XRepository;
 import org.palladiosimulator.protocom.traverse.framework.resourceenvironment.XResourceEnvironment;
@@ -49,7 +51,9 @@ public class TransformPCMToCodeXtendJob extends
 		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO) {
 			guiceConfiguration = new JseConfigurationModule();
 		} 
-		
+		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO) {
+            guiceConfiguration = new JseStubConfigurationModule();
+        } 
 		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
 			guiceConfiguration = new JeeConfigurationModule();
 		} 

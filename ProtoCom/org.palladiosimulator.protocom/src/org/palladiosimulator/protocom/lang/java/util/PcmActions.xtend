@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Delay
  * TODO: Remove programming language and technology-depend source from this class
  * and use template methods instead. Also move it to .lang then.
  * 
- * @author Thomas Zolynski
+ * @author Thomas Zolynski, Sebastian Lehrig
  */
 class PcmActions {
 	/**
@@ -67,6 +67,7 @@ class PcmActions {
 
 	/**
 	 * No idea. We didn't implement this for the last ProtoCom either.
+	 * FIXME Implement this as it is a crucial part of the bahavior
 	 */
 	static dispatch def String action(CollectionIteratorAction action) {
 		'''
@@ -117,7 +118,7 @@ class PcmActions {
 
 	/**
 	 * InteralAction uses a load generator to simulate CPU/HDD usage.
-	 * Note that ProtoCom does NOT use InfrastructureCalls from the PCM model, since these 
+	 * Note that ProtoCom does NOT use InfrastructureCalls from the PCM model, because these 
 	 * should be reflected by the underlying middleware and OS!
 	 */
 	static dispatch def String action(InternalAction action) {
@@ -265,6 +266,9 @@ class PcmActions {
 		'''
 	}
 	
+	/**
+	 * FIXME Implement and test this action with Thread.sleep
+	 */
 	static dispatch def String userAction(Delay userAction) {
 		''''''
 	}
