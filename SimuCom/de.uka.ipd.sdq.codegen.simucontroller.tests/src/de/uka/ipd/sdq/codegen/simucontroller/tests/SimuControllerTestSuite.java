@@ -1,29 +1,30 @@
 package de.uka.ipd.sdq.codegen.simucontroller.tests;
 
-import java.io.File;
+
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URL;
-
-import junit.framework.TestCase;
+import java.util.Enumeration;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.Path;
+import org.eclipse.core.runtime.NullProgressMonitor;
+
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 import org.junit.Test;
+import org.junit.Assert;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.launch.SensorFrameworkConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
-public class SimuControllerTestSuite extends TestCase {
+public class SimuControllerTestSuite {
 
 	public static final String ID_SIMUCOM_LAUNCH = "de.uka.ipd.sdq.simucontroller.SimuLaunching";
 	
@@ -157,36 +158,33 @@ public class SimuControllerTestSuite extends TestCase {
 			copy.setAttribute(SimuComConfig.SHOULD_THROW_EXCEPTION, false);
 			copy.setAttribute(SimuComConfig.VERBOSE_LOGGING, false);
 			copy.setAttribute(SimuComConfig.SIMULATOR_ID, SimuComConfig.DEFAULT_SIMULATOR_ID);
-			//copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
+			copy.launch(ILaunchManager.RUN_MODE, new NullProgressMonitor());
+			
 		} catch (Exception ex) {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			ex.printStackTrace(pw);
-			fail("Created config failed: " + ex.getMessage() + "\n"
+			Assert.fail("Created config failed: " + ex.getMessage() + "\n"
 					+ sw.toString());
 		}
 	}
 	
 	private String getModelsFilePath(String dirName, String extension) {
-		String dirPath = "";
 
-		URL dir = FileLocator.find(Platform.getBundle(Activator.PLUGIN_ID),
-				new Path(dirName), null);
+		Enumeration<URL> files = Platform.getBundle(Activator.PLUGIN_ID).findEntries(dirName, extension, true);
+		if(files == null)
+			Assert.fail("Could not find a " + extension +" in " + dirName);
+		
+		URL fileURL = files.nextElement();
 
-		if (dir != null) {
+		if (fileURL != null) {
 			try {
-				dir = FileLocator.resolve(dir);
-				dirPath = dir.getPath().replaceFirst("/", "");
+				fileURL = FileLocator.resolve(fileURL);
+				return fileURL.getPath();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
 		}
-
-		String[] files = new File(dirPath).list();
-
-		for (int i = 0; i < files.length; i++)
-			if (files[i].contains(extension.replace("*", "")))
-				return dirPath + files[i];
 
 		return null;
 	}
