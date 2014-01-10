@@ -6,28 +6,24 @@ import java.io.PrintWriter;
 import java.io.StringWriter;
 import java.net.URL;
 
-import junit.framework.Assert;
+import junit.framework.TestCase;
 
 import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.ResourcesPlugin;
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.FileLocator;
-import org.eclipse.core.runtime.NullProgressMonitor;
 import org.eclipse.core.runtime.Path;
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.DebugPlugin;
-import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationType;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
-import org.eclipse.jdt.internal.launching.LaunchingPlugin;
 import org.junit.Test;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.launch.SensorFrameworkConfig;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
-public class SimuControllerTestSuite {
+public class SimuControllerTestSuite extends TestCase {
 
 	public static final String ID_SIMUCOM_LAUNCH = "de.uka.ipd.sdq.simucontroller.SimuLaunching";
 	
@@ -166,7 +162,7 @@ public class SimuControllerTestSuite {
 			StringWriter sw = new StringWriter();
 			PrintWriter pw = new PrintWriter(sw);
 			ex.printStackTrace(pw);
-			Assert.fail("Created config failed: " + ex.getMessage() + "\n"
+			fail("Created config failed: " + ex.getMessage() + "\n"
 					+ sw.toString());
 		}
 	}

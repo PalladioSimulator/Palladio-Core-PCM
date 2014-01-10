@@ -5,7 +5,7 @@ Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller.tests
 Bundle-Version: 1.0.0.qualifier
 Fragment-Host: de.uka.ipd.sdq.codegen.simucontroller
 Bundle-Vendor: sdq.ipd.uka.de
-Require-Bundle: org.junit4,
+Require-Bundle: org.junit,
  de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"
