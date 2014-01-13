@@ -3,7 +3,6 @@ Bundle-ManifestVersion: 2
 Bundle-Name: de.uka.ipd.sdq.codegen.simucontroller.tests
 Bundle-SymbolicName: de.uka.ipd.sdq.codegen.simucontroller.tests
 Bundle-Version: 1.0.0.qualifier
-Fragment-Host: de.uka.ipd.sdq.codegen.simucontroller
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.junit,
  de.uka.ipd.sdq.simucomframework,
