@@ -11,8 +11,6 @@ import org.apache.log4j.Logger;
 
 public class RunProperties
 {
-	private static final long serialVersionUID = -5663835008494398378L;
-	
 	private CommandLine cmdLine;
 	private Options options;
 	private Properties propertyFile = null;

@@ -37,7 +37,7 @@ import org.palladiosimulator.protocom.lang.java.util.JavaNames;
  * @author Sebastian Lehrig
  */
 @SuppressWarnings("all")
-public class PcmAction {
+public abstract class PcmAction {
   /**
    * Follows the action path and calls "action" for each action in it.
    * Note that actions do not branch! Branching is solved by a BranchAction, therefore
@@ -238,42 +238,36 @@ public class PcmAction {
    * at most one successor is given at any time.
    */
   public String userActions(final AbstractUserAction userAction) {
-    String _xblockexpression = null;
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("/*");
+    _builder.newLine();
+    _builder.append(" ");
+    _builder.append("* ");
+    Class<? extends AbstractUserAction> _class = userAction.getClass();
+    String _simpleName = _class.getSimpleName();
+    _builder.append(_simpleName, " ");
+    _builder.append(" (");
+    _builder.append(userAction, " ");
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    _builder.append(" ");
+    _builder.append("*/");
+    _builder.newLine();
+    String _userAction = this.userAction(userAction);
+    _builder.append(_userAction, "");
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     {
-      PcmAction _pcmAction = new PcmAction();
-      final PcmAction pcmAction = _pcmAction;
-      StringConcatenation _builder = new StringConcatenation();
-      _builder.append("/*");
-      _builder.newLine();
-      _builder.append(" ");
-      _builder.append("* ");
-      Class<? extends AbstractUserAction> _class = userAction.getClass();
-      String _simpleName = _class.getSimpleName();
-      _builder.append(_simpleName, " ");
-      _builder.append(" (");
-      _builder.append(userAction, " ");
-      _builder.append(")");
-      _builder.newLineIfNotEmpty();
-      _builder.append(" ");
-      _builder.append("*/");
-      _builder.newLine();
-      String _userAction = pcmAction.userAction(userAction);
-      _builder.append(_userAction, "");
-      _builder.newLineIfNotEmpty();
-      _builder.newLine();
-      {
-        boolean _isInstance = Stop.class.isInstance(userAction);
-        boolean _not = (!_isInstance);
-        if (_not) {
-          AbstractUserAction _successor = userAction.getSuccessor();
-          String _userActions = this.userActions(_successor);
-          _builder.append(_userActions, "");
-          _builder.newLineIfNotEmpty();
-        }
+      boolean _isInstance = Stop.class.isInstance(userAction);
+      boolean _not = (!_isInstance);
+      if (_not) {
+        AbstractUserAction _successor = userAction.getSuccessor();
+        String _userActions = this.userActions(_successor);
+        _builder.append(_userActions, "");
+        _builder.newLineIfNotEmpty();
       }
-      _xblockexpression = (_builder.toString());
     }
-    return _xblockexpression;
+    return _builder.toString();
   }
   
   /**
@@ -281,8 +275,6 @@ public class PcmAction {
    */
   protected String _userAction(final EntryLevelSystemCall userAction) {
     StringConcatenation _builder = new StringConcatenation();
-    _builder.append("FIXME!");
-    _builder.newLine();
     return _builder.toString();
   }
   

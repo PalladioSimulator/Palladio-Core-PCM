@@ -29,7 +29,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Delay
  * 
  * @author Sebastian Lehrig
  */
-class PcmAction {
+abstract class PcmAction {
 	/**
 	 * Follows the action path and calls "action" for each action in it.
 	 * Note that actions do not branch! Branching is solved by a BranchAction, therefore 
@@ -172,12 +172,11 @@ class PcmAction {
 	 * at most one successor is given at any time.
 	 */
 	def String userActions(AbstractUserAction userAction) {
-		val pcmAction = new PcmAction()
 		'''
 		/*
 		 * «userAction.class.simpleName» («userAction»)
 		 */
-		«pcmAction.userAction(userAction)»
+		«userAction(userAction)»
 		
 		«IF !Stop.isInstance(userAction)»
 			«userActions(userAction.successor)»
@@ -190,7 +189,6 @@ class PcmAction {
 	 */
 	dispatch def String userAction(EntryLevelSystemCall userAction) {
 		'''
-		FIXME!
 		'''
 	}
 	
