@@ -31,6 +31,6 @@ class JInterface extends JCompilationUnit<IJInterface> implements IJInterface {
 	}
 	
 	def signature (IJMethod method) {
-		'''«method.visibilityModifier» «method.returnType» «method.name» («method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»;'''
+		'''«method.visibilityModifier» «method.returnType» «method.name»(«method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»;'''
 	}
 }

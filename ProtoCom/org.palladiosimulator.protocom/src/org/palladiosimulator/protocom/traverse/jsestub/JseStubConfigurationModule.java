@@ -1,6 +1,16 @@
 package org.palladiosimulator.protocom.traverse.jsestub;
 
 import org.palladiosimulator.protocom.traverse.framework.CommonConfigurationModule;
+import org.palladiosimulator.protocom.traverse.framework.repository.XBasicComponent;
+import org.palladiosimulator.protocom.traverse.framework.repository.XCompositeComponent;
+import org.palladiosimulator.protocom.traverse.framework.repository.XInfrastructureInterface;
+import org.palladiosimulator.protocom.traverse.framework.repository.XOperationInterface;
+import org.palladiosimulator.protocom.traverse.framework.system.XSystem;
+import org.palladiosimulator.protocom.traverse.jsestub.repository.JseStubBasicComponent;
+import org.palladiosimulator.protocom.traverse.jsestub.repository.JseStubCompositeComponent;
+import org.palladiosimulator.protocom.traverse.jsestub.repository.JseStubInfrastructureInterface;
+import org.palladiosimulator.protocom.traverse.jsestub.repository.JseStubOperationInterface;
+import org.palladiosimulator.protocom.traverse.jsestub.system.JseStubSystem;
 
 /**
  * Google Guice binding for Java Standard Edition Protocom Stubs.
@@ -14,7 +24,11 @@ public class JseStubConfigurationModule extends CommonConfigurationModule {
 	protected void configure() {
 		super.configure();
 
-		// ...
+		bind(XBasicComponent.class).to(JseStubBasicComponent.class);
+        bind(XCompositeComponent.class).to(JseStubCompositeComponent.class);
+        bind(XOperationInterface.class).to(JseStubOperationInterface.class);
+        bind(XInfrastructureInterface.class).to(JseStubInfrastructureInterface.class);
+        bind(XSystem.class).to(JseStubSystem.class);
 	}
 	
 }

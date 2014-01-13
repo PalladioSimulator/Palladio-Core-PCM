@@ -282,6 +282,14 @@ class JavaNames {
 	static dispatch def serviceName(InfrastructureSignature s) {
 		s.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower + "_" + javaSignature(s)
 	}
+	
+	static dispatch def serviceNameStub(OperationSignature s) {
+		s.interface__OperationSignature.javaName().toFirstLower() + "_" + javaName(s)
+	}
+
+	static dispatch def serviceNameStub(InfrastructureSignature s) {
+		s.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower + "_" + javaName(s)
+	}
 
 	// sensor.ext
 	static def String externalCallActionDescription(OperationSignature os, Object call) {

@@ -1,7 +1,7 @@
 package org.palladiosimulator.protocom.traverse.jse.repository
 
 import org.palladiosimulator.protocom.lang.java.impl.JInterface
-import org.palladiosimulator.protocom.tech.rmi.PojoInfrastructureInterface
+import org.palladiosimulator.protocom.tech.rmi.repository.PojoInfrastructureInterface
 import org.palladiosimulator.protocom.traverse.framework.repository.XInfrastructureInterface
 
 /**

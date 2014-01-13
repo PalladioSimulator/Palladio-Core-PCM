@@ -55,6 +55,10 @@ class PcmCommons {
 		
 	}
 	
+	static def String callStub(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages, List<VariableUsage> outParameterUsages) {
+		prefix + JavaNames::javaSignature(signature) + "(" + Parameters::getParameterUsageList(signature) + ");"
+	}
+	
 	
 	static def ProvidedDelegationConnector getProvidedDelegationConnector(ComposedStructure s, ProvidedRole p) {
 		s.connectors__ComposedStructure.filter[ProvidedDelegationConnector.isInstance(it)].filter[(it as ProvidedDelegationConnector).outerProvidedRole_ProvidedDelegationConnector == p].toList.get(0)	as ProvidedDelegationConnector

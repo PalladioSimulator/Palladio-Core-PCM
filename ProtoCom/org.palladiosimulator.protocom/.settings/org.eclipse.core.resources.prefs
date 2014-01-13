@@ -1,8 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/org/palladiosimulator/protocom/lang/java/impl=UTF-8
 encoding//src/org/palladiosimulator/protocom/lang/java/util=UTF-8
-encoding//src/org/palladiosimulator/protocom/lang/java/util/PcmActions.xtend=UTF-8
+encoding//src/org/palladiosimulator/protocom/lang/java/util/PcmSimulationAction.xtend=UTF-8
 encoding//src/org/palladiosimulator/protocom/tech/rmi=UTF-8
-encoding//src/org/palladiosimulator/protocom/tech/rmi/PojoBasicComponentClass.xtend=UTF-8
+encoding//src/org/palladiosimulator/protocom/tech/rmi/repository/PojoBasicComponentClass.xtend=UTF-8
 encoding/<project>=UTF-8
 encoding/src=UTF-8

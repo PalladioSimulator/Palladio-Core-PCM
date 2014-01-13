@@ -57,7 +57,7 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 	
 	def constructor(IJMethod method) {
 		'''
-		«method.visibilityModifier» «compilationUnitName» («method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»
+		«method.visibilityModifier» «compilationUnitName»(«method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»
 		{
 			«method.body»
 		}
@@ -66,7 +66,7 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 	
 	def method(IJMethod method) {
 		'''
-		«method.visibilityModifier» «method.staticModifier» «method.returnType» «method.name» («method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»
+		«method.visibilityModifier» «method.staticModifier» «method.returnType» «method.name»(«method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»
 		«IF method.body != null»
 		{
 			«method.body»

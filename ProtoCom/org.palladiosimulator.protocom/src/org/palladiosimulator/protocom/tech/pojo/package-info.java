@@ -3,6 +3,6 @@
  * 
  * TODO: Move common POJO stuff from .tech.rmi into this package.
  * 
- * @author Thomas Zolynski
+ * @author Sebastian Lehrig
  */
 package org.palladiosimulator.protocom.tech.pojo;
