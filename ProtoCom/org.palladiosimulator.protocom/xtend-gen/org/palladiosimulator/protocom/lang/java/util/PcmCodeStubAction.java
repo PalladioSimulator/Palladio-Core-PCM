@@ -135,15 +135,7 @@ public class PcmCodeStubAction extends PcmAction {
     _builder.append("\t\t");
     _builder.newLine();
     _builder.append("\t");
-    _builder.append("} finally {");
-    _builder.newLine();
-    _builder.append("\t\t");
-    _builder.append("ctx.getStack().removeStackFrame();");
-    _builder.newLine();
-    _builder.append("\t");
     _builder.append("}");
-    _builder.newLine();
-    _builder.append("\t\t\t");
     _builder.newLine();
     _builder.append("}");
     _builder.newLine();

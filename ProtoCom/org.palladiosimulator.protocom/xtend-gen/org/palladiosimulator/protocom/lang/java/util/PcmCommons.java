@@ -70,8 +70,8 @@ public class PcmCommons {
   }
   
   public static String callStub(final OperationSignature signature, final Entity call, final String prefix, final List<VariableUsage> parameterUsages, final List<VariableUsage> outParameterUsages) {
-    String _javaSignature = JavaNames.javaSignature(signature);
-    String _plus = (prefix + _javaSignature);
+    String _javaName = JavaNames.javaName(signature);
+    String _plus = (prefix + _javaName);
     String _plus_1 = (_plus + "(");
     String _parameterUsageList = Parameters.getParameterUsageList(signature);
     String _plus_2 = (_plus_1 + _parameterUsageList);

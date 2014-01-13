@@ -56,7 +56,7 @@ class PcmCommons {
 	}
 	
 	static def String callStub(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages, List<VariableUsage> outParameterUsages) {
-		prefix + JavaNames::javaSignature(signature) + "(" + Parameters::getParameterUsageList(signature) + ");"
+		prefix + JavaNames::javaName(signature) + "(" + Parameters::getParameterUsageList(signature) + ");"
 	}
 	
 	

@@ -64,10 +64,7 @@ class PcmCodeStubAction extends PcmAction {
 				} catch (java.rmi.RemoteException e) {
 					// TODO: add logging
 					
-				} finally {
-					ctx.getStack().removeStackFrame();
 				}
-						
 			}
 		'''
 	}
