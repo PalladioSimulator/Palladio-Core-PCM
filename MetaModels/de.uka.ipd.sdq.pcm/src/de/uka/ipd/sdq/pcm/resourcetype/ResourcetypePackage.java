@@ -91,7 +91,7 @@ public interface ResourcetypePackage extends EPackage {
     int RESOURCE_SIGNATURE__ENTITY_NAME = EntityPackage.ENTITY__ENTITY_NAME;
 
     /**
-	 * The feature id for the '<em><b>Parameter Resource Signature</b></em>' containment reference.
+	 * The feature id for the '<em><b>Parameter Resource Signature</b></em>' containment reference list.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 * @ordered
@@ -502,9 +502,9 @@ public interface ResourcetypePackage extends EPackage {
     EClass getResourceSignature();
 
     /**
-	 * Returns the meta object for the containment reference '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature <em>Parameter Resource Signature</em>}'.
+	 * Returns the meta object for the containment reference list '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature <em>Parameter Resource Signature</em>}'.
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the meta object for the containment reference '<em>Parameter Resource Signature</em>'.
+	 * @return the meta object for the containment reference list '<em>Parameter Resource Signature</em>'.
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature()
 	 * @see #getResourceSignature()
 	 * @generated
@@ -733,7 +733,7 @@ public interface ResourcetypePackage extends EPackage {
         EClass RESOURCE_SIGNATURE = eINSTANCE.getResourceSignature();
 
         /**
-		 * The meta object literal for the '<em><b>Parameter Resource Signature</b></em>' containment reference feature.
+		 * The meta object literal for the '<em><b>Parameter Resource Signature</b></em>' containment reference list feature.
 		 * <!-- begin-user-doc --> <!-- end-user-doc -->
 		 * @generated
 		 */

@@ -1674,7 +1674,8 @@
         <details key="documentation" value="TODO: This structure still has to be finalized by Henning. There is no influence on other model elements yet. so this can be done later on."/>
       </eAnnotations>
       <eStructuralFeatures xsi:type="ecore:EReference" name="parameter__ResourceSignature"
-          ordered="false" eType="#//repository/Parameter" containment="true" eOpposite="#//repository/Parameter/resourceSignature__Parameter"/>
+          ordered="false" upperBound="-1" eType="#//repository/Parameter" containment="true"
+          eOpposite="#//repository/Parameter/resourceSignature__Parameter"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="resourceServiceId" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceInterface__ResourceSignature"

@@ -7,17 +7,21 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
+import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
+import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
+import org.eclipse.emf.ecore.util.InternalEList;
 import de.uka.ipd.sdq.pcm.core.entity.impl.EntityImpl;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceInterface;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import java.util.Collection;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Resource Signature</b></em>
@@ -41,14 +45,14 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The cached value of the '{@link #getParameter__ResourceSignature() <em>Parameter Resource Signature</em>}' containment reference.
+	 * The cached value of the '{@link #getParameter__ResourceSignature() <em>Parameter Resource Signature</em>}' containment reference list.
 	 * <!-- begin-user-doc --> <!--
      * end-user-doc -->
 	 * @see #getParameter__ResourceSignature()
 	 * @generated
 	 * @ordered
 	 */
-    protected Parameter parameter__ResourceSignature;
+    protected EList<Parameter> parameter__ResourceSignature;
 
     /**
 	 * The default value of the '{@link #getResourceServiceId() <em>Resource Service Id</em>}' attribute.
@@ -89,41 +93,11 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    public Parameter getParameter__ResourceSignature() {
+    public EList<Parameter> getParameter__ResourceSignature() {
+		if (parameter__ResourceSignature == null) {
+			parameter__ResourceSignature = new EObjectContainmentWithInverseEList<Parameter>(Parameter.class, this, ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE, RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER);
+		}
 		return parameter__ResourceSignature;
-	}
-
-    /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public NotificationChain basicSetParameter__ResourceSignature(Parameter newParameter__ResourceSignature,
-            NotificationChain msgs) {
-		Parameter oldParameter__ResourceSignature = parameter__ResourceSignature;
-		parameter__ResourceSignature = newParameter__ResourceSignature;
-		if (eNotificationRequired()) {
-			ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE, oldParameter__ResourceSignature, newParameter__ResourceSignature);
-			if (msgs == null) msgs = notification; else msgs.add(notification);
-		}
-		return msgs;
-	}
-
-    /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
-    public void setParameter__ResourceSignature(Parameter newParameter__ResourceSignature) {
-		if (newParameter__ResourceSignature != parameter__ResourceSignature) {
-			NotificationChain msgs = null;
-			if (parameter__ResourceSignature != null)
-				msgs = ((InternalEObject)parameter__ResourceSignature).eInverseRemove(this, RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER, Parameter.class, msgs);
-			if (newParameter__ResourceSignature != null)
-				msgs = ((InternalEObject)newParameter__ResourceSignature).eInverseAdd(this, RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER, Parameter.class, msgs);
-			msgs = basicSetParameter__ResourceSignature(newParameter__ResourceSignature, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE, newParameter__ResourceSignature, newParameter__ResourceSignature));
 	}
 
     /**
@@ -188,13 +162,12 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
+    @SuppressWarnings("unchecked")
+				@Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-				if (parameter__ResourceSignature != null)
-					msgs = ((InternalEObject)parameter__ResourceSignature).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE, null, msgs);
-				return basicSetParameter__ResourceSignature((Parameter)otherEnd, msgs);
+				return ((InternalEList<InternalEObject>)(InternalEList<?>)getParameter__ResourceSignature()).basicAdd(otherEnd, msgs);
 			case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
 				if (eInternalContainer() != null)
 					msgs = eBasicRemoveFromContainer(msgs);
@@ -211,7 +184,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-				return basicSetParameter__ResourceSignature(null, msgs);
+				return ((InternalEList<?>)getParameter__ResourceSignature()).basicRemove(otherEnd, msgs);
 			case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:
 				return basicSetResourceInterface__ResourceSignature(null, msgs);
 		}
@@ -252,11 +225,13 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
 	 * <!-- begin-user-doc --> <!-- end-user-doc -->
 	 * @generated
 	 */
-    @Override
+    @SuppressWarnings("unchecked")
+				@Override
     public void eSet(int featureID, Object newValue) {
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-				setParameter__ResourceSignature((Parameter)newValue);
+				getParameter__ResourceSignature().clear();
+				getParameter__ResourceSignature().addAll((Collection<? extends Parameter>)newValue);
 				return;
 			case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
 				setResourceServiceId((Integer)newValue);
@@ -276,7 +251,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     public void eUnset(int featureID) {
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-				setParameter__ResourceSignature((Parameter)null);
+				getParameter__ResourceSignature().clear();
 				return;
 			case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
 				setResourceServiceId(RESOURCE_SERVICE_ID_EDEFAULT);
@@ -296,7 +271,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
     public boolean eIsSet(int featureID) {
 		switch (featureID) {
 			case ResourcetypePackage.RESOURCE_SIGNATURE__PARAMETER_RESOURCE_SIGNATURE:
-				return parameter__ResourceSignature != null;
+				return parameter__ResourceSignature != null && !parameter__ResourceSignature.isEmpty();
 			case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_SERVICE_ID:
 				return resourceServiceId != RESOURCE_SERVICE_ID_EDEFAULT;
 			case ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE:

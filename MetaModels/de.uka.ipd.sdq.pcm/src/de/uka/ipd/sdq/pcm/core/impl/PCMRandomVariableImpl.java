@@ -40,6 +40,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
+import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.LoopAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;

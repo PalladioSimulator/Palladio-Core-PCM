@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.resourcetype;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
+import org.eclipse.emf.common.util.EList;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Resource Signature</b></em>
@@ -37,7 +38,8 @@ public interface ResourceSignature extends Entity {
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Parameter Resource Signature</b></em>' containment reference.
+	 * Returns the value of the '<em><b>Parameter Resource Signature</b></em>' containment reference list.
+	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.Parameter}.
 	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter <em>Resource Signature Parameter</em>}'.
 	 * <!-- begin-user-doc -->
      * <p>
@@ -45,24 +47,13 @@ public interface ResourceSignature extends Entity {
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parameter Resource Signature</em>' containment reference.
-	 * @see #setParameter__ResourceSignature(Parameter)
+	 * @return the value of the '<em>Parameter Resource Signature</em>' containment reference list.
 	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceSignature_Parameter__ResourceSignature()
 	 * @see de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter
 	 * @model opposite="resourceSignature__Parameter" containment="true" ordered="false"
 	 * @generated
 	 */
-    Parameter getParameter__ResourceSignature();
-
-    /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature <em>Parameter Resource Signature</em>}' containment reference.
-	 * <!-- begin-user-doc --> <!--
-     * end-user-doc -->
-	 * @param value the new value of the '<em>Parameter Resource Signature</em>' containment reference.
-	 * @see #getParameter__ResourceSignature()
-	 * @generated
-	 */
-    void setParameter__ResourceSignature(Parameter value);
+    EList<Parameter> getParameter__ResourceSignature();
 
     /**
 	 * Returns the value of the '<em><b>Resource Service Id</b></em>' attribute.

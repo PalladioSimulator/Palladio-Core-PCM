@@ -3367,7 +3367,7 @@ Here the alternatives also support failure types. Alternatives may specify which
         </ownedComment>
         <generalization xmi:id="_aJ8noE48EeCsjY_4kXHhpw" general="_au_WlWA_EdqdHZdhXRxKVg"/>
         <ownedAttribute xmi:id="__pnGsXSpEd-1jbVkuJ9Llg" name="parameter__ResourceSignature" visibility="public" type="_8b84gJJUEdqSSImFLKDkSg" aggregation="composite" association="__pnGsHSpEd-1jbVkuJ9Llg">
-          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__pnGs3SpEd-1jbVkuJ9Llg" value="1"/>
+          <upperValue xmi:type="uml:LiteralUnlimitedNatural" xmi:id="__pnGs3SpEd-1jbVkuJ9Llg" value="*"/>
           <lowerValue xmi:type="uml:LiteralInteger" xmi:id="__pnGsnSpEd-1jbVkuJ9Llg"/>
         </ownedAttribute>
         <ownedAttribute xmi:id="_colKUEsoEeCS84NVCxTlQw" name="resourceServiceId" visibility="public">

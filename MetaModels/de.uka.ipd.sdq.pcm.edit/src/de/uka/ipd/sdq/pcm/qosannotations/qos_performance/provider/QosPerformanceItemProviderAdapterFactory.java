@@ -3,16 +3,23 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.provider;
 
+import de.uka.ipd.sdq.pcm.core.provider.PalladioComponentModelEditPlugin;
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage;
 import java.util.ArrayList;
 import java.util.Collection;
 
+import java.util.List;
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.Notifier;
+import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.edit.domain.EditingDomain;
 import org.eclipse.emf.edit.provider.ChangeNotifier;
+import org.eclipse.emf.edit.provider.ChildCreationExtenderManager;
 import org.eclipse.emf.edit.provider.ComposeableAdapterFactory;
 import org.eclipse.emf.edit.provider.ComposedAdapterFactory;
 import org.eclipse.emf.edit.provider.IChangeNotifier;
+import org.eclipse.emf.edit.provider.IChildCreationExtender;
 import org.eclipse.emf.edit.provider.IDisposable;
 import org.eclipse.emf.edit.provider.IEditingDomainItemProvider;
 import org.eclipse.emf.edit.provider.IItemLabelProvider;
@@ -32,7 +39,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.util.QosPerformanceAdap
  * <!-- end-user-doc -->
  * @generated
  */
-public class QosPerformanceItemProviderAdapterFactory extends QosPerformanceAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
+public class QosPerformanceItemProviderAdapterFactory extends QosPerformanceAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable, IChildCreationExtender {
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
@@ -55,6 +62,14 @@ public class QosPerformanceItemProviderAdapterFactory extends QosPerformanceAdap
 	 * @generated
 	 */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
+
+	/**
+	 * This helps manage the child creation extenders.
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	protected ChildCreationExtenderManager childCreationExtenderManager = new ChildCreationExtenderManager(PalladioComponentModelEditPlugin.INSTANCE, QosPerformancePackage.eNS_URI);
 
 	/**
 	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
@@ -180,6 +195,33 @@ public class QosPerformanceItemProviderAdapterFactory extends QosPerformanceAdap
 		}
 
 		return null;
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public List<IChildCreationExtender> getChildCreationExtenders() {
+		return childCreationExtenderManager.getChildCreationExtenders();
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public Collection<?> getNewChildDescriptors(Object object, EditingDomain editingDomain) {
+		return childCreationExtenderManager.getNewChildDescriptors(object, editingDomain);
+	}
+
+	/**
+	 * <!-- begin-user-doc -->
+	 * <!-- end-user-doc -->
+	 * @generated
+	 */
+	public ResourceLocator getResourceLocator() {
+		return childCreationExtenderManager;
 	}
 
 	/**
