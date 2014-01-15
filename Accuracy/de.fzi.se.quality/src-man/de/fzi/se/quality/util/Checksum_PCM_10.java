@@ -208,14 +208,14 @@ public class Checksum_PCM_10 implements SpecificationChecksumCalculator {
 		updateChecksum(checksum,
 				Integer.toString(signature.getResourceServiceId()) + SEPARATOR);
 		if (signature.getParameter__ResourceSignature() != null) {
-			updateChecksum(
-					checksum,
-					signature.getParameter__ResourceSignature()
-							.getParameterName()
-							+ SEPARATOR
-							+ dataTypeConverter.getUniqueIdentifier(signature
-									.getParameter__ResourceSignature()
-									.getDataType__Parameter()));
+			for (Parameter parameter : signature.getParameter__ResourceSignature()) {
+				updateChecksum(
+						checksum,
+						parameter.getParameterName()
+								+ SEPARATOR
+								+ dataTypeConverter.getUniqueIdentifier(parameter
+										.getDataType__Parameter()));
+			}
 		}
 	}
 

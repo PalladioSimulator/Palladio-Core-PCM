@@ -112,9 +112,8 @@ public class QualityPalladioItemProvider extends PalladioItemProvider {
 					ResourceSignature sig = (ResourceSignature) seff
 							.getDescribedService__SEFF();
 					result += sig.getEntityName() + "(";
-					Parameter[] params = { sig
-							.getParameter__ResourceSignature() };
-					result += parametersToSignature(Arrays.asList(params));
+					result += parametersToSignature(sig
+							.getParameter__ResourceSignature());
 					result += ")";
 				} else {
 					result += seff.getDescribedService__SEFF().getEntityName()
