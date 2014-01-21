@@ -8,6 +8,10 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
 import de.uka.ipd.sdq.pcm.repository.OperationInterface
 import de.uka.ipd.sdq.pcm.core.entity.Entity
 import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative
+import de.uka.ipd.sdq.pcm.repository.DataType
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType
 
 /**
  * Traversing Repository. Child elements are:
@@ -16,8 +20,11 @@ import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative
  * 	<li>Composite Component,
  * 	<li>Infrastructure Interface,
  * 	<li>Operation Interface,
- * 	<li>Event Groups.
+ * 	<li>Event Groups,
+ *  <li>Data Types.
  * </ul>
+ * 
+ * @author Thomas Zolynski, Sebastian Lehrig
  */
 class XRepository extends PcmRepresentative<Repository> {
 
@@ -28,6 +35,10 @@ class XRepository extends PcmRepresentative<Repository> {
 
 		entity.components__Repository.forEach[
 			createComponent(it)
+		]
+		
+		entity.dataTypes__Repository.forEach[
+			createDataType(it)
 		]
 	}
 
@@ -55,7 +66,6 @@ class XRepository extends PcmRepresentative<Repository> {
 		throw new UnsupportedOperationException("Unsupported component type.")
 	}
 
-
 	/**
 	 * Traverse through Infrastructure Interfaces.
 	 */
@@ -75,5 +85,33 @@ class XRepository extends PcmRepresentative<Repository> {
 	 */
 	def dispatch createInterface(EventGroup interfaceEntity) {
 		injector.getInstance(typeof(XEventGroup)).setEntity(interfaceEntity).transform
+	}
+	
+	/**
+	 * Traverse through Data Types.
+	 */
+	def dispatch createDataType(DataType typeEntity) {
+		throw new UnsupportedOperationException("Unsupported data type.")
+	}
+	
+	/**
+	 * Traverse through Primitive Data Types.
+	 */
+	def dispatch createDataType(PrimitiveDataType typeEntity) {
+		return;
+	}
+	
+	/**
+	 * Traverse through Composite Data Types.
+	 */
+	def dispatch createDataType(CompositeDataType typeEntity) {
+		injector.getInstance(typeof(XCompositeDataType)).setEntity(typeEntity).transform
+	}
+	
+	/**
+	 * Traverse through Collection Data Types.
+	 */
+	def dispatch createDataType(CollectionDataType typeEntity) {
+		injector.getInstance(typeof(XCollectionDataType)).setEntity(typeEntity).transform
 	}
 }

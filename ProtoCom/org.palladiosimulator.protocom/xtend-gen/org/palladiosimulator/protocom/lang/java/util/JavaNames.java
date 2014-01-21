@@ -8,6 +8,8 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity;
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity;
 import de.uka.ipd.sdq.pcm.reliability.FailureType;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
@@ -16,6 +18,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
@@ -235,6 +238,27 @@ public class JavaNames {
     Repository _repository__FailureType = ft.getRepository__FailureType();
     String _basePackageName = JavaNames.basePackageName(_repository__FailureType);
     String _plus = (_basePackageName + ".exceptions");
+    return _plus;
+  }
+  
+  protected static String _implementationPackage(final PrimitiveDataType dt) {
+    Repository _repository__DataType = dt.getRepository__DataType();
+    String _basePackageName = JavaNames.basePackageName(_repository__DataType);
+    String _plus = (_basePackageName + ".datatypes");
+    return _plus;
+  }
+  
+  protected static String _implementationPackage(final CollectionDataType dt) {
+    Repository _repository__DataType = dt.getRepository__DataType();
+    String _basePackageName = JavaNames.basePackageName(_repository__DataType);
+    String _plus = (_basePackageName + ".datatypes");
+    return _plus;
+  }
+  
+  protected static String _implementationPackage(final CompositeDataType dt) {
+    Repository _repository__DataType = dt.getRepository__DataType();
+    String _basePackageName = JavaNames.basePackageName(_repository__DataType);
+    String _plus = (_basePackageName + ".datatypes");
     return _plus;
   }
   
@@ -594,7 +618,7 @@ public class JavaNames {
     }
   }
   
-  public static String implementationPackage(final Entity s) {
+  public static String implementationPackage(final EObject s) {
     if (s instanceof de.uka.ipd.sdq.pcm.system.System) {
       return _implementationPackage((de.uka.ipd.sdq.pcm.system.System)s);
     } else if (s instanceof RepositoryComponent) {
@@ -605,8 +629,14 @@ public class JavaNames {
       return _implementationPackage((OperationInterface)s);
     } else if (s instanceof FailureType) {
       return _implementationPackage((FailureType)s);
+    } else if (s instanceof CollectionDataType) {
+      return _implementationPackage((CollectionDataType)s);
+    } else if (s instanceof CompositeDataType) {
+      return _implementationPackage((CompositeDataType)s);
     } else if (s instanceof UsageScenario) {
       return _implementationPackage((UsageScenario)s);
+    } else if (s instanceof PrimitiveDataType) {
+      return _implementationPackage((PrimitiveDataType)s);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(s).toString());

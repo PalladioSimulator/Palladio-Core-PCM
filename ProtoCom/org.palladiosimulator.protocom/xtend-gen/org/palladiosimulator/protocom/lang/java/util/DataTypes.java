@@ -8,8 +8,10 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum;
+import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.Signature;
 import java.util.Arrays;
+import org.palladiosimulator.protocom.lang.java.util.JavaNames;
 
 /**
  * Utility class for creating datatype strings. Inspired by the old datatype xpand template.
@@ -45,15 +47,15 @@ public class DataTypes {
     final PrimitiveTypeEnum _switchValue = _type;
     boolean _matched = false;
     if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.INT)) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BOOL)) {
         _matched=true;
-        _switchResult = "int";
+        _switchResult = "Boolean";
       }
     }
     if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.DOUBLE)) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BYTE)) {
         _matched=true;
-        _switchResult = "double";
+        _switchResult = "byte";
       }
     }
     if (!_matched) {
@@ -63,9 +65,21 @@ public class DataTypes {
       }
     }
     if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BYTE)) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.DOUBLE)) {
         _matched=true;
-        _switchResult = "byte";
+        _switchResult = "double";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.INT)) {
+        _matched=true;
+        _switchResult = "int";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.LONG)) {
+        _matched=true;
+        _switchResult = "long";
       }
     }
     if (!_matched) {
@@ -85,21 +99,27 @@ public class DataTypes {
   }
   
   /**
-   * Uses an array for collections while resolving inner types.
+   * Collection data types can directly be resolved by their name.
    */
   protected static String _getDataType(final CollectionDataType d) {
-    DataType _innerType_CollectionDataType = d.getInnerType_CollectionDataType();
-    String _dataType = DataTypes.getDataType(_innerType_CollectionDataType);
-    String _plus = (_dataType + "[]");
-    return _plus;
+    Repository _repository__DataType = d.getRepository__DataType();
+    String _basePackageName = JavaNames.basePackageName(_repository__DataType);
+    String _plus = (_basePackageName + ".datatypes.");
+    String _entityName = d.getEntityName();
+    String _plus_1 = (_plus + _entityName);
+    return _plus_1;
   }
   
   /**
    * Composite data types can directly be resolved by their name.
    */
   protected static String _getDataType(final CompositeDataType d) {
+    Repository _repository__DataType = d.getRepository__DataType();
+    String _basePackageName = JavaNames.basePackageName(_repository__DataType);
+    String _plus = (_basePackageName + ".datatypes.");
     String _entityName = d.getEntityName();
-    return _entityName;
+    String _plus_1 = (_plus + _entityName);
+    return _plus_1;
   }
   
   protected static String _getReturnDataType(final Signature s) {

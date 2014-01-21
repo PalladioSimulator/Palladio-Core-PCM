@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement
  * (to me unknown) reasons an Allocation is a sub type of Entity, but a 
  * ResourceEnvironment is not.
  * 
- * @author Thomas Zolynski
+ * @author Thomas Zolynski, Sebastian Lehrig
  */
 abstract class PcmRepresentative<E extends NamedElement> {
 
@@ -23,7 +23,7 @@ abstract class PcmRepresentative<E extends NamedElement> {
 	protected Injector injector
 
 	/**
-	 * Lift of all files to be generated.
+	 * List of all files to be generated.
 	 */
 	protected List<GeneratedFile<? extends ICompilationUnit>> generatedFiles = newLinkedList
 

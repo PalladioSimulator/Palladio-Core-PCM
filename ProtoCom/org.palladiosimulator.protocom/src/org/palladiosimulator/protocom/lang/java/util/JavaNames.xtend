@@ -22,6 +22,9 @@ import org.eclipse.emf.ecore.EObject
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType
 
 /**
  * 1:1 copy from the old JavaNames xtend1 extension.
@@ -160,6 +163,18 @@ class JavaNames {
 		ft.repository__FailureType.basePackageName() + ".exceptions";
 	}
 
+	dispatch static def implementationPackage(PrimitiveDataType dt) {
+		dt.repository__DataType.basePackageName() + ".datatypes";
+	}
+	
+	dispatch static def implementationPackage(CollectionDataType dt) {
+		dt.repository__DataType.basePackageName() + ".datatypes";
+	}
+	
+	dispatch static def implementationPackage(CompositeDataType dt) {
+		dt.repository__DataType.basePackageName() + ".datatypes";
+	}	
+	
 	// Name of the main class implementing a system
 	static def className(ComposedStructure s) {
 		s.javaName();

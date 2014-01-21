@@ -36,16 +36,20 @@ class DataTypes {
 	 */
 	def static dispatch  String getDataType(PrimitiveDataType d) {
 		switch d.type {
-			case PrimitiveTypeEnum::INT:
-				"int"
-			case PrimitiveTypeEnum::DOUBLE:
-				"double"
-			case PrimitiveTypeEnum::CHAR:
-				"char"
+			case PrimitiveTypeEnum::BOOL:
+				"Boolean"
 			case PrimitiveTypeEnum::BYTE:
 				"byte"
+			case PrimitiveTypeEnum::CHAR:
+				"char"
+			case PrimitiveTypeEnum::DOUBLE:
+				"double"
+			case PrimitiveTypeEnum::INT:
+				"int"
+			case PrimitiveTypeEnum::LONG:
+				"long"
 			case PrimitiveTypeEnum::STRING:
-				"String"
+				"String"			
 			default:
 				"Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" +
 					"Unknown primitive data type found (" + d + ")."
@@ -53,17 +57,17 @@ class DataTypes {
 	}
 
 	/**
-	 * Uses an array for collections while resolving inner types.
+	 * Collection data types can directly be resolved by their name.
 	 */
 	def static dispatch  String getDataType(CollectionDataType d) {
-		getDataType(d.innerType_CollectionDataType) + "[]"
+		JavaNames::basePackageName(d.repository__DataType) + ".datatypes."+d.entityName
 	}
 
 	/**
 	 * Composite data types can directly be resolved by their name.
 	 */
 	def static dispatch String getDataType(CompositeDataType d) {
-		d.entityName
+		JavaNames::basePackageName(d.repository__DataType) + ".datatypes."+d.entityName
 	}
 	
 	def static dispatch String getReturnDataType(Signature s) {

@@ -20,7 +20,7 @@ import org.palladiosimulator.protocom.lang.ICompilationUnit;
  * (to me unknown) reasons an Allocation is a sub type of Entity, but a
  * ResourceEnvironment is not.
  * 
- * @author Thomas Zolynski
+ * @author Thomas Zolynski, Sebastian Lehrig
  */
 @SuppressWarnings("all")
 public abstract class PcmRepresentative<E extends NamedElement> {
@@ -28,7 +28,7 @@ public abstract class PcmRepresentative<E extends NamedElement> {
   protected Injector injector;
   
   /**
-   * Lift of all files to be generated.
+   * List of all files to be generated.
    */
   protected List<GeneratedFile<? extends ICompilationUnit>> generatedFiles = new Function0<List<GeneratedFile<? extends ICompilationUnit>>>() {
     public List<GeneratedFile<? extends ICompilationUnit>> apply() {
