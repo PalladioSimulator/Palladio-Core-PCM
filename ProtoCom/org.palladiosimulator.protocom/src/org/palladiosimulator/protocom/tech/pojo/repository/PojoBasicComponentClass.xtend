@@ -109,7 +109,16 @@ class PojoBasicComponentClass extends PojoClass<BasicComponent> {
 				.withParameters(Parameters::getParameterList(it.describedService__SEFF))
 				.withImplementation('''
 					«new PcmCodeStubAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
-					«IF (!DataTypes::getReturnDataType(it.describedService__SEFF).equals("void"))»
+					«IF (DataTypes::getReturnDataType(it.describedService__SEFF).equals("byte") || 
+						 DataTypes::getReturnDataType(it.describedService__SEFF).equals("double") || 
+						 DataTypes::getReturnDataType(it.describedService__SEFF).equals("int") || 
+						 DataTypes::getReturnDataType(it.describedService__SEFF).equals("long")) »
+						return 0;
+					«ELSEIF (DataTypes::getReturnDataType(it.describedService__SEFF).equals("char")) »
+						return 'A';
+					«ELSEIF (DataTypes::getReturnDataType(it.describedService__SEFF).equals("boolean")) »
+						return false;
+					«ELSEIF (!DataTypes::getReturnDataType(it.describedService__SEFF).equals("void"))»
 						return null;
 					«ENDIF»
 					''')
@@ -122,7 +131,6 @@ class PojoBasicComponentClass extends PojoClass<BasicComponent> {
 				.withReturnType(JavaNames::fqn((it as OperationProvidedRole).providedInterface__OperationProvidedRole))
 				.withImplementation("return " + JavaNames::portMemberVar(it as OperationProvidedRole) + ";")
 		]
-		
 		// Main method. 
 		// TODO: extract common implementation with system.
 		results += new JMethod()

@@ -263,13 +263,64 @@ public class PojoBasicComponentClass extends PojoClass<BasicComponent> {
           _builder.append(_actions, "");
           _builder.newLineIfNotEmpty();
           {
+            boolean _or = false;
+            boolean _or_1 = false;
+            boolean _or_2 = false;
             Signature _describedService__SEFF_3 = it.getDescribedService__SEFF();
             String _returnDataType_1 = DataTypes.getReturnDataType(_describedService__SEFF_3);
-            boolean _equals = _returnDataType_1.equals("void");
-            boolean _not = (!_equals);
-            if (_not) {
-              _builder.append("return null;");
+            boolean _equals = _returnDataType_1.equals("byte");
+            if (_equals) {
+              _or_2 = true;
+            } else {
+              Signature _describedService__SEFF_4 = it.getDescribedService__SEFF();
+              String _returnDataType_2 = DataTypes.getReturnDataType(_describedService__SEFF_4);
+              boolean _equals_1 = _returnDataType_2.equals("double");
+              _or_2 = (_equals || _equals_1);
+            }
+            if (_or_2) {
+              _or_1 = true;
+            } else {
+              Signature _describedService__SEFF_5 = it.getDescribedService__SEFF();
+              String _returnDataType_3 = DataTypes.getReturnDataType(_describedService__SEFF_5);
+              boolean _equals_2 = _returnDataType_3.equals("int");
+              _or_1 = (_or_2 || _equals_2);
+            }
+            if (_or_1) {
+              _or = true;
+            } else {
+              Signature _describedService__SEFF_6 = it.getDescribedService__SEFF();
+              String _returnDataType_4 = DataTypes.getReturnDataType(_describedService__SEFF_6);
+              boolean _equals_3 = _returnDataType_4.equals("long");
+              _or = (_or_1 || _equals_3);
+            }
+            if (_or) {
+              _builder.append("return 0;");
               _builder.newLine();
+            } else {
+              Signature _describedService__SEFF_7 = it.getDescribedService__SEFF();
+              String _returnDataType_5 = DataTypes.getReturnDataType(_describedService__SEFF_7);
+              boolean _equals_4 = _returnDataType_5.equals("char");
+              if (_equals_4) {
+                _builder.append("return \'A\';");
+                _builder.newLine();
+              } else {
+                Signature _describedService__SEFF_8 = it.getDescribedService__SEFF();
+                String _returnDataType_6 = DataTypes.getReturnDataType(_describedService__SEFF_8);
+                boolean _equals_5 = _returnDataType_6.equals("boolean");
+                if (_equals_5) {
+                  _builder.append("return false;");
+                  _builder.newLine();
+                } else {
+                  Signature _describedService__SEFF_9 = it.getDescribedService__SEFF();
+                  String _returnDataType_7 = DataTypes.getReturnDataType(_describedService__SEFF_9);
+                  boolean _equals_6 = _returnDataType_7.equals("void");
+                  boolean _not = (!_equals_6);
+                  if (_not) {
+                    _builder.append("return null;");
+                    _builder.newLine();
+                  }
+                }
+              }
             }
           }
           JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
