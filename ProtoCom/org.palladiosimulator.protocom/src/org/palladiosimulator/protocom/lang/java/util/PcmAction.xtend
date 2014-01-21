@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Start
 import de.uka.ipd.sdq.pcm.usagemodel.Loop
 import de.uka.ipd.sdq.pcm.usagemodel.Branch
 import de.uka.ipd.sdq.pcm.usagemodel.Delay
+import de.uka.ipd.sdq.pcm.seff.EmitEventAction
 
 /**
  * Abstract class for implementing PCM actions, i.e., the behavior of components as specified
@@ -165,6 +166,14 @@ abstract class PcmAction {
 		'''		
 	}
 	
+	/**
+	 * TODO Think about EmitEventAction. JMS?
+	 */
+	dispatch def String action(EmitEventAction action) {
+		'''
+		// FIXME: Add EmitEventAction.
+		'''
+	}
 	
 	/**
 	 * Follows the user action path and calls "userAction" for each action in it.

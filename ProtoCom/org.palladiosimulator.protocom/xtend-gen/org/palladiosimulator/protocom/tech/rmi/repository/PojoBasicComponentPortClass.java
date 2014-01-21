@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.Collections;
@@ -170,6 +171,13 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
     return _map;
   }
   
+  /**
+   * TODO Implement SinkRoles?
+   */
+  protected List<JMethod> _providedRoleMethods(final SinkRole role) {
+    return null;
+  }
+  
   protected String _providedRoleInterface(final OperationProvidedRole role) {
     OperationInterface _providedInterface__OperationProvidedRole = role.getProvidedInterface__OperationProvidedRole();
     String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
@@ -182,11 +190,20 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
     return _fqn;
   }
   
+  /**
+   * TODO Implement SinkRoles?
+   */
+  protected String _providedRoleInterface(final SinkRole role) {
+    return "";
+  }
+  
   public List<JMethod> providedRoleMethods(final ProvidedRole role) {
     if (role instanceof InfrastructureProvidedRole) {
       return _providedRoleMethods((InfrastructureProvidedRole)role);
     } else if (role instanceof OperationProvidedRole) {
       return _providedRoleMethods((OperationProvidedRole)role);
+    } else if (role instanceof SinkRole) {
+      return _providedRoleMethods((SinkRole)role);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(role).toString());
@@ -198,6 +215,8 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
       return _providedRoleInterface((InfrastructureProvidedRole)role);
     } else if (role instanceof OperationProvidedRole) {
       return _providedRoleInterface((OperationProvidedRole)role);
+    } else if (role instanceof SinkRole) {
+      return _providedRoleInterface((SinkRole)role);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(role).toString());

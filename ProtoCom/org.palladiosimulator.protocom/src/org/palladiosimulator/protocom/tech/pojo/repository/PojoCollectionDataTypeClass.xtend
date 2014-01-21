@@ -15,7 +15,7 @@ class PojoCollectionDataTypeClass extends PojoClass<CollectionDataType> {
 	override superClass() {
 		var innerType = pcmEntity.innerType_CollectionDataType;
 				
-		"java.util.ArrayList<"+DataTypes::getDataType(innerType)+">"
+		"java.util.ArrayList<"+DataTypes::getDataType2(innerType)+">"
 	}
 	
 	override interfaces() {

@@ -4,6 +4,7 @@ import com.google.common.base.Objects;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
+import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
@@ -98,6 +99,71 @@ public class DataTypes {
     return _switchResult;
   }
   
+  protected static String _getDataType2(final DataType d) {
+    String _dataType = DataTypes.getDataType(d);
+    return _dataType;
+  }
+  
+  /**
+   * Primitive types can directly be resolved.
+   */
+  protected static String _getDataType2(final PrimitiveDataType d) {
+    String _switchResult = null;
+    PrimitiveTypeEnum _type = d.getType();
+    final PrimitiveTypeEnum _switchValue = _type;
+    boolean _matched = false;
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BOOL)) {
+        _matched=true;
+        _switchResult = "Boolean";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BYTE)) {
+        _matched=true;
+        _switchResult = "Byte";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.CHAR)) {
+        _matched=true;
+        _switchResult = "Character";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.DOUBLE)) {
+        _matched=true;
+        _switchResult = "Double";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.INT)) {
+        _matched=true;
+        _switchResult = "Integer";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.LONG)) {
+        _matched=true;
+        _switchResult = "Long";
+      }
+    }
+    if (!_matched) {
+      if (Objects.equal(_switchValue,PrimitiveTypeEnum.STRING)) {
+        _matched=true;
+        _switchResult = "String";
+      }
+    }
+    if (!_matched) {
+      String _plus = ("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
+        "Unknown primitive data type found (");
+      String _plus_1 = (_plus + d);
+      String _plus_2 = (_plus_1 + ").");
+      _switchResult = _plus_2;
+    }
+    return _switchResult;
+  }
+  
   /**
    * Collection data types can directly be resolved by their name.
    */
@@ -136,6 +202,13 @@ public class DataTypes {
     return "void";
   }
   
+  /**
+   * TODO Implement EventTypes?
+   */
+  protected static String _getReturnDataType(final EventType s) {
+    return "FIXME";
+  }
+  
   public static String getDataType(final DataType d) {
     if (d instanceof CollectionDataType) {
       return _getDataType((CollectionDataType)d);
@@ -153,8 +226,21 @@ public class DataTypes {
     }
   }
   
+  public static String getDataType2(final DataType d) {
+    if (d instanceof PrimitiveDataType) {
+      return _getDataType2((PrimitiveDataType)d);
+    } else if (d != null) {
+      return _getDataType2(d);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(d).toString());
+    }
+  }
+  
   public static String getReturnDataType(final Signature s) {
-    if (s instanceof InfrastructureSignature) {
+    if (s instanceof EventType) {
+      return _getReturnDataType((EventType)s);
+    } else if (s instanceof InfrastructureSignature) {
       return _getReturnDataType((InfrastructureSignature)s);
     } else if (s instanceof OperationSignature) {
       return _getReturnDataType((OperationSignature)s);

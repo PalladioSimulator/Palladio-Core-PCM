@@ -25,6 +25,8 @@ import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType
 import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType
+import de.uka.ipd.sdq.pcm.repository.EventType
+import de.uka.ipd.sdq.pcm.repository.SinkRole
 
 /**
  * 1:1 copy from the old JavaNames xtend1 extension.
@@ -92,6 +94,13 @@ class JavaNames {
 	// ID of a single port class
 	static dispatch def portClassName(InfrastructureProvidedRole r) {
 		r.providedInterface__InfrastructureProvidedRole.javaName() + "_" + r.providingEntity_ProvidedRole.javaName();
+	}
+	
+	/**
+	 * TODO Implement SinkRole?
+	 */
+	static dispatch def portClassName(SinkRole r) {
+		"FIXME"
 	}
 
 	// Name of the class containing the interfaces of the required roles
@@ -208,7 +217,7 @@ class JavaNames {
 	static dispatch def fqn(System s) {
 		s.implementationPackage() + "." + s.javaName();
 	}
-
+	
 	// Completion should be matched by RepositoryComponent
 	//fqn(Completion s) :
 	//  s.implementationPackage()+"."+s.javaName();
@@ -231,11 +240,18 @@ class JavaNames {
 	static dispatch def fqnPortPackage(OperationProvidedRole pr) {
 		pr.providingEntity_ProvidedRole.implementationPackage() + ".ports";
 	}
-
+		
 	static dispatch def fqnPortPackage(InfrastructureProvidedRole pr) {
 		pr.providingEntity_ProvidedRole.implementationPackage() + ".ports";
 	}
 
+	/**
+	 * TODO Implement SinkRoles?
+	 */
+	static dispatch def fqnPortPackage(SinkRole pr) {
+		"FIXME"
+	}
+	
 	static def fqnPort(OperationProvidedRole pr) {
 		pr.providingEntity_ProvidedRole.implementationPackage() + ".ports." + pr.portClassName();
 	}
@@ -298,12 +314,26 @@ class JavaNames {
 		s.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower + "_" + javaSignature(s)
 	}
 	
+	/**
+	 * TODO Implement EventTypes?
+	 */
+	static dispatch def serviceName(EventType s) {
+		"FIXME"
+	}
+	
 	static dispatch def serviceNameStub(OperationSignature s) {
 		s.interface__OperationSignature.javaName().toFirstLower() + "_" + javaName(s)
 	}
 
 	static dispatch def serviceNameStub(InfrastructureSignature s) {
 		s.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower + "_" + javaName(s)
+	}
+	
+	/**
+	 * TODO Implement EventTypes?
+	 */
+	static dispatch def serviceNameStub(EventType s) {
+		"FIXME"
 	}
 
 	// sensor.ext

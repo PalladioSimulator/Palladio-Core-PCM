@@ -3,7 +3,7 @@ package org.palladiosimulator.protocom.traverse.jsestub.repository
 import org.palladiosimulator.protocom.traverse.framework.repository.XCompositeComponent
 import org.palladiosimulator.protocom.lang.java.impl.JInterface
 import org.palladiosimulator.protocom.lang.java.impl.JClass
-import org.palladiosimulator.protocom.tech.rmi.repository.PojoCompositeComponentClass
+import org.palladiosimulator.protocom.tech.pojo.repository.PojoCompositeComponentClass
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextClass
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextInterface
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureInterface

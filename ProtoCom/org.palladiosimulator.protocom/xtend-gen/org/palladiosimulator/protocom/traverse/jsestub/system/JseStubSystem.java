@@ -10,10 +10,10 @@ import org.palladiosimulator.protocom.lang.java.IJInterface;
 import org.palladiosimulator.protocom.lang.java.impl.JClass;
 import org.palladiosimulator.protocom.lang.java.impl.JInterface;
 import org.palladiosimulator.protocom.tech.pojo.repository.PojoComposedStructurePortClass;
+import org.palladiosimulator.protocom.tech.pojo.system.PojoSystemClass;
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextClass;
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextInterface;
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureInterface;
-import org.palladiosimulator.protocom.tech.rmi.system.PojoSystemClass;
 import org.palladiosimulator.protocom.traverse.framework.system.XSystem;
 
 /**

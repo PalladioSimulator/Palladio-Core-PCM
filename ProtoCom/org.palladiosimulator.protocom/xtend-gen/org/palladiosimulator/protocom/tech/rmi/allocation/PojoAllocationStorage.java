@@ -1,5 +1,6 @@
 package org.palladiosimulator.protocom.tech.rmi.allocation;
 
+import com.google.common.base.Objects;
 import com.google.common.collect.Lists;
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.allocation.AllocationContext;
@@ -10,6 +11,8 @@ import java.util.Collection;
 import java.util.Collections;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.eclipse.xtext.xbase.lib.Functions.Function1;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.palladiosimulator.protocom.lang.java.IJMethod;
 import org.palladiosimulator.protocom.lang.java.impl.JMethod;
 import org.palladiosimulator.protocom.lang.java.util.JavaNames;
@@ -49,9 +52,19 @@ public class PojoAllocationStorage extends PojoClass<Allocation> {
     _builder.append("String assemblyContext;");
     _builder.newLine();
     _builder.newLine();
+    _builder.append("// TODO This filters out Event Stuff. Maybe enable that in some future version.");
+    _builder.newLine();
     {
       EList<AllocationContext> _allocationContexts_Allocation = this.pcmEntity.getAllocationContexts_Allocation();
-      for(final AllocationContext context : _allocationContexts_Allocation) {
+      final Function1<AllocationContext,Boolean> _function = new Function1<AllocationContext,Boolean>() {
+        public Boolean apply(final AllocationContext i) {
+          AssemblyContext _assemblyContext_AllocationContext = i.getAssemblyContext_AllocationContext();
+          boolean _notEquals = (!Objects.equal(_assemblyContext_AllocationContext, null));
+          return Boolean.valueOf(_notEquals);
+        }
+      };
+      Iterable<AllocationContext> _filter = IterableExtensions.<AllocationContext>filter(_allocationContexts_Allocation, _function);
+      for(final AllocationContext context : _filter) {
         _builder.append("containerId = \"");
         ResourceContainer _resourceContainer_AllocationContext = context.getResourceContainer_AllocationContext();
         String _id = _resourceContainer_AllocationContext.getId();

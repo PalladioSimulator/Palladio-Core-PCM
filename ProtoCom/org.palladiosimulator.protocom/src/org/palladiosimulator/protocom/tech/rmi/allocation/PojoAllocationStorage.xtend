@@ -36,7 +36,8 @@ class PojoAllocationStorage extends PojoClass<Allocation> {
 					Class<?> component;
 					String assemblyContext;
 					
-					«FOR context : pcmEntity.allocationContexts_Allocation»
+					// TODO This filters out Event Stuff. Maybe enable that in some future version.
+					«FOR context : pcmEntity.allocationContexts_Allocation.filter[i | i.assemblyContext_AllocationContext != null]»
 						containerId = "«context.resourceContainer_AllocationContext.id»";
 						container = "«context.resourceContainer_AllocationContext.entityName»";
 						component = «JavaNames::fqn(context.assemblyContext_AllocationContext.encapsulatedComponent__AssemblyContext)».class;

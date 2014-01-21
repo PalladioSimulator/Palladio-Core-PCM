@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.pojo
 
 import org.palladiosimulator.protocom.lang.java.IJClass
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
@@ -9,6 +9,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.util.PcmCalls
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import org.palladiosimulator.protocom.tech.rmi.PojoClass
 
 /**
  * Common provider for System and CompositeComponent elements.
@@ -20,7 +21,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
  * This does NOT hold for Systems, as these use the RMI registry to assembly their enclosed
  * child components.
  * 
- * @author Thomas Zolynski
+ * @author Sebastian Lehrig
  */
 abstract class PojoComposedStructureClass<E extends ComposedProvidingRequiringEntity> extends PojoClass<E> implements IJClass {
 	
@@ -77,9 +78,7 @@ abstract class PojoComposedStructureClass<E extends ComposedProvidingRequiringEn
 					«JavaNames::fqnContext(it.encapsulatedComponent__AssemblyContext)» context = new «JavaNames::fqnContext(it.encapsulatedComponent__AssemblyContext)»(
 					«FOR requiredRole : it.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole] SEPARATOR ", "»
 						«PcmCalls::portQuery(requiredRole, pcmEntity, it)»
-					«ENDFOR»);
-					de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
-					my«JavaNames::javaName(it)».setComponentFrame(componentStackFrame);
+					«ENDFOR»);					
 					my«JavaNames::javaName(it)».setContext(context);
 				''')
 		]

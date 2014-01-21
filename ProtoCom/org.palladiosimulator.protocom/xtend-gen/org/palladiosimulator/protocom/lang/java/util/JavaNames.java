@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
+import de.uka.ipd.sdq.pcm.repository.EventType;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;
@@ -23,6 +24,7 @@ import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import de.uka.ipd.sdq.pcm.repository.SinkRole;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -158,6 +160,13 @@ public class JavaNames {
     String _javaName_1 = JavaNames.javaName(_providingEntity_ProvidedRole);
     String _plus_1 = (_plus + _javaName_1);
     return _plus_1;
+  }
+  
+  /**
+   * TODO Implement SinkRole?
+   */
+  protected static String _portClassName(final SinkRole r) {
+    return "FIXME";
   }
   
   public static String contextClassName(final InterfaceRequiringEntity c) {
@@ -364,6 +373,13 @@ public class JavaNames {
     return _plus;
   }
   
+  /**
+   * TODO Implement SinkRoles?
+   */
+  protected static String _fqnPortPackage(final SinkRole pr) {
+    return "FIXME";
+  }
+  
   public static String fqnPort(final OperationProvidedRole pr) {
     InterfaceProvidingEntity _providingEntity_ProvidedRole = pr.getProvidingEntity_ProvidedRole();
     String _implementationPackage = JavaNames.implementationPackage(_providingEntity_ProvidedRole);
@@ -475,6 +491,13 @@ public class JavaNames {
     return _plus_1;
   }
   
+  /**
+   * TODO Implement EventTypes?
+   */
+  protected static String _serviceName(final EventType s) {
+    return "FIXME";
+  }
+  
   protected static String _serviceNameStub(final OperationSignature s) {
     OperationInterface _interface__OperationSignature = s.getInterface__OperationSignature();
     String _javaName = JavaNames.javaName(_interface__OperationSignature);
@@ -493,6 +516,13 @@ public class JavaNames {
     String _javaName_1 = JavaNames.javaName(s);
     String _plus_1 = (_plus + _javaName_1);
     return _plus_1;
+  }
+  
+  /**
+   * TODO Implement EventTypes?
+   */
+  protected static String _serviceNameStub(final EventType s) {
+    return "FIXME";
   }
   
   public static String externalCallActionDescription(final OperationSignature os, final Object call) {
@@ -601,6 +631,8 @@ public class JavaNames {
       return _portClassName((InfrastructureProvidedRole)r);
     } else if (r instanceof OperationProvidedRole) {
       return _portClassName((OperationProvidedRole)r);
+    } else if (r instanceof SinkRole) {
+      return _portClassName((SinkRole)r);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(r).toString());
@@ -665,6 +697,8 @@ public class JavaNames {
       return _fqnPortPackage((InfrastructureProvidedRole)pr);
     } else if (pr instanceof OperationProvidedRole) {
       return _fqnPortPackage((OperationProvidedRole)pr);
+    } else if (pr instanceof SinkRole) {
+      return _fqnPortPackage((SinkRole)pr);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(pr).toString());
@@ -672,7 +706,9 @@ public class JavaNames {
   }
   
   public static String serviceName(final Signature s) {
-    if (s instanceof InfrastructureSignature) {
+    if (s instanceof EventType) {
+      return _serviceName((EventType)s);
+    } else if (s instanceof InfrastructureSignature) {
       return _serviceName((InfrastructureSignature)s);
     } else if (s instanceof OperationSignature) {
       return _serviceName((OperationSignature)s);
@@ -683,7 +719,9 @@ public class JavaNames {
   }
   
   public static String serviceNameStub(final Signature s) {
-    if (s instanceof InfrastructureSignature) {
+    if (s instanceof EventType) {
+      return _serviceNameStub((EventType)s);
+    } else if (s instanceof InfrastructureSignature) {
       return _serviceNameStub((InfrastructureSignature)s);
     } else if (s instanceof OperationSignature) {
       return _serviceNameStub((OperationSignature)s);

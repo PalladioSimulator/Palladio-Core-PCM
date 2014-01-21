@@ -9,6 +9,7 @@ import org.palladiosimulator.protocom.lang.java.impl.JMethod
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 import org.palladiosimulator.protocom.lang.java.util.JavaConstants
 import org.palladiosimulator.protocom.tech.rmi.PojoClass
+import de.uka.ipd.sdq.pcm.repository.SinkRole
 
 /**
  * Provider for port classes based on provided roles. Please note that InfrastructureProvidedRoles
@@ -95,6 +96,13 @@ class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
 		] 
 	}
 	
+	/**
+	 * TODO Implement SinkRoles?
+	 */
+	def dispatch providedRoleMethods(SinkRole role) {
+	}
+		
+	
 	def dispatch providedRoleInterface(OperationProvidedRole role) {
 		JavaNames::fqn(role.providedInterface__OperationProvidedRole)
 	}
@@ -103,4 +111,10 @@ class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
 		JavaNames::fqn(role.providedInterface__InfrastructureProvidedRole)
 	}
 	
+	/**
+	 * TODO Implement SinkRoles?
+	 */
+	def dispatch providedRoleInterface(SinkRole role) {
+		""
+	}
 }

@@ -6,6 +6,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
+import de.uka.ipd.sdq.pcm.seff.EmitEventAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
@@ -233,6 +234,16 @@ public abstract class PcmAction {
   }
   
   /**
+   * TODO Think about EmitEventAction. JMS?
+   */
+  protected String _action(final EmitEventAction action) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("// FIXME: Add EmitEventAction.");
+    _builder.newLine();
+    return _builder.toString();
+  }
+  
+  /**
    * Follows the user action path and calls "userAction" for each action in it.
    * Note that actions do not branch! Branching is solved by a Branch action, therefore
    * at most one successor is given at any time.
@@ -362,6 +373,8 @@ public abstract class PcmAction {
       return _action((StartAction)action);
     } else if (action instanceof StopAction) {
       return _action((StopAction)action);
+    } else if (action instanceof EmitEventAction) {
+      return _action((EmitEventAction)action);
     } else if (action instanceof ExternalCallAction) {
       return _action((ExternalCallAction)action);
     } else {

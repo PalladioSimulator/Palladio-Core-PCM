@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
 import de.uka.ipd.sdq.pcm.repository.Signature
 import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.EventType
 
 /**
  * Utility class for creating datatype strings. Inspired by the old datatype xpand template.
@@ -55,6 +56,35 @@ class DataTypes {
 					"Unknown primitive data type found (" + d + ")."
 		}
 	}
+	
+	def static dispatch String getDataType2(DataType d) {
+		getDataType(d)
+	}
+	
+	/**
+	 * Primitive types can directly be resolved.
+	 */
+	def static dispatch String getDataType2(PrimitiveDataType d) {
+		switch d.type {
+			case PrimitiveTypeEnum::BOOL:
+				"Boolean"
+			case PrimitiveTypeEnum::BYTE:
+				"Byte"
+			case PrimitiveTypeEnum::CHAR:
+				"Character"
+			case PrimitiveTypeEnum::DOUBLE:
+				"Double"
+			case PrimitiveTypeEnum::INT:
+				"Integer"
+			case PrimitiveTypeEnum::LONG:
+				"Long"
+			case PrimitiveTypeEnum::STRING:
+				"String"			
+			default:
+				"Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" +
+					"Unknown primitive data type found (" + d + ")."
+		}
+	}
 
 	/**
 	 * Collection data types can directly be resolved by their name.
@@ -70,7 +100,7 @@ class DataTypes {
 		JavaNames::basePackageName(d.repository__DataType) + ".datatypes."+d.entityName
 	}
 	
-	def static dispatch String getReturnDataType(Signature s) {
+	def static dispatch String getReturnDataType(Signature s) {		
 	}
 	
 	def static dispatch String getReturnDataType(OperationSignature s) {
@@ -79,5 +109,12 @@ class DataTypes {
 	
 	def static dispatch String getReturnDataType(InfrastructureSignature s) {
 		"void"
+	}
+	
+	/**
+	 * TODO Implement EventTypes?
+	 */
+	def static dispatch String getReturnDataType(EventType s) {
+		"FIXME"
 	}
 }

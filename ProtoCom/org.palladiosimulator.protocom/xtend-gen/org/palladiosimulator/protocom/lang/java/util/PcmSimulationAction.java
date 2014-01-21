@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
 import de.uka.ipd.sdq.pcm.seff.BranchAction;
 import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction;
+import de.uka.ipd.sdq.pcm.seff.EmitEventAction;
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition;
@@ -563,6 +564,8 @@ public class PcmSimulationAction extends PcmAction {
       return _action((StartAction)action);
     } else if (action instanceof StopAction) {
       return _action((StopAction)action);
+    } else if (action instanceof EmitEventAction) {
+      return _action((EmitEventAction)action);
     } else if (action instanceof ExternalCallAction) {
       return _action((ExternalCallAction)action);
     } else {
