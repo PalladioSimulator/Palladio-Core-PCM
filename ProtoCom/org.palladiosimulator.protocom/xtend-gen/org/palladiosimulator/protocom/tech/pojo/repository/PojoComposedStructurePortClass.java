@@ -10,6 +10,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import java.util.Arrays;
 import java.util.Collection;
@@ -153,6 +154,25 @@ public class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
         String _parameterList = Parameters.getParameterList(it);
         JMethod _withParameters = _withReturnType.withParameters(_parameterList);
         StringConcatenation _builder = new StringConcatenation();
+        _builder.append("// TODO Initialize parameters");
+        _builder.newLine();
+        {
+          EList<Parameter> _parameters__OperationSignature = it.getParameters__OperationSignature();
+          for(final Parameter parameter : _parameters__OperationSignature) {
+            DataType _dataType__Parameter = parameter.getDataType__Parameter();
+            String _dataType_1 = DataTypes.getDataType(_dataType__Parameter);
+            String _plus = (_dataType_1 + " param_");
+            String _parameterName = parameter.getParameterName();
+            String _plus_1 = (_plus + _parameterName);
+            String _plus_2 = (_plus_1 + " = ");
+            String _parameterName_1 = parameter.getParameterName();
+            String _plus_3 = (_plus_2 + _parameterName_1);
+            String _plus_4 = (_plus_3 + ";");
+            _builder.append(_plus_4, "");
+            _builder.newLineIfNotEmpty();
+          }
+        }
+        _builder.newLine();
         {
           String _returnDataType = DataTypes.getReturnDataType(it);
           boolean _equals = _returnDataType.equals("void");

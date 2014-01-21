@@ -1,9 +1,11 @@
 package org.palladiosimulator.protocom.lang.java.util;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
+import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
@@ -32,6 +34,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Stop;
 import java.util.Arrays;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
+import org.palladiosimulator.protocom.lang.java.util.DataTypes;
 import org.palladiosimulator.protocom.lang.java.util.JavaNames;
 import org.palladiosimulator.protocom.lang.java.util.PcmAction;
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons;
@@ -114,16 +117,33 @@ public class PcmCodeStubAction extends PcmAction {
     _builder.append("\t\t");
     _builder.append("// TODO Initialize parameters");
     _builder.newLine();
+    {
+      OperationSignature _calledService_ExternalService = action.getCalledService_ExternalService();
+      EList<Parameter> _parameters__OperationSignature = _calledService_ExternalService.getParameters__OperationSignature();
+      for(final Parameter parameter : _parameters__OperationSignature) {
+        _builder.append("\t\t");
+        DataType _dataType__Parameter = parameter.getDataType__Parameter();
+        String _dataType = DataTypes.getDataType(_dataType__Parameter);
+        String _plus = (_dataType + " param_");
+        String _parameterName = parameter.getParameterName();
+        String _plus_1 = (_plus + _parameterName);
+        String _plus_2 = (_plus_1 + " = null;");
+        _builder.append(_plus_2, "		");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     _builder.append("\t\t");
-    OperationSignature _calledService_ExternalService = action.getCalledService_ExternalService();
+    _builder.newLine();
+    _builder.append("\t\t");
     OperationSignature _calledService_ExternalService_1 = action.getCalledService_ExternalService();
+    OperationSignature _calledService_ExternalService_2 = action.getCalledService_ExternalService();
     OperationRequiredRole _role_ExternalService = action.getRole_ExternalService();
     String _javaName = JavaNames.javaName(_role_ExternalService);
-    String _plus = ("myContext.getRole" + _javaName);
-    String _plus_1 = (_plus + "().");
+    String _plus_3 = ("myContext.getRole" + _javaName);
+    String _plus_4 = (_plus_3 + "().");
     EList<VariableUsage> _inputVariableUsages__CallAction = action.getInputVariableUsages__CallAction();
     EList<VariableUsage> _returnVariableUsage__CallReturnAction = action.getReturnVariableUsage__CallReturnAction();
-    String _callStub = PcmCommons.callStub(_calledService_ExternalService, _calledService_ExternalService_1, _plus_1, _inputVariableUsages__CallAction, _returnVariableUsage__CallReturnAction);
+    String _callStub = PcmCommons.callStub(_calledService_ExternalService_1, _calledService_ExternalService_2, _plus_4, _inputVariableUsages__CallAction, _returnVariableUsage__CallReturnAction);
     _builder.append(_callStub, "		");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");

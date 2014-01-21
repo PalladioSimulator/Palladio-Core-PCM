@@ -76,6 +76,11 @@ class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
 				DataTypes::getDataType(it.returnType__OperationSignature)).withParameters(Parameters::getParameterList(it)).
 				withImplementation(
 					'''
+						// TODO Initialize parameters
+						«FOR parameter : it.parameters__OperationSignature»
+							«DataTypes::getDataType(parameter.dataType__Parameter)+" param_"+parameter.parameterName+" = "+parameter.parameterName+";"»
+						«ENDFOR»
+						
 						«IF (!DataTypes::getReturnDataType(it).equals("void"))»
 							return 
 						«ENDIF»

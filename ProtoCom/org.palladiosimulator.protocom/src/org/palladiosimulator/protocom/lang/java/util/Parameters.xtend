@@ -28,7 +28,7 @@ class Parameters {
 	def static dispatch String getParameterUsageList(OperationSignature s) {
 		'''
 			«FOR parameter : s.parameters__OperationSignature SEPARATOR ", "»
-				«parameter.parameterName»
+				param_«parameter.parameterName»
 			«ENDFOR»
 		'''
 	}

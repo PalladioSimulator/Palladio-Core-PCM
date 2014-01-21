@@ -58,6 +58,10 @@ class PcmCodeStubAction extends PcmAction {
 			{
 				try {
 					// TODO Initialize parameters
+					«FOR parameter : action.calledService_ExternalService.parameters__OperationSignature»
+						«DataTypes::getDataType(parameter.dataType__Parameter)+" param_"+parameter.parameterName+" = null;"»
+					«ENDFOR»
+					
 					«PcmCommons::callStub(action.calledService_ExternalService, action.calledService_ExternalService,
 				"myContext.getRole" + JavaNames::javaName(action.role_ExternalService) + "().",
 				action.inputVariableUsages__CallAction, action.returnVariableUsage__CallReturnAction)»
