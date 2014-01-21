@@ -87,7 +87,7 @@ class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
 	def dispatch providedRoleMethods(InfrastructureProvidedRole role) {
 		role.providedInterface__InfrastructureProvidedRole.infrastructureSignatures__InfrastructureInterface.map [
 			new JMethod().withName(JavaNames::javaName(it)).withReturnType("void").withParameters(
-				Parameters::getParameterList(it)).withImplementation("return null;").withThrows(
+				Parameters::getParameterList(it)).withThrows(
 				JavaConstants::RMI_REMOTE_EXCEPTION)
 		]
 	}

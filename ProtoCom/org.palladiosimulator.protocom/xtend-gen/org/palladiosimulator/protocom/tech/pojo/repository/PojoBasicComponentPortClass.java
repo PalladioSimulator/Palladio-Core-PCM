@@ -160,8 +160,7 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
         JMethod _withReturnType = _withName.withReturnType("void");
         String _parameterList = Parameters.getParameterList(it);
         JMethod _withParameters = _withReturnType.withParameters(_parameterList);
-        JMethod _withImplementation = _withParameters.withImplementation("return null;");
-        JMethod _withThrows = _withImplementation.withThrows(
+        JMethod _withThrows = _withParameters.withThrows(
           JavaConstants.RMI_REMOTE_EXCEPTION);
         return _withThrows;
       }
