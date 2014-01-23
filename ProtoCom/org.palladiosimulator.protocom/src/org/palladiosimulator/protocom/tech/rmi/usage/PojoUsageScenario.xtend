@@ -1,15 +1,15 @@
 package org.palladiosimulator.protocom.tech.rmi.usage
 
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.usagemodel.Start
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.util.PcmCalls
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import org.palladiosimulator.protocom.lang.java.util.PcmSimulationAction
-import de.uka.ipd.sdq.pcm.usagemodel.Start
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 import org.palladiosimulator.protocom.tech.rmi.PojoClass
+import org.palladiosimulator.protocom.tech.rmi.util.PcmRMIProtoUserAction
 
 /**
  * @author Thomas Zolynski, Sebastian Lehrig
@@ -61,7 +61,7 @@ class PojoUsageScenario extends PojoClass<UsageScenario> {
 			new JMethod()
 				.withName("scenarioRunner")
 				.withImplementation('''
-					«new PcmSimulationAction().userActions(pcmEntity.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.filter[Start.isInstance(it)].get(0))»
+					«new PcmRMIProtoUserAction().userActions(pcmEntity.scenarioBehaviour_UsageScenario.actions_ScenarioBehaviour.filter[Start.isInstance(it)].get(0))»
 				''')
 		]
 	}

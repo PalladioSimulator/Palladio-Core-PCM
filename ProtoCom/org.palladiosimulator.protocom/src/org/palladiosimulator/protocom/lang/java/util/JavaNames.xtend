@@ -305,7 +305,11 @@ class JavaNames {
 	static def getFileName(Entity e) {
 		e.implementationPackage().fqnToDirectoryPath() + "/" + e.javaName() + ".java";
 	}
-
+	
+	static def getFilePath(Entity e) {
+		e.implementationPackage().fqnToDirectoryPath() + "/";
+	}
+	
 	static dispatch def serviceName(OperationSignature s) {
 		s.interface__OperationSignature.javaName().toFirstLower() + "_" + javaSignature(s)
 	}

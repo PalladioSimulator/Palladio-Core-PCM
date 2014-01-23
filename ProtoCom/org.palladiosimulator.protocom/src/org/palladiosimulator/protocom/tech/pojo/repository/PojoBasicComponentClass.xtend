@@ -10,7 +10,7 @@ import org.palladiosimulator.protocom.lang.java.util.DataTypes
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.util.Parameters
 import org.palladiosimulator.protocom.tech.rmi.PojoClass
-import org.palladiosimulator.protocom.lang.java.util.PcmCodeStubAction
+import org.palladiosimulator.protocom.tech.rmi.util.PcmRMIStubAction
 
 /**
  * Defining the content of component implementations (classes implementing the component behavior).
@@ -108,7 +108,7 @@ class PojoBasicComponentClass extends PojoClass<BasicComponent> {
 				.withReturnType(DataTypes::getReturnDataType(it.describedService__SEFF))
 				.withParameters(Parameters::getParameterList(it.describedService__SEFF))
 				.withImplementation('''
-					«new PcmCodeStubAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
+					«new PcmRMIStubAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 					«IF (DataTypes::getReturnDataType(it.describedService__SEFF).equals("byte") || 
 						 DataTypes::getReturnDataType(it.describedService__SEFF).equals("double") || 
 						 DataTypes::getReturnDataType(it.describedService__SEFF).equals("int") || 

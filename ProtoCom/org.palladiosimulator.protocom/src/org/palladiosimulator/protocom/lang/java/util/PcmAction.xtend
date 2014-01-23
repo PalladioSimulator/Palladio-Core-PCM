@@ -1,27 +1,20 @@
 package org.palladiosimulator.protocom.lang.java.util
 
-import de.uka.ipd.sdq.pcm.seff.StartAction
-import de.uka.ipd.sdq.pcm.seff.StopAction
-import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
-import de.uka.ipd.sdq.pcm.seff.LoopAction
-import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
-import de.uka.ipd.sdq.pcm.seff.InternalAction
-import de.uka.ipd.sdq.pcm.seff.BranchAction
+import de.uka.ipd.sdq.pcm.seff.AbstractAction
 import de.uka.ipd.sdq.pcm.seff.AcquireAction
+import de.uka.ipd.sdq.pcm.seff.BranchAction
+import de.uka.ipd.sdq.pcm.seff.CollectionIteratorAction
+import de.uka.ipd.sdq.pcm.seff.EmitEventAction
+import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
+import de.uka.ipd.sdq.pcm.seff.ForkAction
+import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition
+import de.uka.ipd.sdq.pcm.seff.InternalAction
+import de.uka.ipd.sdq.pcm.seff.LoopAction
+import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction
 import de.uka.ipd.sdq.pcm.seff.SetVariableAction
-import de.uka.ipd.sdq.pcm.seff.ForkAction
-import de.uka.ipd.sdq.pcm.seff.AbstractAction
-import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition
-import de.uka.ipd.sdq.pcm.seff.GuardedBranchTransition
-import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall
-import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
-import de.uka.ipd.sdq.pcm.usagemodel.Stop
-import de.uka.ipd.sdq.pcm.usagemodel.Start
-import de.uka.ipd.sdq.pcm.usagemodel.Loop
-import de.uka.ipd.sdq.pcm.usagemodel.Branch
-import de.uka.ipd.sdq.pcm.usagemodel.Delay
-import de.uka.ipd.sdq.pcm.seff.EmitEventAction
+import de.uka.ipd.sdq.pcm.seff.StartAction
+import de.uka.ipd.sdq.pcm.seff.StopAction
 
 /**
  * Abstract class for implementing PCM actions, i.e., the behavior of components as specified
@@ -176,76 +169,11 @@ abstract class PcmAction {
 	}
 	
 	/**
-	 * Follows the user action path and calls "userAction" for each action in it.
-	 * Note that actions do not branch! Branching is solved by a Branch action, therefore 
-	 * at most one successor is given at any time.
-	 */
-	def String userActions(AbstractUserAction userAction) {
-		'''
-		/*
-		 * «userAction.class.simpleName» («userAction»)
-		 */
-		«userAction(userAction)»
-		
-		«IF !Stop.isInstance(userAction)»
-			«userActions(userAction.successor)»
-		«ENDIF»
-		'''
-	}
-	
-	/**
-	 * EntryLevelSystemCall is an user action which calls a system service from an usage scenario.
-	 */
-	dispatch def String userAction(EntryLevelSystemCall userAction) {
-		'''
-		'''
-	}
-	
-	/**
-	 * FIXME Implement and test this action with Thread.sleep
-	 */
-	dispatch def String userAction(Delay userAction) {
-		''''''
-	}
-	
-	dispatch def String userAction(Start userAction) {
-		'''
-		'''
-	}
-	
-	dispatch def String userAction(Stop userAction) {
-		'''
-		'''
-	}
-	
-	/**
-	 * Loop actions are transformed into a simple FOR statement.
-	 */
-	dispatch def String userAction(Loop userAction) {
-		'''
-		'''
-	}
-	
-	/**
-	 * UserActions only have probabilistic transitions.
-	 */
-	dispatch def String userAction(Branch userAction) {
-		'''
-		'''
-	}	
-
-	/**
 	 * Helper method to find the first StartAction in a list of actions.
 	 */
 	static def StartAction findStart(Iterable<AbstractAction> actions) {
 		actions.findFirst[StartAction.isInstance(it)] as StartAction
 	}
 	
-	/**
-	 * And another helper method, since Actions and UserActions are *obviously* so
-	 * different that they cannot have a common supertype...
-	 */
-	static def Start findUserStart(Iterable<AbstractUserAction> actions) {
-		actions.findFirst[Start.isInstance(it)] as Start
-	}
+
 }

@@ -1,15 +1,15 @@
 package org.palladiosimulator.protocom.tech.rmi.repository
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
-import org.palladiosimulator.protocom.lang.java.util.PcmSimulationAction
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import org.palladiosimulator.protocom.tech.rmi.PojoClass
+import org.palladiosimulator.protocom.tech.rmi.util.PcmRMIProtoAction
 
 /**
  * @author Sebastian Lehrig
@@ -118,7 +118,7 @@ class PojoBasicComponentClass extends PojoClass<BasicComponent> {
 				.withReturnType(PcmCommons::stackframeType)
 				.withParameters(PcmCommons::stackContextParameterList)
 				.withImplementation('''
-					«new PcmSimulationAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
+					«new PcmRMIProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 					return null;
 					''')
 		]
