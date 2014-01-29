@@ -187,7 +187,8 @@ List[ExternalCallAction] queryExternalCallActions(AbstractAction a, List[Externa
 	a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
 
 List[ExternalCallAction] queryExternalCallActions(ExternalCallAction a, List[ExternalCallAction] result):
-	a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result.add(a).toList()) : result;
+	a.successor_AbstractAction != null ? result.add(a) : result ->
+	a.successor_AbstractAction != null ? queryExternalCallActions(a.successor_AbstractAction, result) : result;
 
 List[ExternalCallAction] queryExternalCallActions(BranchAction a, List[ExternalCallAction] result):
 	queryExternalCallActions(a.branches_Branch, result)
