@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicLong;
 
@@ -147,7 +149,7 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     }
 
     public void hold(double d) {
-        delayResource.process(this, 1, d);
+    	delayResource.process(this, 1, Collections.<String, Serializable> emptyMap(), d);
     }
 
     protected abstract void internalLifeCycle();

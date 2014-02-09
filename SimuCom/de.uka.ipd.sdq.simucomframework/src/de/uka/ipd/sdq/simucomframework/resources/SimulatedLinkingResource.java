@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.io.Serializable;
+import java.util.Map;
+
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
@@ -89,8 +92,8 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 	 * @param abstractDemand: may be zero, in that case only the latency is considered. 
 	 */
 	@Override
-	public void consumeResource(SimuComSimProcess process, int resourceServiceID,
-			double abstractDemand) {		
+	 public void consumeResource(SimuComSimProcess process, int resourceServiceID,
+	            Map<String, Serializable> parameterMap, double abstractDemand) {		
 		
 		// If the resource can fail, simulate a failure with the given
 		// probability.
@@ -120,7 +123,7 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 		
 		// logger.info("Recording " + concreteDemand);
 		fireDemand(concreteDemand);
-		aResource.process(process, resourceServiceID, concreteDemand);
+		 aResource.process(process, resourceServiceID, parameterMap, concreteDemand);
 	}
 	
 	@Override

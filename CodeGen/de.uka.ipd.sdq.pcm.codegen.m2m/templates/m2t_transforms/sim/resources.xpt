@@ -25,12 +25,59 @@
     }
 «ENDDEFINE»
 
-// New: Load resource demand using ResourceInterfaces
+// New: Load resource demand using ResourceInterfaces and additional Parameters
 «DEFINE ResourceDemand FOR ResourceCall»
    {
+            
+      java.util.HashMap<String, java.io.Serializable> parameterMap = new java.util.HashMap<>();
+      String typeString;
+      String specificationString;
+      java.io.Serializable solvedSpecification;
+      
+   	 			
+   	 	«FOREACH this.signature__ResourceCall.parameter__ResourceSignature AS parm »
+   	  	«FOREACH this.inputVariableUsages__CallAction AS spec »		
+   	  		if("«spec.namedReference__VariableUsage.referenceName.javaString()»".equals("«parm.parameterName.javaString()»")){       
+   	  		
+   	  			//remove Brackets [] from specification String	
+   	  			specificationString = (String)"«spec.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".subSequence(1, "«spec.variableCharacterisation_VariableUsage.specification_VariableCharacterisation.specification.specificationString()»".length() - 1);
+   	  	
+   	  			typeString = "«parm.dataType__Parameter.toString()»";
+       			
+       			solvedSpecification = null;     		
+       			
+       			if(typeString.contains("INT")){          			
+           			solvedSpecification = ctx.evaluate(specificationString,Integer.class);
+       			}else if(typeString.contains("STRING")){                			
+          			 solvedSpecification = ctx.evaluate(specificationString,String.class);
+       			} else if(typeString.contains("BOOL")){      			
+           			solvedSpecification = ctx.evaluate(specificationString,Boolean.class);
+       			} else if(typeString.contains("DOUBLE")){        			
+          			solvedSpecification = ctx.evaluate(specificationString,Double.class);
+       			} else if(typeString.contains("CHAR")){        			
+          			solvedSpecification = ctx.evaluate(specificationString,Character.class);
+       			} else if(typeString.contains("BYTE")){		
+         			 solvedSpecification = ctx.evaluate(specificationString,Byte.class);
+       			} else if(typeString.contains("LONG")){                  			
+          			solvedSpecification = ctx.evaluate(specificationString,Long.class);
+       			} else {
+       				throw new RuntimeException("Just Primitive Data Types are supported.");
+       			}
+   	  		  	  		                 
+               parameterMap.put("«spec.namedReference__VariableUsage.referenceName.javaString()»", solvedSpecification);            
+            }  	  	
+            	
+    	«ENDFOREACH»		     
+   	 «ENDFOREACH»
+   	 	
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.numberOfCalls__ResourceCall.specification.specificationString()»",Double.class));
-      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«this.signature__ResourceCall.resourceServiceId»,demand);
-   }
+      if(parameterMap.size()>=1){
+      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«this.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
+      }else{
+      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«this.signature__ResourceCall.resourceServiceId»,demand);     	
+      }
+     
+   } 
 «ENDDEFINE»
 
 // ----------------------------

@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.scheduler.resources.active;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -11,18 +12,22 @@ import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.resources.AbstractSimResource;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 
-public abstract class AbstractActiveResource extends AbstractSimResource implements IActiveResource {
+public abstract class AbstractActiveResource extends AbstractSimResource
+		implements IActiveResource {
 
 	private static Map<ISchedulableProcess, AbstractActiveResource> currentResourceTable = new ConcurrentHashMap<ISchedulableProcess, AbstractActiveResource>();
 
 	private List<IActiveResourceStateSensor> observers;
-	
-    public AbstractActiveResource(SchedulerModel model, int capacity, String name, String id) {
-        super(model, capacity, name, id);
+
+	public AbstractActiveResource(SchedulerModel model, int capacity,
+			String name, String id) {
+		super(model, capacity, name, id);
 		observers = new ArrayList<IActiveResourceStateSensor>();
 	}
 
-	public final void process(ISchedulableProcess process, int resourceServiceID, double demand) {
+	public final void process(ISchedulableProcess process,
+			int resourceServiceID, Map<String, Serializable> parameterMap,
+			double demand) {
 		if (!getModel().getSimulationControl().isRunning()) {
 			// Do nothing, but allows calling process to complete
 			return;
@@ -36,11 +41,21 @@ public abstract class AbstractActiveResource extends AbstractSimResource impleme
 			this.enqueue(process);
 			setLastResource(process, this);
 		}
-		doProcessing(process, resourceServiceID, demand);
+		if (parameterMap != null && parameterMap.isEmpty()) {
+			doProcessing(process, resourceServiceID, demand);
+		} else {
+			doProcessing(process, resourceServiceID, parameterMap, demand);
+		}
 	}
 
-	protected abstract void doProcessing(ISchedulableProcess process, int resourceServiceID,
-			double demand);
+	protected abstract void doProcessing(ISchedulableProcess process,
+			int resourceServiceID, double demand);
+	
+	protected void doProcessing(ISchedulableProcess process, int resourceServiceID,
+            Map<String, Serializable> parameterMap, double demand) {
+        throw new RuntimeException(
+                "doProcessing has to be overwritten to allow additional Parameters for active Resources");
+    }
 
 	protected abstract void enqueue(ISchedulableProcess process);
 
@@ -65,13 +80,13 @@ public abstract class AbstractActiveResource extends AbstractSimResource impleme
 		// the activation.
 		for (ISchedulableProcess process : currentResourceTable.keySet()) {
 			if (!process.isFinished()) {
-				//TODO: to avoid exceptions at the end of the simulation,
+				// TODO: to avoid exceptions at the end of the simulation,
 				// these are being caught here. Maybe something can be fixed
 				// in the simulation so that the exception does not occur here.
 				try {
 					process.activate();
 				} catch (IllegalStateException e) {
-					
+
 				}
 			}
 		}
@@ -84,25 +99,24 @@ public abstract class AbstractActiveResource extends AbstractSimResource impleme
 		currentResourceTable.remove(simProcess);
 	}
 
-	
 	public void addObserver(IActiveResourceStateSensor observer) {
 		this.observers.add(observer);
 	}
-	
+
 	public void removeObserver(IActiveResourceStateSensor observer) {
 		this.observers.remove(observer);
 	}
-	
+
 	protected void fireStateChange(int state, int instanceId) {
 		for (IActiveResourceStateSensor l : observers) {
 			l.update(state, instanceId);
 		}
 	}
-	
+
 	protected void fireDemandCompleted(ISchedulableProcess simProcess) {
 		for (IActiveResourceStateSensor l : observers) {
 			l.demandCompleted(simProcess);
 		}
 	}
-	
+
 }

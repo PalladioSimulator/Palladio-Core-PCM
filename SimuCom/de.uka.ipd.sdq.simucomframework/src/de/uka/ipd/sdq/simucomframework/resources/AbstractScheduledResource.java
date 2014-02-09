@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -124,23 +125,23 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 	protected abstract IActiveResource createActiveResource(
 			SimuComModel simuComModel);
 
-	/**
-	 * Called by client of this resource to make the resource simulate resource
-	 * processing. This is the queueing network service center part of our
-	 * simulation
-	 * 
-	 * @param thread
-	 *            The thread or job requesting the processing of its demand
-	 * @param resourceServiceID
-	 *            The id of the resource service to be called for resource
-	 *            consumption
-	 * @param demand
-	 *            The resource demand the client wishes to be processed by the
-	 *            resource
-	 */
-	public abstract void consumeResource(SimuComSimProcess thread,
-			int resourceServiceID, double demand);
-	
+	   /**
+     * Called by client of this resource to make the resource simulate resource processing. This is
+     * the queueing network service center part of our simulation. Allows passing of additional
+     * parameters.
+     * 
+     * @param thread
+     *            The thread or job requesting the processing of its demand
+     * @param resourceServiceID
+     *            The id of the resource service to be called for resource consumption
+     * @param parameterMap
+     *            Additional parameters which can be used by the resource. Map can be empty.
+     * @param demand
+     *            The resource demand the client wishes to be processed by the resource
+     */
+    public abstract void consumeResource(SimuComSimProcess thread, int resourceServiceID,
+            Map<String, Serializable> parameterMap, double demand);
+    
 	public abstract double getRemainingDemandForProcess(SimuComSimProcess thread);
 	
 	public abstract void updateDemand(SimuComSimProcess thread, double demand);

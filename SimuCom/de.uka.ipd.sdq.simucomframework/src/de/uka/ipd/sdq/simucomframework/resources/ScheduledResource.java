@@ -3,6 +3,9 @@
  */
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.io.Serializable;
+import java.util.Map;
+
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
@@ -137,7 +140,8 @@ public class ScheduledResource extends AbstractScheduledResource {
 	}
 
 	@Override
-	public void consumeResource(SimuComSimProcess process, int resourceServiceID, double abstractDemand) {
+    public void consumeResource(SimuComSimProcess process, int resourceServiceID,
+            Map<String, Serializable> parameterMap, double abstractDemand) {
 		// Check first if the resource is currently available.
 		// This works for the standard resource types (CPU, HDD, DELAY).
 		assertAvailability();
@@ -147,7 +151,7 @@ public class ScheduledResource extends AbstractScheduledResource {
 		double concreteDemand = calculateDemand(abstractDemand);
 		fireDemand(concreteDemand);
 		this.totalDemandedTime += concreteDemand;
-		aResource.process(process, resourceServiceID, concreteDemand);
+		aResource.process(process, resourceServiceID, parameterMap, concreteDemand);
 	}
 	
 	@Override

@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.io.Serializable;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.Map.Entry;
 
@@ -53,7 +55,7 @@ public class SimulatedLinkingResourceContainer extends
 		if (resource == null) {
 			throw new ResourceContainerIsMissingRequiredResourceType(typeID);
 		}
-		resource.consumeResource(requestingProcess, 1, demand);
+		resource.consumeResource(requestingProcess, 1, Collections.<String, Serializable> emptyMap(), demand);
 	}
 
 	/**

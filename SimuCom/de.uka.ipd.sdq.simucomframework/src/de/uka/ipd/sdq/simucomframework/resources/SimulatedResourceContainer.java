@@ -1,7 +1,9 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Level;
 
@@ -252,6 +254,42 @@ public class SimulatedResourceContainer extends
 			}
 		}
 	}
+	
+	/**
+     * Demand processing of a resource demand by a given type of active resource and a resource
+     * interface operation and additional parameters which can be used in an active resource
+     * 
+     * @param requestingProcess
+     *            The thread requesting the processing of a resource demand
+     * @param providedInterfaceID
+     *            ID of the resource provided interface to which the demand is directed.
+     * @param resourceServiceID
+     *            the id of the resource service to be called. itself for converting this demand
+     *            into time spans
+     * @param parameterMap
+     *            Additional Parameters usable in an active resource. Parameters represented as
+     *            <parameterName, specification>
+     * @param demand
+     *            The demand in units processable by the resource. The resource is responsible
+     * 
+     */
+    public void loadActiveResource(SimuComSimProcess requestingProcess, String providedInterfaceID,
+            int resourceServiceID, Map<String, Serializable> parameterMap, double demand) {
+        try {
+            super.loadActiveResource(requestingProcess, providedInterfaceID, resourceServiceID, parameterMap, demand);
+        } catch (ResourceContainerIsMissingRequiredResourceType e) {
+            if (parentResourceContainer == null) {
+                if (logger.isEnabledFor(Level.ERROR))
+                    logger.error("Resource container is missing a resource which was attempted to be loaded"
+                            + " by a component and has no parent Resource Container to look in. ID of resource type was: "
+                            + e.getTypeID());
+                throw new ResourceContainerIsMissingRequiredResourceType(e.getTypeID());
+            } else {
+                parentResourceContainer.loadActiveResource(requestingProcess, providedInterfaceID, resourceServiceID,
+                        parameterMap, demand);
+            }
+        }
+    }
 	
 
 	public AbstractScheduledResource getResourceInResourceContainerOrParentResourceContainer(String resourceTypeID) {

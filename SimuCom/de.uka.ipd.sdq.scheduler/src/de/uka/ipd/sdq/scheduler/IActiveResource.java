@@ -1,5 +1,8 @@
 package de.uka.ipd.sdq.scheduler;
 
+import java.io.Serializable;
+import java.util.Map;
+
 import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 
@@ -15,10 +18,11 @@ import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
  */
 public interface IActiveResource {
 
-	/**
-	 * Processes the specified demand of the process.
-	 */
-	public abstract void process(ISchedulableProcess process, int resourceServiceId, double demand);
+	 /**
+     * Processes the specified demand of the process. With additional parameters for the resource.
+     */
+    public abstract void process(ISchedulableProcess process, int resourceServiceId,
+            Map<String, Serializable> parameterMap, double demand);
 	
 	/**
 	 * Returns the remaining demand for a process.

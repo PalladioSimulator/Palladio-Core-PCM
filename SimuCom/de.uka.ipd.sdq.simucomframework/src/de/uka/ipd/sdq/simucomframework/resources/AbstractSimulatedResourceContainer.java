@@ -1,10 +1,13 @@
 package de.uka.ipd.sdq.simucomframework.resources;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
@@ -56,7 +59,7 @@ public abstract class AbstractSimulatedResourceContainer {
 		if (resource == null) {
 			throw new ResourceContainerIsMissingRequiredResourceType(typeID);
 		}
-		resource.consumeResource(requestingProcess, 1, demand);
+		resource.consumeResource(requestingProcess, 1, Collections.<String, Serializable> emptyMap(), demand);
 	}
 	
 	/**
@@ -76,8 +79,39 @@ public abstract class AbstractSimulatedResourceContainer {
 		if (resource == null) {
 			throw new ResourceContainerIsMissingRequiredResourceType(typeID);
 		}
-		resource.consumeResource(requestingProcess, resourceServiceID, demand);
+		 resource.consumeResource(requestingProcess, resourceServiceID, Collections.<String, Serializable> emptyMap(), demand);		
 	}
+	
+    /**
+     * Demand processing of a resource demand by a given type of active resource and a resource
+     * interface operation and additional parameters which can be used in an active resource
+     * 
+     * @param requestingProcess
+     *            The thread requesting the processing of a resource demand
+     * @param providedInterfaceID
+     *            ID of the resource provided interface to which the demand is directed.
+     * @param resourceServiceID
+     *            the id of the resource service to be called.
+     * @param parameterMap
+     *            Additional Parameters usable in an active resource. Parameters represented as
+     *            <parameterName, specification>
+     * @param demand
+     *            The demand in units processable by the resource. The resource is responsible
+     *            itself for converting this demand into time spans
+     */
+    public void loadActiveResource(SimuComSimProcess requestingProcess, String providedInterfaceID,
+            int resourceServiceID, Map<String, Serializable> parameterMap, double demand) {
+        AbstractScheduledResource resource = null;
+        String typeID = activeResourceProvidedInterfaces.get(providedInterfaceID);
+        if (typeID != null) {
+            resource = activeResources.get(typeID);
+        }
+        if (resource == null) {
+            throw new ResourceContainerIsMissingRequiredResourceType(typeID);
+        }
+        resource.consumeResource(requestingProcess, resourceServiceID, parameterMap, demand);
+    }
+
 
 	/**
 	 * Retrieves all active resources in this resource container.
