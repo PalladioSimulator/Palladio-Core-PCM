@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
  * The first partition contains the plain PCM model instance, the second one contains parametric middleware completion
  * components.
  *
- * @author Steffen Becker
+ * @author Steffen Becker, Sebastian Lehrig
  */
 public class LoadPCMModelsIntoBlackboardJob
 extends SequentialBlackboardInteractingJob<MDSDBlackboard>
@@ -44,8 +44,5 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		super(false);
 		this.add(new PreparePCMBlackboardPartionJob());
 		this.add(new LoadPCMModelsJob(config));
-		// store models in temporary eclipse plug-in
-		this.add(new CreatePluginProjectJob(config));
-		this.add(new CreateWorkingCopyOfModelsJob(config));
 	}
 }

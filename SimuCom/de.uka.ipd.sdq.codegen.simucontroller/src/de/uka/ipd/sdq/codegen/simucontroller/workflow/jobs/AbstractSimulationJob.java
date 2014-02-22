@@ -8,6 +8,8 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflo
 import de.uka.ipd.sdq.pcm.transformations.ApplyConnectorCompletionsJob;
 import de.uka.ipd.sdq.workflow.extension.AbstractExtendableJob;
 import de.uka.ipd.sdq.workflow.mdsd.blackboard.MDSDBlackboard;
+import de.uka.ipd.sdq.workflow.pcm.jobs.CreatePluginProjectJob;
+import de.uka.ipd.sdq.workflow.pcm.jobs.CreateWorkingCopyOfModelsJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.EventsTransformationJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadMiddlewareConfigurationIntoBlackboardJob;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
@@ -46,6 +48,9 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
         // 1. Load PCM Models into memory
         if (loadModels == true) {
             this.addJob(new LoadPCMModelsIntoBlackboardJob(configuration));
+            // store models in temporary eclipse plug-in
+            this.add(new CreatePluginProjectJob(configuration));
+            this.add(new CreateWorkingCopyOfModelsJob(configuration));
         }
         this.addJob(new LoadMiddlewareConfigurationIntoBlackboardJob(configuration));
 
