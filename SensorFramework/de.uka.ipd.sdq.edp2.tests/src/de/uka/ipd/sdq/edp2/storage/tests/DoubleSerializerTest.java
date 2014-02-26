@@ -7,7 +7,7 @@ import java.io.RandomAccessFile;
 import org.junit.Test;
 
 import junit.framework.Assert;
-import de.uka.ipd.sdq.edp2.file.impl.DoubleSerializer;
+import de.uka.ipd.sdq.edp2.local.file.DoubleSerializer;
 
 /**Test the behavior of the DoubleSerializer.
  * @author Steffen Becker

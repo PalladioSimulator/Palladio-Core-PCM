@@ -11,7 +11,7 @@ import junit.framework.Assert;
 
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.file.impl.LongSerializer;
+import de.uka.ipd.sdq.edp2.local.file.LongSerializer;
 
 /**Test the behavior of the LongSerializer.
  * @author groenda

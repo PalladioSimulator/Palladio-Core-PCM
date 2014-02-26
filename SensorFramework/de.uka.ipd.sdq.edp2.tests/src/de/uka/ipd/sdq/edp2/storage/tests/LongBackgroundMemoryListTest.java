@@ -13,9 +13,9 @@ import junit.framework.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.file.impl.BackgroundMemoryListImpl;
-import de.uka.ipd.sdq.edp2.file.impl.LongSerializer;
-import de.uka.ipd.sdq.edp2.file.impl.BackgroundMemoryListImpl.BinaryRepresentation;
+import de.uka.ipd.sdq.edp2.local.file.BackgroundMemoryListImpl;
+import de.uka.ipd.sdq.edp2.local.file.LongSerializer;
+import de.uka.ipd.sdq.edp2.local.file.BackgroundMemoryListImpl.BinaryRepresentation;
 
 
 /**Tests the behavior of the BackgroundMemoryList and DoubleSerialiser.
