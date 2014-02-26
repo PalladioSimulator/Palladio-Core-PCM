@@ -5,7 +5,7 @@ package de.uka.ipd.sdq.edp2.local.file;
  * A serialiser to serialise doubles
  * @author Steffen Becker
  */
-class DoubleSerializer implements Serializer<Double> {
+public class DoubleSerializer implements Serializer<Double> {
     
 	/* (non-Javadoc)
 	 * @see de.uka.ipd.sdq.edp2.local.file.Serializer#getElementLength()

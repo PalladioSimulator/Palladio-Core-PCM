@@ -28,7 +28,7 @@ import javax.measure.unit.Unit;
  * @author Henning Groenda
  * @author Steffen Becker
  */ 
-class BackgroundMemoryListImpl<V,Q extends Quantity> 
+public class BackgroundMemoryListImpl<V,Q extends Quantity> 
 	extends AbstractList<Measure<V,Q>>
 	implements BackgroundMemoryList<V,Q> 
 {
