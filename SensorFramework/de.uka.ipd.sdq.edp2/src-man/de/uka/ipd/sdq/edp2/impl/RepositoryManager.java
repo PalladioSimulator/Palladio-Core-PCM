@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 
 /**Utility class to manage repositories.
- * @author groenda
+ * @author groenda, Sebastian Lehrig
  *
  */
 public class RepositoryManager {
@@ -66,6 +66,18 @@ public class RepositoryManager {
 	public static Repositories getCentralRepository() {
 		return centralRepository;
 	}
+	
+	/**Returns Repository with given UUID from central repository.
+     * @return Reference to the repository with given UUID. Null if not found.
+     */
+    public static Repository getRepositoryFromUUID(String uuid) {
+        for(Repository repository : centralRepository.getAvailableRepositories()) {
+            if(repository.getUuid().equals(uuid)) {
+                return repository;
+            }
+        }
+        return null;
+    }
 
 	/**Creates and initialized a LocalDirectoryRepository.
 	 * @param location The directory on the local machine which should be accessed by the repository.

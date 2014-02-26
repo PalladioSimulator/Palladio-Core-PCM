@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.edp2.ui;
+package de.uka.ipd.sdq.edp2.ui.views.navigator;
 
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;

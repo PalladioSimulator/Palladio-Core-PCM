@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.ui;
+package de.uka.ipd.sdq.edp2.ui.wizards.datasource;
 
 import org.eclipse.jface.wizard.WizardPage;
 import org.eclipse.swt.widgets.Composite;

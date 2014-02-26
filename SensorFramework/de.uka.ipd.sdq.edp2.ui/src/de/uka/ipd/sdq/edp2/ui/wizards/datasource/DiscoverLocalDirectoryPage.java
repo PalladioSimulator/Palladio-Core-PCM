@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.ui;
+package de.uka.ipd.sdq.edp2.ui.wizards.datasource;
 
 import java.util.HashMap;
 

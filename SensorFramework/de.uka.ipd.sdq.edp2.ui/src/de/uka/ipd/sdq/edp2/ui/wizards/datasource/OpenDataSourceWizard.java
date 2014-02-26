@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.ui;
+package de.uka.ipd.sdq.edp2.ui.wizards.datasource;
 
 import org.eclipse.jface.wizard.IWizardPage;
 import org.eclipse.jface.wizard.Wizard;
@@ -15,6 +15,7 @@ import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
+import de.uka.ipd.sdq.edp2.ui.Activator;
 
 /**
  * @author groenda

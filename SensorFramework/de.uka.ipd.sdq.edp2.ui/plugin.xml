@@ -6,7 +6,7 @@
       <view
             allowMultiple="false"
             category="de.uka.ipd.sdq.edp2.ui.category"
-            class="de.uka.ipd.sdq.edp2.ui.Navigator"
+            class="de.uka.ipd.sdq.edp2.ui.views.navigator.Navigator"
             id="de.uka.ipd.sdq.edp2.ui.navigatorView"
             name="Experiments">
       </view>
@@ -18,7 +18,7 @@
    <extension
          point="org.eclipse.ui.perspectives">
       <perspective
-            class="de.uka.ipd.sdq.edp2.ui.Perspective"
+            class="de.uka.ipd.sdq.edp2.ui.perspective.Perspective"
             id="de.uka.ipd.sdq.edp2.ui.perspective"
             name="EDP2">
       </perspective>
@@ -27,7 +27,7 @@
          point="org.eclipse.ui.commands">
       <command
             categoryId="de.uka.ipd.sdq.edp2.ui.category.dataSources"
-            defaultHandler="de.uka.ipd.sdq.edp2.ui.OpenDataSourceHandler"
+            defaultHandler="de.uka.ipd.sdq.edp2.ui.wizards.datasource.OpenDataSourceHandler"
             description="Opens or creates a new data source and adds it to the experiment view."
             id="de.uka.ipd.sdq.edp2.ui.command.OpenDataSource"
             name="Add Data Source">

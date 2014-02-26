@@ -25,7 +25,10 @@ public class Activator extends AbstractUIPlugin {
 	/** Setting: Should there be an initial population or mock-up data of repositories? */
 	private static String SETTING_INITIALLY_POPULATE_REPOSITORY = "populate_repository";
 	
-	static Activator INSTANCE;
+	// The plug-in ID
+    public static final String PLUGIN_ID = "de.uka.ipd.sdq.edp2.ui";
+    
+	public static Activator INSTANCE;
 	
 	public Activator() {
 		// initialize

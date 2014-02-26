@@ -1,7 +1,7 @@
 /**
  * 
  */
-package de.uka.ipd.sdq.edp2.ui;
+package de.uka.ipd.sdq.edp2.ui.views.navigator;
 
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.jface.databinding.viewers.TreeStructureAdvisor;

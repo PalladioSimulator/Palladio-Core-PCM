@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.edp2.ui;
+package de.uka.ipd.sdq.edp2.ui.views.navigator;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -28,6 +28,7 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
+import de.uka.ipd.sdq.edp2.ui.Activator;
 
 // implements ISaveablePart2
 public class Navigator extends ViewPart {
