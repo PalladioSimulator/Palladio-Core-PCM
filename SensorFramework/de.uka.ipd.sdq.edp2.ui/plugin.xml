@@ -7,7 +7,7 @@
             allowMultiple="false"
             category="de.uka.ipd.sdq.edp2.ui.category"
             class="de.uka.ipd.sdq.edp2.ui.views.navigator.Navigator"
-            id="de.uka.ipd.sdq.edp2.ui.navigatorView"
+            id="de.uka.ipd.sdq.edp2.ui.views.navigator"
             name="Experiments">
       </view>
       <category
@@ -27,9 +27,9 @@
          point="org.eclipse.ui.commands">
       <command
             categoryId="de.uka.ipd.sdq.edp2.ui.category.dataSources"
-            defaultHandler="de.uka.ipd.sdq.edp2.ui.wizards.datasource.OpenDataSourceHandler"
+            defaultHandler="de.uka.ipd.sdq.edp2.ui.commands.OpenDataSourceHandler"
             description="Opens or creates a new data source and adds it to the experiment view."
-            id="de.uka.ipd.sdq.edp2.ui.command.OpenDataSource"
+            id="de.uka.ipd.sdq.edp2.ui.commands.OpenDataSource"
             name="Add Data Source">
       </command>
       <category
@@ -40,9 +40,9 @@
    <extension
          point="org.eclipse.ui.menus">
       <menuContribution
-            locationURI="toolbar:de.uka.ipd.sdq.edp2.ui.navigatorView">
+            locationURI="toolbar:de.uka.ipd.sdq.edp2.ui.views.navigator">
          <command
-               commandId="de.uka.ipd.sdq.edp2.ui.command.OpenDataSource"
+               commandId="de.uka.ipd.sdq.edp2.ui.commands.OpenDataSource"
                label="Open Data Source"
                style="push">
          </command>
