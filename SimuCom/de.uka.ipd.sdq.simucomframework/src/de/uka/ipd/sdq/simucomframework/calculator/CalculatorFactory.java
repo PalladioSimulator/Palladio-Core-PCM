@@ -6,7 +6,6 @@ import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.PipesAndFiltersManager;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.ExecutionResultMetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.SensorFrameworkMetaDataInit;
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.launch.SensorFrameworkConfig;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.DemandBasedWaitingTimeCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.DemandCalculator;
