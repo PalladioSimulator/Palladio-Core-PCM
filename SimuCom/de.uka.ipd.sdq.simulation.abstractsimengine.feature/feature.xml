@@ -221,7 +221,6 @@ litigation.
    <requires>
       <import plugin="org.apache.log4j"/>
       <import plugin="org.eclipse.core.runtime"/>
-      <import plugin="org.apache.commons.javaflow" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.simulation.abstractsimengine" version="1.0.0" match="greaterOrEqual"/>
    </requires>
 
@@ -244,11 +243,5 @@ litigation.
          install-size="0"
          version="0.0.0"
          unpack="false"/>
-
-   <plugin
-         id="org.apache.commons.javaflow"
-         download-size="0"
-         install-size="0"
-         version="0.0.0"/>
 
 </feature>
