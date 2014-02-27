@@ -19,8 +19,16 @@
   <rm:locator pattern="^org\.eclipse\.emf\.mwe2\..*" searchPathRef="xtext" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.emf\..*" searchPathRef="emf" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.xpand" searchPathRef="xpand" failOnError="false"/>
-  <rm:locator searchPathRef="juno" failOnError="false"/>
+  <rm:locator pattern="^de\.itemis\.xtext\..*" searchPathRef="itemis" failOnError="false"/>
+  <rm:locator searchPathRef="kepler" failOnError="false"/>
   <rm:locator searchPathRef="orbit" failOnError="false"/>
+  <rm:searchPath name="itemis">
+    <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
+      <rm:property key="buckminster.source" value="false"/>
+      <rm:property key="buckminster.mutable" value="false"/>
+      <rm:uri format="http://download.itemis.com/updates/milestones/"/>
+    </rm:provider>
+  </rm:searchPath>
   <rm:searchPath name="SDQ_Commons">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
@@ -95,7 +103,7 @@
     <rm:provider componentTypes="osgi.bundle,eclipse.feature" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/releases/juno/"/>
+      <rm:uri format="http://download.eclipse.org/releases/kepler/"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="orbit">
@@ -105,11 +113,11 @@
       <rm:uri format="http://download.eclipse.org/tools/orbit/downloads/drops/R20130827064939/repository/"/>
     </rm:provider>
   </rm:searchPath>
-  <rm:searchPath name="juno">
+  <rm:searchPath name="kepler">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://download.eclipse.org/releases/juno/"/>
+      <rm:uri format="http://download.eclipse.org/releases/kepler/"/>
     </rm:provider>
   </rm:searchPath>
   <rm:searchPath name="localresources">
