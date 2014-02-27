@@ -4,7 +4,6 @@ import java.util.Date;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.PipesAndFiltersManager;
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.ExecutionResultMetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.SensorFrameworkMetaDataInit;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.DemandBasedWaitingTimeCalculator;
@@ -199,7 +198,7 @@ public class CalculatorFactory implements ICalculatorFactory {
         ExecutionResultCalculator calculator = new ExecutionResultCalculator(model.getProbeSpecContext(), probeSetId);
 
         // Initialize metadata
-        MetaDataInit metaData = new ExecutionResultMetaDataInit(calculator.getMeasurementMetrics(),
+        MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator.getMeasurementMetrics(),
                 model.getConfiguration().getRecorderConfig(), FailureStatistics.getInstance()
                         .getExecutionResultTypes());
         metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
