@@ -208,21 +208,10 @@ public class CalculatorFactory implements ICalculatorFactory {
     private IMetaDataInitFactory getMetaDataInitFactory() {
         if(metaDataInitFactory == null) {
             String recorderName = model.getConfiguration().getRecorderName();
-            metaDataInitFactory = instantiateMetaDataInitFactory(recorderName);
+            metaDataInitFactory = RecorderExtensionHelper.instantiateMetaDataInitFactoryForRecorder(recorderName);
         }
         return metaDataInitFactory;
     }
-    
-    @SuppressWarnings("unchecked")
-    private IMetaDataInitFactory instantiateMetaDataInitFactory(String recorderName) {
-        try {
-            String className = RecorderExtensionHelper.getMetaDataInitFactoryClassNameForName(recorderName);
-            Class<IMetaDataInitFactory> clazz = (Class<IMetaDataInitFactory>) Class.forName(className);
-            return clazz.newInstance();
-        } catch (Exception e) {
-            throw new RuntimeException("Could not instantiate factory for MetaDataInit", e);
-        }
-    }
-   
+  
 
 }

@@ -5,9 +5,7 @@ import java.util.Vector;
 import javax.measure.Measure;
 import javax.measure.quantity.Quantity;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.eclipse.core.runtime.CoreException;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
 import de.uka.ipd.sdq.pipesandfilters.framework.PipeData;
@@ -25,21 +23,18 @@ public class SetupPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
     /** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(SetupPipesAndFiltersStrategy.class);
 
-	/**
-	 * Reference to the class implementing the write strategy whose instances will be used to 
-	 * finally persist recorded data. 
-	 */
-	private final Class<? extends IRawWriteStrategy> rawWriteStrategyClass;
+	private SimuComModel model;
 
 	public SetupPipesAndFiltersStrategy(final SimuComModel model) {
-	    super();
-	    
-		this.rawWriteStrategyClass = getRawWriteStrategyClass(model);
+	    this.model = model;
 	}
 
     public PipesAndFiltersManager setupDataSink(Calculator calculator, MetaDataInit metaData) {
-
-		Recorder recorder = new RawRecorder(instanciateWriteStrategy());
+        // obtain write strategy from selected recorder extension
+        IRawWriteStrategy writeStrategy = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(
+                model.getConfiguration().getRecorderName());
+        
+		Recorder recorder = new RawRecorder(writeStrategy);
 		final PipesAndFiltersManager pipeManager = new PipesAndFiltersManager(recorder);
 		pipeManager.initialize(metaData);
 
@@ -63,36 +58,4 @@ public class SetupPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
 		};
     }
 
-    @SuppressWarnings("unchecked")
-    private Class<IRawWriteStrategy> getRawWriteStrategyClass(SimuComModel model) {
-        try {
-            String writeStrategyClass = RecorderExtensionHelper
-                    .getWriteStrategyClassNameForName(model.getConfiguration().getRecorderName());
-            return (Class<IRawWriteStrategy>) Class.forName(writeStrategyClass);
-        } catch (CoreException e) {
-            if(logger.isEnabledFor(Level.ERROR)) {
-                logger.error("Could not create write strategy.", e);
-            }
-        } catch (ClassNotFoundException e) {
-            if(logger.isEnabledFor(Level.ERROR)) {
-                logger.error("Could not create write strategy.", e);
-            }
-        }
-        throw new RuntimeException("Could not find write strategy class");
-    }
-
-	private IRawWriteStrategy instanciateWriteStrategy() {
-		try {
-		    return this.rawWriteStrategyClass.newInstance();
-		} catch (InstantiationException e) {
-			if(logger.isEnabledFor(Level.ERROR)) {
-				logger.error("Could not create write strategy.", e);
-			}
-		} catch (IllegalAccessException e) {
-			if(logger.isEnabledFor(Level.ERROR)) {
-				logger.error("Could not create write strategy.", e);
-			}
-		}
-        throw new RuntimeException("Could not instanciate write strategy class");
-	}
 }
