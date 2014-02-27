@@ -20,6 +20,7 @@
   <rm:locator pattern="^org\.eclipse\.emf\..*" searchPathRef="emf" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.xpand" searchPathRef="xpand" failOnError="false"/>
   <rm:locator pattern="^de\.itemis\.xtext\..*" searchPathRef="itemis" failOnError="false"/>
+  <rm:locator pattern="^org\.antlr\..*" searchPathRef="itemis" failOnError="false"/>
   <rm:locator searchPathRef="kepler" failOnError="false"/>
   <rm:locator searchPathRef="orbit" failOnError="false"/>
   <rm:searchPath name="itemis">
