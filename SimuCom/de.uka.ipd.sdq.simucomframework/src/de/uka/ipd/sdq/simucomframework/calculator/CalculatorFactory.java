@@ -201,7 +201,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
         // Initialize metadata
         MetaDataInit metaData = new ExecutionResultMetaDataInit(calculator.getMeasurementMetrics(),
-                (SensorFrameworkConfig) model.getConfiguration().getRecorderConfig(), FailureStatistics.getInstance()
+                model.getConfiguration().getRecorderConfig(), FailureStatistics.getInstance()
                         .getExecutionResultTypes());
         metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
         metaData.setExperimentRunName(experimentRunName);
