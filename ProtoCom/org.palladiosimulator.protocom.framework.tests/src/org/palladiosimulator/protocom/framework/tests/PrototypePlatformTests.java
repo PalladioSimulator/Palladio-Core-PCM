@@ -20,6 +20,7 @@ public class PrototypePlatformTests {
 
 	private static final double CPU_PROCESSING_RATE = 1000.0;
 	private static final double HDD_PROCESSING_RATE = 1000.0;
+    private static final String CALIBRATION_PATH = "..";
 	private static Logger logger = Logger
 			.getLogger(PrototypePlatformTests.class.getName());
 	
@@ -38,12 +39,12 @@ public class PrototypePlatformTests {
 		}*/
 		logger.debug("Initialising Testbed");
 		IDemandStrategy cpuStrategy = new FibonacciDemand();
-		cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH,CPU_PROCESSING_RATE);
+		cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH,CPU_PROCESSING_RATE, CALIBRATION_PATH);
 		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
 				ResourceTypeEnum.CPU, cpuStrategy);
 
 		IDemandStrategy hddStrategy = new ReadLargeChunksDemand();
-		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,HDD_PROCESSING_RATE);
+		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,HDD_PROCESSING_RATE, CALIBRATION_PATH);
 		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
 				ResourceTypeEnum.HDD, hddStrategy);
 		logger.debug("Testbed inialised");
@@ -131,7 +132,7 @@ public class PrototypePlatformTests {
 		bw.write("SizeRead;Time");
 		bw.newLine();
 
-		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,0.0);
+		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,0.0, CALIBRATION_PATH);
 
 		boolean random = true;
 
