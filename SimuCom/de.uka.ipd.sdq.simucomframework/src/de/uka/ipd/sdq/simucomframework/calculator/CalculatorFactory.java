@@ -58,7 +58,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
-				.getMeasurementMetrics(), (SensorFrameworkConfig) model
+				.getMeasurementMetrics(), model
 				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);
@@ -78,7 +78,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
-				.getMeasurementMetrics(), (SensorFrameworkConfig) model
+				.getMeasurementMetrics(), model
 				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);		
@@ -99,7 +99,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
-				.getMeasurementMetrics(), (SensorFrameworkConfig) model
+				.getMeasurementMetrics(), model
 				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);		
@@ -120,7 +120,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
-				.getMeasurementMetrics(), (SensorFrameworkConfig) model
+				.getMeasurementMetrics(), model
 				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);		
@@ -139,7 +139,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
-				.getMeasurementMetrics(), (SensorFrameworkConfig) model
+				.getMeasurementMetrics(), model
 				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);		
@@ -159,7 +159,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
-				.getMeasurementMetrics(), (SensorFrameworkConfig) model
+				.getMeasurementMetrics(), model
 				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);		
@@ -180,7 +180,7 @@ public class CalculatorFactory implements ICalculatorFactory {
 
 		// Initialize metadata
 		MetaDataInit metaData = new SensorFrameworkMetaDataInit(calculator
-				.getMeasurementMetrics(), (SensorFrameworkConfig) model
+				.getMeasurementMetrics(), model
 				.getConfiguration().getRecorderConfig());
 		metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
 		metaData.setExperimentRunName(experimentRunName);		
