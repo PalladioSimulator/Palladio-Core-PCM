@@ -48,7 +48,7 @@ public class SetupPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
 		return pipeManager;
 	}
 
-    /** Create the calculator listener used to recieve calculator events. The returned calculator listener
+    /** Create the calculator listener used to receive calculator events. The returned calculator listener
      * has to hand over received data to its pipe and filter structure.
      * 
      * @param pipeManager
