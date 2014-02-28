@@ -9,14 +9,12 @@ import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository;
 
 /**
- * 
- */
-
-/**Contains an example how data can be stored with EDP2.
+ * Contains an example how data can be stored with EDP2.
  * Please note that repeated execution of this class can lead to errors. 
  * This behavior is due to brevity and clarity of the example and does 
  * demonstrate a general shortcoming. 
- * @author groenda
+ * 
+ * @author groenda, Sebastian Lehrig
  */
 public class StoreExample {
 	/** (Relative) name of the directory in which the data of the example will be stored. */
