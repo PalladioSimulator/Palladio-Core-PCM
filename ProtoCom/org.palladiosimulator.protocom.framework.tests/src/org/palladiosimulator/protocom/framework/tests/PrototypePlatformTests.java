@@ -7,7 +7,6 @@ import java.io.IOException;
 import junit.framework.TestCase;
 
 import org.apache.log4j.Logger;
-import org.junit.Before;
 import org.junit.Test;
 import org.palladiosimulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
@@ -23,8 +22,8 @@ public class PrototypePlatformTests extends TestCase {
     private static final String CALIBRATION_PATH = "../..";
     private static Logger logger = Logger.getLogger(PrototypePlatformTests.class.getName());
 
-    @Before
-    public void initialise() {
+    @Override
+    protected void setUp() {
         /*
          * This is done by the Strategy Register itself at the moment, but will be needed later.
          */
