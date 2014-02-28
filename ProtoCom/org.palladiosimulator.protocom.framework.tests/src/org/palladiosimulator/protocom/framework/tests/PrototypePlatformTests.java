@@ -6,6 +6,9 @@ import java.io.IOException;
 
 import junit.framework.TestCase;
 
+import org.apache.log4j.BasicConfigurator;
+import org.apache.log4j.Category;
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.junit.Test;
 import org.palladiosimulator.protocom.framework.strategies.DemandConsumerStrategiesRegistry;
@@ -21,18 +24,24 @@ public class PrototypePlatformTests extends TestCase {
     private static final double HDD_PROCESSING_RATE = 1000.0;
     private static final String CALIBRATION_PATH = "../..";
     private static Logger logger = Logger.getLogger(PrototypePlatformTests.class.getName());
+    
+    static {
+        BasicConfigurator.configure();
+    }
 
     @Override
     protected void setUp() {
+        Category.getRoot().setLevel(Level.INFO);
+
         /*
          * This is done by the Strategy Register itself at the moment, but will be needed later.
          */
-        System.out.println("Pls pin processor! Press a key when ready.");
+        logger.info("Pls pin processor! Press a key when ready.");
         /*
          * try { System.in.read(); } catch (IOException e) { // TODO Auto-generated catch block
          * e.printStackTrace(); }
          */
-        logger.debug("Initialising Testbed");
+        logger.info("Initialising Testbed");
         IDemandStrategy cpuStrategy = new FibonacciDemand();
         cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, CPU_PROCESSING_RATE, CALIBRATION_PATH);
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
@@ -40,7 +49,7 @@ public class PrototypePlatformTests extends TestCase {
         IDemandStrategy hddStrategy = new ReadLargeChunksDemand();
         hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, HDD_PROCESSING_RATE, CALIBRATION_PATH);
         DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
-        logger.debug("Testbed inialised");
+        logger.info("Testbed inialised");
     }
 
     @Test
