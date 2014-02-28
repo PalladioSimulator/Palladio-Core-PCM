@@ -108,17 +108,20 @@ public class CalibrationTable {
 				calibrationTable.setTable((CalibrationEntry[]) o.readObject());
 			} catch (IOException e) {
 				logger.error("Error while loading " + configFile, e);
+				throw new RuntimeException(e);
 				
 			} catch (ClassNotFoundException e) {
 				logger.error("Error while reading " + configFile, e);
-
+                throw new RuntimeException(e);
 			} catch (Exception e) {
 				logger.error("Error while reading " + configFile, e);
+                throw new RuntimeException(e);
 
 			} finally {
 				try {
 					fis.close();
 				} catch (Exception e) {
+	                throw new RuntimeException(e);
 				}
 			}
 			
