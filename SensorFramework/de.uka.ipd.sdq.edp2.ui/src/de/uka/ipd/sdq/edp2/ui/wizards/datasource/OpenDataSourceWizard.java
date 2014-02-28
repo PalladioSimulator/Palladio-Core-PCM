@@ -15,7 +15,7 @@ import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataFactory;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.ui.Activator;
+import de.uka.ipd.sdq.edp2.ui.EDP2UIPlugin;
 
 /**
  * @author groenda
@@ -121,13 +121,13 @@ public class OpenDataSourceWizard extends Wizard {
 		assert(!selectDataSourceTypePage.getSelection().equals(SelectDataSourceTypePage.NO_TYPE_SELECTED));
 		
 		if (selectDataSourceTypePage.getSelection().equals(SelectDataSourceTypePage.FILE_DATA_SOURCE)) {
-			RepositoryManager.addRepository(Activator.INSTANCE.getRepositories(), ldRepo);
+			RepositoryManager.addRepository(EDP2UIPlugin.INSTANCE.getRepositories(), ldRepo);
 		} else if (selectDataSourceTypePage.getSelection().equals(SelectDataSourceTypePage.IN_MEMORY_DATA_SOURCE)) {
-			RepositoryManager.addRepository(Activator.INSTANCE.getRepositories(), lmRepo);
+			RepositoryManager.addRepository(EDP2UIPlugin.INSTANCE.getRepositories(), lmRepo);
 		} else if (selectDataSourceTypePage.getSelection().equals(SelectDataSourceTypePage.REMOTE_DATA_SOURCE)) {
-			RepositoryManager.addRepository(Activator.INSTANCE.getRepositories(), rcRepo);
+			RepositoryManager.addRepository(EDP2UIPlugin.INSTANCE.getRepositories(), rcRepo);
 		} else if (selectDataSourceTypePage.getSelection().equals(SelectDataSourceTypePage.SENSORFRAMEWORK_V1_DATA_SOURCE)) {
-			RepositoryManager.addRepository(Activator.INSTANCE.getRepositories(), lsfRepo);
+			RepositoryManager.addRepository(EDP2UIPlugin.INSTANCE.getRepositories(), lsfRepo);
 		} else {
 			// This line should never be reached. Otherwise there likely are unaccounted data source types.
 			assert(false);

@@ -18,9 +18,9 @@ import de.uka.ipd.sdq.edp2.models.Repository.RemoteCdoRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryFactory;
 
-public class Activator extends AbstractUIPlugin {
+public class EDP2UIPlugin extends AbstractUIPlugin {
 	/** Logger for this class. */
-	private static Logger logger = Logger.getLogger(Activator.class.getCanonicalName());
+	private static Logger logger = Logger.getLogger(EDP2UIPlugin.class.getCanonicalName());
 	
 	/** Setting: Should there be an initial population or mock-up data of repositories? */
 	private static String SETTING_INITIALLY_POPULATE_REPOSITORY = "populate_repository";
@@ -28,9 +28,9 @@ public class Activator extends AbstractUIPlugin {
 	// The plug-in ID
     public static final String PLUGIN_ID = "de.uka.ipd.sdq.edp2.ui";
     
-	public static Activator INSTANCE;
+	public static EDP2UIPlugin INSTANCE;
 	
-	public Activator() {
+	public EDP2UIPlugin() {
 		// initialize
 		IScopeContext context = new ConfigurationScope();
 		IEclipsePreferences node = context.getNode("de.uka.ipd.sdq.edp2.ui");

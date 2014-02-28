@@ -24,6 +24,7 @@ import org.eclipse.emf.ecore.EStructuralFeature;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.Resource.Diagnostic;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.URIConverter;
 
 import de.uka.ipd.sdq.edp2.MeasurementsDaoFactory;
 import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
@@ -40,8 +41,8 @@ import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 /**
  * DAO to access the meta data stored in a local directory.
  * Warning: It is not allowed to reassign a managed repository to another instance of Repositories.
- * @author groenda
- *
+ * 
+ * @author groenda, Sebastian Lehrig
  */
 public class LocalDirectoryMetaDao extends MetaDaoImpl {
 	
@@ -183,17 +184,33 @@ public class LocalDirectoryMetaDao extends MetaDaoImpl {
 		URI uri;
 		try {
 			uri = URI.createURI(managedRepo.getUri());
-			File directory = new File(uri.toFileString());
-			if (!directory.isDirectory()) {
-				String msg = "URI does not point to a directory.";
-				logger.log(Level.WARNING, msg);
-				throw new DataNotAccessibleException(msg, null);
+			
+			File directory = null;
+			if(uri.isFile()) {
+			    directory = new File(uri.toFileString());
+			    
+			    if (!directory.isDirectory()) {
+	                String msg = "URI does not point to a directory.";
+	                logger.log(Level.WARNING, msg);
+	                throw new DataNotAccessibleException(msg, null);
+	            }
+			    
+			    // load descriptions
+	            saveDescriptions(directory);
+	            // load experiment groups
+	            saveExperimentGroups(directory);
 			}
-			// load descriptions
-			saveDescriptions(directory);
-			// load experiment groups
-			saveExperimentGroups(directory);
-			mmtDaoFactory.setActive(false);
+			else if(uri.isPlatformResource()) {
+			    // FIXME
+			    logger.log(Level.WARNING, "Platform resource deletion currently only partly supported!");
+			}
+			else {
+			    logger.log(Level.WARNING, "Unsupported URI format.");
+            }
+			
+			if(mmtDaoFactory.isActive()) {
+			    mmtDaoFactory.setActive(false);
+			}
 			// Warning: Cannot clear lists as this would affect data on background storage
 			// TODO: FIXME
 			managedRepo.resetDescriptions();

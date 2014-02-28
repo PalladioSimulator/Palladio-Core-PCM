@@ -4,7 +4,7 @@ import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.jface.resource.ImageRegistry;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
 
-import de.uka.ipd.sdq.edp2.ui.Activator;
+import de.uka.ipd.sdq.edp2.ui.EDP2UIPlugin;
 
 /**
  * Compilation of the pictures used in EDP2 dialogs.
@@ -40,7 +40,7 @@ public class DialogsImages {
 	 */
 	public static ImageDescriptor getImageDescriptor(String imageFilePath) {
 		return AbstractUIPlugin.imageDescriptorFromPlugin(
-		        Activator.PLUGIN_ID, imageFilePath);
+		        EDP2UIPlugin.PLUGIN_ID, imageFilePath);
 	}
 
 }

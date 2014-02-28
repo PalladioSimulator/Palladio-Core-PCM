@@ -28,7 +28,7 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 import de.uka.ipd.sdq.edp2.models.Repository.Repositories;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
-import de.uka.ipd.sdq.edp2.ui.Activator;
+import de.uka.ipd.sdq.edp2.ui.EDP2UIPlugin;
 
 // implements ISaveablePart2
 public class Navigator extends ViewPart {
@@ -76,8 +76,11 @@ public class Navigator extends ViewPart {
 		treeViewer.setLabelProvider(new NavigatorTreeLabelProviderImpl(map));
 		
 		IEMFListProperty nodes = EMFProperties.list(RepositoryPackage.Literals.REPOSITORIES__AVAILABLE_REPOSITORIES);
-		treeViewer.setInput(nodes.observe(Activator.INSTANCE.getRepositories()));
+		treeViewer.setInput(nodes.observe(EDP2UIPlugin.INSTANCE.getRepositories()));
 
+		// Add double click listener
+		treeViewer.addDoubleClickListener(new NavigatorDoubleClickListener());
+		
 		getSite().setSelectionProvider(treeViewer);
 	}
 
@@ -90,7 +93,7 @@ public class Navigator extends ViewPart {
 	public void saveState(IMemento memento) {
 		super.saveState(memento);
 		resource = rs.createResource(URI.createURI("memory:///"));
-		resource.getContents().add(Activator.INSTANCE.getRepositories());
+		resource.getContents().add(EDP2UIPlugin.INSTANCE.getRepositories());
 		ByteArrayOutputStream outputStream = new ByteArrayOutputStream(); 
 		try {
 			resource.save(outputStream, null);
@@ -119,8 +122,8 @@ public class Navigator extends ViewPart {
 			// load previous state (if existing)
 			if (resource.getContents().size()==1) {
 				Repositories repos = (Repositories) resource.getContents().get(0);
-				Activator.INSTANCE.getRepositories().getAvailableRepositories().addAll(repos.getAvailableRepositories());
-				for (Repository repo : Activator.INSTANCE.getRepositories().getAvailableRepositories()) {
+				EDP2UIPlugin.INSTANCE.getRepositories().getAvailableRepositories().addAll(repos.getAvailableRepositories());
+				for (Repository repo : EDP2UIPlugin.INSTANCE.getRepositories().getAvailableRepositories()) {
 					if (repo.canOpen()) {
 						try {
 							repo.open();
