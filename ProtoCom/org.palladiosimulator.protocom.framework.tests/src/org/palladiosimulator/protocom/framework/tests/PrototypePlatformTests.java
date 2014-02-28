@@ -4,7 +4,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-import junit.framework.Assert;
+import junit.framework.TestCase;
 
 import org.apache.log4j.Logger;
 import org.junit.Before;
@@ -16,196 +16,168 @@ import org.palladiosimulator.protocom.resourcestrategies.activeresource.Resource
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu.FibonacciDemand;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.hdd.ReadLargeChunksDemand;
 
-public class PrototypePlatformTests {
+public class PrototypePlatformTests extends TestCase {
 
-	private static final double CPU_PROCESSING_RATE = 1000.0;
-	private static final double HDD_PROCESSING_RATE = 1000.0;
-    private static final String CALIBRATION_PATH = "..";
-	private static Logger logger = Logger
-			.getLogger(PrototypePlatformTests.class.getName());
-	
-	@Before
-	public void initialise() {
-		/*
-		 * This is done by the Strategy Register itself at the moment, but will
-		 * be needed later.
-		 */
-		System.out.println("Pls pin processor! Press a key when ready.");
-		/*try {
-			System.in.read();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}*/
-		logger.debug("Initialising Testbed");
-		IDemandStrategy cpuStrategy = new FibonacciDemand();
-		cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH,CPU_PROCESSING_RATE, CALIBRATION_PATH);
-		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
-				ResourceTypeEnum.CPU, cpuStrategy);
+    private static final double CPU_PROCESSING_RATE = 1000.0;
+    private static final double HDD_PROCESSING_RATE = 1000.0;
+    private static final String CALIBRATION_PATH = "../..";
+    private static Logger logger = Logger.getLogger(PrototypePlatformTests.class.getName());
 
-		IDemandStrategy hddStrategy = new ReadLargeChunksDemand();
-		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,HDD_PROCESSING_RATE, CALIBRATION_PATH);
-		DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(
-				ResourceTypeEnum.HDD, hddStrategy);
-		logger.debug("Testbed inialised");
-	}
+    @Before
+    public void initialise() {
+        /*
+         * This is done by the Strategy Register itself at the moment, but will be needed later.
+         */
+        System.out.println("Pls pin processor! Press a key when ready.");
+        /*
+         * try { System.in.read(); } catch (IOException e) { // TODO Auto-generated catch block
+         * e.printStackTrace(); }
+         */
+        logger.debug("Initialising Testbed");
+        IDemandStrategy cpuStrategy = new FibonacciDemand();
+        cpuStrategy.initializeStrategy(DegreeOfAccuracyEnum.HIGH, CPU_PROCESSING_RATE, CALIBRATION_PATH);
+        DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.CPU, cpuStrategy);
 
-	@Test
-	public void testConsumeCPU() {
-		// long unitsToConsume = 5000;
-		final double ERROR_LEVEL = 0.1; // Total error level for a single
-										// measurement
+        IDemandStrategy hddStrategy = new ReadLargeChunksDemand();
+        hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, HDD_PROCESSING_RATE, CALIBRATION_PATH);
+        DemandConsumerStrategiesRegistry.singleton().registerStrategyFor(ResourceTypeEnum.HDD, hddStrategy);
+        logger.debug("Testbed inialised");
+    }
 
-		final int TEST_ITERATIONS = 1;
-		final double OUTLIER_RATIO = 1.0; // How many measurements may be
-										  // outside bounds
-		final int START_UNIT = 512;		  // Lower units cause larger relative overhead
+    @Test
+    public void testConsumeCPU() {
+        // long unitsToConsume = 5000;
+        final double ERROR_LEVEL = 0.1; // Total error level for a single
+                                        // measurement
 
-		for (long unitsToConsume = START_UNIT; unitsToConsume <= 2048; unitsToConsume = unitsToConsume * 2) {
-			testConsumeCPUUnits(ERROR_LEVEL, TEST_ITERATIONS, OUTLIER_RATIO,
-					unitsToConsume);
+        final int TEST_ITERATIONS = 1;
+        final double OUTLIER_RATIO = 1.0; // How many measurements may be
+                                          // outside bounds
+        final int START_UNIT = 512; // Lower units cause larger relative overhead
 
-		}
-	}
+        for (long unitsToConsume = START_UNIT; unitsToConsume <= 2048; unitsToConsume = unitsToConsume * 2) {
+            testConsumeCPUUnits(ERROR_LEVEL, TEST_ITERATIONS, OUTLIER_RATIO, unitsToConsume);
 
-	private void testConsumeCPUUnits(final double ERROR_LEVEL,
-			final int TEST_ITERATIONS, final double OUTLIER_RATIO,
-			long unitsToConsume) {
+        }
+    }
 
-		double lowerAcceptanceBound = (unitsToConsume - (unitsToConsume
-				* ERROR_LEVEL / 2))
-				/ CPU_PROCESSING_RATE;
-		double upperAcceptanceBound = (unitsToConsume + (unitsToConsume
-				* ERROR_LEVEL / 2))
-				/ CPU_PROCESSING_RATE;
+    private void testConsumeCPUUnits(final double ERROR_LEVEL, final int TEST_ITERATIONS, final double OUTLIER_RATIO,
+            long unitsToConsume) {
 
-		IDemandStrategy cpuStrategy = DemandConsumerStrategiesRegistry
-				.singleton().getStrategyFor(ResourceTypeEnum.CPU);
+        double lowerAcceptanceBound = (unitsToConsume - (unitsToConsume * ERROR_LEVEL / 2)) / CPU_PROCESSING_RATE;
+        double upperAcceptanceBound = (unitsToConsume + (unitsToConsume * ERROR_LEVEL / 2)) / CPU_PROCESSING_RATE;
 
-		int countOutliers = 0;
-		for (int i = 0; i < TEST_ITERATIONS; i++) {
+        IDemandStrategy cpuStrategy = DemandConsumerStrategiesRegistry.singleton().getStrategyFor(ResourceTypeEnum.CPU);
 
-			long start = System.nanoTime();
-			cpuStrategy.consume(unitsToConsume);
-			long end = System.nanoTime();
+        int countOutliers = 0;
+        for (int i = 0; i < TEST_ITERATIONS; i++) {
 
-			double timeConsumptionInSeconds = (end - start) / 1.0E9;
+            long start = System.nanoTime();
+            cpuStrategy.consume(unitsToConsume);
+            long end = System.nanoTime();
 
-			if (timeConsumptionInSeconds < lowerAcceptanceBound
-					|| timeConsumptionInSeconds > upperAcceptanceBound) {
-				countOutliers++;
-				if (timeConsumptionInSeconds < lowerAcceptanceBound)
-					logger.info("Lower acceptance level not reached in run "
-							+ i + ": Time is " + timeConsumptionInSeconds
-							+ " and must be higher than "
-							+ lowerAcceptanceBound);
-				if (timeConsumptionInSeconds > upperAcceptanceBound)
-					logger.
-							info("Upper acceptance level not reached in run "
-									+ i + ": Time is "
-									+ timeConsumptionInSeconds
-									+ " and must be lower than "
-									+ upperAcceptanceBound);
-			}
-		}
-		logger.info("There have been " + countOutliers + " outliers out of "
-				+ TEST_ITERATIONS + " values for " + unitsToConsume
-				+ " workunits.");
-		Assert.assertTrue("There have been more than " + TEST_ITERATIONS
-				* OUTLIER_RATIO + " outliers for " + unitsToConsume
-				+ " work units: " + countOutliers,
-				countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);
-	}
+            double timeConsumptionInSeconds = (end - start) / 1.0E9;
 
-	@Test
-	public void testConsumeHDD() throws IOException {
+            if (timeConsumptionInSeconds < lowerAcceptanceBound || timeConsumptionInSeconds > upperAcceptanceBound) {
+                countOutliers++;
+                if (timeConsumptionInSeconds < lowerAcceptanceBound)
+                    logger.info("Lower acceptance level not reached in run " + i + ": Time is "
+                            + timeConsumptionInSeconds + " and must be higher than " + lowerAcceptanceBound);
+                if (timeConsumptionInSeconds > upperAcceptanceBound)
+                    logger.info("Upper acceptance level not reached in run " + i + ": Time is "
+                            + timeConsumptionInSeconds + " and must be lower than " + upperAcceptanceBound);
+            }
+        }
+        logger.info("There have been " + countOutliers + " outliers out of " + TEST_ITERATIONS + " values for "
+                + unitsToConsume + " workunits.");
+        assertTrue("There have been more than " + TEST_ITERATIONS * OUTLIER_RATIO + " outliers for "
+                + unitsToConsume + " work units: " + countOutliers, countOutliers <= TEST_ITERATIONS * OUTLIER_RATIO);
+    }
 
-		ReadLargeChunksDemand hddStrategy = (ReadLargeChunksDemand) DemandConsumerStrategiesRegistry
-				.singleton().getStrategyFor(ResourceTypeEnum.HDD);
+    @Test
+    public void testConsumeHDD() throws IOException {
 
-		Assert
-				.assertEquals(hddStrategy.getClass(),
-						ReadLargeChunksDemand.class);
+        ReadLargeChunksDemand hddStrategy = (ReadLargeChunksDemand) DemandConsumerStrategiesRegistry.singleton()
+                .getStrategyFor(ResourceTypeEnum.HDD);
 
-		BufferedWriter bw = new BufferedWriter(new FileWriter(
-				"testConsumeHDDResults.csv"));
-		bw.write("SizeRead;Time");
-		bw.newLine();
+        assertEquals(hddStrategy.getClass(), ReadLargeChunksDemand.class);
 
-		hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM,0.0, CALIBRATION_PATH);
+        BufferedWriter bw = new BufferedWriter(new FileWriter("testConsumeHDDResults.csv"));
+        bw.write("SizeRead;Time");
+        bw.newLine();
 
-		boolean random = true;
+        hddStrategy.initializeStrategy(DegreeOfAccuracyEnum.MEDIUM, 0.0, CALIBRATION_PATH);
 
-		int iterations = 100;
+        boolean random = true;
 
-		double demand = 1000000;
-		// warmup
-		for (int i = 0; i < 100; i++) {
-			hddStrategy.consume(demand);
-		}
+        int iterations = 100;
 
-		if (!random) {
-			consumeDecreasingHDDDemand(hddStrategy, bw, iterations);
-		} else {
-			consumeRandomHDDDemand(hddStrategy, bw, iterations);
-		}
+        double demand = 1000000;
+        // warmup
+        for (int i = 0; i < 100; i++) {
+            hddStrategy.consume(demand);
+        }
 
-		// TODO: Noch mehr Tests.
-	}
-	
-	private void consumeRandomHDDDemand(ReadLargeChunksDemand hddStrategy,
-			BufferedWriter bw, int iterations) throws IOException {
-		double[] demand = new double[iterations];
-		long[] startTime = new long[iterations];
-		long[] endTime = new long[iterations];
-		for (int i = 0; i < iterations; i++) {
-			demand[i] = Math.random() * hddStrategy.getMaxFileSize();
-			startTime[i] = System.nanoTime();
-			hddStrategy.consume(demand[i]);
-			endTime[i] = System.nanoTime();
-		}
-		for (int i = 0; i < iterations; i++) {
-			writeHDDResultToFile(bw, startTime[i], endTime[i], demand[i], i);
-		}
+        if (!random) {
+            consumeDecreasingHDDDemand(hddStrategy, bw, iterations);
+        } else {
+            consumeRandomHDDDemand(hddStrategy, bw, iterations);
+        }
 
-	}
+        // TODO: Noch mehr Tests.
+    }
 
-	private void consumeDecreasingHDDDemand(ReadLargeChunksDemand hddStrategy,
-			BufferedWriter bw, int iterations) throws IOException {
+    private void consumeRandomHDDDemand(ReadLargeChunksDemand hddStrategy, BufferedWriter bw, int iterations)
+            throws IOException {
+        double[] demand = new double[iterations];
+        long[] startTime = new long[iterations];
+        long[] endTime = new long[iterations];
+        for (int i = 0; i < iterations; i++) {
+            demand[i] = Math.random() * hddStrategy.getMaxFileSize();
+            startTime[i] = System.nanoTime();
+            hddStrategy.consume(demand[i]);
+            endTime[i] = System.nanoTime();
+        }
+        for (int i = 0; i < iterations; i++) {
+            writeHDDResultToFile(bw, startTime[i], endTime[i], demand[i], i);
+        }
 
-		long sum;
-		double demand;
+    }
 
-		long[] startTimes = new long[iterations];
-		long[] endTimes = new long[iterations];
+    private void consumeDecreasingHDDDemand(ReadLargeChunksDemand hddStrategy, BufferedWriter bw, int iterations)
+            throws IOException {
 
-		for (int j = hddStrategy.getMaxFileSize(); j > 0; j -= 1000000) {
-			demand = j;
+        long sum;
+        double demand;
 
-			for (int i = 0; i < iterations; i++) {
-				startTimes[i] = System.nanoTime();
-				hddStrategy.consume(demand);
-				endTimes[i] = System.nanoTime();
-			}
-			sum = 0;
-			for (int i = 0; i < iterations; i++) {
+        long[] startTimes = new long[iterations];
+        long[] endTimes = new long[iterations];
 
-				sum += endTimes[i] - startTimes[i];
-				writeHDDResultToFile(bw, startTimes[i], endTimes[i], demand, i);
-			}
-			double mean = sum / (double) iterations;
-			System.out.println("Mean is " + mean + " nanoseconds, that is "
-					+ (mean / 1000000000) + " seconds.");
-		}
-	}
+        for (int j = hddStrategy.getMaxFileSize(); j > 0; j -= 1000000) {
+            demand = j;
 
-	private void writeHDDResultToFile(BufferedWriter bw, long startTime,
-			long endTime, double demand, int i) throws IOException {
-		System.out.println(i + ": Reading " + demand + " B took "
-				+ (endTime - startTime) + " ns.");
-		bw.write(demand + ";" + (endTime - startTime));
-		bw.newLine();
-		bw.flush();
-	}
+            for (int i = 0; i < iterations; i++) {
+                startTimes[i] = System.nanoTime();
+                hddStrategy.consume(demand);
+                endTimes[i] = System.nanoTime();
+            }
+            sum = 0;
+            for (int i = 0; i < iterations; i++) {
+
+                sum += endTimes[i] - startTimes[i];
+                writeHDDResultToFile(bw, startTimes[i], endTimes[i], demand, i);
+            }
+            double mean = sum / (double) iterations;
+            System.out.println("Mean is " + mean + " nanoseconds, that is " + (mean / 1000000000) + " seconds.");
+        }
+    }
+
+    private void writeHDDResultToFile(BufferedWriter bw, long startTime, long endTime, double demand, int i)
+            throws IOException {
+        System.out.println(i + ": Reading " + demand + " B took " + (endTime - startTime) + " ns.");
+        bw.write(demand + ";" + (endTime - startTime));
+        bw.newLine();
+        bw.flush();
+    }
 
 }
