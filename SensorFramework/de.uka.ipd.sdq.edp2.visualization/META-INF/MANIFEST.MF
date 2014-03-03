@@ -19,7 +19,7 @@ Require-Bundle: org.eclipse.ui,
  com.ibm.icu,
  org.eclipse.emf.databinding
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: de.uka.ipd.sdq.edp2.visualization;
   uses:="org.eclipse.ui.views.properties.tabbed,
    de.uka.ipd.sdq.edp2.models.ExperimentData,

@@ -7,7 +7,7 @@ Bundle-ClassPath: .
 Bundle-Activator: de.uka.ipd.sdq.edp2.models.ExperimentData.provider.EDP2EditPlugin$Implementation
 Bundle-Vendor: %providerName
 Bundle-Localization: plugin
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Export-Package: de.uka.ipd.sdq.edp2.models.ExperimentData.provider,
  de.uka.ipd.sdq.edp2.models.Repository.provider
 Require-Bundle: org.eclipse.core.runtime,

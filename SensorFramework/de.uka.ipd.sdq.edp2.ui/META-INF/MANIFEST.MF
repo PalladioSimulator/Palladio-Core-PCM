@@ -3,7 +3,7 @@ Bundle-ManifestVersion: 2
 Bundle-Name: EDP User Interface Plug-in
 Bundle-SymbolicName: de.uka.ipd.sdq.edp2.ui;singleton:=true
 Bundle-Version: 1.0.0
-Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Require-Bundle: org.eclipse.ui,
  org.eclipse.ui.navigator,
  org.eclipse.core.runtime,
