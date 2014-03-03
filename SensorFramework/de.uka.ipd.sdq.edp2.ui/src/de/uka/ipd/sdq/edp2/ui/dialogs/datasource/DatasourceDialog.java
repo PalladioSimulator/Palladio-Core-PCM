@@ -25,6 +25,11 @@ import org.eclipse.swt.widgets.Table;
 
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 
+/**
+ * Dialog to manage EDP2 repositories used as data sources.
+ * 
+ * @author Sebastian Lehrig
+ */
 public class DatasourceDialog extends TitleAreaDialog {
 
 	private static String DIALOG_TITLE = "Create/Load the data source.";
@@ -36,7 +41,11 @@ public class DatasourceDialog extends TitleAreaDialog {
 	private boolean buttonValidation;
 	private String dialogTitle;
 	
-	/** Create the dialog */
+	/**
+	 * Create the dialog.
+	 * 
+	 * @param input Initial set of EDP2 repositories to show
+	 * */
 	public DatasourceDialog(Shell parentShell, String dialogTitle,
 			Object input, boolean makeButtonValidation) {
 		super(parentShell);

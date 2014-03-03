@@ -6,12 +6,14 @@ import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.widgets.Shell;
 
+import de.uka.ipd.sdq.edp2.EDP2Plugin;
 import de.uka.ipd.sdq.edp2.impl.RepositoryManager;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
-import de.uka.ipd.sdq.edp2.ui.EDP2UIPlugin;
 import de.uka.ipd.sdq.edp2.ui.wizards.datasource.OpenDataSourceWizard;
 
-/** 
+/**
+ * Dialog to manage EDP2 repositories used as data sources from within a run configuration.
+ *      
  * @author Sebastian Lehrig
  * */
 public class ConfigureDatasourceDialog extends DatasourceDialog {
@@ -20,7 +22,7 @@ public class ConfigureDatasourceDialog extends DatasourceDialog {
     public static String ADD_WIZARD_TITLE = "Select/create a storage for EDP2.";
 
 	public ConfigureDatasourceDialog(Shell parentShell, String dialogTitel, boolean makeValidation) {
-		super(parentShell, dialogTitel, EDP2UIPlugin.INSTANCE.getRepositories().getAvailableRepositories(), makeValidation);
+		super(parentShell, dialogTitel, EDP2Plugin.INSTANCE.getRepositories().getAvailableRepositories(), makeValidation);
 		create();
 		setRemoveButtonAction(new SelectionAdapter() {
 
@@ -30,7 +32,7 @@ public class ConfigureDatasourceDialog extends DatasourceDialog {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				Repository selectedRepository = (Repository) getResult();
-				RepositoryManager.removeRepository(EDP2UIPlugin.INSTANCE.getRepositories(), selectedRepository);
+				RepositoryManager.removeRepository(EDP2Plugin.INSTANCE.getRepositories(), selectedRepository);
 				refresh();
 			}
 		});
@@ -42,7 +44,6 @@ public class ConfigureDatasourceDialog extends DatasourceDialog {
 			 */
 			@Override
 			public void widgetSelected(SelectionEvent e) {
-			    // TODO provide dedicated add data source dialog?
 			    OpenDataSourceWizard w = new OpenDataSourceWizard();
 				//AddNewDataSourceWizard w = new AddNewDataSourceWizard();
 				//w.init(PlatformUI.getWorkbench().getActiveWorkbenchWindow().getWorkbench(),

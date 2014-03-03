@@ -19,7 +19,9 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.core.resources;bundle-version="3.5.0",
  de.uka.ipd.sdq.edp2.edit;bundle-version="1.0.0",
  de.uka.ipd.sdq.edp2.visualization;bundle-version="1.0.0",
- org.jfree.jfreechart;bundle-version="1.0.9"
+ org.jfree.jfreechart;bundle-version="1.0.9",
+ org.eclipse.emf.common,
+ de.uka.ipd.sdq.pcm
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: de.uka.ipd.sdq.edp2.ui.EDP2UIPlugin
 Export-Package: de.uka.ipd.sdq.edp2.ui.dialogs.datasource
