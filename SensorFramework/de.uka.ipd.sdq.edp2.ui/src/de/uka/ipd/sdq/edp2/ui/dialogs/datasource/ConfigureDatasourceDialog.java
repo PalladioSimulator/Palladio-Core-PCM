@@ -13,6 +13,8 @@ import de.uka.ipd.sdq.edp2.ui.wizards.datasource.OpenDataSourceWizard;
 
 /**
  * Dialog to manage EDP2 repositories used as data sources from within a run configuration.
+ * 
+ * TODO Creating is limited as no files are created for file data sources. Therefore, it currently equals opening. Fix that.
  *      
  * @author Sebastian Lehrig
  * */
