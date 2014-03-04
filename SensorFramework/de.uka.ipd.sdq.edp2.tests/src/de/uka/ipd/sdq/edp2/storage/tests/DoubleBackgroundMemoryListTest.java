@@ -8,7 +8,7 @@ import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 import javax.measure.unit.Unit;
 
-import junit.framework.Assert;
+import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
@@ -23,15 +23,16 @@ import de.uka.ipd.sdq.edp2.local.file.BackgroundMemoryListImpl.BinaryRepresentat
  */
 public class DoubleBackgroundMemoryListTest {
 
-	private static final int LARGE_NUMBER_OF_ELEMENTS = 1000000;
+	private static final double MAX_DELTA = 0.1;
+
+    private static final int LARGE_NUMBER_OF_ELEMENTS = 1000000;
 	
 	/** Temporary file used to serialize data. */
 	private static File tempFile = null;
 	/** The used serializer. */
 	private static DoubleSerializer doubleSerializer = new DoubleSerializer();
 	/** The used background list. */
-	@SuppressWarnings("unchecked")
-	private static BackgroundMemoryListImpl<Measure> list;
+	private static BackgroundMemoryListImpl<Double,Duration> list;
 	/** Unit used for all measurements. */
 	private static Unit<Duration> unit;
 
@@ -45,35 +46,33 @@ public class DoubleBackgroundMemoryListTest {
 	/**Checks if a single value can be serialized and deserialized successfully.
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void basicDeserialization() throws IOException {
 		// Check list instance serialization size
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				doubleSerializer, BinaryRepresentation.DOUBLE, unit);
-		Assert.assertEquals("File length of empty lists should be 0.", 0, tempFile.length());
-		Assert.assertEquals("Size of empty array should be 0.", 0, list.size());
+		assertEquals("File length of empty lists should be 0.", 0, tempFile.length());
+		assertEquals("Size of empty array should be 0.", 0, list.size());
 		list.add(Measure.valueOf(1.0, unit));
-		Assert.assertEquals("Size of single element array should be 1.", 1, list.size());
+		assertEquals("Size of single element array should be 1.", 1, list.size());
 		list.close();
-		Assert.assertEquals("File length after storing and closing is the expected " +
+		assertEquals("File length after storing and closing is the expected " +
 				"product of object serialization size and number of data elements.", 
 				doubleSerializer.getElementLength(), tempFile.length());
 		
 		// check if deserialization works with another instance
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
-		Assert.assertEquals("Deserilized test list must contain one element.", 1, list.size());
-		Assert.assertEquals("Value before and after serialization must be the same.", 1.0, list.get(0).doubleValue(unit));
+		assertEquals("Deserilized test list must contain one element.", 1, list.size());
+		assertEquals("Value before and after serialization must be the same.", 1.0, list.get(0).doubleValue(unit),MAX_DELTA);
 	}
 
 	/**Checks the behavior at chunk size limit (limit - 1).
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void basicDeserializationChunkSizeMinusOne() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				doubleSerializer, BinaryRepresentation.DOUBLE, unit);
 		basicDeserializationChunkSize(BackgroundMemoryListImpl.DEFAULT_CHUNK_SIZE - 1, 0);
 		list.close();
@@ -82,10 +81,9 @@ public class DoubleBackgroundMemoryListTest {
 	/**Checks the behavior at chunk size limit (limit - 1).
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void basicDeserializationChunkSize() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				doubleSerializer, BinaryRepresentation.DOUBLE, unit);
 		basicDeserializationChunkSize(BackgroundMemoryListImpl.DEFAULT_CHUNK_SIZE, 0);
 		list.close();
@@ -94,10 +92,9 @@ public class DoubleBackgroundMemoryListTest {
 	/**Checks the behavior at chunk size limit (limit - 1).
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void basicDeserializationChunkSizePlusOne() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				doubleSerializer, BinaryRepresentation.DOUBLE, unit);
 		basicDeserializationChunkSize(BackgroundMemoryListImpl.DEFAULT_CHUNK_SIZE + 1, 0);
 		list.close();
@@ -109,7 +106,6 @@ public class DoubleBackgroundMemoryListTest {
 	 * @param valueOffset Offset to add on the values stored.
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	public void basicDeserializationChunkSize(long numberElements, int valueOffset) throws IOException {
 		long oldListSize = list.size();
 		
@@ -118,28 +114,27 @@ public class DoubleBackgroundMemoryListTest {
 			list.add(Measure.valueOf(i + 1 + valueOffset,unit));
 		}
 		list.close();
-		Assert.assertEquals("File length after storing and closing is expected to be the " +
+		assertEquals("File length after storing and closing is expected to be the " +
 				"product of object serialization size and number of data elements.", 
 				doubleSerializer.getElementLength() * (numberElements + oldListSize), tempFile.length());
 
 		// check if deserialization works with another instance
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
-		Assert.assertEquals("Deserialized test list must contain " + (numberElements + oldListSize) + " element(s).", 
+		assertEquals("Deserialized test list must contain " + (numberElements + oldListSize) + " element(s).", 
 				numberElements + oldListSize, list.size());
 		for (double i = 0; i < numberElements; i++) {
-			Assert.assertEquals("Value(s) before and after serialization must be the same.", 
-					i + 1 + valueOffset, list.get((int) (oldListSize + i)).doubleValue(unit));
+			assertEquals("Value(s) before and after serialization must be the same.", 
+					i + 1 + valueOffset, list.get((int) (oldListSize + i)).doubleValue(unit),MAX_DELTA);
 		}
 	}
 	
 	/**Checks the behavior for large number of elements.
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void largeNumberOfElements() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				doubleSerializer, BinaryRepresentation.DOUBLE, unit);
 		basicDeserializationChunkSize(LARGE_NUMBER_OF_ELEMENTS, 0);
 		list.close();
@@ -149,10 +144,9 @@ public class DoubleBackgroundMemoryListTest {
 	 * writing if all chunks are full.
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void repetitiveWriting() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		basicDeserializationChunkSize(BackgroundMemoryListImpl.DEFAULT_CHUNK_SIZE, 0);
 		basicDeserializationChunkSize(BackgroundMemoryListImpl.DEFAULT_CHUNK_SIZE - 1, 
@@ -165,10 +159,9 @@ public class DoubleBackgroundMemoryListTest {
 	/**Checks if an exception is throw if null Objects are added to the list.
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test(expected=IllegalArgumentException.class)
 	public void nullElementException() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		list.add(null);
 		list.close();
@@ -177,60 +170,54 @@ public class DoubleBackgroundMemoryListTest {
 	/**Checks if empty lists are serialized and deserialized correctly.
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void noElementsInList() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
-		Assert.assertEquals("Size of empty list is not 0.", list.size(), 0);
+		assertEquals("Size of empty list is not 0.", list.size(), 0);
 		list.close();
-		Assert.assertEquals("File size of empty list is not 0.", tempFile.length(), 0);
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		assertEquals("File size of empty list is not 0.", tempFile.length(), 0);
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
-		Assert.assertEquals("Size of empty list after deserialization is not 0.", list.size(), 0);
+		assertEquals("Size of empty list after deserialization is not 0.", list.size(), 0);
 		list.close();
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test(expected=IllegalStateException.class)
 	public void noAddAfterClose() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		list.close();
 		list.add(Measure.valueOf(1.0, unit));
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test(expected=IllegalStateException.class)
 	public void noGetAfterClose() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		list.close();
 		list.get(1);
 	}
 	
-	@SuppressWarnings("unchecked")
 	@Test(expected=IllegalStateException.class)
 	public void noCloseAfterClose() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		list.close();
 		list.close();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test(expected=ArrayIndexOutOfBoundsException.class)
 	public void onlyPositiveIndices() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		list.get(-1);
 		list.close();
 	}
 
-	@SuppressWarnings("unchecked")
 	@Test(expected=ArrayIndexOutOfBoundsException.class)
 	public void keepIndicesWithinExistingElements() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		list.add(Measure.valueOf(1.1, unit));
 		list.get(1);
@@ -241,10 +228,9 @@ public class DoubleBackgroundMemoryListTest {
 	/**Checks if the same file can be read correctly using different chunk sizes.
 	 * @throws IOException
 	 */
-	@SuppressWarnings("unchecked")
 	@Test
 	public void differentChunkSizes() throws IOException {
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		long numberElements = BackgroundMemoryListImpl.DEFAULT_CHUNK_SIZE + 2;
 		// create and serialize elements
@@ -252,25 +238,25 @@ public class DoubleBackgroundMemoryListTest {
 			list.add(Measure.valueOf(i + 1, unit));
 		}
 		list.close();
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BackgroundMemoryListImpl.DEFAULT_CHUNK_SIZE / 4, BinaryRepresentation.DOUBLE, unit);
-		Assert.assertEquals("Deserialized test list must contain " + numberElements + " element(s).", 
-				numberElements, list.size());
+		assertEquals("Deserialized test list must contain " + numberElements + " element(s).", 
+				numberElements, list.size(),MAX_DELTA);
 		for (double i = 0; i < numberElements; i++) {
-			Assert.assertEquals("Value(s) before and after serialization must be the same.", 
-					i + 1, list.get((int) i).doubleValue(unit));
+		    assertEquals("Value(s) before and after serialization must be the same.", 
+					i + 1, list.get((int) i).doubleValue(unit),MAX_DELTA);
 		}
 		list.close();
 	}
 	
-	@SuppressWarnings({ "static-access", "unchecked" })
+	@SuppressWarnings({ "static-access" })
 	@Test
 	public void settingElementsInList() throws IOException {
 		int numberElements = list.DEFAULT_CHUNK_SIZE + 20;
 		int valueOffset = 30;
 		double[] values = new double[numberElements];
 		// create elements
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		for (int i = 0; i < numberElements; i++) {
 			values[i] = i + 1 + valueOffset;
@@ -280,29 +266,29 @@ public class DoubleBackgroundMemoryListTest {
 		list.close();
 		
 		// Check if changes are stored correctly
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		// select chunk and set value in another chunk
 		list.get(0);
 		double newValue = Math.random() * 100000;
-		Measure oldValue;
+		Measure<Double,Duration> oldValue;
 		int positionOfChange = numberElements - 10; 
 		oldValue = list.set(positionOfChange, Measure.valueOf(newValue, unit));
-		Assert.assertEquals("Value must not be changed by serialization and setting a new value.",
-				values[positionOfChange], oldValue.doubleValue(unit));
+		assertEquals("Value must not be changed by serialization and setting a new value.",
+				values[positionOfChange], oldValue.doubleValue(unit),MAX_DELTA);
 		// select another chunk and look if value is stored in list
 		list.get(0);
-		Assert.assertEquals("Changed value not stored correctly.", 
-				newValue, list.get(positionOfChange).doubleValue(unit));
+		assertEquals("Changed value not stored correctly.", 
+				newValue, list.get(positionOfChange).doubleValue(unit),MAX_DELTA);
 		values[positionOfChange] = newValue;
 		list.close();
 		
 		// Check if only changed value is changed
-		list = new BackgroundMemoryListImpl<Measure>(tempFile.getAbsolutePath(),
+		list = new BackgroundMemoryListImpl<Double,Duration>(tempFile.getAbsolutePath(),
 				new DoubleSerializer(), BinaryRepresentation.DOUBLE, unit);
 		for (int i = 0; i < numberElements; i++) {
-			Assert.assertEquals("Value(s) before and after serialization must be the same.", 
-					values[i], list.get(i).doubleValue(unit));
+			assertEquals("Value(s) before and after serialization must be the same.", 
+					values[i], list.get(i).doubleValue(unit),MAX_DELTA);
 		}
 	}
 }

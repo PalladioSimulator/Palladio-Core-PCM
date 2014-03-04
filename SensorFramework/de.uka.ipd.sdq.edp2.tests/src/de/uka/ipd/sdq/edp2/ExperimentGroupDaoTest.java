@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.edp2;
 
-
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertNotNull;
@@ -11,7 +10,7 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
 
 /**JUnit test for classes with ExperimentGroupDao interface.
  * Subclass and test for all different types of ExperimentGroupDaos.
@@ -19,7 +18,7 @@ import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
  */
 public abstract class ExperimentGroupDaoTest extends Edp2DaoTest {
 	/** The ExperimentGroupDao under test. */
-	protected ExperimentGroupDao egd = (ExperimentGroupDao) dao;
+	protected EmfFileAccessDao egd = dao;
 	
 	@Test (expected = IllegalStateException.class)
 	public void testGetExperimentGroupOnlyIfOpen() {

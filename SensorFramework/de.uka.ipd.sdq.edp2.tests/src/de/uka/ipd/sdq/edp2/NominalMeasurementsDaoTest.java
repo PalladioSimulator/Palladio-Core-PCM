@@ -11,6 +11,8 @@ import java.io.IOException;
 
 import org.junit.Test;
 
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+
 /**JUnit test for classes with NominalMeasurementsDao interface.
  * Subclass and test for all different types of NominalMeasurementsDaos.
  * @author groenda
@@ -21,7 +23,7 @@ public abstract class NominalMeasurementsDaoTest extends Edp2DaoTest {
 
 	@Test (expected = IllegalStateException.class)
 	public void testGetNominalMeasurementsOnlyIfOpen() {
-		onmDao.getNominalMeasurements();
+		onmDao.getObservedIdentifierBasedMeasurements();
 	}
 	
 	/**
@@ -36,7 +38,7 @@ public abstract class NominalMeasurementsDaoTest extends Edp2DaoTest {
 		onmDao.open();
 		assertTrue("NominalMeasurementsDao must be open after open().", onmDao.isOpen());
 		assertFalse("NominalMeasurementsDao.open() must not effect status of deletion.", onmDao.isDeleted());
-		assertNotNull("NominalMeasurementsDao must be not null if open.", onmDao.getNominalMeasurements());
+		assertNotNull("NominalMeasurementsDao must be not null if open.", onmDao.getObservedIdentifierBasedMeasurements());
 		
 		onmDao.close();
 		assertFalse("NominalMeasurementsDao must be closed after close().", onmDao.isOpen());

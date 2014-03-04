@@ -8,6 +8,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+
 /**JUnit test for classes with Edp2Dao interface. 
  * Subclass and test for all different types of Edp2Dao.
  * @author groenda
@@ -15,15 +17,15 @@ import org.junit.Test;
 public abstract class Edp2DaoTest {
 	
 	/** The factory used to create the DAO factories. */
-	protected StorageFactory factory = new StorageFactory();
+	//protected StorageFactory factory = new StorageFactory();
 	
 	/** The used DAO factory. */
-	protected DaoFactory df = null;
+	protected MeasurementsDaoFactory df = null;
 	
 	/** DAO under test. */
-	protected Dao dao = null;
+	protected Edp2Dao dao = null;
 
-	@Test(expected = DataNotAccessibleException.class)
+	@Test(expected = IllegalStateException.class)
 	public void testDelete() throws DataNotAccessibleException {
 		assertFalse("DAO must have initial state of not-deletd.", dao.isDeleted());
 		dao.open();
@@ -33,7 +35,7 @@ public abstract class Edp2DaoTest {
 		dao.open();
 	}
 
-	@Test(expected = DataNotAccessibleException.class)
+	@Test(expected = IllegalStateException.class)
 	public void testDeleteNotIfOpen() throws DataNotAccessibleException {
 		dao.open();
 		dao.delete();

@@ -6,7 +6,8 @@ import java.io.RandomAccessFile;
 
 import org.junit.Test;
 
-import junit.framework.Assert;
+import static org.junit.Assert.*;
+
 import de.uka.ipd.sdq.edp2.local.file.DoubleSerializer;
 
 /**Test the behavior of the DoubleSerializer.
@@ -33,10 +34,10 @@ public class DoubleSerializerTest {
 		raf.seek(0);
 		raf.read(bytes);
 		raf.close();
-		Assert.assertTrue(bytes.length == ds.getElementLength() * count);
+		assertTrue(bytes.length == ds.getElementLength() * count);
 		Double[] doubles = (Double[]) ds.deserialise(bytes);
 		for (int i=0; i < count; i++)
-			Assert.assertEquals(d[i],doubles[i]);
+			assertTrue(d[i] == doubles[i]);
 	}
 	
 	private Double[] toDoubleArray(double[] d){

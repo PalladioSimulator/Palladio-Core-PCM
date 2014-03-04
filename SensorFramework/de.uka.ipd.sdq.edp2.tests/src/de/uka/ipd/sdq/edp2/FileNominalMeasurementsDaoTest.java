@@ -13,14 +13,9 @@ import org.eclipse.emf.ecore.resource.ResourceSet;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.junit.Before;
 
-import de.uka.ipd.sdq.edp2.file.impl.EmfModelXMIResourceFactoryImpl;
-import de.uka.ipd.sdq.edp2.models.emfmodel.CategoryIdentifier;
-import de.uka.ipd.sdq.edp2.models.emfmodel.EmfmodelFactory;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ExperimentGroup;
-import de.uka.ipd.sdq.edp2.models.emfmodel.NominalMeasure;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ObservedCategory;
-import de.uka.ipd.sdq.edp2.models.emfmodel.ObservedNominalMeasurements;
-import de.uka.ipd.sdq.edp2.models.emfmodel.impl.EmfmodelFactoryImpl;
+import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
+import de.uka.ipd.sdq.edp2.models.impl.EmfModelXMIResourceFactoryImpl;
 
 /**JUnit test for file-backed NominalMeasurementsDao.
  * @author groenda
@@ -71,9 +66,9 @@ public class FileNominalMeasurementsDaoTest extends NominalMeasurementsDaoTest {
 		eg.getMeasure().add(nm);
 		egDao.close();
 
-		ObservedNominalMeasurements onm;
+		ObservedIdentifierBasedMeasurements onm;
 		onmDao.open();
-		onm = onmDao.getNominalMeasurements();
+		onm = onmDao.getObservedIdentifierBasedMeasurements();
 		ObservedCategory oc = ef.createObservedCategory();
 		oc.setCategoryIdentifier(ci);
 		onm.getObservedCategories().add(oc);
@@ -85,7 +80,7 @@ public class FileNominalMeasurementsDaoTest extends NominalMeasurementsDaoTest {
 				.getObservedCategories().size());
 		assertEquals(
 				"ObservedNominalMeasurements must point to the same CategoryIdentifier after saving.",
-				ci.getUuid(), onm.getObservedCategories().get(0).getCategoryIdentifier().getUuid());
+				ci.getUuid(), onm.getObservedCategories().get(0).getCategoryIdentifier().getUuid(),0.1);
 		onmDao.close();
 	}
 }
