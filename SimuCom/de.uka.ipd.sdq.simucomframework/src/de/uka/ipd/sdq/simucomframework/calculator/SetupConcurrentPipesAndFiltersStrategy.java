@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.calculator;
 
-import java.util.Vector;
+import java.util.List;
 import java.util.concurrent.LinkedBlockingQueue;
 
 import javax.measure.Measure;
@@ -30,7 +30,7 @@ class SetupConcurrentPipesAndFiltersStrategy extends SetupPipesAndFiltersStrateg
         new Thread(processPipeData).start();
 
         return new ICalculatorListener() {
-            public void calculated(Vector<Measure<?, ? extends Quantity>> resultTuple) {
+            public void calculated(List<Measure<?, ? extends Quantity>> resultTuple) {
                 processPipeData.enqueue(new PipeData(resultTuple));
             }
         };

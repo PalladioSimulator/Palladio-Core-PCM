@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.calculator;
 
-import java.util.Vector;
+import java.util.List;
 
 import javax.measure.Measure;
 import javax.measure.quantity.Quantity;
@@ -52,7 +52,7 @@ public class SetupPipesAndFiltersStrategy implements ISetupDataSinkStrategy {
     protected ICalculatorListener createCalculatorListener(final PipesAndFiltersManager pipeManager) {
         return new ICalculatorListener() {
 
-			public void calculated(Vector<Measure<?, ? extends Quantity>> resultTuple) {
+			public void calculated(List<Measure<?, ? extends Quantity>> resultTuple) {
 				pipeManager.processData(new PipeData(resultTuple));
 			}
 		};

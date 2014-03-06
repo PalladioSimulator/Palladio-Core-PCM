@@ -1,6 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.calculator;
 
+import java.util.Collections;
 import java.util.Date;
+import java.util.Map;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.IMetaDataInitFactory;
 import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
@@ -21,8 +23,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 /**
  * Factory class to create @see {@link Calculator}s used in a SimuCom simulation run.
  * 
- * @author Philipp Merkle
- * 
+ * @author Philipp Merkle, Sebastian Lehrig
  */
 public class CalculatorFactory implements ICalculatorFactory {
 
@@ -52,157 +53,111 @@ public class CalculatorFactory implements ICalculatorFactory {
         this.dataSinkSetupStrategy = dataSink;
     }
 
-    public Calculator buildResponseTimeCalculator(String calculatorName, Integer startProbeSetID, Integer endProbeSetID) {
-        // Initialize calculator
-        Calculator calculator = new ResponseTimeCalculator(model.getProbeSpecContext(), startProbeSetID, endProbeSetID);
-
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName("Response Time of " + calculatorName);
-        metaData.setMetricName("Response Time"); // TODO Hard coded value!
-
+	/**
+	 * @param failureStatistics 
+	 * @param calculator
+	 * @return
+	 */
+	private Calculator createMetaDataInitHelper(
+			final Calculator calculator,             
+			final String metricName,
+			final String measurementName, Map<Integer, String> failureStatistics) {
+		MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(
+				calculator.getMeasurementMetrics(),
+        		this.model.getConfiguration().getRecorderConfig(),
+        		metricName,
+        		measurementName,
+        		this.model.getConfiguration().getNameExperimentRun(),
+        		this.experimentRunName,
+        		null,  // TODO: Provide model element ID!
+        		failureStatistics
+        	);
         PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
         this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
+        
         return calculator;
-    }
+	}
 
-    public WaitingTimeCalculator buildDemandBasedWaitingTimeCalculator(String calculatorName,
+	private Calculator createMetaDataInitHelper(
+			final Calculator calculator,             
+			final String metricName,
+			final String measurementName
+			) {
+		return createMetaDataInitHelper(calculator, metricName, measurementName, Collections.<Integer, String> emptyMap());		
+	}
+
+	@Override
+	public Calculator buildResponseTimeCalculator(String calculatorName, Integer startProbeSetID, Integer endProbeSetID) {
+        return createMetaDataInitHelper(
+        		new ResponseTimeCalculator(model.getProbeSpecContext(), startProbeSetID, endProbeSetID),
+        		"Response Time", // TODO Hard coded value!
+        		"Response Time of " + calculatorName);
+    }
+	
+    @Override
+	public Calculator buildDemandBasedWaitingTimeCalculator(String calculatorName,
             Integer startWaitingProbeSetID, Integer stopProcessingProbeSetID) {
-        // Initialize calculator
-        WaitingTimeCalculator calculator = new DemandBasedWaitingTimeCalculator(model.getProbeSpecContext(),
-                startWaitingProbeSetID, stopProcessingProbeSetID);
 
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName(model.getConfiguration().getNameExperimentRun() + ": Wait time at "
-                + calculatorName);
-        metaData.setMetricName("Waiting Time"); // TODO Hard coded value!
-
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
-
-        return calculator;
+        return createMetaDataInitHelper(
+        		new DemandBasedWaitingTimeCalculator(model.getProbeSpecContext(),
+                        startWaitingProbeSetID, stopProcessingProbeSetID),
+        		"Waiting Time", // TODO Hard coded value!
+        		model.getConfiguration().getNameExperimentRun() + ": Wait time at " + calculatorName
+        	);
     }
 
-    public WaitingTimeCalculator buildWaitingTimeCalculator(String calculatorName, Integer startWaitingProbeSetID,
+    @Override
+	public Calculator buildWaitingTimeCalculator(String calculatorName, Integer startWaitingProbeSetID,
             Integer stopWaitingProbeSetID) {
-        // Initialize calculator
-        WaitingTimeCalculator calculator = new WaitingTimeCalculator(model.getProbeSpecContext(),
-                startWaitingProbeSetID, stopWaitingProbeSetID);
-
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName("Wait time at " + calculatorName);
-        metaData.setMetricName("Waiting Time"); // TODO Hard coded value!
-
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
-
-        return calculator;
+        return createMetaDataInitHelper(
+        		new WaitingTimeCalculator(model.getProbeSpecContext(),
+                        startWaitingProbeSetID, stopWaitingProbeSetID), 
+        		"Waiting Time",
+        		"Wait time at " + calculatorName
+        		);
     }
 
-    public HoldTimeCalculator buildHoldTimeCalculator(String calculatorName, Integer startHoldProbeSetID,
+    @Override
+	public Calculator buildHoldTimeCalculator(String calculatorName, Integer startHoldProbeSetID,
             Integer stopHoldProbeSetID) {
-        // Initialize calculator
-        HoldTimeCalculator calculator = new HoldTimeCalculator(model.getProbeSpecContext(), startHoldProbeSetID,
-                stopHoldProbeSetID);
-
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName("Hold time at " + calculatorName);
-        metaData.setMetricName("Hold Time"); // TODO Hard coded value!
-
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
-
-        return calculator;
-    }
-
-    public StateCalculator buildStateCalculator(String calculatorName, Integer probeSetId) {
-        // Initialize calculator
-        StateCalculator calculator = new StateCalculator(model.getProbeSpecContext(), probeSetId);
-
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName("Utilisation of " + calculatorName);
-        metaData.setMetricName("Utilisation"); // TODO Hard coded value!
-
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
-
-        return calculator;
-    }
-
-    public DemandCalculator buildDemandCalculator(String calculatorName, Integer probeSetID) {
-        // Initialize calculator
-        DemandCalculator calculator = new DemandCalculator(model.getProbeSpecContext(), probeSetID);
-
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName("Demanded time at " + calculatorName);
-        metaData.setMetricName("Demanded Time"); // TODO Hard coded value!
-
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
-
-        return calculator;
+        return createMetaDataInitHelper(
+        		new HoldTimeCalculator(model.getProbeSpecContext(), startHoldProbeSetID,
+                        stopHoldProbeSetID), 
+        		"Hold Time",
+        		"Hold time at " + calculatorName);
     }
 
     @Override
-    public StateCalculator buildOverallUtilizationCalculator(String calculatorName, Integer probeSetId) {
-        // Initialize calculator
-        StateCalculator calculator = new StateCalculator(model.getProbeSpecContext(), probeSetId);
-
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName("Overall Utilisation of " + calculatorName);
-        metaData.setMetricName("Overall Utilisation"); // TODO Hard coded value!
-
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
-
-        return calculator;
+	public Calculator buildStateCalculator(String calculatorName, Integer probeSetId) {
+        return createMetaDataInitHelper(
+        		new StateCalculator(model.getProbeSpecContext(), probeSetId), 
+        		"Utilisation",
+        		"Utilisation of " + calculatorName);
     }
 
     @Override
-    public ExecutionResultCalculator buildExecutionResultCalculator(String calculatorName, Integer probeSetId) {
+	public Calculator buildDemandCalculator(String calculatorName, Integer probeSetID) {
+        return createMetaDataInitHelper(
+        		new DemandCalculator(model.getProbeSpecContext(), probeSetID),
+        		"Demanded Time",
+        		"Demanded time at " + calculatorName);
+    }
 
-        // Initialize calculator
-        ExecutionResultCalculator calculator = new ExecutionResultCalculator(model.getProbeSpecContext(), probeSetId);
+    @Override
+    public Calculator buildOverallUtilizationCalculator(String calculatorName, Integer probeSetId) {
+       return createMetaDataInitHelper(
+    		   new StateCalculator(model.getProbeSpecContext(), probeSetId),
+        		"Overall Utilisation",
+        		"Overall Utilisation of " + calculatorName);
+    }
 
-        // Initialize metadata
-        MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(calculator.getMeasurementMetrics(), model
-                .getConfiguration().getRecorderConfig(), FailureStatistics.getInstance().getExecutionResultTypes());
-        metaData.setExperimentName(model.getConfiguration().getNameExperimentRun());
-        metaData.setExperimentRunName(experimentRunName);
-        metaData.setMeasurementName("Execution result of " + calculatorName);
-        metaData.setMetricName("Execution Time"); // TODO Hard coded value!
-
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
-
-        return calculator;
+    @Override
+    public Calculator buildExecutionResultCalculator(String calculatorName, Integer probeSetId) {
+        return createMetaDataInitHelper(
+        		new ExecutionResultCalculator(model.getProbeSpecContext(), probeSetId),
+        		"Execution Time",
+        		"Execution result of " + calculatorName,
+        		FailureStatistics.getInstance().getExecutionResultTypes());
     }
 
     private IMetaDataInitFactory getMetaDataInitFactory() {

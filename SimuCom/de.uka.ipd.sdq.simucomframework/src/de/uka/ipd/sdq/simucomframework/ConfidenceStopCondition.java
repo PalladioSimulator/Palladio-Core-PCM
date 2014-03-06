@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
-import java.util.Vector;
+import java.util.List;
 
 import javax.measure.Measure;
 import javax.measure.quantity.Duration;
@@ -22,7 +22,7 @@ import de.uka.ipd.sdq.statistics.estimation.IConfidenceEstimator;
  * Provides a stop condition which determines when to stop based on the
  * confidence interval around a point estimation (e.g. mean).
  *
- * @author Philipp Merkle
+ * @author Philipp Merkle, Sebastian Lehrig
  *
  */
 public class ConfidenceStopCondition implements SimCondition, ICalculatorListener {
@@ -89,7 +89,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 	}
 
 	@SuppressWarnings("unchecked")
-	public void calculated(Vector<Measure<?, ? extends Quantity>> resultTuple) {
+	public void calculated(List<Measure<?, ? extends Quantity>> resultTuple) {
 		Measure<Double, Duration> responseTimeMeasure = (Measure<Double, Duration>) resultTuple.get(0);
 		double responseTime = responseTimeMeasure.doubleValue(SI.SECOND);
 
