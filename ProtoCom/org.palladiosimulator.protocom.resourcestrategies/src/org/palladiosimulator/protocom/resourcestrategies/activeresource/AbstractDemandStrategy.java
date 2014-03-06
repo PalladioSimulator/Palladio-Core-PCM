@@ -4,7 +4,6 @@ import java.io.File;
 import java.util.Arrays;
 import java.util.Properties;
 
-import javax.measure.quantity.Dimensionless;
 import javax.measure.quantity.Duration;
 import javax.measure.quantity.Quantity;
 import javax.measure.unit.BaseUnit;
@@ -47,7 +46,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 	private CalibrationTable calibrationTable; 
 	
-	private static final Amount<Duration> ONE_MILLISECOND = Amount.valueOf(1,SI.MILLI(SI.SECOND));
+	private static final Amount<Duration> ONE_SECOND = Amount.valueOf(1, SI.SECOND);
 
 	private static final int DEFAULT_ACCURACY = 8;
 
@@ -175,12 +174,14 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * Template method to return the real hardware resource type simulated by this strategy
 	 * @see org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy#getStrategysResource()
 	 */
+	@Override
 	public abstract ResourceTypeEnum getStrategysResource();
 
 	/**
 	 * Template method to return the name of this strategy
 	 * @see org.palladiosimulator.protocom.resourcestrategies.activeresource.IDemandStrategy#getName()
 	 */
+	@Override
 	public abstract String getName();
 
 	/** Returns the name of the file used to store the calibration table
@@ -253,7 +254,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 		logger.info("The timetable with the corresponding parameters:");
 		for (int i = 0; i < calibrationTable.size(); i++) {
-			Amount<Duration> targetTime = Amount.valueOf(1 << i,SI.MILLI(SI.SECOND));
+			Amount<Duration> targetTime = Amount.valueOf(1 << i,SI.SECOND);
 			long parameter = getRoot(targetTime);
 			
 			if (i > 2) { //TODO: Why 2?
@@ -348,8 +349,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 	private Amount<Duration> getEpsilon(Amount<Duration> targetTime) {
 		Amount<Duration> result = targetTime.times(0.01d);
-		if (result.to(SI.MILLI(SI.SECOND)).isGreaterThan(ONE_MILLISECOND))
-			return ONE_MILLISECOND;
+		if (result.to(SI.SECOND).isGreaterThan(ONE_SECOND))
+			return ONE_SECOND;
 		return result;
 	}
 
@@ -365,7 +366,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	
 	private Amount<Duration> recalibrate(long parameter, int index) {
 		int cycles = CALIBRATION_CYCLES[index];
-		return getRunTime(parameter, Amount.valueOf(cycles,SI.MILLI(SI.SECOND)));
+		return getRunTime(parameter, Amount.valueOf(cycles,SI.SECOND));
 	}
 	
 	/**
@@ -476,7 +477,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @return
 	 */
 	private int getCalibrationCycles(int exponent, Amount<Duration> targetTime) {
-		Amount<Duration> threshold = Amount.valueOf(1 << exponent,SI.MILLI(SI.SECOND));
+		Amount<Duration> threshold = Amount.valueOf(1 << exponent,SI.SECOND);
 	
 		return Math.max((int)Math.floor(threshold.divide(targetTime).getEstimatedValue()), MIN_CALIBRATION_CYCLES);
 	}
@@ -522,7 +523,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 		for (int i = CalibrationTable.DEFAULT_CALIBRATION_TABLE_SIZE - 1; i >= 0; i--) {
 			CalibrationEntry calibrationEntry = calibrationTable.getEntry(i);
 			
-			result[i] = (long) Math.floor(((Amount<Dimensionless>) (sum.divide(calibrationEntry.getTargetTime())).to(Unit.ONE)).getEstimatedValue());
+			result[i] = (long) Math.floor((sum.divide(calibrationEntry.getTargetTime())).to(Unit.ONE).getEstimatedValue());
 			if (result[i] >= 1) {
 				sum = sum.minus(calibrationEntry.getTargetTime().times(result[i]));
 			}
