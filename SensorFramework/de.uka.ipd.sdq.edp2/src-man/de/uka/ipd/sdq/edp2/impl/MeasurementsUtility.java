@@ -29,18 +29,24 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.util.ExperimentDataSwitch;
 import de.uka.ipd.sdq.edp2.models.Repository.Repository;
 
-/**This class provides utility functions to handle measurements.
- * @author groenda
+/**
+ * This class provides utility functions to handle measurements.
+ * 
+ * @author groenda, Sebastian Lehrig
  */
 public class MeasurementsUtility {
+	
 	/** Logger for this class. */
 	private static final Logger logger = Logger.getLogger(MeasurementsUtility.class.getCanonicalName());
+	
 	/** EMF factory used by this instance. */
 	private static final ExperimentDataFactory factory = ExperimentDataFactory.eINSTANCE;
 
-	/**Creates a new MeasurementRange and contained elements if there
+	/**
+	 * Creates a new MeasurementRange and contained elements if there
 	 * are already existing elements in another MeasurementRange.
 	 * Does not set the startTime and endTime properties.
+	 * 
 	 * @param measurements Location where to add the range.
 	 * @return The newly created measurement range.
 	 */
@@ -74,7 +80,9 @@ public class MeasurementsUtility {
 		// TODO: Create MeasurementsRange for all Measurements of an ExperimentRun -> Refactor from Measurements to ExperimentRun
 	}
 
-	/**Creates the DAOs for the data series of a raw measurement.
+	/**
+	 * Creates the DAOs for the data series of a raw measurement.
+	 * 
 	 * @param rm The raw measurements containing the data series.
 	 */
 	public static void createDAOsForRawMeasurements(RawMeasurements rm) {
@@ -101,7 +109,9 @@ public class MeasurementsUtility {
 		new DAOFromBelowRawMeasurementSwitch().doSwitch(rm);
 	}
 
-	/**Stores a new measurement at the last existing range.
+	/**
+	 * Stores a new measurement at the last existing range.
+	 * 
 	 * @param measurements The measurement of the experiment run for which a new measurement exists.
 	 * @param data The measurement (data) itself.
 	 */
@@ -141,8 +151,10 @@ public class MeasurementsUtility {
 		// TODO handle aggregated measurements
 	}
 	
-	/**Requests a DAO for a nominal measurement.
+	/**
+	 * Requests a DAO for a nominal measurement.
 	 * If the DAO does not exists it is created and opened automatically (if possible).
+	 * 
 	 * @param ds The data series for which the DAO should be created.
 	 * @return DAO for nominal measurements.
 	 */
@@ -188,6 +200,7 @@ public class MeasurementsUtility {
 	/**
 	 * Requests a DAO for a ordinal measurement.
 	 * If the DAO does not exists it is created and opened automatically (if possible).
+	 * 
 	 * @param ds The data series for which the DAO should be created.
 	 * @return DAO for ordinal measurements.
 	 */
@@ -231,9 +244,11 @@ public class MeasurementsUtility {
 		}
 	}
 	
-	/**Opens the data store behind the repository if necessary.
+	/**
+	 * Opens the data store behind the repository if necessary.
 	 * Access is only allowed to opened repositories. Repositories may be
 	 * reopened (and the also reclosed).
+	 * 
 	 * @param repo Repository which should be opened.
 	 * @throws DataNotAccessibleException if access to the repository fails. 
 	 */
@@ -252,9 +267,11 @@ public class MeasurementsUtility {
 		}
 	}
 
-	/**Closes the data store behind the repository if necessary.
+	/**
+	 * Closes the data store behind the repository if necessary.
 	 * Access is only allowed to opened repositories. Repositories may be
 	 * reopened (and the also reclosed).
+	 * 
 	 * @param repo Repository which should be closed.
 	 * @throws DataNotAccessibleException if access to the repository fails. 
 	 */

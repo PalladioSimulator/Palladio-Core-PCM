@@ -6,17 +6,15 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
-
 import java.util.Collection;
 
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EClass;
-
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
+
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
 
 /**
  * <!-- begin-user-doc -->
@@ -64,11 +62,22 @@ public class MetricSetDescriptionImpl extends MetricDescriptionImpl implements M
 	/**
 	 * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
+	 * TODO check whether this bug was solved:
+	 * https://bugs.eclipse.org/bugs/show_bug.cgi?id=89325
+	 * @generated not Bug fix for the bug described above
 	 */
+	@Override
 	public EList<MetricDescription> getSubsumedMetrics() {
 		if (subsumedMetrics == null) {
-			subsumedMetrics = new EObjectResolvingEList<MetricDescription>(MetricDescription.class, this, ExperimentDataPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS);
+			subsumedMetrics = new EObjectResolvingEList<MetricDescription>(MetricDescription.class, this, ExperimentDataPackage.METRIC_SET_DESCRIPTION__SUBSUMED_METRICS){
+				private static final long serialVersionUID = -5838632964838752596L;
+
+				@Override
+				protected boolean isUnique() {
+					return false;
+				}
+				
+			};
 		}
 		return subsumedMetrics;
 	}
