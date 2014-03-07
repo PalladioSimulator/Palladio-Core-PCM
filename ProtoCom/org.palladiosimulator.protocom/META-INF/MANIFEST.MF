@@ -21,7 +21,7 @@ Require-Bundle: org.eclipse.ui,
  org.eclipse.xtext.generator;bundle-version="2.4.1",
  org.eclipse.xtext.xbase.lib
 Bundle-ActivationPolicy: lazy
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.palladiosimulator.protocom.traverse.framework,
  org.palladiosimulator.protocom.traverse.framework.allocation,
  org.palladiosimulator.protocom.traverse.framework.repository,
