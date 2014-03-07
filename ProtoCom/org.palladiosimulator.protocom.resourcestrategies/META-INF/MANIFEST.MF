@@ -11,4 +11,4 @@ Export-Package: org.palladiosimulator.protocom.resourcestrategies.activeresource
  org.palladiosimulator.protocom.resourcestrategies.activeresource.cpu,
  org.palladiosimulator.protocom.resourcestrategies.activeresource.hdd,
  org.palladiosimulator.protocom.resourcestrategies.passiveresource
-Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
