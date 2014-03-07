@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
  */
 public class PassiveResourceObservee {
 
-	private List<IPassiveResourceSensor> observers;
+	private final List<IPassiveResourceSensor> observers;
 
 	public PassiveResourceObservee() {
 		observers = new ArrayList<IPassiveResourceSensor>();
@@ -26,7 +26,7 @@ public class PassiveResourceObservee {
 	/**
 	 * Notifies observers that the resource has been requested.
 	 */
-	public void fireRequest(ISchedulableProcess process, int num) {
+	public void fireRequest(ISchedulableProcess process, long num) {
 		for (IPassiveResourceSensor o : observers) {
 			o.request(process, num);
 		}
@@ -35,7 +35,7 @@ public class PassiveResourceObservee {
 	/**
 	 * Notifies observers that the resource has been acquired.
 	 */
-	public void fireAquire(ISchedulableProcess process, int num) {
+	public void fireAquire(ISchedulableProcess process, long num) {
 		for (IPassiveResourceSensor o : observers) {
 			o.acquire(process, num);
 		}
@@ -44,7 +44,7 @@ public class PassiveResourceObservee {
 	/**
 	 * Notifies observers that the resource has been released.
 	 */
-	public void fireRelease(ISchedulableProcess process, int num) {
+	public void fireRelease(ISchedulableProcess process, long num) {
 		for (IPassiveResourceSensor o : observers) {
 			o.release(process, num);
 		}

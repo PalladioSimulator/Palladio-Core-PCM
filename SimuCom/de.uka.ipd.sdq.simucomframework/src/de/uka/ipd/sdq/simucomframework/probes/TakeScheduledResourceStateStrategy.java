@@ -20,21 +20,22 @@ public class TakeScheduledResourceStateStrategy implements IProbeStrategy {
 
 	/**
 	 * @param o
-	 *            expects a {@link Integer} representing the resource state
+	 *            expects a {@link Long} representing the resource state
 	 */
-	public ProbeSample<Integer, Dimensionless> takeSample(String probeId,
+	@Override
+	public ProbeSample<Long, Dimensionless> takeSample(String probeId,
 			Object... o) {
-		Integer state = null;
-		if (o.length >= 1 && o[0] instanceof Integer) {
-			state = (Integer) o[0];
+		Long state = null;
+		if (o.length >= 1 && o[0] instanceof Long) {
+			state = (Long) o[0];
 		} else {
 			throw new IllegalArgumentException("Expected an argument of type "
-					+ Integer.class.getSimpleName() + ".");
+					+ Long.class.getSimpleName() + ".");
 		}
 
-		Measure<Integer, Dimensionless> stateMeasure = Measure.valueOf(state,
+		Measure<Long, Dimensionless> stateMeasure = Measure.valueOf(state,
 				Dimensionless.UNIT);
-		ProbeSample<Integer, Dimensionless> sample = new ProbeSample<Integer, Dimensionless>(
+		ProbeSample<Long, Dimensionless> sample = new ProbeSample<Long, Dimensionless>(
 				stateMeasure, probeId, ProbeType.RESOURCE_STATE);
 
 		return sample;

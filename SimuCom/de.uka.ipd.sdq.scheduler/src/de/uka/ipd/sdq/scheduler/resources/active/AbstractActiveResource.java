@@ -17,14 +17,15 @@ public abstract class AbstractActiveResource extends AbstractSimResource
 
 	private static Map<ISchedulableProcess, AbstractActiveResource> currentResourceTable = new ConcurrentHashMap<ISchedulableProcess, AbstractActiveResource>();
 
-	private List<IActiveResourceStateSensor> observers;
+	private final List<IActiveResourceStateSensor> observers;
 
-	public AbstractActiveResource(SchedulerModel model, int capacity,
+	public AbstractActiveResource(SchedulerModel model, long capacity,
 			String name, String id) {
 		super(model, capacity, name, id);
 		observers = new ArrayList<IActiveResourceStateSensor>();
 	}
 
+	@Override
 	public final void process(ISchedulableProcess process,
 			int resourceServiceID, Map<String, Serializable> parameterMap,
 			double demand) {
@@ -95,19 +96,22 @@ public abstract class AbstractActiveResource extends AbstractSimResource
 		assert currentResourceTable.size() == 0;
 	}
 
+	@Override
 	public void notifyTerminated(ISchedulableProcess simProcess) {
 		currentResourceTable.remove(simProcess);
 	}
 
+	@Override
 	public void addObserver(IActiveResourceStateSensor observer) {
 		this.observers.add(observer);
 	}
 
+	@Override
 	public void removeObserver(IActiveResourceStateSensor observer) {
 		this.observers.remove(observer);
 	}
 
-	protected void fireStateChange(int state, int instanceId) {
+	protected void fireStateChange(long state, int instanceId) {
 		for (IActiveResourceStateSensor l : observers) {
 			l.update(state, instanceId);
 		}

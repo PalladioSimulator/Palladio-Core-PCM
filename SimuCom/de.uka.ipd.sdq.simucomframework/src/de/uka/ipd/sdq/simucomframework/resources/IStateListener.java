@@ -16,6 +16,6 @@ public interface IStateListener {
 	 *            could be a CPU core. If the resource has only one instance,
 	 *            the instanceId should be 0 for this instance.
 	 */
-	public void stateChanged(int queueLength, int instanceId);
+	public void stateChanged(long queueLength, int instanceId);
 
 }

@@ -29,21 +29,22 @@ import de.uka.ipd.sdq.scheduler.resources.active.special.SimProcessorSharingReso
  */
 public class SchedulingFactory implements ISchedulingFactory {
     
-	private Map<String, IActiveResource> active_resource_map = new Hashtable<String, IActiveResource>();
-	private Map<String, IPassiveResource> passive_resource_map = new Hashtable<String, IPassiveResource>();
+	private final Map<String, IActiveResource> active_resource_map = new Hashtable<String, IActiveResource>();
+	private final Map<String, IPassiveResource> passive_resource_map = new Hashtable<String, IPassiveResource>();
 	//private Map<String, IScheduler> scheduler_map = new Hashtable<String, IScheduler>();
 	//private Map<String, ActiveProcess> process_map = new Hashtable<String, ActiveProcess>();
 
-	private SchedulerModel model;
+	private final SchedulerModel model;
 	
 	public SchedulingFactory(SchedulerModel model) {
 	    this.model = model;
 	}
 	
 	
-	public IActiveResource createResourceFromExtension(String extensionId, String resourceId, int numberOfCores)
+	@Override
+	public IActiveResource createResourceFromExtension(String extensionId, String resourceId, long numberOfCores)
 	{
-		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		IActiveResource resource = active_resource_map.get(resourceId);
 		if (resource == null) {
 			SchedulerExtensionFactory factory = getSchedulerExtensionFactory(extensionId);
 			assert factory != null;
@@ -54,17 +55,19 @@ public class SchedulingFactory implements ISchedulingFactory {
 	}
 	
 	
+	@Override
 	public IActiveResource createSimFCFSResource(String resourceName, String resourceId)
 	{
-		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
-		resource = new SimFCFSResource(model, resourceName, resourceId, 1);
+		IActiveResource resource = active_resource_map.get(resourceId);
+		resource = new SimFCFSResource(model, resourceName, resourceId, 1l);
 		active_resource_map.put(resourceId, resource);
 		return resource;
 	}
 	
+	@Override
 	public IActiveResource createSimDelayResource(String resourceName, String resourceId)
 	{
-		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		IActiveResource resource = active_resource_map.get(resourceId);
 		resource = new SimDelayResource(model, resourceName, resourceId);
 		active_resource_map.put(resourceId, resource);
 		return resource;
@@ -78,25 +81,28 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return resource;
 	}*/
 	
-	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId, int numberOfCores)
+	@Override
+	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId, long numberOfCores)
 	{
-		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		IActiveResource resource = active_resource_map.get(resourceId);
 		resource = new SimProcessorSharingResource(model, resourceName, resourceId, numberOfCores);
 		active_resource_map.put(resourceId, resource);
 		return resource;
 	}
 	
-	public IActiveResource createSimProcessorSharingResourceWindows(String resourceName, String resourceId, int numberOfCores)
+	@Override
+	public IActiveResource createSimProcessorSharingResourceWindows(String resourceName, String resourceId, long numberOfCores)
 	{
-		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		IActiveResource resource = active_resource_map.get(resourceId);
 		resource = new SimProcessorSharingResourceWindows(model, resourceName, resourceId, numberOfCores);
 		active_resource_map.put(resourceId, resource);
 		return resource;
 	}
 	
-	public IActiveResource createSimProcessorSharingResourceLinuxO1(String resourceName, String resourceId, int numberOfCores)
+	@Override
+	public IActiveResource createSimProcessorSharingResourceLinuxO1(String resourceName, String resourceId, long numberOfCores)
 	{
-		IActiveResource resource = (IActiveResource) active_resource_map.get(resourceId);
+		IActiveResource resource = active_resource_map.get(resourceId);
 		resource = new SimProcessorSharingResourceLinuxO1(model, resourceName, resourceId, numberOfCores);
 		active_resource_map.put(resourceId, resource);
 		return resource;
@@ -134,6 +140,7 @@ public class SchedulingFactory implements ISchedulingFactory {
 		return resource;
 	}*/
 
+	@Override
 	public void resetFactory() {
 		this.active_resource_map.clear();
 		//this.manager_map.clear();

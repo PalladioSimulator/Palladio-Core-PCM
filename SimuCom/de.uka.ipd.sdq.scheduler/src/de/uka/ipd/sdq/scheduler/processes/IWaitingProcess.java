@@ -6,6 +6,6 @@ public interface IWaitingProcess {
 	
 	public ISchedulableProcess getProcess();
 
-	public int getNumRequested();
+	public long getNumRequested();
 
 }

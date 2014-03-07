@@ -5,7 +5,7 @@ public interface ISchedulingFactory {
 	
 	// Retrieves a scheduler implementation from a registered extension
 	// for the scheduler extension point.
-	public IActiveResource createResourceFromExtension(String extensionId, String resourceId, int numberOfCores);
+	public IActiveResource createResourceFromExtension(String extensionId, String resourceId, long numberOfCores);
 	
 	public IActiveResource createSimFCFSResource(String resourceName, String resourceId);
 	
@@ -13,9 +13,9 @@ public interface ISchedulingFactory {
 	
 	//public IActiveResource createSimGinpexDiskResource(String resourceName, String resourceId, HDDParameterConfig hddParameterConfig);
 	
-	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId, int numberOfCores);
-	public IActiveResource createSimProcessorSharingResourceWindows(String resourceName, String resourceId, int numberOfCores);
-	public IActiveResource createSimProcessorSharingResourceLinuxO1(String resourceName, String resourceId, int numberOfCores);
+	public IActiveResource createSimProcessorSharingResource(String resourceName, String resourceId, long numberOfCores);
+	public IActiveResource createSimProcessorSharingResourceWindows(String resourceName, String resourceId, long numberOfCores);
+	public IActiveResource createSimProcessorSharingResourceLinuxO1(String resourceName, String resourceId, long numberOfCores);
 
 	//public abstract IActiveResource createActiveResource(ActiveResourceConfiguration configuration);
 

@@ -54,7 +54,7 @@ public final class CalculatorHelper {
         resource.addObserver(new IPassiveResourceSensor() {
 
             @Override
-            public void request(final ISchedulableProcess process, final int num) {
+            public void request(final ISchedulableProcess process, final long num) {
                 // take current time
                 final ProbeSample<?, ? extends Quantity> currentTimeSample = takeCurrentTimeSample(
                         model.getSimulationControl(), ctx);
@@ -66,7 +66,7 @@ public final class CalculatorHelper {
             }
 
             @Override
-            public void acquire(final ISchedulableProcess process, final int num) {
+            public void acquire(final ISchedulableProcess process, final long num) {
                 // take current time
                 final ProbeSample<Double, Duration> currentTimeSample = takeCurrentTimeSample(
                         model.getSimulationControl(), ctx);
@@ -79,7 +79,7 @@ public final class CalculatorHelper {
             }
 
             @Override
-            public void release(final ISchedulableProcess process, final int num) {
+            public void release(final ISchedulableProcess process, final long num) {
                 // nothing to do here
             }
 
@@ -109,12 +109,12 @@ public final class CalculatorHelper {
         resource.addObserver(new IPassiveResourceSensor() {
 
             @Override
-            public void request(final ISchedulableProcess process, final int num) {
+            public void request(final ISchedulableProcess process, final long num) {
                 // nothing to do here
             }
 
             @Override
-            public void acquire(final ISchedulableProcess process, final int num) {
+            public void acquire(final ISchedulableProcess process, final long num) {
                 // take current time
                 final ProbeSample<?, ? extends Quantity> currentTimeSample = takeCurrentTimeSample(
                         model.getSimulationControl(), ctx);
@@ -126,7 +126,7 @@ public final class CalculatorHelper {
             }
 
             @Override
-            public void release(final ISchedulableProcess process, final int num) {
+            public void release(final ISchedulableProcess process, final long num) {
                 // take current time
                 final ProbeSample<?, ? extends Quantity> currentTimeSample = takeCurrentTimeSample(
                         model.getSimulationControl(), ctx);
@@ -210,7 +210,7 @@ public final class CalculatorHelper {
 
             r.addStateListener(new IStateListener() {
                 @Override
-                public void stateChanged(final int state, final int instanceId) {
+                public void stateChanged(final long state, final int instanceId) {
                     // take current time
                     final ProbeSample<?, ? extends Quantity> currentTimeSample = takeCurrentTimeSample(r, ctx);
 
@@ -251,11 +251,11 @@ public final class CalculatorHelper {
                 // TODO maybe null instead of empty string is better here
                 final RequestContext context = new RequestContext("");
                 blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(0.0, ctx),
-                        takeStateProbe(1, ctx), context, "", stateProbeSetID));
+                        takeStateProbe(1l, ctx), context, "", stateProbeSetID));
                 blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(
-                        takeTimeSample(resourceDemand, ctx), takeStateProbe(0, ctx), context, "", stateProbeSetID));
+                        takeTimeSample(resourceDemand, ctx), takeStateProbe(0l, ctx), context, "", stateProbeSetID));
                 blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(
-                        takeTimeSample(totalTime, ctx), takeStateProbe(1, ctx), context, "", stateProbeSetID));
+                        takeTimeSample(totalTime, ctx), takeStateProbe(1l, ctx), context, "", stateProbeSetID));
             }
         });
     }
@@ -271,17 +271,17 @@ public final class CalculatorHelper {
         resource.addObserver(new IPassiveResourceSensor() {
 
             @Override
-            public void request(final ISchedulableProcess process, final int num) {
+            public void request(final ISchedulableProcess process, final long num) {
                 // nothing to do here
             }
 
             @Override
-            public void release(final ISchedulableProcess process, final int num) {
+            public void release(final ISchedulableProcess process, final long num) {
                 measureState();
             }
 
             @Override
-            public void acquire(final ISchedulableProcess process, final int num) {
+            public void acquire(final ISchedulableProcess process, final long num) {
                 measureState();
             }
 
@@ -336,7 +336,7 @@ public final class CalculatorHelper {
                 demand);
     }
 
-    private static ProbeSample<?, ? extends Quantity> takeStateProbe(final int state, final ProbeSpecContext ctx) {
+    private static ProbeSample<?, ? extends Quantity> takeStateProbe(final long state, final ProbeSpecContext ctx) {
         final IProbeStrategy probeStrategy = ctx.getProbeStrategyRegistry().getProbeStrategy(ProbeType.RESOURCE_STATE,
                 AbstractScheduledResource.class);
         return probeStrategy.takeSample("TODO: probeId", state);

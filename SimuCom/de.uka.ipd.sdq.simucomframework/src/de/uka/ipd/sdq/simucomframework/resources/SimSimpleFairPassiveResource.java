@@ -34,16 +34,16 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		IPassiveResource {
 
 	protected Queue<IWaitingProcess> waiting_queue;
-	private SchedulerModel myModel;
-	private int available;
-	private String passiveResourceID;
-	private String assemblyContextID;
-	private boolean simulateFailures;
+	private final SchedulerModel myModel;
+	private long available;
+	private final String passiveResourceID;
+	private final String assemblyContextID;
+	private final boolean simulateFailures;
 
 	// provides observer functionality to this resource
-	private PassiveResourceObservee observee;
+	private final PassiveResourceObservee observee;
 
-    public SimSimpleFairPassiveResource(SchedulerModel model, int capacity, String name, String passiveResourceID,
+    public SimSimpleFairPassiveResource(SchedulerModel model, Long capacity, String name, String passiveResourceID,
             String assemblyContextID, String combinedID, boolean simulateFailures) {
 		super(model, capacity, name, combinedID);
 		this.waiting_queue = new ArrayDeque<IWaitingProcess>();
@@ -55,17 +55,18 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		this.simulateFailures = simulateFailures;
 	}
 
-	private boolean canProceed(ISchedulableProcess process, int num) {
+	private boolean canProceed(ISchedulableProcess process, long num) {
 		return (waiting_queue.isEmpty() || waiting_queue.peek().getProcess()
 				.equals(process))
 				&& num <= available;
 	}
 	
+	@Override
 	public Queue<IWaitingProcess> getWaitingProcesses() {
 		return waiting_queue;
 	}
 
-	private void grantAccess(ISchedulableProcess process, int num) {
+	private void grantAccess(ISchedulableProcess process, long num) {
 		LoggingWrapper.log("Process " + process + " acquires " + num + " of "
 				+ this);
 		this.available -= num;
@@ -73,7 +74,8 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		assert this.available >= 0 : "More resource than available have been acquired!";
 	}
 
-	public boolean acquire(ISchedulableProcess sched_process, int num,
+	@Override
+	public boolean acquire(ISchedulableProcess sched_process, long num,
 			boolean timeout, double timeoutValue) {
 
 		// AM: Copied from AbstractActiveResource: If simulation is stopped,
@@ -147,7 +149,8 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		return assemblyContextID;
 	}
 
-	public void release(ISchedulableProcess sched_process, int num) {
+	@Override
+	public void release(ISchedulableProcess sched_process, long num) {
 
 		// AM: Copied from AbstractActiveResource: If simulation is stopped,
 		// allow all processes to finish
@@ -176,15 +179,18 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 		}
 	}
 
+	@Override
 	public void addObserver(IPassiveResourceSensor observer) {
 		observee.addObserver(observer);
 	}
 
+	@Override
 	public void removeObserver(IPassiveResourceSensor observer) {
 		observee.removeObserver(observer);
 	}
 
-	public int getAvailable() {
+	@Override
+	public long getAvailable() {
 		return available;
 	}
 

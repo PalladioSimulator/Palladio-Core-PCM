@@ -22,7 +22,8 @@ public class TakePassiveResourceStateStrategy implements IProbeStrategy {
 	 * @param o
 	 *            expects a {@link IPassiveResource}
 	 */
-	public ProbeSample<Integer, Dimensionless> takeSample(String probeId,
+	@Override
+	public ProbeSample<Long, Dimensionless> takeSample(String probeId,
 			Object... o) {
 		IPassiveResource r = null;
 		if (o.length >= 1 && o[0] instanceof IPassiveResource) {
@@ -32,10 +33,10 @@ public class TakePassiveResourceStateStrategy implements IProbeStrategy {
 					+ IPassiveResource.class.getSimpleName() + ".");
 		}
 
-		int state = r.getCapacity() - r.getAvailable();
-		Measure<Integer, Dimensionless> stateMeasure = Measure.valueOf(state,
+		long state = r.getCapacity() - r.getAvailable();
+		Measure<Long, Dimensionless> stateMeasure = Measure.valueOf(state,
 				Dimensionless.UNIT);
-		ProbeSample<Integer, Dimensionless> sample = new ProbeSample<Integer, Dimensionless>(
+		ProbeSample<Long, Dimensionless> sample = new ProbeSample<Long, Dimensionless>(
 				stateMeasure, probeId, ProbeType.RESOURCE_STATE);
 
 		return sample;

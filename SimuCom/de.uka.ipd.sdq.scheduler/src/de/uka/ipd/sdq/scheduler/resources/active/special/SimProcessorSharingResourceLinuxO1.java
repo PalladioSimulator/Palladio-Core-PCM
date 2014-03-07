@@ -103,16 +103,16 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 		
 	}
 	
-	private ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
-	private ArrayList<Hashtable<ISchedulableProcess,Double>> running_processesPerCore = new ArrayList<Hashtable<ISchedulableProcess, Double>>();
+	private final ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
+	private final ArrayList<Hashtable<ISchedulableProcess,Double>> running_processesPerCore = new ArrayList<Hashtable<ISchedulableProcess, Double>>();
 	// private Hashtable<ISchedulableProcess,Double> running_processes = new
 	// Hashtable<ISchedulableProcess, Double>();
 	private double last_time; 
-	private int coreToUseForInitialLoadBalancing = 0;
+	private long coreToUseForInitialLoadBalancing = 0;
 
-	public SimProcessorSharingResourceLinuxO1(SchedulerModel model, String name, String id, int numberOfCores) {
+	public SimProcessorSharingResourceLinuxO1(SchedulerModel model, String name, String id, Long numberOfCores) {
 		super(model, numberOfCores, name, id);
-		for (int j=0; j<numberOfCores; j++) {
+		for (long j=0; j<numberOfCores; j++) {
 			running_processesPerCore.add(new Hashtable<ISchedulableProcess, Double>());
 		}
 	}
@@ -250,7 +250,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
     // New: calculate speed for a process.
 	private double getSpeed(ISchedulableProcess process) {
 		int core = getCoreOfARunningProcess(process);
-		double speed = (double)running_processesPerCore.get(core).size();
+		double speed = running_processesPerCore.get(core).size();
 		// double speed = (double)running_processes.size() /
 		// (double)getCapacity();
 		
@@ -260,6 +260,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 	}
 
 
+	@Override
 	public void start() {
 	}
 
@@ -275,14 +276,14 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 		LoggingWrapper.log("PS: " + process + " demands " + demand);
 		//logger.info("PS: " + process.getId() + " demands " + demand);
 		
-		int coreToPutOn = getLastCoreProcessWasRunningOn(process);
+		long coreToPutOn = getLastCoreProcessWasRunningOn(process);
 		if (coreToPutOn == -1) {
 			// This is a new process which has issued demand for the first time.
 			// Same as parent: always use core 0. Check if load balancing has to be done afterwards.
 			// If there are tasks running on core 0, use a random core.
-			coreToUseForInitialLoadBalancing = 0;
-			if (running_processesPerCore.get(coreToUseForInitialLoadBalancing).size() > 0) {
-				coreToUseForInitialLoadBalancing = new Random().nextInt(getCapacity());
+			coreToUseForInitialLoadBalancing = 0l;
+			if (running_processesPerCore.get((int)coreToUseForInitialLoadBalancing).size() > 0) {
+				coreToUseForInitialLoadBalancing = nextLong(new Random(), getCapacity());
 			}
 			putProcessOnCore(process, demand, coreToUseForInitialLoadBalancing);
 			// running_processes.put(process, demand);
@@ -308,19 +309,35 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 		process.passivate();
 	}
 
+	/**
+	 * @see http://stackoverflow.com/questions/2546078/java-random-long-number-in-0-x-n-range
+	 */
+	private long nextLong(Random rng, long n) {
+		   // error checking and 2^x checking removed for simplicity.
+		   long bits, val;
+		   do {
+		      bits = (rng.nextLong() << 1) >>> 1;
+		      val = bits % n;
+		   } while (bits-val+(n-1) < 0L);
+		   return val;
+		}
+	
 	@Override
 	protected void enqueue(ISchedulableProcess process) {
 	}
 
 
+	@Override
 	public void stop() {
 		
 	}
 
+	@Override
 	public void registerProcess(ISchedulableProcess process) {
 	}
 	
 
+	@Override
 	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		// TODO where is this needed? Return hard coded queue length of first
 		// core.
@@ -328,7 +345,7 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 		// return this.running_processes.size();
 	}
 	
-	private Hashtable<ISchedulableProcess,Integer> all_processes = new Hashtable<ISchedulableProcess, Integer>();
+	private final Hashtable<ISchedulableProcess,Long> all_processes = new Hashtable<ISchedulableProcess, Long>();
 	
 	/**
 	 * return -1 if a process was not running before, i.e. is a new process.
@@ -336,20 +353,20 @@ public class SimProcessorSharingResourceLinuxO1 extends AbstractActiveResource {
 	 * @param process
 	 * @return
 	 */
-	private int getLastCoreProcessWasRunningOn(ISchedulableProcess process) {
+	private long getLastCoreProcessWasRunningOn(ISchedulableProcess process) {
 		if (all_processes.containsKey(process)) {
 			return all_processes.get(process);
 		}
 		return -1;
 	}
 	
-	private void putProcessOnCore(ISchedulableProcess process, double demand, int core) {
+	private void putProcessOnCore(ISchedulableProcess process, double demand, long core) {
 		if (all_processes.containsKey(process)) {
 			all_processes.remove(process);
 		}
 		all_processes.put(process, core);
 		//logger.info(simulator.time() + ": Putting " + process.getId() + " with demand " + demand + " on core " + core);
-		running_processesPerCore.get(core).put(process, demand); 
+		running_processesPerCore.get((int) core).put(process, demand); 
 	}
 
 }

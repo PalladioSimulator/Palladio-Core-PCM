@@ -22,13 +22,13 @@ public interface IPassiveResource {
 	 * 
 	 * @return True, if the acquisition was successful, otherwise false.
 	 */
-	public abstract boolean acquire(ISchedulableProcess process, int num,
+	public abstract boolean acquire(ISchedulableProcess process, long num,
 			boolean timeout, double timeoutValue);
 
 	/**
 	 * Releases num instances of the passive resource from the given process.
 	 */
-	public abstract void release(ISchedulableProcess process, int num);
+	public abstract void release(ISchedulableProcess process, long num);
 
 	/**
 	 * Name of the resource.
@@ -48,12 +48,12 @@ public interface IPassiveResource {
 	 * Returns the maximal number of instances that can be acquired at the same
 	 * time.
 	 */
-	public int getCapacity();
+	public long getCapacity();
 
 	/**
 	 * Returns the number of remaining instances.
 	 */
-	public int getAvailable();
+	public long getAvailable();
 
 	/**
 	 * Adds the given observer. Observers get notified when a process acquired

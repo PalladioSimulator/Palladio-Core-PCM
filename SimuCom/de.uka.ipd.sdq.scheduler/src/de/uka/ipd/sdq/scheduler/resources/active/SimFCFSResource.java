@@ -6,7 +6,6 @@ import java.util.Hashtable;
 import java.util.Map.Entry;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
@@ -28,7 +27,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 			assert MathTools.equalsDouble(0, running_processes.get(first)) : "Remaining demand ("+ running_processes.get(first) +") not zero!";
 			running_processes.remove(first);
 			processQ.remove(first);
-			fireStateChange(processQ.size(), 0);
+			fireStateChange((long) processQ.size(), 0);
 			fireDemandCompleted(first);
 			LoggingWrapper.log("Demand of Process "+ first + " finished.");
 			scheduleNextEvent();
@@ -37,12 +36,12 @@ public class SimFCFSResource extends AbstractActiveResource {
 
 	}
 
-	private ProcessingFinishedEvent processingFinished;
-	private Deque<ISchedulableProcess> processQ = new ArrayDeque<ISchedulableProcess>();
-	private Hashtable<ISchedulableProcess, Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
+	private final ProcessingFinishedEvent processingFinished;
+	private final Deque<ISchedulableProcess> processQ = new ArrayDeque<ISchedulableProcess>();
+	private final Hashtable<ISchedulableProcess, Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
 	private double last_time;
 
-	public SimFCFSResource(SchedulerModel model, String name, String id, int capacity) {
+	public SimFCFSResource(SchedulerModel model, String name, String id, long capacity) {
 		super(model, capacity, name, id);
 		processingFinished = new ProcessingFinishedEvent(model);
 	}
@@ -77,6 +76,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 		
 	}
 
+	@Override
 	public void start() {
 	}
 
@@ -90,7 +90,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 		LoggingWrapper.log("FCFS: " + process + " demands " + demand);
 		running_processes.put(process, demand);
 		processQ.add(process);
-		fireStateChange(processQ.size(), 0);
+		fireStateChange((long) processQ.size(), 0);
 		scheduleNextEvent(); 
 		process.passivate();
 	}
@@ -119,6 +119,7 @@ public class SimFCFSResource extends AbstractActiveResource {
 	protected void enqueue(ISchedulableProcess process) {
 	}
 
+	@Override
 	public void stop() {
 		// TODO: why are these fields not empty when the simulation stops, although AbstractActiveResource.cleanProcesses()
 		// is being called? This should be investigated, and the following cleanup should not be necessary.
@@ -127,9 +128,11 @@ public class SimFCFSResource extends AbstractActiveResource {
 		running_processes.clear();
 	}
 
+	@Override
 	public void registerProcess(ISchedulableProcess process) {
 	}
 	
+	@Override
 	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		return this.processQ.size();
 	}

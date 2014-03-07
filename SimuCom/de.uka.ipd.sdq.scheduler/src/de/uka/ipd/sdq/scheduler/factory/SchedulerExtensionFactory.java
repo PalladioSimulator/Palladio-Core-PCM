@@ -16,6 +16,6 @@ public interface SchedulerExtensionFactory {
 	 * resource ids. 
 	 * @return the resource with the corresponding scheduler for the simulation
 	 */
-	public IActiveResource getExtensionScheduler(SchedulerModel model, String resourceName, String resourceId, int numberOfCores);
+	public IActiveResource getExtensionScheduler(SchedulerModel model, String resourceName, String resourceId, long numberOfCores);
 
 }

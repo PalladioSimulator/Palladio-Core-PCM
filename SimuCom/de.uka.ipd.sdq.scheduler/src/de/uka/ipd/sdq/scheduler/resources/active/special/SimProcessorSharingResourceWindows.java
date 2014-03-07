@@ -9,7 +9,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
@@ -104,14 +103,14 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 		
 	}
 	
-	private ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
-	private ArrayList<Hashtable<ISchedulableProcess,Double>> running_processesPerCore = new ArrayList<Hashtable<ISchedulableProcess, Double>>();
+	private final ProcessingFinishedEvent processingFinished = new ProcessingFinishedEvent(null);
+	private final ArrayList<Hashtable<ISchedulableProcess,Double>> running_processesPerCore = new ArrayList<Hashtable<ISchedulableProcess, Double>>();
 	// private Hashtable<ISchedulableProcess,Double> running_processes = new
 	// Hashtable<ISchedulableProcess, Double>();
 	private double last_time; 
 	private int coreToUseForInitialLoadBalancing = 0;
 
-	public SimProcessorSharingResourceWindows(SchedulerModel model, String name, String id, int numberOfCores) {
+	public SimProcessorSharingResourceWindows(SchedulerModel model, String name, String id, long numberOfCores) {
 		super(model, numberOfCores, name, id);
 		for (int j=0; j<numberOfCores; j++) {
 			running_processesPerCore.add(new Hashtable<ISchedulableProcess, Double>());
@@ -251,7 +250,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
     // New: calculate speed for a process.
 	private double getSpeed(ISchedulableProcess process) {
 		int core = getCoreOfARunningProcess(process);
-		double speed = (double)running_processesPerCore.get(core).size();
+		double speed = running_processesPerCore.get(core).size();
 		// double speed = (double)running_processes.size() /
 		// (double)getCapacity();
 		
@@ -261,6 +260,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 	}
 
 
+	@Override
 	public void start() {
 	}
 
@@ -305,13 +305,16 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 	}
 
 
+	@Override
 	public void stop() {
 		
 	}
 
+	@Override
 	public void registerProcess(ISchedulableProcess process) {
 	}
 	
+	@Override
 	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		// TODO where is this needed? Return hard coded queue length of first
 		// core.
@@ -319,7 +322,7 @@ public class SimProcessorSharingResourceWindows extends AbstractActiveResource {
 		// return this.running_processes.size();
 	}
 	
-	private Hashtable<ISchedulableProcess,Integer> all_processes = new Hashtable<ISchedulableProcess, Integer>();
+	private final Hashtable<ISchedulableProcess,Integer> all_processes = new Hashtable<ISchedulableProcess, Integer>();
 	
 	/**
 	 * return -1 if a process was not running before, i.e. is a new process.

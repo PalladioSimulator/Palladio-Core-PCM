@@ -15,7 +15,7 @@ public interface IActiveResourceStateSensor {
 	 * @param state the changed state
 	 * @param instanceId id of the instance whose state changed
 	 */
-	public abstract void update(int state, int instanceId);
+	public abstract void update(long state, int instanceId);
 	
 	/**
 	 * Notifies the sensor about a process whose demand has been completed by the resource.

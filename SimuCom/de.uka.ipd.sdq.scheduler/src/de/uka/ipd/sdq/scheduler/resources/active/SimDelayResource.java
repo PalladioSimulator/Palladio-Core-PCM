@@ -11,13 +11,14 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 public class SimDelayResource extends AbstractActiveResource {
 
 	// Contains all running processes on the resource (key: process ID)
-	private Hashtable<String,ISchedulableProcess> running_processes = new Hashtable<String, ISchedulableProcess>();
+	private final Hashtable<String,ISchedulableProcess> running_processes = new Hashtable<String, ISchedulableProcess>();
 	
 	public SimDelayResource(SchedulerModel model, String name, String id) {
-		super(model, -1, name, id);
+		super(model, -1l, name, id);
 	}
 
 
+	@Override
 	public void start() {
 		running_processes.clear();
 	}
@@ -41,7 +42,7 @@ public class SimDelayResource extends AbstractActiveResource {
 			return;
 		}
 		running_processes.remove(process.getId());
-		fireStateChange(running_processes.size(), 0);
+		fireStateChange((long) running_processes.size(), 0);
 		fireDemandCompleted(process);
 		process.activate();
 	}
@@ -69,19 +70,22 @@ public class SimDelayResource extends AbstractActiveResource {
 	@Override
 	protected void enqueue(ISchedulableProcess process) {
 		running_processes.put(process.getId(), process);
-		fireStateChange(running_processes.size(), 0);
+		fireStateChange((long) running_processes.size(), 0);
 	}
 
 
+	@Override
 	public void stop() {
 		running_processes.clear();
 	}
 
+	@Override
 	public void registerProcess(ISchedulableProcess process) {
 		
 	}
 	
 
+	@Override
 	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		return running_processes.size();
 	}

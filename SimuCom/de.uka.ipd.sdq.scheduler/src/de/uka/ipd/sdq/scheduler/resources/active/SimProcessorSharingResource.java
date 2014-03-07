@@ -7,7 +7,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probfunction.math.util.MathTools;
-import de.uka.ipd.sdq.scheduler.IRunningProcess;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
@@ -37,7 +36,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 			// fire changes of the queue length only, if there is one single core. 
 			// With more cores, one cannot say on which core a job has been processed.
 			if (getCapacity() == 1) {
-				fireStateChange(running_processes.size(), 0);
+				fireStateChange((long) running_processes.size(), 0);
 			}
 			fireDemandCompleted(last);
 			LoggingWrapper.log(last + " finished.");
@@ -47,11 +46,11 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		
 	}
 	
-	private ProcessingFinishedEvent processingFinished;
-	private Hashtable<ISchedulableProcess,Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
+	private final ProcessingFinishedEvent processingFinished;
+	private final Hashtable<ISchedulableProcess,Double> running_processes = new Hashtable<ISchedulableProcess, Double>();
 	private double last_time; 
 
-	public SimProcessorSharingResource(SchedulerModel model, String name, String id, int i) {
+	public SimProcessorSharingResource(SchedulerModel model, String name, String id, long i) {
 		super(model, i, name, id);
 		this.processingFinished = new ProcessingFinishedEvent(model);
 	}
@@ -97,6 +96,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	}
 
 
+	@Override
 	public void start() {
 	}
 
@@ -120,7 +120,7 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 		// fire changes of the queue length only, if there is one single core. 
 		// With more cores, one cannot say on which core a job has been processed.
 		if (getCapacity() == 1) {
-			fireStateChange(running_processes.size(), 0);
+			fireStateChange((long) running_processes.size(), 0);
 		}
 		scheduleNextEvent();
 		process.passivate();
@@ -160,13 +160,16 @@ public class SimProcessorSharingResource extends AbstractActiveResource {
 	protected void enqueue(ISchedulableProcess process) {
 	}
 
+	@Override
 	public void registerProcess(ISchedulableProcess process) {
 	}
 	
+	@Override
 	public int getQueueLengthFor(SchedulerEntity schedulerEntity) {
 		return this.running_processes.size();
 	}
 
+	@Override
 	public void stop() {
 	}
 

@@ -32,12 +32,12 @@ public abstract class Context extends StackContext {
 	/**
 	 * AssemblyContextID -> ResourceContainer Object (Deployment Link)
 	 */
-	private HashMap<String, AbstractSimulatedResourceContainer> assemblyLinkHash = new HashMap<String, AbstractSimulatedResourceContainer>();
+	private final HashMap<String, AbstractSimulatedResourceContainer> assemblyLinkHash = new HashMap<String, AbstractSimulatedResourceContainer>();
 
 	/**
 	 * AssemblyContextID -> PassiveRessource
 	 */
-	private HashMap<String, IPassiveResource> assemblyPassiveResourceHash = new HashMap<String, IPassiveResource>();
+	private final HashMap<String, IPassiveResource> assemblyPassiveResourceHash = new HashMap<String, IPassiveResource>();
 
 	/**
 	 * The thread to which this context belongs
@@ -135,7 +135,7 @@ public abstract class Context extends StackContext {
 	public IPassiveResource getPassiveRessourceInContext(
 			String assemblyContextID, String passiveResourceName,
 			String passiveResourceID,
-			AbstractSimulatedResourceContainer resourceContainer, int capacity) {
+			AbstractSimulatedResourceContainer resourceContainer, long capacity) {
 		IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContextID
 				+ passiveResourceID);
 

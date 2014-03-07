@@ -37,9 +37,9 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 			.getLogger(AbstractScheduledResource.class.getName());
 
 	// each instance maintains its own list of state listeners
-	private Map<Integer, List<IStateListener>> stateListener;
-	private List<IDemandListener> demandListener;
-	private List<IOverallUtilizationListener> overallUtilizationListener;
+	private final Map<Integer, List<IStateListener>> stateListener;
+	private final List<IDemandListener> demandListener;
+	private final List<IOverallUtilizationListener> overallUtilizationListener;
 
 	// For resources that can become unavailable (SimulatedActiveResources):
 	protected double mttf = 0.0;
@@ -55,12 +55,12 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 	protected boolean canFail = false;
 	protected double failureProbability = 0.0;
 
-	private ActiveResouce myResourceStatus;
+	private final ActiveResouce myResourceStatus;
 
 	protected IActiveResource aResource = null;
 
 	protected String resourceTypeID;
-	private String resourceContainerID;
+	private final String resourceContainerID;
 
 	private boolean isStopped = false;
 
@@ -180,7 +180,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 				logger.debug("Stopping resource " + this.getName());
 			this.isStopped = true;
 			for (int instance = 0; instance < numberOfInstances; instance++) {
-				fireStateEvent(0, instance);
+				fireStateEvent(0l, instance);
 			}
 			this.getModel().getSimulationStatus().getResourceStatus()
 					.getActiveResources().remove(myResourceStatus);
@@ -237,7 +237,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 			throw new RuntimeException(
 					"getFailureTime() should not be invoked as resource cannot fail");
 		}
-		double failureTimeSample = (Double) Context.evaluateStatic("Exp(1 / "
+		double failureTimeSample = Context.evaluateStatic("Exp(1 / "
 				+ "(" + this.mttf + ")" + ")", Double.class);
 		if(logger.isDebugEnabled())
 			logger.debug("Resource " + this.getDescription()
@@ -256,7 +256,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 			throw new RuntimeException(
 					"getRepairTime() should not be invoked as resource cannot fail");
 		}
-		double repairTimeSample = (Double) Context.evaluateStatic("Exp(1/"
+		double repairTimeSample = Context.evaluateStatic("Exp(1/"
 				+ this.mttr + ")", Double.class);
 		if(logger.isDebugEnabled())
 			logger.debug("Resource " + this.getDescription()
@@ -321,7 +321,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 	/**
 	 * @see IStateListener
 	 */
-	protected void fireStateEvent(int queueLength, int instance) {
+	protected void fireStateEvent(long queueLength, int instance) {
 		for (IStateListener l : stateListener.get(instance)) {
 			l.stateChanged(queueLength, instance);
 		}
@@ -344,10 +344,12 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 		}
 	}
 
-	public void update(int state, int instanceId) {
+	@Override
+	public void update(long state, int instanceId) {
 		fireStateEvent(state, instanceId);
 	}
 	
+	@Override
 	public void demandCompleted(ISchedulableProcess simProcess) {
 		for (IDemandListener l : demandListener) {
 			l.demandCompleted(simProcess);

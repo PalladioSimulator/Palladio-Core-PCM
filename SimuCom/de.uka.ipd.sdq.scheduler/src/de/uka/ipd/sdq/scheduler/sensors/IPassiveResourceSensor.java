@@ -14,17 +14,17 @@ public interface IPassiveResourceSensor {
 	 * The given process has requested num instances of the passive resource but
 	 * not yet acquired them.
 	 */
-	public void request(ISchedulableProcess process, int num);
+	public void request(ISchedulableProcess process, long num);
 	
 	/**
 	 * The given process has successfully acquired num instances of the passive
 	 * resource.
 	 */
-	public void acquire(ISchedulableProcess process, int num);
+	public void acquire(ISchedulableProcess process, long num);
 
 	/**
 	 * The given process has released num instances of the passive resource.
 	 */
-	public void release(ISchedulableProcess process, int num);
+	public void release(ISchedulableProcess process, long num);
 
 }

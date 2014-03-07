@@ -6,20 +6,22 @@ import de.uka.ipd.sdq.scheduler.entities.SchedulerEntity;
 
 public class SimpleWaitingProcess extends SchedulerEntity implements IWaitingProcess {
 
-	private ISchedulableProcess sched_process;
-	private int num_requested;
+	private final ISchedulableProcess sched_process;
+	private final long num_requested;
 
-	public SimpleWaitingProcess(SchedulerModel model, ISchedulableProcess sched_process, int num_requested) {
+	public SimpleWaitingProcess(SchedulerModel model, ISchedulableProcess sched_process, long num_requested) {
 		super(model, "SimpleWaitingProcess");
 		this.sched_process = sched_process;
 		this.num_requested = num_requested;
 	}
 
+	@Override
 	public ISchedulableProcess getProcess() {
 		return sched_process;
 	}
 
-	public int getNumRequested() {
+	@Override
+	public long getNumRequested() {
 		return num_requested;
 	}
 }

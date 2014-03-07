@@ -25,7 +25,7 @@ public class SimulatedResourceContainer extends
 	
 	public IPassiveResource createPassiveResource(String name,
 			String passiveResourceID, String assemblyContextID,
-			String combinedID, int capacity) {
+			String combinedID, long capacity) {
 		IPassiveResource r = getSimplePassiveResource(name, passiveResourceID,
 				assemblyContextID, combinedID, capacity);
 
@@ -201,7 +201,7 @@ public class SimulatedResourceContainer extends
 
 	private IPassiveResource getSimplePassiveResource(String name,
 			String passiveResourceID, String assemblyContextID,
-			String combinedID, int capacity) {
+			String combinedID, long capacity) {
 		// return new SimFairPassiveResource(capacity, name, name, null,null);
         return new SimSimpleFairPassiveResource(myModel, capacity, name, passiveResourceID,
                 assemblyContextID, combinedID, myModel.getConfiguration().getSimulateFailures());
@@ -216,6 +216,7 @@ public class SimulatedResourceContainer extends
 	 * @param demand The demand in units processable by the resource. The resource is
 	 * responsible itself for converting this demand into time spans
 	 */
+	@Override
 	public void loadActiveResource(SimuComSimProcess requestingProcess, String typeID, double demand) {
 		try {
 			super.loadActiveResource(requestingProcess, typeID, demand);
@@ -240,6 +241,7 @@ public class SimulatedResourceContainer extends
 	 * @param demand The demand in units processable by the resource. The resource is
 	 * responsible itself for converting this demand into time spans
 	 */
+	@Override
 	public void loadActiveResource(SimuComSimProcess requestingProcess, String providedInterfaceID, int resourceServiceID, double demand) {
 		try {
 			super.loadActiveResource(requestingProcess, providedInterfaceID, resourceServiceID, demand);
@@ -273,7 +275,8 @@ public class SimulatedResourceContainer extends
      *            The demand in units processable by the resource. The resource is responsible
      * 
      */
-    public void loadActiveResource(SimuComSimProcess requestingProcess, String providedInterfaceID,
+    @Override
+	public void loadActiveResource(SimuComSimProcess requestingProcess, String providedInterfaceID,
             int resourceServiceID, Map<String, Serializable> parameterMap, double demand) {
         try {
             super.loadActiveResource(requestingProcess, providedInterfaceID, resourceServiceID, parameterMap, demand);

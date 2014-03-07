@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 public abstract class SimuComExtensionResource extends AbstractActiveResource {
 	
-	public SimuComExtensionResource(SchedulerModel model, int capacity, String name, String id) {
+	public SimuComExtensionResource(SchedulerModel model, long capacity, String name, String id) {
 		super(model, capacity, name, id);
 	}
 
