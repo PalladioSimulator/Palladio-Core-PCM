@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.IdentifierBasedMeasurements;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class IdentifierBasedMeasurementsImpl extends DataSeriesImpl implements IdentifierBasedMeasurements {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected IdentifierBasedMeasurementsImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ExperimentDataPackage.Literals.IDENTIFIER_BASED_MEASUREMENTS;
-	}
+        return ExperimentDataPackage.Literals.IDENTIFIER_BASED_MEASUREMENTS;
+    }
 
 } //IdentifierBasedMeasurementsImpl

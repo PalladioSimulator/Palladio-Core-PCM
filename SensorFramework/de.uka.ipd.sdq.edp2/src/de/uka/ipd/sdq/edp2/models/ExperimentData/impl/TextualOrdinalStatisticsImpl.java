@@ -6,16 +6,14 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifier;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.TextualOrdinalStatistics;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-import org.eclipse.emf.ecore.InternalEObject;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -34,247 +32,247 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class TextualOrdinalStatisticsImpl extends TextualNominalStatisticsImpl implements TextualOrdinalStatistics {
 	/**
-	 * The cached value of the '{@link #getMinimum() <em>Minimum</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getMinimum() <em>Minimum</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMinimum()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getMinimum()
+     * @generated
+     * @ordered
+     */
 	protected Identifier minimum;
 
 	/**
-	 * The cached value of the '{@link #getMaximum() <em>Maximum</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getMaximum() <em>Maximum</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMaximum()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getMaximum()
+     * @generated
+     * @ordered
+     */
 	protected Identifier maximum;
 
 	/**
-	 * The cached value of the '{@link #getMedian() <em>Median</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getMedian() <em>Median</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getMedian()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getMedian()
+     * @generated
+     * @ordered
+     */
 	protected Identifier median;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected TextualOrdinalStatisticsImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ExperimentDataPackage.Literals.TEXTUAL_ORDINAL_STATISTICS;
-	}
+        return ExperimentDataPackage.Literals.TEXTUAL_ORDINAL_STATISTICS;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier getMinimum() {
-		if (minimum != null && minimum.eIsProxy()) {
-			InternalEObject oldMinimum = (InternalEObject)minimum;
-			minimum = (Identifier)eResolveProxy(oldMinimum);
-			if (minimum != oldMinimum) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM, oldMinimum, minimum));
-			}
-		}
-		return minimum;
-	}
+        if (minimum != null && minimum.eIsProxy()) {
+            InternalEObject oldMinimum = (InternalEObject)minimum;
+            minimum = (Identifier)eResolveProxy(oldMinimum);
+            if (minimum != oldMinimum) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM, oldMinimum, minimum));
+            }
+        }
+        return minimum;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier basicGetMinimum() {
-		return minimum;
-	}
+        return minimum;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setMinimum(Identifier newMinimum) {
-		Identifier oldMinimum = minimum;
-		minimum = newMinimum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM, oldMinimum, minimum));
-	}
+        Identifier oldMinimum = minimum;
+        minimum = newMinimum;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM, oldMinimum, minimum));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier getMaximum() {
-		if (maximum != null && maximum.eIsProxy()) {
-			InternalEObject oldMaximum = (InternalEObject)maximum;
-			maximum = (Identifier)eResolveProxy(oldMaximum);
-			if (maximum != oldMaximum) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM, oldMaximum, maximum));
-			}
-		}
-		return maximum;
-	}
+        if (maximum != null && maximum.eIsProxy()) {
+            InternalEObject oldMaximum = (InternalEObject)maximum;
+            maximum = (Identifier)eResolveProxy(oldMaximum);
+            if (maximum != oldMaximum) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM, oldMaximum, maximum));
+            }
+        }
+        return maximum;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier basicGetMaximum() {
-		return maximum;
-	}
+        return maximum;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setMaximum(Identifier newMaximum) {
-		Identifier oldMaximum = maximum;
-		maximum = newMaximum;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM, oldMaximum, maximum));
-	}
+        Identifier oldMaximum = maximum;
+        maximum = newMaximum;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM, oldMaximum, maximum));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier getMedian() {
-		if (median != null && median.eIsProxy()) {
-			InternalEObject oldMedian = (InternalEObject)median;
-			median = (Identifier)eResolveProxy(oldMedian);
-			if (median != oldMedian) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN, oldMedian, median));
-			}
-		}
-		return median;
-	}
+        if (median != null && median.eIsProxy()) {
+            InternalEObject oldMedian = (InternalEObject)median;
+            median = (Identifier)eResolveProxy(oldMedian);
+            if (median != oldMedian) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN, oldMedian, median));
+            }
+        }
+        return median;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier basicGetMedian() {
-		return median;
-	}
+        return median;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setMedian(Identifier newMedian) {
-		Identifier oldMedian = median;
-		median = newMedian;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN, oldMedian, median));
-	}
+        Identifier oldMedian = median;
+        median = newMedian;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN, oldMedian, median));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
-				if (resolve) return getMinimum();
-				return basicGetMinimum();
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
-				if (resolve) return getMaximum();
-				return basicGetMaximum();
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
-				if (resolve) return getMedian();
-				return basicGetMedian();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
+                if (resolve) return getMinimum();
+                return basicGetMinimum();
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
+                if (resolve) return getMaximum();
+                return basicGetMaximum();
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
+                if (resolve) return getMedian();
+                return basicGetMedian();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
-				setMinimum((Identifier)newValue);
-				return;
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
-				setMaximum((Identifier)newValue);
-				return;
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
-				setMedian((Identifier)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
+                setMinimum((Identifier)newValue);
+                return;
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
+                setMaximum((Identifier)newValue);
+                return;
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
+                setMedian((Identifier)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
-				setMinimum((Identifier)null);
-				return;
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
-				setMaximum((Identifier)null);
-				return;
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
-				setMedian((Identifier)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
+                setMinimum((Identifier)null);
+                return;
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
+                setMaximum((Identifier)null);
+                return;
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
+                setMedian((Identifier)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
-				return minimum != null;
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
-				return maximum != null;
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
-				return median != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MINIMUM:
+                return minimum != null;
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MAXIMUM:
+                return maximum != null;
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS__MEDIAN:
+                return median != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //TextualOrdinalStatisticsImpl

@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 import javax.measure.Measure;
+import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
 import org.eclipse.emf.ecore.EClass;
@@ -22,6 +23,7 @@ import org.eclipse.emf.ecore.plugin.EcorePlugin;
 
 import de.uka.ipd.sdq.edp2.internal.DataSeriesFromRawMeasurementsSwitch;
 import de.uka.ipd.sdq.edp2.internal.SerializationUtil;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.*;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationFunctionDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationStatistics;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
@@ -78,298 +80,298 @@ public class ExperimentDataFactoryImpl extends EFactoryImpl implements Experimen
 			.getLogger(ExperimentDataFactoryImpl.class.getCanonicalName());
 
 	/**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc -->
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public static ExperimentDataFactory init() {
-		try {
-			ExperimentDataFactory theExperimentDataFactory = (ExperimentDataFactory)EPackage.Registry.INSTANCE.getEFactory("http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1"); 
-			if (theExperimentDataFactory != null) {
-				return theExperimentDataFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new ExperimentDataFactoryImpl();
-	}
+        try {
+            ExperimentDataFactory theExperimentDataFactory = (ExperimentDataFactory)EPackage.Registry.INSTANCE.getEFactory(ExperimentDataPackage.eNS_URI);
+            if (theExperimentDataFactory != null) {
+                return theExperimentDataFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new ExperimentDataFactoryImpl();
+    }
 
 	/**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc -->
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExperimentDataFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case ExperimentDataPackage.MEASUREMENTS_RANGE: return createMeasurementsRange();
-			case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY: return (EObject)createEStringtoEObjectMapEntry();
-			case ExperimentDataPackage.RAW_MEASUREMENTS: return createRawMeasurements();
-			case ExperimentDataPackage.NUMERICAL_NOMINAL_STATISTICS: return createNumericalNominalStatistics();
-			case ExperimentDataPackage.NUMERICAL_MASS_DISTRIBUTION: return createNumericalMassDistribution();
-			case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: return createFixedWidthAggregatedMeasurements();
-			case ExperimentDataPackage.FIXED_INTERVALS: return createFixedIntervals();
-			case ExperimentDataPackage.TEXTUAL_NOMINAL_STATISTICS: return createTextualNominalStatistics();
-			case ExperimentDataPackage.TEXTUAL_MASS_DISTRIBUTION: return createTextualMassDistribution();
-			case ExperimentDataPackage.IDENTIFIER: return createIdentifier();
-			case ExperimentDataPackage.TEXTUAL_BASE_METRIC_DESCRIPTION: return createTextualBaseMetricDescription();
-			case ExperimentDataPackage.EXPERIMENT_GROUP: return createExperimentGroup();
-			case ExperimentDataPackage.EXPERIMENT_SETTING: return createExperimentSetting();
-			case ExperimentDataPackage.EXPERIMENT_RUN: return createExperimentRun();
-			case ExperimentDataPackage.MEASUREMENTS: return createMeasurements();
-			case ExperimentDataPackage.EDP2_MEASURE: return createEdp2Measure();
-			case ExperimentDataPackage.DESCRIPTIONS: return createDescriptions();
-			case ExperimentDataPackage.AGGREGATION_FUNCTION_DESCRIPTION: return createAggregationFunctionDescription();
-			case ExperimentDataPackage.AGGREGATION_STATISTICS: return createAggregationStatistics();
-			case ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS: return createDoubleBinaryMeasurements();
-			case ExperimentDataPackage.NUMERICAL_INTERVAL_STATISTICS: return createNumericalIntervalStatistics();
-			case ExperimentDataPackage.NUMERICAL_ORDINAL_STATISTICS: return createNumericalOrdinalStatistics();
-			case ExperimentDataPackage.NUMERICAL_PERCENTILE: return createNumericalPercentile();
-			case ExperimentDataPackage.JS_XML_MEASUREMENTS: return createJSXmlMeasurements();
-			case ExperimentDataPackage.LONG_BINARY_MEASUREMENTS: return createLongBinaryMeasurements();
-			case ExperimentDataPackage.METRIC_SET_DESCRIPTION: return createMetricSetDescription();
-			case ExperimentDataPackage.IDENTIFIER_BASED_MEASUREMENTS: return createIdentifierBasedMeasurements();
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER: return createObservedIdentifier();
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER_BASED_MEASUREMENTS: return createObservedIdentifierBasedMeasurements();
-			case ExperimentDataPackage.NUMERICAL_RATIO_STATISTICS: return createNumericalRatioStatistics();
-			case ExperimentDataPackage.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS: return createSensorFrameworkV1DoubleBinaryMeasurements();
-			case ExperimentDataPackage.SENSOR_FRAMEWORK_V1_IDENTIFIER_BASED_MEASUREMENTS: return createSensorFrameworkV1IdentifierBasedMeasurements();
-			case ExperimentDataPackage.NUMERICAL_BASE_METRIC_DESCRIPTION: return createNumericalBaseMetricDescription();
-			case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS: return createTextualOrdinalStatistics();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case ExperimentDataPackage.MEASUREMENTS_RANGE: return createMeasurementsRange();
+            case ExperimentDataPackage.ESTRINGTO_EOBJECT_MAP_ENTRY: return (EObject)createEStringtoEObjectMapEntry();
+            case ExperimentDataPackage.RAW_MEASUREMENTS: return createRawMeasurements();
+            case ExperimentDataPackage.NUMERICAL_NOMINAL_STATISTICS: return createNumericalNominalStatistics();
+            case ExperimentDataPackage.NUMERICAL_MASS_DISTRIBUTION: return createNumericalMassDistribution();
+            case ExperimentDataPackage.FIXED_WIDTH_AGGREGATED_MEASUREMENTS: return createFixedWidthAggregatedMeasurements();
+            case ExperimentDataPackage.FIXED_INTERVALS: return createFixedIntervals();
+            case ExperimentDataPackage.TEXTUAL_NOMINAL_STATISTICS: return createTextualNominalStatistics();
+            case ExperimentDataPackage.TEXTUAL_MASS_DISTRIBUTION: return createTextualMassDistribution();
+            case ExperimentDataPackage.IDENTIFIER: return createIdentifier();
+            case ExperimentDataPackage.TEXTUAL_BASE_METRIC_DESCRIPTION: return createTextualBaseMetricDescription();
+            case ExperimentDataPackage.EXPERIMENT_GROUP: return createExperimentGroup();
+            case ExperimentDataPackage.EXPERIMENT_SETTING: return createExperimentSetting();
+            case ExperimentDataPackage.EXPERIMENT_RUN: return createExperimentRun();
+            case ExperimentDataPackage.MEASUREMENTS: return createMeasurements();
+            case ExperimentDataPackage.EDP2_MEASURE: return createEdp2Measure();
+            case ExperimentDataPackage.DESCRIPTIONS: return createDescriptions();
+            case ExperimentDataPackage.AGGREGATION_FUNCTION_DESCRIPTION: return createAggregationFunctionDescription();
+            case ExperimentDataPackage.AGGREGATION_STATISTICS: return createAggregationStatistics();
+            case ExperimentDataPackage.DOUBLE_BINARY_MEASUREMENTS: return createDoubleBinaryMeasurements();
+            case ExperimentDataPackage.NUMERICAL_INTERVAL_STATISTICS: return createNumericalIntervalStatistics();
+            case ExperimentDataPackage.NUMERICAL_ORDINAL_STATISTICS: return createNumericalOrdinalStatistics();
+            case ExperimentDataPackage.NUMERICAL_PERCENTILE: return createNumericalPercentile();
+            case ExperimentDataPackage.JS_XML_MEASUREMENTS: return createJSXmlMeasurements();
+            case ExperimentDataPackage.LONG_BINARY_MEASUREMENTS: return createLongBinaryMeasurements();
+            case ExperimentDataPackage.METRIC_SET_DESCRIPTION: return createMetricSetDescription();
+            case ExperimentDataPackage.IDENTIFIER_BASED_MEASUREMENTS: return createIdentifierBasedMeasurements();
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER: return createObservedIdentifier();
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER_BASED_MEASUREMENTS: return createObservedIdentifierBasedMeasurements();
+            case ExperimentDataPackage.NUMERICAL_RATIO_STATISTICS: return createNumericalRatioStatistics();
+            case ExperimentDataPackage.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS: return createSensorFrameworkV1DoubleBinaryMeasurements();
+            case ExperimentDataPackage.SENSOR_FRAMEWORK_V1_IDENTIFIER_BASED_MEASUREMENTS: return createSensorFrameworkV1IdentifierBasedMeasurements();
+            case ExperimentDataPackage.NUMERICAL_BASE_METRIC_DESCRIPTION: return createNumericalBaseMetricDescription();
+            case ExperimentDataPackage.TEXTUAL_ORDINAL_STATISTICS: return createTextualOrdinalStatistics();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object createFromString(EDataType eDataType, String initialValue) {
-		switch (eDataType.getClassifierID()) {
-			case ExperimentDataPackage.CAPTURE_TYPE:
-				return createCaptureTypeFromString(eDataType, initialValue);
-			case ExperimentDataPackage.SCALE:
-				return createScaleFromString(eDataType, initialValue);
-			case ExperimentDataPackage.MONOTONIC:
-				return createMonotonicFromString(eDataType, initialValue);
-			case ExperimentDataPackage.PERSISTENCE_KIND_OPTIONS:
-				return createPersistenceKindOptionsFromString(eDataType, initialValue);
-			case ExperimentDataPackage.DATA_TYPE:
-				return createDataTypeFromString(eDataType, initialValue);
-			case ExperimentDataPackage.EJS_MEASURE:
-				return createEJSMeasureFromString(eDataType, initialValue);
-			case ExperimentDataPackage.EJS_DURATION_MEASURE:
-				return createEJSDurationMeasureFromString(eDataType, initialValue);
-			case ExperimentDataPackage.EJS_UNIT:
-				return createEJSUnitFromString(eDataType, initialValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eDataType.getClassifierID()) {
+            case ExperimentDataPackage.CAPTURE_TYPE:
+                return createCaptureTypeFromString(eDataType, initialValue);
+            case ExperimentDataPackage.SCALE:
+                return createScaleFromString(eDataType, initialValue);
+            case ExperimentDataPackage.MONOTONIC:
+                return createMonotonicFromString(eDataType, initialValue);
+            case ExperimentDataPackage.PERSISTENCE_KIND_OPTIONS:
+                return createPersistenceKindOptionsFromString(eDataType, initialValue);
+            case ExperimentDataPackage.DATA_TYPE:
+                return createDataTypeFromString(eDataType, initialValue);
+            case ExperimentDataPackage.EJS_MEASURE:
+                return createEJSMeasureFromString(eDataType, initialValue);
+            case ExperimentDataPackage.EJS_DURATION_MEASURE:
+                return createEJSDurationMeasureFromString(eDataType, initialValue);
+            case ExperimentDataPackage.EJS_UNIT:
+                return createEJSUnitFromString(eDataType, initialValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String convertToString(EDataType eDataType, Object instanceValue) {
-		switch (eDataType.getClassifierID()) {
-			case ExperimentDataPackage.CAPTURE_TYPE:
-				return convertCaptureTypeToString(eDataType, instanceValue);
-			case ExperimentDataPackage.SCALE:
-				return convertScaleToString(eDataType, instanceValue);
-			case ExperimentDataPackage.MONOTONIC:
-				return convertMonotonicToString(eDataType, instanceValue);
-			case ExperimentDataPackage.PERSISTENCE_KIND_OPTIONS:
-				return convertPersistenceKindOptionsToString(eDataType, instanceValue);
-			case ExperimentDataPackage.DATA_TYPE:
-				return convertDataTypeToString(eDataType, instanceValue);
-			case ExperimentDataPackage.EJS_MEASURE:
-				return convertEJSMeasureToString(eDataType, instanceValue);
-			case ExperimentDataPackage.EJS_DURATION_MEASURE:
-				return convertEJSDurationMeasureToString(eDataType, instanceValue);
-			case ExperimentDataPackage.EJS_UNIT:
-				return convertEJSUnitToString(eDataType, instanceValue);
-			default:
-				throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eDataType.getClassifierID()) {
+            case ExperimentDataPackage.CAPTURE_TYPE:
+                return convertCaptureTypeToString(eDataType, instanceValue);
+            case ExperimentDataPackage.SCALE:
+                return convertScaleToString(eDataType, instanceValue);
+            case ExperimentDataPackage.MONOTONIC:
+                return convertMonotonicToString(eDataType, instanceValue);
+            case ExperimentDataPackage.PERSISTENCE_KIND_OPTIONS:
+                return convertPersistenceKindOptionsToString(eDataType, instanceValue);
+            case ExperimentDataPackage.DATA_TYPE:
+                return convertDataTypeToString(eDataType, instanceValue);
+            case ExperimentDataPackage.EJS_MEASURE:
+                return convertEJSMeasureToString(eDataType, instanceValue);
+            case ExperimentDataPackage.EJS_DURATION_MEASURE:
+                return convertEJSDurationMeasureToString(eDataType, instanceValue);
+            case ExperimentDataPackage.EJS_UNIT:
+                return convertEJSUnitToString(eDataType, instanceValue);
+            default:
+                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        }
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public MeasurementsRange createMeasurementsRange() {
-		MeasurementsRangeImpl measurementsRange = new MeasurementsRangeImpl();
-		return measurementsRange;
-	}
+        MeasurementsRangeImpl measurementsRange = new MeasurementsRangeImpl();
+        return measurementsRange;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public FixedWidthAggregatedMeasurements createFixedWidthAggregatedMeasurements() {
-		FixedWidthAggregatedMeasurementsImpl fixedWidthAggregatedMeasurements = new FixedWidthAggregatedMeasurementsImpl();
-		return fixedWidthAggregatedMeasurements;
-	}
+        FixedWidthAggregatedMeasurementsImpl fixedWidthAggregatedMeasurements = new FixedWidthAggregatedMeasurementsImpl();
+        return fixedWidthAggregatedMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public FixedIntervals createFixedIntervals() {
-		FixedIntervalsImpl fixedIntervals = new FixedIntervalsImpl();
-		return fixedIntervals;
-	}
+        FixedIntervalsImpl fixedIntervals = new FixedIntervalsImpl();
+        return fixedIntervals;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public TextualNominalStatistics createTextualNominalStatistics() {
-		TextualNominalStatisticsImpl textualNominalStatistics = new TextualNominalStatisticsImpl();
-		return textualNominalStatistics;
-	}
+        TextualNominalStatisticsImpl textualNominalStatistics = new TextualNominalStatisticsImpl();
+        return textualNominalStatistics;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public TextualMassDistribution createTextualMassDistribution() {
-		TextualMassDistributionImpl textualMassDistribution = new TextualMassDistributionImpl();
-		return textualMassDistribution;
-	}
+        TextualMassDistributionImpl textualMassDistribution = new TextualMassDistributionImpl();
+        return textualMassDistribution;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Measurements createMeasurements() {
-		MeasurementsImpl measurements = new MeasurementsImpl();
-		return measurements;
-	}
+        MeasurementsImpl measurements = new MeasurementsImpl();
+        return measurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Edp2Measure createEdp2Measure() {
-		Edp2MeasureImpl edp2Measure = new Edp2MeasureImpl();
-		return edp2Measure;
-	}
+        Edp2MeasureImpl edp2Measure = new Edp2MeasureImpl();
+        return edp2Measure;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Map.Entry<String, Object> createEStringtoEObjectMapEntry() {
-		EStringtoEObjectMapEntryImpl eStringtoEObjectMapEntry = new EStringtoEObjectMapEntryImpl();
-		return eStringtoEObjectMapEntry;
-	}
+        EStringtoEObjectMapEntryImpl eStringtoEObjectMapEntry = new EStringtoEObjectMapEntryImpl();
+        return eStringtoEObjectMapEntry;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public RawMeasurements createRawMeasurements() {
-		RawMeasurementsImpl rawMeasurements = new RawMeasurementsImpl();
-		return rawMeasurements;
-	}
+        RawMeasurementsImpl rawMeasurements = new RawMeasurementsImpl();
+        return rawMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NumericalNominalStatistics createNumericalNominalStatistics() {
-		NumericalNominalStatisticsImpl numericalNominalStatistics = new NumericalNominalStatisticsImpl();
-		return numericalNominalStatistics;
-	}
+        NumericalNominalStatisticsImpl numericalNominalStatistics = new NumericalNominalStatisticsImpl();
+        return numericalNominalStatistics;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NumericalMassDistribution createNumericalMassDistribution() {
-		NumericalMassDistributionImpl numericalMassDistribution = new NumericalMassDistributionImpl();
-		return numericalMassDistribution;
-	}
+        NumericalMassDistributionImpl numericalMassDistribution = new NumericalMassDistributionImpl();
+        return numericalMassDistribution;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExperimentGroup createExperimentGroup() {
-		ExperimentGroupImpl experimentGroup = new ExperimentGroupImpl();
-		return experimentGroup;
-	}
+        ExperimentGroupImpl experimentGroup = new ExperimentGroupImpl();
+        return experimentGroup;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExperimentSetting createExperimentSetting() {
-		ExperimentSettingImpl experimentSetting = new ExperimentSettingImpl();
-		return experimentSetting;
-	}
+        ExperimentSettingImpl experimentSetting = new ExperimentSettingImpl();
+        return experimentSetting;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExperimentRun createExperimentRun() {
-		ExperimentRunImpl experimentRun = new ExperimentRunImpl();
-		return experimentRun;
-	}
+        ExperimentRunImpl experimentRun = new ExperimentRunImpl();
+        return experimentRun;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier createIdentifier() {
-		IdentifierImpl identifier = new IdentifierImpl();
-		return identifier;
-	}
+        IdentifierImpl identifier = new IdentifierImpl();
+        return identifier;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public TextualBaseMetricDescription createTextualBaseMetricDescription() {
-		TextualBaseMetricDescriptionImpl textualBaseMetricDescription = new TextualBaseMetricDescriptionImpl();
-		return textualBaseMetricDescription;
-	}
+        TextualBaseMetricDescriptionImpl textualBaseMetricDescription = new TextualBaseMetricDescriptionImpl();
+        return textualBaseMetricDescription;
+    }
 	
 	/** 
 	 * {@inheritDoc}
@@ -584,284 +586,284 @@ public class ExperimentDataFactoryImpl extends EFactoryImpl implements Experimen
 	}
 	
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public AggregationFunctionDescription createAggregationFunctionDescription() {
-		AggregationFunctionDescriptionImpl aggregationFunctionDescription = new AggregationFunctionDescriptionImpl();
-		return aggregationFunctionDescription;
-	}
+        AggregationFunctionDescriptionImpl aggregationFunctionDescription = new AggregationFunctionDescriptionImpl();
+        return aggregationFunctionDescription;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public AggregationStatistics createAggregationStatistics() {
-		AggregationStatisticsImpl aggregationStatistics = new AggregationStatisticsImpl();
-		return aggregationStatistics;
-	}
+        AggregationStatisticsImpl aggregationStatistics = new AggregationStatisticsImpl();
+        return aggregationStatistics;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public LongBinaryMeasurements createLongBinaryMeasurements() {
-		LongBinaryMeasurementsImpl longBinaryMeasurements = new LongBinaryMeasurementsImpl();
-		return longBinaryMeasurements;
-	}
+        LongBinaryMeasurementsImpl longBinaryMeasurements = new LongBinaryMeasurementsImpl();
+        return longBinaryMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
-	public DoubleBinaryMeasurements createDoubleBinaryMeasurements() {
-		DoubleBinaryMeasurementsImpl doubleBinaryMeasurements = new DoubleBinaryMeasurementsImpl();
-		return doubleBinaryMeasurements;
-	}
+     * @generated
+     */
+	public <Q extends Quantity> DoubleBinaryMeasurements<Q> createDoubleBinaryMeasurements() {
+        DoubleBinaryMeasurementsImpl<Q> doubleBinaryMeasurements = new DoubleBinaryMeasurementsImpl<Q>();
+        return doubleBinaryMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NumericalIntervalStatistics createNumericalIntervalStatistics() {
-		NumericalIntervalStatisticsImpl numericalIntervalStatistics = new NumericalIntervalStatisticsImpl();
-		return numericalIntervalStatistics;
-	}
+        NumericalIntervalStatisticsImpl numericalIntervalStatistics = new NumericalIntervalStatisticsImpl();
+        return numericalIntervalStatistics;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NumericalOrdinalStatistics createNumericalOrdinalStatistics() {
-		NumericalOrdinalStatisticsImpl numericalOrdinalStatistics = new NumericalOrdinalStatisticsImpl();
-		return numericalOrdinalStatistics;
-	}
+        NumericalOrdinalStatisticsImpl numericalOrdinalStatistics = new NumericalOrdinalStatisticsImpl();
+        return numericalOrdinalStatistics;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NumericalPercentile createNumericalPercentile() {
-		NumericalPercentileImpl numericalPercentile = new NumericalPercentileImpl();
-		return numericalPercentile;
-	}
+        NumericalPercentileImpl numericalPercentile = new NumericalPercentileImpl();
+        return numericalPercentile;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public JSXmlMeasurements createJSXmlMeasurements() {
-		JSXmlMeasurementsImpl jsXmlMeasurements = new JSXmlMeasurementsImpl();
-		return jsXmlMeasurements;
-	}
+        JSXmlMeasurementsImpl jsXmlMeasurements = new JSXmlMeasurementsImpl();
+        return jsXmlMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Descriptions createDescriptions() {
-		DescriptionsImpl descriptions = new DescriptionsImpl();
-		return descriptions;
-	}
+        DescriptionsImpl descriptions = new DescriptionsImpl();
+        return descriptions;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public MetricSetDescription createMetricSetDescription() {
-		MetricSetDescriptionImpl metricSetDescription = new MetricSetDescriptionImpl();
-		return metricSetDescription;
-	}
+        MetricSetDescriptionImpl metricSetDescription = new MetricSetDescriptionImpl();
+        return metricSetDescription;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public IdentifierBasedMeasurements createIdentifierBasedMeasurements() {
-		IdentifierBasedMeasurementsImpl identifierBasedMeasurements = new IdentifierBasedMeasurementsImpl();
-		return identifierBasedMeasurements;
-	}
+        IdentifierBasedMeasurementsImpl identifierBasedMeasurements = new IdentifierBasedMeasurementsImpl();
+        return identifierBasedMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ObservedIdentifier createObservedIdentifier() {
-		ObservedIdentifierImpl observedIdentifier = new ObservedIdentifierImpl();
-		return observedIdentifier;
-	}
+        ObservedIdentifierImpl observedIdentifier = new ObservedIdentifierImpl();
+        return observedIdentifier;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ObservedIdentifierBasedMeasurements createObservedIdentifierBasedMeasurements() {
-		ObservedIdentifierBasedMeasurementsImpl observedIdentifierBasedMeasurements = new ObservedIdentifierBasedMeasurementsImpl();
-		return observedIdentifierBasedMeasurements;
-	}
+        ObservedIdentifierBasedMeasurementsImpl observedIdentifierBasedMeasurements = new ObservedIdentifierBasedMeasurementsImpl();
+        return observedIdentifierBasedMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NumericalRatioStatistics createNumericalRatioStatistics() {
-		NumericalRatioStatisticsImpl numericalRatioStatistics = new NumericalRatioStatisticsImpl();
-		return numericalRatioStatistics;
-	}
+        NumericalRatioStatisticsImpl numericalRatioStatistics = new NumericalRatioStatisticsImpl();
+        return numericalRatioStatistics;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public SensorFrameworkV1DoubleBinaryMeasurements createSensorFrameworkV1DoubleBinaryMeasurements() {
-		SensorFrameworkV1DoubleBinaryMeasurementsImpl sensorFrameworkV1DoubleBinaryMeasurements = new SensorFrameworkV1DoubleBinaryMeasurementsImpl();
-		return sensorFrameworkV1DoubleBinaryMeasurements;
-	}
+        SensorFrameworkV1DoubleBinaryMeasurementsImpl sensorFrameworkV1DoubleBinaryMeasurements = new SensorFrameworkV1DoubleBinaryMeasurementsImpl();
+        return sensorFrameworkV1DoubleBinaryMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public SensorFrameworkV1IdentifierBasedMeasurements createSensorFrameworkV1IdentifierBasedMeasurements() {
-		SensorFrameworkV1IdentifierBasedMeasurementsImpl sensorFrameworkV1IdentifierBasedMeasurements = new SensorFrameworkV1IdentifierBasedMeasurementsImpl();
-		return sensorFrameworkV1IdentifierBasedMeasurements;
-	}
+        SensorFrameworkV1IdentifierBasedMeasurementsImpl sensorFrameworkV1IdentifierBasedMeasurements = new SensorFrameworkV1IdentifierBasedMeasurementsImpl();
+        return sensorFrameworkV1IdentifierBasedMeasurements;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NumericalBaseMetricDescription createNumericalBaseMetricDescription() {
-		NumericalBaseMetricDescriptionImpl numericalBaseMetricDescription = new NumericalBaseMetricDescriptionImpl();
-		return numericalBaseMetricDescription;
-	}
+        NumericalBaseMetricDescriptionImpl numericalBaseMetricDescription = new NumericalBaseMetricDescriptionImpl();
+        return numericalBaseMetricDescription;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public TextualOrdinalStatistics createTextualOrdinalStatistics() {
-		TextualOrdinalStatisticsImpl textualOrdinalStatistics = new TextualOrdinalStatisticsImpl();
-		return textualOrdinalStatistics;
-	}
+        TextualOrdinalStatisticsImpl textualOrdinalStatistics = new TextualOrdinalStatisticsImpl();
+        return textualOrdinalStatistics;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public PersistenceKindOptions createPersistenceKindOptionsFromString(EDataType eDataType, String initialValue) {
-		PersistenceKindOptions result = PersistenceKindOptions.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        PersistenceKindOptions result = PersistenceKindOptions.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertPersistenceKindOptionsToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public CaptureType createCaptureTypeFromString(EDataType eDataType, String initialValue) {
-		CaptureType result = CaptureType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        CaptureType result = CaptureType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertCaptureTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public DataType createDataTypeFromString(EDataType eDataType, String initialValue) {
-		DataType result = DataType.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        DataType result = DataType.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertDataTypeToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Scale createScaleFromString(EDataType eDataType, String initialValue) {
-		Scale result = Scale.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        Scale result = Scale.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertScaleToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Monotonic createMonotonicFromString(EDataType eDataType, String initialValue) {
-		Monotonic result = Monotonic.get(initialValue);
-		if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
-		return result;
-	}
+        Monotonic result = Monotonic.get(initialValue);
+        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        return result;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String convertMonotonicToString(EDataType eDataType, Object instanceValue) {
-		return instanceValue == null ? null : instanceValue.toString();
-	}
+        return instanceValue == null ? null : instanceValue.toString();
+    }
 
 	/**
 	 * <!-- begin-user-doc -->
@@ -921,23 +923,23 @@ public class ExperimentDataFactoryImpl extends EFactoryImpl implements Experimen
 	}
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ExperimentDataPackage getExperimentDataPackage() {
-		return (ExperimentDataPackage)getEPackage();
-	}
+        return (ExperimentDataPackage)getEPackage();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * @deprecated
+     * @generated
+     */
 	@Deprecated
 	public static ExperimentDataPackage getPackage() {
-		return ExperimentDataPackage.eINSTANCE;
-	}
+        return ExperimentDataPackage.eINSTANCE;
+    }
 
 } //EmfmodelFactoryImpl

@@ -7,11 +7,9 @@
 package de.uka.ipd.sdq.edp2.models.ExperimentData;
 
 import java.util.Date;
-import java.util.Map;
 
 import javax.measure.Measure;
 
-import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 
 /**
@@ -43,99 +41,99 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface ExperimentRun extends Identifiable, Propertyable {
 	/**
-	 * Returns the value of the '<em><b>Measurements</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun <em>Experiment Run</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Measurements</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun <em>Experiment Run</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Measurements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Measurements</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Measurements()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun
-	 * @model opposite="experimentRun" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Measurements</em>' containment reference list.
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Measurements()
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getExperimentRun
+     * @model opposite="experimentRun" containment="true" ordered="false"
+     * @generated
+     */
 	EList<Measurements> getMeasurements();
 
 	/**
-	 * Returns the value of the '<em><b>Start Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Start Time</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Instant at which the experiment run is started.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Start Time</em>' attribute.
-	 * @see #setStartTime(Date)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_StartTime()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * Instant at which the experiment run is started.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Start Time</em>' attribute.
+     * @see #setStartTime(Date)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_StartTime()
+     * @model required="true" ordered="false"
+     * @generated
+     */
 	Date getStartTime();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getStartTime <em>Start Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getStartTime <em>Start Time</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Start Time</em>' attribute.
-	 * @see #getStartTime()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Start Time</em>' attribute.
+     * @see #getStartTime()
+     * @generated
+     */
 	void setStartTime(Date value);
 
 	/**
-	 * Returns the value of the '<em><b>Duration</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Duration</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Length of the duration in milli-seconds.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Duration</em>' attribute.
-	 * @see #setDuration(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Duration()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * Length of the duration in milli-seconds.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Duration</em>' attribute.
+     * @see #setDuration(Measure)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_Duration()
+     * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
+     * @generated
+     */
 	Measure getDuration();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getDuration <em>Duration</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getDuration <em>Duration</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Duration</em>' attribute.
-	 * @see #getDuration()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Duration</em>' attribute.
+     * @see #getDuration()
+     * @generated
+     */
 	void setDuration(Measure value);
 
 	/**
-	 * Returns the value of the '<em><b>Experiment Setting</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting#getExperimentRuns <em>Experiment Runs</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Experiment Setting</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting#getExperimentRuns <em>Experiment Runs</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Experiment Setting</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Experiment Setting</em>' container reference.
-	 * @see #setExperimentSetting(ExperimentSetting)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_ExperimentSetting()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting#getExperimentRuns
-	 * @model opposite="experimentRuns" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Experiment Setting</em>' container reference.
+     * @see #setExperimentSetting(ExperimentSetting)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getExperimentRun_ExperimentSetting()
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting#getExperimentRuns
+     * @model opposite="experimentRuns" required="true" transient="false" ordered="false"
+     * @generated
+     */
 	ExperimentSetting getExperimentSetting();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getExperimentSetting <em>Experiment Setting</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun#getExperimentSetting <em>Experiment Setting</em>}' container reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Experiment Setting</em>' container reference.
-	 * @see #getExperimentSetting()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Experiment Setting</em>' container reference.
+     * @see #getExperimentSetting()
+     * @generated
+     */
 	void setExperimentSetting(ExperimentSetting value);
 
 } // ExperimentRun

@@ -40,131 +40,131 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MeasurementsRange extends Propertyable {
 	/**
-	 * Returns the value of the '<em><b>Raw Measurements</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange <em>Measurements Range</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Raw Measurements</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange <em>Measurements Range</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Raw Measurements</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Raw Measurements</em>' containment reference.
-	 * @see #setRawMeasurements(RawMeasurements)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_RawMeasurements()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange
-	 * @model opposite="measurementsRange" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Raw Measurements</em>' containment reference.
+     * @see #setRawMeasurements(RawMeasurements)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_RawMeasurements()
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements#getMeasurementsRange
+     * @model opposite="measurementsRange" containment="true" ordered="false"
+     * @generated
+     */
 	RawMeasurements getRawMeasurements();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getRawMeasurements <em>Raw Measurements</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getRawMeasurements <em>Raw Measurements</em>}' containment reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Raw Measurements</em>' containment reference.
-	 * @see #getRawMeasurements()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Raw Measurements</em>' containment reference.
+     * @see #getRawMeasurements()
+     * @generated
+     */
 	void setRawMeasurements(RawMeasurements value);
 
 	/**
-	 * Returns the value of the '<em><b>End Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>End Time</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Time passed since the start of the measuring. It refers to the right end of the time interval for which the measurements are captured in this range.
-	 * 
-	 * For example, in a simulation environment this would mean simulation time passed since the start of the simulation. In a real world environment this would be the real time passed after the measurement has been started.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>End Time</em>' attribute.
-	 * @see #setEndTime(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_EndTime()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * Time passed since the start of the measuring. It refers to the right end of the time interval for which the measurements are captured in this range.
+     * 
+     * For example, in a simulation environment this would mean simulation time passed since the start of the simulation. In a real world environment this would be the real time passed after the measurement has been started.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>End Time</em>' attribute.
+     * @see #setEndTime(Measure)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_EndTime()
+     * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
+     * @generated
+     */
 	Measure getEndTime();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getEndTime <em>End Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getEndTime <em>End Time</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>End Time</em>' attribute.
-	 * @see #getEndTime()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>End Time</em>' attribute.
+     * @see #getEndTime()
+     * @generated
+     */
 	void setEndTime(Measure value);
 
 	/**
-	 * Returns the value of the '<em><b>Start Time</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Start Time</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * Time passed since the start of the measuring. It refers to the left end of the time interval for which the measurements are captured in this range.
-	 * 
-	 * For example, in a simulation environment this would mean simulation time passed since the start of the simulation. In a real world environment this would be the real time passed after the measurement has been started.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Start Time</em>' attribute.
-	 * @see #setStartTime(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_StartTime()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * Time passed since the start of the measuring. It refers to the left end of the time interval for which the measurements are captured in this range.
+     * 
+     * For example, in a simulation environment this would mean simulation time passed since the start of the simulation. In a real world environment this would be the real time passed after the measurement has been started.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Start Time</em>' attribute.
+     * @see #setStartTime(Measure)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_StartTime()
+     * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSDurationMeasure" required="true" ordered="false"
+     * @generated
+     */
 	Measure getStartTime();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getStartTime <em>Start Time</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getStartTime <em>Start Time</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Start Time</em>' attribute.
-	 * @see #getStartTime()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Start Time</em>' attribute.
+     * @see #getStartTime()
+     * @generated
+     */
 	void setStartTime(Measure value);
 
 	/**
-	 * Returns the value of the '<em><b>Measurements</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasurementsRanges <em>Measurements Ranges</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Measurements</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasurementsRanges <em>Measurements Ranges</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Measurements</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Measurements</em>' container reference.
-	 * @see #setMeasurements(Measurements)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_Measurements()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasurementsRanges
-	 * @model opposite="measurementsRanges" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Measurements</em>' container reference.
+     * @see #setMeasurements(Measurements)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_Measurements()
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements#getMeasurementsRanges
+     * @model opposite="measurementsRanges" required="true" transient="false" ordered="false"
+     * @generated
+     */
 	Measurements getMeasurements();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getMeasurements <em>Measurements</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange#getMeasurements <em>Measurements</em>}' container reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Measurements</em>' container reference.
-	 * @see #getMeasurements()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Measurements</em>' container reference.
+     * @see #getMeasurements()
+     * @generated
+     */
 	void setMeasurements(Measurements value);
 
 	/**
-	 * Returns the value of the '<em><b>Aggregated Measurements</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange <em>Measurements Range</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Aggregated Measurements</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange <em>Measurements Range</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Aggregated Measurements</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Aggregated Measurements</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_AggregatedMeasurements()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange
-	 * @model opposite="measurementsRange" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Aggregated Measurements</em>' containment reference list.
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMeasurementsRange_AggregatedMeasurements()
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements#getMeasurementsRange
+     * @model opposite="measurementsRange" containment="true" ordered="false"
+     * @generated
+     */
 	EList<AggregatedMeasurements> getAggregatedMeasurements();
 
 } // MeasurementsRange

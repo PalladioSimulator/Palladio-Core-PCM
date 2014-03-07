@@ -8,8 +8,6 @@ package de.uka.ipd.sdq.edp2.models.ExperimentData;
 
 import javax.measure.Measure;
 
-import org.eclipse.emf.ecore.EObject;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Fixed Intervals</b></em>'.
@@ -41,109 +39,109 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface FixedIntervals extends Identifiable {
 	/**
-	 * Returns the value of the '<em><b>Lower Bound</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Lower Bound</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Lower Bound</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Lower Bound</em>' attribute.
-	 * @see #setLowerBound(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_LowerBound()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Lower Bound</em>' attribute.
+     * @see #setLowerBound(Measure)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_LowerBound()
+     * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
+     * @generated
+     */
 	Measure getLowerBound();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getLowerBound <em>Lower Bound</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getLowerBound <em>Lower Bound</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Lower Bound</em>' attribute.
-	 * @see #getLowerBound()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Lower Bound</em>' attribute.
+     * @see #getLowerBound()
+     * @generated
+     */
 	void setLowerBound(Measure value);
 
 	/**
-	 * Returns the value of the '<em><b>Width</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Width</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Width</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Width</em>' attribute.
-	 * @see #setWidth(Measure)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_Width()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Width</em>' attribute.
+     * @see #setWidth(Measure)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_Width()
+     * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSMeasure" required="true" ordered="false"
+     * @generated
+     */
 	Measure getWidth();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getWidth <em>Width</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getWidth <em>Width</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Width</em>' attribute.
-	 * @see #getWidth()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Width</em>' attribute.
+     * @see #getWidth()
+     * @generated
+     */
 	void setWidth(Measure value);
 
 	/**
-	 * Returns the value of the '<em><b>Number Of Intervals</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Number Of Intervals</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Number Of Intervals</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Number Of Intervals</em>' attribute.
-	 * @see #setNumberOfIntervals(long)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_NumberOfIntervals()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Number Of Intervals</em>' attribute.
+     * @see #setNumberOfIntervals(long)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_NumberOfIntervals()
+     * @model required="true" ordered="false"
+     * @generated
+     */
 	long getNumberOfIntervals();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getNumberOfIntervals <em>Number Of Intervals</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getNumberOfIntervals <em>Number Of Intervals</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Number Of Intervals</em>' attribute.
-	 * @see #getNumberOfIntervals()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Number Of Intervals</em>' attribute.
+     * @see #getNumberOfIntervals()
+     * @generated
+     */
 	void setNumberOfIntervals(long value);
 
 	/**
-	 * Returns the value of the '<em><b>Aggregated Measurements</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements#getIntervals <em>Intervals</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Aggregated Measurements</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements#getIntervals <em>Intervals</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Aggregated Measurements</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Aggregated Measurements</em>' container reference.
-	 * @see #setAggregatedMeasurements(FixedWidthAggregatedMeasurements)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_AggregatedMeasurements()
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements#getIntervals
-	 * @model opposite="intervals" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Aggregated Measurements</em>' container reference.
+     * @see #setAggregatedMeasurements(FixedWidthAggregatedMeasurements)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getFixedIntervals_AggregatedMeasurements()
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements#getIntervals
+     * @model opposite="intervals" required="true" transient="false" ordered="false"
+     * @generated
+     */
 	FixedWidthAggregatedMeasurements getAggregatedMeasurements();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getAggregatedMeasurements <em>Aggregated Measurements</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals#getAggregatedMeasurements <em>Aggregated Measurements</em>}' container reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Aggregated Measurements</em>' container reference.
-	 * @see #getAggregatedMeasurements()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Aggregated Measurements</em>' container reference.
+     * @see #getAggregatedMeasurements()
+     * @generated
+     */
 	void setAggregatedMeasurements(FixedWidthAggregatedMeasurements value);
 
 } // FixedIntervals

@@ -6,20 +6,17 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifier;
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifier;
-
-import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
 import org.eclipse.emf.common.notify.Notification;
-
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
+
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifier;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifier;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ObservedIdentifierBasedMeasurements;
 
 /**
  * <!-- begin-user-doc -->
@@ -37,223 +34,223 @@ import org.eclipse.emf.ecore.impl.EObjectImpl;
  */
 public class ObservedIdentifierImpl extends IdentifiableImpl implements ObservedIdentifier {
 	/**
-	 * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getIdentifier() <em>Identifier</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getIdentifier()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getIdentifier()
+     * @generated
+     * @ordered
+     */
 	protected Identifier identifier;
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ObservedIdentifierImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ExperimentDataPackage.Literals.OBSERVED_IDENTIFIER;
-	}
+        return ExperimentDataPackage.Literals.OBSERVED_IDENTIFIER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier getIdentifier() {
-		if (identifier != null && identifier.eIsProxy()) {
-			InternalEObject oldIdentifier = (InternalEObject)identifier;
-			identifier = (Identifier)eResolveProxy(oldIdentifier);
-			if (identifier != oldIdentifier) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER, oldIdentifier, identifier));
-			}
-		}
-		return identifier;
-	}
+        if (identifier != null && identifier.eIsProxy()) {
+            InternalEObject oldIdentifier = (InternalEObject)identifier;
+            identifier = (Identifier)eResolveProxy(oldIdentifier);
+            if (identifier != oldIdentifier) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER, oldIdentifier, identifier));
+            }
+        }
+        return identifier;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public Identifier basicGetIdentifier() {
-		return identifier;
-	}
+        return identifier;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setIdentifier(Identifier newIdentifier) {
-		Identifier oldIdentifier = identifier;
-		identifier = newIdentifier;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER, oldIdentifier, identifier));
-	}
+        Identifier oldIdentifier = identifier;
+        identifier = newIdentifier;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER, oldIdentifier, identifier));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ObservedIdentifierBasedMeasurements getObservedIdentifierBasedMeasurements() {
-		if (eContainerFeatureID() != ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS) return null;
-		return (ObservedIdentifierBasedMeasurements)eContainer();
-	}
+        if (eContainerFeatureID() != ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS) return null;
+        return (ObservedIdentifierBasedMeasurements)eInternalContainer();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetObservedIdentifierBasedMeasurements(ObservedIdentifierBasedMeasurements newObservedIdentifierBasedMeasurements, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newObservedIdentifierBasedMeasurements, ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newObservedIdentifierBasedMeasurements, ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setObservedIdentifierBasedMeasurements(ObservedIdentifierBasedMeasurements newObservedIdentifierBasedMeasurements) {
-		if (newObservedIdentifierBasedMeasurements != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS && newObservedIdentifierBasedMeasurements != null)) {
-			if (EcoreUtil.isAncestor(this, newObservedIdentifierBasedMeasurements))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newObservedIdentifierBasedMeasurements != null)
-				msgs = ((InternalEObject)newObservedIdentifierBasedMeasurements).eInverseAdd(this, ExperimentDataPackage.OBSERVED_IDENTIFIER_BASED_MEASUREMENTS__OBSERVED_IDENTIFIERS, ObservedIdentifierBasedMeasurements.class, msgs);
-			msgs = basicSetObservedIdentifierBasedMeasurements(newObservedIdentifierBasedMeasurements, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS, newObservedIdentifierBasedMeasurements, newObservedIdentifierBasedMeasurements));
-	}
+        if (newObservedIdentifierBasedMeasurements != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS && newObservedIdentifierBasedMeasurements != null)) {
+            if (EcoreUtil.isAncestor(this, newObservedIdentifierBasedMeasurements))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newObservedIdentifierBasedMeasurements != null)
+                msgs = ((InternalEObject)newObservedIdentifierBasedMeasurements).eInverseAdd(this, ExperimentDataPackage.OBSERVED_IDENTIFIER_BASED_MEASUREMENTS__OBSERVED_IDENTIFIERS, ObservedIdentifierBasedMeasurements.class, msgs);
+            msgs = basicSetObservedIdentifierBasedMeasurements(newObservedIdentifierBasedMeasurements, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS, newObservedIdentifierBasedMeasurements, newObservedIdentifierBasedMeasurements));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetObservedIdentifierBasedMeasurements((ObservedIdentifierBasedMeasurements)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetObservedIdentifierBasedMeasurements((ObservedIdentifierBasedMeasurements)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
-				return basicSetObservedIdentifierBasedMeasurements(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
+                return basicSetObservedIdentifierBasedMeasurements(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
-				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.OBSERVED_IDENTIFIER_BASED_MEASUREMENTS__OBSERVED_IDENTIFIERS, ObservedIdentifierBasedMeasurements.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID()) {
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
+                return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.OBSERVED_IDENTIFIER_BASED_MEASUREMENTS__OBSERVED_IDENTIFIERS, ObservedIdentifierBasedMeasurements.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
-				if (resolve) return getIdentifier();
-				return basicGetIdentifier();
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
-				return getObservedIdentifierBasedMeasurements();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
+                if (resolve) return getIdentifier();
+                return basicGetIdentifier();
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
+                return getObservedIdentifierBasedMeasurements();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
-				setIdentifier((Identifier)newValue);
-				return;
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
-				setObservedIdentifierBasedMeasurements((ObservedIdentifierBasedMeasurements)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
+                setIdentifier((Identifier)newValue);
+                return;
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
+                setObservedIdentifierBasedMeasurements((ObservedIdentifierBasedMeasurements)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
-				setIdentifier((Identifier)null);
-				return;
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
-				setObservedIdentifierBasedMeasurements((ObservedIdentifierBasedMeasurements)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
+                setIdentifier((Identifier)null);
+                return;
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
+                setObservedIdentifierBasedMeasurements((ObservedIdentifierBasedMeasurements)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
-				return identifier != null;
-			case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
-				return getObservedIdentifierBasedMeasurements() != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__IDENTIFIER:
+                return identifier != null;
+            case ExperimentDataPackage.OBSERVED_IDENTIFIER__OBSERVED_IDENTIFIER_BASED_MEASUREMENTS:
+                return getObservedIdentifierBasedMeasurements() != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //ObservedIdentifierImpl

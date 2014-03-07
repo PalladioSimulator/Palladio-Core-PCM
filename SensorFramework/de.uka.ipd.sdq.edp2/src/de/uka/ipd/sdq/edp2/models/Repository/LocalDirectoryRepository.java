@@ -33,29 +33,29 @@ import de.uka.ipd.sdq.edp2.impl.DataNotAccessibleException;
  */
 public interface LocalDirectoryRepository extends Repository {
 	/**
-	 * Returns the value of the '<em><b>Uri</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Uri</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Uri</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Uri</em>' attribute.
-	 * @see #setUri(String)
-	 * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage#getLocalDirectoryRepository_Uri()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Uri</em>' attribute.
+     * @see #setUri(String)
+     * @see de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage#getLocalDirectoryRepository_Uri()
+     * @model required="true" ordered="false"
+     * @generated
+     */
 	String getUri();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository#getUri <em>Uri</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.Repository.LocalDirectoryRepository#getUri <em>Uri</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Uri</em>' attribute.
-	 * @see #getUri()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Uri</em>' attribute.
+     * @see #getUri()
+     * @generated
+     */
 	void setUri(String value);
 
 	/**

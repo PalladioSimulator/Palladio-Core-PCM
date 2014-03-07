@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ecore:EPackage xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="models"
-    nsURI="http://sdq.ipd.uka.de/EDP2/0.9.2" nsPrefix="de.uka.ipd.sdq.edp2">
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="models" nsURI="http://sdq.ipd.uka.de/EDP2/0.9.2" nsPrefix="de.uka.ipd.sdq.edp2">
   <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
     <details key="documentation" value="Experiment Data Persistency and Presentation"/>
   </eAnnotations>
@@ -97,7 +95,7 @@
           ordered="false" eType="#//ExperimentData/NumericalNominalStatistics" containment="true"
           eOpposite="#//ExperimentData/NumericalNominalStatistics/dataSeries"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="aggregatedMeasurements"
-          ordered="false" lowerBound="1" eType="#//ExperimentData/FixedWidthAggregatedMeasurements"
+          ordered="false" eType="#//ExperimentData/FixedWidthAggregatedMeasurements"
           eOpposite="#//ExperimentData/FixedWidthAggregatedMeasurements/dataSeries"/>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="valuesUuid" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
@@ -105,7 +103,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="textualStatistics" ordered="false"
           eType="#//ExperimentData/TextualNominalStatistics" containment="true" eOpposite="#//ExperimentData/TextualNominalStatistics/dataSeries"/>
       <eStructuralFeatures xsi:type="ecore:EReference" name="rawMeasurements" ordered="false"
-          lowerBound="1" eType="#//ExperimentData/RawMeasurements" eOpposite="#//ExperimentData/RawMeasurements/dataSeries"/>
+          eType="#//ExperimentData/RawMeasurements" eOpposite="#//ExperimentData/RawMeasurements/dataSeries"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumericalNominalStatistics" eSuperTypes="#//ExperimentData/Identifiable">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
@@ -123,7 +121,12 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="dataSeries" ordered="false"
           lowerBound="1" eType="#//ExperimentData/DataSeries" eOpposite="#//ExperimentData/DataSeries/numericalStatistics"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="EJSMeasure" instanceClassName="javax.measure.Measure"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="EJSMeasure" instanceClassName="javax.measure.Measure">
+      <eTypeParameters name="V"/>
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//ExperimentData/IJSQuantity"/>
+      </eTypeParameters>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumericalMassDistribution">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="frequency" ordered="false"
           lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//ELong"/>
@@ -401,10 +404,21 @@
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="This class is responsible for double measurements. These are stored in IEEE standardized binary format. All values are stored in the same unit. The file containing the actual measurements is constructed from the uuid of this class (which it has because it is Identifiable)."/>
       </eAnnotations>
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//ExperimentData/IJSQuantity"/>
+      </eTypeParameters>
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="storageUnit" ordered="false"
-          lowerBound="1" eType="#//ExperimentData/EJSUnit"/>
+          lowerBound="1">
+        <eGenericType eClassifier="#//ExperimentData/EJSUnit">
+          <eTypeArguments eTypeParameter="#//ExperimentData/DoubleBinaryMeasurements/Q"/>
+        </eGenericType>
+      </eStructuralFeatures>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EDataType" name="EJSUnit" instanceClassName="javax.measure.unit.Unit"/>
+    <eClassifiers xsi:type="ecore:EDataType" name="EJSUnit" instanceClassName="javax.measure.unit.Unit">
+      <eTypeParameters name="Q">
+        <eBounds eClassifier="#//ExperimentData/IJSQuantity"/>
+      </eTypeParameters>
+    </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="NumericalIntervalStatistics" eSuperTypes="#//ExperimentData/NumericalOrdinalStatistics">
       <eStructuralFeatures xsi:type="ecore:EAttribute" name="arithmethicMean" ordered="false"
           lowerBound="1" eType="#//ExperimentData/EJSMeasure"/>

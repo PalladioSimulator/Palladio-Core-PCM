@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData;
 
+import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
 import org.eclipse.emf.ecore.EFactory;
@@ -20,146 +21,146 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface ExperimentDataFactory extends EFactory {
 	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	ExperimentDataFactory eINSTANCE = de.uka.ipd.sdq.edp2.models.ExperimentData.impl.ExperimentDataFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Measurements Range</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Measurements Range</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Measurements Range</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Measurements Range</em>'.
+     * @generated
+     */
 	MeasurementsRange createMeasurementsRange();
 
 	/**
-	 * Returns a new object of class '<em>Raw Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Raw Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Raw Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Raw Measurements</em>'.
+     * @generated
+     */
 	RawMeasurements createRawMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Numerical Nominal Statistics</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Numerical Nominal Statistics</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numerical Nominal Statistics</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Numerical Nominal Statistics</em>'.
+     * @generated
+     */
 	NumericalNominalStatistics createNumericalNominalStatistics();
 
 	/**
-	 * Returns a new object of class '<em>Numerical Mass Distribution</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Numerical Mass Distribution</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numerical Mass Distribution</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Numerical Mass Distribution</em>'.
+     * @generated
+     */
 	NumericalMassDistribution createNumericalMassDistribution();
 
 	/**
-	 * Returns a new object of class '<em>Fixed Width Aggregated Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Fixed Width Aggregated Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Fixed Width Aggregated Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Fixed Width Aggregated Measurements</em>'.
+     * @generated
+     */
 	FixedWidthAggregatedMeasurements createFixedWidthAggregatedMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Fixed Intervals</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Fixed Intervals</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Fixed Intervals</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Fixed Intervals</em>'.
+     * @generated
+     */
 	FixedIntervals createFixedIntervals();
 
 	/**
-	 * Returns a new object of class '<em>Textual Nominal Statistics</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Textual Nominal Statistics</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Textual Nominal Statistics</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Textual Nominal Statistics</em>'.
+     * @generated
+     */
 	TextualNominalStatistics createTextualNominalStatistics();
 
 	/**
-	 * Returns a new object of class '<em>Textual Mass Distribution</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Textual Mass Distribution</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Textual Mass Distribution</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Textual Mass Distribution</em>'.
+     * @generated
+     */
 	TextualMassDistribution createTextualMassDistribution();
 
 	/**
-	 * Returns a new object of class '<em>Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Measurements</em>'.
+     * @generated
+     */
 	Measurements createMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Edp2 Measure</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Edp2 Measure</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Edp2 Measure</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Edp2 Measure</em>'.
+     * @generated
+     */
 	Edp2Measure createEdp2Measure();
 
 	/**
-	 * Returns a new object of class '<em>Experiment Group</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Experiment Group</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Experiment Group</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Experiment Group</em>'.
+     * @generated
+     */
 	ExperimentGroup createExperimentGroup();
 
 	/**
-	 * Returns a new object of class '<em>Experiment Setting</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Experiment Setting</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Experiment Setting</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Experiment Setting</em>'.
+     * @generated
+     */
 	ExperimentSetting createExperimentSetting();
 
 	/**
-	 * Returns a new object of class '<em>Experiment Run</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Experiment Run</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Experiment Run</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Experiment Run</em>'.
+     * @generated
+     */
 	ExperimentRun createExperimentRun();
 
 	/**
-	 * Returns a new object of class '<em>Identifier</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Identifier</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Identifier</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Identifier</em>'.
+     * @generated
+     */
 	Identifier createIdentifier();
 	
 	/**
-	 * Returns a new object of class '<em>Textual Base Metric Description</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Textual Base Metric Description</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Textual Base Metric Description</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Textual Base Metric Description</em>'.
+     * @generated
+     */
 	TextualBaseMetricDescription createTextualBaseMetricDescription();
 
 	/**Factory method to create a new identifier.
@@ -170,174 +171,174 @@ public interface ExperimentDataFactory extends EFactory {
 	Identifier createIdentifier(String literal);
 
 	/**
-	 * Returns a new object of class '<em>Aggregation Function Description</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Aggregation Function Description</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aggregation Function Description</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Aggregation Function Description</em>'.
+     * @generated
+     */
 	AggregationFunctionDescription createAggregationFunctionDescription();
 
 	/**
-	 * Returns a new object of class '<em>Aggregation Statistics</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Aggregation Statistics</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Aggregation Statistics</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Aggregation Statistics</em>'.
+     * @generated
+     */
 	AggregationStatistics createAggregationStatistics();
 
 	/**
-	 * Returns a new object of class '<em>Long Binary Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Long Binary Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Long Binary Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Long Binary Measurements</em>'.
+     * @generated
+     */
 	LongBinaryMeasurements createLongBinaryMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Double Binary Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Double Binary Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Double Binary Measurements</em>'.
-	 * @generated
-	 */
-	DoubleBinaryMeasurements createDoubleBinaryMeasurements();
+     * @return a new object of class '<em>Double Binary Measurements</em>'.
+     * @generated
+     */
+	<Q extends Quantity> DoubleBinaryMeasurements<Q> createDoubleBinaryMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Numerical Interval Statistics</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Numerical Interval Statistics</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numerical Interval Statistics</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Numerical Interval Statistics</em>'.
+     * @generated
+     */
 	NumericalIntervalStatistics createNumericalIntervalStatistics();
 
 	/**
-	 * Returns a new object of class '<em>Numerical Ordinal Statistics</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Numerical Ordinal Statistics</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numerical Ordinal Statistics</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Numerical Ordinal Statistics</em>'.
+     * @generated
+     */
 	NumericalOrdinalStatistics createNumericalOrdinalStatistics();
 
 	/**
-	 * Returns a new object of class '<em>Numerical Percentile</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Numerical Percentile</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numerical Percentile</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Numerical Percentile</em>'.
+     * @generated
+     */
 	NumericalPercentile createNumericalPercentile();
 
 	/**
-	 * Returns a new object of class '<em>JS Xml Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>JS Xml Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>JS Xml Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>JS Xml Measurements</em>'.
+     * @generated
+     */
 	JSXmlMeasurements createJSXmlMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Descriptions</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Descriptions</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Descriptions</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Descriptions</em>'.
+     * @generated
+     */
 	Descriptions createDescriptions();
 
 	/**
-	 * Returns a new object of class '<em>Metric Set Description</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Metric Set Description</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Metric Set Description</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Metric Set Description</em>'.
+     * @generated
+     */
 	MetricSetDescription createMetricSetDescription();
 
 	/**
-	 * Returns a new object of class '<em>Identifier Based Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Identifier Based Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Identifier Based Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Identifier Based Measurements</em>'.
+     * @generated
+     */
 	IdentifierBasedMeasurements createIdentifierBasedMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Observed Identifier</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Observed Identifier</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Observed Identifier</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Observed Identifier</em>'.
+     * @generated
+     */
 	ObservedIdentifier createObservedIdentifier();
 
 	/**
-	 * Returns a new object of class '<em>Observed Identifier Based Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Observed Identifier Based Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Observed Identifier Based Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Observed Identifier Based Measurements</em>'.
+     * @generated
+     */
 	ObservedIdentifierBasedMeasurements createObservedIdentifierBasedMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Numerical Ratio Statistics</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Numerical Ratio Statistics</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numerical Ratio Statistics</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Numerical Ratio Statistics</em>'.
+     * @generated
+     */
 	NumericalRatioStatistics createNumericalRatioStatistics();
 
 	/**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * @return the package supported by this factory.
+     * @generated
+     */
 	ExperimentDataPackage getExperimentDataPackage();
 
 	/**
-	 * Returns a new object of class '<em>Sensor Framework V1 Double Binary Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Sensor Framework V1 Double Binary Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor Framework V1 Double Binary Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Sensor Framework V1 Double Binary Measurements</em>'.
+     * @generated
+     */
 	SensorFrameworkV1DoubleBinaryMeasurements createSensorFrameworkV1DoubleBinaryMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Sensor Framework V1 Identifier Based Measurements</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Sensor Framework V1 Identifier Based Measurements</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Sensor Framework V1 Identifier Based Measurements</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Sensor Framework V1 Identifier Based Measurements</em>'.
+     * @generated
+     */
 	SensorFrameworkV1IdentifierBasedMeasurements createSensorFrameworkV1IdentifierBasedMeasurements();
 
 	/**
-	 * Returns a new object of class '<em>Numerical Base Metric Description</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Numerical Base Metric Description</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Numerical Base Metric Description</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Numerical Base Metric Description</em>'.
+     * @generated
+     */
 	NumericalBaseMetricDescription createNumericalBaseMetricDescription();
 
 	/**
-	 * Returns a new object of class '<em>Textual Ordinal Statistics</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Textual Ordinal Statistics</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Textual Ordinal Statistics</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Textual Ordinal Statistics</em>'.
+     * @generated
+     */
 	TextualOrdinalStatistics createTextualOrdinalStatistics();
 
 	/**Factory method to create a new numerical base metric description with the given arguments.

@@ -39,204 +39,204 @@ import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
  */
 public class RawMeasurementsImpl extends IdentifiableImpl implements RawMeasurements {
 	/**
-	 * The cached value of the '{@link #getDataSeries() <em>Data Series</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getDataSeries() <em>Data Series</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDataSeries()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDataSeries()
+     * @generated
+     * @ordered
+     */
 	protected EList<DataSeries> dataSeries;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected RawMeasurementsImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ExperimentDataPackage.Literals.RAW_MEASUREMENTS;
-	}
+        return ExperimentDataPackage.Literals.RAW_MEASUREMENTS;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<DataSeries> getDataSeries() {
-		if (dataSeries == null) {
-			dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES, ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS);
-		}
-		return dataSeries;
-	}
+        if (dataSeries == null) {
+            dataSeries = new EObjectContainmentWithInverseEList<DataSeries>(DataSeries.class, this, ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES, ExperimentDataPackage.DATA_SERIES__RAW_MEASUREMENTS);
+        }
+        return dataSeries;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public MeasurementsRange getMeasurementsRange() {
-		if (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE) return null;
-		return (MeasurementsRange)eContainer();
-	}
+        if (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE) return null;
+        return (MeasurementsRange)eInternalContainer();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public NotificationChain basicSetMeasurementsRange(MeasurementsRange newMeasurementsRange, NotificationChain msgs) {
-		msgs = eBasicSetContainer((InternalEObject)newMeasurementsRange, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, msgs);
-		return msgs;
-	}
+        msgs = eBasicSetContainer((InternalEObject)newMeasurementsRange, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, msgs);
+        return msgs;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setMeasurementsRange(MeasurementsRange newMeasurementsRange) {
-		if (newMeasurementsRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE && newMeasurementsRange != null)) {
-			if (EcoreUtil.isAncestor(this, newMeasurementsRange))
-				throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
-			NotificationChain msgs = null;
-			if (eInternalContainer() != null)
-				msgs = eBasicRemoveFromContainer(msgs);
-			if (newMeasurementsRange != null)
-				msgs = ((InternalEObject)newMeasurementsRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, MeasurementsRange.class, msgs);
-			msgs = basicSetMeasurementsRange(newMeasurementsRange, msgs);
-			if (msgs != null) msgs.dispatch();
-		}
-		else if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, newMeasurementsRange, newMeasurementsRange));
-	}
+        if (newMeasurementsRange != eInternalContainer() || (eContainerFeatureID() != ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE && newMeasurementsRange != null)) {
+            if (EcoreUtil.isAncestor(this, newMeasurementsRange))
+                throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
+            NotificationChain msgs = null;
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            if (newMeasurementsRange != null)
+                msgs = ((InternalEObject)newMeasurementsRange).eInverseAdd(this, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, MeasurementsRange.class, msgs);
+            msgs = basicSetMeasurementsRange(newMeasurementsRange, msgs);
+            if (msgs != null) msgs.dispatch();
+        }
+        else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE, newMeasurementsRange, newMeasurementsRange));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataSeries()).basicAdd(otherEnd, msgs);
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
-				if (eInternalContainer() != null)
-					msgs = eBasicRemoveFromContainer(msgs);
-				return basicSetMeasurementsRange((MeasurementsRange)otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getDataSeries()).basicAdd(otherEnd, msgs);
+            case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+                if (eInternalContainer() != null)
+                    msgs = eBasicRemoveFromContainer(msgs);
+                return basicSetMeasurementsRange((MeasurementsRange)otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
-				return ((InternalEList<?>)getDataSeries()).basicRemove(otherEnd, msgs);
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
-				return basicSetMeasurementsRange(null, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
+                return ((InternalEList<?>)getDataSeries()).basicRemove(otherEnd, msgs);
+            case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+                return basicSetMeasurementsRange(null, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
-		switch (eContainerFeatureID()) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
-				return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, MeasurementsRange.class, msgs);
-		}
-		return super.eBasicRemoveFromContainerFeature(msgs);
-	}
+        switch (eContainerFeatureID()) {
+            case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+                return eInternalContainer().eInverseRemove(this, ExperimentDataPackage.MEASUREMENTS_RANGE__RAW_MEASUREMENTS, MeasurementsRange.class, msgs);
+        }
+        return super.eBasicRemoveFromContainerFeature(msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
-				return getDataSeries();
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
-				return getMeasurementsRange();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
+                return getDataSeries();
+            case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+                return getMeasurementsRange();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
-				getDataSeries().clear();
-				getDataSeries().addAll((Collection<? extends DataSeries>)newValue);
-				return;
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
-				setMeasurementsRange((MeasurementsRange)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
+                getDataSeries().clear();
+                getDataSeries().addAll((Collection<? extends DataSeries>)newValue);
+                return;
+            case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+                setMeasurementsRange((MeasurementsRange)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
-				getDataSeries().clear();
-				return;
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
-				setMeasurementsRange((MeasurementsRange)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
+                getDataSeries().clear();
+                return;
+            case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+                setMeasurementsRange((MeasurementsRange)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
-				return dataSeries != null && !dataSeries.isEmpty();
-			case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
-				return getMeasurementsRange() != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case ExperimentDataPackage.RAW_MEASUREMENTS__DATA_SERIES:
+                return dataSeries != null && !dataSeries.isEmpty();
+            case ExperimentDataPackage.RAW_MEASUREMENTS__MEASUREMENTS_RANGE:
+                return getMeasurementsRange() != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //RawMeasurementsImpl

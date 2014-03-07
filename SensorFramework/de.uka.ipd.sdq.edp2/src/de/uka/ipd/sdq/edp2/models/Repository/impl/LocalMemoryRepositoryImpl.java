@@ -6,14 +6,12 @@
  */
 package de.uka.ipd.sdq.edp2.models.Repository.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import de.uka.ipd.sdq.edp2.models.Repository.LocalMemoryRepository;
 import de.uka.ipd.sdq.edp2.models.Repository.RepositoryPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -30,137 +28,137 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LocalMemoryRepositoryImpl extends RepositoryImpl implements LocalMemoryRepository {
 	/**
-	 * The default value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getDomain() <em>Domain</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDomain()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDomain()
+     * @generated
+     * @ordered
+     */
 	protected static final String DOMAIN_EDEFAULT = null;
 
 	/**
-	 * The cached value of the '{@link #getDomain() <em>Domain</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getDomain() <em>Domain</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDomain()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDomain()
+     * @generated
+     * @ordered
+     */
 	protected String domain = DOMAIN_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected LocalMemoryRepositoryImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return RepositoryPackage.Literals.LOCAL_MEMORY_REPOSITORY;
-	}
+        return RepositoryPackage.Literals.LOCAL_MEMORY_REPOSITORY;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public String getDomain() {
-		return domain;
-	}
+        return domain;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setDomain(String newDomain) {
-		String oldDomain = domain;
-		domain = newDomain;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN, oldDomain, domain));
-	}
+        String oldDomain = domain;
+        domain = newDomain;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN, oldDomain, domain));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
-				return getDomain();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
+                return getDomain();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
-				setDomain((String)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
+                setDomain((String)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
-				setDomain(DOMAIN_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
+                setDomain(DOMAIN_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
-				return DOMAIN_EDEFAULT == null ? domain != null : !DOMAIN_EDEFAULT.equals(domain);
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case RepositoryPackage.LOCAL_MEMORY_REPOSITORY__DOMAIN:
+                return DOMAIN_EDEFAULT == null ? domain != null : !DOMAIN_EDEFAULT.equals(domain);
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (domain: ");
-		result.append(domain);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (domain: ");
+        result.append(domain);
+        result.append(')');
+        return result.toString();
+    }
 
 } //LocalMemoryRepositoryImpl

@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.SensorFrameworkV1DoubleBinaryMeasurements;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class SensorFrameworkV1DoubleBinaryMeasurementsImpl extends DoubleBinaryMeasurementsImpl implements SensorFrameworkV1DoubleBinaryMeasurements {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected SensorFrameworkV1DoubleBinaryMeasurementsImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ExperimentDataPackage.Literals.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS;
-	}
+        return ExperimentDataPackage.Literals.SENSOR_FRAMEWORK_V1_DOUBLE_BINARY_MEASUREMENTS;
+    }
 
 } //SensorFrameworkV1DoubleBinaryMeasurementsImpl

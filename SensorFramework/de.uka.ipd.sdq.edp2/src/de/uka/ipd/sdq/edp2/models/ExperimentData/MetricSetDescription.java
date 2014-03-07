@@ -30,19 +30,19 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface MetricSetDescription extends MetricDescription {
 	/**
-	 * Returns the value of the '<em><b>Subsumed Metrics</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Subsumed Metrics</b></em>' reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Subsumed Metrics</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Subsumed Metrics</em>' reference list.
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMetricSetDescription_SubsumedMetrics()
-	 * @model required="true"
-	 * @generated
-	 */
+     * @return the value of the '<em>Subsumed Metrics</em>' reference list.
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getMetricSetDescription_SubsumedMetrics()
+     * @model required="true"
+     * @generated
+     */
 	EList<MetricDescription> getSubsumedMetrics();
 
 } // MetricSetDescription

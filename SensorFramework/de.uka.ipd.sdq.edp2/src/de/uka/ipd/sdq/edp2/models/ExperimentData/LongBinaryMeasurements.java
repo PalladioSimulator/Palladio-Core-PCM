@@ -30,29 +30,29 @@ import javax.measure.unit.Unit;
  */
 public interface LongBinaryMeasurements extends DataSeries {
 	/**
-	 * Returns the value of the '<em><b>Storage Unit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Storage Unit</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Storage Unit</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Storage Unit</em>' attribute.
-	 * @see #setStorageUnit(Unit)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getLongBinaryMeasurements_StorageUnit()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSUnit" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Storage Unit</em>' attribute.
+     * @see #setStorageUnit(Unit)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getLongBinaryMeasurements_StorageUnit()
+     * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSUnit" required="true" ordered="false"
+     * @generated
+     */
 	Unit getStorageUnit();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements#getStorageUnit <em>Storage Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements#getStorageUnit <em>Storage Unit</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Storage Unit</em>' attribute.
-	 * @see #getStorageUnit()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Storage Unit</em>' attribute.
+     * @see #getStorageUnit()
+     * @generated
+     */
 	void setStorageUnit(Unit value);
 
 } // LongBinaryMeasurements

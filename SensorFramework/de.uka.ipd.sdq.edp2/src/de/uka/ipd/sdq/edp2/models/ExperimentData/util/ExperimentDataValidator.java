@@ -6,24 +6,49 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.util;
 
-import de.uka.ipd.sdq.edp2.models.ExperimentData.*;
-
 import java.util.Map;
 
 import javax.measure.Measure;
-
 import javax.measure.quantity.Duration;
 import javax.measure.quantity.Quantity;
-
 import javax.measure.unit.Unit;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
-
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.util.EObjectValidator;
+
+import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregatedMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationFunctionDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationStatistics;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.BaseMetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.CaptureType;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.DataSeries;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.DataType;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Description;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Descriptions;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Edp2Measure;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentGroup;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentRun;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentSetting;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedIntervals;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.FixedWidthAggregatedMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Identifiable;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.JSXmlMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.LongBinaryMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Measurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MeasurementsRange;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.MetricSetDescription;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Monotonic;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.PersistenceKindOptions;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Propertyable;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.RawMeasurements;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.Scale;
+import de.uka.ipd.sdq.edp2.models.ExperimentData.SensorFrameworkV1DoubleBinaryMeasurements;
 
 /**
  * <!-- begin-user-doc -->

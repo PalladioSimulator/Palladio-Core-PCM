@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<genmodel:GenModel xmi:version="2.0"
-    xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
-    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.edp2/src"
-    modelPluginID="de.uka.ipd.sdq.edp2" modelName="EDP2" importerID="org.eclipse.emf.importer.ecore"
-    complianceLevel="6.0" copyrightFields="false">
+<genmodel:GenModel xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore"
+    xmlns:genmodel="http://www.eclipse.org/emf/2002/GenModel" modelDirectory="/de.uka.ipd.sdq.edp2/src" modelPluginID="de.uka.ipd.sdq.edp2"
+    modelName="EDP2" importerID="org.eclipse.emf.importer.ecore" complianceLevel="6.0"
+    copyrightFields="false">
   <foreignModel>EDP2.ecore</foreignModel>
   <genPackages prefix="Models" basePackage="de.uka.ipd.sdq.edp2" disposableProviderFactory="true"
       ecorePackage="EDP2.ecore#/">
-    <nestedGenPackages prefix="ExperimentData" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//ExperimentData">
+    <nestedGenPackages prefix="ExperimentData" basePackage="de.uka.ipd.sdq.edp2.models"
+        disposableProviderFactory="true" ecorePackage="EDP2.ecore#//ExperimentData">
       <genEnums typeSafeEnumCompatible="false" ecoreEnum="EDP2.ecore#//ExperimentData/CaptureType">
         <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//ExperimentData/CaptureType/Identifier"/>
         <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//ExperimentData/CaptureType/IntegerNumber"/>
@@ -32,9 +32,14 @@
         <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//ExperimentData/DataType/Quantitative"/>
         <genEnumLiterals ecoreEnumLiteral="EDP2.ecore#//ExperimentData/DataType/Qualitative"/>
       </genEnums>
-      <genDataTypes ecoreDataType="EDP2.ecore#//ExperimentData/EJSMeasure"/>
+      <genDataTypes ecoreDataType="EDP2.ecore#//ExperimentData/EJSMeasure">
+        <genTypeParameters ecoreTypeParameter="EDP2.ecore#//ExperimentData/EJSMeasure/V"/>
+        <genTypeParameters ecoreTypeParameter="EDP2.ecore#//ExperimentData/EJSMeasure/Q"/>
+      </genDataTypes>
       <genDataTypes ecoreDataType="EDP2.ecore#//ExperimentData/EJSDurationMeasure"/>
-      <genDataTypes ecoreDataType="EDP2.ecore#//ExperimentData/EJSUnit"/>
+      <genDataTypes ecoreDataType="EDP2.ecore#//ExperimentData/EJSUnit">
+        <genTypeParameters ecoreTypeParameter="EDP2.ecore#//ExperimentData/EJSUnit/Q"/>
+      </genDataTypes>
       <genClasses image="false" ecoreClass="EDP2.ecore#//ExperimentData/AggregatedMeasurements">
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/AggregatedMeasurements/measurementsRange"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/AggregatedMeasurements/valid"/>
@@ -170,6 +175,7 @@
         <genFeatures property="None" notify="false" createChild="false" ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/AggregationStatistics/aggregatedMeasurements"/>
       </genClasses>
       <genClasses ecoreClass="EDP2.ecore#//ExperimentData/DoubleBinaryMeasurements">
+        <genTypeParameters ecoreTypeParameter="EDP2.ecore#//ExperimentData/DoubleBinaryMeasurements/Q"/>
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//ExperimentData/DoubleBinaryMeasurements/storageUnit"/>
       </genClasses>
       <genClasses ecoreClass="EDP2.ecore#//ExperimentData/NumericalIntervalStatistics">
@@ -229,7 +235,8 @@
             ecoreFeature="ecore:EReference EDP2.ecore#//ExperimentData/TextualOrdinalStatistics/median"/>
       </genClasses>
     </nestedGenPackages>
-    <nestedGenPackages prefix="Repository" disposableProviderFactory="true" ecorePackage="EDP2.ecore#//Repository">
+    <nestedGenPackages prefix="Repository" basePackage="de.uka.ipd.sdq.edp2.models"
+        disposableProviderFactory="true" ecorePackage="EDP2.ecore#//Repository">
       <genClasses ecoreClass="EDP2.ecore#//Repository/LocalDirectoryRepository">
         <genFeatures createChild="false" ecoreFeature="ecore:EAttribute EDP2.ecore#//Repository/LocalDirectoryRepository/uri"/>
         <genOperations ecoreOperation="EDP2.ecore#//Repository/LocalDirectoryRepository/convertUriStringToFile">

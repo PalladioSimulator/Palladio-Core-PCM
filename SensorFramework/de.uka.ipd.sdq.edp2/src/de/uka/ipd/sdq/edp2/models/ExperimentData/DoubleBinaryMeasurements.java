@@ -6,6 +6,7 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData;
 
+import javax.measure.quantity.Quantity;
 import javax.measure.unit.Unit;
 
 /**
@@ -25,34 +26,34 @@ import javax.measure.unit.Unit;
  * </p>
  *
  * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDoubleBinaryMeasurements()
- * @model
+ * @model QBounds="de.uka.ipd.sdq.edp2.models.ExperimentData.IJSQuantity"
  * @generated
  */
-public interface DoubleBinaryMeasurements extends DataSeries {
+public interface DoubleBinaryMeasurements<Q extends Quantity> extends DataSeries {
 	/**
-	 * Returns the value of the '<em><b>Storage Unit</b></em>' attribute.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Storage Unit</b></em>' attribute.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Storage Unit</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Storage Unit</em>' attribute.
-	 * @see #setStorageUnit(Unit)
-	 * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDoubleBinaryMeasurements_StorageUnit()
-	 * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSUnit" required="true" ordered="false"
-	 * @generated
-	 */
-	Unit getStorageUnit();
+     * @return the value of the '<em>Storage Unit</em>' attribute.
+     * @see #setStorageUnit(Unit)
+     * @see de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage#getDoubleBinaryMeasurements_StorageUnit()
+     * @model dataType="de.uka.ipd.sdq.edp2.models.ExperimentData.EJSUnit<Q>" required="true" ordered="false"
+     * @generated
+     */
+	Unit<Q> getStorageUnit();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements#getStorageUnit <em>Storage Unit</em>}' attribute.
-	 * <!-- begin-user-doc -->
-	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Storage Unit</em>' attribute.
-	 * @see #getStorageUnit()
-	 * @generated
-	 */
-	void setStorageUnit(Unit value);
+     * Sets the value of the '{@link de.uka.ipd.sdq.edp2.models.ExperimentData.DoubleBinaryMeasurements#getStorageUnit <em>Storage Unit</em>}' attribute.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @param value the new value of the '<em>Storage Unit</em>' attribute.
+     * @see #getStorageUnit()
+     * @generated
+     */
+    void setStorageUnit(Unit<Q> value);
 
 } // DoubleBinaryMeasurements

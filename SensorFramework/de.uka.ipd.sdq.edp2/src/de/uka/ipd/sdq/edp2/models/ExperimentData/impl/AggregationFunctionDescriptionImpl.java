@@ -6,10 +6,10 @@
  */
 package de.uka.ipd.sdq.edp2.models.ExperimentData.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.uka.ipd.sdq.edp2.models.ExperimentData.AggregationFunctionDescription;
 import de.uka.ipd.sdq.edp2.models.ExperimentData.ExperimentDataPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class AggregationFunctionDescriptionImpl extends DescriptionImpl implements AggregationFunctionDescription {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected AggregationFunctionDescriptionImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return ExperimentDataPackage.Literals.AGGREGATION_FUNCTION_DESCRIPTION;
-	}
+        return ExperimentDataPackage.Literals.AGGREGATION_FUNCTION_DESCRIPTION;
+    }
 
 } //AggregationFunctionDescriptionImpl
