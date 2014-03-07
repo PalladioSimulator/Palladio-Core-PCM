@@ -20,32 +20,33 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
  */
 public class TakeSimulatedTimeStrategy implements IProbeStrategy {
 
-	/**
-	 * @param o
-	 *            expects a {@link ISimulationControl}
-	 */
-	public ProbeSample<Double, Duration> takeSample(String probeId, Object... o) {
-		double simTime = 0;
-		if (o.length >= 1 && (o[0] instanceof ISimulationControl || o[0] instanceof Double)) {
-			if (o[0] instanceof ISimulationControl) {
-				ISimulationControl simControl = (ISimulationControl) o[0];
-				simTime = simControl.getCurrentSimulationTime();
-			} else {
-				simTime = (Double) o[0];
-			}
-		} else {
-			throw new IllegalArgumentException(
-					"Expected an argument implementing "
-							+ ISimulationControl.class.getSimpleName()
-							+ " or an argument of type " + Double.class.getSimpleName() + ".");
-		}
+    /**
+     * @param o
+     *            expects a {@link ISimulationControl}
+     */
+    @Override
+    public ProbeSample<Double, Duration> takeSample(final String probeId, final Object... o) {
+        double simTime = 0;
+        if (o.length >= 1 && (o[0] instanceof ISimulationControl || o[0] instanceof Double)) {
+            if (o[0] instanceof ISimulationControl) {
+                final ISimulationControl simControl = (ISimulationControl) o[0];
+                simTime = simControl.getCurrentSimulationTime();
+            } else {
+                simTime = (Double) o[0];
+            }
+        } else {
+            throw new IllegalArgumentException(
+                    "Expected an argument implementing "
+                            + ISimulationControl.class.getSimpleName()
+                            + " or an argument of type " + Double.class.getSimpleName() + ".");
+        }
 
-		// Here it is assumed that the simulation time's unit is SI.SECOND
-		Measure<Double, Duration> time = Measure.valueOf(simTime, SECOND);
-		ProbeSample<Double, Duration> sample = new ProbeSample<Double, Duration>(
-				time, probeId, ProbeType.CURRENT_TIME);
+        // Here it is assumed that the simulation time's unit is SI.SECOND
+        final Measure<Double, Duration> time = Measure.valueOf(simTime, SECOND);
+        final ProbeSample<Double, Duration> sample = new ProbeSample<Double, Duration>(
+                time, probeId, ProbeType.CURRENT_TIME);
 
-		return sample;
-	}
+        return sample;
+    }
 
 }
