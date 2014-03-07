@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<de.uka.ipd.sdq.edp2.models:MetricSetDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1" uuid="_M3ynoiUSEd6gmLudJva2Dw" name="Assigned Threads (Simulated)" textualDescription="Number of threads assigned to a processor within a simulation. Consists of the time when the number has changed and the new number of assigned threads itself.">
-  <subsumedMetrics xsi:type="de.uka.ipd.sdq.edp2.models:NumericalBaseMetricDescription" href="_38mSASUPEd6gmLudJva2Dw.edp2desc#_38mSASUPEd6gmLudJva2Dw"/>
-  <subsumedMetrics xsi:type="de.uka.ipd.sdq.edp2.models:NumericalBaseMetricDescription" href="_0xrYsCUQEd6gmLudJva2Dw.edp2desc#_0xrYsCUQEd6gmLudJva2Dw"/>
-</de.uka.ipd.sdq.edp2.models:MetricSetDescription>

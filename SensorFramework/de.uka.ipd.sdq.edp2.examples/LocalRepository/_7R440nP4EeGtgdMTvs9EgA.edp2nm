@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<de.uka.ipd.sdq.edp2.models:ObservedIdentifierBasedMeasurements xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1" uuid="_7SJXgHP4EeGtgdMTvs9EgA">
-  <observedIdentifiers uuid="_7SJ-kHP4EeGtgdMTvs9EgA">
-    <identifier href="_lss1MEhpEd-SQI4N8E0NHA.edp2desc#_BRpvcEigEd-uCvl0Z-GteQ"/>
-  </observedIdentifiers>
-</de.uka.ipd.sdq.edp2.models:ObservedIdentifierBasedMeasurements>

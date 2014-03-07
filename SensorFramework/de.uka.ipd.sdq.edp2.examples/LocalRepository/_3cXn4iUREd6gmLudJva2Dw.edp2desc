@@ -1,5 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<de.uka.ipd.sdq.edp2.models:MetricSetDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1" uuid="_3cXn4iUREd6gmLudJva2Dw" name="Waiting Time (Simulated)" textualDescription="Waiting time determined in a simulation. Consists of the simulation time when the waiting time is stored and the waiting time itself.">
-  <subsumedMetrics xsi:type="de.uka.ipd.sdq.edp2.models:NumericalBaseMetricDescription" href="_38mSASUPEd6gmLudJva2Dw.edp2desc#_38mSASUPEd6gmLudJva2Dw"/>
-  <subsumedMetrics xsi:type="de.uka.ipd.sdq.edp2.models:NumericalBaseMetricDescription" href="_nU2AICUQEd6gmLudJva2Dw.edp2desc#_nU2AICUQEd6gmLudJva2Dw"/>
-</de.uka.ipd.sdq.edp2.models:MetricSetDescription>

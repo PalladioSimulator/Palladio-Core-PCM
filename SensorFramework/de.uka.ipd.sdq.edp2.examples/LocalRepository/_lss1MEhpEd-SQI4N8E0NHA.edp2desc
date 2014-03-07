@@ -1,6 +1,0 @@
-<?xml version="1.0" encoding="ASCII"?>
-<de.uka.ipd.sdq.edp2.models:TextualBaseMetricDescription xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:de.uka.ipd.sdq.edp2.models="http://sdq.ipd.uka.de/EDP2/ExperimentData/0.9.1" uuid="_lss1MEhpEd-SQI4N8E0NHA" name="Architecture Quality Estimation" textualDescription="Expresses a subjective expert estimation on a software architecture's overall quality." dataType="Qualitative" scale="Ordinal">
-  <identifiers uuid="_BRpvcEigEd-uCvl0Z-GteQ" literal="Low"/>
-  <identifiers uuid="_JYesoEigEd-4XZQqGmj8Pg" literal="Medium"/>
-  <identifiers uuid="_LCpvcEigEd-s193kEND-BA" literal="High"/>
-</de.uka.ipd.sdq.edp2.models:TextualBaseMetricDescription>
