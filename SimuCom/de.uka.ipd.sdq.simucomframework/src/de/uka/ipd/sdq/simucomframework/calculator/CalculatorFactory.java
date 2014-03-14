@@ -6,7 +6,6 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.IMetaDataInitFactory;
 import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
-import de.uka.ipd.sdq.pipesandfilters.framework.PipesAndFiltersManager;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.DemandBasedWaitingTimeCalculator;
@@ -25,8 +24,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  * 
  * @author Philipp Merkle, Sebastian Lehrig
  */
-public class CalculatorFactory implements ICalculatorFactory {
-
+public class CalculatorFactory implements ICalculatorFactory {    
     /**
      * SimuCom model which is simulated
      */
@@ -62,18 +60,20 @@ public class CalculatorFactory implements ICalculatorFactory {
 			final Calculator calculator,             
 			final String metricName,
 			final String measurementName, Map<Integer, String> failureStatistics) {
+		
+		// TODO should be done earlier? Redundant?
+		calculator.getMetricDescriptions().setName(metricName);
+		calculator.getMetricDescriptions().setTextualDescription(measurementName);
+		
 		MetaDataInit metaData = getMetaDataInitFactory().createMetaDataInit(
-				calculator.getMeasurementMetrics(),
-        		this.model.getConfiguration().getRecorderConfig(),
-        		metricName,
-        		measurementName,
+				calculator.getMetricDescriptions(),
+        		this.model.getConfiguration().getRecorderConfig(),        		
         		this.model.getConfiguration().getNameExperimentRun(),
         		this.experimentRunName,
         		null,  // TODO: Provide model element ID!
         		failureStatistics
         	);
-        PipesAndFiltersManager pipeManager = dataSinkSetupStrategy.setupDataSink(calculator, metaData);
-        this.model.getProbeSpecContext().getPipeManagerRegisty().register(pipeManager);
+		dataSinkSetupStrategy.setupDataSink(calculator, metaData);
         
         return calculator;
 	}

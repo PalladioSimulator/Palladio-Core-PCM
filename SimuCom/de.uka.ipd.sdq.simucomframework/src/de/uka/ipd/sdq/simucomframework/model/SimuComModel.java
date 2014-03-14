@@ -39,16 +39,15 @@ import de.uka.ipd.sdq.simulation.ISimulationListener;
 import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
-import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 
 /**
  * Central simulation class needed by desmoj. Keeps the simulation state which is not part of the
  * context of threads
  * 
- * @author Steffen Becker
+ * @author Steffen Becker, Sebastian Lehrig
  * 
  */
-public class SimuComModel extends SchedulerModel implements ISimulationModel {
+public class SimuComModel extends SchedulerModel {
 
     protected static Logger logger = Logger.getLogger(SimuComModel.class);
 
@@ -56,15 +55,15 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
 	private IWorkloadDriver[] workloadDrivers;
 	private SimulationResult status = SimulationResult.OK;
 	private Throwable errorMessage;
-	private SimuComConfig config;
+	private final SimuComConfig config;
 	private long mainMeasurementsCount;
 	private ISimEngineFactory simulationEngineFactory;
 	private ISimulationControl simControl;
-	private SimuComStatus simulationStatus;
+	private final SimuComStatus simulationStatus;
 	/** List of issues experience during a simulation run of this configuration. */
 	private List<SeverityAndIssue> issues;
-	private ProbeSpecContext probeSpecContext;
-	private ISchedulingFactory schedulingFactory;
+	private final ProbeSpecContext probeSpecContext;
+	private final ISchedulingFactory schedulingFactory;
 
     public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory,
             boolean isRemoteRun) {
@@ -269,19 +268,23 @@ public class SimuComModel extends SchedulerModel implements ISimulationModel {
         return mainMeasurementsCount;
     }
 
-    public ISimulationControl getSimulationControl() {
+    @Override
+	public ISimulationControl getSimulationControl() {
         return simControl;
     }
 
-    public void setSimulationControl(ISimulationControl control) {
+    @Override
+	public void setSimulationControl(ISimulationControl control) {
         this.simControl = control;
     }
 
-    public void setSimulationEngineFactory(ISimEngineFactory factory) {
+    @Override
+	public void setSimulationEngineFactory(ISimEngineFactory factory) {
         this.simulationEngineFactory = factory;
     }
 
-    public ISimEngineFactory getSimEngineFactory() {
+    @Override
+	public ISimEngineFactory getSimEngineFactory() {
         return this.simulationEngineFactory;
     }
 

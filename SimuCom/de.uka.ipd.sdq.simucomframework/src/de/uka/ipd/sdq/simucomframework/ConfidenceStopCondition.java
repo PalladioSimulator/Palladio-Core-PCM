@@ -29,22 +29,22 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 
 	private static final Logger logger = Logger.getLogger(ConfidenceStopCondition.class);
 
-	private SimuComModel model;
+	private final SimuComModel model;
 
-	private String usageScenarioName;
+	private final String usageScenarioName;
 
 	/** mean of the observations and the corresponding confidence interval */
 	private ConfidenceInterval confidence;
 
 	private boolean confidenceReached = false;
 
-	private IBatchAlgorithm batchAlgorithm;
+	private final IBatchAlgorithm batchAlgorithm;
 
-	private IConfidenceEstimator estimator;
+	private final IConfidenceEstimator estimator;
 
-	private double confidenceLevel;
+	private final double confidenceLevel;
 
-	private double halfWidth;
+	private final double halfWidth;
 
 	private int minBatches;
 
@@ -79,7 +79,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 
 	private void initialize() {
 		Calculator c = obtainUsageScenarioResponseTimeCalculator(usageScenarioName);
-		c.addCalculatorListener(this);
+		c.registerCalculatorListener(this);
 		minBatches = 0;
 	}
 
@@ -88,6 +88,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 		return confidenceReached;
 	}
 
+	@Override
 	@SuppressWarnings("unchecked")
 	public void calculated(List<Measure<?, ? extends Quantity>> resultTuple) {
 		Measure<Double, Duration> responseTimeMeasure = (Measure<Double, Duration>) resultTuple.get(0);
@@ -146,7 +147,12 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 	private Calculator obtainUsageScenarioResponseTimeCalculator(
 			String usageScenarioName) {
 		String calculatorId = usageScenarioName;
-        return this.model.getProbeSpecContext().getCalculatorRegistry().getCalculatorForId(calculatorId);		
+        return this.model.getProbeSpecContext().getCalculatorForId(calculatorId);		
+	}
+
+	@Override
+	public void preUnregister() {
+		// TODO Auto-generated method stub
 	}
 
 }

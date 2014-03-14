@@ -3,7 +3,7 @@
 «IMPORT seff»
 
 «DEFINE SetupCalculatorResponseTime(String startProbeSetId, String endProbeSetId) FOR String»
-	getModel().getProbeSpecContext().getCalculatorRegistry().registerCalculator(
+	getModel().getProbeSpecContext().registerCalculator(
 			"«this»", getModel().getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator(
 					"«this»", 
 					getModel().getProbeSpecContext().obtainProbeSetId("«startProbeSetId»"),
@@ -11,7 +11,7 @@
 «ENDDEFINE»
 
 «DEFINE SetupCalculatorExecutionResult FOR UsageScenario»
-	getModel().getProbeSpecContext().getCalculatorRegistry().registerCalculator(
+	getModel().getProbeSpecContext().registerCalculator(
 		"«this.entityName»/«this.id»/ExecutionResult",
 		getModel().getProbeSpecContext().getCalculatorFactory().buildExecutionResultCalculator(
 			"UsageScenario «this.entityName» <«this.id»>", 
@@ -21,7 +21,7 @@
 «ENDDEFINE»
 
 «DEFINE SetupCalculatorExecutionResult(String callName) FOR ExternalCallAction»
-	getModel().getProbeSpecContext().getCalculatorRegistry().registerCalculator(
+	getModel().getProbeSpecContext().registerCalculator(
 		"«this.entityName»/«this.id»/ExecutionResult",
 		getModel().getProbeSpecContext().getCalculatorFactory().buildExecutionResultCalculator(
 			"«callName»", 

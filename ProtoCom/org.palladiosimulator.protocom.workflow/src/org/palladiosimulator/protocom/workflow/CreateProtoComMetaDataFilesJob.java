@@ -49,7 +49,6 @@ public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJ
 		 "de.uka.ipd.sdq.scheduler",
 		 "org.jscience",
 		 "de.uka.ipd.sdq.probespec.framework",
-		 "de.uka.ipd.sdq.pipesandfilters",
 		 "de.uka.ipd.sdq.pipesandfilters.framework",		 
 		 "org.palladiosimulator.protocom.framework",
 		 "org.palladiosimulator.protocom.resourcestrategies",
