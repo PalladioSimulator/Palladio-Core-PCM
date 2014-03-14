@@ -50,7 +50,6 @@ public class CreateSimuComMetaDataFilesJob extends AbstractCreateMetaDataFilesJo
 		 "de.uka.ipd.sdq.scheduler",
 		 "org.jscience",
 		 "de.uka.ipd.sdq.probespec.framework",
-		 "de.uka.ipd.sdq.pipesandfilters",
 		 "de.uka.ipd.sdq.pipesandfilters.framework",
 		 "de.uka.ipd.sdq.reliability.core",
 		 "de.fzi.se.accuracy",
