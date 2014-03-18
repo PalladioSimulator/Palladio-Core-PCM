@@ -10,6 +10,7 @@ import org.eclipse.emf.ecore.util.EContentAdapter;
 
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
+import de.uka.ipd.sdq.probespec.framework.calculator.DefaultCalculatorFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
@@ -19,8 +20,6 @@ import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.calculator.CalculatorFactory;
-import de.uka.ipd.sdq.simucomframework.calculator.SetupPipesAndFiltersStrategy;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
@@ -98,8 +97,8 @@ public class SimuComModel extends SchedulerModel {
 
     private ProbeSpecContext initialiseProbeSpecification() {
         // create ProbeSpecification context
-        final ProbeSpecContext result = new ProbeSpecContext(new CalculatorFactory(this,
-                new SetupPipesAndFiltersStrategy(this)));
+        // TODO: Decorate the factory to deliver calculators with recorders attached as it was before
+        final ProbeSpecContext result = new ProbeSpecContext(new DefaultCalculatorFactory());
 
         return result;
     }
