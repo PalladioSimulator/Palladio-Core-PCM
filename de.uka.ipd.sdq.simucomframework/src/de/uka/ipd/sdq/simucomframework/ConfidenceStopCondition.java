@@ -152,7 +152,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
     private Calculator obtainUsageScenarioResponseTimeCalculator(
             final String usageScenarioName) {
         final String calculatorId = usageScenarioName;
-        return this.model.getProbeSpecContext().getCalculatorForId(calculatorId);
+        return this.model.getProbeSpecContext().getCalculatorByName(calculatorId);
     }
 
     @Override

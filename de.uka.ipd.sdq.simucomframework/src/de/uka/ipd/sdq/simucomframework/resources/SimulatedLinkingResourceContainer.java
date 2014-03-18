@@ -28,8 +28,9 @@ public class SimulatedLinkingResourceContainer extends
 		// setup calculators
 		// TODO: setup waiting time calculator
 		// CalculatorHelper.setupWaitingTimeCalculator(r);
-		CalculatorHelper.setupDemandCalculator(r, this.myModel);
-		CalculatorHelper.setupStateCalculator(r, this.myModel);
+		//FIXME
+		//CalculatorHelper.setupDemandCalculator(r, this.myModel);
+		//CalculatorHelper.setupStateCalculator(r, this.myModel);
 	}
 
 	/**

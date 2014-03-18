@@ -30,9 +30,10 @@ public class SimulatedResourceContainer extends
 				assemblyContextID, combinedID, capacity);
 
 		// setup calculators
-		CalculatorHelper.setupStateCalculator(r, this.myModel);
-		CalculatorHelper.setupWaitingTimeCalculator(r, this.myModel);
-		CalculatorHelper.setupHoldTimeCalculator(r, this.myModel); 
+		//FIXME
+//		CalculatorHelper.setupStateCalculator(r, this.myModel);
+//		CalculatorHelper.setupWaitingTimeCalculator(r, this.myModel);
+//		CalculatorHelper.setupHoldTimeCalculator(r, this.myModel); 
 		
 		return r;
 	}
@@ -146,24 +147,29 @@ public class SimulatedResourceContainer extends
 		// setup calculators
 		// TODO: setup waiting time calculator
 		// CalculatorHelper.setupWaitingTimeCalculator(r);
-		CalculatorHelper.setupDemandCalculator(r, this.myModel);
+		// FIXME
+		// CalculatorHelper.setupDemandCalculator(r, this.myModel);
 
 		// setup utilization calculators depending on their scheduling strategy
 		// and number of cores
 		if (schedulingStrategyID.equals(SchedulingStrategy.PROCESSOR_SHARING)) {
 			if (r.getNumberOfInstances() == 1) {
-				CalculatorHelper.setupStateCalculator(r, this.myModel);	
+				//FIXME
+			    //CalculatorHelper.setupStateCalculator(r, this.myModel);	
 			} else {
-				CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);				
+				//FIXME
+			    //CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);				
 			}
 		} else if (schedulingStrategyID.equals(SchedulingStrategy.DELAY)
 				|| schedulingStrategyID.equals(SchedulingStrategy.FCFS)) {
 			assert (r.getNumberOfInstances() == 1) : "DELAY and FCFS resources are expected to "
 					+ "have exactly one core";
-			CalculatorHelper.setupStateCalculator(r, this.myModel);
+			//FIXME
+			//CalculatorHelper.setupStateCalculator(r, this.myModel);
 		} else {
 			// Use an OverallUtilizationCalculator by default.
-			CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
+			//FIXME
+		    //CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
 			/*throw new RuntimeException(
 					"Could not setup utilization calculator at resource "
 							+ description
