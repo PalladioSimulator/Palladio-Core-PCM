@@ -9,9 +9,8 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorListener;
-import de.uka.ipd.sdq.probespec.framework.measurements.BasicMeasurement;
+import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
 import de.uka.ipd.sdq.probespec.framework.measurements.Measurement;
-import de.uka.ipd.sdq.probespec.framework.measurements.MeasurementSet;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 import de.uka.ipd.sdq.statistics.IBatchAlgorithm;
@@ -89,11 +88,8 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public void measurementTaken(final Measurement resultTuple) {
-        final MeasurementSet resultSet = (MeasurementSet) resultTuple;
-        final BasicMeasurement<Double, Duration> basicMeasurement = (BasicMeasurement<Double, Duration>) resultSet.getSubsumedMeasurements().get(0);
-        final Measure<Double, Duration> responseTimeMeasure = basicMeasurement.getMeasure();
+        final Measure<Double, Duration> responseTimeMeasure = resultTuple.getMeasureForMetric(MetricDescriptionConstants.RESPONSE_TIME_METRIC);
         final double responseTime = responseTimeMeasure.doubleValue(SI.SECOND);
 
         batchAlgorithm.offerSample(responseTime);
