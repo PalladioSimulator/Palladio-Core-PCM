@@ -1,10 +1,13 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import java.util.List;
+
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
 /**
  * Base class for open workload users. Open workload users begin their life,
@@ -17,12 +20,14 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
 
     private final IScenarioRunner scenarioRunner;
     private final String usageScenarioId;
+    private final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes;
 
     public OpenWorkloadUser(final SimuComModel owner, final String name,
-            final IScenarioRunner scenarioRunner, final String usageScenarioId) {
+            final IScenarioRunner scenarioRunner, final String usageScenarioId, final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes) {
         super(owner, name);
         this.scenarioRunner = scenarioRunner;
         this.usageScenarioId = usageScenarioId;
+        this.usageStartStopProbes = usageStartStopProbes;
     }
 
     /*
@@ -41,7 +46,9 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
             //TODO: Fixme and provide a new solution
             //blackboardGarbageCollector.enterRegion(getRequestContext()
             //		.rootContext());
+            usageStartStopProbes.get(0).takeMeasurement(getRequestContext());
             scenarioRunner(this);
+            usageStartStopProbes.get(1).takeMeasurement(getRequestContext());
             if (getModel().getConfiguration().getSimulateFailures()) {
                 ReliabilitySensorHelper.recordScenarioRunResultSuccess(
                         getModel(), getRequestContext(),

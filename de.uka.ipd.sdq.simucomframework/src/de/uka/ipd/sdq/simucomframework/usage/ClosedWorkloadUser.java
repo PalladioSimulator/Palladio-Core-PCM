@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import java.util.List;
+
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
@@ -9,6 +11,7 @@ import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
 /**
  * A closed workload user is a user which performs the typical closed workload
@@ -29,6 +32,8 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
     // private static int USERCOUNT = 0;
     private int runCount = 0;
 
+    private final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes;
+
     /**
      * Constructor of the closed workload user
      * 
@@ -42,14 +47,16 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
      *            A stoex which determines the users think time
      * @param usageScenarioId
      *            the id of the corresponding UsageScenario PCM model element
+     * @param usageStartStopProbes
      */
     public ClosedWorkloadUser(final SimuComModel owner, final String name,
             final IScenarioRunner scenarioRunner, final String thinkTimeSpec,
-            final String usageScenarioId) {
+            final String usageScenarioId, final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes) {
         super(owner, name);
         this.scenarioRunner = scenarioRunner;
         this.thinkTime = thinkTimeSpec;
         this.usageScenarioId = usageScenarioId;
+        this.usageStartStopProbes = usageStartStopProbes;
     }
 
     protected long sessionId;
@@ -126,7 +133,9 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
         final double thinkTime = Context.evaluateStatic(this.thinkTime,
                 Double.class, null);
         this.hold(thinkTime);
+        this.usageStartStopProbes.get(0).takeMeasurement(getRequestContext());
         this.scenarioRunner.scenarioRunner(thread);
+        this.usageStartStopProbes.get(1).takeMeasurement(getRequestContext());
     }
 
     /*
