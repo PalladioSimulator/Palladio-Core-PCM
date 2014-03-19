@@ -2,12 +2,12 @@ package de.uka.ipd.sdq.simucomframework.usage;
 
 import java.util.List;
 
+import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
 /**
  * Base class for open workload users. Open workload users begin their life,
@@ -20,10 +20,10 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
 
     private final IScenarioRunner scenarioRunner;
     private final String usageScenarioId;
-    private final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes;
+    private final List<Probe> usageStartStopProbes;
 
     public OpenWorkloadUser(final SimuComModel owner, final String name,
-            final IScenarioRunner scenarioRunner, final String usageScenarioId, final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes) {
+            final IScenarioRunner scenarioRunner, final String usageScenarioId, final List<Probe> usageStartStopProbes) {
         super(owner, name);
         this.scenarioRunner = scenarioRunner;
         this.usageScenarioId = usageScenarioId;

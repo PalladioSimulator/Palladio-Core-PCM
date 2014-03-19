@@ -20,6 +20,7 @@ import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
+import de.uka.ipd.sdq.simucomframework.calculator.RecorderAttachingCalculatorFactoryDecorator;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
@@ -97,8 +98,9 @@ public class SimuComModel extends SchedulerModel {
 
     private ProbeSpecContext initialiseProbeSpecification() {
         // create ProbeSpecification context
-        // TODO: Decorate the factory to deliver calculators with recorders attached as it was before
-        final ProbeSpecContext result = new ProbeSpecContext(new DefaultCalculatorFactory());
+        final ProbeSpecContext result = new ProbeSpecContext(
+                new RecorderAttachingCalculatorFactoryDecorator(
+                        new DefaultCalculatorFactory(), this.config));
 
         return result;
     }

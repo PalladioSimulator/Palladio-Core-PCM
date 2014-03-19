@@ -4,6 +4,7 @@ import java.util.List;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.Context;
@@ -11,7 +12,6 @@ import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
 /**
  * A closed workload user is a user which performs the typical closed workload
@@ -32,7 +32,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
     // private static int USERCOUNT = 0;
     private int runCount = 0;
 
-    private final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes;
+    private final List<Probe> usageStartStopProbes;
 
     /**
      * Constructor of the closed workload user
@@ -51,7 +51,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
      */
     public ClosedWorkloadUser(final SimuComModel owner, final String name,
             final IScenarioRunner scenarioRunner, final String thinkTimeSpec,
-            final String usageScenarioId, final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes) {
+            final String usageScenarioId, final List<Probe> usageStartStopProbes) {
         super(owner, name);
         this.scenarioRunner = scenarioRunner;
         this.thinkTime = thinkTimeSpec;

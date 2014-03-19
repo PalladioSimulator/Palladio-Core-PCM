@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
@@ -16,15 +17,16 @@ import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 public abstract class OpenWorkloadUserFactory implements IUserFactory {
 
     private final SimuComModel model;
-    private final List<TakeCurrentSimulationTimeProbe> usageStartStopProbes;
+    private final List<Probe> usageStartStopProbes;
 
     public OpenWorkloadUserFactory(final SimuComModel model) {
         super();
 
         this.model = model;
         this.usageStartStopProbes = Collections.unmodifiableList(Arrays.asList(
-                new TakeCurrentSimulationTimeProbe(model.getSimulationControl()),
-                new TakeCurrentSimulationTimeProbe(model.getSimulationControl())));
+                (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl()),
+                (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl())));
+        this.model.getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator("TODO", usageStartStopProbes);
     }
 
     /*
