@@ -8,32 +8,33 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  * @author Steffen Becker
  * 
  */
-public abstract class ClosedWorkloadUserFactory implements IUserFactory {
+public abstract class ClosedWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
-	private String thinkTime;
-	private SimuComModel model;
+    private final String thinkTime;
 
-	public ClosedWorkloadUserFactory(SimuComModel model, String thinkTimeSpec) {
-		this.thinkTime = thinkTimeSpec;
-		this.model = model;
-	}
+    public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec, final String usageScenarioID) {
+        super(model, usageScenarioID);
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.simucomframework.usage.IUserFactory#createUser()
-	 */
-	public IUser createUser(final String usageScenarioId) {
-		IScenarioRunner scenarioRunner = this.createScenarioRunner();
-		return new ClosedWorkloadUser(model, "ClosedUser", scenarioRunner,
-				thinkTime, usageScenarioId);
-	}
+        this.thinkTime = thinkTimeSpec;
+    }
 
-	/**
-	 * Template method filled by the generator. Returns the users behaviour.
-	 * 
-	 * @return The behaviour of the users created by this factory
-	 */
-	public abstract IScenarioRunner createScenarioRunner();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.simucomframework.usage.IUserFactory#createUser()
+     */
+    @Override
+    public IUser createUser() {
+        final IScenarioRunner scenarioRunner = this.createScenarioRunner();
+        return new ClosedWorkloadUser(model, "ClosedUser", scenarioRunner,
+                thinkTime, usageScenarioID, usageStartStopProbes);
+    }
+
+    /**
+     * Template method filled by the generator. Returns the users behaviour.
+     * 
+     * @return The behaviour of the users created by this factory
+     */
+    public abstract IScenarioRunner createScenarioRunner();
 
 }

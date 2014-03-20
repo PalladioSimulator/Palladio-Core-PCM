@@ -12,7 +12,6 @@ Export-Package: de.uka.ipd.sdq.simucomframework,
  de.uka.ipd.sdq.simucomframework.model,
  de.uka.ipd.sdq.simucomframework.probes,
  de.uka.ipd.sdq.simucomframework.resources,
- de.uka.ipd.sdq.simucomframework.sensors,
  de.uka.ipd.sdq.simucomframework.usage
 Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
  org.apache.log4j,
@@ -34,6 +33,6 @@ Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.featuremodel;bundle-version="2.0.0",
  de.uka.ipd.sdq.simulation;bundle-version="1.0.0";visibility:=reexport,
  org.palladiosimulator.edp2,
- de.uka.ipd.sdq.pipesandfilters.framework
+ de.uka.ipd.sdq.pipesandfilters.framework;bundle-version="2.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

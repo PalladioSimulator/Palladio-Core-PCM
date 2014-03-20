@@ -9,7 +9,7 @@ import java.util.concurrent.atomic.AtomicLong;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
+import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;

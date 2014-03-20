@@ -7,9 +7,11 @@ package de.uka.ipd.sdq.simucomframework.usage;
  *
  */
 public interface IWorkloadDriver {
-	
-	/**
-	 * Starts the workload 
-	 */
-	void run();
+
+    /**
+     * Starts the workload
+     */
+    void run();
+
+    IUserFactory getUserFactory();
 }

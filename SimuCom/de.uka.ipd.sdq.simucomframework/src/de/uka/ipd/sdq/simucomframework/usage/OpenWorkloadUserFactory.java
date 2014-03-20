@@ -8,31 +8,30 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  * @author Steffen Becker
  * 
  */
-public abstract class OpenWorkloadUserFactory implements IUserFactory {
+public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
-	private SimuComModel model;
+    public OpenWorkloadUserFactory(final SimuComModel model, final String usageScenarioID) {
+        super(model,usageScenarioID);
+    }
 
-	public OpenWorkloadUserFactory(SimuComModel model) {
-		this.model = model;
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.simucomframework.usage.IUserFactory#createUser()
+     */
+    @Override
+    public IUser createUser() {
+        final IScenarioRunner scenarioRunner = this.createScenarioRunner();
+        return new OpenWorkloadUser(model, "OpenUser", scenarioRunner,
+                usageScenarioID, usageStartStopProbes);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.simucomframework.usage.IUserFactory#createUser()
-	 */
-	public IUser createUser(final String usageScenarioId) {
-		IScenarioRunner scenarioRunner = this.createScenarioRunner();
-		return new OpenWorkloadUser(model, "OpenUser", scenarioRunner,
-				usageScenarioId);
-	}
-
-	/**
-	 * Template method filled in by the generator. Returns an object
-	 * representing the user behaviour needed for the new users.
-	 * 
-	 * @return The behaviour of the users created by this factory
-	 */
-	public abstract IScenarioRunner createScenarioRunner();
+    /**
+     * Template method filled in by the generator. Returns an object
+     * representing the user behaviour needed for the new users.
+     * 
+     * @return The behaviour of the users created by this factory
+     */
+    public abstract IScenarioRunner createScenarioRunner();
 
 }

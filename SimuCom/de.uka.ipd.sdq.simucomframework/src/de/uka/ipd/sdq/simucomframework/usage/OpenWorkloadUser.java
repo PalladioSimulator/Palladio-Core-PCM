@@ -1,7 +1,8 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
-import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
+import java.util.List;
+
+import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
@@ -17,78 +18,86 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
 
-	private IScenarioRunner scenarioRunner;
-	private IRegionBasedGarbageCollector<RequestContext> blackboardGarbageCollector;
-	private String usageScenarioId;
+    private final IScenarioRunner scenarioRunner;
+    private final String usageScenarioId;
+    private final List<Probe> usageStartStopProbes;
 
-	public OpenWorkloadUser(final SimuComModel owner, final String name,
-			final IScenarioRunner scenarioRunner, final String usageScenarioId) {
-		super(owner, name);
-		this.scenarioRunner = scenarioRunner;
-        blackboardGarbageCollector = owner.getProbeSpecContext().getBlackboardGarbageCollector();
-		this.usageScenarioId = usageScenarioId;
-	}
+    public OpenWorkloadUser(final SimuComModel owner, final String name,
+            final IScenarioRunner scenarioRunner, final String usageScenarioId, final List<Probe> usageStartStopProbes) {
+        super(owner, name);
+        this.scenarioRunner = scenarioRunner;
+        this.usageScenarioId = usageScenarioId;
+        this.usageStartStopProbes = usageStartStopProbes;
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see desmoj.core.simulator.SimProcess#lifeCycle()
-	 */
-	@Override
-	protected void internalLifeCycle() {
-		if(logger.isDebugEnabled())
-			logger.debug(getName() + " started! I'm alive!!!");
-		// update session id
-		updateNewSessionID();
-		try {
-			blackboardGarbageCollector.enterRegion(getRequestContext()
-					.rootContext());
-			scenarioRunner(this);
-			if (getModel().getConfiguration().getSimulateFailures()) {
-				ReliabilitySensorHelper.recordScenarioRunResultSuccess(
-						getModel(), getRequestContext(),
-						usageScenarioId);
-			}
-		} catch (FailureException exception) {
-			if (getModel().getConfiguration().getSimulateFailures()) {
-				FailureStatistics.getInstance()
-						.increaseUnhandledFailureCounter(
-								exception.getFailureType(), currentSessionId);
-				ReliabilitySensorHelper.recordScenarioRunResultFailure(
-						getModel(), exception
-								.getFailureType(), getRequestContext(),
-						usageScenarioId);
-			}
-		} finally {
-			// Increase measurements counter manually as usage scenario run is
-			// not finished:
-			getModel().increaseMainMeasurementsCount();
+    /*
+     * (non-Javadoc)
+     * 
+     * @see desmoj.core.simulator.SimProcess#lifeCycle()
+     */
+    @Override
+    protected void internalLifeCycle() {
+        if(logger.isDebugEnabled()) {
+            logger.debug(getName() + " started! I'm alive!!!");
+        }
+        // update session id
+        updateNewSessionID();
+        try {
+            //TODO: Fixme and provide a new solution
+            //blackboardGarbageCollector.enterRegion(getRequestContext()
+            //		.rootContext());
+            usageStartStopProbes.get(0).takeMeasurement(getRequestContext());
+            scenarioRunner(this);
+            usageStartStopProbes.get(1).takeMeasurement(getRequestContext());
+            if (getModel().getConfiguration().getSimulateFailures()) {
+                ReliabilitySensorHelper.recordScenarioRunResultSuccess(
+                        getModel(), getRequestContext(),
+                        usageScenarioId);
+            }
+        } catch (final FailureException exception) {
+            if (getModel().getConfiguration().getSimulateFailures()) {
+                FailureStatistics.getInstance()
+                .increaseUnhandledFailureCounter(
+                        exception.getFailureType(), currentSessionId);
+                ReliabilitySensorHelper.recordScenarioRunResultFailure(
+                        getModel(), exception
+                        .getFailureType(), getRequestContext(),
+                        usageScenarioId);
+            }
+        } finally {
+            // Increase measurements counter manually as usage scenario run is
+            // not finished:
+            getModel().increaseMainMeasurementsCount();
 
-			blackboardGarbageCollector.leaveRegion(getRequestContext()
-					.rootContext());
-		}
-		if(logger.isDebugEnabled())
-			logger.debug(getName() + " done! I'm dying!!!");
-	}
+            //TODO: Fixme and provide a new solution
+            //blackboardGarbageCollector.leaveRegion(getRequestContext()
+            //		.rootContext());
+        }
+        if(logger.isDebugEnabled()) {
+            logger.debug(getName() + " done! I'm dying!!!");
+        }
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see
-	 * de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner#scenarioRunner(
-	 * desmoj.core.simulator.SimProcess)
-	 */
-	public void scenarioRunner(SimuComSimProcess thread) {
-		this.scenarioRunner.scenarioRunner(thread);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see
+     * de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner#scenarioRunner(
+     * desmoj.core.simulator.SimProcess)
+     */
+    @Override
+    public void scenarioRunner(final SimuComSimProcess thread) {
+        this.scenarioRunner.scenarioRunner(thread);
+    }
 
-	/*
-	 * (non-Javadoc)
-	 * 
-	 * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
-	 */
-	public void startUserLife() {
-		this.scheduleAt(0);
-	}
+    /*
+     * (non-Javadoc)
+     * 
+     * @see de.uka.ipd.sdq.simucomframework.usage.IUser#startUserLife()
+     */
+    @Override
+    public void startUserLife() {
+        this.scheduleAt(0);
+    }
 
 }

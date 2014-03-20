@@ -9,9 +9,8 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
 
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
-import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
-import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
+import de.uka.ipd.sdq.probespec.framework.calculator.DefaultCalculatorFactory;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
@@ -19,13 +18,9 @@ import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
-import de.uka.ipd.sdq.simucomframework.DiscardInvalidMeasurementsBlackboardDecorator;
 import de.uka.ipd.sdq.simucomframework.ResourceRegistry;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
-import de.uka.ipd.sdq.simucomframework.SimuComGarbageCollector;
-import de.uka.ipd.sdq.simucomframework.calculator.CalculatorFactory;
-import de.uka.ipd.sdq.simucomframework.calculator.SetupPipesAndFiltersStrategy;
-import de.uka.ipd.sdq.simucomframework.probes.SimuComProbeStrategyRegistry;
+import de.uka.ipd.sdq.simucomframework.calculator.RecorderAttachingCalculatorFactoryDecorator;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedLinkingResourceContainer;
 import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
@@ -51,125 +46,111 @@ public class SimuComModel extends SchedulerModel {
 
     protected static Logger logger = Logger.getLogger(SimuComModel.class);
 
-	protected ResourceRegistry resourceRegistry;
-	private IWorkloadDriver[] workloadDrivers;
-	private SimulationResult status = SimulationResult.OK;
-	private Throwable errorMessage;
-	private final SimuComConfig config;
-	private long mainMeasurementsCount;
-	private ISimEngineFactory simulationEngineFactory;
-	private ISimulationControl simControl;
-	private final SimuComStatus simulationStatus;
-	/** List of issues experience during a simulation run of this configuration. */
-	private List<SeverityAndIssue> issues;
-	private final ProbeSpecContext probeSpecContext;
-	private final ISchedulingFactory schedulingFactory;
+    protected ResourceRegistry resourceRegistry;
+    private IWorkloadDriver[] workloadDrivers;
+    private SimulationResult status = SimulationResult.OK;
+    private Throwable errorMessage;
+    private final SimuComConfig config;
+    private long mainMeasurementsCount;
+    private ISimEngineFactory simulationEngineFactory;
+    private ISimulationControl simControl;
+    private final SimuComStatus simulationStatus;
+    /** List of issues experience during a simulation run of this configuration. */
+    private List<SeverityAndIssue> issues;
+    private final ProbeSpecContext probeSpecContext;
+    private final ISchedulingFactory schedulingFactory;
 
-    public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory,
-            boolean isRemoteRun) {
-    	this(config,status,factory,isRemoteRun,null);
+    public SimuComModel(final SimuComConfig config, final SimuComStatus status, final ISimEngineFactory factory,
+            final boolean isRemoteRun) {
+        this(config,status,factory,isRemoteRun,null);
     }
-    
-    public SimuComModel(SimuComConfig config, SimuComStatus status, ISimEngineFactory factory,
-            boolean isRemoteRun, ProbeSpecContext probeSpecContext) {
-		this.config = config;
-		this.simulationEngineFactory = factory;
-		factory.setModel(this);
-		this.simControl = factory.createSimulationControl();
-		resourceRegistry = new ResourceRegistry(this);
-		this.simulationStatus = status;
-		issues = new ArrayList<SeverityAndIssue>();		
 
-		// TODO: All following uses of static objects have severy issues. Nobody really thought of
-		// e.g. running Simucom in parallel (e.g. to utilise many cores)!
-		
-		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
-		
-		probFunctionFactory.setRandomGenerator(config.getRandomGenerator());
-		
-		// TODO: This is not thread and hence concurrency safe...
-		// initialise Random Generators
-		StoExCache.initialiseStoExCache(probFunctionFactory);
+    public SimuComModel(final SimuComConfig config, final SimuComStatus status, final ISimEngineFactory factory,
+            final boolean isRemoteRun, final ProbeSpecContext probeSpecContext) {
+        this.config = config;
+        this.simulationEngineFactory = factory;
+        factory.setModel(this);
+        this.simControl = factory.createSimulationControl();
+        resourceRegistry = new ResourceRegistry(this);
+        this.simulationStatus = status;
+        issues = new ArrayList<SeverityAndIssue>();
 
-		// set up the resource scheduler
-		schedulingFactory = new SchedulingFactory(this);
-		
+        // TODO: All following uses of static objects have severy issues. Nobody really thought of
+        // e.g. running Simucom in parallel (e.g. to utilise many cores)!
+
+        final IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
+
+        probFunctionFactory.setRandomGenerator(config.getRandomGenerator());
+
+        // TODO: This is not thread and hence concurrency safe...
+        // initialise Random Generators
+        StoExCache.initialiseStoExCache(probFunctionFactory);
+
+        // set up the resource scheduler
+        schedulingFactory = new SchedulingFactory(this);
+
         // set up the measurement framework
         this.probeSpecContext = probeSpecContext == null ? initialiseProbeSpecification() : probeSpecContext;
-        
+
         // setup debug log for console
         initialiseSimStatus();
-	}
-    
+    }
+
     private ProbeSpecContext initialiseProbeSpecification() {
         // create ProbeSpecification context
-    	ProbeSpecContext result = new ProbeSpecContext();
-        
-        // create a blackboard of the specified type
-        ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), result
-                .getThreadManager());
-        
-        // decorate the current blackboard in order to discard any measurement that arrives after
-        // the simulation end
-        ISampleBlackboard decoratedBlackboard = new DiscardInvalidMeasurementsBlackboardDecorator(blackboard,
-                simControl);
-        
-        // initialise ProbeSpecification context
-        result.initialise(decoratedBlackboard, new SimuComProbeStrategyRegistry(), new CalculatorFactory(this,
-                new SetupPipesAndFiltersStrategy(this)));
+        final ProbeSpecContext result = new ProbeSpecContext(
+                new RecorderAttachingCalculatorFactoryDecorator(
+                        new DefaultCalculatorFactory(), this.config));
 
-        // install a garbage collector which keeps track of the samples stored on the blackboard and
-        // removes samples when they become obsolete
-        SimuComGarbageCollector garbageCollector = new SimuComGarbageCollector(decoratedBlackboard);
-        result.setBlackboardGarbageCollector(garbageCollector);
-        
         return result;
     }
-    
-	/**
-	 * @return Gets the list of issues.
-	 */
-	public List<SeverityAndIssue> getIssues() {
-		return issues;
-	}
 
-	/**Sets the list of issues.
-	 * @param issues the list of issues to use. May not be {@code null}.
-	 */
-	public void setIssues(List<SeverityAndIssue> issues) {
-		if (issues == null) {
-			throw new IllegalArgumentException("issues must not be null. Create and provide an empty list if the list should be reset.");
-		}
-		this.issues = issues;
-	}
+    /**
+     * @return Gets the list of issues.
+     */
+    public List<SeverityAndIssue> getIssues() {
+        return issues;
+    }
 
-	/**Adds an issues to the list of issues.
-	 * @param issue the issue.
-	 */
-	public void addIssue(SeverityAndIssue issue) {
-		this.issues.add(issue);
-	}
+    /**Sets the list of issues.
+     * @param issues the list of issues to use. May not be {@code null}.
+     */
+    public void setIssues(final List<SeverityAndIssue> issues) {
+        if (issues == null) {
+            throw new IllegalArgumentException("issues must not be null. Create and provide an empty list if the list should be reset.");
+        }
+        this.issues = issues;
+    }
 
-	private void initialiseSimStatus() {
+    /**Adds an issues to the list of issues.
+     * @param issue the issue.
+     */
+    public void addIssue(final SeverityAndIssue issue) {
+        this.issues.add(issue);
+    }
+
+    private void initialiseSimStatus() {
         if (this.config.getVerboseLogging()) {
-            EContentAdapter contentAdapter = new EContentAdapter() {
+            final EContentAdapter contentAdapter = new EContentAdapter() {
 
                 /* (non-Javadoc)
                  * @see org.eclipse.emf.ecore.util.EContentAdapter#notifyChanged(org.eclipse.emf.common.notify.Notification)
                  */
                 @Override
-                public void notifyChanged(Notification notification) {
+                public void notifyChanged(final Notification notification) {
                     super.notifyChanged(notification);
                     if (notification.getEventType() == Notification.SET) {
                         if (notification.getFeature() == SimucomstatusPackage.eINSTANCE.getProcess_CurrentAction()) {
-                            Process p = (Process) notification.getNotifier();
-                            Action a = (Action) notification.getNewValue();
-                            if(logger.isDebugEnabled())
-                            	logger.debug("Process "+p.getId()+" changed currentAction to "+a.getClass().getName());
+                            final Process p = (Process) notification.getNotifier();
+                            final Action a = (Action) notification.getNewValue();
+                            if(logger.isDebugEnabled()) {
+                                logger.debug("Process "+p.getId()+" changed currentAction to "+a.getClass().getName());
+                            }
                         }
                     } else
-                    	if(logger.isDebugEnabled())
-                    		logger.debug("Simulation Status Updated");
+                        if(logger.isDebugEnabled()) {
+                            logger.debug("Simulation Status Updated");
+                        }
                 }
 
             };
@@ -179,10 +160,10 @@ public class SimuComModel extends SchedulerModel {
     }
 
     @Override
-    public void init() {       
+    public void init() {
         // start the workload
         notifyStartListeners();
-        for (IWorkloadDriver w : workloadDrivers) {
+        for (final IWorkloadDriver w : workloadDrivers) {
             w.run();
         }
     }
@@ -193,7 +174,7 @@ public class SimuComModel extends SchedulerModel {
      * @param workload
      *            Usage scenarios to execute during this simulation run
      */
-    public void setUsageScenarios(IWorkloadDriver[] workload) {
+    public void setUsageScenarios(final IWorkloadDriver[] workload) {
         this.workloadDrivers = workload;
     }
 
@@ -211,17 +192,17 @@ public class SimuComModel extends SchedulerModel {
      * @param resourceContainerFactory The resource factory used to initialse the simulated
      * resources
      */
-    public void initialiseResourceContainer(IResourceContainerFactory resourceContainerFactory) {
-        for (String id : resourceContainerFactory.getResourceContainerIDList()) {
-            SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.createResourceContainer(id);
+    public void initialiseResourceContainer(final IResourceContainerFactory resourceContainerFactory) {
+        for (final String id : resourceContainerFactory.getResourceContainerIDList()) {
+            final SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.createResourceContainer(id);
             resourceContainerFactory.fillResourceContainerWithResources(rc);
         }
-        for (String id : resourceContainerFactory.getResourceContainerIDList()) {
-        	SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.getResourceContainer(id);
-        	resourceContainerFactory.fillResourceContainerWithNestedResourceContainers(rc);
+        for (final String id : resourceContainerFactory.getResourceContainerIDList()) {
+            final SimulatedResourceContainer rc = (SimulatedResourceContainer) resourceRegistry.getResourceContainer(id);
+            resourceContainerFactory.fillResourceContainerWithNestedResourceContainers(rc);
         }
-        for (String id : resourceContainerFactory.getLinkingResourceContainerIDList()) {
-            SimulatedLinkingResourceContainer rc = (SimulatedLinkingResourceContainer) resourceRegistry.createLinkingResourceContainer(id);
+        for (final String id : resourceContainerFactory.getLinkingResourceContainerIDList()) {
+            final SimulatedLinkingResourceContainer rc = (SimulatedLinkingResourceContainer) resourceRegistry.createLinkingResourceContainer(id);
             resourceContainerFactory.fillLinkingResourceContainer(rc);
         }
         resourceRegistry.activateAllActiveResources();
@@ -232,7 +213,7 @@ public class SimuComModel extends SchedulerModel {
      * @param error The new status
      * @param t The exception message if any, null otherwise
      */
-    public void setStatus(SimulationResult error, Throwable t) {
+    public void setStatus(final SimulationResult error, final Throwable t) {
         this.status = error;
         this.errorMessage = t;
     }
@@ -269,22 +250,22 @@ public class SimuComModel extends SchedulerModel {
     }
 
     @Override
-	public ISimulationControl getSimulationControl() {
+    public ISimulationControl getSimulationControl() {
         return simControl;
     }
 
     @Override
-	public void setSimulationControl(ISimulationControl control) {
+    public void setSimulationControl(final ISimulationControl control) {
         this.simControl = control;
     }
 
     @Override
-	public void setSimulationEngineFactory(ISimEngineFactory factory) {
+    public void setSimulationEngineFactory(final ISimEngineFactory factory) {
         this.simulationEngineFactory = factory;
     }
 
     @Override
-	public ISimEngineFactory getSimEngineFactory() {
+    public ISimEngineFactory getSimEngineFactory() {
         return this.simulationEngineFactory;
     }
 
@@ -295,7 +276,7 @@ public class SimuComModel extends SchedulerModel {
     public ProbeSpecContext getProbeSpecContext() {
         return probeSpecContext;
     }
-    
+
     public ISchedulingFactory getSchedulingFactory() {
         return schedulingFactory;
     }
@@ -307,8 +288,9 @@ public class SimuComModel extends SchedulerModel {
         this.getResourceRegistry().deactivateAllActiveResources();
         this.getResourceRegistry().deactivateAllPassiveResources();
 
-        if(logger.isEnabledFor(Level.INFO))
-        	logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulated time units");
+        if(logger.isEnabledFor(Level.INFO)) {
+            logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulated time units");
+        }
 
         AbstractActiveResource.cleanProcesses();
 
@@ -316,8 +298,6 @@ public class SimuComModel extends SchedulerModel {
         if (getConfiguration().getSimulateFailures()) {
             FailureStatistics.getInstance().printFailureStatistics(logger, getSimulationControl().getCurrentSimulationTime());
         }
-
-        this.getProbeSpecContext().getThreadManager().stopThreads();
     }
 
     @Override
@@ -326,13 +306,13 @@ public class SimuComModel extends SchedulerModel {
     }
 
     private void notifyStartListeners() {
-        for (ISimulationListener l : config.getListeners()) {
+        for (final ISimulationListener l : config.getListeners()) {
             l.simulationStart();
         }
     }
 
     private void notifyStopListeners() {
-        for (ISimulationListener l : config.getListeners()) {
+        for (final ISimulationListener l : config.getListeners()) {
             l.simulationStop();
         }
     }
