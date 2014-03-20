@@ -30,10 +30,9 @@ AbstractSimulatedResourceContainer {
                 assemblyContextID, combinedID, capacity);
 
         // setup calculators
-        // FIXME
-        // CalculatorHelper.setupStateCalculator(newPassiveResource, this.myModel);
-        // CalculatorHelper.setupWaitingTimeCalculator(newPassiveResource, this.myModel);
-        // CalculatorHelper.setupHoldTimeCalculator(newPassiveResource, this.myModel);
+        CalculatorHelper.setupStateCalculator(newPassiveResource, this.myModel);
+        CalculatorHelper.setupWaitingTimeCalculator(newPassiveResource, this.myModel);
+        CalculatorHelper.setupHoldTimeCalculator(newPassiveResource, this.myModel);
 
         return newPassiveResource;
     }
@@ -146,7 +145,7 @@ AbstractSimulatedResourceContainer {
 
         // setup calculators
         // TODO: setup waiting time calculator
-        // CalculatorHelper.setupWaitingTimeCalculator(r);
+        // CalculatorHelper.setupWaitingTimeCalculator(r, this.myModel);
         CalculatorHelper.setupDemandCalculator(r, this.myModel);
 
         // setup utilization calculators depending on their scheduling strategy
@@ -155,19 +154,16 @@ AbstractSimulatedResourceContainer {
             if (r.getNumberOfInstances() == 1) {
                 CalculatorHelper.setupStateCalculator(r, this.myModel);
             } else {
-                //FIXME
-                //CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
+                CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
             }
         } else if (schedulingStrategyID.equals(SchedulingStrategy.DELAY)
                 || schedulingStrategyID.equals(SchedulingStrategy.FCFS)) {
             assert (r.getNumberOfInstances() == 1) : "DELAY and FCFS resources are expected to "
                     + "have exactly one core";
-            //FIXME
-            //CalculatorHelper.setupStateCalculator(r, this.myModel);
+            CalculatorHelper.setupStateCalculator(r, this.myModel);
         } else {
             // Use an OverallUtilizationCalculator by default.
-            //FIXME
-            //CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
+            CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
             /*throw new RuntimeException(
 					"Could not setup utilization calculator at resource "
 							+ description
