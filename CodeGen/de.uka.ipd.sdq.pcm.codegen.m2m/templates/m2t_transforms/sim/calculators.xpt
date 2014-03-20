@@ -8,8 +8,6 @@
 «IMPORT pcm»
 
 «DEFINE SetupCalculators FOR UsageScenario»
-	// Setup calculator for usage scenario «this.entityName»
-	«EXPAND m2t_transforms::calculators::SetupCalculatorResponseTime("start" + this.entityName, "end" + this.entityName) FOR this.entityName»
 	if(getModel().getConfiguration().getSimulateFailures()){
 		«EXPAND m2t_transforms::calculators::SetupCalculatorExecutionResult FOR this»
 	}

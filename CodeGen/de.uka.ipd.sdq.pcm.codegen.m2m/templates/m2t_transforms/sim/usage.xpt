@@ -151,9 +151,8 @@
 «DEFINE WorkloadClass(UsageScenario u) FOR ClosedWorkload»
 	«LET u.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
 		de.uka.ipd.sdq.simucomframework.usage.ClosedWorkload(
-			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«EXPAND SystemVariableParameter FOREACH systemList SEPARATOR ","»),
-			«this.population»,
-			"«u.id»")
+			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),"«u.entityName.javaString()»",«EXPAND SystemVariableParameter FOREACH systemList SEPARATOR ","»),
+			«this.population»)
 	«ENDLET»
 «ENDDEFINE»
 
@@ -168,9 +167,8 @@
 «DEFINE WorkloadClass(UsageScenario u) FOR OpenWorkload»
 	«LET u.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
 		de.uka.ipd.sdq.simucomframework.usage.OpenWorkload(getModel(),
-			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),«EXPAND SystemVariableParameter FOREACH systemList SEPARATOR ","»),
-			"«this.interArrivalTime_OpenWorkload.specification.specificationString()»",
-			"«u.id»")
+			new «u.implementationPackage()+"."+u.javaName()+"Factory"»(getModel(),"«u.entityName.javaString()»",«EXPAND SystemVariableParameter FOREACH systemList SEPARATOR ","»),
+			"«this.interArrivalTime_OpenWorkload.specification.specificationString()»")
 	«ENDLET»
 «ENDDEFINE»
 

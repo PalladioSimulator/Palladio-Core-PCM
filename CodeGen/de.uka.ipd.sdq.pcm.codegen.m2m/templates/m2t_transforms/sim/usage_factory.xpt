@@ -46,7 +46,7 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 		«FOREACH systemList AS system»
 		private «system.fqn()» my«system.javaName()» = null;
 		«ENDFOREACH»
-		public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«EXPAND m2t_transforms::sim::usage::SystemVariableDecl FOREACH systemList SEPARATOR ","»){
+		public «this.javaName()+"Factory"»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model, String usageID, «EXPAND m2t_transforms::sim::usage::SystemVariableDecl FOREACH systemList SEPARATOR ","»){
 			«EXPAND FactoryConstructor FOR this.workload_UsageScenario»
 			this.model = model;
 			«FOREACH systemList AS system»
@@ -61,9 +61,9 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR ClosedWorkload»
-	super(model,"«this.thinkTime_ClosedWorkload.specification.specificationString()»");
+	super(model,"«this.thinkTime_ClosedWorkload.specification.specificationString()»",usageID);
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR OpenWorkload»
-	super(model);
+	super(model,usageID);
 «ENDDEFINE»
