@@ -3,12 +3,12 @@
 «IMPORT seff»
 
 «DEFINE SetupCalculatorResponseTime(String startProbeSetId, String endProbeSetId) FOR String»
-// TODO: FIXME
-//	getModel().getProbeSpecContext().registerCalculator(
-//			"«this»", getModel().getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator(
-//					"«this»", 
-//					getModel().getProbeSpecContext().obtainProbeSetId("«startProbeSetId»"),
-//					getModel().getProbeSpecContext().obtainProbeSetId("«endProbeSetId»")));
+	java.util.List<de.uka.ipd.sdq.probespec.framework.probes.Probe> probes = 
+		java.util.Arrays.asList(
+			(de.uka.ipd.sdq.probespec.framework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()),
+			(de.uka.ipd.sdq.probespec.framework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()));
+	getModel().getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator("«this»",probes);
+	this.startStopProbes.put("«this»",probes);	
 «ENDDEFINE»
 
 «DEFINE SetupCalculatorExecutionResult FOR UsageScenario»

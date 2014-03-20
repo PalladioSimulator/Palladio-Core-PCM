@@ -39,6 +39,7 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 			
 	
 	private String assemblyContextID = null;
+	private final java.util.Map<String,java.util.List<de.uka.ipd.sdq.probespec.framework.probes.Probe>> startStopProbes = new java.util.HashMap<String,java.util.List<de.uka.ipd.sdq.probespec.framework.probes.Probe>>();
 	
 	public String getAssemblyContextID() {
 		return assemblyContextID;

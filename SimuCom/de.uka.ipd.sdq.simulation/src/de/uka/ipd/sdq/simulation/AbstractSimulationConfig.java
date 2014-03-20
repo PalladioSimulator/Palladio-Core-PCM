@@ -7,7 +7,6 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.IRecorderConfiguration;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
-import de.uka.ipd.sdq.probespec.framework.BlackboardType;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
@@ -53,7 +52,6 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
 
     private boolean verboseLogging;
     private boolean isDebug;
-    private BlackboardType blackboardType;
 
     private final List<ISimulationListener> listeners;
     /** configuration options */
@@ -75,7 +73,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
      *            <li>SimuComConfig.VERBOSE_LOGGING
      *            </ul>
      */
-    public AbstractSimulationConfig(Map<String, Object> configuration, boolean debug) {
+    public AbstractSimulationConfig(final Map<String, Object> configuration, final boolean debug) {
         try {
             this.verboseLogging = (Boolean) configuration.get(VERBOSE_LOGGING);
             this.isDebug = debug;
@@ -86,18 +84,6 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
             this.maxMeasurementsCount = Long.valueOf((String) configuration.get(MAXIMUM_MEASUREMENT_COUNT));
             this.randomSeed = getSeedFromConfig(configuration);
 
-            // set the blackboard type
-            try {
-                this.blackboardType = BlackboardType.valueOf(asString(configuration, BLACKBOARD_TYPE));
-            } catch (IllegalArgumentException e) {
-                // this exception is thrown, if no enum name matches the passed String
-                this.blackboardType = null;
-            }
-            if (this.blackboardType == null) {
-                // use default blackboard type
-                this.blackboardType = BlackboardType.CONCURRENT;
-            }
-
             this.recorderName = (String) configuration.get(PERSISTENCE_RECORDER_NAME);
             recorderConfig = RecorderExtensionHelper.getRecorderConfigForName(recorderName);
             if (recorderConfig != null) {
@@ -105,7 +91,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
             }
 
             this.listeners = new ArrayList<ISimulationListener>();
-        } catch (Exception e) {
+        } catch (final Exception e) {
             throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
         }
     }
@@ -118,7 +104,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         return this.isDebug;
     }
 
-    public void addListener(ISimulationListener l) {
+    public void addListener(final ISimulationListener l) {
         listeners.add(l);
     }
 
@@ -126,12 +112,8 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         return listeners;
     }
 
-    public BlackboardType getBlackboardType() {
-        return blackboardType;
-    }
-
-    private String asString(Map<String, Object> configuration, String propertyName) {
-        String result = (String) configuration.get(propertyName);
+    private String asString(final Map<String, Object> configuration, final String propertyName) {
+        final String result = (String) configuration.get(propertyName);
         return result == null ? "" : result;
     }
 
@@ -139,13 +121,13 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         return additionalExperimentRunDescription;
     }
 
-    public void setAdditionalExperimentRunDescription(String additionalExperimentRunDescription) {
+    public void setAdditionalExperimentRunDescription(final String additionalExperimentRunDescription) {
         this.additionalExperimentRunDescription = additionalExperimentRunDescription;
     }
 
-    protected long[] getSeedFromConfig(Map<String, Object> configuration) {
+    protected long[] getSeedFromConfig(final Map<String, Object> configuration) {
         if ((Boolean) configuration.get(USE_FIXED_SEED)) {
-            long[] seed = new long[6];
+            final long[] seed = new long[6];
             for (int i = 0; i < 6; i++) {
                 seed[i] = Long.parseLong((String) configuration.get(FIXED_SEED_PREFIX + i));
             }
@@ -154,6 +136,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         return null;
     }
 
+    @Override
     public String getNameExperimentRun() {
         String name = "";
         if (descriptor != null) {
@@ -171,7 +154,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         return nameExperimentRun;
     }
 
-    public void setNameBase(String name) {
+    public void setNameBase(final String name) {
         this.nameExperimentRun = name;
     }
 
@@ -202,7 +185,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         this.randomNumberGenerator = null;
     }
 
-    public void setExperimentRunDescriptor(ExperimentRunDescriptor descriptor) {
+    public void setExperimentRunDescriptor(final ExperimentRunDescriptor descriptor) {
         this.descriptor = descriptor;
     }
 
@@ -217,5 +200,5 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     public String getSimulatorId() {
         return simulatorId;
     }
-    
+
 }

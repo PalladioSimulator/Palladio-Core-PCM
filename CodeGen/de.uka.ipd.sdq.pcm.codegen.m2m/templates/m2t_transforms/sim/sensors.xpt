@@ -3,22 +3,10 @@
 
 «DEFINE StartResponseTimeMeasurement FOR String»
 	// Take current time
-	// TODO: FIXME
-	//ctx.getModel().getProbeSpecContext().getSampleBlackboard().addSample(
-	//	de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
-	//		ctx.getModel().getProbeSpecContext().getProbeStrategyRegistry().getProbeStrategy(
-	//			de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
-	//				"start«this»", ctx.getModel().getSimulationControl()),
-	//					ctx.getThread().getRequestContext(), "«this»", ctx.getModel().getProbeSpecContext().obtainProbeSetId("start«this»")));
+	this.startStopProbes.get("«this»").get(0).takeMeasurement(ctx.getThread().getRequestContext());
 «ENDDEFINE»
 
 «DEFINE EndResponseTimeMeasurement FOR String»
 	// Take current time
-	// TODO: FIXME
-	//ctx.getModel().getProbeSpecContext().getSampleBlackboard().addSample(
-	//	de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils.buildProbeSetSample(
-	//		ctx.getModel().getProbeSpecContext().getProbeStrategyRegistry().getProbeStrategy(
-	//			de.uka.ipd.sdq.probespec.framework.ProbeType.CURRENT_TIME, null).takeSample(
-	//				"end«this»", ctx.getModel().getSimulationControl()),
-	//					ctx.getThread().getRequestContext(), "«this»", ctx.getModel().getProbeSpecContext().obtainProbeSetId("end«this»")));
+	this.startStopProbes.get("«this»").get(1).takeMeasurement(ctx.getThread().getRequestContext());
 «ENDDEFINE»

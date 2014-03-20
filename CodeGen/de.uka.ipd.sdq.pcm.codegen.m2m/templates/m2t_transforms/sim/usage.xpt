@@ -39,12 +39,7 @@
 			protected de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory getResourceContainerFactory(){
 				return new ResourceEnvironment();
 			}
-			
-			@Override
-			protected void setupCalculators(de.uka.ipd.sdq.simucomframework.SimuComConfig config) {
-				«EXPAND InitCalculatorsTM FOREACH this.usageScenario_UsageModel»
-			}
-			
+						
 		}
 	«ENDFILE»
 «ENDDEFINE»
@@ -92,6 +87,8 @@
 		public class «this.javaName()» 
 		implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 		{
+			private final java.util.Map<String,java.util.List<de.uka.ipd.sdq.probespec.framework.probes.Probe>> startStopProbes = new java.util.HashMap<String,java.util.List<de.uka.ipd.sdq.probespec.framework.probes.Probe>>();
+			
 			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
 			
 			
@@ -111,9 +108,18 @@
 
 			
 			private de.uka.ipd.sdq.simucomframework.Context ctx = null;
+			private final de.uka.ipd.sdq.simucomframework.model.SimuComModel simuComModel;
+			private de.uka.ipd.sdq.simucomframework.model.SimuComModel getModel() {
+				return this.simuComModel;
+			}
+			
 			«EXPAND UsageScenarioConstructor(a) FOR this»
 			
 			«EXPAND ScenarioRunner(this) FOR this.scenarioBehaviour_UsageScenario»
+			
+			private void setupCalculators() {
+				«EXPAND InitCalculatorsTM FOR this»
+			}
 		}
 	«ENDFILE»
 «ENDDEFINE» 
@@ -125,14 +131,9 @@
 		// of waiting at a resource
 		ctx.setSimProcess(thread);
 		
-		«EXPAND m2t_transforms::sensors::StartResponseTimeMeasurementTM FOR us.entityName»
-		{
-							
-			// Here comes the usage scenario code...
-			«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
+		// Here comes the usage scenario code...
+		«EXPAND m2t_transforms::usage::UserActions FOR this.actions_ScenarioBehaviour.typeSelect(Start).get(0)»
 			
-		}
-		«EXPAND m2t_transforms::sensors::EndResponseTimeMeasurementTM FOR us.entityName»
 		
 		// A run through this usage model is complete
 		// The counter for main measurements is incremented by the SimuComSimProcess.internalLifeCycle that called this  
@@ -175,9 +176,11 @@
 «DEFINE UsageScenarioConstructor(Allocation a) FOR UsageScenario»
 	«LET this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
 		public «this.javaName()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model,«EXPAND SystemVariableDecl FOREACH systemList SEPARATOR ","») {
+			this.simuComModel = model;
 			ctx = new «a.fqnAllocationContext()»(model);
 			ctx.getStack().createAndPushNewStackFrame();
 			«EXPAND m2t_transforms::usage::UsageScenarioConstructorContextInit(a) FOR this»
+			setupCalculators();
 		}
 	«ENDLET»
 «ENDDEFINE»
