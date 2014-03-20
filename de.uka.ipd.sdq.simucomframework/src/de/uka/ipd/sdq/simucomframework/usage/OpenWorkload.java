@@ -18,7 +18,6 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 
     private final String interArrivalTime;
     private final IUserFactory userFactory;
-    private final String usageScenarioId;
 
     private static Logger logger = Logger.getLogger(OpenWorkload.class
             .getName());
@@ -38,11 +37,10 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
      *            The time to wait between leaving a new user to its fate
      */
     public OpenWorkload(final SimuComModel model, final IUserFactory userFactory,
-            final String interArrivalTime, final String usageScenarioId) {
+            final String interArrivalTime) {
         super(model, "OpenWorkloadUserMaturationChamber");
         this.interArrivalTime = interArrivalTime;
         this.userFactory = userFactory;
-        this.usageScenarioId = usageScenarioId;
     }
 
     @Override

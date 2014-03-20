@@ -220,7 +220,6 @@ implements ISimulationControl, BundleActivator {
         final IWorkloadDriver[] workloadDrivers = getWorkloads((SimuComConfig) config);
         attachUsageResponseTimeCalculators(workloadDrivers);
         model.setUsageScenarios(workloadDrivers);
-        setupCalculators((SimuComConfig) config);
     }
 
     private void attachUsageResponseTimeCalculators(final IWorkloadDriver[] workloadDrivers) {
@@ -282,7 +281,7 @@ implements ISimulationControl, BundleActivator {
      * @param config
      *            the simulation configuration data
      */
-    protected abstract void setupCalculators(SimuComConfig config);
+    // TODO: protected abstract void setupCalculators(SimuComConfig config);
 
     /*
      * (non-Javadoc)
