@@ -1,12 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
 /**
  * A factory for creating open workload users
@@ -14,19 +8,10 @@ import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
  * @author Steffen Becker
  * 
  */
-public abstract class OpenWorkloadUserFactory implements IUserFactory {
+public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
-    private final SimuComModel model;
-    private final List<Probe> usageStartStopProbes;
-
-    public OpenWorkloadUserFactory(final SimuComModel model) {
-        super();
-
-        this.model = model;
-        this.usageStartStopProbes = Collections.unmodifiableList(Arrays.asList(
-                (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl()),
-                (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl())));
-        this.model.getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator("TODO", usageStartStopProbes);
+    public OpenWorkloadUserFactory(final SimuComModel model, final String usageScenarioID) {
+        super(model,usageScenarioID);
     }
 
     /*
@@ -35,10 +20,10 @@ public abstract class OpenWorkloadUserFactory implements IUserFactory {
      * @see de.uka.ipd.sdq.simucomframework.usage.IUserFactory#createUser()
      */
     @Override
-    public IUser createUser(final String usageScenarioId) {
+    public IUser createUser() {
         final IScenarioRunner scenarioRunner = this.createScenarioRunner();
         return new OpenWorkloadUser(model, "OpenUser", scenarioRunner,
-                usageScenarioId, usageStartStopProbes);
+                usageScenarioID, usageStartStopProbes);
     }
 
     /**

@@ -1,12 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import java.util.Arrays;
-import java.util.Collections;
-import java.util.List;
-
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
 /**
  * Factory to create closed workload users
@@ -14,20 +8,14 @@ import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
  * @author Steffen Becker
  * 
  */
-public abstract class ClosedWorkloadUserFactory implements IUserFactory {
+public abstract class ClosedWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
     private final String thinkTime;
-    private final SimuComModel model;
-    private final List<Probe> usageStartStopProbes;
 
+    public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec, final String usageScenarioID) {
+        super(model, usageScenarioID);
 
-    public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec) {
         this.thinkTime = thinkTimeSpec;
-        this.model = model;
-        this.usageStartStopProbes = Collections.unmodifiableList(Arrays.asList(
-                (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl()),
-                (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl())));
-        this.model.getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator("TODO", usageStartStopProbes);
     }
 
     /*
@@ -36,10 +24,10 @@ public abstract class ClosedWorkloadUserFactory implements IUserFactory {
      * @see de.uka.ipd.sdq.simucomframework.usage.IUserFactory#createUser()
      */
     @Override
-    public IUser createUser(final String usageScenarioId) {
+    public IUser createUser() {
         final IScenarioRunner scenarioRunner = this.createScenarioRunner();
         return new ClosedWorkloadUser(model, "ClosedUser", scenarioRunner,
-                thinkTime, usageScenarioId, usageStartStopProbes);
+                thinkTime, usageScenarioID, usageStartStopProbes);
     }
 
     /**
