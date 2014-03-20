@@ -176,11 +176,7 @@ public final class CalculatorHelper {
 
         // setup a calculator for each instance
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
-            String instanceDescription = scheduledResource.getDescription();
-            if (scheduledResource.getNumberOfInstances() > 1) {
-                instanceDescription = "Core " + (instance + 1) + " " + instanceDescription;
-            }
-
+            final String instanceDescription = "Core " + (instance + 1) + " " + scheduledResource.getDescription();
             final Probe scheduledResourceProbe = getProbeSetWithCurrentTime(model.getSimulationControl(),
                     new TakeScheduledResourceStateProbe(scheduledResource,instance));
             ctx.getCalculatorFactory().buildStateCalculator(instanceDescription, scheduledResourceProbe);
