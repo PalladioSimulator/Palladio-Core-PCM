@@ -42,7 +42,7 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 
 «DEFINE FactoryConstructor FOR UsageScenario»
 	«LET this.querySystemCalls().providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole.uniqueSystemList() AS systemList»
-		private de.uka.ipd.sdq.simucomframework.model.SimuComModel model = null;
+		private final de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
 		«FOREACH systemList AS system»
 		private «system.fqn()» my«system.javaName()» = null;
 		«ENDFOREACH»
