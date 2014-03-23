@@ -21,6 +21,7 @@ import de.uka.ipd.sdq.simucomframework.usage.IUserFactory;
 import de.uka.ipd.sdq.simucomframework.usage.IWorkloadDriver;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.simulation.ISimulationControl;
+import de.uka.ipd.sdq.simulation.ISimulationListener;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.SimulationResult;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
@@ -101,6 +102,17 @@ implements ISimulationControl, BundleActivator {
 
         final long SIM_STOP_TIME = config.getSimuTime();
 
+        model.getConfiguration().addListener(new ISimulationListener() {
+
+            @Override
+            public void simulationStop() {
+                model.getProbeSpecContext().finish();
+            }
+
+            @Override
+            public void simulationStart() {}
+        });
+
         model.getSimulationControl().addTimeObserver(new Observer() {
 
             @Override
@@ -176,7 +188,6 @@ implements ISimulationControl, BundleActivator {
      * Request a simulation stop
      */
     protected void stop() {
-        model.getProbeSpecContext().finish();
         model.getSimulationControl().stop();
     }
 
