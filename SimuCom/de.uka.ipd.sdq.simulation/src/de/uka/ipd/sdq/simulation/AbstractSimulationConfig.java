@@ -2,10 +2,11 @@ package de.uka.ipd.sdq.simulation;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import de.uka.ipd.sdq.pipesandfilters.framework.recorder.IRecorderConfigurationFactory;
+import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
@@ -61,7 +62,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     protected long[] randomSeed = null;
     protected IRandomGenerator randomNumberGenerator = null;
     protected String recorderName;
-    protected Map<String, Object> staticRecorderConfigurationMap;
+    protected IRecorderConfigurationFactory recorderConfigurationFactory;
     protected ExperimentRunDescriptor descriptor = null;
     private String simulatorId;
 
@@ -84,13 +85,20 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
             this.randomSeed = getSeedFromConfig(configuration);
 
             this.recorderName = (String) configuration.get(PERSISTENCE_RECORDER_NAME);
-            // TODO: This is a hack...
-            this.staticRecorderConfigurationMap = configuration;
+            this.recorderConfigurationFactory = RecorderExtensionHelper.getRecorderConfigurationFactoryForName(this.recorderName);
+            this.recorderConfigurationFactory.initialize(configuration);
 
             this.listeners = new ArrayList<ISimulationListener>();
         } catch (final Exception e) {
             throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
         }
+    }
+
+    /**
+     * @return the recorderConfigurationFactory
+     */
+    public final IRecorderConfigurationFactory getRecorderConfigurationFactory() {
+        return recorderConfigurationFactory;
     }
 
     public boolean getVerboseLogging() {
@@ -188,10 +196,6 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
 
     public ExperimentRunDescriptor getExperimentRunDescriptor() {
         return descriptor;
-    }
-
-    public Map<String, Object> getRecorderConfig() {
-        return Collections.unmodifiableMap(this.staticRecorderConfigurationMap);
     }
 
     public String getSimulatorId() {
