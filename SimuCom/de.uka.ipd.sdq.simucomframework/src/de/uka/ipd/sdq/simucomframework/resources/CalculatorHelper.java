@@ -7,7 +7,6 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.measurements.BasicMeasurement;
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.probespec.framework.probes.ProbeSet;
-import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
@@ -51,12 +50,12 @@ public final class CalculatorHelper {
 
             @Override
             public void request(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(0).takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                startStopProbes.get(0).takeMeasurement();
             }
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(1).takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                startStopProbes.get(1).takeMeasurement();
             }
 
             @Override
@@ -94,12 +93,12 @@ public final class CalculatorHelper {
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(0).takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                startStopProbes.get(0).takeMeasurement();
             }
 
             @Override
             public void release(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(0).takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                startStopProbes.get(0).takeMeasurement();
             }
         });
     }
@@ -133,7 +132,7 @@ public final class CalculatorHelper {
 
             @Override
             public void demand(final double demand) {
-                scheduledResourceProbe.takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                scheduledResourceProbe.takeMeasurement();
             }
 
             @Override
@@ -165,7 +164,7 @@ public final class CalculatorHelper {
             scheduledResource.addStateListener(new IStateListener() {
                 @Override
                 public void stateChanged(final long state, final int instanceId) {
-                    scheduledResourceProbe.takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                    scheduledResourceProbe.takeMeasurement();
                 }
             }, instance);
         }
@@ -219,12 +218,12 @@ public final class CalculatorHelper {
 
             @Override
             public void release(final ISchedulableProcess process, final long num) {
-                scheduledResourceProbe.takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                scheduledResourceProbe.takeMeasurement();
             }
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                scheduledResourceProbe.takeMeasurement(RequestContext.EMPTY_REQUEST_CONTEXT);
+                scheduledResourceProbe.takeMeasurement();
             }
         });
     }
