@@ -79,9 +79,9 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
         }
 
         // Print failure statistics:
-        // if (this.getModel().getConfig().getSimulateFailures()) {
-        // 	FailureStatistics.getInstance().printFailureStatistics(logger);
-        // }
+        if (this.getModel().getConfiguration().getSimulateFailures()) {
+            FailureStatistics.getInstance().printHandledFailuresStatistics(logger,this.getModel().getSimulationControl().getCurrentSimulationTime());
+        }
     }
 
     private void waitForNextUser() {

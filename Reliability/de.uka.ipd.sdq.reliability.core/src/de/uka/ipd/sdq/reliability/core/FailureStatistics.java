@@ -98,7 +98,7 @@ public class FailureStatistics {
      *            the failure type that occurred as an execution result
      * @return the numerical id of the execution result
      */
-    public int getExecutionResultId(MarkovFailureType failureType) {
+    public int getExecutionResultId(final MarkovFailureType failureType) {
         if (failureType == null) {
             return 0;
         }
@@ -129,7 +129,7 @@ public class FailureStatistics {
      */
     public MarkovFailureType getExternalHardwareFailureType(final String resourceTypeId,
             final String systemRequiredRoleId, final String signatureId) {
-        MarkovHardwareInducedFailureType comparator = MarkovHardwareInducedFailureType.createExternalFailureType(
+        final MarkovHardwareInducedFailureType comparator = MarkovHardwareInducedFailureType.createExternalFailureType(
                 MarkovEvaluationType.POINTSOFFAILURE, resourceTypeId, signatureId, systemRequiredRoleId);
         return getFailureType(comparator);
     }
@@ -147,7 +147,7 @@ public class FailureStatistics {
      */
     public MarkovFailureType getExternalNetworkFailureType(final String commLinkResourceTypeId,
             final String systemRequiredRoleId, final String signatureId) {
-        MarkovNetworkInducedFailureType comparator = MarkovNetworkInducedFailureType.createExternalFailureType(
+        final MarkovNetworkInducedFailureType comparator = MarkovNetworkInducedFailureType.createExternalFailureType(
                 MarkovEvaluationType.POINTSOFFAILURE, commLinkResourceTypeId, signatureId, systemRequiredRoleId);
         return getFailureType(comparator);
     }
@@ -165,7 +165,7 @@ public class FailureStatistics {
      */
     public MarkovFailureType getExternalSoftwareFailureType(final String softwareFailureId,
             final String systemRequiredRoleId, final String signatureId) {
-        MarkovSoftwareInducedFailureType comparator = MarkovSoftwareInducedFailureType.createExternalFailureType(
+        final MarkovSoftwareInducedFailureType comparator = MarkovSoftwareInducedFailureType.createExternalFailureType(
                 MarkovEvaluationType.POINTSOFFAILURE, softwareFailureId, signatureId, systemRequiredRoleId);
         return getFailureType(comparator);
     }
@@ -177,10 +177,10 @@ public class FailureStatistics {
      *            the failure type id
      * @return the failure type
      */
-    public MarkovFailureType getFailureType(String failureTypeId) {
-        Iterator<MarkovFailureType> iterator = simFailureTypes.keySet().iterator();
+    public MarkovFailureType getFailureType(final String failureTypeId) {
+        final Iterator<MarkovFailureType> iterator = simFailureTypes.keySet().iterator();
         while (iterator.hasNext()) {
-            MarkovFailureType failureType = iterator.next();
+            final MarkovFailureType failureType = iterator.next();
             if (failureType.getId().equals(failureTypeId)) {
                 return failureType;
             }
@@ -228,7 +228,7 @@ public class FailureStatistics {
      */
     public MarkovFailureType getInternalHardwareFailureType(final String resourceContainerId,
             final String resourceTypeId) {
-        MarkovHardwareInducedFailureType comparator = MarkovHardwareInducedFailureType.createInternalFailureType(
+        final MarkovHardwareInducedFailureType comparator = MarkovHardwareInducedFailureType.createInternalFailureType(
                 MarkovEvaluationType.POINTSOFFAILURE, resourceContainerId, resourceTypeId);
         return getFailureType(comparator);
     }
@@ -244,7 +244,7 @@ public class FailureStatistics {
      */
     public MarkovFailureType getInternalNetworkFailureType(final String linkingResourceId,
             final String commLinkResourceTypeId) {
-        MarkovNetworkInducedFailureType comparator = MarkovNetworkInducedFailureType.createInternalFailureType(
+        final MarkovNetworkInducedFailureType comparator = MarkovNetworkInducedFailureType.createInternalFailureType(
                 MarkovEvaluationType.POINTSOFFAILURE, linkingResourceId, commLinkResourceTypeId);
         return getFailureType(comparator);
     }
@@ -260,7 +260,7 @@ public class FailureStatistics {
      */
     public MarkovFailureType getInternalSoftwareFailureType(final String softwareFailureId,
             final String internalActionId) {
-        MarkovSoftwareInducedFailureType comparator = MarkovSoftwareInducedFailureType.createInternalFailureType(
+        final MarkovSoftwareInducedFailureType comparator = MarkovSoftwareInducedFailureType.createInternalFailureType(
                 MarkovEvaluationType.POINTSOFFAILURE, softwareFailureId, internalActionId);
         return getFailureType(comparator);
 
@@ -277,7 +277,7 @@ public class FailureStatistics {
      */
     public MarkovFailureType getResourceTimeoutFailureType(final String assemblyContextId,
             final String passiveResourceId) {
-        MarkovResourceTimeoutFailureType comparator = MarkovResourceTimeoutFailureType
+        final MarkovResourceTimeoutFailureType comparator = MarkovResourceTimeoutFailureType
                 .createResourceTimeoutFailureType(MarkovEvaluationType.POINTSOFFAILURE, assemblyContextId,
                         passiveResourceId);
         return getFailureType(comparator);
@@ -393,9 +393,9 @@ public class FailureStatistics {
      * 
      * @param logger
      *            The logger to write the statistics to
-     * @param simulationTime 
+     * @param simulationTime
      */
-    public void printFailureStatistics(final Logger logger, double simulationTime) {
+    public void printFailureStatistics(final Logger logger, final double simulationTime) {
         logger.warn("---- System Failure Statistics: START ----");
         logger.warn("- Total usage scenario runs:            " + runCount);
         logger.warn("- Total failed usage scenario runs:     " + failedRuns.size());
@@ -403,14 +403,14 @@ public class FailureStatistics {
         logger.warn("- Total probability of success:         " + (1 - failedRuns.size() / ((double) runCount)));
         logger.warn("- Failure rate (failures per simulated time unit): " + (failedRuns.size() / simulationTime));
         logger.warn("- Mean time between failure:            " + (simulationTime / failedRuns.size()) );
-        
+
         logger.warn("- Total number of faults:               " + this.totalFailureCount);
         logger.warn("- Total probability of fault:           " + (this.totalFailureCount / (double) runCount));
         logger.warn("- Total probability of no fault:        " + (1 - (this.totalFailureCount / (double) runCount)));
         logger.warn("- Fault rate (recovered and non-recovered, faults per simulated time unit): " + (this.totalFailureCount / simulationTime));
         logger.warn("- Mean time between faults (recovered and non-recovered): " + (simulationTime / this.totalFailureCount) );
-        
-        for (String failureString : getFailureStringsSorted(simulationTime)) {
+
+        for (final String failureString : getFailureStringsSorted(simulationTime)) {
             logger.warn(failureString);
         }
         printHandledFailuresStatistics(logger, simulationTime);
@@ -459,9 +459,9 @@ public class FailureStatistics {
      * 
      * @param logger
      *            The logger to write the statistics to
-     * @param simulationTime 
+     * @param simulationTime
      */
-    public synchronized void printRunCount(final Logger logger, double simulationTime) {
+    public synchronized void printRunCount(final Logger logger, final double simulationTime) {
         if ((runCount % 50000) == 0) {
             printFailureStatistics(logger, simulationTime);
         } else if ((runCount % 10000) == 0) {
@@ -483,23 +483,6 @@ public class FailureStatistics {
         totalFailureCount = 0;
 
         runCount = 0;
-
-        // ************* TEMPORORY START **************************
-        // try {
-        // // Create Log file if not yet existent:
-        // java.io.File f = new java.io.File("C:\\temp\\log.txt");
-        // if (!f.exists()) {
-        // f.createNewFile();
-        // java.io.BufferedWriter out = new java.io.BufferedWriter(
-        // new java.io.FileWriter(f));
-        // out.write("TotalRuns;TotalFailed;SWFailed;HWFailed;NWFailed;");
-        // out.newLine();
-        // out.close();
-        // }
-        // } catch (java.io.IOException e) {
-        // System.err.println("IO Error: " + e.getMessage());
-        // }
-        // ************* TEMPORORY STOP ***************************
     }
 
     /**
@@ -522,21 +505,21 @@ public class FailureStatistics {
         // Build result type mapping:
         executionResultTypes = new HashMap<Integer, String>();
         executionResultTypes.put(0, "Success");
-        for (MarkovFailureType failureType : simFailureTypes.keySet()) {
+        for (final MarkovFailureType failureType : simFailureTypes.keySet()) {
             executionResultTypes.put(simFailureTypes.get(failureType), failureType.getName());
         }
     }
 
     /**
      * Retrieves the sorted list of recorded failure occurrences.
-     * @param simulationTime 
+     * @param simulationTime
      * 
      * @return the failure occurrences list
      */
-    private TreeSet<String> getFailureStringsSorted(double simulationTime) {
-        TreeSet<String> result = new TreeSet<String>();
-        for (MarkovFailureType failureType : unhandledFailureCounters.keySet()) {
-            double count = unhandledFailureCounters.get(failureType);
+    private TreeSet<String> getFailureStringsSorted(final double simulationTime) {
+        final TreeSet<String> result = new TreeSet<String>();
+        for (final MarkovFailureType failureType : unhandledFailureCounters.keySet()) {
+            final double count = unhandledFailureCounters.get(failureType);
             result.add("-- " + failureType.getName() + ": " + (int) count + " (" + count / runCount + ")");
         }
         return result;
@@ -550,9 +533,9 @@ public class FailureStatistics {
      * @return the corresponding failure type
      */
     private MarkovFailureType getFailureType(final MarkovFailureType comparator) {
-        Iterator<MarkovFailureType> iterator = simFailureTypes.keySet().iterator();
+        final Iterator<MarkovFailureType> iterator = simFailureTypes.keySet().iterator();
         while (iterator.hasNext()) {
-            MarkovFailureType failureType = iterator.next();
+            final MarkovFailureType failureType = iterator.next();
             if (failureType.equals(comparator)) {
                 return failureType;
             }
@@ -567,94 +550,96 @@ public class FailureStatistics {
      *            The logger to write the statistics to
      * @param simulationTime The overall simulated time to calculate rates
      */
-    private void printHandledFailuresStatistics(final Logger logger, double simulationTime) {
-        boolean headerPrinted = false;
-        
-        Map<String, SoftwareFailureStatistics> softwareFailureStatisticsMap = new HashMap<String, SoftwareFailureStatistics>();
-        
-        for (MarkovFailureType failureType : handledFailureCounters.keySet()) {
-            int handledCount = handledFailureCounters.get(failureType);
-            Integer totalFailureCount = totalFailureCounters.get(failureType);
-            if (totalFailureCount == null) {
-                totalFailureCount = 0;
+    public void printHandledFailuresStatistics(final Logger logger, final double simulationTime) {
+        if (logger.isDebugEnabled()) {
+            boolean headerPrinted = false;
+
+            final Map<String, SoftwareFailureStatistics> softwareFailureStatisticsMap = new HashMap<String, SoftwareFailureStatistics>();
+
+            for (final MarkovFailureType failureType : handledFailureCounters.keySet()) {
+                final int handledCount = handledFailureCounters.get(failureType);
+                Integer totalFailureCount = totalFailureCounters.get(failureType);
+                if (totalFailureCount == null) {
+                    totalFailureCount = 0;
+                }
+                if (!headerPrinted) {
+                    logger.debug("---- Handled Failures:");
+                    headerPrinted = true;
+                }
+                logger.debug("- " + failureType.getName() + ": Handled " + handledCount + " out of " + totalFailureCount
+                        + " (" + ((double) handledCount) / (totalFailureCount) + ")");
+                logger.debug("  Fault rate (faults per time unit):                 "+(totalFailureCount / simulationTime));
+                logger.debug("  Mean time to fault (time units):                   "+(simulationTime / totalFailureCount));
+                logger.debug("  Non-recoverable fault rate (failures per time unit): "+((totalFailureCount-handledCount) / simulationTime));
+                logger.debug("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (totalFailureCount-handledCount)));
+
+                // aggregate software failures by type
+                if ( failureType instanceof MarkovSoftwareInducedFailureType) {
+                    final MarkovSoftwareInducedFailureType swFailureType = (MarkovSoftwareInducedFailureType)failureType;
+
+                    SoftwareFailureStatistics softwareFailureStatistics = softwareFailureStatisticsMap.get(swFailureType.getSoftwareFailureId());
+                    if (softwareFailureStatistics == null){
+                        softwareFailureStatistics = new SoftwareFailureStatistics(swFailureType.getSoftwareFailureId(), swFailureType.getSoftwareFailureName());
+                        softwareFailureStatisticsMap.put(swFailureType.getSoftwareFailureId(), softwareFailureStatistics);
+                    }
+                    softwareFailureStatistics.addTotalFailureCount(totalFailureCount);
+                    softwareFailureStatistics.addHandledCount(handledCount);
+
+                }
             }
-            if (!headerPrinted) {
-                logger.warn("---- Handled Failures:");
-                headerPrinted = true;
+
+            logger.debug("\n---- Handled failures aggregated by software failure type:");
+            for (final SoftwareFailureStatistics softwareFailureStatistics : softwareFailureStatisticsMap.values()) {
+
+                logger.debug("- " + softwareFailureStatistics.getName() + "("+softwareFailureStatistics.getId()+") : Handled " + softwareFailureStatistics.getHandledCount() + " out of " + softwareFailureStatistics.getTotalFailureCount()
+                        + " (" + ((double) softwareFailureStatistics.getHandledCount()) / (softwareFailureStatistics.getTotalFailureCount()) + ")");
+                logger.debug("  Fault rate (faults per time unit):                 "+(softwareFailureStatistics.getTotalFailureCount() / simulationTime));
+                logger.debug("  Mean time to fault (time units):                   "+(simulationTime / softwareFailureStatistics.getTotalFailureCount()));
+                logger.debug("  Non-recoverable fault rate (failures per time unit): "+((softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount()) / simulationTime));
+                logger.debug("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount())));
             }
-            logger.warn("- " + failureType.getName() + ": Handled " + handledCount + " out of " + totalFailureCount
-                    + " (" + ((double) handledCount) / (totalFailureCount) + ")");
-            logger.warn("  Fault rate (faults per time unit):                 "+(totalFailureCount / simulationTime));
-            logger.warn("  Mean time to fault (time units):                   "+(simulationTime / totalFailureCount));
-            logger.warn("  Non-recoverable fault rate (failures per time unit): "+((totalFailureCount-handledCount) / simulationTime));
-            logger.warn("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (totalFailureCount-handledCount)));
-        
-            // aggregate software failures by type
-            if ( failureType instanceof MarkovSoftwareInducedFailureType) {
-            	MarkovSoftwareInducedFailureType swFailureType = (MarkovSoftwareInducedFailureType)failureType;
-            	
-            	SoftwareFailureStatistics softwareFailureStatistics = softwareFailureStatisticsMap.get(swFailureType.getSoftwareFailureId());
-            	if (softwareFailureStatistics == null){
-            		softwareFailureStatistics = new SoftwareFailureStatistics(swFailureType.getSoftwareFailureId(), swFailureType.getSoftwareFailureName());
-            		softwareFailureStatisticsMap.put(swFailureType.getSoftwareFailureId(), softwareFailureStatistics);
-            	}
-            	softwareFailureStatistics.addTotalFailureCount(totalFailureCount);
-            	softwareFailureStatistics.addHandledCount(handledCount);
-            	
-            }
-        }
-        
-        logger.warn("\n---- Handled failures aggregated by software failure type:");
-        for (SoftwareFailureStatistics softwareFailureStatistics : softwareFailureStatisticsMap.values()) {
-        	
-        	logger.warn("- " + softwareFailureStatistics.getName() + "("+softwareFailureStatistics.getId()+") : Handled " + softwareFailureStatistics.getHandledCount() + " out of " + softwareFailureStatistics.getTotalFailureCount()
-                    + " (" + ((double) softwareFailureStatistics.getHandledCount()) / (softwareFailureStatistics.getTotalFailureCount()) + ")");
-            logger.warn("  Fault rate (faults per time unit):                 "+(softwareFailureStatistics.getTotalFailureCount() / simulationTime));
-            logger.warn("  Mean time to fault (time units):                   "+(simulationTime / softwareFailureStatistics.getTotalFailureCount()));
-            logger.warn("  Non-recoverable fault rate (failures per time unit): "+((softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount()) / simulationTime));
-            logger.warn("  Mean time to non-recoverable failure (time units):   "+(simulationTime / (softwareFailureStatistics.getTotalFailureCount()-softwareFailureStatistics.getHandledCount())));
         }
 
     }
 }
 
 class SoftwareFailureStatistics{
-	private String id;
-	private String name;
-	private int totalFailureCount = 0;
-	private int handledCount = 0;
-	
-	public String getId() {
-		return id;
-	}
+    private final String id;
+    private final String name;
+    private int totalFailureCount = 0;
+    private int handledCount = 0;
 
-	public int getTotalFailureCount() {
-		return totalFailureCount;
-	}
+    public String getId() {
+        return id;
+    }
 
-	public int getHandledCount() {
-		return handledCount;
-	}
-	
-	public SoftwareFailureStatistics(String softwareFailureId,
-			String softwareFailureName) {
-		this.id = softwareFailureId;
-		this.name = softwareFailureName;
-	}
-	
-	public String getName() {
-		return this.name;
-	}
+    public int getTotalFailureCount() {
+        return totalFailureCount;
+    }
 
-	public void addHandledCount(int handledCount2) {
-		this.handledCount += handledCount2;
-		
-	}
+    public int getHandledCount() {
+        return handledCount;
+    }
 
-	public void addTotalFailureCount(Integer totalFailureCount2) {
-		this.totalFailureCount += totalFailureCount2;
-		
-	}
+    public SoftwareFailureStatistics(final String softwareFailureId,
+            final String softwareFailureName) {
+        this.id = softwareFailureId;
+        this.name = softwareFailureName;
+    }
+
+    public String getName() {
+        return this.name;
+    }
+
+    public void addHandledCount(final int handledCount2) {
+        this.handledCount += handledCount2;
+
+    }
+
+    public void addTotalFailureCount(final Integer totalFailureCount2) {
+        this.totalFailureCount += totalFailureCount2;
+
+    }
 
 
 }

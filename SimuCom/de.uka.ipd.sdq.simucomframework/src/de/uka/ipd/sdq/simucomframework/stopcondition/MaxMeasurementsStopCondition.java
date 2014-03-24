@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework;
+package de.uka.ipd.sdq.simucomframework.stopcondition;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;

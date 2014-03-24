@@ -1,4 +1,4 @@
-package de.uka.ipd.sdq.simucomframework;
+package de.uka.ipd.sdq.simucomframework.stopcondition;
 
 import javax.measure.Measure;
 import javax.measure.quantity.Duration;
@@ -57,7 +57,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
      *            the relative half width of the target confidence interval. Use
      *            values between 0 and 1.
      */
-    protected ConfidenceStopCondition(final SimuComModel model,
+    public ConfidenceStopCondition(final SimuComModel model,
             final IBatchAlgorithm batchAlgorithm, final IConfidenceEstimator estimator,
             final double confidenceLevel, final double halfWidth) {
         this.model = model;
@@ -78,7 +78,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 
     private void initialize() {
         final Calculator c = obtainUsageScenarioResponseTimeCalculator(usageScenarioName);
-        c.registerCalculatorListener(this);
+        c.registerMeasurementSourceListener(this);
         minBatches = 0;
     }
 
@@ -88,7 +88,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
     }
 
     @Override
-    public void measurementTaken(final Measurement resultTuple) {
+    public void newMeasurementAvailable(final Measurement resultTuple) {
         final Measure<Double, Duration> responseTimeMeasure = resultTuple.getMeasureForMetric(MetricDescriptionConstants.RESPONSE_TIME_METRIC);
         final double responseTime = responseTimeMeasure.doubleValue(SI.SECOND);
 

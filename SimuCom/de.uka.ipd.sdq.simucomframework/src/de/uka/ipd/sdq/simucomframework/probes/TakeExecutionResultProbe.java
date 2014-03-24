@@ -23,6 +23,7 @@ public class TakeExecutionResultProbe extends BasicProbe<Long, Dimensionless>{
 
     @Override
     protected Measure<Long, Dimensionless> getBasicMeasure(final RequestContext measurementContext) {
+        // TODO: Deliver correct state!
         final long stateId = 0;
         return Measure.valueOf(stateId, Dimensionless.UNIT);
     }

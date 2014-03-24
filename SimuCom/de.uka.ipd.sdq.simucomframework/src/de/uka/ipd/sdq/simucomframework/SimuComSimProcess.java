@@ -11,12 +11,14 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
+import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.resources.active.SimDelayResource;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.probes.TakeExecutionResultProbe;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simulation.SimulationResult;
@@ -25,7 +27,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcess;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessListener;
 
 public abstract class SimuComSimProcess extends AbstractSimProcessDelegator implements ISchedulableProcess,
-        ISimProcessListener {
+ISimProcessListener {
 
     private static AtomicLong sessionID = new AtomicLong(0);
     /** Logger for this class. */
@@ -34,91 +36,103 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     private Process processStatus = null;
     private SimDelayResource delayResource = null;
 
-    private boolean isDebug;
+    private final boolean isDebug;
 
-    private List<IActiveResource> removedObservers = new ArrayList<IActiveResource>();;
-    
-    private RequestContext requestContext;
-    
-    private ArrayList<IActiveResource> terminatedObservers = new ArrayList<IActiveResource>();
-    
+    private final List<IActiveResource> removedObservers = new ArrayList<IActiveResource>();;
+
+    private final RequestContext requestContext;
+
+    private final ArrayList<IActiveResource> terminatedObservers = new ArrayList<IActiveResource>();
+
     protected long currentSessionId;
-    
+
     private boolean isTimeoutFailure = false;
-    
+
     private String timeoutFailureTypeId = null;
-    
+
     private int priority = 0;
-    
+
+    private final TakeExecutionResultProbe resultProbe;
+
+    @Override
     public int getPriority() {
-		return priority;
-	}
+        return priority;
+    }
 
-	public void setPriority(int priority) {
-		this.priority = priority;
-	}
+    @Override
+    public void setPriority(final int priority) {
+        this.priority = priority;
+    }
 
-	protected SimuComSimProcess(SimuComModel model, String name) {
+    protected SimuComSimProcess(final SimuComModel model, final String name) {
         this(model, name, null);
     }
-    
-    protected SimuComSimProcess(SimuComModel model, String name, RequestContext parentRequestContext) {
+
+    protected SimuComSimProcess(final SimuComModel model, final String name, final RequestContext parentRequestContext) {
         super(model, name);
         this.isDebug = model.getConfiguration().isDebug();
         this.delayResource = new SimDelayResource(model, name + "_thinktime", name + "_thinktime");
         requestContext = new RequestContext(Long.valueOf(getRawId()).toString(), parentRequestContext);
-        
+        this.resultProbe = new TakeExecutionResultProbe();
+
         // add a process listener in order to get notified when this process is about to be
         // suspended or resumed again.
         this.addProcessListener(this);
-        
-        if(logger.isDebugEnabled())
-        	logger.debug("Create SimuComSimProcess with id " + getRawId());
+
+        if(logger.isDebugEnabled()) {
+            logger.debug("Create SimuComSimProcess with id " + getRawId());
+        }
     }
 
+    @Override
     public void activate() {
         this.scheduleAt(0);
     }
-    
+
     /*
      * (non-Javadoc)
      *
      * @see
      * de.uka.ipd.sdq.scheduler.ISchedulableProcess#timeout(java.lang.String)
      */
-    public void timeout(String timeoutFailureTypeId) {
+    @Override
+    public void timeout(final String timeoutFailureTypeId) {
         this.isTimeoutFailure = true;
         this.timeoutFailureTypeId = timeoutFailureTypeId;
         activate();
     };
-    
+
     /**
      * Clients may override default behaviour, e.g., PassiveResource
      */
     protected void addProcessToSimStatus() {
-    	if(logger.isDebugEnabled())
-    		logger.debug("Starting simulation process " + this.getName());
+        if(logger.isDebugEnabled()) {
+            logger.debug("Starting simulation process " + this.getName());
+        }
 
         if (isDebug) {
             processStatus = SimucomstatusFactory.eINSTANCE.createProcess();
             this.getModel().getSimulationStatus().getProcessStatus()
-                    .getProcesses().add(processStatus);
+            .getProcesses().add(processStatus);
             processStatus.setId(this.getName());
             processStatus.setProcessStartTime(this.getModel()
                     .getSimulationControl().getCurrentSimulationTime());
         }
     }
 
-    public void addTerminatedObserver(IActiveResource r) {
+    @Override
+    public void addTerminatedObserver(final IActiveResource r) {
         if (!terminatedObservers.contains(r)){
             terminatedObservers.add(r);
         }
     }
 
+    @Override
     public void fireTerminated() {
         LoggingWrapper.log("Process " + this.getId() + " terminated.");
-        for (IActiveResource o : terminatedObservers)
+        for (final IActiveResource o : terminatedObservers) {
             o.notifyTerminated(this);
+        }
         terminatedObservers.removeAll(removedObservers);
         removedObservers.clear();
     }
@@ -138,26 +152,28 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     public RequestContext getRequestContext() {
         return requestContext;
     }
-    
+
+    @Override
     public ISchedulableProcess getRootProcess(){
         // TODO: What is expected here?
         return null;
     }
-    
+
     public Process getSimProcessStatus() {
         return this.processStatus;
     }
 
-    public void hold(double d) {
-    	delayResource.process(this, 1, Collections.<String, Serializable> emptyMap(), d);
+    public void hold(final double d) {
+        delayResource.process(this, 1, Collections.<String, Serializable> emptyMap(), d);
     }
 
     protected abstract void internalLifeCycle();
-    
+
+    @Override
     public boolean isFinished() {
         return isTerminated();
     }
-    
+
     /*
      * (non-Javadoc)
      * 
@@ -165,32 +181,43 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
      * de.uka.ipd.sdq.simulation.abstractsimengine.ISimProcessDelegate
      * #lifeCycle()
      */
+    @Override
     public final void lifeCycle() {
         addProcessToSimStatus();
+        MarkovFailureType resultFailure = null;
         try {
-            this.internalLifeCycle();
-            this.fireTerminated();
-        } catch (Exception e) {
-            e.printStackTrace();
+            try {
+                this.internalLifeCycle();
+            } catch (final FailureException exception) {
+                FailureStatistics.getInstance()
+                .increaseUnhandledFailureCounter(exception.getFailureType(), currentSessionId);
+                resultFailure = exception.getFailureType();
+            }
+        } catch (final Exception e) {
             String message = e.getMessage();
             message = message == null ? "" : message;
             if (e instanceof IllegalArgumentException && message.contains("Cannot schedule in the past")){
-            	if(logger.isEnabledFor(Level.WARN))
-            		logger.warn(
-                        "Simulation caused an exception because it scheduled in the past. Check your models that you do not have any negative demands, arrival times, or similar",
-                        e);
+                if(logger.isEnabledFor(Level.WARN)) {
+                    logger.warn(
+                            "Simulation caused an exception because it scheduled in the past. Check your models that you do not have any negative demands, arrival times, or similar",
+                            e);
+                }
             }
             else {
-            	if(logger.isEnabledFor(Level.WARN))
-            		logger.warn(
-                    "Simulation caused an exception. Caught it in SimProcess Lifecycle Method",
-                    e);
+                if(logger.isEnabledFor(Level.WARN)) {
+                    logger.warn(
+                            "Simulation caused an exception. Caught it in SimProcess Lifecycle Method",
+                            e);
+                }
             }
-            ((SimuComModel) getModel()).setStatus(SimulationResult.ERROR, e);
-            if(logger.isDebugEnabled())
-            	logger.debug("Trying to stop simulation now...");
+            getModel().setStatus(SimulationResult.ERROR, e);
+            if(logger.isDebugEnabled()) {
+                logger.debug("Trying to stop simulation now...");
+            }
             this.getModel().getSimulationControl().stop();
         }
+        resultProbe.takeMeasurement(requestContext);
+        this.fireTerminated();
         removeProcessFromSimStatus();
     }
 
@@ -198,15 +225,17 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
      * 
      */
     protected void removeProcessFromSimStatus() {
-    	if(logger.isDebugEnabled())
-    		logger.debug("Terminating SimuComSimProcess " + this.getName());
+        if(logger.isDebugEnabled()) {
+            logger.debug("Terminating SimuComSimProcess " + this.getName());
+        }
         if (isDebug) {
             this.getModel().getSimulationStatus().getProcessStatus()
-                    .getProcesses().remove(processStatus);
+            .getProcesses().remove(processStatus);
         }
     }
 
-    public void removeTerminatedObserver(IActiveResource r) {
+    @Override
+    public void removeTerminatedObserver(final IActiveResource r) {
         removedObservers.remove(r);
     }
 
@@ -215,7 +244,7 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     }
 
     @Override
-    public void notifyResuming(ISimProcess process) {
+    public void notifyResuming(final ISimProcess process) {
         // the process is about to resume again. Check for the timeout
         // failure condition:
         if (this.isTimeoutFailure) {
@@ -226,7 +255,7 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     }
 
     @Override
-    public void notifySuspending(ISimProcess process) {
+    public void notifySuspending(final ISimProcess process) {
         // nothing to do here
     }
 
@@ -234,6 +263,6 @@ public abstract class SimuComSimProcess extends AbstractSimProcessDelegator impl
     public SimuComModel getModel() {
         return (SimuComModel) super.getModel();
     }
-    
+
 
 }

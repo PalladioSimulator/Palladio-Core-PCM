@@ -1,3 +1,4 @@
+package de.uka.ipd.sdq.simucomframework.stopcondition;
 //package de.uka.ipd.sdq.simucomframework;
 //
 //import java.util.ArrayList;

@@ -11,7 +11,6 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.DisplayIssuesDialog;
-import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
@@ -41,13 +40,20 @@ import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
  * @author Steffen Becker
  * 
  */
-public abstract class AbstractMain
-implements ISimulationControl, BundleActivator {
+public abstract class AbstractMain implements ISimulationControl, BundleActivator {
 
-    // Service registry entry for registering this object in Eclipse's service
-    // registry where
-    // it can be found by the simulation runner
+    /** Service registry entry for registering this object in Eclipse's service registry where
+        it can be found by the simulation runner */
     private ServiceRegistration<ISimulationControl> serviceRegistryEntry;
+
+    /** The simucom model to be simulated */
+    private SimuComModel model;
+
+    /** The simucom status EMF model instance which tracks simulation status for debugging */
+    private SimuComStatus simuComStatus;
+
+    /** This class' logger */
+    private static Logger LOG = Logger.getLogger(AbstractMain.class.getName());
 
     /*
      * (non-Javadoc)
@@ -76,10 +82,6 @@ implements ISimulationControl, BundleActivator {
         serviceRegistryEntry.unregister();
     }
 
-    private SimuComModel model = null;
-    private SimuComStatus simuComStatus;
-    private static Logger logger = Logger.getLogger(AbstractMain.class.getName());
-
     /**
      * Run a simulation using the given configuration and report to the given
      * observer
@@ -95,12 +97,10 @@ implements ISimulationControl, BundleActivator {
      */
     protected SimulationResult run(final IStatusObserver statusObserver, final SimuComConfig config, final boolean isRemoteRun) {
 
-        if(logger.isEnabledFor(Level.INFO)) {
-            logger.info("Starting Simulation");
-            logger.info("Simulation engine used: "+model.getSimulationControl().getClass().getSimpleName());
+        if(LOG.isEnabledFor(Level.INFO)) {
+            LOG.info("Starting Simulation");
+            LOG.info("Simulation engine used: "+model.getSimulationControl().getClass().getSimpleName());
         }
-
-        final long SIM_STOP_TIME = config.getSimuTime();
 
         model.getConfiguration().addListener(new ISimulationListener() {
 
@@ -117,7 +117,7 @@ implements ISimulationControl, BundleActivator {
 
             @Override
             public void update(final Observable clock, final Object data) {
-                final int timePercent = SIM_STOP_TIME < 0 ? 0 : (int) (model.getSimulationControl().getCurrentSimulationTime() * 100 / SIM_STOP_TIME);
+                final int timePercent = config.getSimuTime() < 0 ? 0 : (int) (model.getSimulationControl().getCurrentSimulationTime() * 100 / config.getSimuTime());
                 final int measurementsPercent = (int) (model.getMainMeasurementsCount() * 100 / model.getConfiguration()
                         .getMaxMeasurementsCount());
                 statusObserver.updateStatus(timePercent < measurementsPercent ? measurementsPercent : timePercent,
@@ -127,62 +127,21 @@ implements ISimulationControl, BundleActivator {
         });
         getStatus().setCurrentSimulationTime(0);
         final double simRealTime = ExperimentRunner.run(model);
-        // check if there are accuracy influence analysis issues
         if (model.getIssues().size() > 0) {
-            if(logger.isEnabledFor(Level.INFO)) {
-                logger.info(model.getIssues().size() + " issues experience during the simulation run.");
+            if(LOG.isEnabledFor(Level.INFO)) {
+                LOG.info(model.getIssues().size() + " issues experience during the simulation run.");
             }
             final DisplayIssuesDialog runner = new DisplayIssuesDialog(model.getIssues());
             DisplayIssuesDialog.showDialogSync(runner);
         }
 
-        if(logger.isEnabledFor(Level.INFO)) {
-            logger.info("Simulation stopped. It took " + (simRealTime / Math.pow(10, 9))
+        if(LOG.isEnabledFor(Level.INFO)) {
+            LOG.info("Simulation stopped. It took " + (simRealTime / Math.pow(10, 9))
                     + " seconds real time to terminate");
         }
-
-        // TODO
-        // storeRunDescription(config.getExperimentRunDescriptor());
-
         model.getConfiguration().disposeRandomGenerator();
         return model.getErrorStatus();
     }
-
-    /**
-     * TODO: Where to put this code?
-     * 
-     * If a sensitivity analysis has been conducted we need to store the current
-     * parameter values.
-     * 
-     * @param descriptor
-     * @param run
-     */
-    // private void storeRunDescription(
-    // ExperimentRunDescriptor descriptor) {
-    // if (descriptor == null) return;
-    //
-    // // TODO: Save data in clean model after migration to EDP2
-    // for(ParameterDescriptor p : descriptor.getParameters()){
-    // TimeSpanSensor s = createSensor(p.getName());
-    // storeValue(s, p.getValue());
-    // }
-    //
-    // }
-    //
-    // private void storeValue(TimeSpanSensor s, double value) {
-    // if (model.getCurrentExperimentRun() instanceof
-    // SimuComExperimentRunDecorator){
-    // SimuComExperimentRunDecorator erd = (SimuComExperimentRunDecorator)
-    // model.getCurrentExperimentRun();
-    // erd.addTimeSpanMeasurementAfterRun(s, 0, value);
-    // }
-    //
-    // }
-    //
-    // private TimeSpanSensor createSensor(String name) {
-    // return SensorHelper.createOrReuseTimeSensor(model.getDAOFactory(),
-    // model.getExperimentDatastore(), name);
-    // }
 
     /**
      * Request a simulation stop
@@ -284,15 +243,6 @@ implements ISimulationControl, BundleActivator {
      *         environment
      */
     protected abstract IResourceContainerFactory getResourceContainerFactory();
-
-    /**
-     * Template method. Child classes implement this method to set up
-     * {@link Calculator}s before the simulation begins.
-     * 
-     * @param config
-     *            the simulation configuration data
-     */
-    // TODO: protected abstract void setupCalculators(SimuComConfig config);
 
     /*
      * (non-Javadoc)

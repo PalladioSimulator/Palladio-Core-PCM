@@ -22,7 +22,7 @@ public class SetupRecorderStrategy implements ISetupDataSinkStrategy {
         recorder.initialize(metaData);
 
         // register recorder at calculator
-        calculator.registerCalculatorListener(recorder);
+        calculator.registerMeasurementSourceListener(recorder);
 
         return recorder;
     }

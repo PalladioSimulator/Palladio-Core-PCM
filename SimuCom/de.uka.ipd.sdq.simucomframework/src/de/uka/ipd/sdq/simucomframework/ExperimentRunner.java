@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.stopcondition.ConfidenceStopCondition;
+import de.uka.ipd.sdq.simucomframework.stopcondition.MaxMeasurementsStopCondition;
 import de.uka.ipd.sdq.statistics.IBatchAlgorithm;
 import de.uka.ipd.sdq.statistics.PhiMixingBatchAlgorithm;
 import de.uka.ipd.sdq.statistics.StaticBatchAlgorithm;
