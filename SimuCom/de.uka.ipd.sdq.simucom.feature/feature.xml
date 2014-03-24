@@ -219,6 +219,7 @@ litigation.
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
       <discovery label="ProbeSpec Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/probespec/nightly/"/>
+      <discovery label="EDP2 Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
    </url>
 
    <requires>
