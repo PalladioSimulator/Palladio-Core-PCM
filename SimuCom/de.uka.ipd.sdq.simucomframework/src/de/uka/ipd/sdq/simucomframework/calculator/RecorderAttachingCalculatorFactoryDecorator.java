@@ -2,13 +2,15 @@ package de.uka.ipd.sdq.simucomframework.calculator;
 
 import java.util.Collections;
 import java.util.Date;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.palladiosimulator.edp2.models.ExperimentData.MetricSetDescription;
+import org.eclipse.core.runtime.CoreException;
 
-import de.uka.ipd.sdq.pipesandfilters.framework.IMetaDataInitFactory;
-import de.uka.ipd.sdq.pipesandfilters.framework.MetaDataInit;
+import de.uka.ipd.sdq.pipesandfilters.framework.recorder.AbstractRecorderConfiguration;
+import de.uka.ipd.sdq.pipesandfilters.framework.recorder.Recorder;
+import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.IRecorderConfiguration;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
@@ -33,14 +35,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     private final String experimentRunName;
 
-    private final IMetaDataInitFactory metaDataInitFactory;
-
-    /**
-     * Strategy interface for initialising data sinks, i.e., pipe and filter chains with a recorder
-     * at their end
-     */
-    private final ISetupDataSinkStrategy dataSinkSetupStrategy;
-
     private final ICalculatorFactory decoratedCalculatorFactory;
 
     public RecorderAttachingCalculatorFactoryDecorator(final ICalculatorFactory decoratedCalculatorFactory, final SimuComConfig configuration) {
@@ -49,8 +43,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
         this.decoratedCalculatorFactory = decoratedCalculatorFactory;
         this.experimentRunName = "Run " + new Date();
         this.configuration = configuration;
-        this.metaDataInitFactory = RecorderExtensionHelper.instantiateMetaDataInitFactoryForRecorder(configuration.getRecorderName());
-        this.dataSinkSetupStrategy = new SetupRecorderStrategy(this.configuration.getRecorderName());
     }
 
     /**
@@ -159,17 +151,33 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
             final Calculator calculator,
             final Map<Integer, String> failureStatistics) {
 
-        final MetaDataInit metaData = this.metaDataInitFactory.createMetaDataInit(
-                (MetricSetDescription) calculator.getMetricDesciption(),
-                this.configuration.getRecorderConfig(),
-                this.configuration.getNameExperimentRun(),
-                this.experimentRunName,
-                null,  // TODO: Provide model element ID!
-                failureStatistics
-                );
-        dataSinkSetupStrategy.setupDataSink(calculator, metaData);
+        //        final MetaDataInit metaData = this.metaDataInitFactory.createMetaDataInit(
+        //                (MetricSetDescription) calculator.getMetricDesciption(),
+        //                this.configuration.getRecorderConfig(),
+        //                this.configuration.getNameExperimentRun(),
+        //                this.experimentRunName,
+        //                null,  // TODO: Provide model element ID!
+        //                failureStatistics
+        //                );
 
-        return calculator;
+        final Map<String, Object> recorderConfigurationMap = new HashMap<String,Object>();
+        recorderConfigurationMap.putAll(this.configuration.getRecorderConfig());
+        recorderConfigurationMap.put(AbstractRecorderConfiguration.EXPERIMENT_NAME, this.configuration.getNameExperimentRun());
+        recorderConfigurationMap.put(AbstractRecorderConfiguration.EXPERIMENT_RUN_NAME, this.experimentRunName);
+        recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC, calculator.getMetricDesciption());
+
+        try {
+            final Recorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration.getRecorderName());
+            final IRecorderConfiguration recorderConfiguration = RecorderExtensionHelper.getRecorderConfigForName(this.configuration.getRecorderName());
+            recorderConfiguration.setConfiguration(recorderConfigurationMap);
+            recorder.initialize(recorderConfiguration);
+            // register recorder at calculator
+            calculator.registerMeasurementSourceListener(recorder);
+
+            return calculator;
+        } catch (final CoreException e) {
+            throw new RuntimeException(e);
+        }
     }
 
     private Calculator setupRecorder(

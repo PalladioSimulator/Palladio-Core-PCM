@@ -2,11 +2,10 @@ package de.uka.ipd.sdq.simulation;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.IRecorderConfiguration;
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
@@ -62,7 +61,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     protected long[] randomSeed = null;
     protected IRandomGenerator randomNumberGenerator = null;
     protected String recorderName;
-    protected IRecorderConfiguration recorderConfig;
+    protected Map<String, Object> staticRecorderConfigurationMap;
     protected ExperimentRunDescriptor descriptor = null;
     private String simulatorId;
 
@@ -85,10 +84,8 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
             this.randomSeed = getSeedFromConfig(configuration);
 
             this.recorderName = (String) configuration.get(PERSISTENCE_RECORDER_NAME);
-            recorderConfig = RecorderExtensionHelper.getRecorderConfigForName(recorderName);
-            if (recorderConfig != null) {
-                recorderConfig.setConfiguration(configuration);
-            }
+            // TODO: This is a hack...
+            this.staticRecorderConfigurationMap = configuration;
 
             this.listeners = new ArrayList<ISimulationListener>();
         } catch (final Exception e) {
@@ -193,8 +190,8 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         return descriptor;
     }
 
-    public IRecorderConfiguration getRecorderConfig() {
-        return recorderConfig;
+    public Map<String, Object> getRecorderConfig() {
+        return Collections.unmodifiableMap(this.staticRecorderConfigurationMap);
     }
 
     public String getSimulatorId() {

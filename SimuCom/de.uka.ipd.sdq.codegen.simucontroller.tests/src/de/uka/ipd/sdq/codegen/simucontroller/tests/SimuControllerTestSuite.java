@@ -11,7 +11,6 @@ import org.eclipse.core.resources.IContainer;
 import org.eclipse.core.resources.ResourcesPlugin;
 import org.eclipse.core.runtime.FileLocator;
 import org.eclipse.core.runtime.NullProgressMonitor;
-
 import org.eclipse.core.runtime.Platform;
 import org.eclipse.debug.core.DebugPlugin;
 import org.eclipse.debug.core.ILaunchConfigurationType;
@@ -20,7 +19,7 @@ import org.eclipse.debug.core.ILaunchManager;
 import org.junit.Test;
 import org.junit.Assert;
 
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.launch.SensorFrameworkConfig;
+import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.SensorFrameworkRecorderConfiguration;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
@@ -150,7 +149,7 @@ public class SimuControllerTestSuite {
 
 			// TODO: should be optimized by using the constant SensorFrameworkConfig.PERSISTENCE_RECORDER_ID which is not available in the sensor framework version the pcm relies on
 			copy.setAttribute(SimuComConfig.PERSISTENCE_RECORDER_NAME, "SensorFramework");
-			copy.setAttribute(SensorFrameworkConfig.DATASOURCE_ID, 0);
+			copy.setAttribute(SensorFrameworkRecorderConfiguration.DATASOURCE_ID, 0);
 			copy.setAttribute(SimuComConfig.MAXIMUM_MEASUREMENT_COUNT,"100");
 			copy.setAttribute(SimuComConfig.USE_FIXED_SEED,Boolean.FALSE);
 			copy.setAttribute(SimuComConfig.SIMULATION_TIME, "1500");
