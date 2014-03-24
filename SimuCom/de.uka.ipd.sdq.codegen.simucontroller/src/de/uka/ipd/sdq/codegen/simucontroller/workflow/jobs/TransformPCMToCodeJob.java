@@ -59,17 +59,20 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 			UserCanceledException {
 		// First generate the jobs
 		// 1. Generate all repositories
-		for(int repositoryIndex = 0; repositoryIndex < getRepositoryCount(); repositoryIndex++) {
-			if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
-				GlobalVarDef[] globalVars = new GlobalVarDef[1];
-				globalVars[0] = new GlobalVarDef();
-				globalVars[0].setName(GLOBAL_VARIABLE_NAME_QUALITY_ANNOTATION_REPOSITORY);
-				globalVars[0].setValue(SLOT_NAME_QUALITY_ANNOTATION_MODEL);
-				this.addJob(this.getGeneratorJob(getRepositoryTransformationSlots(repositoryIndex), REPOSITORY_ROOT_EXPAND_EXPRESSION, globalVars));
-			} else {
-				this.addJob(this.getGeneratorJob(getRepositoryTransformationSlots(repositoryIndex), REPOSITORY_ROOT_EXPAND_EXPRESSION));
-			}
+		// TODO Using this global var seems to be quite bad. Why not input that normally to the transformation? Also, the use of null is questionable. Check that.
+		GlobalVarDef[] globalVars = new GlobalVarDef[1];
+		globalVars[0] = new GlobalVarDef();
+		globalVars[0].setName(GLOBAL_VARIABLE_NAME_QUALITY_ANNOTATION_REPOSITORY);
+		if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
+			globalVars[0].setValue(SLOT_NAME_QUALITY_ANNOTATION_MODEL);
+		} else {
+			globalVars[0].setValue("null");
 		}
+		
+		for(int repositoryIndex = 0; repositoryIndex < getRepositoryCount(); repositoryIndex++) {
+			this.addJob(this.getGeneratorJob(getRepositoryTransformationSlots(repositoryIndex), REPOSITORY_ROOT_EXPAND_EXPRESSION, globalVars));
+		}
+		
 		if (configuration.isLoadMiddlewareAndCompletionFiles()) {
 			this.addJob(this.getGeneratorJob(getMiddlewareRepositorySlots(), REPOSITORY_ROOT_EXPAND_EXPRESSION));
 			this.addJob(this.getGeneratorJob(getCompletionRepositorySlots(), REPOSITORY_ROOT_EXPAND_EXPRESSION));
@@ -202,6 +205,7 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		return basePath;
 	}
 
+	@Override
 	public String getName() {
 		return "Generate SimuCom Plugin Code";
 	}
