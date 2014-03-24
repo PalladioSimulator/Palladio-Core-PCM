@@ -178,7 +178,8 @@ public final class CalculatorHelper {
             @Override
             public void utilizationChanged(final double resourceDemand, final double totalTime) {
 
-                ctx.getCalculatorFactory().buildOverallUtilizationCalculator(r.getDescription(), null);
+            	// FIXME following line was commented-out. Make code working again.
+                //ctx.getCalculatorFactory().buildOverallUtilizationCalculator(r.getDescription(), null);
                 // FIXME: Define a new probe which results in the overall observed utilisation and hands it to the calculator
                 //                // FIXME This is a hack that allows to add samples to the blackboard even when
                 //                // the simulation has stopped.
