@@ -216,7 +216,8 @@ ISimProcessListener {
             }
             this.getModel().getSimulationControl().stop();
         }
-        resultProbe.takeMeasurement(requestContext);
+        // TODO: Activate
+        // resultProbe.takeMeasurement(requestContext);
         this.fireTerminated();
         removeProcessFromSimStatus();
     }

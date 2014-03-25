@@ -18,58 +18,57 @@ import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
  */
 public interface IActiveResource {
 
-	 /**
+    /**
      * Processes the specified demand of the process. With additional parameters for the resource.
      */
     public abstract void process(ISchedulableProcess process, int resourceServiceId,
             Map<String, Serializable> parameterMap, double demand);
-	
-	/**
-	 * Returns the remaining demand for a process.
-	 */
-	public abstract double getRemainingDemand(ISchedulableProcess process);
-	
-	/**
-	 * Update (currently consuming) demand for a process.
-	 */
-	public abstract void updateDemand(ISchedulableProcess process, double demand);
 
-	/**
-	 * Creates the initial events for the resource.
-	 */
-	public abstract void start();
+    /**
+     * Returns the remaining demand for a process.
+     */
+    public abstract double getRemainingDemand(ISchedulableProcess process);
 
-	/**
-	 * Unique identifier of the resource.
-	 * 
-	 * @return
-	 */
-	public abstract String getId();
+    /**
+     * Update (currently consuming) demand for a process.
+     */
+    public abstract void updateDemand(ISchedulableProcess process, double demand);
 
-	/**
-	 * Name of the resource.
-	 * 
-	 * @return
-	 */
-	public abstract String getName();
+    /**
+     * Creates the initial events for the resource.
+     */
+    public abstract void start();
 
-	public abstract void stop(); 
+    /**
+     * Unique identifier of the resource.
+     * 
+     * @return
+     */
+    public abstract String getId();
 
-	public abstract void registerProcess(ISchedulableProcess runningProcess);
-	
-	public abstract void notifyTerminated(ISchedulableProcess simProcess);
+    /**
+     * Name of the resource.
+     * 
+     * @return
+     */
+    public abstract String getName();
 
-	/**
-	 * Get the number of processes currently having requests issued to this resource and waiting
-	 * for the request to complete.
-	 * @param schedulerEntity
-	 * @return
-	 */
-	public abstract int getQueueLengthFor(
-			SchedulerEntity schedulerEntity);
-	
-	public void addObserver(IActiveResourceStateSensor observer);
-		
-	public void removeObserver(IActiveResourceStateSensor observer);
+    public abstract void stop();
+
+    public abstract void registerProcess(ISchedulableProcess runningProcess);
+
+    public abstract void notifyTerminated(ISchedulableProcess simProcess);
+
+    /**
+     * Get the number of processes currently having requests issued to this resource and waiting
+     * for the request to complete.
+     * @param schedulerEntity
+     * @return
+     */
+    public abstract int getQueueLengthFor(SchedulerEntity schedulerEntity, int coreID);
+
+    public void addObserver(IActiveResourceStateSensor observer);
+
+    public void removeObserver(IActiveResourceStateSensor observer);
 
 }

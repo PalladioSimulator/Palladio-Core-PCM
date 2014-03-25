@@ -5,8 +5,11 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.measurements.BasicMeasurement;
+import de.uka.ipd.sdq.probespec.framework.probes.EventProbe;
+import de.uka.ipd.sdq.probespec.framework.probes.EventProbeSet;
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
-import de.uka.ipd.sdq.probespec.framework.probes.ProbeSet;
+import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
+import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbeSet;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
@@ -50,12 +53,12 @@ public final class CalculatorHelper {
 
             @Override
             public void request(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(0).takeMeasurement();
+                ((TriggeredProbe)startStopProbes.get(0)).takeMeasurement();
             }
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(1).takeMeasurement();
+                ((TriggeredProbe)startStopProbes.get(1)).takeMeasurement();
             }
 
             @Override
@@ -93,12 +96,12 @@ public final class CalculatorHelper {
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(0).takeMeasurement();
+                ((TriggeredProbe)startStopProbes.get(0)).takeMeasurement();
             }
 
             @Override
             public void release(final ISchedulableProcess process, final long num) {
-                startStopProbes.get(0).takeMeasurement();
+                ((TriggeredProbe)startStopProbes.get(0)).takeMeasurement();
             }
         });
     }
@@ -124,22 +127,9 @@ public final class CalculatorHelper {
     public static void setupDemandCalculator(final AbstractScheduledResource r, final SimuComModel model) {
         final ProbeSpecContext ctx = model.getProbeSpecContext();
 
-        final Probe scheduledResourceProbe = getProbeSetWithCurrentTime(model.getSimulationControl(),
-                new TakeScheduledResourceDemandProbe(r));
+        final Probe scheduledResourceProbe = getEventProbeSetWithCurrentTime(model.getSimulationControl(),
+                new TakeScheduledResourceDemandProbe(r), "Demand");
         ctx.getCalculatorFactory().buildDemandCalculator(r.getDescription(), scheduledResourceProbe);
-
-        r.addDemandListener(new IDemandListener() {
-
-            @Override
-            public void demand(final double demand) {
-                scheduledResourceProbe.takeMeasurement();
-            }
-
-            @Override
-            public void demandCompleted(final ISchedulableProcess simProcess) {
-                // Do nothing.
-            }
-        });
     }
 
     /**
@@ -157,8 +147,8 @@ public final class CalculatorHelper {
         // setup a calculator for each instance
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
             final String instanceDescription = "Core " + (instance + 1) + " " + scheduledResource.getDescription();
-            final Probe scheduledResourceProbe = getProbeSetWithCurrentTime(model.getSimulationControl(),
-                    new TakeScheduledResourceStateProbe(scheduledResource, instance));
+            final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
+                    new TakeScheduledResourceStateProbe(scheduledResource, instance),"State");
             ctx.getCalculatorFactory().buildStateCalculator(instanceDescription, scheduledResourceProbe);
 
             scheduledResource.addStateListener(new IStateListener() {
@@ -178,7 +168,7 @@ public final class CalculatorHelper {
             @Override
             public void utilizationChanged(final double resourceDemand, final double totalTime) {
 
-            	// FIXME following line was commented-out. Make code working again.
+                // FIXME following line was commented-out. Make code working again.
                 //ctx.getCalculatorFactory().buildOverallUtilizationCalculator(r.getDescription(), null);
                 // FIXME: Define a new probe which results in the overall observed utilisation and hands it to the calculator
                 //                // FIXME This is a hack that allows to add samples to the blackboard even when
@@ -205,8 +195,8 @@ public final class CalculatorHelper {
     public static void setupStateCalculator(final IPassiveResource resource, final SimuComModel model) {
         final ProbeSpecContext ctx = model.getProbeSpecContext();
 
-        final Probe scheduledResourceProbe = getProbeSetWithCurrentTime(model.getSimulationControl(),
-                new TakePassiveResourceStateProbe(resource));
+        final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
+                new TakePassiveResourceStateProbe(resource),"State");
         ctx.getCalculatorFactory().buildStateCalculator(
                 "Passive Resource " + resource.getName() + " " + resource.getId(), scheduledResourceProbe);
 
@@ -229,13 +219,13 @@ public final class CalculatorHelper {
         });
     }
 
-    /**
-     * @param scheduledResource
-     * @param model
-     * @param instance
-     * @return
-     */
-    protected static ProbeSet getProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe) {
-        return new ProbeSet(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
+    protected static TriggeredProbeSet getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
+            final String metricName) {
+        return new TriggeredProbeSet(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metricName);
+    }
+
+    protected static EventProbeSet getEventProbeSetWithCurrentTime(final ISimulationControl control, final EventProbe<?> additionalProbe,
+            final String metricName) {
+        return new EventProbeSet(additionalProbe,Arrays.asList((Probe)new TakeCurrentSimulationTimeProbe(control)), metricName);
     }
 }

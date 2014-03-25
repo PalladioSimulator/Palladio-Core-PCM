@@ -4,7 +4,7 @@ import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 
 import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
-import de.uka.ipd.sdq.probespec.framework.probes.BasicProbe;
+import de.uka.ipd.sdq.probespec.framework.probes.BasicObjectStateProbe;
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 
@@ -16,18 +16,14 @@ import de.uka.ipd.sdq.scheduler.IPassiveResource;
  * @author Philipp Merkle
  *
  */
-public class TakePassiveResourceStateProbe extends BasicProbe<Long, Dimensionless> {
-
-    private final IPassiveResource myResource;
+public class TakePassiveResourceStateProbe extends BasicObjectStateProbe<IPassiveResource, Long, Dimensionless> {
 
     public TakePassiveResourceStateProbe(final IPassiveResource passiveResource) {
-        super(MetricDescriptionConstants.PASSIVE_RESOURCE_STATE_METRIC);
-        this.myResource = passiveResource;
+        super(passiveResource,MetricDescriptionConstants.PASSIVE_RESOURCE_STATE_METRIC);
     }
 
     @Override
     protected Measure<Long, Dimensionless> getBasicMeasure(final RequestContext measurementContext) {
-        final long state = myResource.getCapacity() - myResource.getAvailable();
-        return Measure.valueOf(state, Dimensionless.UNIT);
+        return Measure.valueOf(getStateObject().getCapacity() - getStateObject().getAvailable(), Dimensionless.UNIT);
     }
 }

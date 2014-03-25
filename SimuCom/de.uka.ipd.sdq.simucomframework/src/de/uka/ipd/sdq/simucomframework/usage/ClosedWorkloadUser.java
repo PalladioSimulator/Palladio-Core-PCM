@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
+import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.Context;
@@ -133,9 +134,9 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
         final double thinkTime = Context.evaluateStatic(this.thinkTime,
                 Double.class, null);
         this.hold(thinkTime);
-        this.usageStartStopProbes.get(0).takeMeasurement(getRequestContext());
+        ((TriggeredProbe)this.usageStartStopProbes.get(0)).takeMeasurement(getRequestContext());
         this.scenarioRunner.scenarioRunner(thread);
-        this.usageStartStopProbes.get(1).takeMeasurement(getRequestContext());
+        ((TriggeredProbe)this.usageStartStopProbes.get(1)).takeMeasurement(getRequestContext());
     }
 
     /*

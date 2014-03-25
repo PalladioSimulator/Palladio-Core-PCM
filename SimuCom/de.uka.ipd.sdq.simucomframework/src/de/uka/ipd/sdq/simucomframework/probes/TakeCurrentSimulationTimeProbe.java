@@ -7,7 +7,7 @@ import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
 import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
-import de.uka.ipd.sdq.probespec.framework.probes.BasicProbe;
+import de.uka.ipd.sdq.probespec.framework.probes.BasicObjectStateProbe;
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 
@@ -18,20 +18,14 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
  * @author Philipp Merkle
  *
  */
-public class TakeCurrentSimulationTimeProbe extends BasicProbe<Double, Duration> {
-
-    private final ISimulationControl simulationControl;
+public class TakeCurrentSimulationTimeProbe extends BasicObjectStateProbe<ISimulationControl, Double, Duration> {
 
     public TakeCurrentSimulationTimeProbe(final ISimulationControl simulationControl) {
-        super(MetricDescriptionConstants.POINT_IN_TIME_METRIC);
-        if (simulationControl == null) {
-            throw new IllegalArgumentException("Simulation control must not be null");
-        }
-        this.simulationControl = simulationControl;
+        super(simulationControl, MetricDescriptionConstants.POINT_IN_TIME_METRIC);
     }
 
     @Override
     protected Measure<Double, Duration> getBasicMeasure(final RequestContext measurementContext) {
-        return Measure.valueOf(this.simulationControl.getCurrentSimulationTime(), SECOND);
+        return Measure.valueOf(getStateObject().getCurrentSimulationTime(), SECOND);
     }
 }

@@ -5,8 +5,7 @@ import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
 import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
-import de.uka.ipd.sdq.probespec.framework.probes.BasicProbe;
-import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
+import de.uka.ipd.sdq.probespec.framework.probes.BasicEventProbe;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
 import de.uka.ipd.sdq.simucomframework.resources.IDemandListener;
@@ -19,26 +18,23 @@ import de.uka.ipd.sdq.simucomframework.resources.ScheduledResource;
  * @author Steffen Becker, Philipp Merkle
  * 
  */
-public class TakeScheduledResourceDemandProbe extends BasicProbe<Double, Duration> implements IDemandListener {
-
-    private double lastDemand;
+public class TakeScheduledResourceDemandProbe extends BasicEventProbe<AbstractScheduledResource, Double, Duration> implements IDemandListener {
 
     public TakeScheduledResourceDemandProbe(final AbstractScheduledResource r) {
-        super(MetricDescriptionConstants.RESOURCE_DEMAND_METRIC);
-        r.addDemandListener(this);
-    }
-
-    @Override
-    protected Measure<Double, Duration> getBasicMeasure(final RequestContext measurementContext) {
-        return Measure.valueOf(lastDemand, SI.SECOND);
+        super(r,MetricDescriptionConstants.RESOURCE_DEMAND_METRIC);
     }
 
     @Override
     public void demand(final double demand) {
-        this.lastDemand = demand;
+        notify(Measure.valueOf(demand, SI.SECOND));
     }
 
     @Override
     public void demandCompleted(final ISchedulableProcess simProcess) {
+    }
+
+    @Override
+    protected void registerListener() {
+        this.eventSource.addDemandListener(this);
     }
 }

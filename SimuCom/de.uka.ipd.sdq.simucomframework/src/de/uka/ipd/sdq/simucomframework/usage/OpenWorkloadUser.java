@@ -3,6 +3,7 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import java.util.List;
 
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
+import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
@@ -50,9 +51,9 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
             //TODO: Fixme and provide a new solution
             //blackboardGarbageCollector.enterRegion(getRequestContext()
             //		.rootContext());
-            usageStartStopProbes.get(0).takeMeasurement(getRequestContext());
+            ((TriggeredProbe)usageStartStopProbes.get(0)).takeMeasurement(getRequestContext());
             scenarioRunner(this);
-            usageStartStopProbes.get(1).takeMeasurement(getRequestContext());
+            ((TriggeredProbe)usageStartStopProbes.get(1)).takeMeasurement(getRequestContext());
             if (getModel().getConfiguration().getSimulateFailures()) {
                 ReliabilitySensorHelper.recordScenarioRunResultSuccess(
                         getModel(), getRequestContext(),
