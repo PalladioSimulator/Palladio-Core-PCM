@@ -95,8 +95,8 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 	if(failedResources.size() > 0){
 		double randValue = ctx.getModel().getConfiguration().getRandomGenerator().random();
 		int index = (int)Math.floor(randValue * failedResources.size());
-		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(de.uka.ipd.sdq.reliability.core.FailureStatistics
-				.getInstance().getInternalHardwareFailureType(
+		de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
+				this.getModel(),this.getModel().getFailureStatistics().getInternalHardwareFailureType(
 						container.getResourceContainerID(),
 						failedResources.get(index).getResourceTypeId()));
 	}

@@ -8,9 +8,16 @@ Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore,
  org.eclipse.emf.ecore.xmi,
  org.eclipse.emf.query,
- de.uka.ipd.sdq.pcm
+ de.uka.ipd.sdq.pcm,
+ org.apache.commons.collections15,
+ org.palladiosimulator.commons;bundle-version="1.0.0",
+ de.uka.ipd.sdq.probespec;bundle-version="2.0.0",
+ org.jscience;bundle-version="4.1.3",
+ de.uka.ipd.sdq.probespec.framework
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: sdq.ipd.uka.de
 Export-Package: de.uka.ipd.sdq.reliability.core,
  de.uka.ipd.sdq.reliability.core.helper
+Import-Package: org.apache.commons.collections,
+ org.apache.commons.collections15

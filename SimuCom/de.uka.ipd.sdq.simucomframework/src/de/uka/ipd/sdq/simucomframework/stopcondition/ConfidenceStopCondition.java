@@ -78,7 +78,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
 
     private void initialize() {
         final Calculator c = obtainUsageScenarioResponseTimeCalculator(usageScenarioName);
-        c.registerMeasurementSourceListener(this);
+        c.addObserver(this);
         minBatches = 0;
     }
 

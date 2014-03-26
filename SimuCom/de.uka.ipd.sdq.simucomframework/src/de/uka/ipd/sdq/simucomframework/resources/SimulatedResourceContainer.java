@@ -26,7 +26,7 @@ AbstractSimulatedResourceContainer {
     public IPassiveResource createPassiveResource(final String name,
             final String passiveResourceID, final String assemblyContextID,
             final String combinedID, final long capacity) {
-        final IPassiveResource newPassiveResource = getSimplePassiveResource(name, passiveResourceID,
+        final IPassiveResource newPassiveResource = getSimplePassiveResource(this.myModel, name, passiveResourceID,
                 assemblyContextID, combinedID, capacity);
 
         // setup calculators
@@ -199,11 +199,11 @@ AbstractSimulatedResourceContainer {
 		}
 	}*/
 
-    private IPassiveResource getSimplePassiveResource(final String name,
+    private IPassiveResource getSimplePassiveResource(final SimuComModel simuComModel, final String name,
             final String passiveResourceID, final String assemblyContextID,
             final String combinedID, final long capacity) {
         // return new SimFairPassiveResource(capacity, name, name, null,null);
-        return new SimSimpleFairPassiveResource(myModel, capacity, name, passiveResourceID,
+        return new SimSimpleFairPassiveResource(simuComModel, myModel, capacity, name, passiveResourceID,
                 assemblyContextID, combinedID, myModel.getConfiguration().getSimulateFailures());
     }
 

@@ -59,6 +59,7 @@ public class SimuComModel extends SchedulerModel {
     private List<SeverityAndIssue> issues;
     private final ProbeSpecContext probeSpecContext;
     private final ISchedulingFactory schedulingFactory;
+    private final FailureStatistics failureStatistics = new FailureStatistics();
 
     public SimuComModel(final SimuComConfig config, final SimuComStatus status, final ISimEngineFactory factory,
             final boolean isRemoteRun) {
@@ -296,7 +297,7 @@ public class SimuComModel extends SchedulerModel {
 
         // Print failure statistics:
         if (getConfiguration().getSimulateFailures()) {
-            FailureStatistics.getInstance().printFailureStatistics(logger, getSimulationControl().getCurrentSimulationTime());
+            getFailureStatistics().printFailureStatistics(logger, getSimulationControl().getCurrentSimulationTime());
         }
     }
 
@@ -317,4 +318,7 @@ public class SimuComModel extends SchedulerModel {
         }
     }
 
+    public FailureStatistics getFailureStatistics() {
+        return this.failureStatistics;
+    }
 }

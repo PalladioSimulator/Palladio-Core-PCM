@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.calculator;
 
-import java.util.Collections;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
@@ -14,7 +13,6 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory;
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
-import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
@@ -128,7 +126,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildExecutionResultCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(calculatorName, probe),FailureStatistics.getInstance().getExecutionResultTypes());
+        return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(calculatorName, probe));
     }
 
     /**
@@ -146,8 +144,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @return
      */
     private Calculator setupRecorder(
-            final Calculator calculator,
-            final Map<Integer, String> failureStatistics) {
+            final Calculator calculator) {
         final Map<String, Object> recorderConfigurationMap = new HashMap<String,Object>();
         recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC, calculator.getMetricDesciption());
 
@@ -156,15 +153,9 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
                 getRecorderConfigurationFactory().createRecorderConfiguration(recorderConfigurationMap);
         recorder.initialize(recorderConfiguration);
         // register recorder at calculator
-        calculator.registerMeasurementSourceListener(recorder);
+        calculator.addObserver(recorder);
 
         return calculator;
-    }
-
-    private Calculator setupRecorder(
-            final Calculator calculator
-            ) {
-        return setupRecorder(calculator, Collections.<Integer, String> emptyMap());
     }
 
 }

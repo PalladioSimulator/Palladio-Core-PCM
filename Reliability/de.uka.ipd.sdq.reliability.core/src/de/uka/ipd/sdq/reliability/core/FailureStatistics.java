@@ -7,31 +7,24 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeSet;
 
+import org.apache.commons.collections15.Bag;
+import org.apache.commons.collections15.bag.TreeBag;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.commons.designpatterns.AbstractObservable;
+
+import de.uka.ipd.sdq.probespec.framework.probes.EventProbe;
+import de.uka.ipd.sdq.reliability.core.probe.TakeExecutionResultProbe;
 
 /**
  * Singleton class that is used for counting simulated failures and printing statistics.
  */
-public class FailureStatistics {
+public class FailureStatistics extends AbstractObservable<IFailureStatisticsListener> {
 
     /**
-     * Singleton instance.
-     */
-    private static FailureStatistics instance = new FailureStatistics();
-
-    /**
-     * Retrieves the singleton instance.
-     * 
-     * @return the singleton instance
-     */
-    public static synchronized FailureStatistics getInstance() {
-        return instance;
-    }
-
-    /**
+     * FIXME this should not be static
      * Maps numeric IDs to failure type names.
      */
-    private Map<Integer, String> executionResultTypes;
+    private static Map<Integer, String> executionResultTypes = new HashMap<Integer, String>();
 
     /**
      * Stores the session ids of all failed usage scenario runs.
@@ -40,54 +33,56 @@ public class FailureStatistics {
      * scenario run. If so, the counter for failed runs must not be incremented for the second or
      * any further failure within the same run.
      */
-    private HashSet<Long> failedRuns;
-
-    /**
-     * Counts all handled failure occurrences since last reset.
-     */
-    private long handledFailureCount;
-
-    /**
-     * Counters for all handled failure occurrences since last reset.
-     */
-    private Map<MarkovFailureType, Integer> handledFailureCounters;
+    private final HashSet<Long> failedRuns = new HashSet<Long>();
 
     /**
      * Counts usage scenario runs since last reset.
      */
-    private long runCount;
+    private long runCount = 0;
 
     /**
      * Maps failure types to numeric IDs.
      */
-    private Map<MarkovFailureType, Integer> simFailureTypes;
+    private static Map<MarkovFailureType, Integer> simFailureTypes = new HashMap<MarkovFailureType, Integer>();
 
-    /**
-     * Counts all failure occurrences (handled and unhandled) since last reset.
-     */
-    private long totalFailureCount;
+    private final TakeExecutionResultProbe resultProbe = new TakeExecutionResultProbe(this);
 
-    /**
-     * Counters for all failure occurrences since last reset.
-     */
-    private Map<MarkovFailureType, Integer> totalFailureCounters;
+    public enum FailureType { HANDLED, UNHANDLED, TOTAL }
 
-    /**
-     * Counts all unhandled failure occurrences since last reset.
-     */
-    private long unhandledFailureCount;
-
-    /**
-     * Counters for all unhandled failure occurrences since last reset.
-     */
-    private Map<MarkovFailureType, Integer> unhandledFailureCounters;
+    private final Map<FailureType, Bag<MarkovFailureType>> failureCounter = new HashMap<FailureStatistics.FailureType, Bag<MarkovFailureType>>();
 
     /**
      * The constructor.
      */
-    private FailureStatistics() {
-        reset();
+    public FailureStatistics() {
+        super();
+        for (final FailureType t : FailureType.values()) {
+            failureCounter.put(t,new TreeBag<MarkovFailureType>());
+        }
     }
+
+    public EventProbe<FailureStatistics> getExecutionResultProbe() {
+        return resultProbe;
+    }
+
+    /**
+     * Inceases the unhandled failure counter for the defined type.
+     * 
+     * An unhandled failure means also a failed run. Thus, the list of failed runs is also updated
+     * with the given session id.
+     * 
+     * @param failureType
+     *            the failure type
+     * @param sessionId
+     *            the session id of the current run
+     */
+    public void increaseUnhandledFailureCounter(final MarkovFailureType failureType, final Long sessionId) {
+        increaseFailureCounter(FailureType.UNHANDLED, failureType);
+        if (!failedRuns.contains(sessionId)) {
+            failedRuns.add(sessionId);
+        }
+    }
+
 
     /**
      * Retrieves the id of a given execution result.
@@ -103,17 +98,6 @@ public class FailureStatistics {
             return 0;
         }
         return simFailureTypes.get(failureType);
-    }
-
-    /**
-     * Retrieves a complete mapping from numeric IDs to failure type names.
-     * 
-     * Used for building up execution result sensors.
-     * 
-     * @return a mapping from numeric IDs to failure type names
-     */
-    public Map<Integer, String> getExecutionResultTypes() {
-        return executionResultTypes;
     }
 
     /**
@@ -204,8 +188,8 @@ public class FailureStatistics {
      * 
      * @return The number of handled failure occurrences
      */
-    public long getHandledFailureCount() {
-        return handledFailureCount;
+    public long getFailureCount(final FailureType failureType) {
+        return getFailureCounters(failureType).size();
     }
 
     /**
@@ -213,8 +197,8 @@ public class FailureStatistics {
      * 
      * @return the counters
      */
-    public Map<MarkovFailureType, Integer> getHandledFailureCounters() {
-        return handledFailureCounters;
+    public Bag<MarkovFailureType> getFailureCounters(final FailureType failureType) {
+        return failureCounter.get(failureType);
     }
 
     /**
@@ -293,99 +277,21 @@ public class FailureStatistics {
     }
 
     /**
-     * Retrieves the total number of failure occurrences (handled and unhandled).
-     * 
-     * @return the number of all failure occurrences
-     */
-    public long getTotalFailureCount() {
-        return totalFailureCount;
-    }
-
-    /**
-     * Retrieves the counters for all failure occurrences (handled and unhandled).
-     * 
-     * @return the counters
-     */
-    public Map<MarkovFailureType, Integer> getTotalFailureCounters() {
-        return totalFailureCounters;
-    }
-
-    /**
-     * Retrieves the total number of unhandled failure occurrences.
-     * 
-     * @return the number of unhandled failure occurrences
-     */
-    public long getUnhandledFailureCount() {
-        return unhandledFailureCount;
-    }
-
-    /**
-     * Retrieves the counters for all unhandled failure occurrences.
-     * 
-     * @return the counters
-     */
-    public Map<MarkovFailureType, Integer> getUnhandledFailureCounters() {
-        return unhandledFailureCounters;
-    }
-
-    /**
      * Increases the counter for handled failures for the defined type.
      * 
      * @param MarkovFailureType
      *            the failure type
      */
-    public synchronized void increaseHandledFailureCounter(final MarkovFailureType failureType) {
-        Integer count = handledFailureCounters.get(failureType);
-        if (count == null) {
-            count = 0;
-        }
-        handledFailureCounters.put(failureType, ++count);
-        ++handledFailureCount;
+    public void increaseFailureCounter(final FailureType failureKind, final MarkovFailureType failureType) {
+        failureCounter.get(failureKind).add(failureType);
+        this.getEventDispatcher().executionResultRecorder(failureType);
     }
 
     /**
      * Increases total scenario run counter by one.
      */
-    public synchronized void increaseRunCount() {
+    public void increaseRunCount() {
         ++runCount;
-    }
-
-    /**
-     * Increases the total failure counter for the defined type.
-     * 
-     * @param failureType
-     *            the failure type
-     */
-    public synchronized void increaseTotalFailureCounter(final MarkovFailureType failureType) {
-        Integer count = totalFailureCounters.get(failureType);
-        if (count == null) {
-            count = 0;
-        }
-        totalFailureCounters.put(failureType, ++count);
-        ++totalFailureCount;
-    }
-
-    /**
-     * Inceases the unhandled failure counter for the defined type.
-     * 
-     * An unhandled failure means also a failed run. Thus, the list of failed runs is also updated
-     * with the given session id.
-     * 
-     * @param failureType
-     *            the failure type
-     * @param sessionId
-     *            the session id of the current run
-     */
-    public synchronized void increaseUnhandledFailureCounter(final MarkovFailureType failureType, final Long sessionId) {
-        Integer count = unhandledFailureCounters.get(failureType);
-        if (count == null) {
-            count = 0;
-        }
-        unhandledFailureCounters.put(failureType, ++count);
-        ++unhandledFailureCount;
-        if (!failedRuns.contains(sessionId)) {
-            failedRuns.add(sessionId);
-        }
     }
 
     /**
@@ -404,11 +310,11 @@ public class FailureStatistics {
         logger.warn("- Failure rate (failures per simulated time unit): " + (failedRuns.size() / simulationTime));
         logger.warn("- Mean time between failure:            " + (simulationTime / failedRuns.size()) );
 
-        logger.warn("- Total number of faults:               " + this.totalFailureCount);
-        logger.warn("- Total probability of fault:           " + (this.totalFailureCount / (double) runCount));
-        logger.warn("- Total probability of no fault:        " + (1 - (this.totalFailureCount / (double) runCount)));
-        logger.warn("- Fault rate (recovered and non-recovered, faults per simulated time unit): " + (this.totalFailureCount / simulationTime));
-        logger.warn("- Mean time between faults (recovered and non-recovered): " + (simulationTime / this.totalFailureCount) );
+        logger.warn("- Total number of faults:               " + getFailureCount(FailureType.TOTAL));
+        logger.warn("- Total probability of fault:           " + (getFailureCount(FailureType.TOTAL) / (double) runCount));
+        logger.warn("- Total probability of no fault:        " + (1 - (getFailureCount(FailureType.TOTAL) / (double) runCount)));
+        logger.warn("- Fault rate (recovered and non-recovered, faults per simulated time unit): " + (getFailureCount(FailureType.TOTAL) / simulationTime));
+        logger.warn("- Mean time between faults (recovered and non-recovered): " + (simulationTime / getFailureCount(FailureType.TOTAL)) );
 
         for (final String failureString : getFailureStringsSorted(simulationTime)) {
             logger.warn(failureString);
@@ -461,7 +367,7 @@ public class FailureStatistics {
      *            The logger to write the statistics to
      * @param simulationTime
      */
-    public synchronized void printRunCount(final Logger logger, final double simulationTime) {
+    public void printRunCount(final Logger logger, final double simulationTime) {
         if ((runCount % 50000) == 0) {
             printFailureStatistics(logger, simulationTime);
         } else if ((runCount % 10000) == 0) {
@@ -470,28 +376,13 @@ public class FailureStatistics {
     }
 
     /**
-     * Resets all counters.
-     */
-    public void reset() {
-        unhandledFailureCounters = new HashMap<MarkovFailureType, Integer>();
-        totalFailureCounters = new HashMap<MarkovFailureType, Integer>();
-        handledFailureCounters = new HashMap<MarkovFailureType, Integer>();
-        failedRuns = new HashSet<Long>();
-
-        unhandledFailureCount = 0;
-        handledFailureCount = 0;
-        totalFailureCount = 0;
-
-        runCount = 0;
-    }
-
-    /**
+     * FIXME should not be static
      * Sets the failure types that may occur during the simulation.
      * 
      * @param failureTypes
      *            the list of failure types
      */
-    public void setFailureTypes(final List<MarkovFailureType> failureTypes) {
+    public static void setFailureTypes(final List<MarkovFailureType> failureTypes) {
 
         // Build failure type mapping:
         simFailureTypes = new HashMap<MarkovFailureType, Integer>();
@@ -518,8 +409,8 @@ public class FailureStatistics {
      */
     private TreeSet<String> getFailureStringsSorted(final double simulationTime) {
         final TreeSet<String> result = new TreeSet<String>();
-        for (final MarkovFailureType failureType : unhandledFailureCounters.keySet()) {
-            final double count = unhandledFailureCounters.get(failureType);
+        for (final MarkovFailureType failureType : failureCounter.get(FailureType.UNHANDLED)) {
+            final double count = failureCounter.get(FailureType.UNHANDLED).getCount(failureType);
             result.add("-- " + failureType.getName() + ": " + (int) count + " (" + count / runCount + ")");
         }
         return result;
@@ -556,9 +447,9 @@ public class FailureStatistics {
 
             final Map<String, SoftwareFailureStatistics> softwareFailureStatisticsMap = new HashMap<String, SoftwareFailureStatistics>();
 
-            for (final MarkovFailureType failureType : handledFailureCounters.keySet()) {
-                final int handledCount = handledFailureCounters.get(failureType);
-                Integer totalFailureCount = totalFailureCounters.get(failureType);
+            for (final MarkovFailureType failureType : failureCounter.get(FailureType.HANDLED)) {
+                final int handledCount = failureCounter.get(FailureType.HANDLED).getCount(failureType);
+                Integer totalFailureCount = failureCounter.get(FailureType.TOTAL).getCount(failureType);
                 if (totalFailureCount == null) {
                     totalFailureCount = 0;
                 }

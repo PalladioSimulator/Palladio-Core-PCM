@@ -3,7 +3,6 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -50,7 +49,6 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 
     @Override
     protected void internalLifeCycle() {
-        FailureStatistics.getInstance().reset();
 
         // As long as the simulation is running, new OpenWorkloadUsers are
         // generated and started:
@@ -65,8 +63,8 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 
                 // Count the new user:
                 if (this.getModel().getConfiguration().getSimulateFailures()) {
-                    FailureStatistics.getInstance().increaseRunCount();
-                    FailureStatistics.getInstance().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
+                    this.getModel().getFailureStatistics().increaseRunCount();
+                    this.getModel().getFailureStatistics().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
                 }
             }
             catch (final OutOfMemoryError e) {
@@ -80,7 +78,7 @@ public class OpenWorkload extends SimuComSimProcess implements IWorkloadDriver {
 
         // Print failure statistics:
         if (this.getModel().getConfiguration().getSimulateFailures()) {
-            FailureStatistics.getInstance().printHandledFailuresStatistics(logger,this.getModel().getSimulationControl().getCurrentSimulationTime());
+            this.getModel().getFailureStatistics().printHandledFailuresStatistics(logger,this.getModel().getSimulationControl().getCurrentSimulationTime());
         }
     }
 

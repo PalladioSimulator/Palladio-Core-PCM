@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
+import java.util.Arrays;
 import java.util.Hashtable;
 import java.util.Observable;
 import java.util.Observer;
@@ -11,8 +12,10 @@ import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
 
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.DisplayIssuesDialog;
-import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory;
+import de.uka.ipd.sdq.probespec.framework.probes.EventProbeSet;
+import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
+import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimuComStatus;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
@@ -190,10 +193,20 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
         final IWorkloadDriver[] workloadDrivers = getWorkloads((SimuComConfig) config);
         attachUsageResponseTimeCalculators(workloadDrivers);
         model.setUsageScenarios(workloadDrivers);
+
+        if (model.getConfiguration().getSimulateFailures()) {
+            model.getProbeSpecContext().getCalculatorFactory().
+            buildExecutionResultCalculator("System execution results",
+                    new EventProbeSet(
+                            model.getFailureStatistics().getExecutionResultProbe(),
+                            Arrays.asList((Probe)new TakeCurrentSimulationTimeProbe(this.model.getSimulationControl())),
+                            "ExecutionResult")
+                    );
+        }
+
     }
 
     private void attachUsageResponseTimeCalculators(final IWorkloadDriver[] workloadDrivers) {
-        final ICalculatorFactory calculatorFactory = model.getProbeSpecContext().getCalculatorFactory();
         for (final IWorkloadDriver driver : workloadDrivers) {
             final IUserFactory userFactory = driver.getUserFactory();
             userFactory.attachResponseTimeCalculator();

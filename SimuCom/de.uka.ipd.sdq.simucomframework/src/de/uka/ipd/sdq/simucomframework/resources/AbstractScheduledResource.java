@@ -9,7 +9,6 @@ import java.util.Map;
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
@@ -303,7 +302,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
      */
     protected void assertAvailability() {
         if (!isAvailable) {
-            FailureException.raise(FailureStatistics.getInstance()
+            FailureException.raise(this.getModel(),this.getModel().getFailureStatistics()
                     .getInternalHardwareFailureType(resourceContainerID,
                             resourceTypeID));
         }

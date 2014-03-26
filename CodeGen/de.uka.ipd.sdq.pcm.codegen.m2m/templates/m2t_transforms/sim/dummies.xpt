@@ -82,19 +82,19 @@
 
 «DEFINE RaiseFailure(String roleId, String signatureId) FOR SoftwareInducedFailureType»
     de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
-		de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().getExternalSoftwareFailureType(
+		this.getModel(),this.getModel().getFailureStatistics().getExternalSoftwareFailureType(
 			"«this.id»", "«roleId»", "«signatureId»"));
 «ENDDEFINE»
 
 «DEFINE RaiseFailure(String roleId, String signatureId) FOR HardwareInducedFailureType»
     de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
-		de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().getExternalHardwareFailureType(
+		this.getModel(),this.getModel().getFailureStatistics().getExternalHardwareFailureType(
 		    "«this.processingResourceType__HardwareInducedFailureType.id»", "«roleId»", "«signatureId»"));
 «ENDDEFINE»
 
 «DEFINE RaiseFailure(String roleId, String signatureId) FOR NetworkInducedFailureType»
     de.uka.ipd.sdq.simucomframework.exceptions.FailureException.raise(
-		de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().getExternalNetworkFailureType(
+		this.getModel(),this.getModel().getFailureStatistics().getExternalNetworkFailureType(
 			"«this.communicationLinkResourceType__NetworkInducedFailureType.id»", "«roleId»", "«signatureId»"));
 «ENDDEFINE»
 

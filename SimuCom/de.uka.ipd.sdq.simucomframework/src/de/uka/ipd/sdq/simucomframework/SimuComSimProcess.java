@@ -10,7 +10,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
-import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -18,7 +17,6 @@ import de.uka.ipd.sdq.scheduler.LoggingWrapper;
 import de.uka.ipd.sdq.scheduler.resources.active.SimDelayResource;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
-import de.uka.ipd.sdq.simucomframework.probes.TakeExecutionResultProbe;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.Process;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 import de.uka.ipd.sdq.simulation.SimulationResult;
@@ -52,8 +50,6 @@ ISimProcessListener {
 
     private int priority = 0;
 
-    private final TakeExecutionResultProbe resultProbe;
-
     @Override
     public int getPriority() {
         return priority;
@@ -73,7 +69,6 @@ ISimProcessListener {
         this.isDebug = model.getConfiguration().isDebug();
         this.delayResource = new SimDelayResource(model, name + "_thinktime", name + "_thinktime");
         requestContext = new RequestContext(Long.valueOf(getRawId()).toString(), parentRequestContext);
-        this.resultProbe = new TakeExecutionResultProbe();
 
         // add a process listener in order to get notified when this process is about to be
         // suspended or resumed again.
@@ -189,8 +184,7 @@ ISimProcessListener {
             try {
                 this.internalLifeCycle();
             } catch (final FailureException exception) {
-                FailureStatistics.getInstance()
-                .increaseUnhandledFailureCounter(exception.getFailureType(), currentSessionId);
+                this.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), currentSessionId);
                 resultFailure = exception.getFailureType();
             }
         } catch (final Exception e) {
@@ -251,7 +245,7 @@ ISimProcessListener {
         if (this.isTimeoutFailure) {
             // reset timeout failure
             this.isTimeoutFailure = false;
-            FailureException.raise(FailureStatistics.getInstance().getFailureType(timeoutFailureTypeId));
+            FailureException.raise(this.getModel(),this.getModel().getFailureStatistics().getFailureType(timeoutFailureTypeId));
         }
     }
 

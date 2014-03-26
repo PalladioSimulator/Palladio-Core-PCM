@@ -1,6 +1,5 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
-import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 
 /**
  * Class used for executing a closed workload. The class creates as many users as specified and
@@ -35,7 +34,6 @@ public class ClosedWorkload implements IWorkloadDriver {
      */
     @Override
     public void run() {
-        FailureStatistics.getInstance().reset();
         for (int i = 0; i < population; i++) {
             final IUser user = userFactory.createUser();
             user.startUserLife();

@@ -184,7 +184,7 @@
 
 			// If the failure-on-demand occurrence is handled,
 			// update the failure statistics accordingly:
- 			de.uka.ipd.sdq.reliability.core.FailureStatistics.getInstance().increaseHandledFailureCounter(
+ 			this.getModel().getFailureStatistics().increaseHandledFailureCounter(
  				failureException_«id».getFailureType()); //count handled failure
 
 		} else {

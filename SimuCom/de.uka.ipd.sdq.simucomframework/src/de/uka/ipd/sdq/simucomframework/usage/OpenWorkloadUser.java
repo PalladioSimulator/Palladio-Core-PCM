@@ -4,7 +4,6 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
-import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
@@ -61,8 +60,7 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
             }
         } catch (final FailureException exception) {
             if (getModel().getConfiguration().getSimulateFailures()) {
-                FailureStatistics.getInstance()
-                .increaseUnhandledFailureCounter(
+                getModel().getFailureStatistics().increaseUnhandledFailureCounter(
                         exception.getFailureType(), currentSessionId);
                 ReliabilitySensorHelper.recordScenarioRunResultFailure(
                         getModel(), exception

@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
-import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
@@ -77,8 +76,8 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 
             try {
                 if (getModel().getConfiguration().getSimulateFailures()) {
-                    FailureStatistics.getInstance().increaseRunCount();
-                    FailureStatistics.getInstance().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
+                    this.getModel().getFailureStatistics().increaseRunCount();
+                    this.getModel().getFailureStatistics().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
                 }
                 // TODO: Fix me and provide a new solution
                 //blackboardGarbageCollector.enterRegion(getRequestContext()
@@ -90,8 +89,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
                 }
             } catch (final FailureException exception) {
                 if (getModel().getConfiguration().getSimulateFailures()) {
-                    FailureStatistics.getInstance()
-                    .increaseUnhandledFailureCounter(
+                    this.getModel().getFailureStatistics().increaseUnhandledFailureCounter(
                             exception.getFailureType(),
                             currentSessionId);
                     ReliabilitySensorHelper.recordScenarioRunResultFailure(
