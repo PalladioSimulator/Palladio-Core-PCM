@@ -167,7 +167,7 @@
 							«EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR f.steps_Behaviour.findStart()»
 						} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 							if (ctx.getModel().getConfig().getSimulateFailures()) {
-								ctx.getModel(),ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
+								ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
 							}
 						}
 					}
@@ -184,7 +184,7 @@
 								«EXPAND m2t_transforms::sim::java_core::ActionsAsCalls FOR f.steps_Behaviour.findStart()»
 							} catch (de.uka.ipd.sdq.simucomframework.exceptions.FailureException exception) {
 								if (ctx.getModel().getConfig().getSimulateFailures()) {
-									ctx.getModel(),ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
+									ctx.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), ctx.getSessionId());
 								}
 							}
 						}
