@@ -19,5 +19,3 @@ Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: sdq.ipd.uka.de
 Export-Package: de.uka.ipd.sdq.reliability.core,
  de.uka.ipd.sdq.reliability.core.helper
-Import-Package: org.apache.commons.collections,
- org.apache.commons.collections15
