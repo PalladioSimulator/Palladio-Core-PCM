@@ -8,7 +8,6 @@ import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.simucomframework.Context;
-import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -77,25 +76,22 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
             try {
                 if (getModel().getConfiguration().getSimulateFailures()) {
                     this.getModel().getFailureStatistics().increaseRunCount();
-                    this.getModel().getFailureStatistics().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
+                    if (getModel().getConfiguration().isDebug()) {
+                        this.getModel().getFailureStatistics().printRunCount(logger, getModel().getSimulationControl().getCurrentSimulationTime());
+                    }
                 }
                 // TODO: Fix me and provide a new solution
                 //blackboardGarbageCollector.enterRegion(getRequestContext()
                 //		.rootContext());
                 scenarioRunner(this);
                 if (getModel().getConfiguration().getSimulateFailures()) {
-                    ReliabilitySensorHelper.recordScenarioRunResultSuccess(
-                            getModel(), getRequestContext(), usageScenarioId);
+                    this.getModel().getFailureStatistics().recordSuccess();
                 }
             } catch (final FailureException exception) {
                 if (getModel().getConfiguration().getSimulateFailures()) {
                     this.getModel().getFailureStatistics().increaseUnhandledFailureCounter(
                             exception.getFailureType(),
                             currentSessionId);
-                    ReliabilitySensorHelper.recordScenarioRunResultFailure(
-                            getModel(), exception
-                            .getFailureType(), getRequestContext(),
-                            usageScenarioId);
                 }
             } finally {
                 // Increase measurements counter manually as usage scenario run

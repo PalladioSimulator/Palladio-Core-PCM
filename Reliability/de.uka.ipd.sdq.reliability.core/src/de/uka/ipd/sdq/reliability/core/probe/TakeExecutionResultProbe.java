@@ -1,10 +1,20 @@
 package de.uka.ipd.sdq.reliability.core.probe;
 
+import java.util.Map;
+
 import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.unit.Unit;
 
-import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
+import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.edp2.models.ExperimentData.BaseMetricDescription;
+import org.palladiosimulator.edp2.models.ExperimentData.DataType;
+import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataFactory;
+import org.palladiosimulator.edp2.models.ExperimentData.Identifier;
+import org.palladiosimulator.edp2.models.ExperimentData.Monotonic;
+import org.palladiosimulator.edp2.models.ExperimentData.Scale;
+import org.palladiosimulator.edp2.models.ExperimentData.TextualBaseMetricDescription;
+
 import de.uka.ipd.sdq.probespec.framework.probes.BasicEventProbe;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.reliability.core.IFailureStatisticsListener;
@@ -18,10 +28,23 @@ import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
  * @author brosch
  *
  */
-public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics, Long, Dimensionless> implements IFailureStatisticsListener {
+public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics, Identifier, Dimensionless> implements IFailureStatisticsListener {
 
-    public TakeExecutionResultProbe(final FailureStatistics failureStatistics) {
-        super(failureStatistics,MetricDescriptionConstants.EXECUTION_RESULT_METRIC);
+    private final static ExperimentDataFactory experimentDataFactory = ExperimentDataFactory.eINSTANCE;
+
+    public TakeExecutionResultProbe(final FailureStatistics failureStatistics, final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
+        super(failureStatistics,createMetricDescription(simFailureTypes,successIdentifier));
+    }
+
+    private static BaseMetricDescription createMetricDescription(final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
+        final TextualBaseMetricDescription description = experimentDataFactory.createTextualBaseMetricDescription(
+                "Execution Result",
+                "Enumeration of all failure types which might happen in a reliability simulation",
+                Scale.NOMINAL, DataType.QUALITATIVE, Monotonic.NO);
+        description.setUuid(EcoreUtil.generateUUID());
+        description.getIdentifiers().addAll(simFailureTypes.values());
+        description.getIdentifiers().add(successIdentifier);
+        return description;
     }
 
     @Override
@@ -31,7 +54,36 @@ public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics,
 
     @Override
     public void executionResultRecorder(final MarkovFailureType failureType) {
-        this.notify(Measure.valueOf((long)this.eventSource.getExecutionResultId(failureType),Unit.ONE));
+        final Identifier resultFailureIdentifier = this.eventSource.getExecutionResultId(failureType);
+        final Measure<Identifier, Dimensionless> result = new Measure<Identifier,Dimensionless>() {
+
+            /**
+             * 
+             */
+            private static final long serialVersionUID = 1L;
+
+            @Override
+            public Identifier getValue() {
+                return resultFailureIdentifier;
+            }
+
+            @Override
+            public Unit<Dimensionless> getUnit() {
+                return Unit.ONE;
+            }
+
+            @Override
+            public Measure<Identifier, Dimensionless> to(final Unit<Dimensionless> unit) {
+                return null;
+            }
+
+            @Override
+            public double doubleValue(final Unit<Dimensionless> unit) {
+                return 0;
+            }
+
+        };
+        this.notify(result);
     }
 
 }

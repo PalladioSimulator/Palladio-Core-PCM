@@ -49,7 +49,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildResponseTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder(decoratedCalculatorFactory.buildResponseTimeCalculator(calculatorName, probes));
+        return setupRecorder("Response time of "+calculatorName,decoratedCalculatorFactory.buildResponseTimeCalculator(calculatorName, probes));
     }
 
     /**
@@ -60,7 +60,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildDemandBasedWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder(decoratedCalculatorFactory.buildDemandBasedWaitingTimeCalculator(calculatorName, probes));
+        return setupRecorder("Demand at "+calculatorName,decoratedCalculatorFactory.buildDemandBasedWaitingTimeCalculator(calculatorName, probes));
     }
 
     /**
@@ -71,7 +71,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder(decoratedCalculatorFactory.buildWaitingTimeCalculator(calculatorName, probes));
+        return setupRecorder("Waiting time at "+calculatorName,decoratedCalculatorFactory.buildWaitingTimeCalculator(calculatorName, probes));
     }
 
     /**
@@ -82,7 +82,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildHoldTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder(decoratedCalculatorFactory.buildHoldTimeCalculator(calculatorName, probes));
+        return setupRecorder("Hold time at "+calculatorName,decoratedCalculatorFactory.buildHoldTimeCalculator(calculatorName, probes));
     }
 
     /**
@@ -93,7 +93,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildStateCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildStateCalculator(calculatorName, probe));
+        return setupRecorder("State of "+calculatorName,decoratedCalculatorFactory.buildStateCalculator(calculatorName, probe));
     }
 
     /**
@@ -104,7 +104,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildOverallUtilizationCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildOverallUtilizationCalculator(calculatorName, probe));
+        return setupRecorder("Utilisation of "+calculatorName,decoratedCalculatorFactory.buildOverallUtilizationCalculator(calculatorName, probe));
     }
 
     /**
@@ -115,7 +115,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildDemandCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildDemandCalculator(calculatorName, probe));
+        return setupRecorder("Demand at "+calculatorName,decoratedCalculatorFactory.buildDemandCalculator(calculatorName, probe));
     }
 
     /**
@@ -126,7 +126,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildExecutionResultCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(calculatorName, probe));
+        return setupRecorder(calculatorName,decoratedCalculatorFactory.buildExecutionResultCalculator(calculatorName, probe));
     }
 
     /**
@@ -144,9 +144,11 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @return
      */
     private Calculator setupRecorder(
+            final String calculatorName,
             final Calculator calculator) {
         final Map<String, Object> recorderConfigurationMap = new HashMap<String,Object>();
         recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC, calculator.getMetricDesciption());
+        recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURED_ELEMENT_DESCRIPTION, calculatorName);
 
         final Recorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration.getRecorderName());
         final IRecorderConfiguration recorderConfiguration = this.configuration.

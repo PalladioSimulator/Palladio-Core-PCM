@@ -4,7 +4,6 @@ import java.util.List;
 
 import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
-import de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -54,18 +53,12 @@ public class OpenWorkloadUser extends SimuComSimProcess implements IUser {
             scenarioRunner(this);
             ((TriggeredProbe)usageStartStopProbes.get(1)).takeMeasurement(getRequestContext());
             if (getModel().getConfiguration().getSimulateFailures()) {
-                ReliabilitySensorHelper.recordScenarioRunResultSuccess(
-                        getModel(), getRequestContext(),
-                        usageScenarioId);
+                getModel().getFailureStatistics().recordSuccess();
             }
         } catch (final FailureException exception) {
             if (getModel().getConfiguration().getSimulateFailures()) {
                 getModel().getFailureStatistics().increaseUnhandledFailureCounter(
                         exception.getFailureType(), currentSessionId);
-                ReliabilitySensorHelper.recordScenarioRunResultFailure(
-                        getModel(), exception
-                        .getFailureType(), getRequestContext(),
-                        usageScenarioId);
             }
         } finally {
             // Increase measurements counter manually as usage scenario run is

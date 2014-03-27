@@ -10,7 +10,10 @@ import java.util.TreeSet;
 import org.apache.commons.collections15.Bag;
 import org.apache.commons.collections15.bag.TreeBag;
 import org.apache.log4j.Logger;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.designpatterns.AbstractObservable;
+import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataFactory;
+import org.palladiosimulator.edp2.models.ExperimentData.Identifier;
 
 import de.uka.ipd.sdq.probespec.framework.probes.EventProbe;
 import de.uka.ipd.sdq.reliability.core.probe.TakeExecutionResultProbe;
@@ -20,11 +23,7 @@ import de.uka.ipd.sdq.reliability.core.probe.TakeExecutionResultProbe;
  */
 public class FailureStatistics extends AbstractObservable<IFailureStatisticsListener> {
 
-    /**
-     * FIXME this should not be static
-     * Maps numeric IDs to failure type names.
-     */
-    private static Map<Integer, String> executionResultTypes = new HashMap<Integer, String>();
+    private final static ExperimentDataFactory experimentDataFactory = ExperimentDataFactory.eINSTANCE;
 
     /**
      * Stores the session ids of all failed usage scenario runs.
@@ -43,13 +42,15 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
     /**
      * Maps failure types to numeric IDs.
      */
-    private static Map<MarkovFailureType, Integer> simFailureTypes = new HashMap<MarkovFailureType, Integer>();
+    private static Map<MarkovFailureType, Identifier> simFailureTypes;
 
-    private final TakeExecutionResultProbe resultProbe = new TakeExecutionResultProbe(this);
+    private final TakeExecutionResultProbe resultProbe;
 
     public enum FailureType { HANDLED, UNHANDLED, TOTAL }
 
     private final Map<FailureType, Bag<MarkovFailureType>> failureCounter = new HashMap<FailureStatistics.FailureType, Bag<MarkovFailureType>>();
+
+    private final Identifier successIdentifier;
 
     /**
      * The constructor.
@@ -59,6 +60,9 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
         for (final FailureType t : FailureType.values()) {
             failureCounter.put(t,new TreeBag<MarkovFailureType>());
         }
+        this.successIdentifier = experimentDataFactory.createIdentifier("Success");
+        this.successIdentifier.setUuid(EcoreUtil.generateUUID());
+        resultProbe = new TakeExecutionResultProbe(this,simFailureTypes,successIdentifier);
     }
 
     public EventProbe<FailureStatistics> getExecutionResultProbe() {
@@ -93,9 +97,9 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
      *            the failure type that occurred as an execution result
      * @return the numerical id of the execution result
      */
-    public int getExecutionResultId(final MarkovFailureType failureType) {
+    public Identifier getExecutionResultId(final MarkovFailureType failureType) {
         if (failureType == null) {
-            return 0;
+            return successIdentifier;
         }
         return simFailureTypes.get(failureType);
     }
@@ -179,7 +183,7 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
      *            the failure type
      * @return the corresponding index
      */
-    public int getFailureTypeIndex(final MarkovFailureType failureType) {
+    public Identifier getFailureTypeIndex(final MarkovFailureType failureType) {
         return simFailureTypes.get(failureType);
     }
 
@@ -287,6 +291,10 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
         this.getEventDispatcher().executionResultRecorder(failureType);
     }
 
+    public void recordSuccess() {
+        this.getEventDispatcher().executionResultRecorder(null);
+    }
+
     /**
      * Increases total scenario run counter by one.
      */
@@ -385,19 +393,11 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
     public static void setFailureTypes(final List<MarkovFailureType> failureTypes) {
 
         // Build failure type mapping:
-        simFailureTypes = new HashMap<MarkovFailureType, Integer>();
-        for (int index = 0; index < failureTypes.size(); index++) {
-            if (!simFailureTypes.containsKey(failureTypes.get(index))) {
-                // Reserve index = 0 for the success case:
-                simFailureTypes.put(failureTypes.get(index), index + 1);
-            }
-        }
-
-        // Build result type mapping:
-        executionResultTypes = new HashMap<Integer, String>();
-        executionResultTypes.put(0, "Success");
-        for (final MarkovFailureType failureType : simFailureTypes.keySet()) {
-            executionResultTypes.put(simFailureTypes.get(failureType), failureType.getName());
+        simFailureTypes = new HashMap<MarkovFailureType, Identifier>();
+        for (final MarkovFailureType failureType : failureTypes) {
+            final Identifier identifier = experimentDataFactory.createIdentifier(failureType.getName());
+            identifier.setUuid(EcoreUtil.generateUUID());
+            simFailureTypes.put(failureType, identifier);
         }
     }
 

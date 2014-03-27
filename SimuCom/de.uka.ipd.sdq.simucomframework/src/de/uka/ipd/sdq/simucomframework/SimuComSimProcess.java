@@ -10,7 +10,6 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
-import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
@@ -179,14 +178,8 @@ ISimProcessListener {
     @Override
     public final void lifeCycle() {
         addProcessToSimStatus();
-        MarkovFailureType resultFailure = null;
         try {
-            try {
-                this.internalLifeCycle();
-            } catch (final FailureException exception) {
-                this.getModel().getFailureStatistics().increaseUnhandledFailureCounter(exception.getFailureType(), currentSessionId);
-                resultFailure = exception.getFailureType();
-            }
+            this.internalLifeCycle();
         } catch (final Exception e) {
             String message = e.getMessage();
             message = message == null ? "" : message;
