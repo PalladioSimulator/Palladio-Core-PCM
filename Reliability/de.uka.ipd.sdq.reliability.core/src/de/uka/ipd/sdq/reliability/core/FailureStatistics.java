@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.reliability.core;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Iterator;
@@ -62,6 +63,9 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
         }
         this.successIdentifier = experimentDataFactory.createIdentifier("Success");
         this.successIdentifier.setUuid(EcoreUtil.generateUUID());
+        if (this.simFailureTypes == null) {
+            simFailureTypes = Collections.EMPTY_MAP;
+        }
         resultProbe = new TakeExecutionResultProbe(this,simFailureTypes,successIdentifier);
     }
 
