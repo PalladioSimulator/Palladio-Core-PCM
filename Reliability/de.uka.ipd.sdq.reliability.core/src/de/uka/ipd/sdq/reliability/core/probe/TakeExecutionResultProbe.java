@@ -7,6 +7,7 @@ import javax.measure.quantity.Dimensionless;
 import javax.measure.unit.Unit;
 
 import org.eclipse.emf.ecore.util.EcoreUtil;
+import org.palladiosimulator.edp2.impl.IdentifierMeasure;
 import org.palladiosimulator.edp2.models.ExperimentData.BaseMetricDescription;
 import org.palladiosimulator.edp2.models.ExperimentData.DataType;
 import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataFactory;
@@ -55,34 +56,7 @@ public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics,
     @Override
     public void executionResultRecorder(final MarkovFailureType failureType) {
         final Identifier resultFailureIdentifier = this.eventSource.getExecutionResultId(failureType);
-        final Measure<Identifier, Dimensionless> result = new Measure<Identifier,Dimensionless>() {
-
-            /**
-             * 
-             */
-            private static final long serialVersionUID = 1L;
-
-            @Override
-            public Identifier getValue() {
-                return resultFailureIdentifier;
-            }
-
-            @Override
-            public Unit<Dimensionless> getUnit() {
-                return Unit.ONE;
-            }
-
-            @Override
-            public Measure<Identifier, Dimensionless> to(final Unit<Dimensionless> unit) {
-                return null;
-            }
-
-            @Override
-            public double doubleValue(final Unit<Dimensionless> unit) {
-                return 0;
-            }
-
-        };
+        final Measure<Identifier, Dimensionless> result = IdentifierMeasure.valueOf(resultFailureIdentifier, Unit.ONE);
         this.notify(result);
     }
 
