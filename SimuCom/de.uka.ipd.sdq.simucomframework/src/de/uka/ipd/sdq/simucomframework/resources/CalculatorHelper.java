@@ -3,7 +3,10 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Arrays;
 import java.util.List;
 
+import org.palladiosimulator.edp2.models.ExperimentData.MetricDescription;
+
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
+import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
 import de.uka.ipd.sdq.probespec.framework.measurements.BasicMeasurement;
 import de.uka.ipd.sdq.probespec.framework.probes.EventProbe;
 import de.uka.ipd.sdq.probespec.framework.probes.EventProbeSet;
@@ -148,7 +151,7 @@ public final class CalculatorHelper {
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
             final String instanceDescription = "Core " + (instance + 1) + " " + scheduledResource.getDescription();
             final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
-                    new TakeScheduledResourceStateProbe(scheduledResource, instance),"State");
+                    new TakeScheduledResourceStateProbe(scheduledResource, instance),MetricDescriptionConstants.CPU_STATE_OVER_TIME_METRIC);
             ctx.getCalculatorFactory().buildStateCalculator(instanceDescription, scheduledResourceProbe);
 
             scheduledResource.addStateListener(new IStateListener() {
@@ -217,6 +220,11 @@ public final class CalculatorHelper {
                 scheduledResourceProbe.takeMeasurement();
             }
         });
+    }
+
+    protected static TriggeredProbeSet getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
+            final MetricDescription metric) {
+        return new TriggeredProbeSet(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metric);
     }
 
     protected static TriggeredProbeSet getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
