@@ -46,7 +46,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 	private CalibrationTable calibrationTable; 
 	
-	private static final Amount<Duration> ONE_SECOND = Amount.valueOf(1, SI.SECOND);
+	private static final Amount<Duration> ONE_MILLISECOND = Amount.valueOf(1, SI.MILLI(SI.SECOND));
 
 	private static final int DEFAULT_ACCURACY = 8;
 
@@ -254,7 +254,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 		logger.info("The timetable with the corresponding parameters:");
 		for (int i = 0; i < calibrationTable.size(); i++) {
-			Amount<Duration> targetTime = Amount.valueOf(1 << i,SI.SECOND);
+			Amount<Duration> targetTime = Amount.valueOf(1 << i,SI.MILLI(SI.SECOND));
 			long parameter = getRoot(targetTime);
 			
 			if (i > 2) { //TODO: Why 2?
@@ -349,8 +349,8 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 
 	private Amount<Duration> getEpsilon(Amount<Duration> targetTime) {
 		Amount<Duration> result = targetTime.times(0.01d);
-		if (result.to(SI.SECOND).isGreaterThan(ONE_SECOND))
-			return ONE_SECOND;
+		if (result.to(SI.MILLI(SI.SECOND)).isGreaterThan(ONE_MILLISECOND))
+			return ONE_MILLISECOND;
 		return result;
 	}
 
@@ -366,7 +366,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	
 	private Amount<Duration> recalibrate(long parameter, int index) {
 		int cycles = CALIBRATION_CYCLES[index];
-		return getRunTime(parameter, Amount.valueOf(cycles,SI.SECOND));
+		return getRunTime(parameter, Amount.valueOf(cycles,SI.MILLI(SI.SECOND)));
 	}
 	
 	/**
@@ -477,7 +477,7 @@ public abstract class AbstractDemandStrategy implements IDemandStrategy {
 	 * @return
 	 */
 	private int getCalibrationCycles(int exponent, Amount<Duration> targetTime) {
-		Amount<Duration> threshold = Amount.valueOf(1 << exponent,SI.SECOND);
+		Amount<Duration> threshold = Amount.valueOf(1 << exponent,SI.MILLI(SI.SECOND));
 	
 		return Math.max((int)Math.floor(threshold.divide(targetTime).getEstimatedValue()), MIN_CALIBRATION_CYCLES);
 	}

@@ -19,7 +19,7 @@ import org.jscience.physics.amount.Amount;
 /**
  * Struct to represent a single entry in the calibration table of 
  * the load generators. It is a tuple <TargetTime, Parameter>
- * @author Steffen Becker, Thomas Zolynski
+ * @author Steffen Becker, Thomas Zolynski, Sebastian Lehrig
  *
  */
 class CalibrationEntry implements Serializable {
@@ -53,6 +53,7 @@ class CalibrationEntry implements Serializable {
 		return parameter;
 	}
 	
+	@Override
 	public String toString() {
 		return AbstractDemandStrategy.formatDuration(targetTime) + "\t | \t" + parameter;
 	}
@@ -61,7 +62,7 @@ class CalibrationEntry implements Serializable {
 /**
  * Class representing the calibration table. Stores a collection of calibration entries.
  * 
- * @author Tobias Denker, Anne Koziolek, Steffen Becker, Thomas Zolynski
+ * @author Tobias Denker, Anne Koziolek, Steffen Becker, Thomas Zolynski, Sebastian Lehrig
  */
 public class CalibrationTable {
 

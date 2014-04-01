@@ -27,8 +27,7 @@ public class CommandLineParser {
 		}
 
 		if (parserError || runProps.hasOption('h') || !runProps.hasOption('d') || !runProps.hasOption('n') || !runProps.hasOption('m') || !runProps.hasOption('s')) {
-			new HelpFormatter().printHelp("Main", "Prototype runner, copyright 2007-2011, SDQ, IPD, Uni Karlsruhe & MDE, Uni Paderborn\n", o,
-					"\nInitiated by Steffen Becker (steffen.becker@upb.de)\n"+
+			new HelpFormatter().printHelp("Main", "ProtoCom: Prototype runner\n", o,
 					"For documentation consult https://sdqweb.ipd.kit.edu/wiki/ProtoCom");
 			System.exit(-1);
 		}
