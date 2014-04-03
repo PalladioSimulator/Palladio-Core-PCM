@@ -59,13 +59,11 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
   }
   
   public String packageName() {
-    String _fqnPortPackage = JavaNames.fqnPortPackage(this.pcmEntity);
-    return _fqnPortPackage;
+    return JavaNames.fqnPortPackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
-    String _portClassName = JavaNames.portClassName(this.pcmEntity);
-    return _portClassName;
+    return JavaNames.portClassName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -95,8 +93,7 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
   }
   
   public Collection<? extends IJMethod> methods() {
-    List<JMethod> _providedRoleMethods = this.providedRoleMethods(this.pcmEntity);
-    return _providedRoleMethods;
+    return this.providedRoleMethods(this.pcmEntity);
   }
   
   public String filePath() {
@@ -105,9 +102,8 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
     String _plus = (_fqnToDirectoryPath + "/");
     String _portClassName = JavaNames.portClassName(this.pcmEntity);
     String _plus_1 = (_plus + _portClassName);
-    String _plus_2 = (_plus_1 + 
+    return (_plus_1 + 
       ".java");
-    return _plus_2;
   }
   
   protected List<JMethod> _providedRoleMethods(final OperationProvidedRole role) {
@@ -155,19 +151,17 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
         _builder.append("\t");
         _builder.append("myComponent.");
         String _serviceNameStub = JavaNames.serviceNameStub(it);
-        _builder.append(_serviceNameStub, "	");
+        _builder.append(_serviceNameStub, "\t");
         _builder.append("(");
         String _parameterUsageList = Parameters.getParameterUsageList(it);
-        _builder.append(_parameterUsageList, "	");
+        _builder.append(_parameterUsageList, "\t");
         _builder.append(");");
         _builder.newLineIfNotEmpty();
         JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
-        JMethod _withThrows = _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-        return _withThrows;
+        return _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
       }
     };
-    List<JMethod> _map = ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
-    return _map;
+    return ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
   }
   
   protected List<JMethod> _providedRoleMethods(final InfrastructureProvidedRole role) {
@@ -181,13 +175,11 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
         JMethod _withReturnType = _withName.withReturnType("void");
         String _parameterList = Parameters.getParameterList(it);
         JMethod _withParameters = _withReturnType.withParameters(_parameterList);
-        JMethod _withThrows = _withParameters.withThrows(
+        return _withParameters.withThrows(
           JavaConstants.RMI_REMOTE_EXCEPTION);
-        return _withThrows;
       }
     };
-    List<JMethod> _map = ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
-    return _map;
+    return ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
   }
   
   /**
@@ -199,14 +191,12 @@ public class PojoBasicComponentPortClass extends PojoClass<ProvidedRole> {
   
   protected String _providedRoleInterface(final OperationProvidedRole role) {
     OperationInterface _providedInterface__OperationProvidedRole = role.getProvidedInterface__OperationProvidedRole();
-    String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-    return _fqn;
+    return JavaNames.fqn(_providedInterface__OperationProvidedRole);
   }
   
   protected String _providedRoleInterface(final InfrastructureProvidedRole role) {
     InfrastructureInterface _providedInterface__InfrastructureProvidedRole = role.getProvidedInterface__InfrastructureProvidedRole();
-    String _fqn = JavaNames.fqn(_providedInterface__InfrastructureProvidedRole);
-    return _fqn;
+    return JavaNames.fqn(_providedInterface__InfrastructureProvidedRole);
   }
   
   /**

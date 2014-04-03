@@ -26,8 +26,7 @@ public class JavaEEIIOPComponentClassInterface extends JavaEEIIOPInterface<Basic
   }
   
   public String compilationUnitName() {
-    String _interfaceName = JavaNames.interfaceName(this.pcmEntity);
-    return _interfaceName;
+    return JavaNames.interfaceName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -53,13 +52,12 @@ public class JavaEEIIOPComponentClassInterface extends JavaEEIIOPInterface<Basic
           String _stackframeType = PcmCommons.stackframeType();
           JMethod _withReturnType = _withName.withReturnType(_stackframeType);
           String _stackContextParameterList = PcmCommons.stackContextParameterList();
-          JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-          return _withParameters;
+          return _withReturnType.withParameters(_stackContextParameterList);
         }
       };
       List<JMethod> _map = ListExtensions.<ServiceEffectSpecification, JMethod>map(_serviceEffectSpecifications__BasicComponent, _function);
       Iterables.<JMethod>addAll(results, _map);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -67,7 +65,6 @@ public class JavaEEIIOPComponentClassInterface extends JavaEEIIOPInterface<Basic
   public String filePath() {
     String _fqnInterface = JavaNames.fqnInterface(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnInterface);
-    String _plus = (_fqnToDirectoryPath + ".java");
-    return _plus;
+    return (_fqnToDirectoryPath + ".java");
   }
 }

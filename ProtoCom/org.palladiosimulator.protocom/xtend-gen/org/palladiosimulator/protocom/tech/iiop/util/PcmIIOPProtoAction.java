@@ -64,7 +64,7 @@ public class PcmIIOPProtoAction extends PcmProtoAction {
     EList<VariableUsage> _inputVariableUsages__CallAction = action.getInputVariableUsages__CallAction();
     EList<VariableUsage> _returnVariableUsage__CallReturnAction = action.getReturnVariableUsage__CallReturnAction();
     String _call = PcmCommons.call(_calledService_ExternalService, _calledService_ExternalService_1, _plus, _inputVariableUsages__CallAction, _returnVariableUsage__CallReturnAction);
-    _builder.append(_call, "		");
+    _builder.append(_call, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t");
     _builder.append("ctx.getStack().removeStackFrame();");

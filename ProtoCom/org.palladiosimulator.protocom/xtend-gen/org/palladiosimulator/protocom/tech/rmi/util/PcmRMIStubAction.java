@@ -58,7 +58,7 @@ public class PcmRMIStubAction extends PcmStubAction {
     EList<VariableUsage> _inputVariableUsages__CallAction = action.getInputVariableUsages__CallAction();
     EList<VariableUsage> _returnVariableUsage__CallReturnAction = action.getReturnVariableUsage__CallReturnAction();
     String _callStub = PcmCommons.callStub(_calledService_ExternalService, _calledService_ExternalService_1, _plus_1, _inputVariableUsages__CallAction, _returnVariableUsage__CallReturnAction);
-    _builder.append(_callStub, "		");
+    _builder.append(_callStub, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("} catch (java.rmi.RemoteException e) {");

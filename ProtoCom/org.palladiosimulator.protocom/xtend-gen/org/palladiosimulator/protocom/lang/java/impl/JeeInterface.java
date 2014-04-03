@@ -98,7 +98,6 @@ public class JeeInterface extends JCompilationUnit<IJeeInterface> implements IJe
   }
   
   public String jeeInterfaceRemoteAnnotation() {
-    String _jeeInterfaceRemoteAnnotation = this.provider.jeeInterfaceRemoteAnnotation();
-    return _jeeInterfaceRemoteAnnotation;
+    return this.provider.jeeInterfaceRemoteAnnotation();
   }
 }

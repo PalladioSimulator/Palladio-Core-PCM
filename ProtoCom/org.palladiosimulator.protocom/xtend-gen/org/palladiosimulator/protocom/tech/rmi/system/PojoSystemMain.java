@@ -53,7 +53,7 @@ public class PojoSystemMain extends PojoClass<UsageScenario> {
     _builder.append("\t");
     _builder.append("threads.add(new ");
     String _fqn = JavaNames.fqn(this.pcmEntity);
-    _builder.append(_fqn, "	");
+    _builder.append(_fqn, "\t");
     _builder.append("Thread(exp, expRun,");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");
@@ -109,10 +109,10 @@ public class PojoSystemMain extends PojoClass<UsageScenario> {
         _builder_4.append("\t");
         _builder_4.append("\"");
         String _fqn_2 = JavaNames.fqn(system_1);
-        _builder_4.append(_fqn_2, "	");
+        _builder_4.append(_fqn_2, "\t");
         _builder_4.append("\", \"");
         String _javaName = JavaNames.javaName(system_1);
-        _builder_4.append(_javaName, "	");
+        _builder_4.append(_javaName, "\t");
         _builder_4.append("\"");
         _builder_4.newLineIfNotEmpty();
       }

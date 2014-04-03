@@ -65,8 +65,7 @@ public class PcmCommons {
     String _plus = (prefix + _javaSignature);
     String _plus_1 = (_plus + "(");
     String _plus_2 = (_plus_1 + "ctx");
-    String _plus_3 = (_plus_2 + ");");
-    return _plus_3;
+    return (_plus_2 + ");");
   }
   
   public static String callStub(final OperationSignature signature, final Entity call, final String prefix, final List<VariableUsage> parameterUsages, final List<VariableUsage> outParameterUsages) {
@@ -75,24 +74,21 @@ public class PcmCommons {
     String _plus_1 = (_plus + "(");
     String _parameterUsageList = Parameters.getParameterUsageList(signature);
     String _plus_2 = (_plus_1 + _parameterUsageList);
-    String _plus_3 = (_plus_2 + ");");
-    return _plus_3;
+    return (_plus_2 + ");");
   }
   
   public static ProvidedDelegationConnector getProvidedDelegationConnector(final ComposedStructure s, final ProvidedRole p) {
     EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector it) {
-        boolean _isInstance = ProvidedDelegationConnector.class.isInstance(it);
-        return Boolean.valueOf(_isInstance);
+        return Boolean.valueOf(ProvidedDelegationConnector.class.isInstance(it));
       }
     };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
     final Function1<Connector,Boolean> _function_1 = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector it) {
         OperationProvidedRole _outerProvidedRole_ProvidedDelegationConnector = ((ProvidedDelegationConnector) it).getOuterProvidedRole_ProvidedDelegationConnector();
-        boolean _equals = Objects.equal(_outerProvidedRole_ProvidedDelegationConnector, p);
-        return Boolean.valueOf(_equals);
+        return Boolean.valueOf(Objects.equal(_outerProvidedRole_ProvidedDelegationConnector, p));
       }
     };
     Iterable<Connector> _filter_1 = IterableExtensions.<Connector>filter(_filter, _function_1);
@@ -105,8 +101,7 @@ public class PcmCommons {
     EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector it) {
-        boolean _isInstance = ProvidedDelegationConnector.class.isInstance(it);
-        return Boolean.valueOf(_isInstance);
+        return Boolean.valueOf(ProvidedDelegationConnector.class.isInstance(it));
       }
     };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
@@ -118,16 +113,14 @@ public class PcmCommons {
     EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector it) {
-        boolean _isInstance = RequiredDelegationConnector.class.isInstance(it);
-        return Boolean.valueOf(_isInstance);
+        return Boolean.valueOf(RequiredDelegationConnector.class.isInstance(it));
       }
     };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
     final Function1<Connector,Boolean> _function_1 = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector it) {
         OperationRequiredRole _outerRequiredRole_RequiredDelegationConnector = ((RequiredDelegationConnector) it).getOuterRequiredRole_RequiredDelegationConnector();
-        boolean _equals = Objects.equal(_outerRequiredRole_RequiredDelegationConnector, p);
-        return Boolean.valueOf(_equals);
+        return Boolean.valueOf(Objects.equal(_outerRequiredRole_RequiredDelegationConnector, p));
       }
     };
     Iterable<Connector> _filter_1 = IterableExtensions.<Connector>filter(_filter, _function_1);
@@ -140,8 +133,7 @@ public class PcmCommons {
     EList<Connector> _connectors__ComposedStructure = s.getConnectors__ComposedStructure();
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector it) {
-        boolean _isInstance = RequiredDelegationConnector.class.isInstance(it);
-        return Boolean.valueOf(_isInstance);
+        return Boolean.valueOf(RequiredDelegationConnector.class.isInstance(it));
       }
     };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors__ComposedStructure, _function);
@@ -153,26 +145,22 @@ public class PcmCommons {
     Iterable<Connector> _connectors = PcmCalls.connectors(s);
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector con) {
-        boolean _test = PcmCalls.test(con, ctx, r);
-        return Boolean.valueOf(_test);
+        return Boolean.valueOf(PcmCalls.test(con, ctx, r));
       }
     };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors, _function);
     int _size = IterableExtensions.size(_filter);
-    boolean _equals = (_size == 1);
-    return _equals;
+    return (_size == 1);
   }
   
   public static Connector getConnector(final ComposedStructure s, final AssemblyContext ctx, final RequiredRole r) {
     Iterable<Connector> _connectors = PcmCalls.connectors(s);
     final Function1<Connector,Boolean> _function = new Function1<Connector,Boolean>() {
       public Boolean apply(final Connector con) {
-        boolean _test = PcmCalls.test(con, ctx, r);
-        return Boolean.valueOf(_test);
+        return Boolean.valueOf(PcmCalls.test(con, ctx, r));
       }
     };
     Iterable<Connector> _filter = IterableExtensions.<Connector>filter(_connectors, _function);
-    Connector _get = ((Connector[])Conversions.unwrapArray(_filter, Connector.class))[0];
-    return _get;
+    return ((Connector[])Conversions.unwrapArray(_filter, Connector.class))[0];
   }
 }

@@ -48,7 +48,7 @@ public class FSAProvider implements Provider<AbstractFileSystemAccess2> {
         fsa.setProject(project);
         NullProgressMonitor _nullProgressMonitor_1 = new NullProgressMonitor();
         fsa.setMonitor(_nullProgressMonitor_1);
-        _xblockexpression = (fsa);
+        _xblockexpression = fsa;
       }
       return _xblockexpression;
     } catch (Throwable _e) {
@@ -59,18 +59,16 @@ public class FSAProvider implements Provider<AbstractFileSystemAccess2> {
   public Map<String,OutputConfiguration> defaultConfig() {
     Map<String,OutputConfiguration> _xblockexpression = null;
     {
-      OutputConfiguration _outputConfiguration = new OutputConfiguration("PCM");
-      final OutputConfiguration defaultOutput = _outputConfiguration;
+      final OutputConfiguration defaultOutput = new OutputConfiguration("PCM");
       defaultOutput.setDescription("Output Folder");
       defaultOutput.setOutputDirectory("./src");
       defaultOutput.setOverrideExistingResources(true);
       defaultOutput.setCreateOutputDirectory(true);
       defaultOutput.setCleanUpDerivedResources(true);
       defaultOutput.setSetDerivedProperty(true);
-      HashMap<String,OutputConfiguration> _hashMap = new HashMap<String, OutputConfiguration>();
-      final Map<String,OutputConfiguration> map = _hashMap;
+      final Map<String,OutputConfiguration> map = new HashMap<String, OutputConfiguration>();
       map.put("PCM", defaultOutput);
-      _xblockexpression = (map);
+      _xblockexpression = map;
     }
     return _xblockexpression;
   }

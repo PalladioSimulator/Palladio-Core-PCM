@@ -57,13 +57,11 @@ public class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
   }
   
   public String packageName() {
-    String _fqnPortPackage = JavaNames.fqnPortPackage(this.pcmEntity);
-    return _fqnPortPackage;
+    return JavaNames.fqnPortPackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
-    String _portClassName = JavaNames.portClassName(this.pcmEntity);
-    return _portClassName;
+    return JavaNames.portClassName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -128,7 +126,7 @@ public class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
       JMethod _withThrows_2 = _withReturnType.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
       JMethod _withImplementation_2 = _withThrows_2.withImplementation("return myCompositeComponent;");
       Iterables.<JMethod>addAll(results, Collections.<JMethod>unmodifiableList(Lists.<JMethod>newArrayList(_withImplementation, _withImplementation_1, _withImplementation_2)));
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -139,8 +137,7 @@ public class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
     String _plus = (_fqnToDirectoryPath + "/");
     String _portClassName = JavaNames.portClassName(this.pcmEntity);
     String _plus_1 = (_plus + _portClassName);
-    String _plus_2 = (_plus_1 + ".java");
-    return _plus_2;
+    return (_plus_1 + ".java");
   }
   
   protected List<JMethod> _providedRoleMethods(final OperationProvidedRole role) {
@@ -159,12 +156,10 @@ public class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
         String _plus = ("return myInnerPort." + _javaSignature_1);
         String _plus_1 = (_plus + "(ctx);");
         JMethod _withImplementation = _withParameters.withImplementation(_plus_1);
-        JMethod _withThrows = _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-        return _withThrows;
+        return _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
       }
     };
-    List<JMethod> _map = ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
-    return _map;
+    return ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
   }
   
   protected List<JMethod> _providedRoleMethods(final InfrastructureProvidedRole role) {
@@ -180,12 +175,10 @@ public class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
         String _stackContextParameterList = PcmCommons.stackContextParameterList();
         JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
         JMethod _withImplementation = _withParameters.withImplementation("return null;");
-        JMethod _withThrows = _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-        return _withThrows;
+        return _withImplementation.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
       }
     };
-    List<JMethod> _map = ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
-    return _map;
+    return ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
   }
   
   public List<JMethod> providedRoleMethods(final ProvidedRole role) {

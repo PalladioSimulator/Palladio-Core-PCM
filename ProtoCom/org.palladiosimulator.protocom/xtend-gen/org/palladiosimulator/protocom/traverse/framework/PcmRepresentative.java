@@ -3,10 +3,8 @@ package org.palladiosimulator.protocom.traverse.framework;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
-import java.util.LinkedList;
 import java.util.List;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.Functions.Function0;
 import org.eclipse.xtext.xbase.lib.IterableExtensions;
 import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.palladiosimulator.protocom.lang.GeneratedFile;
@@ -30,12 +28,7 @@ public abstract class PcmRepresentative<E extends NamedElement> {
   /**
    * List of all files to be generated.
    */
-  protected List<GeneratedFile<? extends ICompilationUnit>> generatedFiles = new Function0<List<GeneratedFile<? extends ICompilationUnit>>>() {
-    public List<GeneratedFile<? extends ICompilationUnit>> apply() {
-      LinkedList<GeneratedFile<? extends ICompilationUnit>> _newLinkedList = CollectionLiterals.<GeneratedFile<? extends ICompilationUnit>>newLinkedList();
-      return _newLinkedList;
-    }
-  }.apply();
+  protected List<GeneratedFile<? extends ICompilationUnit>> generatedFiles = CollectionLiterals.<GeneratedFile<? extends ICompilationUnit>>newLinkedList();
   
   /**
    * The represented element of the loaded PCM model.
@@ -49,7 +42,7 @@ public abstract class PcmRepresentative<E extends NamedElement> {
     PcmRepresentative<E> _xblockexpression = null;
     {
       this.entity = entity;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }

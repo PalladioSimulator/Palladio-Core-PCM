@@ -158,7 +158,7 @@ public abstract class PcmAction {
     PassiveResource _passiveresource_AcquireAction = action.getPassiveresource_AcquireAction();
     String _entityName = _passiveresource_AcquireAction.getEntityName();
     String _javaString = JavaNames.javaString(_entityName);
-    _builder.append(_javaString, "	");
+    _builder.append(_javaString, "\t");
     _builder.append("\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -166,7 +166,7 @@ public abstract class PcmAction {
     PassiveResource _passiveresource_AcquireAction_1 = action.getPassiveresource_AcquireAction();
     String _entityName_1 = _passiveresource_AcquireAction_1.getEntityName();
     String _javaVariableName = JavaNames.javaVariableName(_entityName_1);
-    _builder.append(_javaVariableName, "	");
+    _builder.append(_javaVariableName, "\t");
     _builder.append(".acquire();");
     _builder.newLineIfNotEmpty();
     _builder.append("} catch (InterruptedException e) {");
@@ -176,7 +176,7 @@ public abstract class PcmAction {
     PassiveResource _passiveresource_AcquireAction_2 = action.getPassiveresource_AcquireAction();
     String _entityName_2 = _passiveresource_AcquireAction_2.getEntityName();
     String _javaString_1 = JavaNames.javaString(_entityName_2);
-    _builder.append(_javaString_1, "	");
+    _builder.append(_javaString_1, "\t");
     _builder.append(" interrupted\");");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -242,8 +242,7 @@ public abstract class PcmAction {
   public static StartAction findStart(final Iterable<AbstractAction> actions) {
     final Function1<AbstractAction,Boolean> _function = new Function1<AbstractAction,Boolean>() {
       public Boolean apply(final AbstractAction it) {
-        boolean _isInstance = StartAction.class.isInstance(it);
-        return Boolean.valueOf(_isInstance);
+        return Boolean.valueOf(StartAction.class.isInstance(it));
       }
     };
     AbstractAction _findFirst = IterableExtensions.<AbstractAction>findFirst(actions, _function);

@@ -45,13 +45,11 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
   }
   
   public String packageName() {
-    String _fqnPortPackage = JavaNames.fqnPortPackage(this.pcmEntity);
-    return _fqnPortPackage;
+    return JavaNames.fqnPortPackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
-    String _portClassName = JavaNames.portClassName(this.pcmEntity);
-    return _portClassName;
+    return JavaNames.portClassName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -71,8 +69,7 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
   }
   
   public Collection<? extends IJMethod> methods() {
-    List<JMethod> _providedRoleMethods = this.providedRoleMethods(this.pcmEntity);
-    return _providedRoleMethods;
+    return this.providedRoleMethods(this.pcmEntity);
   }
   
   public String filePath() {
@@ -81,8 +78,7 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
     String _plus = (_fqnToDirectoryPath + "/");
     String _portClassName = JavaNames.portClassName(this.pcmEntity);
     String _plus_1 = (_plus + _portClassName);
-    String _plus_2 = (_plus_1 + ".java");
-    return _plus_2;
+    return (_plus_1 + ".java");
   }
   
   protected List<JMethod> _providedRoleMethods(final OperationProvidedRole role) {
@@ -116,12 +112,10 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
         _builder.newLine();
         _builder.append("return result;");
         _builder.newLine();
-        JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
-        return _withImplementation;
+        return _withParameters.withImplementation(_builder.toString());
       }
     };
-    List<JMethod> _map = ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
-    return _map;
+    return ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
   }
   
   protected List<JMethod> _providedRoleMethods(final InfrastructureProvidedRole role) {
@@ -136,24 +130,20 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
         JMethod _withReturnType = _withName.withReturnType(_stackframeType);
         String _stackContextParameterList = PcmCommons.stackContextParameterList();
         JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-        JMethod _withImplementation = _withParameters.withImplementation("return null;");
-        return _withImplementation;
+        return _withParameters.withImplementation("return null;");
       }
     };
-    List<JMethod> _map = ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
-    return _map;
+    return ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
   }
   
   protected String _providedRoleInterface(final OperationProvidedRole role) {
     OperationInterface _providedInterface__OperationProvidedRole = role.getProvidedInterface__OperationProvidedRole();
-    String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-    return _fqn;
+    return JavaNames.fqn(_providedInterface__OperationProvidedRole);
   }
   
   protected String _providedRoleInterface(final InfrastructureProvidedRole role) {
     InfrastructureInterface _providedInterface__InfrastructureProvidedRole = role.getProvidedInterface__InfrastructureProvidedRole();
-    String _fqn = JavaNames.fqn(_providedInterface__InfrastructureProvidedRole);
-    return _fqn;
+    return JavaNames.fqn(_providedInterface__InfrastructureProvidedRole);
   }
   
   public Collection<? extends IJField> jeeClassDependencyInjection() {
@@ -166,7 +156,7 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
       String _javaName = JavaNames.javaName(_providingEntity_ProvidedRole);
       JField _withType = _withName.withType(_javaName);
       Iterables.<JField>addAll(results, Collections.<JField>unmodifiableList(Lists.<JField>newArrayList(_withType)));
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }

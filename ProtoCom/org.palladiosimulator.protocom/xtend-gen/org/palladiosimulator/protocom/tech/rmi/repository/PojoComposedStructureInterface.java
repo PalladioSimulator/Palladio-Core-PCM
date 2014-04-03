@@ -34,13 +34,11 @@ public class PojoComposedStructureInterface extends ConceptMapping<InterfaceProv
   }
   
   public String packageName() {
-    String _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
-    return _implementationPackage;
+    return JavaNames.implementationPackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
-    String _interfaceName = JavaNames.interfaceName(this.pcmEntity);
-    return _interfaceName;
+    return JavaNames.interfaceName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -58,8 +56,7 @@ public class PojoComposedStructureInterface extends ConceptMapping<InterfaceProv
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
         public Boolean apply(final ProvidedRole it) {
-          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationProvidedRole.class.isInstance(it));
         }
       };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
@@ -70,13 +67,12 @@ public class PojoComposedStructureInterface extends ConceptMapping<InterfaceProv
           JMethod _withName = _jMethod.withName(_portGetter);
           OperationInterface _providedInterface__OperationProvidedRole = ((OperationProvidedRole) it).getProvidedInterface__OperationProvidedRole();
           String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-          JMethod _withReturnType = _withName.withReturnType(_fqn);
-          return _withReturnType;
+          return _withName.withReturnType(_fqn);
         }
       };
       Iterable<JMethod> _map = IterableExtensions.<ProvidedRole, JMethod>map(_filter, _function_1);
       Iterables.<JMethod>addAll(results, _map);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -88,7 +84,6 @@ public class PojoComposedStructureInterface extends ConceptMapping<InterfaceProv
   public String filePath() {
     String _fqnInterface = JavaNames.fqnInterface(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnInterface);
-    String _plus = (_fqnToDirectoryPath + ".java");
-    return _plus;
+    return (_fqnToDirectoryPath + ".java");
   }
 }

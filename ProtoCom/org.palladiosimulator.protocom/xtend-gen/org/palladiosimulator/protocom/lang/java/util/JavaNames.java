@@ -61,8 +61,7 @@ public class JavaNames {
     String _replaceAll_7 = _replaceAll_6.replaceAll("\\+", "_");
     String _replaceAll_8 = _replaceAll_7.replaceAll("-", "_");
     String _replaceAll_9 = _replaceAll_8.replaceAll("\\(", "_");
-    String _replaceAll_10 = _replaceAll_9.replaceAll("\\)", "_");
-    return _replaceAll_10;
+    return _replaceAll_9.replaceAll("\\)", "_");
   }
   
   public static String javaString(final String s) {
@@ -71,8 +70,7 @@ public class JavaNames {
     String _replaceAll_2 = _replaceAll_1.replaceAll("<", "_");
     String _replaceAll_3 = _replaceAll_2.replaceAll(">", "_");
     String _replaceAll_4 = _replaceAll_3.replaceAll(":", "_");
-    String _replaceAll_5 = _replaceAll_4.replaceAll("\\.", "_");
-    return _replaceAll_5;
+    return _replaceAll_4.replaceAll("\\.", "_");
   }
   
   public static String javaVariableName(final String s) {
@@ -86,21 +84,18 @@ public class JavaNames {
     String _replaceAll_7 = _replaceAll_6.replaceAll("\\+", "_");
     String _replaceAll_8 = _replaceAll_7.replaceAll("-", "__");
     String _replaceAll_9 = _replaceAll_8.replaceAll("\\(", "_");
-    String _replaceAll_10 = _replaceAll_9.replaceAll("\\)", "_");
-    return _replaceAll_10;
+    return _replaceAll_9.replaceAll("\\)", "_");
   }
   
   public static String specificationString(final String s) {
     String _replaceAll = s.replaceAll("\"", "\\\\\"");
-    String _removeAllSpecialChars = JavaNames.removeAllSpecialChars(_replaceAll);
-    return _removeAllSpecialChars;
+    return JavaNames.removeAllSpecialChars(_replaceAll);
   }
   
   public static String javaSignature(final OperationSignature s) {
     String _entityName = s.getEntityName();
     int _posInInterface = JavaNames.posInInterface(s, 0);
-    String _plus = (_entityName + Integer.valueOf(_posInInterface));
-    return _plus;
+    return (_entityName + Integer.valueOf(_posInInterface));
   }
   
   public static int posInInterface(final OperationSignature s, final int pos) {
@@ -112,9 +107,7 @@ public class JavaNames {
     if (_equals) {
       _xifexpression = pos;
     } else {
-      int _plus = (pos + 1);
-      int _posInInterface = JavaNames.posInInterface(s, _plus);
-      _xifexpression = _posInInterface;
+      _xifexpression = JavaNames.posInInterface(s, (pos + 1));
     }
     return _xifexpression;
   }
@@ -122,8 +115,7 @@ public class JavaNames {
   public static String javaSignature(final InfrastructureSignature s) {
     String _entityName = s.getEntityName();
     int _posInInterface = JavaNames.posInInterface(s, 0);
-    String _plus = (_entityName + Integer.valueOf(_posInInterface));
-    return _plus;
+    return (_entityName + Integer.valueOf(_posInInterface));
   }
   
   public static int posInInterface(final InfrastructureSignature s, final int pos) {
@@ -135,9 +127,7 @@ public class JavaNames {
     if (_equals) {
       _xifexpression = pos;
     } else {
-      int _plus = (pos + 1);
-      int _posInInterface = JavaNames.posInInterface(s, _plus);
-      _xifexpression = _posInInterface;
+      _xifexpression = JavaNames.posInInterface(s, (pos + 1));
     }
     return _xifexpression;
   }
@@ -148,8 +138,7 @@ public class JavaNames {
     String _plus = (_javaName + "_");
     InterfaceProvidingEntity _providingEntity_ProvidedRole = r.getProvidingEntity_ProvidedRole();
     String _javaName_1 = JavaNames.javaName(_providingEntity_ProvidedRole);
-    String _plus_1 = (_plus + _javaName_1);
-    return _plus_1;
+    return (_plus + _javaName_1);
   }
   
   protected static String _portClassName(final InfrastructureProvidedRole r) {
@@ -158,8 +147,7 @@ public class JavaNames {
     String _plus = (_javaName + "_");
     InterfaceProvidingEntity _providingEntity_ProvidedRole = r.getProvidingEntity_ProvidedRole();
     String _javaName_1 = JavaNames.javaName(_providingEntity_ProvidedRole);
-    String _plus_1 = (_plus + _javaName_1);
-    return _plus_1;
+    return (_plus + _javaName_1);
   }
   
   /**
@@ -171,206 +159,176 @@ public class JavaNames {
   
   public static String contextClassName(final InterfaceRequiringEntity c) {
     String _javaName = JavaNames.javaName(c);
-    String _plus = (_javaName + "Context");
-    return _plus;
+    return (_javaName + "Context");
   }
   
   public static String contextInterfaceName(final InterfaceRequiringEntity c) {
     String _javaName = JavaNames.javaName(c);
     String _plus = ("I" + _javaName);
-    String _plus_1 = (_plus + "Context");
-    return _plus_1;
+    return (_plus + "Context");
   }
   
   public static String portMemberVar(final OperationProvidedRole r) {
     String _javaName = JavaNames.javaName(r);
-    String _plus = ("m_port" + _javaName);
-    return _plus;
+    return ("m_port" + _javaName);
   }
   
   public static String portMemberVar(final InfrastructureProvidedRole r) {
     String _javaName = JavaNames.javaName(r);
-    String _plus = ("m_port" + _javaName);
-    return _plus;
+    return ("m_port" + _javaName);
   }
   
   protected static String _portGetter(final OperationProvidedRole r) {
     String _javaName = JavaNames.javaName(r);
-    String _plus = ("getPort" + _javaName);
-    return _plus;
+    return ("getPort" + _javaName);
   }
   
   protected static String _portGetter(final InfrastructureProvidedRole r) {
     String _javaName = JavaNames.javaName(r);
-    String _plus = ("getPort" + _javaName);
-    return _plus;
+    return ("getPort" + _javaName);
   }
   
   public static String basePackageName(final Entity s) {
     String _javaName = JavaNames.javaName(s);
-    String _lowerCase = _javaName.toLowerCase();
-    return _lowerCase;
+    return _javaName.toLowerCase();
   }
   
   protected static String _implementationPackage(final OperationInterface i) {
     Repository _repository__Interface = i.getRepository__Interface();
-    String _basePackageName = JavaNames.basePackageName(_repository__Interface);
-    return _basePackageName;
+    return JavaNames.basePackageName(_repository__Interface);
   }
   
   protected static String _implementationPackage(final InfrastructureInterface i) {
     Repository _repository__Interface = i.getRepository__Interface();
-    String _basePackageName = JavaNames.basePackageName(_repository__Interface);
-    return _basePackageName;
+    return JavaNames.basePackageName(_repository__Interface);
   }
   
   protected static String _implementationPackage(final de.uka.ipd.sdq.pcm.system.System s) {
     String _basePackageName = JavaNames.basePackageName(s);
-    String _plus = (_basePackageName + ".impl");
-    return _plus;
+    return (_basePackageName + ".impl");
   }
   
   protected static String _implementationPackage(final UsageScenario u) {
     String _basePackageName = JavaNames.basePackageName(u);
-    String _plus = (_basePackageName + ".impl");
-    return _plus;
+    return (_basePackageName + ".impl");
   }
   
   protected static String _implementationPackage(final RepositoryComponent c) {
     Repository _repository__RepositoryComponent = c.getRepository__RepositoryComponent();
     String _basePackageName = JavaNames.basePackageName(_repository__RepositoryComponent);
-    String _plus = (_basePackageName + ".impl");
-    return _plus;
+    return (_basePackageName + ".impl");
   }
   
   protected static String _implementationPackage(final FailureType ft) {
     Repository _repository__FailureType = ft.getRepository__FailureType();
     String _basePackageName = JavaNames.basePackageName(_repository__FailureType);
-    String _plus = (_basePackageName + ".exceptions");
-    return _plus;
+    return (_basePackageName + ".exceptions");
   }
   
   protected static String _implementationPackage(final PrimitiveDataType dt) {
     Repository _repository__DataType = dt.getRepository__DataType();
     String _basePackageName = JavaNames.basePackageName(_repository__DataType);
-    String _plus = (_basePackageName + ".datatypes");
-    return _plus;
+    return (_basePackageName + ".datatypes");
   }
   
   protected static String _implementationPackage(final CollectionDataType dt) {
     Repository _repository__DataType = dt.getRepository__DataType();
     String _basePackageName = JavaNames.basePackageName(_repository__DataType);
-    String _plus = (_basePackageName + ".datatypes");
-    return _plus;
+    return (_basePackageName + ".datatypes");
   }
   
   protected static String _implementationPackage(final CompositeDataType dt) {
     Repository _repository__DataType = dt.getRepository__DataType();
     String _basePackageName = JavaNames.basePackageName(_repository__DataType);
-    String _plus = (_basePackageName + ".datatypes");
-    return _plus;
+    return (_basePackageName + ".datatypes");
   }
   
   public static String className(final ComposedStructure s) {
-    String _javaName = JavaNames.javaName(s);
-    return _javaName;
+    return JavaNames.javaName(s);
   }
   
   public static String fqnAllocationContextPackage(final Allocation a) {
     de.uka.ipd.sdq.pcm.system.System _system_Allocation = a.getSystem_Allocation();
     String _implementationPackage = JavaNames.implementationPackage(_system_Allocation);
-    String _plus = (_implementationPackage + ".allocation");
-    return _plus;
+    return (_implementationPackage + ".allocation");
   }
   
   public static String fqnAllocationContextClass(final Allocation a) {
     String _javaName = JavaNames.javaName(a);
-    String _plus = (_javaName + "RuntimeContext");
-    return _plus;
+    return (_javaName + "RuntimeContext");
   }
   
   public static String fqnAllocationContext(final Allocation a) {
     String _fqnAllocationContextPackage = JavaNames.fqnAllocationContextPackage(a);
     String _plus = (_fqnAllocationContextPackage + ".");
     String _fqnAllocationContextClass = JavaNames.fqnAllocationContextClass(a);
-    String _plus_1 = (_plus + _fqnAllocationContextClass);
-    return _plus_1;
+    return (_plus + _fqnAllocationContextClass);
   }
   
   protected static String _fqn(final OperationInterface i) {
     String _implementationPackage = JavaNames.implementationPackage(i);
     String _plus = (_implementationPackage + ".");
     String _javaName = JavaNames.javaName(i);
-    String _plus_1 = (_plus + _javaName);
-    return _plus_1;
+    return (_plus + _javaName);
   }
   
   protected static String _fqn(final InfrastructureInterface i) {
     String _implementationPackage = JavaNames.implementationPackage(i);
     String _plus = (_implementationPackage + ".");
     String _javaName = JavaNames.javaName(i);
-    String _plus_1 = (_plus + _javaName);
-    return _plus_1;
+    return (_plus + _javaName);
   }
   
   protected static String _fqn(final RepositoryComponent c) {
     String _implementationPackage = JavaNames.implementationPackage(c);
     String _plus = (_implementationPackage + ".");
     String _javaName = JavaNames.javaName(c);
-    String _plus_1 = (_plus + _javaName);
-    return _plus_1;
+    return (_plus + _javaName);
   }
   
   protected static String _fqn(final de.uka.ipd.sdq.pcm.system.System s) {
     String _implementationPackage = JavaNames.implementationPackage(s);
     String _plus = (_implementationPackage + ".");
     String _javaName = JavaNames.javaName(s);
-    String _plus_1 = (_plus + _javaName);
-    return _plus_1;
+    return (_plus + _javaName);
   }
   
   protected static String _fqn(final UsageScenario us) {
     String _implementationPackage = JavaNames.implementationPackage(us);
     String _plus = (_implementationPackage + ".");
     String _javaName = JavaNames.javaName(us);
-    String _plus_1 = (_plus + _javaName);
-    return _plus_1;
+    return (_plus + _javaName);
   }
   
   public static String fqnContextPackage(final Entity c) {
     String _implementationPackage = JavaNames.implementationPackage(c);
-    String _plus = (_implementationPackage + ".contexts");
-    return _plus;
+    return (_implementationPackage + ".contexts");
   }
   
   public static String fqnContext(final InterfaceRequiringEntity c) {
     String _fqnContextPackage = JavaNames.fqnContextPackage(c);
     String _plus = (_fqnContextPackage + ".");
     String _contextClassName = JavaNames.contextClassName(c);
-    String _plus_1 = (_plus + _contextClassName);
-    return _plus_1;
+    return (_plus + _contextClassName);
   }
   
   public static String fqnContextInterface(final InterfaceRequiringEntity c) {
     String _fqnContextPackage = JavaNames.fqnContextPackage(c);
     String _plus = (_fqnContextPackage + ".I");
     String _contextClassName = JavaNames.contextClassName(c);
-    String _plus_1 = (_plus + _contextClassName);
-    return _plus_1;
+    return (_plus + _contextClassName);
   }
   
   protected static String _fqnPortPackage(final OperationProvidedRole pr) {
     InterfaceProvidingEntity _providingEntity_ProvidedRole = pr.getProvidingEntity_ProvidedRole();
     String _implementationPackage = JavaNames.implementationPackage(_providingEntity_ProvidedRole);
-    String _plus = (_implementationPackage + ".ports");
-    return _plus;
+    return (_implementationPackage + ".ports");
   }
   
   protected static String _fqnPortPackage(final InfrastructureProvidedRole pr) {
     InterfaceProvidingEntity _providingEntity_ProvidedRole = pr.getProvidingEntity_ProvidedRole();
     String _implementationPackage = JavaNames.implementationPackage(_providingEntity_ProvidedRole);
-    String _plus = (_implementationPackage + ".ports");
-    return _plus;
+    return (_implementationPackage + ".ports");
   }
   
   /**
@@ -385,8 +343,7 @@ public class JavaNames {
     String _implementationPackage = JavaNames.implementationPackage(_providingEntity_ProvidedRole);
     String _plus = (_implementationPackage + ".ports.");
     String _portClassName = JavaNames.portClassName(pr);
-    String _plus_1 = (_plus + _portClassName);
-    return _plus_1;
+    return (_plus + _portClassName);
   }
   
   public static String fqnPort(final InfrastructureProvidedRole pr) {
@@ -394,42 +351,36 @@ public class JavaNames {
     String _implementationPackage = JavaNames.implementationPackage(_providingEntity_ProvidedRole);
     String _plus = (_implementationPackage + ".ports.");
     String _portClassName = JavaNames.portClassName(pr);
-    String _plus_1 = (_plus + _portClassName);
-    return _plus_1;
+    return (_plus + _portClassName);
   }
   
   public static String beanName(final RepositoryComponent c) {
     String _javaName = JavaNames.javaName(c);
-    String _plus = (_javaName + "Bean");
-    return _plus;
+    return (_javaName + "Bean");
   }
   
   public static String fqnInterface(final InterfaceProvidingEntity c) {
     String _implementationPackage = JavaNames.implementationPackage(c);
     String _plus = (_implementationPackage + ".I");
     String _javaName = JavaNames.javaName(c);
-    String _plus_1 = (_plus + _javaName);
-    return _plus_1;
+    return (_plus + _javaName);
   }
   
   public static String interfaceName(final InterfaceProvidingEntity c) {
     String _javaName = JavaNames.javaName(c);
-    String _plus = ("I" + _javaName);
-    return _plus;
+    return ("I" + _javaName);
   }
   
   public static String dummyComponentName(final OperationRequiredRole rr) {
     OperationInterface _requiredInterface__OperationRequiredRole = rr.getRequiredInterface__OperationRequiredRole();
     String _javaName = JavaNames.javaName(_requiredInterface__OperationRequiredRole);
-    String _plus = (_javaName + "Dummy");
-    return _plus;
+    return (_javaName + "Dummy");
   }
   
   public static String dummyComponentName(final InfrastructureRequiredRole rr) {
     InfrastructureInterface _requiredInterface__InfrastructureRequiredRole = rr.getRequiredInterface__InfrastructureRequiredRole();
     String _javaName = JavaNames.javaName(_requiredInterface__InfrastructureRequiredRole);
-    String _plus = (_javaName + "Dummy");
-    return _plus;
+    return (_javaName + "Dummy");
   }
   
   public static String fqnDummyComponentPackage(final OperationRequiredRole rr) {
@@ -444,21 +395,18 @@ public class JavaNames {
     String _fqnDummyComponentPackage = JavaNames.fqnDummyComponentPackage(rr);
     String _plus = (_fqnDummyComponentPackage + ".");
     String _dummyComponentName = JavaNames.dummyComponentName(rr);
-    String _plus_1 = (_plus + _dummyComponentName);
-    return _plus_1;
+    return (_plus + _dummyComponentName);
   }
   
   public static String fqnDummyComponent(final InfrastructureRequiredRole rr) {
     String _fqnDummyComponentPackage = JavaNames.fqnDummyComponentPackage(rr);
     String _plus = (_fqnDummyComponentPackage + ".");
     String _dummyComponentName = JavaNames.dummyComponentName(rr);
-    String _plus_1 = (_plus + _dummyComponentName);
-    return _plus_1;
+    return (_plus + _dummyComponentName);
   }
   
   public static String fqnToDirectoryPath(final String fqn) {
-    String _replaceAll = fqn.replaceAll("\\.", "/");
-    return _replaceAll;
+    return fqn.replaceAll("\\.", "/");
   }
   
   public static String getFileName(final Entity e) {
@@ -467,15 +415,13 @@ public class JavaNames {
     String _plus = (_fqnToDirectoryPath + "/");
     String _javaName = JavaNames.javaName(e);
     String _plus_1 = (_plus + _javaName);
-    String _plus_2 = (_plus_1 + ".java");
-    return _plus_2;
+    return (_plus_1 + ".java");
   }
   
   public static String getFilePath(final Entity e) {
     String _implementationPackage = JavaNames.implementationPackage(e);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_implementationPackage);
-    String _plus = (_fqnToDirectoryPath + "/");
-    return _plus;
+    return (_fqnToDirectoryPath + "/");
   }
   
   protected static String _serviceName(final OperationSignature s) {
@@ -484,8 +430,7 @@ public class JavaNames {
     String _firstLower = StringExtensions.toFirstLower(_javaName);
     String _plus = (_firstLower + "_");
     String _javaSignature = JavaNames.javaSignature(s);
-    String _plus_1 = (_plus + _javaSignature);
-    return _plus_1;
+    return (_plus + _javaSignature);
   }
   
   protected static String _serviceName(final InfrastructureSignature s) {
@@ -494,8 +439,7 @@ public class JavaNames {
     String _firstLower = StringExtensions.toFirstLower(_javaName);
     String _plus = (_firstLower + "_");
     String _javaSignature = JavaNames.javaSignature(s);
-    String _plus_1 = (_plus + _javaSignature);
-    return _plus_1;
+    return (_plus + _javaSignature);
   }
   
   /**
@@ -511,8 +455,7 @@ public class JavaNames {
     String _firstLower = StringExtensions.toFirstLower(_javaName);
     String _plus = (_firstLower + "_");
     String _javaName_1 = JavaNames.javaName(s);
-    String _plus_1 = (_plus + _javaName_1);
-    return _plus_1;
+    return (_plus + _javaName_1);
   }
   
   protected static String _serviceNameStub(final InfrastructureSignature s) {
@@ -521,8 +464,7 @@ public class JavaNames {
     String _firstLower = StringExtensions.toFirstLower(_javaName);
     String _plus = (_firstLower + "_");
     String _javaName_1 = JavaNames.javaName(s);
-    String _plus_1 = (_plus + _javaName_1);
-    return _plus_1;
+    return (_plus + _javaName_1);
   }
   
   /**
@@ -547,8 +489,7 @@ public class JavaNames {
       ", AssemblyCtx: \"+this.assemblyContextID+\", CallID: ");
     String _id = ((ExternalCallAction) call).getId();
     String _plus_6 = (_plus_5 + _id);
-    String _plus_7 = (_plus_6 + ">");
-    return _plus_7;
+    return (_plus_6 + ">");
   }
   
   public static String internalActionDescription(final InfrastructureSignature os, final Object call) {
@@ -567,8 +508,7 @@ public class JavaNames {
       ", AssemblyCtx: \"+this.assemblyContextID+\", CallID: ");
     String _id = ((InternalAction) call).getId();
     String _plus_6 = (_plus_5 + _id);
-    String _plus_7 = (_plus_6 + ">");
-    return _plus_7;
+    return (_plus_6 + ">");
   }
   
   public static String entryLevelSystemCallActionDescription(final OperationSignature os, final Object call) {
@@ -577,8 +517,7 @@ public class JavaNames {
     String _plus_1 = (_plus + " <EntryLevelSystemCall id: ");
     String _id = ((Entity) call).getId();
     String _plus_2 = (_plus_1 + _id);
-    String _plus_3 = (_plus_2 + " >");
-    return _plus_3;
+    return (_plus_2 + " >");
   }
   
   public static String entryLevelSystemCallActionDescription(final InfrastructureSignature os, final Object call) {
@@ -587,8 +526,7 @@ public class JavaNames {
     String _plus_1 = (_plus + " <EntryLevelSystemCall id: ");
     String _id = ((Entity) call).getId();
     String _plus_2 = (_plus_1 + _id);
-    String _plus_3 = (_plus_2 + " >");
-    return _plus_3;
+    return (_plus_2 + " >");
   }
   
   public static String seffDescription(final OperationSignature os, final RepositoryComponent component) {
@@ -601,8 +539,7 @@ public class JavaNames {
     String _plus_3 = (_plus_2 + " <Component: ");
     String _entityName_1 = component.getEntityName();
     String _plus_4 = (_plus_3 + _entityName_1);
-    String _plus_5 = (_plus_4 + ", AssemblyCtx: \"+this.assemblyContextID+\">");
-    return _plus_5;
+    return (_plus_4 + ", AssemblyCtx: \"+this.assemblyContextID+\">");
   }
   
   public static String seffDescription(final InfrastructureSignature os, final RepositoryComponent component) {
@@ -616,8 +553,7 @@ public class JavaNames {
       " <Component: ");
     String _entityName_1 = component.getEntityName();
     String _plus_4 = (_plus_3 + _entityName_1);
-    String _plus_5 = (_plus_4 + ", AssemblyCtx: \"+this.assemblyContextID+\">");
-    return _plus_5;
+    return (_plus_4 + ", AssemblyCtx: \"+this.assemblyContextID+\">");
   }
   
   public static BasicComponent findContainerComponent(final EObject o) {
@@ -627,8 +563,7 @@ public class JavaNames {
       _xifexpression = ((BasicComponent) o);
     } else {
       EObject _eContainer = o.eContainer();
-      BasicComponent _findContainerComponent = JavaNames.findContainerComponent(_eContainer);
-      _xifexpression = _findContainerComponent;
+      _xifexpression = JavaNames.findContainerComponent(_eContainer);
     }
     return _xifexpression;
   }

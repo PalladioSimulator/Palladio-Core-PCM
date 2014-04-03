@@ -11,23 +11,19 @@ import org.palladiosimulator.protocom.lang.java.impl.JCompilationUnit;
 @SuppressWarnings("all")
 public class JClass extends JCompilationUnit<IJClass> implements IJClass {
   public Collection<String> interfaces() {
-    Collection<String> _interfaces = this.provider.interfaces();
-    return _interfaces;
+    return this.provider.interfaces();
   }
   
   public String superClass() {
-    String _superClass = this.provider.superClass();
-    return _superClass;
+    return this.provider.superClass();
   }
   
   public Collection<? extends IJMethod> constructors() {
-    Collection<? extends IJMethod> _constructors = this.provider.constructors();
-    return _constructors;
+    return this.provider.constructors();
   }
   
   public String packageName() {
-    String _packageName = this.provider.packageName();
-    return _packageName;
+    return this.provider.packageName();
   }
   
   public String header() {
@@ -130,7 +126,7 @@ public class JClass extends JCompilationUnit<IJClass> implements IJClass {
     _builder.newLine();
     _builder.append("\t");
     String _body = method.body();
-    _builder.append(_body, "	");
+    _builder.append(_body, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -172,7 +168,7 @@ public class JClass extends JCompilationUnit<IJClass> implements IJClass {
         _builder.newLine();
         _builder.append("\t");
         String _body_1 = method.body();
-        _builder.append(_body_1, "	");
+        _builder.append(_body_1, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append("}");
         _builder.newLine();

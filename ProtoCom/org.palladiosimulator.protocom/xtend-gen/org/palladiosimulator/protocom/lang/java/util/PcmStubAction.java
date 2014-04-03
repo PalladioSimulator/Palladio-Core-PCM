@@ -83,7 +83,7 @@ public class PcmStubAction extends PcmAction {
     EList<AbstractAction> _steps_Behaviour = _bodyBehaviour_Loop.getSteps_Behaviour();
     StartAction _findStart = PcmAction.findStart(_steps_Behaviour);
     String _actions = this.actions(_findStart);
-    _builder.append(_actions, "	");
+    _builder.append(_actions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -113,7 +113,7 @@ public class PcmStubAction extends PcmAction {
         String _parameterName = parameter.getParameterName();
         String _plus_1 = (_plus + _parameterName);
         String _plus_2 = (_plus_1 + " = null;");
-        _builder.append(_plus_2, "		");
+        _builder.append(_plus_2, "\t\t");
         _builder.newLineIfNotEmpty();
       }
     }
@@ -129,7 +129,7 @@ public class PcmStubAction extends PcmAction {
     EList<VariableUsage> _inputVariableUsages__CallAction = action.getInputVariableUsages__CallAction();
     EList<VariableUsage> _returnVariableUsage__CallReturnAction = action.getReturnVariableUsage__CallReturnAction();
     String _callStub = PcmCommons.callStub(_calledService_ExternalService_1, _calledService_ExternalService_2, _plus_4, _inputVariableUsages__CallAction, _returnVariableUsage__CallReturnAction);
-    _builder.append(_callStub, "		");
+    _builder.append(_callStub, "\t\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -184,7 +184,7 @@ public class PcmStubAction extends PcmAction {
     EList<AbstractAction> _steps_Behaviour = _branchBehaviour_BranchTransition.getSteps_Behaviour();
     StartAction _findStart = PcmAction.findStart(_steps_Behaviour);
     String _actions = this.actions(_findStart);
-    _builder.append(_actions, "	");
+    _builder.append(_actions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();
@@ -203,7 +203,7 @@ public class PcmStubAction extends PcmAction {
     EList<AbstractAction> _steps_Behaviour = _branchBehaviour_BranchTransition.getSteps_Behaviour();
     StartAction _findStart = PcmAction.findStart(_steps_Behaviour);
     String _actions = this.actions(_findStart);
-    _builder.append(_actions, "	");
+    _builder.append(_actions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();

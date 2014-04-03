@@ -1,6 +1,5 @@
 package org.palladiosimulator.protocom.lang.java.util;
 
-import com.google.common.base.Objects;
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType;
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType;
 import de.uka.ipd.sdq.pcm.repository.DataType;
@@ -25,11 +24,8 @@ public class DataTypes {
    * If this method is called, an error occured because every possible data type should be covered.
    */
   protected static String _getDataType(final DataType d) {
-    String _plus = ("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
-      "Unknown data type found (");
-    String _plus_1 = (_plus + d);
-    String _plus_2 = (_plus_1 + ").");
-    return _plus_2;
+    return ((("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
+      "Unknown data type found (") + d) + ").");
   }
   
   /**
@@ -45,63 +41,43 @@ public class DataTypes {
   protected static String _getDataType(final PrimitiveDataType d) {
     String _switchResult = null;
     PrimitiveTypeEnum _type = d.getType();
-    final PrimitiveTypeEnum _switchValue = _type;
-    boolean _matched = false;
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BOOL)) {
-        _matched=true;
-        _switchResult = "Boolean";
+    if (_type != null) {
+      switch (_type) {
+        case BOOL:
+          _switchResult = "Boolean";
+          break;
+        case BYTE:
+          _switchResult = "byte";
+          break;
+        case CHAR:
+          _switchResult = "char";
+          break;
+        case DOUBLE:
+          _switchResult = "double";
+          break;
+        case INT:
+          _switchResult = "int";
+          break;
+        case LONG:
+          _switchResult = "long";
+          break;
+        case STRING:
+          _switchResult = "String";
+          break;
+        default:
+          _switchResult = ((("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
+            "Unknown primitive data type found (") + d) + ").");
+          break;
       }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BYTE)) {
-        _matched=true;
-        _switchResult = "byte";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.CHAR)) {
-        _matched=true;
-        _switchResult = "char";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.DOUBLE)) {
-        _matched=true;
-        _switchResult = "double";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.INT)) {
-        _matched=true;
-        _switchResult = "int";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.LONG)) {
-        _matched=true;
-        _switchResult = "long";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.STRING)) {
-        _matched=true;
-        _switchResult = "String";
-      }
-    }
-    if (!_matched) {
-      String _plus = ("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
-        "Unknown primitive data type found (");
-      String _plus_1 = (_plus + d);
-      String _plus_2 = (_plus_1 + ").");
-      _switchResult = _plus_2;
+    } else {
+      _switchResult = ((("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
+        "Unknown primitive data type found (") + d) + ").");
     }
     return _switchResult;
   }
   
   protected static String _getDataType2(final DataType d) {
-    String _dataType = DataTypes.getDataType(d);
-    return _dataType;
+    return DataTypes.getDataType(d);
   }
   
   /**
@@ -110,56 +86,37 @@ public class DataTypes {
   protected static String _getDataType2(final PrimitiveDataType d) {
     String _switchResult = null;
     PrimitiveTypeEnum _type = d.getType();
-    final PrimitiveTypeEnum _switchValue = _type;
-    boolean _matched = false;
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BOOL)) {
-        _matched=true;
-        _switchResult = "Boolean";
+    if (_type != null) {
+      switch (_type) {
+        case BOOL:
+          _switchResult = "Boolean";
+          break;
+        case BYTE:
+          _switchResult = "Byte";
+          break;
+        case CHAR:
+          _switchResult = "Character";
+          break;
+        case DOUBLE:
+          _switchResult = "Double";
+          break;
+        case INT:
+          _switchResult = "Integer";
+          break;
+        case LONG:
+          _switchResult = "Long";
+          break;
+        case STRING:
+          _switchResult = "String";
+          break;
+        default:
+          _switchResult = ((("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
+            "Unknown primitive data type found (") + d) + ").");
+          break;
       }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.BYTE)) {
-        _matched=true;
-        _switchResult = "Byte";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.CHAR)) {
-        _matched=true;
-        _switchResult = "Character";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.DOUBLE)) {
-        _matched=true;
-        _switchResult = "Double";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.INT)) {
-        _matched=true;
-        _switchResult = "Integer";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.LONG)) {
-        _matched=true;
-        _switchResult = "Long";
-      }
-    }
-    if (!_matched) {
-      if (Objects.equal(_switchValue,PrimitiveTypeEnum.STRING)) {
-        _matched=true;
-        _switchResult = "String";
-      }
-    }
-    if (!_matched) {
-      String _plus = ("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
-        "Unknown primitive data type found (");
-      String _plus_1 = (_plus + d);
-      String _plus_2 = (_plus_1 + ").");
-      _switchResult = _plus_2;
+    } else {
+      _switchResult = ((("Xtend2 GENERATION ERROR [org.palladiosimulator.protocom.lang.java.util.DataTypes]:" + 
+        "Unknown primitive data type found (") + d) + ").");
     }
     return _switchResult;
   }
@@ -172,8 +129,7 @@ public class DataTypes {
     String _basePackageName = JavaNames.basePackageName(_repository__DataType);
     String _plus = (_basePackageName + ".datatypes.");
     String _entityName = d.getEntityName();
-    String _plus_1 = (_plus + _entityName);
-    return _plus_1;
+    return (_plus + _entityName);
   }
   
   /**
@@ -184,8 +140,7 @@ public class DataTypes {
     String _basePackageName = JavaNames.basePackageName(_repository__DataType);
     String _plus = (_basePackageName + ".datatypes.");
     String _entityName = d.getEntityName();
-    String _plus_1 = (_plus + _entityName);
-    return _plus_1;
+    return (_plus + _entityName);
   }
   
   protected static String _getReturnDataType(final Signature s) {
@@ -194,8 +149,7 @@ public class DataTypes {
   
   protected static String _getReturnDataType(final OperationSignature s) {
     DataType _returnType__OperationSignature = s.getReturnType__OperationSignature();
-    String _dataType = DataTypes.getDataType(_returnType__OperationSignature);
-    return _dataType;
+    return DataTypes.getDataType(_returnType__OperationSignature);
   }
   
   protected static String _getReturnDataType(final InfrastructureSignature s) {

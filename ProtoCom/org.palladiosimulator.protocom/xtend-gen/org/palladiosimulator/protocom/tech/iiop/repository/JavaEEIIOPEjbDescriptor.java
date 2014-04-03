@@ -12,18 +12,15 @@ public class JavaEEIIOPEjbDescriptor<E extends Entity> extends ConceptMapping<E>
   }
   
   public String displayName() {
-    String _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
-    return _implementationPackage;
+    return JavaNames.implementationPackage(this.pcmEntity);
   }
   
   public String ejbClientJar() {
-    String _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
-    return _implementationPackage;
+    return JavaNames.implementationPackage(this.pcmEntity);
   }
   
   public String filePath() {
     String _filePath = JavaNames.getFilePath(this.pcmEntity);
-    String _plus = (_filePath + "/META-INF/ejb-jar.xml");
-    return _plus;
+    return (_filePath + "/META-INF/ejb-jar.xml");
   }
 }

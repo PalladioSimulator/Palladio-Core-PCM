@@ -6,7 +6,6 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -45,11 +44,9 @@ public class PojoOperationInterface extends PojoInterface<OperationInterface> {
         JMethod _withReturnType = _withName.withReturnType(_dataType);
         String _parameterList = Parameters.getParameterList(it);
         JMethod _withParameters = _withReturnType.withParameters(_parameterList);
-        JMethod _withThrows = _withParameters.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-        return _withThrows;
+        return _withParameters.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
       }
     };
-    List<JMethod> _map = ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
-    return _map;
+    return ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
   }
 }

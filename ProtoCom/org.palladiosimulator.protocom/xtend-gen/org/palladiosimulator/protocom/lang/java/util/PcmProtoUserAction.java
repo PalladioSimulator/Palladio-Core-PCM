@@ -51,7 +51,7 @@ public class PcmProtoUserAction extends PcmUserAction {
     String _call = PcmCommons.call(_operationSignature__EntryLevelSystemCall, 
       null, _plus, _inputParameterUsages_EntryLevelSystemCall, 
       null);
-    _builder.append(_call, "	");
+    _builder.append(_call, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
     _builder.append("ctx.getStack().removeStackFrame();\t\t");
@@ -107,15 +107,15 @@ public class PcmProtoUserAction extends PcmUserAction {
     _builder.append("iterationCount_");
     String _id_2 = userAction.getId();
     String _javaVariableName_2 = JavaNames.javaVariableName(_id_2);
-    _builder.append(_javaVariableName_2, "	");
+    _builder.append(_javaVariableName_2, "\t");
     _builder.append(" < maxIterationCount_");
     String _id_3 = userAction.getId();
     String _javaVariableName_3 = JavaNames.javaVariableName(_id_3);
-    _builder.append(_javaVariableName_3, "	");
+    _builder.append(_javaVariableName_3, "\t");
     _builder.append("; iterationCount_");
     String _id_4 = userAction.getId();
     String _javaVariableName_4 = JavaNames.javaVariableName(_id_4);
-    _builder.append(_javaVariableName_4, "	");
+    _builder.append(_javaVariableName_4, "\t");
     _builder.append(" ++) {");
     _builder.newLineIfNotEmpty();
     _builder.append("\t");
@@ -123,7 +123,7 @@ public class PcmProtoUserAction extends PcmUserAction {
     EList<AbstractUserAction> _actions_ScenarioBehaviour = _bodyBehaviour_Loop.getActions_ScenarioBehaviour();
     Start _findUserStart = PcmUserAction.findUserStart(_actions_ScenarioBehaviour);
     String _userActions = this.userActions(_findUserStart);
-    _builder.append(_userActions, "	");
+    _builder.append(_userActions, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("} ");
     _builder.newLine();
@@ -177,7 +177,7 @@ public class PcmProtoUserAction extends PcmUserAction {
         EList<AbstractUserAction> _actions_ScenarioBehaviour = _branchedBehaviour_BranchTransition.getActions_ScenarioBehaviour();
         Start _findUserStart = PcmUserAction.findUserStart(_actions_ScenarioBehaviour);
         String _userActions = this.userActions(_findUserStart);
-        _builder.append(_userActions, "	");
+        _builder.append(_userActions, "\t");
         _builder.newLineIfNotEmpty();
         _builder.append("}\t");
         _builder.newLine();

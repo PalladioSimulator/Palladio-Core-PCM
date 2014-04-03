@@ -2,7 +2,6 @@ package org.palladiosimulator.protocom.tech.iiop;
 
 import de.uka.ipd.sdq.pcm.core.entity.Entity;
 import java.util.Collection;
-import java.util.LinkedList;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
 import org.palladiosimulator.protocom.lang.java.IJField;
 import org.palladiosimulator.protocom.lang.java.IJMethod;
@@ -22,38 +21,31 @@ public class JavaEEIIOPClass<E extends Entity> extends ConceptMapping<E> impleme
   }
   
   public Collection<? extends IJMethod> constructors() {
-    LinkedList<IJMethod> _newLinkedList = CollectionLiterals.<IJMethod>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<IJMethod>newLinkedList();
   }
   
   public String packageName() {
-    String _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
-    return _implementationPackage;
+    return JavaNames.implementationPackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
-    String _javaName = JavaNames.javaName(this.pcmEntity);
-    return _javaName;
+    return JavaNames.javaName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
-    LinkedList<String> _newLinkedList = CollectionLiterals.<String>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<String>newLinkedList();
   }
   
   public Collection<? extends IJMethod> methods() {
-    LinkedList<IJMethod> _newLinkedList = CollectionLiterals.<IJMethod>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<IJMethod>newLinkedList();
   }
   
   public Collection<? extends IJField> fields() {
-    LinkedList<IJField> _newLinkedList = CollectionLiterals.<IJField>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<IJField>newLinkedList();
   }
   
   public String filePath() {
-    String _fileName = JavaNames.getFileName(this.pcmEntity);
-    return _fileName;
+    return JavaNames.getFileName(this.pcmEntity);
   }
   
   public String jeeClassStatelessAnnotation() {
@@ -65,7 +57,6 @@ public class JavaEEIIOPClass<E extends Entity> extends ConceptMapping<E> impleme
   }
   
   public Collection<? extends IJField> jeeClassDependencyInjection() {
-    LinkedList<IJField> _newLinkedList = CollectionLiterals.<IJField>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<IJField>newLinkedList();
   }
 }

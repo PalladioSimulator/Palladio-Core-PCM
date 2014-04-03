@@ -46,7 +46,7 @@ public class PcmRMIStubUserAction extends PcmStubUserAction {
     String _call = PcmCommons.call(_operationSignature__EntryLevelSystemCall, 
       null, _plus, _inputParameterUsages_EntryLevelSystemCall, 
       null);
-    _builder.append(_call, "	");
+    _builder.append(_call, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t\t\t\t\t\t");
     _builder.newLine();

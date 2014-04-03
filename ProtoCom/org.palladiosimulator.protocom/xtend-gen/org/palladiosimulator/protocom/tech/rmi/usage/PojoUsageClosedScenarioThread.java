@@ -41,8 +41,7 @@ public class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
   
   public String compilationUnitName() {
     String _javaName = JavaNames.javaName(this.pcmEntity);
-    String _plus = (_javaName + "Thread");
-    return _plus;
+    return (_javaName + "Thread");
   }
   
   public Collection<? extends IJMethod> methods() {
@@ -80,7 +79,6 @@ public class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
     String _plus = (_fqnToDirectoryPath + "/");
     String _javaName = JavaNames.javaName(this.pcmEntity);
     String _plus_1 = (_plus + _javaName);
-    String _plus_2 = (_plus_1 + "Thread.java");
-    return _plus_2;
+    return (_plus_1 + "Thread.java");
   }
 }

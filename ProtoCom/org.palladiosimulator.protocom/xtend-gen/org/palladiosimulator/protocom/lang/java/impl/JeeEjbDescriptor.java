@@ -7,13 +7,11 @@ import org.palladiosimulator.protocom.lang.java.IJeeEjbDescriptor;
 @SuppressWarnings("all")
 public class JeeEjbDescriptor extends GeneratedFile<IJeeEjbDescriptor> implements IJeeEjbDescriptor {
   public String displayName() {
-    String _displayName = this.provider.displayName();
-    return _displayName;
+    return this.provider.displayName();
   }
   
   public String ejbClientJar() {
-    String _ejbClientJar = this.provider.ejbClientJar();
-    return _ejbClientJar;
+    return this.provider.ejbClientJar();
   }
   
   public CharSequence header() {
@@ -29,13 +27,13 @@ public class JeeEjbDescriptor extends GeneratedFile<IJeeEjbDescriptor> implement
     _builder.append("  \t\t\t");
     _builder.append("<display-name>");
     String _displayName = this.displayName();
-    _builder.append(_displayName, "  			");
+    _builder.append(_displayName, "  \t\t\t");
     _builder.append("</display-name>");
     _builder.newLineIfNotEmpty();
     _builder.append("  \t\t\t");
     _builder.append("<ejb-client-jar>");
     String _ejbClientJar = this.ejbClientJar();
-    _builder.append(_ejbClientJar, "  			");
+    _builder.append(_ejbClientJar, "  \t\t\t");
     _builder.append("Client.jar</ejb-client-jar>");
     _builder.newLineIfNotEmpty();
     _builder.append("\t\t\t");

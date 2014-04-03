@@ -64,8 +64,7 @@ public abstract class PojoComposedStructureClass<E extends ComposedProvidingRequ
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function = new Function1<ProvidedRole,Boolean>() {
         public Boolean apply(final ProvidedRole it) {
-          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationProvidedRole.class.isInstance(it));
         }
       };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function);
@@ -82,13 +81,12 @@ public abstract class PojoComposedStructureClass<E extends ComposedProvidingRequ
           JField _withName = _jField.withName(_portMemberVar);
           OperationInterface _providedInterface__OperationProvidedRole = it.getProvidedInterface__OperationProvidedRole();
           String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-          JField _withType = _withName.withType(_fqn);
-          return _withType;
+          return _withName.withType(_fqn);
         }
       };
       Iterable<JField> _map_1 = IterableExtensions.<OperationProvidedRole, JField>map(_map, _function_2);
       Iterables.<JField>addAll(results, _map_1);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -129,8 +127,7 @@ public abstract class PojoComposedStructureClass<E extends ComposedProvidingRequ
             EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity = _encapsulatedComponent__AssemblyContext_2.getRequiredRoles_InterfaceRequiringEntity();
             final Function1<RequiredRole,Boolean> _function = new Function1<RequiredRole,Boolean>() {
               public Boolean apply(final RequiredRole it) {
-                boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-                return Boolean.valueOf(_isInstance);
+                return Boolean.valueOf(OperationRequiredRole.class.isInstance(it));
               }
             };
             Iterable<RequiredRole> _filter = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity, _function);
@@ -160,8 +157,7 @@ public abstract class PojoComposedStructureClass<E extends ComposedProvidingRequ
           _builder.append(_javaName_1, "");
           _builder.append(".setContext(context);");
           _builder.newLineIfNotEmpty();
-          JMethod _withImplementation = _withThrows.withImplementation(_builder.toString());
-          return _withImplementation;
+          return _withThrows.withImplementation(_builder.toString());
         }
       };
       List<JMethod> _map = ListExtensions.<AssemblyContext, JMethod>map(_assemblyContexts__ComposedStructure, _function);
@@ -169,8 +165,7 @@ public abstract class PojoComposedStructureClass<E extends ComposedProvidingRequ
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function_1 = new Function1<ProvidedRole,Boolean>() {
         public Boolean apply(final ProvidedRole it) {
-          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationProvidedRole.class.isInstance(it));
         }
       };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function_1);
@@ -191,13 +186,12 @@ public abstract class PojoComposedStructureClass<E extends ComposedProvidingRequ
           String _portMemberVar = JavaNames.portMemberVar(it);
           String _plus = ("return " + _portMemberVar);
           String _plus_1 = (_plus + ";");
-          JMethod _withImplementation = _withReturnType.withImplementation(_plus_1);
-          return _withImplementation;
+          return _withReturnType.withImplementation(_plus_1);
         }
       };
       Iterable<JMethod> _map_2 = IterableExtensions.<OperationProvidedRole, JMethod>map(_map_1, _function_3);
       Iterables.<JMethod>addAll(results, _map_2);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }

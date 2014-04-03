@@ -59,8 +59,7 @@ public class PojoAllocationStorage extends PojoClass<Allocation> {
       final Function1<AllocationContext,Boolean> _function = new Function1<AllocationContext,Boolean>() {
         public Boolean apply(final AllocationContext i) {
           AssemblyContext _assemblyContext_AllocationContext = i.getAssemblyContext_AllocationContext();
-          boolean _notEquals = (!Objects.equal(_assemblyContext_AllocationContext, null));
-          return Boolean.valueOf(_notEquals);
+          return Boolean.valueOf((!Objects.equal(_assemblyContext_AllocationContext, null)));
         }
       };
       Iterable<AllocationContext> _filter = IterableExtensions.<AllocationContext>filter(_allocationContexts_Allocation, _function);

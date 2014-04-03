@@ -13,13 +13,11 @@ import org.palladiosimulator.protocom.lang.java.IJMethod;
 @SuppressWarnings("all")
 public abstract class JCompilationUnit<E extends IJCompilationUnit> extends GeneratedFile<E> implements IJCompilationUnit {
   public String packageName() {
-    String _packageName = this.provider.packageName();
-    return _packageName;
+    return this.provider.packageName();
   }
   
   public String compilationUnitName() {
-    String _compilationUnitName = this.provider.compilationUnitName();
-    return _compilationUnitName;
+    return this.provider.compilationUnitName();
   }
   
   public Collection<String> interfaces() {
@@ -33,7 +31,7 @@ public abstract class JCompilationUnit<E extends IJCompilationUnit> extends Gene
       } else {
         _xifexpression = Collections.<String>unmodifiableList(Lists.<String>newArrayList());
       }
-      _xblockexpression = (_xifexpression);
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
@@ -49,7 +47,7 @@ public abstract class JCompilationUnit<E extends IJCompilationUnit> extends Gene
       } else {
         _xifexpression = Collections.<IJMethod>unmodifiableList(Lists.<IJMethod>newArrayList());
       }
-      _xblockexpression = (_xifexpression);
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
@@ -65,7 +63,7 @@ public abstract class JCompilationUnit<E extends IJCompilationUnit> extends Gene
       } else {
         _xifexpression = Collections.<IJField>unmodifiableList(Lists.<IJField>newArrayList());
       }
-      _xblockexpression = (_xifexpression);
+      _xblockexpression = _xifexpression;
     }
     return _xblockexpression;
   }
@@ -79,7 +77,7 @@ public abstract class JCompilationUnit<E extends IJCompilationUnit> extends Gene
     _builder.newLine();
     _builder.append("\t");
     String _body = this.body();
-    _builder.append(_body, "	");
+    _builder.append(_body, "\t");
     _builder.newLineIfNotEmpty();
     _builder.append("}");
     _builder.newLine();

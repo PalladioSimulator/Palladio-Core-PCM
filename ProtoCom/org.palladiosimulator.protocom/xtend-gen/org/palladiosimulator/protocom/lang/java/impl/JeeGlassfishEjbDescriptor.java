@@ -25,7 +25,7 @@ public class JeeGlassfishEjbDescriptor extends GeneratedFile<IJeeGlassfishEjbDes
     _builder.append("        \t");
     _builder.append("<ejb-name>");
     String _ejbName = this.ejbName();
-    _builder.append(_ejbName, "        	");
+    _builder.append(_ejbName, "        \t");
     _builder.append("</ejb-name>");
     _builder.newLineIfNotEmpty();
     _builder.append("        \t");
@@ -34,13 +34,13 @@ public class JeeGlassfishEjbDescriptor extends GeneratedFile<IJeeGlassfishEjbDes
     _builder.append("            \t");
     _builder.append("<ejb-ref-name>");
     String _ejbRefName = this.ejbRefName();
-    _builder.append(_ejbRefName, "            	");
+    _builder.append(_ejbRefName, "            \t");
     _builder.append("</ejb-ref-name>");
     _builder.newLineIfNotEmpty();
     _builder.append("           \t\t ");
     _builder.append("<jndi-name>");
     String _jndiName = this.jndiName();
-    _builder.append(_jndiName, "           		 ");
+    _builder.append(_jndiName, "           \t\t ");
     _builder.append("</jndi-name>");
     _builder.newLineIfNotEmpty();
     _builder.append("      \t\t ");
@@ -58,18 +58,15 @@ public class JeeGlassfishEjbDescriptor extends GeneratedFile<IJeeGlassfishEjbDes
   }
   
   public String ejbName() {
-    String _ejbName = this.provider.ejbName();
-    return _ejbName;
+    return this.provider.ejbName();
   }
   
   public String ejbRefName() {
-    String _ejbRefName = this.provider.ejbRefName();
-    return _ejbRefName;
+    return this.provider.ejbRefName();
   }
   
   public String jndiName() {
-    String _jndiName = this.provider.jndiName();
-    return _jndiName;
+    return this.provider.jndiName();
   }
   
   public String generate() {

@@ -40,8 +40,7 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function = new Function1<RequiredRole,Boolean>() {
         public Boolean apply(final RequiredRole it) {
-          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationRequiredRole.class.isInstance(it));
         }
       };
       Iterable<RequiredRole> _filter = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity, _function);
@@ -53,13 +52,12 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
           JField _withType = _jField.withType(_fqn);
           String _javaName = JavaNames.javaName(it);
           String _firstLower = StringExtensions.toFirstLower(_javaName);
-          JField _withName = _withType.withName(_firstLower);
-          return _withName;
+          return _withType.withName(_firstLower);
         }
       };
       Iterable<JField> _map = IterableExtensions.<RequiredRole, JField>map(_filter, _function_1);
       Iterables.<JField>addAll(results, _map);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -71,8 +69,7 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function = new Function1<RequiredRole,Boolean>() {
         public Boolean apply(final RequiredRole it) {
-          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationRequiredRole.class.isInstance(it));
         }
       };
       Iterable<RequiredRole> _filter = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity, _function);
@@ -105,8 +102,7 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity_1 = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function_2 = new Function1<RequiredRole,Boolean>() {
         public Boolean apply(final RequiredRole it) {
-          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationRequiredRole.class.isInstance(it));
         }
       };
       Iterable<RequiredRole> _filter_1 = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity_1, _function_2);
@@ -134,13 +130,11 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
   }
   
   public String packageName() {
-    String _fqnContextPackage = JavaNames.fqnContextPackage(this.pcmEntity);
-    return _fqnContextPackage;
+    return JavaNames.fqnContextPackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
-    String _contextClassName = JavaNames.contextClassName(this.pcmEntity);
-    return _contextClassName;
+    return JavaNames.contextClassName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -155,8 +149,7 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function = new Function1<RequiredRole,Boolean>() {
         public Boolean apply(final RequiredRole it) {
-          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationRequiredRole.class.isInstance(it));
         }
       };
       Iterable<RequiredRole> _filter = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity, _function);
@@ -179,14 +172,14 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
           _builder.append("\t");
           _builder.append("throw new RuntimeException(\"Attempt to retrieve unbounded port. Check your architecture! Role ");
           String _entityName = it.getEntityName();
-          _builder.append(_entityName, "	");
+          _builder.append(_entityName, "\t");
           _builder.append(" <");
           String _id = it.getId();
-          _builder.append(_id, "	");
+          _builder.append(_id, "\t");
           _builder.append("> RequiringEntity ");
           InterfaceRequiringEntity _requiringEntity_RequiredRole = it.getRequiringEntity_RequiredRole();
           String _entityName_1 = _requiringEntity_RequiredRole.getEntityName();
-          _builder.append(_entityName_1, "	");
+          _builder.append(_entityName_1, "\t");
           _builder.append("\");");
           _builder.newLineIfNotEmpty();
           _builder.append("}");
@@ -197,8 +190,7 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
           _builder.append(_firstLower_1, "");
           _builder.append(";");
           _builder.newLineIfNotEmpty();
-          JMethod _withImplementation = _withReturnType.withImplementation(_builder.toString());
-          return _withImplementation;
+          return _withReturnType.withImplementation(_builder.toString());
         }
       };
       Iterable<JMethod> _map = IterableExtensions.<RequiredRole, JMethod>map(_filter, _function_1);
@@ -206,8 +198,7 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity_1 = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function_2 = new Function1<RequiredRole,Boolean>() {
         public Boolean apply(final RequiredRole it) {
-          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationRequiredRole.class.isInstance(it));
         }
       };
       Iterable<RequiredRole> _filter_1 = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity_1, _function_2);
@@ -227,13 +218,12 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
           String _firstLower = StringExtensions.toFirstLower(_javaName_1);
           _builder.append(_firstLower, "");
           _builder.append(" = newValue;");
-          JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
-          return _withImplementation;
+          return _withParameters.withImplementation(_builder.toString());
         }
       };
       Iterable<JMethod> _map_1 = IterableExtensions.<RequiredRole, JMethod>map(_filter_1, _function_3);
       Iterables.<JMethod>addAll(results, _map_1);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -241,7 +231,6 @@ public class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
   public String filePath() {
     String _fqnContext = JavaNames.fqnContext(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnContext);
-    String _plus = (_fqnToDirectoryPath + ".java");
-    return _plus;
+    return (_fqnToDirectoryPath + ".java");
   }
 }

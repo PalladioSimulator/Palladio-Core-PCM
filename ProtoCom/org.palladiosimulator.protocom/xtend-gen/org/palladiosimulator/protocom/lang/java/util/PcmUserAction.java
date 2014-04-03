@@ -108,8 +108,7 @@ public abstract class PcmUserAction {
   public static Start findUserStart(final Iterable<AbstractUserAction> actions) {
     final Function1<AbstractUserAction,Boolean> _function = new Function1<AbstractUserAction,Boolean>() {
       public Boolean apply(final AbstractUserAction it) {
-        boolean _isInstance = Start.class.isInstance(it);
-        return Boolean.valueOf(_isInstance);
+        return Boolean.valueOf(Start.class.isInstance(it));
       }
     };
     AbstractUserAction _findFirst = IterableExtensions.<AbstractUserAction>findFirst(actions, _function);

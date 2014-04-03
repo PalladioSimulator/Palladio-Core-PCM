@@ -33,8 +33,7 @@ public abstract class GeneratedFile<L extends ICompilationUnit> implements IComp
   protected L provider;
   
   public String filePath() {
-    String _filePath = this.provider.filePath();
-    return _filePath;
+    return this.provider.filePath();
   }
   
   /**
@@ -44,7 +43,7 @@ public abstract class GeneratedFile<L extends ICompilationUnit> implements IComp
     GeneratedFile<L> _xblockexpression = null;
     {
       this.provider = concept;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }

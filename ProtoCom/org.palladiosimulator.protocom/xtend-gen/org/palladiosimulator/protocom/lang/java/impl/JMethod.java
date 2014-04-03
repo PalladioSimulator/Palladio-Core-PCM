@@ -99,7 +99,7 @@ public class JMethod implements IJMethod {
     JMethod _xblockexpression = null;
     {
       this.returnType = returnType;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -108,7 +108,7 @@ public class JMethod implements IJMethod {
     JMethod _xblockexpression = null;
     {
       this.name = name;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -117,7 +117,7 @@ public class JMethod implements IJMethod {
     JMethod _xblockexpression = null;
     {
       this.parameters = parameters;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -126,7 +126,7 @@ public class JMethod implements IJMethod {
     JMethod _xblockexpression = null;
     {
       this.implementation = implementation;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -135,7 +135,7 @@ public class JMethod implements IJMethod {
     JMethod _xblockexpression = null;
     {
       this.visibility = visibility;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -144,7 +144,7 @@ public class JMethod implements IJMethod {
     JMethod _xblockexpression = null;
     {
       this.isStatic = true;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -153,7 +153,7 @@ public class JMethod implements IJMethod {
     JMethod _xblockexpression = null;
     {
       this.throwsType = throwsType;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }

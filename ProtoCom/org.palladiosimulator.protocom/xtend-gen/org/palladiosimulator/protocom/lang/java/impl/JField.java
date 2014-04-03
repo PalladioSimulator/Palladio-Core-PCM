@@ -47,7 +47,7 @@ public class JField implements IJField {
     JField _xblockexpression = null;
     {
       this.name = name;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -56,7 +56,7 @@ public class JField implements IJField {
     JField _xblockexpression = null;
     {
       this.type = type;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }
@@ -65,7 +65,7 @@ public class JField implements IJField {
     JField _xblockexpression = null;
     {
       this.visibility = visibility;
-      _xblockexpression = (this);
+      _xblockexpression = this;
     }
     return _xblockexpression;
   }

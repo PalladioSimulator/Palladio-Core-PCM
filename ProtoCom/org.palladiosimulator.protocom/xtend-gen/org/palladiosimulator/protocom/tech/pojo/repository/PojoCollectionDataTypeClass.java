@@ -22,8 +22,7 @@ public class PojoCollectionDataTypeClass extends PojoClass<CollectionDataType> {
       DataType innerType = this.pcmEntity.getInnerType_CollectionDataType();
       String _dataType2 = DataTypes.getDataType2(innerType);
       String _plus = ("java.util.ArrayList<" + _dataType2);
-      String _plus_1 = (_plus + ">");
-      _xblockexpression = (_plus_1);
+      _xblockexpression = (_plus + ">");
     }
     return _xblockexpression;
   }

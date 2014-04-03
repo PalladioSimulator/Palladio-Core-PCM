@@ -12,8 +12,7 @@ public class JavaEEIIOPGlassfishEjbDescriptor<E extends Entity> extends ConceptM
   }
   
   public String ejbName() {
-    String _javaName = JavaNames.javaName(this.pcmEntity);
-    return _javaName;
+    return JavaNames.javaName(this.pcmEntity);
   }
   
   public String ejbRefName() {
@@ -26,7 +25,6 @@ public class JavaEEIIOPGlassfishEjbDescriptor<E extends Entity> extends ConceptM
   
   public String filePath() {
     String _filePath = JavaNames.getFilePath(this.pcmEntity);
-    String _plus = (_filePath + "/META-INF/glassfish-ejb-jar.xml");
-    return _plus;
+    return (_filePath + "/META-INF/glassfish-ejb-jar.xml");
   }
 }

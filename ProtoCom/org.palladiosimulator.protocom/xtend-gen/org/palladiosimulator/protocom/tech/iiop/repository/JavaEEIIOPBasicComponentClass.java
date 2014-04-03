@@ -96,13 +96,12 @@ public class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponen
           String _javaVariableName = JavaNames.javaVariableName(_entityName);
           String _plus = ("passive_resource_" + _javaVariableName);
           JField _withName = _jField.withName(_plus);
-          JField _withType = _withName.withType("java.util.concurrent.Semaphore");
-          return _withType;
+          return _withName.withType("java.util.concurrent.Semaphore");
         }
       };
       List<JField> _map = ListExtensions.<PassiveResource, JField>map(_passiveResource_BasicComponent, _function);
       Iterables.<JField>addAll(results, _map);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -137,13 +136,12 @@ public class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponen
           _builder.newLineIfNotEmpty();
           _builder.append("return null;");
           _builder.newLine();
-          JMethod _withImplementation = _withParameters.withImplementation(_builder.toString());
-          return _withImplementation;
+          return _withParameters.withImplementation(_builder.toString());
         }
       };
       List<JMethod> _map = ListExtensions.<ServiceEffectSpecification, JMethod>map(_serviceEffectSpecifications__BasicComponent, _function);
       Iterables.<JMethod>addAll(results, _map);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -155,8 +153,7 @@ public class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponen
       EList<RequiredRole> _requiredRoles_InterfaceRequiringEntity = this.pcmEntity.getRequiredRoles_InterfaceRequiringEntity();
       final Function1<RequiredRole,Boolean> _function = new Function1<RequiredRole,Boolean>() {
         public Boolean apply(final RequiredRole it) {
-          boolean _isInstance = OperationRequiredRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationRequiredRole.class.isInstance(it));
         }
       };
       Iterable<RequiredRole> _filter = IterableExtensions.<RequiredRole>filter(_requiredRoles_InterfaceRequiringEntity, _function);
@@ -176,7 +173,7 @@ public class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponen
         JField _withType = _withName.withType(_javaName_1);
         Iterables.<JField>addAll(results, Collections.<JField>unmodifiableList(Lists.<JField>newArrayList(_withType)));
       }
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }

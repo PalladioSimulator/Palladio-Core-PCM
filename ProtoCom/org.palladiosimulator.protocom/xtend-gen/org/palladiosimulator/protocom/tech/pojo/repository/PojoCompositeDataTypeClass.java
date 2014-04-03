@@ -47,13 +47,12 @@ public class PojoCompositeDataTypeClass extends PojoClass<CompositeDataType> {
           JField _withName = _withModifierVisibility.withName(_entityName);
           DataType _datatype_InnerDeclaration = it.getDatatype_InnerDeclaration();
           String _dataType = DataTypes.getDataType(_datatype_InnerDeclaration);
-          JField _withType = _withName.withType(_dataType);
-          return _withType;
+          return _withName.withType(_dataType);
         }
       };
       List<JField> _map = ListExtensions.<InnerDeclaration, JField>map(_innerDeclaration_CompositeDataType, _function);
       Iterables.<JField>addAll(results, _map);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }

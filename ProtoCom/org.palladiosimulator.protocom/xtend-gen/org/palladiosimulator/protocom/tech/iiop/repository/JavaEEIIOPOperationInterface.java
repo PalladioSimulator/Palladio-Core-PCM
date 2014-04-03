@@ -3,7 +3,6 @@ package org.palladiosimulator.protocom.tech.iiop.repository;
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import java.util.Collection;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -29,11 +28,9 @@ public class JavaEEIIOPOperationInterface extends JavaEEIIOPInterface<OperationI
         String _stackframeType = PcmCommons.stackframeType();
         JMethod _withReturnType = _withName.withReturnType(_stackframeType);
         String _stackContextParameterList = PcmCommons.stackContextParameterList();
-        JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-        return _withParameters;
+        return _withReturnType.withParameters(_stackContextParameterList);
       }
     };
-    List<JMethod> _map = ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
-    return _map;
+    return ListExtensions.<OperationSignature, JMethod>map(_signatures__OperationInterface, _function);
   }
 }

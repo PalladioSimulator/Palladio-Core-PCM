@@ -5,7 +5,6 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
@@ -42,11 +41,9 @@ public class PojoInfrastructureInterface extends PojoInterface<InfrastructureInt
         JMethod _withReturnType = _withName.withReturnType(_stackframeType);
         String _stackContextParameterList = PcmCommons.stackContextParameterList();
         JMethod _withParameters = _withReturnType.withParameters(_stackContextParameterList);
-        JMethod _withThrows = _withParameters.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
-        return _withThrows;
+        return _withParameters.withThrows(JavaConstants.RMI_REMOTE_EXCEPTION);
       }
     };
-    List<JMethod> _map = ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
-    return _map;
+    return ListExtensions.<InfrastructureSignature, JMethod>map(_infrastructureSignatures__InfrastructureInterface, _function);
   }
 }

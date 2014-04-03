@@ -8,7 +8,6 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment;
 import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.LinkedList;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
@@ -82,7 +81,7 @@ public class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment>
                 _builder.append("setUpCPU(cpuStrategy, calibrationPath, accuracy, \"");
                 PCMRandomVariable _processingRate_ProcessingResourceSpecification = processingResource.getProcessingRate_ProcessingResourceSpecification();
                 String _specification = _processingRate_ProcessingResourceSpecification.getSpecification();
-                _builder.append(_specification, "	");
+                _builder.append(_specification, "\t");
                 _builder.append("\");\t");
                 _builder.newLineIfNotEmpty();
               } else {
@@ -95,7 +94,7 @@ public class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment>
                   _builder.append("setUpHDD(hddStrategy, calibrationPath, accuracy, \"");
                   PCMRandomVariable _processingRate_ProcessingResourceSpecification_1 = processingResource.getProcessingRate_ProcessingResourceSpecification();
                   String _specification_1 = _processingRate_ProcessingResourceSpecification_1.getSpecification();
-                  _builder.append(_specification_1, "	");
+                  _builder.append(_specification_1, "\t");
                   _builder.append("\");\t");
                   _builder.newLineIfNotEmpty();
                 }
@@ -116,17 +115,14 @@ public class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment>
   }
   
   public Collection<? extends IJMethod> constructors() {
-    LinkedList<IJMethod> _newLinkedList = CollectionLiterals.<IJMethod>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<IJMethod>newLinkedList();
   }
   
   public Collection<String> interfaces() {
-    LinkedList<String> _newLinkedList = CollectionLiterals.<String>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<String>newLinkedList();
   }
   
   public Collection<? extends IJField> fields() {
-    LinkedList<IJField> _newLinkedList = CollectionLiterals.<IJField>newLinkedList();
-    return _newLinkedList;
+    return CollectionLiterals.<IJField>newLinkedList();
   }
 }

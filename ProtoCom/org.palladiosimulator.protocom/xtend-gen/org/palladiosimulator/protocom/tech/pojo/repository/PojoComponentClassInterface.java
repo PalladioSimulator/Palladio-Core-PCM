@@ -37,8 +37,7 @@ public class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
   }
   
   public String compilationUnitName() {
-    String _interfaceName = JavaNames.interfaceName(this.pcmEntity);
-    return _interfaceName;
+    return JavaNames.interfaceName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -65,8 +64,7 @@ public class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
           JMethod _withReturnType = _withName.withReturnType(_returnDataType);
           Signature _describedService__SEFF_2 = it.getDescribedService__SEFF();
           String _parameterList = Parameters.getParameterList(_describedService__SEFF_2);
-          JMethod _withParameters = _withReturnType.withParameters(_parameterList);
-          return _withParameters;
+          return _withReturnType.withParameters(_parameterList);
         }
       };
       List<JMethod> _map = ListExtensions.<ServiceEffectSpecification, JMethod>map(_serviceEffectSpecifications__BasicComponent, _function);
@@ -74,8 +72,7 @@ public class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
       EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.pcmEntity.getProvidedRoles_InterfaceProvidingEntity();
       final Function1<ProvidedRole,Boolean> _function_1 = new Function1<ProvidedRole,Boolean>() {
         public Boolean apply(final ProvidedRole it) {
-          boolean _isInstance = OperationProvidedRole.class.isInstance(it);
-          return Boolean.valueOf(_isInstance);
+          return Boolean.valueOf(OperationProvidedRole.class.isInstance(it));
         }
       };
       Iterable<ProvidedRole> _filter = IterableExtensions.<ProvidedRole>filter(_providedRoles_InterfaceProvidingEntity, _function_1);
@@ -92,13 +89,12 @@ public class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
           JMethod _withName = _jMethod.withName(_portGetter);
           OperationInterface _providedInterface__OperationProvidedRole = it.getProvidedInterface__OperationProvidedRole();
           String _fqn = JavaNames.fqn(_providedInterface__OperationProvidedRole);
-          JMethod _withReturnType = _withName.withReturnType(_fqn);
-          return _withReturnType;
+          return _withName.withReturnType(_fqn);
         }
       };
       Iterable<JMethod> _map_2 = IterableExtensions.<OperationProvidedRole, JMethod>map(_map_1, _function_3);
       Iterables.<JMethod>addAll(results, _map_2);
-      _xblockexpression = (results);
+      _xblockexpression = results;
     }
     return _xblockexpression;
   }
@@ -106,7 +102,6 @@ public class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
   public String filePath() {
     String _fqnInterface = JavaNames.fqnInterface(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnInterface);
-    String _plus = (_fqnToDirectoryPath + ".java");
-    return _plus;
+    return (_fqnToDirectoryPath + ".java");
   }
 }

@@ -87,8 +87,7 @@ public class XRepository extends PcmRepresentative<Repository> {
    * Fallback for component traversing.
    */
   protected void _createComponent(final Entity componentEntity) {
-    UnsupportedOperationException _unsupportedOperationException = new UnsupportedOperationException("Unsupported component type.");
-    throw _unsupportedOperationException;
+    throw new UnsupportedOperationException("Unsupported component type.");
   }
   
   /**
@@ -122,8 +121,7 @@ public class XRepository extends PcmRepresentative<Repository> {
    * Traverse through Data Types.
    */
   protected void _createDataType(final DataType typeEntity) {
-    UnsupportedOperationException _unsupportedOperationException = new UnsupportedOperationException("Unsupported data type.");
-    throw _unsupportedOperationException;
+    throw new UnsupportedOperationException("Unsupported data type.");
   }
   
   /**
