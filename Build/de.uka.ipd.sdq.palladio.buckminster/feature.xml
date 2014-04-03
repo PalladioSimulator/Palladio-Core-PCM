@@ -60,6 +60,10 @@
          id="org.palladiosimulator.edp2.feature"
          version="0.0.0"/>
 
+   <includes
+         id="org.palladiosimulator.commons.feature"
+         version="0.0.0"/>
+
    <plugin
          id="de.uka.ipd.sdq.pcm.stochasticexpressions.tests"
          download-size="0"
