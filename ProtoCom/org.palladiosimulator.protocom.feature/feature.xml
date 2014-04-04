@@ -221,11 +221,18 @@ litigation.
    </url>
 
    <requires>
+      <import plugin="org.eclipse.ui"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow" version="1.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.codegen.simucontroller" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="com.google.inject" version="3.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm" version="3.2.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.protocom" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.core" version="3.5.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.emf.common"/>
+      <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.apache.log4j"/>
       <import plugin="de.uka.ipd.sdq.sensorframework"/>
       <import plugin="org.apache.commons.cli"/>
@@ -235,26 +242,12 @@ litigation.
       <import plugin="org.apache.commons.math"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
-      <import plugin="org.eclipse.ui"/>
-      <import plugin="de.uka.ipd.sdq.pcm.dialogs" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="com.google.inject" version="3.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.generator" version="2.4.2" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcm" version="3.2.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.protocom" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.emf.common"/>
-      <import plugin="org.eclipse.emf.ecore"/>
-      <import plugin="org.junit" version="4.11.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.resources"/>
-      <import plugin="org.eclipse.xtend.lib"/>
-      <import plugin="com.google.guava"/>
-      <import plugin="org.eclipse.xtext.xbase.lib"/>
-      <import plugin="org.eclipse.emf.ecore.xmi"/>
-      <import plugin="org.eclipse.xtext.builder" version="2.4.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext" version="2.4.0" match="greaterOrEqual"/>
-      <import plugin="org.apache.log4j" version="1.2.15" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.ui" version="2.4.1" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.xtext.generator" version="2.4.1" match="greaterOrEqual"/>
       <import feature="org.eclipse.xtend.sdk" version="2.4.3.v201309030823" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.generator" version="2.5.3" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.builder" version="2.5.3" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui" version="2.5.3" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.xtext.ui.shared" version="2.5.3" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.equinox.registry" version="3.5.301" match="greaterOrEqual"/>
    </requires>
 
    <plugin
