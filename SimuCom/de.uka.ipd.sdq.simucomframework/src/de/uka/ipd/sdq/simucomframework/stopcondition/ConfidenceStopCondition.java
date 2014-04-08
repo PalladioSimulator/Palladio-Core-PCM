@@ -9,6 +9,7 @@ import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorListener;
+import de.uka.ipd.sdq.probespec.framework.calculator.RegisterCalculatorFactoryDecorator;
 import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
 import de.uka.ipd.sdq.probespec.framework.measurements.Measurement;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -148,7 +149,7 @@ public class ConfidenceStopCondition implements SimCondition, ICalculatorListene
     private Calculator obtainUsageScenarioResponseTimeCalculator(
             final String usageScenarioName) {
         final String calculatorId = usageScenarioName;
-        return this.model.getProbeSpecContext().getCalculatorByName(calculatorId);
+        return ((RegisterCalculatorFactoryDecorator) this.model.getProbeSpecContext().getCalculatorFactory()).getCalculatorByName(calculatorId);
     }
 
     @Override

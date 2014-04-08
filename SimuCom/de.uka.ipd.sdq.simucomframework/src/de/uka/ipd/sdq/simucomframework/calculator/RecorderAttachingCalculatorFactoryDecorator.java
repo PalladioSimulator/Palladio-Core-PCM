@@ -139,7 +139,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     }
 
     /**
-     * @param failureStatistics
      * @param calculator
      * @return
      */
