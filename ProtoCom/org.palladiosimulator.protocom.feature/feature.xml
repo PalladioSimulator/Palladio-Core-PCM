@@ -5,8 +5,9 @@
       version="3.5.0.qualifier"
       provider-name="palladiosimulator.org">
 
-   <description url="http://sdq.ipd.kit.edu">
-      Code generator for PCM models for QoS performance prototypes or code stubs for Java SE (RMI) and Java EE (EJB)
+   <description url="http://palladiosimulator.org">
+      Code generator for PCM models for QoS performance prototypes
+or code stubs for Java SE (RMI) and Java EE (EJB)
 implementations.
    </description>
 
