@@ -19,10 +19,6 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 		provider.constructors
 	}
 
-	override packageName() {
-		provider.packageName
-	}
-
 	override def String header() {
 		'''
 			package «packageName»;

@@ -22,10 +22,6 @@ public class JClass extends JCompilationUnit<IJClass> implements IJClass {
     return this.provider.constructors();
   }
   
-  public String packageName() {
-    return this.provider.packageName();
-  }
-  
   public String header() {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("package ");
