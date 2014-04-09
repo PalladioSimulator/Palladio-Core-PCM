@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.palladiosimulator.recorderspec.recorder.AbstractRecorderConfiguration;
-import org.palladiosimulator.recorderspec.recorder.Recorder;
-import org.palladiosimulator.recorderspec.recorder.launch.IRecorderConfiguration;
-import org.palladiosimulator.recorderspec.recorder.launch.RecorderExtensionHelper;
+import org.palladiosimulator.recorderspec.AbstractRecorderConfiguration;
+import org.palladiosimulator.recorderspec.Recorder;
+import org.palladiosimulator.recorderspec.launch.IRecorderConfiguration;
+import org.palladiosimulator.recorderspec.launch.RecorderExtensionHelper;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;

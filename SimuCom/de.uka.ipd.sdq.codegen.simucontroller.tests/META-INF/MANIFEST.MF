@@ -6,7 +6,7 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Vendor: sdq.ipd.uka.de
 Require-Bundle: org.junit,
  de.uka.ipd.sdq.simucomframework,
- org.palladiosimulator.recorderspec.recorder.sensorframework;bundle-version="2.0.1",
+ org.palladiosimulator.recorderspec.sensorframework;bundle-version="2.0.1",
  de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
  org.palladiosimulator.recorderspec;bundle-version="2.0.1"
 Bundle-ActivationPolicy: lazy

@@ -5,8 +5,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import org.palladiosimulator.recorderspec.recorder.IRecorderConfigurationFactory;
-import org.palladiosimulator.recorderspec.recorder.launch.RecorderExtensionHelper;
+import org.palladiosimulator.recorderspec.IRecorderConfigurationFactory;
+import org.palladiosimulator.recorderspec.launch.RecorderExtensionHelper;
 
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
