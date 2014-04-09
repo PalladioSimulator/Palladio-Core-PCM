@@ -7,7 +7,7 @@ Bundle-Activator: de.uka.ipd.sdq.simulation.Activator
 Bundle-Vendor: edu.kit.ipd.sdq
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- de.uka.ipd.sdq.pipesandfilters.framework;bundle-version="1.0.0",
+ org.palladiosimulator.recorderspec;bundle-version="2.0.1",
  de.uka.ipd.sdq.probespec.framework;bundle-version="2.0.0",
  de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0",
  de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0",

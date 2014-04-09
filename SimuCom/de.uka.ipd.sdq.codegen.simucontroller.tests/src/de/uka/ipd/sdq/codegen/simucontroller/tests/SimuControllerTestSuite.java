@@ -18,8 +18,8 @@ import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.core.ILaunchManager;
 import org.junit.Assert;
 import org.junit.Test;
+import org.palladiosimulator.recorderspec.recorder.sensorframework.SensorFrameworkRecorderConfigurationFactory;
 
-import de.uka.ipd.sdq.pipesandfilters.framework.recorder.sensorframework.SensorFrameworkRecorderConfigurationFactory;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 

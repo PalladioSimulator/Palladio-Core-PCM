@@ -69,8 +69,8 @@
 		import de.uka.ipd.sdq.simucomframework.calculator.CalculatorRepository;
 		import de.uka.ipd.sdq.simucomframework.calculator.ICalculatorRepositoryFactory;
 		import de.uka.ipd.sdq.probespec.framework.SampleBlackboard;
-		import de.uka.ipd.sdq.pipesandfilters.framework.recorder.*;
-		import de.uka.ipd.sdq.pipesandfilters.framework.*;
+		import org.palladiosimulator.recorderspec.recorder.*;
+		import org.palladiosimulator.recorderspec.*;
 		import de.uka.ipd.sdq.probespec.framework.calculator.*;
 		
 		public class CalculatorRepositoryFactory implements ICalculatorRepositoryFactory {
