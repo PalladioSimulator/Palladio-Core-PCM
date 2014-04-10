@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.palladiosimulator.edp2.models.ExperimentData.MetricDescription;
+import org.palladiosimulator.probespec.framework.ProbeSpecContext;
+import org.palladiosimulator.probespec.framework.constants.MetricDescriptionConstants;
+import org.palladiosimulator.probespec.framework.measurements.BasicMeasurement;
+import org.palladiosimulator.probespec.framework.probes.EventProbe;
+import org.palladiosimulator.probespec.framework.probes.EventProbeSet;
+import org.palladiosimulator.probespec.framework.probes.Probe;
+import org.palladiosimulator.probespec.framework.probes.TriggeredProbe;
+import org.palladiosimulator.probespec.framework.probes.TriggeredProbeSet;
 
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
-import de.uka.ipd.sdq.probespec.framework.measurements.BasicMeasurement;
-import de.uka.ipd.sdq.probespec.framework.probes.EventProbe;
-import de.uka.ipd.sdq.probespec.framework.probes.EventProbeSet;
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
-import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
-import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbeSet;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;

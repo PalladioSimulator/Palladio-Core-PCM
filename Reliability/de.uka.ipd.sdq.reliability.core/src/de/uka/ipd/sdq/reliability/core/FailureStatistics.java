@@ -15,8 +15,8 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.designpatterns.AbstractObservable;
 import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataFactory;
 import org.palladiosimulator.edp2.models.ExperimentData.Identifier;
+import org.palladiosimulator.probespec.framework.probes.EventProbe;
 
-import de.uka.ipd.sdq.probespec.framework.probes.EventProbe;
 import de.uka.ipd.sdq.reliability.core.probe.TakeExecutionResultProbe;
 
 /**
@@ -63,7 +63,7 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
         }
         this.successIdentifier = experimentDataFactory.createIdentifier("Success");
         this.successIdentifier.setUuid(EcoreUtil.generateUUID());
-        if (this.simFailureTypes == null) {
+        if (simFailureTypes == null) {
             simFailureTypes = Collections.EMPTY_MAP;
         }
         resultProbe = new TakeExecutionResultProbe(this,simFailureTypes,successIdentifier);

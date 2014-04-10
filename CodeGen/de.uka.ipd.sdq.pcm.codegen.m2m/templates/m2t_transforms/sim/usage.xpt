@@ -87,7 +87,7 @@
 		public class «this.javaName()» 
 		implements de.uka.ipd.sdq.simucomframework.usage.IScenarioRunner
 		{
-			private static java.util.Map<String,java.util.List<de.uka.ipd.sdq.probespec.framework.probes.Probe>> startStopProbes = null;
+			private static java.util.Map<String,java.util.List<org.palladiosimulator.probespec.framework.probes.Probe>> startStopProbes = null;
 			
 			«EXPAND m2t_transforms::usage::SystemMemberVar FOREACH this.querySystemCalls().providedRole_EntryLevelSystemCall.toSet()»
 			
@@ -181,7 +181,7 @@
 			ctx.getStack().createAndPushNewStackFrame();
 			«EXPAND m2t_transforms::usage::UsageScenarioConstructorContextInit(a) FOR this»
 			if (startStopProbes == null) {
-			    startStopProbes = new java.util.HashMap<String,java.util.List<de.uka.ipd.sdq.probespec.framework.probes.Probe>>();
+			    startStopProbes = new java.util.HashMap<String,java.util.List<org.palladiosimulator.probespec.framework.probes.Probe>>();
 				setupCalculators();
 			}
 		}

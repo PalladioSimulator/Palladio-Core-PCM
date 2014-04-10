@@ -5,15 +5,15 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.palladiosimulator.probespec.framework.ProbeSpecContext;
+import org.palladiosimulator.probespec.framework.calculator.Calculator;
+import org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory;
+import org.palladiosimulator.probespec.framework.probes.Probe;
 import org.palladiosimulator.recorderspec.AbstractRecorderConfiguration;
 import org.palladiosimulator.recorderspec.Recorder;
 import org.palladiosimulator.recorderspec.launch.IRecorderConfiguration;
 import org.palladiosimulator.recorderspec.launch.RecorderExtensionHelper;
 
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
-import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory;
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
@@ -46,7 +46,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildResponseTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildResponseTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildResponseTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -57,7 +57,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildDemandBasedWaitingTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildDemandBasedWaitingTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildDemandBasedWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -68,7 +68,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildWaitingTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildWaitingTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -79,7 +79,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildHoldTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildHoldTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildHoldTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -90,7 +90,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildStateCalculator(java.lang.String, de.uka.ipd.sdq.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildStateCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
      */
     @Override
     public Calculator buildStateCalculator(final String calculatorName, final Probe probe) {
@@ -101,7 +101,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildOverallUtilizationCalculator(java.lang.String, de.uka.ipd.sdq.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildOverallUtilizationCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
      */
     @Override
     public Calculator buildOverallUtilizationCalculator(final String calculatorName, final Probe probe) {
@@ -112,7 +112,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildDemandCalculator(java.lang.String, de.uka.ipd.sdq.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildDemandCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
      */
     @Override
     public Calculator buildDemandCalculator(final String calculatorName, final Probe probe) {
@@ -123,7 +123,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#buildExecutionResultCalculator(java.lang.String, de.uka.ipd.sdq.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildExecutionResultCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
      */
     @Override
     public Calculator buildExecutionResultCalculator(final String calculatorName, final Probe probe) {
@@ -132,7 +132,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
 
     /**
      * @param probeSpecContext
-     * @see de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory#setProbeSpecContext(de.uka.ipd.sdq.probespec.framework.ProbeSpecContext)
+     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#setProbeSpecContext(org.palladiosimulator.probespec.framework.ProbeSpecContext)
      */
     @Override
     public void setProbeSpecContext(final ProbeSpecContext probeSpecContext) {

@@ -15,8 +15,8 @@ import org.palladiosimulator.edp2.models.ExperimentData.Identifier;
 import org.palladiosimulator.edp2.models.ExperimentData.Monotonic;
 import org.palladiosimulator.edp2.models.ExperimentData.Scale;
 import org.palladiosimulator.edp2.models.ExperimentData.TextualBaseMetricDescription;
+import org.palladiosimulator.probespec.framework.probes.BasicEventProbe;
 
-import de.uka.ipd.sdq.probespec.framework.probes.BasicEventProbe;
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
 import de.uka.ipd.sdq.reliability.core.IFailureStatisticsListener;
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;

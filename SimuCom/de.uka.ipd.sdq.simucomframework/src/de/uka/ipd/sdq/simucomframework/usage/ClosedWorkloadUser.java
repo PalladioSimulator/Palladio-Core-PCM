@@ -3,10 +3,10 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.palladiosimulator.probespec.framework.probes.Probe;
+import org.palladiosimulator.probespec.framework.probes.TriggeredProbe;
+import org.palladiosimulator.probespec.framework.requestcontext.RequestContext;
 
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
-import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
-import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;

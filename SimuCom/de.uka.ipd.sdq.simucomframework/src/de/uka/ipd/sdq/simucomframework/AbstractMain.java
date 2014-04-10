@@ -10,10 +10,10 @@ import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
+import org.palladiosimulator.probespec.framework.probes.EventProbeSet;
+import org.palladiosimulator.probespec.framework.probes.Probe;
 
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.DisplayIssuesDialog;
-import de.uka.ipd.sdq.probespec.framework.probes.EventProbeSet;
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 import de.uka.ipd.sdq.simucomframework.resources.IResourceContainerFactory;

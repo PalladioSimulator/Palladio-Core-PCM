@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework;
 
-import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
+import org.palladiosimulator.probespec.framework.requestcontext.RequestContext;
+
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;

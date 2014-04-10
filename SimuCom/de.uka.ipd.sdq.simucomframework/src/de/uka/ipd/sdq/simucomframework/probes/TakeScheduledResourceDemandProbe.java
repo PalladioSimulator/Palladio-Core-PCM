@@ -4,8 +4,9 @@ import javax.measure.Measure;
 import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
-import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
-import de.uka.ipd.sdq.probespec.framework.probes.BasicEventProbe;
+import org.palladiosimulator.probespec.framework.constants.MetricDescriptionConstants;
+import org.palladiosimulator.probespec.framework.probes.BasicEventProbe;
+
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
 import de.uka.ipd.sdq.simucomframework.resources.IDemandListener;

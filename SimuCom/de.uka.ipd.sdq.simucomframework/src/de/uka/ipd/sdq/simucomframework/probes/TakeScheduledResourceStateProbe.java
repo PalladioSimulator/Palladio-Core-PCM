@@ -3,9 +3,10 @@ package de.uka.ipd.sdq.simucomframework.probes;
 import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 
-import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
-import de.uka.ipd.sdq.probespec.framework.probes.BasicObjectStateProbe;
-import de.uka.ipd.sdq.probespec.framework.requestcontext.RequestContext;
+import org.palladiosimulator.probespec.framework.constants.MetricDescriptionConstants;
+import org.palladiosimulator.probespec.framework.probes.BasicObjectStateProbe;
+import org.palladiosimulator.probespec.framework.requestcontext.RequestContext;
+
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
 
 /**

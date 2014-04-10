@@ -6,12 +6,12 @@ import javax.measure.unit.SI;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.probespec.framework.calculator.Calculator;
+import org.palladiosimulator.probespec.framework.calculator.ICalculatorListener;
+import org.palladiosimulator.probespec.framework.calculator.RegisterCalculatorFactoryDecorator;
+import org.palladiosimulator.probespec.framework.constants.MetricDescriptionConstants;
+import org.palladiosimulator.probespec.framework.measurements.Measurement;
 
-import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
-import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorListener;
-import de.uka.ipd.sdq.probespec.framework.calculator.RegisterCalculatorFactoryDecorator;
-import de.uka.ipd.sdq.probespec.framework.constants.MetricDescriptionConstants;
-import de.uka.ipd.sdq.probespec.framework.measurements.Measurement;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 import de.uka.ipd.sdq.statistics.IBatchAlgorithm;

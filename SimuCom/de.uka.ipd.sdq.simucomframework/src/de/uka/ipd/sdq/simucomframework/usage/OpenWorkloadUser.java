@@ -2,8 +2,9 @@ package de.uka.ipd.sdq.simucomframework.usage;
 
 import java.util.List;
 
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
-import de.uka.ipd.sdq.probespec.framework.probes.TriggeredProbe;
+import org.palladiosimulator.probespec.framework.probes.Probe;
+import org.palladiosimulator.probespec.framework.probes.TriggeredProbe;
+
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;

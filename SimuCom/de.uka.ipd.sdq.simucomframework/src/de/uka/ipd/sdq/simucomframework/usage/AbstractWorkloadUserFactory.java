@@ -4,8 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import de.uka.ipd.sdq.probespec.framework.calculator.ICalculatorFactory;
-import de.uka.ipd.sdq.probespec.framework.probes.Probe;
+import org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory;
+import org.palladiosimulator.probespec.framework.probes.Probe;
+
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
