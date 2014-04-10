@@ -1,8 +1,9 @@
 package org.palladiosimulator.protocom.traverse.jse.repository;
 
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
-import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.xbase.lib.IterableExtensions;
+import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.palladiosimulator.protocom.lang.GeneratedFile;
 import org.palladiosimulator.protocom.lang.java.IJClass;
 import org.palladiosimulator.protocom.lang.java.IJInterface;
@@ -47,14 +48,14 @@ public class JseCompositeComponent extends XCompositeComponent {
     GeneratedFile<IJInterface> _createFor_3 = _instance_3.createFor(_pojoComposedStructureContextInterface);
     this.generatedFiles.add(_createFor_3);
     EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.entity.getProvidedRoles_InterfaceProvidingEntity();
-    final Consumer<ProvidedRole> _function = new Consumer<ProvidedRole>() {
-      public void accept(final ProvidedRole it) {
+    final Procedure1<ProvidedRole> _function = new Procedure1<ProvidedRole>() {
+      public void apply(final ProvidedRole it) {
         JClass _instance = JseCompositeComponent.this.injector.<JClass>getInstance(JClass.class);
         PojoComposedStructurePortClass _pojoComposedStructurePortClass = new PojoComposedStructurePortClass(it);
         GeneratedFile<IJClass> _createFor = _instance.createFor(_pojoComposedStructurePortClass);
         JseCompositeComponent.this.generatedFiles.add(_createFor);
       }
     };
-    _providedRoles_InterfaceProvidingEntity.forEach(_function);
+    IterableExtensions.<ProvidedRole>forEach(_providedRoles_InterfaceProvidingEntity, _function);
   }
 }
