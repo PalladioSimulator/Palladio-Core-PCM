@@ -4,8 +4,9 @@
       label="PCM Core - Buckminster Feature"
       version="1.0.0">
 
-   <description url="http://sdq.ipd.uka.de">
-      This feature contains the buckminster build structure for the PCM Core build.
+   <description url="http://palladiosimulator.org">
+      This feature contains the buckminster build structure for the
+PCM Core build.
    </description>
 
    <url>
