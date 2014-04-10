@@ -2,9 +2,8 @@ package org.palladiosimulator.protocom.traverse.jee.repository;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.palladiosimulator.protocom.lang.GeneratedFile;
 import org.palladiosimulator.protocom.lang.java.IJeeClass;
 import org.palladiosimulator.protocom.lang.java.IJeeEjbDescriptor;
@@ -33,15 +32,15 @@ public class JeeBasicComponent extends XBasicComponent {
     GeneratedFile<IJeeClass> _createFor_1 = _instance_1.createFor(_javaEEIIOPBasicComponentClass);
     this.generatedFiles.add(_createFor_1);
     EList<ProvidedRole> _providedRoles_InterfaceProvidingEntity = this.entity.getProvidedRoles_InterfaceProvidingEntity();
-    final Procedure1<ProvidedRole> _function = new Procedure1<ProvidedRole>() {
-      public void apply(final ProvidedRole it) {
+    final Consumer<ProvidedRole> _function = new Consumer<ProvidedRole>() {
+      public void accept(final ProvidedRole it) {
         JeeClass _instance = JeeBasicComponent.this.injector.<JeeClass>getInstance(JeeClass.class);
         JavaEEIIOPBasicComponentPortClass _javaEEIIOPBasicComponentPortClass = new JavaEEIIOPBasicComponentPortClass(it);
         GeneratedFile<IJeeClass> _createFor = _instance.createFor(_javaEEIIOPBasicComponentPortClass);
         JeeBasicComponent.this.generatedFiles.add(_createFor);
       }
     };
-    IterableExtensions.<ProvidedRole>forEach(_providedRoles_InterfaceProvidingEntity, _function);
+    _providedRoles_InterfaceProvidingEntity.forEach(_function);
     JeeGlassfishEjbDescriptor _instance_2 = this.injector.<JeeGlassfishEjbDescriptor>getInstance(JeeGlassfishEjbDescriptor.class);
     JavaEEIIOPGlassfishEjbDescriptor<BasicComponent> _javaEEIIOPGlassfishEjbDescriptor = new JavaEEIIOPGlassfishEjbDescriptor<BasicComponent>(this.entity);
     GeneratedFile<IJeeGlassfishEjbDescriptor> _createFor_2 = _instance_2.createFor(_javaEEIIOPGlassfishEjbDescriptor);

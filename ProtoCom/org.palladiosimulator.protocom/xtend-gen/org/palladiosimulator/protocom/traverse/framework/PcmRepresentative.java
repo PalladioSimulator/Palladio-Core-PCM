@@ -4,9 +4,8 @@ import com.google.inject.Inject;
 import com.google.inject.Injector;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
 import java.util.List;
+import java.util.function.Consumer;
 import org.eclipse.xtext.xbase.lib.CollectionLiterals;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.palladiosimulator.protocom.lang.GeneratedFile;
 import org.palladiosimulator.protocom.lang.ICompilationUnit;
 
@@ -80,11 +79,11 @@ public abstract class PcmRepresentative<E extends NamedElement> {
    * Store created files.
    */
   private void store() {
-    final Procedure1<GeneratedFile<? extends ICompilationUnit>> _function = new Procedure1<GeneratedFile<? extends ICompilationUnit>>() {
-      public void apply(final GeneratedFile<? extends ICompilationUnit> it) {
+    final Consumer<GeneratedFile<? extends ICompilationUnit>> _function = new Consumer<GeneratedFile<? extends ICompilationUnit>>() {
+      public void accept(final GeneratedFile<? extends ICompilationUnit> it) {
         it.store();
       }
     };
-    IterableExtensions.<GeneratedFile<? extends ICompilationUnit>>forEach(this.generatedFiles, _function);
+    this.generatedFiles.forEach(_function);
   }
 }

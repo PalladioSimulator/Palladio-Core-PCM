@@ -14,9 +14,8 @@ import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryComponent;
 import java.util.Arrays;
+import java.util.function.Consumer;
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.xtext.xbase.lib.IterableExtensions;
-import org.eclipse.xtext.xbase.lib.Procedures.Procedure1;
 import org.palladiosimulator.protocom.traverse.framework.PcmRepresentative;
 import org.palladiosimulator.protocom.traverse.framework.repository.XBasicComponent;
 import org.palladiosimulator.protocom.traverse.framework.repository.XCollectionDataType;
@@ -43,26 +42,26 @@ import org.palladiosimulator.protocom.traverse.framework.repository.XOperationIn
 public class XRepository extends PcmRepresentative<Repository> {
   public void traverse() {
     EList<Interface> _interfaces__Repository = this.entity.getInterfaces__Repository();
-    final Procedure1<Interface> _function = new Procedure1<Interface>() {
-      public void apply(final Interface it) {
+    final Consumer<Interface> _function = new Consumer<Interface>() {
+      public void accept(final Interface it) {
         XRepository.this.createInterface(it);
       }
     };
-    IterableExtensions.<Interface>forEach(_interfaces__Repository, _function);
+    _interfaces__Repository.forEach(_function);
     EList<RepositoryComponent> _components__Repository = this.entity.getComponents__Repository();
-    final Procedure1<RepositoryComponent> _function_1 = new Procedure1<RepositoryComponent>() {
-      public void apply(final RepositoryComponent it) {
+    final Consumer<RepositoryComponent> _function_1 = new Consumer<RepositoryComponent>() {
+      public void accept(final RepositoryComponent it) {
         XRepository.this.createComponent(it);
       }
     };
-    IterableExtensions.<RepositoryComponent>forEach(_components__Repository, _function_1);
+    _components__Repository.forEach(_function_1);
     EList<DataType> _dataTypes__Repository = this.entity.getDataTypes__Repository();
-    final Procedure1<DataType> _function_2 = new Procedure1<DataType>() {
-      public void apply(final DataType it) {
+    final Consumer<DataType> _function_2 = new Consumer<DataType>() {
+      public void accept(final DataType it) {
         XRepository.this.createDataType(it);
       }
     };
-    IterableExtensions.<DataType>forEach(_dataTypes__Repository, _function_2);
+    _dataTypes__Repository.forEach(_function_2);
   }
   
   /**
