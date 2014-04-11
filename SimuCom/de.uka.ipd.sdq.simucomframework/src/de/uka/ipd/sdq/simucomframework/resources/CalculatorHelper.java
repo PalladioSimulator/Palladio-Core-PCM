@@ -4,9 +4,9 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.palladiosimulator.edp2.models.ExperimentData.MetricDescription;
+import org.palladiosimulator.measurementspec.BasicMeasurement;
+import org.palladiosimulator.metricspec.MetricDescriptionConstants;
 import org.palladiosimulator.probespec.framework.ProbeSpecContext;
-import org.palladiosimulator.probespec.framework.constants.MetricDescriptionConstants;
-import org.palladiosimulator.probespec.framework.measurements.BasicMeasurement;
 import org.palladiosimulator.probespec.framework.probes.EventProbe;
 import org.palladiosimulator.probespec.framework.probes.EventProbeSet;
 import org.palladiosimulator.probespec.framework.probes.Probe;
