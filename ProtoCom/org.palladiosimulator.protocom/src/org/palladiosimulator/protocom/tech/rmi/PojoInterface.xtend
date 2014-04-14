@@ -41,4 +41,7 @@ abstract class PojoInterface<E extends Entity> extends ConceptMapping<E> impleme
 		newLinkedList
 	}
 	
+	override projectName(){
+		
+	}
 }

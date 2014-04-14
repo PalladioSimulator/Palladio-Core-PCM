@@ -103,6 +103,7 @@ public class PojoComponentClassInterface extends PojoInterface<BasicComponent> {
   public String filePath() {
     String _fqnInterface = JavaNames.fqnInterface(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnInterface);
-    return (_fqnToDirectoryPath + ".java");
+    String _plus = ("/src/" + _fqnToDirectoryPath);
+    return (_plus + ".java");
   }
 }

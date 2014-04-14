@@ -28,4 +28,6 @@ public abstract class JavaConstants {
   public final static String JEE_EJB_ANNOTATION_EJB = "javax.ejb.EJB";
   
   public final static String JEE_INTERFACE_ANNOTATION_REMOTE = "javax.ejb.Remote";
+  
+  public final static String JEE_INTERFACE_ANNOTATION_LOCAL = "javax.ejb.Local";
 }

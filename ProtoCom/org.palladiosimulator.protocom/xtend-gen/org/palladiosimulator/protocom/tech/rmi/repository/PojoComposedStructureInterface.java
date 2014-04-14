@@ -84,6 +84,11 @@ public class PojoComposedStructureInterface extends ConceptMapping<InterfaceProv
   public String filePath() {
     String _fqnInterface = JavaNames.fqnInterface(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnInterface);
-    return (_fqnToDirectoryPath + ".java");
+    String _plus = ("/src/" + _fqnToDirectoryPath);
+    return (_plus + ".java");
+  }
+  
+  public String projectName() {
+    return null;
   }
 }

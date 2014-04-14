@@ -2,7 +2,12 @@ package org.palladiosimulator.protocom.lang
 
 import com.google.inject.Inject
 import com.google.inject.Injector
+import com.google.inject.name.Named
+import org.eclipse.core.runtime.NullProgressMonitor
+import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2
 import org.eclipse.xtext.generator.AbstractFileSystemAccess2
+import org.palladiosimulator.protocom.FSAProvider
+import org.palladiosimulator.protocom.ProtoComProjectFactory
 
 /**
  * Abstract class representing generated files.
@@ -11,10 +16,15 @@ import org.eclipse.xtext.generator.AbstractFileSystemAccess2
  * 
  * @author Thomas Zolynski
  */
-abstract class GeneratedFile<L extends ICompilationUnit> implements ICompilationUnit { 
-	
+abstract class GeneratedFile<L extends ICompilationUnit> implements ICompilationUnit {
+	 
+	private String myProjectURI
 	@Inject
 	protected Injector injector 
+	
+	@Inject
+	@Named("ProjectURI")
+	String projectURI
 	
 	/**
 	 * File System Access used for storing this file.
@@ -35,6 +45,10 @@ abstract class GeneratedFile<L extends ICompilationUnit> implements ICompilation
 		provider.filePath
 	}
 
+	override String projectName(){
+		provider.projectName
+	}
+	
 	/**
 	 * Inject the provider for this generated file.
 	 */
@@ -52,8 +66,25 @@ abstract class GeneratedFile<L extends ICompilationUnit> implements ICompilation
 	 * Store the generated file using Xtext/Xtend file system access.
 	 */
 	 def void store() {
-		fsa.generateFile(filePath, "PCM", generate)
-	}
-
+	 	var NullProgressMonitor mon = new NullProgressMonitor
+	 	var FSAProvider fsa = new FSAProvider
+	 	var path = filePath()
+	 	
+	 	if(projectName != null){
+	 		myProjectURI = projectURI+projectName
+	 	}
+	 	else{
+	 		myProjectURI = projectURI
+	 	}
 	
+	 	var protoComProject = ProtoComProjectFactory.getProject(myProjectURI, path);
+		var EclipseResourceFileSystemAccess2 fsa2 = injector.getInstance(typeof(EclipseResourceFileSystemAccess2))
+		
+		fsa2.setMonitor(mon) 
+		fsa2.setProject(protoComProject.getIProject)
+		fsa2.setOutputConfigurations(fsa.defaultConfig)
+		fsa2.generateFile(filePath, "PCM", generate)
+
+		
+	}
 }

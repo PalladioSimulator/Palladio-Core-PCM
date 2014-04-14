@@ -17,11 +17,11 @@ public class JavaEEIIOPInterface<E extends Entity> extends ConceptMapping<E> imp
   }
   
   public String packageName() {
-    return JavaNames.implementationPackage(this.pcmEntity);
+    return JavaNames.fqnJavaEEInterfacePackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
-    return JavaNames.javaName(this.pcmEntity);
+    return JavaNames.fqnJavaEEInterfaceName(this.pcmEntity);
   }
   
   public Collection<String> interfaces() {
@@ -37,10 +37,14 @@ public class JavaEEIIOPInterface<E extends Entity> extends ConceptMapping<E> imp
   }
   
   public String filePath() {
-    return JavaNames.getFileName(this.pcmEntity);
+    return JavaNames.fqnJavaEEOperationInterfacePath(this.pcmEntity);
   }
   
-  public String jeeInterfaceRemoteAnnotation() {
+  public String jeeInterfaceAnnotation() {
     return JavaConstants.JEE_INTERFACE_ANNOTATION_REMOTE;
+  }
+  
+  public String projectName() {
+    return JavaNames.fqnJavaEEOperationInterfaceProjectName(this.pcmEntity);
   }
 }

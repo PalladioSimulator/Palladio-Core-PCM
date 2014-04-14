@@ -9,7 +9,16 @@ import org.palladiosimulator.protocom.lang.java.IJClass;
 import org.palladiosimulator.protocom.lang.java.IJInterface;
 import org.palladiosimulator.protocom.lang.java.impl.JClass;
 import org.palladiosimulator.protocom.lang.java.impl.JInterface;
+import org.palladiosimulator.protocom.lang.manifest.IJseManifest;
+import org.palladiosimulator.protocom.lang.manifest.impl.JseManifest;
+import org.palladiosimulator.protocom.lang.properties.IBuildProperties;
+import org.palladiosimulator.protocom.lang.properties.impl.BuildProperties;
+import org.palladiosimulator.protocom.lang.xml.IPluginXml;
+import org.palladiosimulator.protocom.lang.xml.impl.PluginXml;
 import org.palladiosimulator.protocom.tech.pojo.repository.PojoComposedStructurePortClass;
+import org.palladiosimulator.protocom.tech.pojo.system.PojoBuildProperties;
+import org.palladiosimulator.protocom.tech.pojo.system.PojoManifest;
+import org.palladiosimulator.protocom.tech.pojo.system.PojoPluginXml;
 import org.palladiosimulator.protocom.tech.pojo.system.PojoSystemClass;
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextClass;
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextInterface;
@@ -57,5 +66,17 @@ public class JseStubSystem extends XSystem {
       }
     };
     IterableExtensions.<ProvidedRole>forEach(_providedRoles_InterfaceProvidingEntity, _function);
+    JseManifest _instance_4 = this.injector.<JseManifest>getInstance(JseManifest.class);
+    PojoManifest _pojoManifest = new PojoManifest(this.entity);
+    GeneratedFile<IJseManifest> _createFor_4 = _instance_4.createFor(_pojoManifest);
+    this.generatedFiles.add(_createFor_4);
+    PluginXml _instance_5 = this.injector.<PluginXml>getInstance(PluginXml.class);
+    PojoPluginXml _pojoPluginXml = new PojoPluginXml(this.entity);
+    GeneratedFile<IPluginXml> _createFor_5 = _instance_5.createFor(_pojoPluginXml);
+    this.generatedFiles.add(_createFor_5);
+    BuildProperties _instance_6 = this.injector.<BuildProperties>getInstance(BuildProperties.class);
+    PojoBuildProperties _pojoBuildProperties = new PojoBuildProperties(this.entity);
+    GeneratedFile<IBuildProperties> _createFor_6 = _instance_6.createFor(_pojoBuildProperties);
+    this.generatedFiles.add(_createFor_6);
   }
 }

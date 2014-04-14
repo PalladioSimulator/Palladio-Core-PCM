@@ -10,10 +10,16 @@ Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
  org.eclipse.xtext.generator;bundle-version="2.5.3",
  org.eclipse.xtext.ui.shared;bundle-version="2.5.3",
  org.eclipse.equinox.registry;bundle-version="3.5.301",
- com.google.inject;bundle-version="3.0.0"
+ com.google.inject;bundle-version="3.0.0",
+ org.apache.log4j;bundle-version="1.2.15",
+ de.uka.ipd.sdq.workflow;bundle-version="2.0.3",
+ org.eclipse.jdt.core;bundle-version="3.9.2",
+ org.eclipse.pde.core;bundle-version="3.9.1",
+ org.eclipse.jdt.launching;bundle-version="3.7.1"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
-Export-Package: org.palladiosimulator.protocom.traverse.framework,
+Export-Package: org.palladiosimulator.protocom,
+ org.palladiosimulator.protocom.traverse.framework,
  org.palladiosimulator.protocom.traverse.framework.allocation,
  org.palladiosimulator.protocom.traverse.framework.repository,
  org.palladiosimulator.protocom.traverse.framework.resourceenvironment,

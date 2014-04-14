@@ -1,14 +1,30 @@
 package org.palladiosimulator.protocom.traverse.jee.repository
 
 import org.palladiosimulator.protocom.lang.java.impl.JeeClass
-import org.palladiosimulator.protocom.lang.java.impl.JeeEjbDescriptor
-import org.palladiosimulator.protocom.lang.java.impl.JeeGlassfishEjbDescriptor
 import org.palladiosimulator.protocom.lang.java.impl.JeeInterface
+import org.palladiosimulator.protocom.lang.manifest.impl.JeeManifest
+import org.palladiosimulator.protocom.lang.prefs.impl.JeePreferences
+import org.palladiosimulator.protocom.lang.xml.impl.Classpath
+import org.palladiosimulator.protocom.lang.xml.impl.JeeComponentFile
+import org.palladiosimulator.protocom.lang.xml.impl.JeeEjbDescriptor
+import org.palladiosimulator.protocom.lang.xml.impl.JeeFacetCore
+import org.palladiosimulator.protocom.lang.xml.impl.JeeGlassfishEjbDescriptor
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPBasicComponentClass
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPBasicComponentPortClass
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClasspath
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientClasspath
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientFacetCore
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientManifest
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientPreferences
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPComponentClassInterface
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPEclipseClientComponentFile
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPEclipseComponentFile
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPEjbDescriptor
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPFacetCore
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPGlassfishEjbDescriptor
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPManifest
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPOperationInterface
+import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPPreferences
 import org.palladiosimulator.protocom.traverse.framework.repository.XBasicComponent
 
 class JeeBasicComponent  extends XBasicComponent {
@@ -31,6 +47,40 @@ class JeeBasicComponent  extends XBasicComponent {
 		// Ejb Descriptor for this component.
 		generatedFiles.add(injector.getInstance(typeof(JeeEjbDescriptor)).createFor(new JavaEEIIOPEjbDescriptor(entity)))
 		
-
+		// Operation Interfaces
+		entity.providedRoles_InterfaceProvidingEntity.forEach[
+			generatedFiles.add(injector.getInstance(typeof(JeeInterface)).createFor(new JavaEEIIOPOperationInterface(it)))
+		]
+		
+		//Manifest Files
+		generatedFiles.add(injector.getInstance(typeof(JeeManifest)).createFor(new JavaEEIIOPManifest(entity)))
+		
+		generatedFiles.add(injector.getInstance(typeof(JeeManifest)).createFor(new JavaEEIIOPClientManifest(entity)))
+		
+		//Prefs Files
+		generatedFiles.add(injector.getInstance(typeof(JeePreferences)).createFor(new JavaEEIIOPPreferences(entity)))
+		
+		generatedFiles.add(injector.getInstance(typeof(JeePreferences)).createFor(new JavaEEIIOPClientPreferences(entity)))
+		
+		//Component Files
+		generatedFiles.add(injector.getInstance(typeof(JeeComponentFile)).createFor(new JavaEEIIOPEclipseComponentFile(entity)))
+		
+		generatedFiles.add(injector.getInstance(typeof(JeeComponentFile)).createFor(new JavaEEIIOPEclipseClientComponentFile(entity)))
+		
+		//Facet Core Files
+		generatedFiles.add(injector.getInstance(typeof(JeeFacetCore)).createFor(new JavaEEIIOPFacetCore(entity)))
+		
+		generatedFiles.add(injector.getInstance(typeof(JeeFacetCore)).createFor(new JavaEEIIOPClientFacetCore(entity)))
+		
+		//Classpath Files
+		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new JavaEEIIOPClasspath(entity)))
+	
+		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new JavaEEIIOPClientClasspath(entity)))
+		
+		//Project Files
+		//generatedFiles.add(injector.getInstance(typeof(ProjectFile)).createFor(new JavaEEIIOPProject(entity)))
+		
+		//generatedFiles.add(injector.getInstance(typeof(ProjectFile)).createFor(new JavaEEIIOPClientProject(entity)))
+		
 	}
 }

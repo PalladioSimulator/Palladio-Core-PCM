@@ -11,13 +11,17 @@ import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPClass
 import org.palladiosimulator.protocom.tech.iiop.util.PcmIIOPProtoAction
 
 class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponent>{
-	
+
 	new(BasicComponent pcmEntity) {
 		super(pcmEntity)
 	}
 	
 	override interfaces() {
 		#[ JavaNames::interfaceName(pcmEntity) ]
+	}
+	
+	override packageName(){
+		JavaNames::fqnJavaEEBasicComponentClassPackage(pcmEntity)
 	}
 	
 	override constructors() {

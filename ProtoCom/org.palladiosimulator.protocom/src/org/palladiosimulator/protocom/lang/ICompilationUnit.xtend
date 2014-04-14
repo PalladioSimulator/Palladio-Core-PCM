@@ -15,4 +15,5 @@ interface ICompilationUnit {
 	 */
 	def String filePath()
 	
+	def String projectName()
 }

@@ -49,7 +49,7 @@ class PojoUsageClosedScenarioThread extends PojoClass<UsageScenario> {
 	}
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::implementationPackage(pcmEntity)) + "/" + JavaNames::javaName(pcmEntity) + "Thread.java"
+		"/src/" + JavaNames::fqnToDirectoryPath(JavaNames::implementationPackage(pcmEntity)) + "/" + JavaNames::javaName(pcmEntity) + "Thread.java"
 	}
 	
 }

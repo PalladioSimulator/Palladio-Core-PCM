@@ -16,7 +16,7 @@ class PojoBasicComponentContextInterface extends PojoInterface<BasicComponent> {
 	}
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::fqnContextInterface(pcmEntity)) + ".java"
+		"/src/" + JavaNames::fqnToDirectoryPath(JavaNames::fqnContextInterface(pcmEntity)) + ".java"
 	}
 	
 	override packageName() {

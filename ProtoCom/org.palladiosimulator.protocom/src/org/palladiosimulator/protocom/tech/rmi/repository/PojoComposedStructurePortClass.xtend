@@ -99,7 +99,7 @@ class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
 	
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::fqnPortPackage(pcmEntity)) + "/" + JavaNames::portClassName(pcmEntity) + ".java"
+		"/src/" + JavaNames::fqnToDirectoryPath(JavaNames::fqnPortPackage(pcmEntity)) + "/" + JavaNames::portClassName(pcmEntity) + ".java"
 	}
 	
 	

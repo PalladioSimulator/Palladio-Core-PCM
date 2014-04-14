@@ -167,9 +167,10 @@ public class PojoUsageScenario extends PojoClass<UsageScenario> {
   public String filePath() {
     String _implementationPackage = JavaNames.implementationPackage(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_implementationPackage);
-    String _plus = (_fqnToDirectoryPath + "/");
+    String _plus = ("/src/" + _fqnToDirectoryPath);
+    String _plus_1 = (_plus + "/");
     String _javaName = JavaNames.javaName(this.pcmEntity);
-    String _plus_1 = (_plus + _javaName);
-    return (_plus_1 + ".java");
+    String _plus_2 = (_plus_1 + _javaName);
+    return (_plus_2 + ".java");
   }
 }

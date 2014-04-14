@@ -98,6 +98,6 @@ public class PojoAllocationStorage extends PojoClass<Allocation> {
   }
   
   public String filePath() {
-    return "ProtoComBootstrap/AllocationStorage.java";
+    return "/src/ProtoComBootstrap/AllocationStorage.java";
   }
 }

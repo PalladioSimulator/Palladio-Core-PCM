@@ -48,4 +48,8 @@ abstract class PojoClass<E extends Entity> extends ConceptMapping<E> implements 
 		JavaNames::getFileName(pcmEntity)
 	}
 	
+	override projectName(){
+		
+	}
+	
 }

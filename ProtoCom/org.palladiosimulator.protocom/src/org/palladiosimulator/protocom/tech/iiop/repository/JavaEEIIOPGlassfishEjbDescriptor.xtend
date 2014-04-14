@@ -1,13 +1,13 @@
 package org.palladiosimulator.protocom.tech.iiop.repository
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity
-import org.palladiosimulator.protocom.lang.java.IJeeGlassfishEjbDescriptor
+import de.uka.ipd.sdq.pcm.repository.BasicComponent
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
-import org.palladiosimulator.protocom.tech.ConceptMapping
+import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPDescriptor
 
-class JavaEEIIOPGlassfishEjbDescriptor <E extends Entity> extends ConceptMapping<E> implements IJeeGlassfishEjbDescriptor {
+class JavaEEIIOPGlassfishEjbDescriptor extends JavaEEIIOPDescriptor<BasicComponent>  {
 	
-	new(E pcmEntity) {
+	new(BasicComponent pcmEntity) {
 		super(pcmEntity)
 	}
 	
@@ -16,15 +16,29 @@ class JavaEEIIOPGlassfishEjbDescriptor <E extends Entity> extends ConceptMapping
 	}
 	
 	override ejbRefName() {
-		"Remote Required EJB Name"
+		requiredInterfaces
 	}
 	
 	override jndiName() {
-		"Corba IP Bla Bla"
+		"Package of the required Component"
 	}
 	
 	override filePath() {
-		JavaNames::getFilePath(pcmEntity)+"/META-INF/glassfish-ejb-jar.xml"
+		JavaNames::fqnJavaEEDescriptorPath(pcmEntity)+"glassfish-ejb-jar.xml"
 	}
 	
+	override projectName(){
+		JavaNames::fqnJavaEEDescriptorProjectName(pcmEntity)
+	}
+	
+	def requiredInterfaces() {
+	 	val results = newLinkedList
+
+		for(required : pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole]){
+			results+= #[
+			JavaNames::javaName(required.requiredInterface__OperationRequiredRole)
+			]
+		}
+		results
+	}
 }

@@ -1,8 +1,18 @@
 package org.palladiosimulator.protocom.lang;
 
+import com.google.common.base.Objects;
 import com.google.inject.Inject;
 import com.google.inject.Injector;
+import com.google.inject.name.Named;
+import java.util.Map;
+import org.eclipse.core.resources.IProject;
+import org.eclipse.core.runtime.NullProgressMonitor;
+import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2;
 import org.eclipse.xtext.generator.AbstractFileSystemAccess2;
+import org.eclipse.xtext.generator.OutputConfiguration;
+import org.palladiosimulator.protocom.FSAProvider;
+import org.palladiosimulator.protocom.ProtoComProject;
+import org.palladiosimulator.protocom.ProtoComProjectFactory;
 import org.palladiosimulator.protocom.lang.ICompilationUnit;
 
 /**
@@ -14,8 +24,14 @@ import org.palladiosimulator.protocom.lang.ICompilationUnit;
  */
 @SuppressWarnings("all")
 public abstract class GeneratedFile<L extends ICompilationUnit> implements ICompilationUnit {
+  private String myProjectURI;
+  
   @Inject
   protected Injector injector;
+  
+  @Inject
+  @Named("ProjectURI")
+  private String projectURI;
   
   /**
    * File System Access used for storing this file.
@@ -34,6 +50,10 @@ public abstract class GeneratedFile<L extends ICompilationUnit> implements IComp
   
   public String filePath() {
     return this.provider.filePath();
+  }
+  
+  public String projectName() {
+    return this.provider.projectName();
   }
   
   /**
@@ -57,8 +77,27 @@ public abstract class GeneratedFile<L extends ICompilationUnit> implements IComp
    * Store the generated file using Xtext/Xtend file system access.
    */
   public void store() {
+    NullProgressMonitor mon = new NullProgressMonitor();
+    FSAProvider fsa = new FSAProvider();
+    String path = this.filePath();
+    String _projectName = this.projectName();
+    boolean _notEquals = (!Objects.equal(_projectName, null));
+    if (_notEquals) {
+      String _projectName_1 = this.projectName();
+      String _plus = (this.projectURI + _projectName_1);
+      this.myProjectURI = _plus;
+    } else {
+      this.myProjectURI = this.projectURI;
+    }
+    ProtoComProject protoComProject = ProtoComProjectFactory.getProject(this.myProjectURI, path);
+    EclipseResourceFileSystemAccess2 fsa2 = this.injector.<EclipseResourceFileSystemAccess2>getInstance(EclipseResourceFileSystemAccess2.class);
+    fsa2.setMonitor(mon);
+    IProject _iProject = protoComProject.getIProject();
+    fsa2.setProject(_iProject);
+    Map<String,OutputConfiguration> _defaultConfig = fsa.defaultConfig();
+    fsa2.setOutputConfigurations(_defaultConfig);
     String _filePath = this.filePath();
     String _generate = this.generate();
-    this.fsa.generateFile(_filePath, "PCM", _generate);
+    fsa2.generateFile(_filePath, "PCM", _generate);
   }
 }

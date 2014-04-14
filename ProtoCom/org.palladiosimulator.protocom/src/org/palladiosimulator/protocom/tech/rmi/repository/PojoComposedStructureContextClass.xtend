@@ -82,7 +82,7 @@ class PojoComposedStructureContextClass extends PojoClass<InterfaceRequiringEnti
 	}
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::fqnContext(pcmEntity)) + ".java"
+		"/src/" + JavaNames::fqnToDirectoryPath(JavaNames::fqnContext(pcmEntity)) + ".java"
 	}
 	
 	

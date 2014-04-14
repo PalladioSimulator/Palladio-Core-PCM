@@ -1,18 +1,14 @@
 package org.palladiosimulator.protocom
 
-import com.google.inject.Provider
-import org.eclipse.xtext.generator.AbstractFileSystemAccess2
-import org.eclipse.core.resources.IWorkspaceRoot
-import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.core.resources.IProject
-import org.eclipse.core.runtime.NullProgressMonitor
-import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2
-import java.util.Map
-import org.eclipse.xtext.generator.OutputConfiguration
-import java.util.HashMap
 import com.google.inject.Inject
 import com.google.inject.Injector
-import com.google.inject.name.Named
+import com.google.inject.Provider
+import java.util.HashMap
+import java.util.Map
+import org.eclipse.core.runtime.NullProgressMonitor
+import org.eclipse.xtext.builder.EclipseResourceFileSystemAccess2
+import org.eclipse.xtext.generator.AbstractFileSystemAccess2
+import org.eclipse.xtext.generator.OutputConfiguration
 
 /**
  * Google Guice provider for FileSystemAccess. It configures and
@@ -27,21 +23,14 @@ class FSAProvider implements Provider<AbstractFileSystemAccess2> {
 	@Inject
 	Injector injector
 	
-	@Inject
-	@Named("ProjectURI")
-	String projectURI
+	
 	
 	override AbstractFileSystemAccess2 get() {
-
-		val IWorkspaceRoot root = ResourcesPlugin::getWorkspace().getRoot()
-		val IProject project = root.getProject(projectURI)
-		project.open(new NullProgressMonitor)	
 
 		val EclipseResourceFileSystemAccess2 fsa = injector.getInstance(typeof(EclipseResourceFileSystemAccess2)) 
 		
 		// Inject into FSA...
 		fsa.setOutputConfigurations(defaultConfig())
-		fsa.setProject(project)
 		fsa.setMonitor(new NullProgressMonitor)	
 		fsa
 	}
@@ -50,7 +39,8 @@ class FSAProvider implements Provider<AbstractFileSystemAccess2> {
 
 		val OutputConfiguration defaultOutput = new OutputConfiguration("PCM")
 		defaultOutput.setDescription("Output Folder")
-		defaultOutput.setOutputDirectory("./src")
+		//defaultOutput.setOutputDirectory("./src")
+		defaultOutput.setOutputDirectory(".")
 		defaultOutput.setOverrideExistingResources(true)
 		defaultOutput.setCreateOutputDirectory(true)
 		defaultOutput.setCleanUpDerivedResources(true)
@@ -60,5 +50,6 @@ class FSAProvider implements Provider<AbstractFileSystemAccess2> {
 		map.put("PCM", defaultOutput)
 		map
 	}
+	
 	
 }

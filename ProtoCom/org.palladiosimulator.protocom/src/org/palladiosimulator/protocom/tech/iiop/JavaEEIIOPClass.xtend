@@ -20,7 +20,7 @@ class JavaEEIIOPClass <E extends Entity> extends ConceptMapping<E> implements IJ
 	}
 	
 	override packageName() {
-		JavaNames::implementationPackage(pcmEntity)
+	//	JavaNames::implementationPackage(pcmEntity)
 	}
 	
 	override compilationUnitName() {
@@ -40,7 +40,7 @@ class JavaEEIIOPClass <E extends Entity> extends ConceptMapping<E> implements IJ
 	}
 	
 	override filePath() {
-		JavaNames::getFileName(pcmEntity)
+		JavaNames::fqnJavaEEBasicComponentClassPath(pcmEntity)
 	}
 	
 	override jeeClassStatelessAnnotation() {
@@ -53,6 +53,10 @@ class JavaEEIIOPClass <E extends Entity> extends ConceptMapping<E> implements IJ
 	
 	override jeeClassDependencyInjection() {
 		newLinkedList
+	}
+	
+	override projectName() {
+		JavaNames::fqnJavaEEBasicComponentProjectName(pcmEntity)
 	}
 	
 	

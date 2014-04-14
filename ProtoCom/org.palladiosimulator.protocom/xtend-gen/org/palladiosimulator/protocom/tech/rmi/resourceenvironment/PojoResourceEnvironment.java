@@ -111,7 +111,7 @@ public class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment>
   }
   
   public String filePath() {
-    return "ProtoComBootstrap/ResourceEnvironment.java";
+    return "/src/ProtoComBootstrap/ResourceEnvironment.java";
   }
   
   public Collection<? extends IJMethod> constructors() {
@@ -124,5 +124,9 @@ public class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment>
   
   public Collection<? extends IJField> fields() {
     return CollectionLiterals.<IJField>newLinkedList();
+  }
+  
+  public String projectName() {
+    return null;
   }
 }

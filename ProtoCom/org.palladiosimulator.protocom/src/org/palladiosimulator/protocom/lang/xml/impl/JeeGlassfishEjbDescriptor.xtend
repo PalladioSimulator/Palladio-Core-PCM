@@ -1,7 +1,7 @@
-package org.palladiosimulator.protocom.lang.java.impl
+package org.palladiosimulator.protocom.lang.xml.impl
 
 import org.palladiosimulator.protocom.lang.GeneratedFile
-import org.palladiosimulator.protocom.lang.java.IJeeGlassfishEjbDescriptor
+import org.palladiosimulator.protocom.lang.xml.IJeeGlassfishEjbDescriptor
 
 class JeeGlassfishEjbDescriptor extends GeneratedFile<IJeeGlassfishEjbDescriptor> implements IJeeGlassfishEjbDescriptor{
 	
@@ -10,16 +10,23 @@ class JeeGlassfishEjbDescriptor extends GeneratedFile<IJeeGlassfishEjbDescriptor
 	}
 	
 	def body() {
-	'''<glassfish-ejb-jar>
-    	<enterprise-beans>
-       	 <ejb>
-        	<ejb-name>«ejbName»</ejb-name>
-        	<ejb-ref>
-            	<ejb-ref-name>«ejbRefName»</ejb-ref-name>
-           		 <jndi-name>«jndiName»</jndi-name>
-      		 </ejb-ref>
-       	 </ejb>
-    	</enterprise-beans>
+	'''
+	<glassfish-ejb-jar>
+	«IF ejbRefName.empty»
+		<enterprise-beans/>
+	«ELSE»
+	«FOR r : ejbRefName»
+<enterprise-beans>
+	<ejb>
+		<ejb-name>«ejbName»</ejb-name>
+		<ejb-ref>
+			<ejb-ref-name>«r»</ejb-ref-name>
+			<jndi-name>corbaname:iiop:ipAddress#java:global/«jndiName»</jndi-name>
+       </ejb-ref>
+     </ejb>
+</enterprise-beans>
+    	«ENDFOR»
+	«ENDIF»
 	</glassfish-ejb-jar>'''
 	}
 	
@@ -40,6 +47,10 @@ class JeeGlassfishEjbDescriptor extends GeneratedFile<IJeeGlassfishEjbDescriptor
 		«header»
 		«body»
 		'''
+	}
+	
+	override displayName() {
+		provider.displayName
 	}
 	
 }

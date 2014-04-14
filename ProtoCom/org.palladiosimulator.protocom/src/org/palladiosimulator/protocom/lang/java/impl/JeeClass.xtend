@@ -7,6 +7,7 @@ import org.palladiosimulator.protocom.lang.java.IJeeClass
 
 class JeeClass extends JCompilationUnit<IJeeClass> implements IJeeClass {
 	
+	
 	override superClass() {
 		provider.superClass
 	}

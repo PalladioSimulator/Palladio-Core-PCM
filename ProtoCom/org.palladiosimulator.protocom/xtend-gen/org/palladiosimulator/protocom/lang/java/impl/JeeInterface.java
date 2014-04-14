@@ -18,8 +18,8 @@ public class JeeInterface extends JCompilationUnit<IJeeInterface> implements IJe
     _builder.newLineIfNotEmpty();
     _builder.newLine();
     _builder.append("@");
-    String _jeeInterfaceRemoteAnnotation = this.jeeInterfaceRemoteAnnotation();
-    _builder.append(_jeeInterfaceRemoteAnnotation, "");
+    String _jeeInterfaceAnnotation = this.jeeInterfaceAnnotation();
+    _builder.append(_jeeInterfaceAnnotation, "");
     _builder.append(";");
     _builder.newLineIfNotEmpty();
     _builder.append("public interface ");
@@ -97,7 +97,7 @@ public class JeeInterface extends JCompilationUnit<IJeeInterface> implements IJe
     return _builder;
   }
   
-  public String jeeInterfaceRemoteAnnotation() {
-    return this.provider.jeeInterfaceRemoteAnnotation();
+  public String jeeInterfaceAnnotation() {
+    return this.provider.jeeInterfaceAnnotation();
   }
 }

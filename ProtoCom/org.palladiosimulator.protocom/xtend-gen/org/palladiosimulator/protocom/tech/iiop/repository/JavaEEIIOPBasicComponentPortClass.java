@@ -38,14 +38,14 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("org.palladiosimulator.protocom.framework.port.AbstractPerformancePrototypeBasicPort<");
     InterfaceProvidingEntity _providingEntity_ProvidedRole = this.pcmEntity.getProvidingEntity_ProvidedRole();
-    String _fqnInterface = JavaNames.fqnInterface(_providingEntity_ProvidedRole);
-    _builder.append(_fqnInterface, "");
+    String _fqnJavaEEComponentPortSuperClass = JavaNames.fqnJavaEEComponentPortSuperClass(_providingEntity_ProvidedRole);
+    _builder.append(_fqnJavaEEComponentPortSuperClass, "");
     _builder.append(">");
     return _builder.toString();
   }
   
   public String packageName() {
-    return JavaNames.fqnPortPackage(this.pcmEntity);
+    return JavaNames.fqnJavaEEPortPackage(this.pcmEntity);
   }
   
   public String compilationUnitName() {
@@ -73,12 +73,11 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
   }
   
   public String filePath() {
-    String _fqnPortPackage = JavaNames.fqnPortPackage(this.pcmEntity);
-    String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnPortPackage);
-    String _plus = (_fqnToDirectoryPath + "/");
-    String _portClassName = JavaNames.portClassName(this.pcmEntity);
-    String _plus_1 = (_plus + _portClassName);
-    return (_plus_1 + ".java");
+    return JavaNames.fqnJavaEEBasicComponentPortClassPath(this.pcmEntity);
+  }
+  
+  public String projectName() {
+    return JavaNames.fqnJavaEEBasicComponentPortProjectName(this.pcmEntity);
   }
   
   protected List<JMethod> _providedRoleMethods(final OperationProvidedRole role) {
@@ -137,13 +136,11 @@ public class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedR
   }
   
   protected String _providedRoleInterface(final OperationProvidedRole role) {
-    OperationInterface _providedInterface__OperationProvidedRole = role.getProvidedInterface__OperationProvidedRole();
-    return JavaNames.fqn(_providedInterface__OperationProvidedRole);
+    return JavaNames.fqnJavaEEComponentPortInterface(role);
   }
   
   protected String _providedRoleInterface(final InfrastructureProvidedRole role) {
-    InfrastructureInterface _providedInterface__InfrastructureProvidedRole = role.getProvidedInterface__InfrastructureProvidedRole();
-    return JavaNames.fqn(_providedInterface__InfrastructureProvidedRole);
+    return JavaNames.fqnJavaEEComponentPortInterface(role);
   }
   
   public Collection<? extends IJField> jeeClassDependencyInjection() {

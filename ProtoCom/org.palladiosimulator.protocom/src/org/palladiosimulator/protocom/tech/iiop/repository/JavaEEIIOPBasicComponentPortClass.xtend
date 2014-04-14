@@ -16,11 +16,11 @@ class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedRole> {
 	}
 	
 	override superClass() {
-		'''org.palladiosimulator.protocom.framework.port.AbstractPerformancePrototypeBasicPort<«JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)»>'''
+		'''org.palladiosimulator.protocom.framework.port.AbstractPerformancePrototypeBasicPort<«JavaNames::fqnJavaEEComponentPortSuperClass(pcmEntity.providingEntity_ProvidedRole)»>'''
 	}
 	
 	override packageName() {
-		JavaNames::fqnPortPackage(pcmEntity)
+		JavaNames::fqnJavaEEPortPackage(pcmEntity)
 	}
 	
 	override compilationUnitName() {
@@ -47,7 +47,12 @@ class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedRole> {
 	
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::fqnPortPackage(pcmEntity)) + "/" + JavaNames::portClassName(pcmEntity) + ".java"
+	//	JavaNames::fqnToDirectoryPath(JavaNames::fqnPortPackage(pcmEntity)) + "/" + JavaNames::portClassName(pcmEntity) + ".java"
+		JavaNames::fqnJavaEEBasicComponentPortClassPath(pcmEntity)
+	}
+	
+	override projectName(){
+		JavaNames::fqnJavaEEBasicComponentPortProjectName(pcmEntity)
 	}
 	
 	
@@ -78,11 +83,11 @@ class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedRole> {
 	}
 	
 	def dispatch providedRoleInterface(OperationProvidedRole role) {
-		JavaNames::fqn(role.providedInterface__OperationProvidedRole)
+		JavaNames::fqnJavaEEComponentPortInterface(role)
 	}
 	
 	def dispatch providedRoleInterface(InfrastructureProvidedRole role) {
-		JavaNames::fqn(role.providedInterface__InfrastructureProvidedRole)
+		JavaNames::fqnJavaEEComponentPortInterface(role)
 	}
 	
 	override jeeClassDependencyInjection(){

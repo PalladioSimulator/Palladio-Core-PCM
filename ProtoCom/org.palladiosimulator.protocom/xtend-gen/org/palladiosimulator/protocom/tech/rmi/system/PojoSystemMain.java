@@ -135,6 +135,6 @@ public class PojoSystemMain extends PojoClass<UsageScenario> {
   }
   
   public String filePath() {
-    return "ProtoComBootstrap/Main.java";
+    return "/src/ProtoComBootstrap/Main.java";
   }
 }

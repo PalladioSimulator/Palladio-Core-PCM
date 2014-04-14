@@ -9,7 +9,7 @@ class JeeInterface extends JCompilationUnit<IJeeInterface> implements IJeeInterf
 		'''
 		package «packageName»;
 		
-		@«jeeInterfaceRemoteAnnotation»;
+		@«jeeInterfaceAnnotation»;
 		public interface «compilationUnitName» «implementedClasses»
 		'''
 	}
@@ -34,8 +34,8 @@ class JeeInterface extends JCompilationUnit<IJeeInterface> implements IJeeInterf
 		'''
 	}
 	
-	override jeeInterfaceRemoteAnnotation() {
-		provider.jeeInterfaceRemoteAnnotation
+	override jeeInterfaceAnnotation() {
+		provider.jeeInterfaceAnnotation
 	}
 	
 }

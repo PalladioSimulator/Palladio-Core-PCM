@@ -55,7 +55,7 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 	}
 	
 	override filePath() {
-		"ProtoComBootstrap/ResourceEnvironment.java"
+		"/src/ProtoComBootstrap/ResourceEnvironment.java"
 	}
 	
 	override constructors() {
@@ -69,6 +69,9 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 	
 	override fields() {
 		newLinkedList
+	}
+
+	override projectName() {
 	}
 	
 }

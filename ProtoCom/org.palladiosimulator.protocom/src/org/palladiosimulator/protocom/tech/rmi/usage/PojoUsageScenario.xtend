@@ -88,7 +88,7 @@ class PojoUsageScenario extends PojoClass<UsageScenario> {
 	}
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::implementationPackage(pcmEntity)) + "/" + JavaNames::javaName(pcmEntity) + ".java"
+		"/src/" + JavaNames::fqnToDirectoryPath(JavaNames::implementationPackage(pcmEntity)) + "/" + JavaNames::javaName(pcmEntity) + ".java"
 	}
 	
 	

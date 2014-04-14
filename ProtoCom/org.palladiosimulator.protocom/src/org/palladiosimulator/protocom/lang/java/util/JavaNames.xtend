@@ -1,32 +1,34 @@
 package org.palladiosimulator.protocom.lang.java.util
 
 //import de.uka.ipd.sdq.completions.Completion
-import de.uka.ipd.sdq.pcm.core.entity.Entity
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
-import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
-import de.uka.ipd.sdq.pcm.system.System;
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
-import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
-import de.uka.ipd.sdq.pcm.reliability.FailureType
-import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+
 import de.uka.ipd.sdq.pcm.allocation.Allocation
+import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
+import de.uka.ipd.sdq.pcm.core.entity.Entity
 import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingEntity
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.core.entity.InterfaceRequiringEntity
+import de.uka.ipd.sdq.pcm.reliability.FailureType
+import de.uka.ipd.sdq.pcm.repository.BasicComponent
+import de.uka.ipd.sdq.pcm.repository.CollectionDataType
+import de.uka.ipd.sdq.pcm.repository.CompositeDataType
+import de.uka.ipd.sdq.pcm.repository.EventType
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
-import org.eclipse.emf.ecore.EObject
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole
+import de.uka.ipd.sdq.pcm.repository.RepositoryComponent
+import de.uka.ipd.sdq.pcm.repository.SinkRole
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction
 import de.uka.ipd.sdq.pcm.seff.InternalAction
-import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import de.uka.ipd.sdq.pcm.repository.CompositeDataType
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
-import de.uka.ipd.sdq.pcm.repository.CollectionDataType
-import de.uka.ipd.sdq.pcm.repository.EventType
-import de.uka.ipd.sdq.pcm.repository.SinkRole
+import de.uka.ipd.sdq.pcm.system.System
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import org.eclipse.emf.ecore.EObject
 
 /**
  * 1:1 copy from the old JavaNames xtend1 extension.
@@ -37,7 +39,7 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole
  * FIXME: clean up, refactor location, burn evidence of this mess.
  */
 class JavaNames {
-
+	
 	static def String removeAllSpecialChars(String s) {
 		return s.replace('\n', ' ').replace('\t', ' ').replace('\r', ' ');
 	}
@@ -237,7 +239,7 @@ class JavaNames {
 		c.fqnContextPackage() + ".I" + c.contextClassName();
 	}
 
-	static dispatch def fqnPortPackage(OperationProvidedRole pr) {
+	static dispatch def fqnPortPackage(ProvidedRole pr) {
 		pr.providingEntity_ProvidedRole.implementationPackage() + ".ports";
 	}
 		
@@ -303,7 +305,7 @@ class JavaNames {
 	}
 
 	static def getFileName(Entity e) {
-		e.implementationPackage().fqnToDirectoryPath() + "/" + e.javaName() + ".java";
+	"/src/" + e.implementationPackage().fqnToDirectoryPath() + "/" + e.javaName() + ".java";
 	}
 	
 	static def getFilePath(Entity e) {
@@ -317,6 +319,127 @@ class JavaNames {
 	static dispatch def serviceName(InfrastructureSignature s) {
 		s.infrastructureInterface__InfrastructureSignature.javaName().toFirstLower + "_" + javaSignature(s)
 	}
+	
+	//Java EE Names
+	static def javaEEDisplayName(Entity e){
+		e.basePackageName() + ".ejb"
+	}
+	
+	static def javaEEEjbClientjar(Entity e){
+		 e.basePackageName() + ".ejbClient.jar"
+	}
+	static def fqnJavaEEBasicComponentClassPath(Entity r){
+		//r.basePackageName() + "/ejb"  +
+		 "/" + "ejbModule/" + r.javaName().toLowerCase  + "/" + "ejb" + "/" + r.javaName() +".java"
+	}
+	
+	static def fqnJavaEEBasicComponentProjectName(Entity r){
+		"." + r.basePackageName() + ".ejb"
+	}
+	
+	static dispatch def fqnJavaEEBasicComponentPortClassPath(OperationProvidedRole r){
+		//r.providingEntity_ProvidedRole.basePackageName() + "/ejb"  + 
+		"/" + "ejbModule/" + r.providingEntity_ProvidedRole.javaName().toLowerCase + "/" + "ejb"  + "/" +	r.providedInterface__OperationProvidedRole.javaName() + "_" + r.providingEntity_ProvidedRole.javaName() +".java"
+	}
+	
+	static dispatch def fqnJavaEEBasicComponentPortClassPath(InfrastructureProvidedRole r){
+		//r.providingEntity_ProvidedRole.basePackageName() + "/ejb"  +
+		 "/" + "ejbModule/" + r.providingEntity_ProvidedRole.javaName().toLowerCase + "/" + "ejb"  + "/" + r.providedInterface__InfrastructureProvidedRole.javaName() + "_" + r.providingEntity_ProvidedRole.javaName() +".java"
+	}
+	
+	static dispatch def fqnJavaEEBasicComponentPortProjectName(OperationProvidedRole r){
+		"." + r.providingEntity_ProvidedRole.basePackageName() + ".ejb"
+	}
+	
+	static dispatch def fqnJavaEEBasicComponentPortProjectName(InfrastructureProvidedRole r){
+		"." + r.providingEntity_ProvidedRole.basePackageName() + ".ejb"
+	}
+	
+	static def fqnJavaEEComponentInterfacePath(Entity i){
+	//	i.basePackageName() + "/ejb"  + 
+		"/" + "ejbModule/" + i.javaName().toLowerCase  + "/" + "ejb" + "/" +"I"+ i.javaName() +".java"
+	}
+	
+	static def fqnJavaEEComponentPortSuperClass(Entity e){
+		e.basePackageName() + ".ejb." + "I"+ e.javaName()
+	}
+	
+	static dispatch def fqnJavaEEComponentPortInterface(OperationProvidedRole e){
+		e.providingEntity_ProvidedRole.basePackageName() + ".interfaces.ejb." + e.providedInterface__OperationProvidedRole.javaName()
+	}
+	
+	static dispatch def fqnJavaEEComponentPortInterface(InfrastructureProvidedRole e){
+		e.providingEntity_ProvidedRole.basePackageName() + ".interfaces.ejb." + e.providedInterface__InfrastructureProvidedRole.javaName()
+	}
+	
+	static dispatch def fqnJavaEEOperationInterfacePath(OperationProvidedRole i){
+		//i.providingEntity_ProvidedRole.basePackageName() + "/ejbClient"  + "/" + 
+		"ejbModule/" + i.providingEntity_ProvidedRole.javaName().toLowerCase + "/" + "interfaces"+ "/" + "ejb" + "/" + i.getProvidedInterface__OperationProvidedRole().javaName() +".java"
+	}
+	
+	static dispatch def fqnJavaEEOperationInterfacePath(InfrastructureProvidedRole i){
+		//i.providingEntity_ProvidedRole.basePackageName() + "/ejbClient"  + "/" + 
+		"ejbModule/" + i.providingEntity_ProvidedRole.javaName().toLowerCase+ "/" + "interfaces" + "/" + "ejb" + "/" + i.getProvidedInterface__InfrastructureProvidedRole().javaName() +".java"
+	}
+	
+	static dispatch def fqnJavaEEOperationInterfacePath(BasicComponent i){
+		//i.basePackageName() + "/ejbClient"  + "/" +
+		 "ejbModule/" + i.javaName().toLowerCase + "/" + "ejb" + "/" + i.javaName() +".java"
+	}
+	
+	static dispatch def fqnJavaEEOperationInterfaceProjectName(OperationProvidedRole i){
+		"." + i.providingEntity_ProvidedRole.basePackageName() + ".ejbClient"
+	}
+	
+	static dispatch def fqnJavaEEOperationInterfaceProjectName(InfrastructureProvidedRole i){
+		"." + i.providingEntity_ProvidedRole.basePackageName() + ".ejbClient"
+	}
+	
+	static dispatch def fqnJavaEEOperationInterfaceProjectName(BasicComponent i){
+		"." + i.basePackageName() + ".ejbClient" 
+	}
+	
+	static dispatch def fqnJavaEEInterfacePackage(Entity b){
+		b.basePackageName() + ".ejb"
+	}
+	
+	static dispatch def fqnJavaEEInterfacePackage(ProvidedRole b){
+		b.providingEntity_ProvidedRole.basePackageName() + ".interfaces.ejb"
+	}
+	
+	static dispatch def fqnJavaEEInterfaceName(InterfaceProvidingEntity e){
+		'I' + e.javaName();
+	}
+	
+	static dispatch def fqnJavaEEInterfaceName(OperationProvidedRole p){
+		p.getProvidedInterface__OperationProvidedRole().javaName()
+	}
+	
+	static dispatch def fqnJavaEEInterfaceName(InfrastructureProvidedRole p){
+		p.getProvidedInterface__InfrastructureProvidedRole.javaName()
+	}
+	
+	static def fqnJavaEEPortPackage(ProvidedRole r){
+	r.providingEntity_ProvidedRole.basePackageName() + ".ejb"
+	}
+	
+	static def fqnJavaEEBasicComponentClassPackage(Entity e){
+		e.basePackageName() + ".ejb"
+	}
+	
+	static def fqnJavaEEDescriptorPath(Entity e){
+	//	e.basePackageName() + "/ejb"  + 
+		"/" + "ejbModule/META-INF/"
+	}
+	
+	static def fqnJavaEEPreferencesPath(Entity e){
+		"/" + ".settings/"
+	}
+	
+	static def fqnJavaEEDescriptorProjectName(Entity e){
+		"." + e.basePackageName() + ".ejb"
+	}
+	
 	
 	/**
 	 * TODO Implement EventTypes?

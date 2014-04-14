@@ -4,5 +4,5 @@ import org.palladiosimulator.protocom.lang.java.IJInterface;
 
 @SuppressWarnings("all")
 public interface IJeeInterface extends IJInterface {
-  public abstract String jeeInterfaceRemoteAnnotation();
+  public abstract String jeeInterfaceAnnotation();
 }

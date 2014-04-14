@@ -43,6 +43,10 @@ public class JavaEEIIOPBasicComponentClass extends JavaEEIIOPClass<BasicComponen
     return Collections.<String>unmodifiableList(Lists.<String>newArrayList(_interfaceName));
   }
   
+  public String packageName() {
+    return JavaNames.fqnJavaEEBasicComponentClassPackage(this.pcmEntity);
+  }
+  
   public Collection<? extends IJMethod> constructors() {
     JMethod _jMethod = new JMethod();
     JMethod _jMethod_1 = new JMethod();

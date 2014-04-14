@@ -49,7 +49,7 @@ class PojoAllocationStorage extends PojoClass<Allocation> {
 	}
 
 	override filePath() {
-		"ProtoComBootstrap/AllocationStorage.java"
+		"/src/ProtoComBootstrap/AllocationStorage.java"
 	}
 	
 	

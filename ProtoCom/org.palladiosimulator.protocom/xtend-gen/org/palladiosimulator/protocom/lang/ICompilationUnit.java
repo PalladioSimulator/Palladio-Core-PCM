@@ -14,4 +14,6 @@ public interface ICompilationUnit {
    * Path and name of the generated file.
    */
   public abstract String filePath();
+  
+  public abstract String projectName();
 }

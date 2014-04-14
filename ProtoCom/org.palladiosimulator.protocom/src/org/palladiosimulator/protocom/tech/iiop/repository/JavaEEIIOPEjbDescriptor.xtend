@@ -1,26 +1,30 @@
 package org.palladiosimulator.protocom.tech.iiop.repository
 
-import de.uka.ipd.sdq.pcm.core.entity.Entity
-import org.palladiosimulator.protocom.lang.java.IJeeEjbDescriptor
+import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
-import org.palladiosimulator.protocom.tech.ConceptMapping
+import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPDescriptor
 
-class JavaEEIIOPEjbDescriptor <E extends Entity> extends ConceptMapping<E> implements IJeeEjbDescriptor{
+class JavaEEIIOPEjbDescriptor extends JavaEEIIOPDescriptor<BasicComponent>{
 	
-	new(E pcmEntity) {
+	new(BasicComponent pcmEntity) {
 		super(pcmEntity)
 	}
 	
 	override displayName() {
-		JavaNames::implementationPackage(pcmEntity)
+		JavaNames::javaEEDisplayName(pcmEntity)
 	}
 	
 	override ejbClientJar() {
-		JavaNames::implementationPackage(pcmEntity)
+		JavaNames::javaEEEjbClientjar(pcmEntity)
+		
 	}
 	
 	override filePath() {
-		JavaNames::getFilePath(pcmEntity)+"/META-INF/ejb-jar.xml"
+		JavaNames::fqnJavaEEDescriptorPath(pcmEntity)+"ejb-jar.xml"
+	}
+	
+	override projectName(){
+		JavaNames::fqnJavaEEDescriptorProjectName(pcmEntity)
 	}
 	
 }

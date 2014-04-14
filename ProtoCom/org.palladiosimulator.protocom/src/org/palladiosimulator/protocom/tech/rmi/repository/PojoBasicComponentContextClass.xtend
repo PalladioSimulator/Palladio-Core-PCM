@@ -90,7 +90,7 @@ class PojoBasicComponentContextClass extends PojoClass<BasicComponent> {
 	}
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::fqnContext(pcmEntity)) + ".java"
+		"/src/" + JavaNames::fqnToDirectoryPath(JavaNames::fqnContext(pcmEntity)) + ".java"
 	}
 	
 	

@@ -3,10 +3,21 @@ package org.palladiosimulator.protocom.workflow;
 import java.util.HashMap;
 
 import org.eclipse.core.runtime.IProgressMonitor;
+import org.palladiosimulator.protocom.ProjectCompiler;
+import org.palladiosimulator.protocom.ProtoComProject;
+import org.palladiosimulator.protocom.ProtoComProjectFactory;
 import org.palladiosimulator.protocom.traverse.framework.CommonConfigurationModule;
+import org.palladiosimulator.protocom.traverse.framework.allocation.XAllocation;
+import org.palladiosimulator.protocom.traverse.framework.repository.XRepository;
+import org.palladiosimulator.protocom.traverse.framework.resourceenvironment.XResourceEnvironment;
+import org.palladiosimulator.protocom.traverse.framework.system.XSystem;
+import org.palladiosimulator.protocom.traverse.framework.usage.XUsageScenario;
 import org.palladiosimulator.protocom.traverse.jee.JeeConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jse.JseConfigurationModule;
 import org.palladiosimulator.protocom.traverse.jsestub.JseStubConfigurationModule;
+
+import com.google.inject.Guice;
+import com.google.inject.Injector;
 
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
@@ -21,21 +32,13 @@ import de.uka.ipd.sdq.workflow.pcm.blackboard.PCMResourceSetPartition;
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration;
 import de.uka.ipd.sdq.workflow.pcm.jobs.LoadPCMModelsIntoBlackboardJob;
 
-import com.google.inject.Guice;
-import com.google.inject.Injector;
-
-import org.palladiosimulator.protocom.traverse.framework.allocation.XAllocation;
-import org.palladiosimulator.protocom.traverse.framework.repository.XRepository;
-import org.palladiosimulator.protocom.traverse.framework.resourceenvironment.XResourceEnvironment;
-import org.palladiosimulator.protocom.traverse.framework.system.XSystem;
-import org.palladiosimulator.protocom.traverse.framework.usage.XUsageScenario;
-
 
 public class TransformPCMToCodeXtendJob extends
 		SequentialBlackboardInteractingJob<MDSDBlackboard> implements IJob,
 		IBlackboardInteractingJob<MDSDBlackboard> {
 
 	protected ProtoComGenerationConfiguration configuration;
+	private String projectType;
 
 	public TransformPCMToCodeXtendJob(
 			ProtoComGenerationConfiguration configuration) {
@@ -50,12 +53,15 @@ public class TransformPCMToCodeXtendJob extends
 		
 		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO) {
 			guiceConfiguration = new JseConfigurationModule();
+			projectType = "PROTO";
 		} 
 		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO) {
             guiceConfiguration = new JseStubConfigurationModule();
+            projectType = "POJO";
         } 
 		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
 			guiceConfiguration = new JeeConfigurationModule();
+			projectType = "EJB3";
 		} 
 
 		guiceConfiguration.setProjectURI(configuration.getStoragePluginID());
@@ -85,13 +91,15 @@ public class TransformPCMToCodeXtendJob extends
 		for (UsageScenario scenario : pcmPartition.getUsageModel().getUsageScenario_UsageModel()) {
 			injector.getInstance(XUsageScenario.class).setEntity(scenario).transform();
 		}
-
 		
+		for(ProtoComProject p : ProtoComProjectFactory.getCreatedProjects().values()){
+			ProjectCompiler.compileProject(p.getIProject(), monitor, projectType);	
+		}
 	}
 
 	@Override
 	public void cleanup(IProgressMonitor monitor) throws CleanupFailedException {
-
+		ProtoComProjectFactory.cleanup();
 	}
 
 	@Override

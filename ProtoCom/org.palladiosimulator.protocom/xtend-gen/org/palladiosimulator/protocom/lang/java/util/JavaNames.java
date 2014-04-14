@@ -319,7 +319,7 @@ public class JavaNames {
     return (_plus + _contextClassName);
   }
   
-  protected static String _fqnPortPackage(final OperationProvidedRole pr) {
+  protected static String _fqnPortPackage(final ProvidedRole pr) {
     InterfaceProvidingEntity _providingEntity_ProvidedRole = pr.getProvidingEntity_ProvidedRole();
     String _implementationPackage = JavaNames.implementationPackage(_providingEntity_ProvidedRole);
     return (_implementationPackage + ".ports");
@@ -412,10 +412,11 @@ public class JavaNames {
   public static String getFileName(final Entity e) {
     String _implementationPackage = JavaNames.implementationPackage(e);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_implementationPackage);
-    String _plus = (_fqnToDirectoryPath + "/");
+    String _plus = ("/src/" + _fqnToDirectoryPath);
+    String _plus_1 = (_plus + "/");
     String _javaName = JavaNames.javaName(e);
-    String _plus_1 = (_plus + _javaName);
-    return (_plus_1 + ".java");
+    String _plus_2 = (_plus_1 + _javaName);
+    return (_plus_2 + ".java");
   }
   
   public static String getFilePath(final Entity e) {
@@ -440,6 +441,238 @@ public class JavaNames {
     String _plus = (_firstLower + "_");
     String _javaSignature = JavaNames.javaSignature(s);
     return (_plus + _javaSignature);
+  }
+  
+  public static String javaEEDisplayName(final Entity e) {
+    String _basePackageName = JavaNames.basePackageName(e);
+    return (_basePackageName + ".ejb");
+  }
+  
+  public static String javaEEEjbClientjar(final Entity e) {
+    String _basePackageName = JavaNames.basePackageName(e);
+    return (_basePackageName + ".ejbClient.jar");
+  }
+  
+  public static String fqnJavaEEBasicComponentClassPath(final Entity r) {
+    String _javaName = JavaNames.javaName(r);
+    String _lowerCase = _javaName.toLowerCase();
+    String _plus = (("/" + "ejbModule/") + _lowerCase);
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + "ejb");
+    String _plus_3 = (_plus_2 + "/");
+    String _javaName_1 = JavaNames.javaName(r);
+    String _plus_4 = (_plus_3 + _javaName_1);
+    return (_plus_4 + ".java");
+  }
+  
+  public static String fqnJavaEEBasicComponentProjectName(final Entity r) {
+    String _basePackageName = JavaNames.basePackageName(r);
+    String _plus = ("." + _basePackageName);
+    return (_plus + ".ejb");
+  }
+  
+  protected static String _fqnJavaEEBasicComponentPortClassPath(final OperationProvidedRole r) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = r.getProvidingEntity_ProvidedRole();
+    String _javaName = JavaNames.javaName(_providingEntity_ProvidedRole);
+    String _lowerCase = _javaName.toLowerCase();
+    String _plus = (("/" + "ejbModule/") + _lowerCase);
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + "ejb");
+    String _plus_3 = (_plus_2 + "/");
+    OperationInterface _providedInterface__OperationProvidedRole = r.getProvidedInterface__OperationProvidedRole();
+    String _javaName_1 = JavaNames.javaName(_providedInterface__OperationProvidedRole);
+    String _plus_4 = (_plus_3 + _javaName_1);
+    String _plus_5 = (_plus_4 + "_");
+    InterfaceProvidingEntity _providingEntity_ProvidedRole_1 = r.getProvidingEntity_ProvidedRole();
+    String _javaName_2 = JavaNames.javaName(_providingEntity_ProvidedRole_1);
+    String _plus_6 = (_plus_5 + _javaName_2);
+    return (_plus_6 + ".java");
+  }
+  
+  protected static String _fqnJavaEEBasicComponentPortClassPath(final InfrastructureProvidedRole r) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = r.getProvidingEntity_ProvidedRole();
+    String _javaName = JavaNames.javaName(_providingEntity_ProvidedRole);
+    String _lowerCase = _javaName.toLowerCase();
+    String _plus = (("/" + "ejbModule/") + _lowerCase);
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + "ejb");
+    String _plus_3 = (_plus_2 + "/");
+    InfrastructureInterface _providedInterface__InfrastructureProvidedRole = r.getProvidedInterface__InfrastructureProvidedRole();
+    String _javaName_1 = JavaNames.javaName(_providedInterface__InfrastructureProvidedRole);
+    String _plus_4 = (_plus_3 + _javaName_1);
+    String _plus_5 = (_plus_4 + "_");
+    InterfaceProvidingEntity _providingEntity_ProvidedRole_1 = r.getProvidingEntity_ProvidedRole();
+    String _javaName_2 = JavaNames.javaName(_providingEntity_ProvidedRole_1);
+    String _plus_6 = (_plus_5 + _javaName_2);
+    return (_plus_6 + ".java");
+  }
+  
+  protected static String _fqnJavaEEBasicComponentPortProjectName(final OperationProvidedRole r) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = r.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    String _plus = ("." + _basePackageName);
+    return (_plus + ".ejb");
+  }
+  
+  protected static String _fqnJavaEEBasicComponentPortProjectName(final InfrastructureProvidedRole r) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = r.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    String _plus = ("." + _basePackageName);
+    return (_plus + ".ejb");
+  }
+  
+  public static String fqnJavaEEComponentInterfacePath(final Entity i) {
+    String _javaName = JavaNames.javaName(i);
+    String _lowerCase = _javaName.toLowerCase();
+    String _plus = (("/" + "ejbModule/") + _lowerCase);
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + "ejb");
+    String _plus_3 = (_plus_2 + "/");
+    String _plus_4 = (_plus_3 + "I");
+    String _javaName_1 = JavaNames.javaName(i);
+    String _plus_5 = (_plus_4 + _javaName_1);
+    return (_plus_5 + ".java");
+  }
+  
+  public static String fqnJavaEEComponentPortSuperClass(final Entity e) {
+    String _basePackageName = JavaNames.basePackageName(e);
+    String _plus = (_basePackageName + ".ejb.");
+    String _plus_1 = (_plus + "I");
+    String _javaName = JavaNames.javaName(e);
+    return (_plus_1 + _javaName);
+  }
+  
+  protected static String _fqnJavaEEComponentPortInterface(final OperationProvidedRole e) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = e.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    String _plus = (_basePackageName + ".interfaces.ejb.");
+    OperationInterface _providedInterface__OperationProvidedRole = e.getProvidedInterface__OperationProvidedRole();
+    String _javaName = JavaNames.javaName(_providedInterface__OperationProvidedRole);
+    return (_plus + _javaName);
+  }
+  
+  protected static String _fqnJavaEEComponentPortInterface(final InfrastructureProvidedRole e) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = e.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    String _plus = (_basePackageName + ".interfaces.ejb.");
+    InfrastructureInterface _providedInterface__InfrastructureProvidedRole = e.getProvidedInterface__InfrastructureProvidedRole();
+    String _javaName = JavaNames.javaName(_providedInterface__InfrastructureProvidedRole);
+    return (_plus + _javaName);
+  }
+  
+  protected static String _fqnJavaEEOperationInterfacePath(final OperationProvidedRole i) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = i.getProvidingEntity_ProvidedRole();
+    String _javaName = JavaNames.javaName(_providingEntity_ProvidedRole);
+    String _lowerCase = _javaName.toLowerCase();
+    String _plus = ("ejbModule/" + _lowerCase);
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + "interfaces");
+    String _plus_3 = (_plus_2 + "/");
+    String _plus_4 = (_plus_3 + "ejb");
+    String _plus_5 = (_plus_4 + "/");
+    OperationInterface _providedInterface__OperationProvidedRole = i.getProvidedInterface__OperationProvidedRole();
+    String _javaName_1 = JavaNames.javaName(_providedInterface__OperationProvidedRole);
+    String _plus_6 = (_plus_5 + _javaName_1);
+    return (_plus_6 + ".java");
+  }
+  
+  protected static String _fqnJavaEEOperationInterfacePath(final InfrastructureProvidedRole i) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = i.getProvidingEntity_ProvidedRole();
+    String _javaName = JavaNames.javaName(_providingEntity_ProvidedRole);
+    String _lowerCase = _javaName.toLowerCase();
+    String _plus = ("ejbModule/" + _lowerCase);
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + "interfaces");
+    String _plus_3 = (_plus_2 + "/");
+    String _plus_4 = (_plus_3 + "ejb");
+    String _plus_5 = (_plus_4 + "/");
+    InfrastructureInterface _providedInterface__InfrastructureProvidedRole = i.getProvidedInterface__InfrastructureProvidedRole();
+    String _javaName_1 = JavaNames.javaName(_providedInterface__InfrastructureProvidedRole);
+    String _plus_6 = (_plus_5 + _javaName_1);
+    return (_plus_6 + ".java");
+  }
+  
+  protected static String _fqnJavaEEOperationInterfacePath(final BasicComponent i) {
+    String _javaName = JavaNames.javaName(i);
+    String _lowerCase = _javaName.toLowerCase();
+    String _plus = ("ejbModule/" + _lowerCase);
+    String _plus_1 = (_plus + "/");
+    String _plus_2 = (_plus_1 + "ejb");
+    String _plus_3 = (_plus_2 + "/");
+    String _javaName_1 = JavaNames.javaName(i);
+    String _plus_4 = (_plus_3 + _javaName_1);
+    return (_plus_4 + ".java");
+  }
+  
+  protected static String _fqnJavaEEOperationInterfaceProjectName(final OperationProvidedRole i) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = i.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    String _plus = ("." + _basePackageName);
+    return (_plus + ".ejbClient");
+  }
+  
+  protected static String _fqnJavaEEOperationInterfaceProjectName(final InfrastructureProvidedRole i) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = i.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    String _plus = ("." + _basePackageName);
+    return (_plus + ".ejbClient");
+  }
+  
+  protected static String _fqnJavaEEOperationInterfaceProjectName(final BasicComponent i) {
+    String _basePackageName = JavaNames.basePackageName(i);
+    String _plus = ("." + _basePackageName);
+    return (_plus + ".ejbClient");
+  }
+  
+  protected static String _fqnJavaEEInterfacePackage(final Entity b) {
+    String _basePackageName = JavaNames.basePackageName(b);
+    return (_basePackageName + ".ejb");
+  }
+  
+  protected static String _fqnJavaEEInterfacePackage(final ProvidedRole b) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = b.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    return (_basePackageName + ".interfaces.ejb");
+  }
+  
+  protected static String _fqnJavaEEInterfaceName(final InterfaceProvidingEntity e) {
+    String _javaName = JavaNames.javaName(e);
+    return ("I" + _javaName);
+  }
+  
+  protected static String _fqnJavaEEInterfaceName(final OperationProvidedRole p) {
+    OperationInterface _providedInterface__OperationProvidedRole = p.getProvidedInterface__OperationProvidedRole();
+    return JavaNames.javaName(_providedInterface__OperationProvidedRole);
+  }
+  
+  protected static String _fqnJavaEEInterfaceName(final InfrastructureProvidedRole p) {
+    InfrastructureInterface _providedInterface__InfrastructureProvidedRole = p.getProvidedInterface__InfrastructureProvidedRole();
+    return JavaNames.javaName(_providedInterface__InfrastructureProvidedRole);
+  }
+  
+  public static String fqnJavaEEPortPackage(final ProvidedRole r) {
+    InterfaceProvidingEntity _providingEntity_ProvidedRole = r.getProvidingEntity_ProvidedRole();
+    String _basePackageName = JavaNames.basePackageName(_providingEntity_ProvidedRole);
+    return (_basePackageName + ".ejb");
+  }
+  
+  public static String fqnJavaEEBasicComponentClassPackage(final Entity e) {
+    String _basePackageName = JavaNames.basePackageName(e);
+    return (_basePackageName + ".ejb");
+  }
+  
+  public static String fqnJavaEEDescriptorPath(final Entity e) {
+    return ("/" + "ejbModule/META-INF/");
+  }
+  
+  public static String fqnJavaEEPreferencesPath(final Entity e) {
+    return ("/" + ".settings/");
+  }
+  
+  public static String fqnJavaEEDescriptorProjectName(final Entity e) {
+    String _basePackageName = JavaNames.basePackageName(e);
+    String _plus = ("." + _basePackageName);
+    return (_plus + ".ejb");
   }
   
   /**
@@ -637,10 +870,10 @@ public class JavaNames {
   public static String fqnPortPackage(final ProvidedRole pr) {
     if (pr instanceof InfrastructureProvidedRole) {
       return _fqnPortPackage((InfrastructureProvidedRole)pr);
-    } else if (pr instanceof OperationProvidedRole) {
-      return _fqnPortPackage((OperationProvidedRole)pr);
     } else if (pr instanceof SinkRole) {
       return _fqnPortPackage((SinkRole)pr);
+    } else if (pr != null) {
+      return _fqnPortPackage(pr);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(pr).toString());
@@ -657,6 +890,89 @@ public class JavaNames {
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(s).toString());
+    }
+  }
+  
+  public static String fqnJavaEEBasicComponentPortClassPath(final ProvidedRole r) {
+    if (r instanceof InfrastructureProvidedRole) {
+      return _fqnJavaEEBasicComponentPortClassPath((InfrastructureProvidedRole)r);
+    } else if (r instanceof OperationProvidedRole) {
+      return _fqnJavaEEBasicComponentPortClassPath((OperationProvidedRole)r);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(r).toString());
+    }
+  }
+  
+  public static String fqnJavaEEBasicComponentPortProjectName(final ProvidedRole r) {
+    if (r instanceof InfrastructureProvidedRole) {
+      return _fqnJavaEEBasicComponentPortProjectName((InfrastructureProvidedRole)r);
+    } else if (r instanceof OperationProvidedRole) {
+      return _fqnJavaEEBasicComponentPortProjectName((OperationProvidedRole)r);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(r).toString());
+    }
+  }
+  
+  public static String fqnJavaEEComponentPortInterface(final ProvidedRole e) {
+    if (e instanceof InfrastructureProvidedRole) {
+      return _fqnJavaEEComponentPortInterface((InfrastructureProvidedRole)e);
+    } else if (e instanceof OperationProvidedRole) {
+      return _fqnJavaEEComponentPortInterface((OperationProvidedRole)e);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(e).toString());
+    }
+  }
+  
+  public static String fqnJavaEEOperationInterfacePath(final Entity i) {
+    if (i instanceof BasicComponent) {
+      return _fqnJavaEEOperationInterfacePath((BasicComponent)i);
+    } else if (i instanceof InfrastructureProvidedRole) {
+      return _fqnJavaEEOperationInterfacePath((InfrastructureProvidedRole)i);
+    } else if (i instanceof OperationProvidedRole) {
+      return _fqnJavaEEOperationInterfacePath((OperationProvidedRole)i);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(i).toString());
+    }
+  }
+  
+  public static String fqnJavaEEOperationInterfaceProjectName(final Entity i) {
+    if (i instanceof BasicComponent) {
+      return _fqnJavaEEOperationInterfaceProjectName((BasicComponent)i);
+    } else if (i instanceof InfrastructureProvidedRole) {
+      return _fqnJavaEEOperationInterfaceProjectName((InfrastructureProvidedRole)i);
+    } else if (i instanceof OperationProvidedRole) {
+      return _fqnJavaEEOperationInterfaceProjectName((OperationProvidedRole)i);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(i).toString());
+    }
+  }
+  
+  public static String fqnJavaEEInterfacePackage(final Entity b) {
+    if (b instanceof ProvidedRole) {
+      return _fqnJavaEEInterfacePackage((ProvidedRole)b);
+    } else if (b != null) {
+      return _fqnJavaEEInterfacePackage(b);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(b).toString());
+    }
+  }
+  
+  public static String fqnJavaEEInterfaceName(final Entity p) {
+    if (p instanceof InfrastructureProvidedRole) {
+      return _fqnJavaEEInterfaceName((InfrastructureProvidedRole)p);
+    } else if (p instanceof OperationProvidedRole) {
+      return _fqnJavaEEInterfaceName((OperationProvidedRole)p);
+    } else if (p instanceof InterfaceProvidingEntity) {
+      return _fqnJavaEEInterfaceName((InterfaceProvidingEntity)p);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(p).toString());
     }
   }
   

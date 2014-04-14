@@ -44,4 +44,8 @@ public abstract class PojoInterface<E extends Entity> extends ConceptMapping<E> 
   public Collection<? extends IJField> fields() {
     return CollectionLiterals.<IJField>newLinkedList();
   }
+  
+  public String projectName() {
+    return null;
+  }
 }

@@ -1,13 +1,21 @@
 package org.palladiosimulator.protocom.traverse.jse.system
 
-import org.palladiosimulator.protocom.traverse.framework.system.XSystem
-import org.palladiosimulator.protocom.lang.java.impl.JInterface
 import org.palladiosimulator.protocom.lang.java.impl.JClass
-import org.palladiosimulator.protocom.tech.rmi.system.PojoSystemClass
+import org.palladiosimulator.protocom.lang.java.impl.JInterface
+import org.palladiosimulator.protocom.lang.manifest.impl.JseManifest
+import org.palladiosimulator.protocom.lang.properties.impl.BuildProperties
+import org.palladiosimulator.protocom.lang.xml.impl.Classpath
+import org.palladiosimulator.protocom.lang.xml.impl.PluginXml
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextClass
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureContextInterface
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructureInterface
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoComposedStructurePortClass
+import org.palladiosimulator.protocom.tech.rmi.system.PojoBuildProperties
+import org.palladiosimulator.protocom.tech.rmi.system.PojoClasspath
+import org.palladiosimulator.protocom.tech.rmi.system.PojoManifest
+import org.palladiosimulator.protocom.tech.rmi.system.PojoPluginXml
+import org.palladiosimulator.protocom.tech.rmi.system.PojoSystemClass
+import org.palladiosimulator.protocom.traverse.framework.system.XSystem
 
 /**
  * An System translates into the following Java compilation units:
@@ -40,5 +48,16 @@ class JseSystem extends XSystem {
 			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new PojoComposedStructurePortClass(it)))
 		]
 		
+		//Manifest File
+		generatedFiles.add(injector.getInstance(typeof(JseManifest)).createFor(new PojoManifest(entity)))
+		
+		//Plugin.xml file
+		generatedFiles.add(injector.getInstance(typeof(PluginXml)).createFor(new PojoPluginXml(entity)))
+		
+		//Build.properties file
+		generatedFiles.add(injector.getInstance(typeof(BuildProperties)).createFor(new PojoBuildProperties(entity)))
+		
+		//Classpath file
+	//	generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new PojoClasspath(entity)))
 	}
 }

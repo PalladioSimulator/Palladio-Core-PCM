@@ -23,4 +23,5 @@ abstract class JavaConstants {
 	public static val JEE_EJB_ANNOTATION_EJB = "javax.ejb.EJB"
 	
 	public static val JEE_INTERFACE_ANNOTATION_REMOTE = "javax.ejb.Remote"
+	public static val JEE_INTERFACE_ANNOTATION_LOCAL = "javax.ejb.Local"
 }

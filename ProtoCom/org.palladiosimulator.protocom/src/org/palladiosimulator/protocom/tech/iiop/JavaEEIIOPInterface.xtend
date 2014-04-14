@@ -13,11 +13,11 @@ class JavaEEIIOPInterface <E extends Entity> extends ConceptMapping<E> implement
 	}
 	
 	override packageName() {
-		JavaNames::implementationPackage(pcmEntity)
+		JavaNames::fqnJavaEEInterfacePackage(pcmEntity)
 	}
 	
 	override compilationUnitName() {
-		JavaNames::javaName(pcmEntity)
+		JavaNames::fqnJavaEEInterfaceName(pcmEntity)
 	}
 	
 	override interfaces() {
@@ -33,11 +33,15 @@ class JavaEEIIOPInterface <E extends Entity> extends ConceptMapping<E> implement
 	}
 	
 	override filePath() {
-		JavaNames::getFileName(pcmEntity)
+		JavaNames::fqnJavaEEOperationInterfacePath(pcmEntity)
 	}
 	
-	override jeeInterfaceRemoteAnnotation() {
+	override jeeInterfaceAnnotation() {
 		JavaConstants::JEE_INTERFACE_ANNOTATION_REMOTE
+	}
+	
+	override projectName() {
+		JavaNames::fqnJavaEEOperationInterfaceProjectName(pcmEntity)
 	}
 	
 }

@@ -15,6 +15,7 @@ import org.eclipse.xtext.xbase.lib.Functions.Function1;
 import org.eclipse.xtext.xbase.lib.ListExtensions;
 import org.palladiosimulator.protocom.lang.java.IJMethod;
 import org.palladiosimulator.protocom.lang.java.impl.JMethod;
+import org.palladiosimulator.protocom.lang.java.util.JavaConstants;
 import org.palladiosimulator.protocom.lang.java.util.JavaNames;
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons;
 import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPInterface;
@@ -25,10 +26,11 @@ public class JavaEEIIOPComponentClassInterface extends JavaEEIIOPInterface<Basic
     super(pcmEntity);
   }
   
-  public String compilationUnitName() {
-    return JavaNames.interfaceName(this.pcmEntity);
-  }
-  
+  /**
+   * override compilationUnitName() {
+   * JavaNames::interfaceName(pcmEntity)
+   * }
+   */
   public Collection<String> interfaces() {
     return Collections.<String>unmodifiableList(Lists.<String>newArrayList("org.palladiosimulator.protocom.framework.IPerformancePrototypeComponent"));
   }
@@ -63,8 +65,14 @@ public class JavaEEIIOPComponentClassInterface extends JavaEEIIOPInterface<Basic
   }
   
   public String filePath() {
-    String _fqnInterface = JavaNames.fqnInterface(this.pcmEntity);
-    String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnInterface);
-    return (_fqnToDirectoryPath + ".java");
+    return JavaNames.fqnJavaEEComponentInterfacePath(this.pcmEntity);
+  }
+  
+  public String projectName() {
+    return JavaNames.fqnJavaEEBasicComponentProjectName(this.pcmEntity);
+  }
+  
+  public String jeeInterfaceAnnotation() {
+    return JavaConstants.JEE_INTERFACE_ANNOTATION_LOCAL;
   }
 }

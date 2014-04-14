@@ -134,10 +134,11 @@ public class PojoComposedStructurePortClass extends PojoClass<ProvidedRole> {
   public String filePath() {
     String _fqnPortPackage = JavaNames.fqnPortPackage(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnPortPackage);
-    String _plus = (_fqnToDirectoryPath + "/");
+    String _plus = ("/src/" + _fqnToDirectoryPath);
+    String _plus_1 = (_plus + "/");
     String _portClassName = JavaNames.portClassName(this.pcmEntity);
-    String _plus_1 = (_plus + _portClassName);
-    return (_plus_1 + ".java");
+    String _plus_2 = (_plus_1 + _portClassName);
+    return (_plus_2 + ".java");
   }
   
   protected List<JMethod> _providedRoleMethods(final OperationProvidedRole role) {

@@ -2,6 +2,7 @@ package org.palladiosimulator.protocom.tech.iiop.repository
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaConstants
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
 import org.palladiosimulator.protocom.tech.iiop.JavaEEIIOPInterface
@@ -12,9 +13,9 @@ class JavaEEIIOPComponentClassInterface extends JavaEEIIOPInterface<BasicCompone
 		super(pcmEntity)
 	}
 	
-	override compilationUnitName() {
+	/*override compilationUnitName() {
 		JavaNames::interfaceName(pcmEntity)
-	}
+	}*/
 	
 	override interfaces() {
 		#["org.palladiosimulator.protocom.framework.IPerformancePrototypeComponent"]
@@ -42,8 +43,16 @@ class JavaEEIIOPComponentClassInterface extends JavaEEIIOPInterface<BasicCompone
 	}
 	
 	override filePath() {
-		JavaNames::fqnToDirectoryPath(JavaNames::fqnInterface(pcmEntity)) + ".java"
+		JavaNames::fqnJavaEEComponentInterfacePath(pcmEntity)
 	}
-
+	
+	override projectName(){
+		JavaNames::fqnJavaEEBasicComponentProjectName(pcmEntity)
+	}
+	
+	override jeeInterfaceAnnotation() {
+		JavaConstants::JEE_INTERFACE_ANNOTATION_LOCAL
+	}
+	
 	
 }

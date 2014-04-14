@@ -25,7 +25,7 @@ public class JavaEEIIOPClass<E extends Entity> extends ConceptMapping<E> impleme
   }
   
   public String packageName() {
-    return JavaNames.implementationPackage(this.pcmEntity);
+    return null;
   }
   
   public String compilationUnitName() {
@@ -45,7 +45,7 @@ public class JavaEEIIOPClass<E extends Entity> extends ConceptMapping<E> impleme
   }
   
   public String filePath() {
-    return JavaNames.getFileName(this.pcmEntity);
+    return JavaNames.fqnJavaEEBasicComponentClassPath(this.pcmEntity);
   }
   
   public String jeeClassStatelessAnnotation() {
@@ -58,5 +58,9 @@ public class JavaEEIIOPClass<E extends Entity> extends ConceptMapping<E> impleme
   
   public Collection<? extends IJField> jeeClassDependencyInjection() {
     return CollectionLiterals.<IJField>newLinkedList();
+  }
+  
+  public String projectName() {
+    return JavaNames.fqnJavaEEBasicComponentProjectName(this.pcmEntity);
   }
 }

@@ -52,4 +52,8 @@ public abstract class PojoClass<E extends Entity> extends ConceptMapping<E> impl
   public String filePath() {
     return JavaNames.getFileName(this.pcmEntity);
   }
+  
+  public String projectName() {
+    return null;
+  }
 }

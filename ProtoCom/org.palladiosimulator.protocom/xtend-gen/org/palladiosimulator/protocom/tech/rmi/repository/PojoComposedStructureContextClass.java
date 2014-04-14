@@ -211,6 +211,7 @@ public class PojoComposedStructureContextClass extends PojoClass<InterfaceRequir
   public String filePath() {
     String _fqnContext = JavaNames.fqnContext(this.pcmEntity);
     String _fqnToDirectoryPath = JavaNames.fqnToDirectoryPath(_fqnContext);
-    return (_fqnToDirectoryPath + ".java");
+    String _plus = ("/src/" + _fqnToDirectoryPath);
+    return (_plus + ".java");
   }
 }

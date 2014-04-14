@@ -92,7 +92,7 @@ class PojoSystemMain extends PojoClass<UsageScenario> {
 	}
 	
 	override filePath() {
-		"ProtoComBootstrap/Main.java"
+	"/src/ProtoComBootstrap/Main.java"
 	}
 	
 	

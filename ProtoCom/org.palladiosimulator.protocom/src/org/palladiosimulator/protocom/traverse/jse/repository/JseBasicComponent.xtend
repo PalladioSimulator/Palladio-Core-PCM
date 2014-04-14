@@ -1,13 +1,13 @@
 package org.palladiosimulator.protocom.traverse.jse.repository
 
-import org.palladiosimulator.protocom.traverse.framework.repository.XBasicComponent
-import org.palladiosimulator.protocom.lang.java.impl.JInterface
 import org.palladiosimulator.protocom.lang.java.impl.JClass
-import org.palladiosimulator.protocom.tech.rmi.repository.PojoComponentClassInterface
+import org.palladiosimulator.protocom.lang.java.impl.JInterface
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoBasicComponentClass
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoBasicComponentContextClass
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoBasicComponentContextInterface
 import org.palladiosimulator.protocom.tech.rmi.repository.PojoBasicComponentPortClass
+import org.palladiosimulator.protocom.tech.rmi.repository.PojoComponentClassInterface
+import org.palladiosimulator.protocom.traverse.framework.repository.XBasicComponent
 
 /**
  * A Basic Component translates into the following Java compilation units:
@@ -39,6 +39,7 @@ class JseBasicComponent extends XBasicComponent {
 		entity.providedRoles_InterfaceProvidingEntity.forEach[
 			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new PojoBasicComponentPortClass(it)))
 		]
+		
 
 	}
 }
