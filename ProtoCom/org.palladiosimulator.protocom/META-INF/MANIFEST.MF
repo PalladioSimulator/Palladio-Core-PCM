@@ -15,7 +15,8 @@ Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
  de.uka.ipd.sdq.workflow;bundle-version="2.0.3",
  org.eclipse.jdt.core;bundle-version="3.9.2",
  org.eclipse.pde.core;bundle-version="3.9.1",
- org.eclipse.jdt.launching;bundle-version="3.7.1"
+ org.eclipse.jdt.launching;bundle-version="3.7.1",
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.palladiosimulator.protocom,

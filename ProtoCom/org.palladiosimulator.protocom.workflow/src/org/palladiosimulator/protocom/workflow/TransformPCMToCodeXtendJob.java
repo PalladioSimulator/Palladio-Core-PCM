@@ -3,7 +3,6 @@ package org.palladiosimulator.protocom.workflow;
 import java.util.HashMap;
 
 import org.eclipse.core.runtime.IProgressMonitor;
-import org.palladiosimulator.protocom.ProjectCompiler;
 import org.palladiosimulator.protocom.ProtoComProject;
 import org.palladiosimulator.protocom.ProtoComProjectFactory;
 import org.palladiosimulator.protocom.traverse.framework.CommonConfigurationModule;
@@ -38,7 +37,6 @@ public class TransformPCMToCodeXtendJob extends
 		IBlackboardInteractingJob<MDSDBlackboard> {
 
 	protected ProtoComGenerationConfiguration configuration;
-	private String projectType;
 
 	public TransformPCMToCodeXtendJob(
 			ProtoComGenerationConfiguration configuration) {
@@ -47,23 +45,18 @@ public class TransformPCMToCodeXtendJob extends
 
 	@Override
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
-			UserCanceledException {
-		
-		CommonConfigurationModule guiceConfiguration = null;
-		
+			UserCanceledException {				
+		// guice configuration
+		CommonConfigurationModule guiceConfiguration = null;		
 		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO) {
 			guiceConfiguration = new JseConfigurationModule();
-			projectType = "PROTO";
 		} 
 		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO) {
             guiceConfiguration = new JseStubConfigurationModule();
-            projectType = "POJO";
         } 
 		else if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3) {
 			guiceConfiguration = new JeeConfigurationModule();
-			projectType = "EJB3";
 		} 
-
 		guiceConfiguration.setProjectURI(configuration.getStoragePluginID());
 		Injector injector = Guice.createInjector(guiceConfiguration);
 		
@@ -92,8 +85,10 @@ public class TransformPCMToCodeXtendJob extends
 			injector.getInstance(XUsageScenario.class).setEntity(scenario).transform();
 		}
 		
+		// compile
+		ProtoComProjectFactory.setProjectType(configuration.getCodeGenerationAdvice());
 		for(ProtoComProject p : ProtoComProjectFactory.getCreatedProjects().values()){
-			ProjectCompiler.compileProject(p.getIProject(), monitor, projectType);	
+			p.compile(monitor);	
 		}
 	}
 

@@ -13,12 +13,14 @@ import org.eclipse.ui.PlatformUI
 import java.io.File
 import org.apache.log4j.Logger
 import java.util.HashMap
+import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration
 
 class ProtoComProjectFactory {
 	/** Logger for this class. */
 	private static Logger logger = Logger.getLogger(ProtoComProjectFactory);
 	
 	private static HashMap<String, ProtoComProject> createdProjects = newHashMap;
+	private static AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice projectType;
 	
 	public static def ProtoComProject getProject(String projectURI, String filePath) {
 		val ProtoComProject project = createdProjects.get(projectURI);
@@ -40,8 +42,16 @@ class ProtoComProjectFactory {
 		createdProjects.clear();
 	}
 	
+	public static def setProjectType(AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice type) {
+		projectType = type;
+	}
+	
+	public static def AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice getProjectType() {
+		return projectType;
+	}
+	
 	private static def ProtoComProject createProject(String projectURI, String filePath) {
-		var project = new ProtoComProject(projectURI, filePath);
+		var project = new ProtoComProject(projectURI, filePath, projectType);
 		createdProjects.put(projectURI, project);
 		return project;
 	}
