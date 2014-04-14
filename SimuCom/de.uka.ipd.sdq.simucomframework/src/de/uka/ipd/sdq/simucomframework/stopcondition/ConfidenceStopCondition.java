@@ -6,10 +6,10 @@ import javax.measure.unit.SI;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.palladiosimulator.measurementspec.IMeasurementSourceListener;
 import org.palladiosimulator.measurementspec.Measurement;
 import org.palladiosimulator.metricspec.MetricDescriptionConstants;
 import org.palladiosimulator.probespec.framework.calculator.Calculator;
-import org.palladiosimulator.probespec.framework.calculator.ICalculatorListener;
 import org.palladiosimulator.probespec.framework.calculator.RegisterCalculatorFactoryDecorator;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.statistics.estimation.IConfidenceEstimator;
  * @author Philipp Merkle, Sebastian Lehrig
  *
  */
-public class ConfidenceStopCondition implements SimCondition, ICalculatorListener {
+public class ConfidenceStopCondition implements SimCondition, IMeasurementSourceListener {
 
     private static final Logger logger = Logger.getLogger(ConfidenceStopCondition.class);
 
