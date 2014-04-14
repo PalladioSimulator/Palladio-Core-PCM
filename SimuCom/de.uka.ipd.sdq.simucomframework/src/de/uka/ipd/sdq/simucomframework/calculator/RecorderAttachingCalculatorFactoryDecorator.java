@@ -129,6 +129,11 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     public Calculator buildExecutionResultCalculator(final String calculatorName, final Probe probe) {
         return setupRecorder(calculatorName,decoratedCalculatorFactory.buildExecutionResultCalculator(calculatorName, probe));
     }
+    
+    @Override
+    public Calculator buildIdentityCalculator(String calculatorName, Probe probe) {
+        return setupRecorder(calculatorName, decoratedCalculatorFactory.buildIdentityCalculator(calculatorName, probe));
+    }
 
     /**
      * @param probeSpecContext
