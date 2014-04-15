@@ -45,7 +45,10 @@ public class TransformPCMToCodeXtendJob extends
 
 	@Override
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
-			UserCanceledException {				
+			UserCanceledException {
+		// prepare project factory
+		ProtoComProjectFactory.setProjectType(configuration.getCodeGenerationAdvice());
+		
 		// guice configuration
 		CommonConfigurationModule guiceConfiguration = null;		
 		if (configuration.getCodeGenerationAdvice() == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO) {
@@ -85,8 +88,7 @@ public class TransformPCMToCodeXtendJob extends
 			injector.getInstance(XUsageScenario.class).setEntity(scenario).transform();
 		}
 		
-		// compile
-		ProtoComProjectFactory.setProjectType(configuration.getCodeGenerationAdvice());
+		// compile		
 		for(ProtoComProject p : ProtoComProjectFactory.getCreatedProjects().values()){
 			p.compile(monitor);	
 		}
