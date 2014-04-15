@@ -84,7 +84,5 @@ abstract class GeneratedFile<L extends ICompilationUnit> implements ICompilation
 		fsa2.setProject(protoComProject.getIProject)
 		fsa2.setOutputConfigurations(fsa.defaultConfig)
 		fsa2.generateFile(filePath, "PCM", generate)
-
-		
 	}
 }
