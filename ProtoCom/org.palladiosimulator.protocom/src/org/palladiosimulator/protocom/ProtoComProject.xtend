@@ -23,6 +23,7 @@ import org.eclipse.core.resources.IResource
 import org.eclipse.core.resources.IncrementalProjectBuilder
 import org.eclipse.core.resources.IMarker
 import java.util.List
+import org.eclipse.pde.core.plugin.IPluginModelBase
 
 /**
  * TODO Modify JavaDoc
@@ -159,9 +160,14 @@ class ProtoComProject {
 	 * @See org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer.setClasspath(IProject)
 	 */
 	def private void setClasspath() {
-		try {
-			ClasspathComputer.setClasspath(this.iProject, PluginRegistry
-					.findModel(this.iProject));
+		val IPluginModelBase pluginModelBase = PluginRegistry.findModel(this.iProject)
+		
+		if(pluginModelBase == null) {
+			throw new JobFailedException("Failed to find plugin project \""+this.iProject.name+"\". Either MANIFEST.MF is corrupt or the project is not declared as plugin project.");
+		}
+		
+		try {			
+			ClasspathComputer.setClasspath(this.iProject, pluginModelBase);
 		} catch (CoreException e) {
 			throw new JobFailedException("Failed to set JDT classpath",e);
 		}
