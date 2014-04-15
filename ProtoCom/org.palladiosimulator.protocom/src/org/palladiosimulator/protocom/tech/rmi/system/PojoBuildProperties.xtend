@@ -18,9 +18,9 @@ class PojoBuildProperties extends PojoBuildPropertiesFile<System> {
 	}
 	
 	override binIncludes() {
-		'''	plugin.xml,\
-			META-INF/,\
-			.'''
+		''' plugin.xml,\
+ META-INF/,\
+ .'''
 	}
 	
 	override filePath() {

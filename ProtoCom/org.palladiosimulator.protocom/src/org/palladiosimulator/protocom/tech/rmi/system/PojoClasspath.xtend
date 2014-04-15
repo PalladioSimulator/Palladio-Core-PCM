@@ -1,7 +1,8 @@
 package org.palladiosimulator.protocom.tech.rmi.system
 
-import org.palladiosimulator.protocom.tech.rmi.PojoClasspathFile
 import de.uka.ipd.sdq.pcm.system.System
+import org.eclipse.pde.internal.core.PDECore
+import org.palladiosimulator.protocom.tech.rmi.PojoClasspathFile
 
 class PojoClasspath extends PojoClasspathFile<System>{
 	
@@ -11,8 +12,8 @@ class PojoClasspath extends PojoClasspathFile<System>{
 	
 	override classPathEntries() {
 		'''
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="con" path="org.eclipse.pde.core.requiredPlugins"/>
+	<classpathentry kind="con" path="«PDECore.JRE_CONTAINER_PATH»"/>
+	<classpathentry kind="con" path="«PDECore.REQUIRED_PLUGINS_CONTAINER_PATH»"/>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="output" path="bin"/>'''
 	}

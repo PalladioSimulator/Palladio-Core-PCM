@@ -58,6 +58,6 @@ class JseSystem extends XSystem {
 		generatedFiles.add(injector.getInstance(typeof(BuildProperties)).createFor(new PojoBuildProperties(entity)))
 		
 		//Classpath file
-	//	generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new PojoClasspath(entity)))
+		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new PojoClasspath(entity)))
 	}
 }

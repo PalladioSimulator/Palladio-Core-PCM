@@ -1,29 +1,20 @@
 package org.palladiosimulator.protocom
 
 import de.uka.ipd.sdq.workflow.jobs.JobFailedException
-import org.apache.log4j.Logger
-import org.eclipse.core.resources.IProject
-import org.eclipse.core.resources.ResourcesPlugin
-import org.eclipse.core.runtime.IProgressMonitor
-import org.eclipse.core.runtime.NullProgressMonitor
-import org.eclipse.core.resources.ICommand
-import org.eclipse.core.resources.IProjectDescription
-import org.eclipse.jdt.core.JavaCore
 import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractCodeGenerationWorkflowRunConfiguration
-import org.palladiosimulator.protocom.constants.ProtoComConstants;
-import org.eclipse.core.runtime.CoreException
-import org.eclipse.jdt.core.IJavaProject
-import org.eclipse.core.runtime.IPath
-import org.eclipse.jdt.core.IClasspathEntry
-import org.eclipse.jdt.launching.JavaRuntime
-import org.eclipse.jdt.core.JavaModelException
-import org.eclipse.pde.core.plugin.PluginRegistry
-import org.eclipse.pde.internal.core.ClasspathComputer
+import java.util.List
+import org.apache.log4j.Logger
+import org.eclipse.core.resources.ICommand
+import org.eclipse.core.resources.IMarker
+import org.eclipse.core.resources.IProject
+import org.eclipse.core.resources.IProjectDescription
 import org.eclipse.core.resources.IResource
 import org.eclipse.core.resources.IncrementalProjectBuilder
-import org.eclipse.core.resources.IMarker
-import java.util.List
-import org.eclipse.pde.core.plugin.IPluginModelBase
+import org.eclipse.core.resources.ResourcesPlugin
+import org.eclipse.core.runtime.CoreException
+import org.eclipse.core.runtime.IProgressMonitor
+import org.eclipse.core.runtime.NullProgressMonitor
+import org.palladiosimulator.protocom.constants.ProtoComConstants
 
 /**
  * TODO Modify JavaDoc
@@ -68,8 +59,6 @@ class ProtoComProject {
 	}	
 	
 	def public void compile(){
-		makeJavaProject();
-		setClasspath();
 		refreshPluginInWorkspace();		
 		buildProject();
 		checkForErrors();
@@ -136,41 +125,6 @@ class ProtoComProject {
 		description.setBuildSpec(buildCommands)
 		
 		return description
-	}
-	
-	/**
-	 * Create the Java-Project from IProject and set "src", "bin" folder to
-	 * classpath
-	 */
-	def private void makeJavaProject()
-			throws JobFailedException {
-		val IJavaProject javaProject = JavaCore.create(this.iProject);
-		val IPath srcPath = javaProject.getPath().append("src");
-		val IPath binPath = javaProject.getPath().append("bin");
-		val IClasspathEntry[] buildPath = #[ JavaCore.newSourceEntry(srcPath),
-				JavaRuntime.getDefaultJREContainerEntry() ]
-		try {
-			javaProject.setRawClasspath(buildPath, binPath, this.monitor);
-		} catch (JavaModelException e) {
-			throw new JobFailedException("Failed setting up JDT project",e);
-		}
-	}
-	
-	/* (non-Javadoc)
-	 * @See org.eclipse.pde.internal.ui.wizards.plugin.ClasspathComputer.setClasspath(IProject)
-	 */
-	def private void setClasspath() {
-		val IPluginModelBase pluginModelBase = PluginRegistry.findModel(this.iProject)
-		
-		if(pluginModelBase == null) {
-			throw new JobFailedException("Failed to find plugin project \""+this.iProject.name+"\". Typical reasons are that MANIFEST.MF is corrupt, the project is not declared as plugin project, or that you have not installed all required nature and builder dependencies.");
-		}
-		
-		try {			
-			ClasspathComputer.setClasspath(this.iProject, pluginModelBase);
-		} catch (CoreException e) {
-			throw new JobFailedException("Failed to set JDT classpath",e);
-		}
 	}
 	
 	/**
