@@ -163,7 +163,7 @@ class ProtoComProject {
 		val IPluginModelBase pluginModelBase = PluginRegistry.findModel(this.iProject)
 		
 		if(pluginModelBase == null) {
-			throw new JobFailedException("Failed to find plugin project \""+this.iProject.name+"\". Either MANIFEST.MF is corrupt or the project is not declared as plugin project.");
+			throw new JobFailedException("Failed to find plugin project \""+this.iProject.name+"\". Typical reasons are that MANIFEST.MF is corrupt, the project is not declared as plugin project, or that you have not installed all required nature and builder dependencies.");
 		}
 		
 		try {			
