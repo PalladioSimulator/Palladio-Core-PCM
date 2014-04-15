@@ -98,7 +98,7 @@ class ProtoComProject {
 		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
 			return ProtoComConstants.JAVA_EE_NATURE;	
 		} else {
-			throw new RuntimeException("No suitable project natures found");
+			throw new RuntimeException("No suitable project natures found (project type is \""+this.projectType+"\")");
 		}
 	}
 	
@@ -111,7 +111,7 @@ class ProtoComProject {
 		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
 			return ProtoComConstants.JAVA_EE_BUILDERS;	
 		} else {
-			throw new RuntimeException("No suitable project builders found");
+			throw new RuntimeException("No suitable project builders found (project type is \""+this.projectType+"\")");
 		}
 	}
 	
