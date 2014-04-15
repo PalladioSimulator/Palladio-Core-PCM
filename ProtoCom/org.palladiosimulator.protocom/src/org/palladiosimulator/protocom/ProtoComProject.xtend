@@ -67,7 +67,7 @@ class ProtoComProject {
 		iProject
 	}	
 	
-	def public void compile(IProgressMonitor monitor){
+	def public void compile(){
 		makeJavaProject();
 		setClasspath();
 		refreshPluginInWorkspace();		

@@ -90,7 +90,7 @@ public class TransformPCMToCodeXtendJob extends
 		
 		// compile		
 		for(ProtoComProject p : ProtoComProjectFactory.getCreatedProjects().values()){
-			p.compile(monitor);	
+			p.compile();	
 		}
 	}
 
