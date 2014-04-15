@@ -256,6 +256,10 @@ litigation.
       <import plugin="org.eclipse.jdt.launching" version="3.7.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.xtend.standalone" version="2.5.3" match="greaterOrEqual"/>
       <import feature="org.eclipse.xtend.sdk" version="2.4.3.v201309030823" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jem.workbench" version="2.0.400" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.wst.common.modulecore" version="1.2.302" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.wst.common.project.facet.core" version="1.4.300" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.wst.validation" version="1.2.501" match="greaterOrEqual"/>
    </requires>
 
    <plugin
