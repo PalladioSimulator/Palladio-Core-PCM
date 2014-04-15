@@ -22,6 +22,7 @@ import org.eclipse.pde.internal.core.ClasspathComputer
 import org.eclipse.core.resources.IResource
 import org.eclipse.core.resources.IncrementalProjectBuilder
 import org.eclipse.core.resources.IMarker
+import java.util.List
 
 /**
  * TODO Modify JavaDoc
@@ -125,8 +126,8 @@ class ProtoComProject {
 		description.setNatureIds(natures);
 		description.setLocation(null);
 		
-		val ICommand[] buildCommands = newArrayOfSize(this.builders.size)
-		for(String builder : this.builders) {
+		val List<ICommand> buildCommands = newArrayList
+		for(String builder : this.builders) {			
 			val command = description.newCommand()
 			command.setBuilderName(builder)
 			buildCommands.add(command)
