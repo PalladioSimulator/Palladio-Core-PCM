@@ -11,7 +11,7 @@ class JavaEEIIOPFacetCore extends JavaEEIIOPFacetCoreFile<BasicComponent>{
 	}
 	
 	override runtimeName() {
-		"GlassFish 4.0"
+		"GlassFish 3.1" // FIXME refactored from 4.0 to 3.1 for testing
 	}
 	
 	
@@ -23,7 +23,7 @@ class JavaEEIIOPFacetCore extends JavaEEIIOPFacetCoreFile<BasicComponent>{
 		newHashMap(
 			"java"-> "1.7",
 			"jst.ejb" ->"3.1",
-			"glassfish.ejb"-> "4.0"
+			"glassfish.ejb"-> "3.1" // FIXME refactored from 4.0 to 3.1 for testing
 		)
 	}
 	
