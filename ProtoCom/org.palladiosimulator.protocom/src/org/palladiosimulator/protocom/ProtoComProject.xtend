@@ -17,7 +17,14 @@ import org.eclipse.core.runtime.NullProgressMonitor
 import org.palladiosimulator.protocom.constants.ProtoComConstants
 
 /**
+ * Encapsulates all information needed to generated a single project by ProtoCom.
+ * The constructor establishes all basic information. Afterwards, source files can
+ * be generated into the project. Finally, the <code>compile</code> method runs
+ * all registered builders.
+ * 
  * TODO Modify JavaDoc
+ * TODO Split up class over framework & lang packages?
+ * TODO Remove redundant <code>this.projectType</code> if-checks. Use inheritance? 
  * 
  * @author Sebastian Lehrig, Daria Giacinto
  */
