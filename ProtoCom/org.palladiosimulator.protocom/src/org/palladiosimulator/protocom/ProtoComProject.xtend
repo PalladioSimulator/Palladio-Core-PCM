@@ -15,27 +15,9 @@ import org.eclipse.core.runtime.CoreException
 import org.eclipse.core.runtime.IProgressMonitor
 import org.eclipse.core.runtime.NullProgressMonitor
 import org.palladiosimulator.protocom.constants.ProtoComConstants
-import org.eclipse.jdt.core.IClasspathEntry
-import org.eclipse.jdt.core.JavaCore
-import org.eclipse.core.runtime.IPath
-import org.eclipse.jdt.core.IJavaProject
-import org.eclipse.jdt.core.JavaConventions
-import org.eclipse.jdt.core.IJavaModelStatus
 
 /**
- * Encapsulates all information needed to generated a single project by ProtoCom.
- * The constructor establishes all basic information. Afterwards, source files can
- * be generated into the project. Finally, the <code>compile</code> method runs
- * all registered builders.
- * 
- * Note that this class is Java-specific. It can cope with Java SE and EE, e.g., 
- * when it comes to class paths. For instance moving to C would conflict with
- * these ideas.  
- * 
  * TODO Modify JavaDoc
- * TODO Get rid of Java-focus (see comment above). Split up class over framework & lang packages?
- * In fact, ICompilationUnit seems to cover our needs here...
- * TODO Remove redundant <code>this.projectType</code> if-checks. Use inheritance? 
  * 
  * @author Sebastian Lehrig, Daria Giacinto
  */
@@ -47,15 +29,11 @@ class ProtoComProject {
 	
 	private val String projectURI
 	private val String filePath
-	private val IProject iProject	
-	private val IJavaProject javaProject
+	private val IProject iProject
 		
 	private val AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice projectType
 	private val String[] natures
 	private val String[] builders
-	private val IClasspathEntry[] classpathEntries
-	private val IPath sourceLocation
-	private val IPath outputLocation	
 	
 	private val IProjectDescription description
 	
@@ -63,22 +41,17 @@ class ProtoComProject {
 	new(String projectURI, String filePath, AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice projectType) {		
 		this.projectURI = projectURI
 		this.filePath = filePath
-		this.iProject = createProject(projectURI, this.monitor)
-		this.javaProject = JavaCore.create(this.iProject)
+		this.iProject = createProject(projectURI, this.monitor)		
 		this.projectType = projectType
 		this.natures = createNatures()
 		this.builders = createBuilders()
-
+		
 		this.description = createDescription()		
 		try {
-			iProject.setDescription(this.description, this.monitor)
+			iProject.setDescription(this.description, this.monitor);
 		} catch (CoreException e) {
-			throw new JobFailedException("Failed setting Java and PDE nature and builders", e)
+			throw new JobFailedException("Failed setting Java and PDE nature and builders",e);
 		}
-		
-		this.sourceLocation = createSourceLocation()
-		this.outputLocation = createOutputLocation()
-		this.classpathEntries = createClassPathEntries()			
 	}		
 	
 	def getIProject() {
@@ -86,54 +59,25 @@ class ProtoComProject {
 	}	
 	
 	def public void compile(){
-		JavaCore.create(this.iProject).setRawClasspath(this.classpathEntries, this.outputLocation, this.monitor)
-		
-		refreshPluginInWorkspace()		
-		buildProject()
-		checkForErrors()
+		refreshPluginInWorkspace();		
+		buildProject();
+		checkForErrors();
 	}
 	
 	def private IProject createProject(String projectURI, IProgressMonitor monitor)
 			throws JobFailedException {
-		val iProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectURI)	
+		val iProject = ResourcesPlugin.getWorkspace().getRoot().getProject(projectURI);		
 		
 		if (iProject.exists())
 			throw new JobFailedException(
-					"Tried to create an existing project. Preceeding cleanup failed")
+					"Tried to create an existing project. Preceeding cleanup failed");
 
 		if(logger.isDebugEnabled())
-			logger.debug("Creating Eclipse workspace project " + this.iProject.getName())
-		iProject.create(monitor)
-		iProject.open(monitor)
+			logger.debug("Creating Eclipse workspace project " + this.iProject.getName());
+		iProject.create(monitor);
+		iProject.open(monitor);
 		
-		return iProject
-	}
-	
-	private def IPath createSourceLocation() {
-		if ( this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO || 
-			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO
-			 )
-		{			
-			return this.javaProject.getPath().append(ProtoComConstants.JAVA_SE_SOURCE_LOCATION)
-		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
-			return this.javaProject.getPath().append(ProtoComConstants.JAVA_SE_SOURCE_LOCATION)	// FIXME set correct source location for Java EE
-		} else {
-			throw new RuntimeException("No suitable project builders found (project type is \""+this.projectType+"\")")
-		}		
-		
-	}
-	
-	private def IPath createOutputLocation() {
-		if ( this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO || 
-			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO
-			 )
-		{
-			return this.javaProject.getPath().append(ProtoComConstants.JAVA_SE_OUTPUT_LOCATION)	
-		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
-			return this.javaProject.getPath().append(ProtoComConstants.JAVA_SE_OUTPUT_LOCATION) // FIXME set correct output location for Java EE
-		} else {
-			throw new RuntimeException("No suitable project builders found (project type is \""+this.projectType+"\")")
-		}
+		return iProject;
 	}
 	
 	private def String[] createNatures() {
@@ -141,11 +85,11 @@ class ProtoComProject {
 			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO
 			 )
 		{
-			return ProtoComConstants.JAVA_SE_NATURE	
+			return ProtoComConstants.JAVA_SE_NATURE;			
 		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
-			return ProtoComConstants.JAVA_EE_NATURE
+			return ProtoComConstants.JAVA_EE_NATURE;	
 		} else {
-			throw new RuntimeException("No suitable project natures found (project type is \""+this.projectType+"\")")
+			throw new RuntimeException("No suitable project natures found (project type is \""+this.projectType+"\")");
 		}
 	}
 	
@@ -154,11 +98,11 @@ class ProtoComProject {
 			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO
 			 )
 		{
-			return ProtoComConstants.JAVA_SE_BUILDERS		
+			return ProtoComConstants.JAVA_SE_BUILDERS;			
 		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
-			return ProtoComConstants.JAVA_EE_BUILDERS
+			return ProtoComConstants.JAVA_EE_BUILDERS;	
 		} else {
-			throw new RuntimeException("No suitable project builders found (project type is \""+this.projectType+"\")")
+			throw new RuntimeException("No suitable project builders found (project type is \""+this.projectType+"\")");
 		}
 	}
 	
@@ -168,9 +112,9 @@ class ProtoComProject {
 	 */
 	private def IProjectDescription createDescription()
 			throws JobFailedException {
-		val description = ResourcesPlugin.getWorkspace().newProjectDescription(iProject.getName())
-		description.setNatureIds(natures)
-		description.setLocation(null)
+		val description = ResourcesPlugin.getWorkspace().newProjectDescription(iProject.getName());
+		description.setNatureIds(natures);
+		description.setLocation(null);
 		
 		val List<ICommand> buildCommands = newArrayList
 		for(String builder : this.builders) {			
@@ -183,45 +127,14 @@ class ProtoComProject {
 		return description
 	}
 	
-	private def IClasspathEntry[] createClassPathEntries() {
-		var List<IClasspathEntry> result
-		
-		// create				
-		if ( this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO || 
-			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO
-			 )
-		{
-			result = #[
-				ProtoComConstants.JAVA_CLASSPATH_ENTRY_JRE,
-				JavaCore.newSourceEntry(this.sourceLocation),
-				JavaCore.newContainerEntry(ProtoComConstants.PLUGIN_CONTAINER_PATH)		
-			]			
-		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
-			result = #[
-				ProtoComConstants.JAVA_CLASSPATH_ENTRY_JRE,
-				JavaCore.newSourceEntry(this.sourceLocation) // FIXME set correct classpath for Java EE
-			]
-		} else {
-			throw new RuntimeException("No suitable project builders found (project type is \""+this.projectType+"\")")
-		}
-		
-		// validate
-		val IJavaModelStatus validation = JavaConventions.validateClasspath(this.javaProject, result, javaProject.getOutputLocation());
-		if (!validation.isOK()) {
-			throw new JobFailedException("Invalid classpath setup")
-		}
-		
-		return result
-	}	
-	
 	/**
 	 * @throws JobFailedException
 	 */
 	def private void refreshPluginInWorkspace() {
 		try {
-			this.iProject.refreshLocal(IResource.DEPTH_INFINITE, this.monitor)
+			this.iProject.refreshLocal(IResource.DEPTH_INFINITE, this.monitor);
 		} catch (Exception e) {
-			throw new JobFailedException("Refreshing plugin project failed", e)
+			throw new JobFailedException("Refreshing plugin project failed", e);
 		}
 	}
 	
@@ -230,9 +143,9 @@ class ProtoComProject {
 	 */
 	def private void buildProject() {
 		try {
-			this.iProject.build(IncrementalProjectBuilder.FULL_BUILD, this.monitor)
+			this.iProject.build(IncrementalProjectBuilder.FULL_BUILD, this.monitor);
 		} catch (Exception e) {
-			throw new JobFailedException("Building plugin project failed", e)
+			throw new JobFailedException("Building plugin project failed", e);
 		}
 	}
 	
@@ -243,25 +156,25 @@ class ProtoComProject {
 		try {
 			if (this.iProject.findMarkers(IMarker.PROBLEM, true,
 					IResource.DEPTH_INFINITE).length > 0) {
-				var failed = false
+				var failed = false;
 				var IMarker[] markers = this.iProject.findMarkers(IMarker.PROBLEM, true,
-						IResource.DEPTH_INFINITE)
-				var errorList = ""
+						IResource.DEPTH_INFINITE);
+				var errorList = "";
 				for (marker : markers) {
 					if ((marker.getAttribute(IMarker.SEVERITY)) == IMarker.SEVERITY_ERROR) {
 						errorList = errorList + marker.getAttribute(IMarker.MESSAGE)
-								+ "\n"
-						failed = true
+								+ "\n";
+						failed = true;
 					}
 				}
 				if (failed)
 					throw new JobFailedException(
 							"Unable to build the simulation plugin. Failure Messages: "
-									+ errorList)
+									+ errorList);
 			}
 		} catch (CoreException e) {
 			throw new JobFailedException(
-					"Compile Plugin failed. Error finding project markers.", e)
+					"Compile Plugin failed. Error finding project markers.", e);
 		}
 	}
 }
