@@ -3,8 +3,8 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import java.util.List;
 
 import org.apache.log4j.Logger;
-import org.palladiosimulator.probespec.framework.probes.Probe;
-import org.palladiosimulator.probespec.framework.probes.TriggeredProbe;
+import org.palladiosimulator.probeframework.probes.Probe;
+import org.palladiosimulator.probeframework.probes.TriggeredProbe;
 import org.palladiosimulator.measurementspec.requestcontext.RequestContext;
 
 import de.uka.ipd.sdq.simucomframework.Context;

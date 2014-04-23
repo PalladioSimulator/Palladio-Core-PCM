@@ -15,7 +15,7 @@ import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.designpatterns.AbstractObservable;
 import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataFactory;
 import org.palladiosimulator.edp2.models.ExperimentData.Identifier;
-import org.palladiosimulator.probespec.framework.probes.EventProbe;
+import org.palladiosimulator.probeframework.probes.EventProbe;
 
 import de.uka.ipd.sdq.reliability.core.probe.TakeExecutionResultProbe;
 

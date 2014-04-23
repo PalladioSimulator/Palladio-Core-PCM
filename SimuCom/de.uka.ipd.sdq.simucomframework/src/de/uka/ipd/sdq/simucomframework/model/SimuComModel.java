@@ -7,8 +7,8 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.util.EContentAdapter;
-import org.palladiosimulator.probespec.framework.ProbeSpecContext;
-import org.palladiosimulator.probespec.framework.calculator.DefaultCalculatorFactory;
+import org.palladiosimulator.probeframework.ProbeFrameworkContext;
+import org.palladiosimulator.probeframework.calculator.DefaultCalculatorFactory;
 
 import de.uka.ipd.sdq.errorhandling.SeverityAndIssue;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
@@ -57,7 +57,7 @@ public class SimuComModel extends SchedulerModel {
     private final SimuComStatus simulationStatus;
     /** List of issues experience during a simulation run of this configuration. */
     private List<SeverityAndIssue> issues;
-    private final ProbeSpecContext probeSpecContext;
+    private final ProbeFrameworkContext probeFrameworkContext;
     private final ISchedulingFactory schedulingFactory;
     private final FailureStatistics failureStatistics = new FailureStatistics();
 
@@ -67,7 +67,7 @@ public class SimuComModel extends SchedulerModel {
     }
 
     public SimuComModel(final SimuComConfig config, final SimuComStatus status, final ISimEngineFactory factory,
-            final boolean isRemoteRun, final ProbeSpecContext probeSpecContext) {
+            final boolean isRemoteRun, final ProbeFrameworkContext probeFrameworkContext) {
         this.config = config;
         this.simulationEngineFactory = factory;
         factory.setModel(this);
@@ -91,15 +91,15 @@ public class SimuComModel extends SchedulerModel {
         schedulingFactory = new SchedulingFactory(this);
 
         // set up the measurement framework
-        this.probeSpecContext = probeSpecContext == null ? initialiseProbeSpecification() : probeSpecContext;
+        this.probeFrameworkContext = probeFrameworkContext == null ? initialiseProbeFramework() : probeFrameworkContext;
 
         // setup debug log for console
         initialiseSimStatus();
     }
 
-    private ProbeSpecContext initialiseProbeSpecification() {
-        // create ProbeSpecification context
-        final ProbeSpecContext result = new ProbeSpecContext(
+    private ProbeFrameworkContext initialiseProbeFramework() {
+        // create ProbeFramework context
+        final ProbeFrameworkContext result = new ProbeFrameworkContext(
                 new RecorderAttachingCalculatorFactoryDecorator(
                         new DefaultCalculatorFactory(), this.config));
 
@@ -274,8 +274,8 @@ public class SimuComModel extends SchedulerModel {
         return simulationStatus;
     }
 
-    public ProbeSpecContext getProbeSpecContext() {
-        return probeSpecContext;
+    public ProbeFrameworkContext getProbeFrameworkContext() {
+        return probeFrameworkContext;
     }
 
     public ISchedulingFactory getSchedulingFactory() {

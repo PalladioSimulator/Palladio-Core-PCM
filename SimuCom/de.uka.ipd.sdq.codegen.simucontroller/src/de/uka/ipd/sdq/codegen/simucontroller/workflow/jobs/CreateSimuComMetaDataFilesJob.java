@@ -48,7 +48,7 @@ public class CreateSimuComMetaDataFilesJob extends AbstractCreateMetaDataFilesJo
         "org.eclipse.osgi",
         "de.uka.ipd.sdq.scheduler",
         "org.jscience",
-        "org.palladiosimulator.probespec.framework",
+        "org.palladiosimulator.probeframework",
         "de.uka.ipd.sdq.reliability.core",
         "de.fzi.se.accuracy",
         "de.uka.ipd.sdq.probfunction.math"

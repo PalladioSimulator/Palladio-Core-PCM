@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory;
-import org.palladiosimulator.probespec.framework.probes.Probe;
+import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
+import org.palladiosimulator.probeframework.probes.Probe;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
@@ -20,7 +20,7 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
     public AbstractWorkloadUserFactory(final SimuComModel model, final String usageScenarioID) {
         super();
         this.model = model;
-        this.calculatorFactory = model.getProbeSpecContext().getCalculatorFactory();
+        this.calculatorFactory = model.getProbeFrameworkContext().getCalculatorFactory();
         this.usageScenarioID = usageScenarioID;
         this.usageStartStopProbes = Collections.unmodifiableList(Arrays.asList(
                 (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl()),

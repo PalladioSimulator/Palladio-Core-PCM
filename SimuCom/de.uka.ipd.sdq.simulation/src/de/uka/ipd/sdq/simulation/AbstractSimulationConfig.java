@@ -44,7 +44,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     public static final String DEFAULT_PERSISTENCE_RECORDER_NAME = "";
 
     public static String VERBOSE_LOGGING = "verboseLogging";
-    /** the type of the ProbeSpec blackboard */
+    /** the type of the ProbeFramework blackboard */
     public static String BLACKBOARD_TYPE = "blackboardType";
 
     /** Simulation configuration tab */

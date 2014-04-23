@@ -218,7 +218,7 @@ litigation.
 
    <url>
       <update label="Palladio Update Site" url="http://sdqweb.ipd.uka.de/eclipse/PCM/"/>
-      <discovery label="ProbeSpec Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/probespec/nightly/"/>
+      <discovery label="ProbeFramework Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
       <discovery label="EDP2 Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly/"/>
       <discovery label="RecorderSpec Update Site" url="http://sdqweb.ipd.kit.edu/eclipse/recorderspec/nightly/"/>
    </url>
@@ -248,7 +248,7 @@ litigation.
       <import plugin="de.uka.ipd.sdq.statistics" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.pcm" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="org.palladiosimulator.probespec.framework" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.probeframework" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.recorderspec" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.jscience" version="4.1.3" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.recorderspec.sensorframework" version="1.0.0" match="greaterOrEqual"/>

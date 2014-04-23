@@ -10,8 +10,8 @@ import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
-import org.palladiosimulator.probespec.framework.probes.EventProbeSet;
-import org.palladiosimulator.probespec.framework.probes.Probe;
+import org.palladiosimulator.probeframework.probes.EventProbeSet;
+import org.palladiosimulator.probeframework.probes.Probe;
 
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.DisplayIssuesDialog;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -109,7 +109,7 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
 
             @Override
             public void simulationStop() {
-                model.getProbeSpecContext().finish();
+                model.getProbeFrameworkContext().finish();
             }
 
             @Override
@@ -195,7 +195,7 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
         model.setUsageScenarios(workloadDrivers);
 
         if (model.getConfiguration().getSimulateFailures()) {
-            model.getProbeSpecContext().getCalculatorFactory().
+            model.getProbeFrameworkContext().getCalculatorFactory().
             buildExecutionResultCalculator("System execution results",
                     new EventProbeSet(
                             model.getFailureStatistics().getExecutionResultProbe(),

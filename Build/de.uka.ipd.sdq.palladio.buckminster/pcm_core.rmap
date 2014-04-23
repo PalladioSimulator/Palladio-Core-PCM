@@ -6,9 +6,9 @@
   <rm:locator pattern="^org\.palladiosimulator\..*" searchPathRef="SDQ_Commons" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="SensorFramework" failOnError="false"/>
   <rm:locator pattern="^org\.hibernate*" searchPathRef="SensorFramework" failOnError="false"/>
-  <rm:locator pattern="^org\.palladiosimulator\..*" searchPathRef="ProbeSpec" failOnError="false"/>
+  <rm:locator pattern="^org\.palladiosimulator\..*" searchPathRef="ProbeFramework" failOnError="false"/>
   <rm:locator pattern="^org\.palladiosimulator\..*" searchPathRef="RecorderSpec" failOnError="false"/>
-  <rm:locator pattern="^org\.jscience*" searchPathRef="ProbeSpec" failOnError="false"/>
+  <rm:locator pattern="^org\.jscience*" searchPathRef="ProbeFramework" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="FeatureModel" failOnError="false"/>
   <rm:locator pattern="^de\.uka\.ipd\.sdq\..*" searchPathRef="WorkflowEngine" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.m2m\..*" searchPathRef="m2m" failOnError="false"/>
@@ -50,11 +50,11 @@
       <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/releases/3.5.0/"/>
     </rm:provider>
   </rm:searchPath>
-  <rm:searchPath name="ProbeSpec">
+  <rm:searchPath name="ProbeFramework">
     <rm:provider componentTypes="osgi.bundle,eclipse.feature,buckminster" readerType="p2" source="false" mutable="false">
       <rm:property key="buckminster.source" value="false"/>
       <rm:property key="buckminster.mutable" value="false"/>
-      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/probespec/nightly/"/>
+      <rm:uri format="http://sdqweb.ipd.kit.edu/eclipse/probeframework/nightly/"/>
     </rm:provider>
   </rm:searchPath>
    <rm:searchPath name="RecorderSpec">

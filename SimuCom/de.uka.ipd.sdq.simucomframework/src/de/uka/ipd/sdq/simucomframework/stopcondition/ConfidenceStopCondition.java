@@ -9,8 +9,8 @@ import org.apache.log4j.Logger;
 import org.palladiosimulator.measurementspec.IMeasurementSourceListener;
 import org.palladiosimulator.measurementspec.Measurement;
 import org.palladiosimulator.metricspec.MetricDescriptionConstants;
-import org.palladiosimulator.probespec.framework.calculator.Calculator;
-import org.palladiosimulator.probespec.framework.calculator.RegisterCalculatorFactoryDecorator;
+import org.palladiosimulator.probeframework.calculator.Calculator;
+import org.palladiosimulator.probeframework.calculator.RegisterCalculatorFactoryDecorator;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
@@ -149,7 +149,7 @@ public class ConfidenceStopCondition implements SimCondition, IMeasurementSource
     private Calculator obtainUsageScenarioResponseTimeCalculator(
             final String usageScenarioName) {
         final String calculatorId = usageScenarioName;
-        return ((RegisterCalculatorFactoryDecorator) this.model.getProbeSpecContext().getCalculatorFactory()).getCalculatorByName(calculatorId);
+        return ((RegisterCalculatorFactoryDecorator) this.model.getProbeFrameworkContext().getCalculatorFactory()).getCalculatorByName(calculatorId);
     }
 
     @Override

@@ -73,25 +73,25 @@ public class ReliabilitySensorHelper {
             final SimuComModel model,
             final RequestContext requestContext) {
         // TODO FIXME
-        //		IProbeStrategy takeTimeStrategy = model.getProbeSpecContext()
+        //		IProbeStrategy takeTimeStrategy = model.getProbeFrameworkContext()
         //				.getProbeStrategyRegistry().getProbeStrategy(
         //						ProbeType.CURRENT_TIME, null);
-        //		IProbeStrategy takeResultStrategy = model.getProbeSpecContext()
+        //		IProbeStrategy takeResultStrategy = model.getProbeFrameworkContext()
         //				.getProbeStrategyRegistry().getProbeStrategy(
         //						ProbeType.EXECUTION_RESULT, null);
         //		MarkovFailureType failureType = (exception == null) ? null : exception
         //				.getFailureType();
         //		int stateId = FailureStatistics.getInstance().getExecutionResultId(
         //				failureType);
-        //		int probeSetId = model.getProbeSpecContext().obtainProbeSetId(callName);
+        //		int probeSetId = model.getProbeFrameworkContext().obtainProbeSetId(callName);
         //		BasicMeasurement<?, ? extends Quantity> timeSample = takeTimeStrategy
         //				.takeSample(EXTERNAL_CALL_RESULT_TIME_PROBE_ID + "/"
         //						+ probeSetId, model.getSimulationControl());
         //		BasicMeasurement<?, ? extends Quantity> stateSample = takeResultStrategy
         //				.takeSample(EXTERNAL_CALL_RESULT_STATE_PROBE_ID + "/"
         //						+ probeSetId, stateId);
-        //		MeasurementSet sample = ProbeSpecUtils.buildProbeSetSample(timeSample,
+        //		MeasurementSet sample = ProbeFrameworkUtils.buildProbeSetSample(timeSample,
         //				stateSample, requestContext, externalCallId, probeSetId);
-        //		model.getProbeSpecContext().getSampleBlackboard().addSample(sample);
+        //		model.getProbeFrameworkContext().getSampleBlackboard().addSample(sample);
     }
 }

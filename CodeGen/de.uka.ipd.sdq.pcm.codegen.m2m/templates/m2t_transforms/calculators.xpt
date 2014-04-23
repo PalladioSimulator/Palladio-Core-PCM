@@ -4,31 +4,31 @@
 
 «DEFINE SetupCalculatorResponseTime(String startProbeSetId, String endProbeSetId) FOR String»
 	{
-		java.util.List<org.palladiosimulator.probespec.framework.probes.Probe> probes = 
+		java.util.List<org.palladiosimulator.probeframework.probes.Probe> probes = 
 			java.util.Arrays.asList(
-				(org.palladiosimulator.probespec.framework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()),
-				(org.palladiosimulator.probespec.framework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()));
-		getModel().getProbeSpecContext().getCalculatorFactory().buildResponseTimeCalculator("«this»",probes);
+				(org.palladiosimulator.probeframework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()),
+				(org.palladiosimulator.probeframework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()));
+		getModel().getProbeFrameworkContext().getCalculatorFactory().buildResponseTimeCalculator("«this»",probes);
 		this.startStopProbes.put("«this»",probes);
 	}
 «ENDDEFINE»
 
 «DEFINE SetupCalculatorExecutionResult FOR UsageScenario»
 // TODO: FIXME
-//	getModel().getProbeSpecContext().registerCalculator(
+//	getModel().getProbeFrameworkContext().registerCalculator(
 //		"«this.entityName»/«this.id»/ExecutionResult",
-//		getModel().getProbeSpecContext().getCalculatorFactory().buildExecutionResultCalculator(
+//		getModel().getProbeFrameworkContext().getCalculatorFactory().buildExecutionResultCalculator(
 //			"UsageScenario «this.entityName» <«this.id»>", 
-//			getModel().getProbeSpecContext().obtainProbeSetId(
+//			getModel().getProbeFrameworkContext().obtainProbeSetId(
 //				de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.getScenarioProbeSetId(
 //					"«this.id»"))));
 «ENDDEFINE»
 
 «DEFINE SetupCalculatorExecutionResult(String callName) FOR ExternalCallAction»
 // TODO: FIXME
-//	getModel().getProbeSpecContext().registerCalculator(
+//	getModel().getProbeFrameworkContext().registerCalculator(
 //		"«this.entityName»/«this.id»/ExecutionResult",
-//		getModel().getProbeSpecContext().getCalculatorFactory().buildExecutionResultCalculator(
+//		getModel().getProbeFrameworkContext().getCalculatorFactory().buildExecutionResultCalculator(
 //			"«callName»", 
-//			getModel().getProbeSpecContext().obtainProbeSetId("«callName»")));
+//			getModel().getProbeFrameworkContext().obtainProbeSetId("«callName»")));
 «ENDDEFINE»

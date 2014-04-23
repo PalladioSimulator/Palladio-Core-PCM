@@ -6,12 +6,12 @@ import java.util.List;
 import org.palladiosimulator.edp2.models.ExperimentData.MetricDescription;
 import org.palladiosimulator.measurementspec.BasicMeasurement;
 import org.palladiosimulator.metricspec.MetricDescriptionConstants;
-import org.palladiosimulator.probespec.framework.ProbeSpecContext;
-import org.palladiosimulator.probespec.framework.probes.EventProbe;
-import org.palladiosimulator.probespec.framework.probes.EventProbeSet;
-import org.palladiosimulator.probespec.framework.probes.Probe;
-import org.palladiosimulator.probespec.framework.probes.TriggeredProbe;
-import org.palladiosimulator.probespec.framework.probes.TriggeredProbeSet;
+import org.palladiosimulator.probeframework.ProbeFrameworkContext;
+import org.palladiosimulator.probeframework.probes.EventProbe;
+import org.palladiosimulator.probeframework.probes.EventProbeSet;
+import org.palladiosimulator.probeframework.probes.Probe;
+import org.palladiosimulator.probeframework.probes.TriggeredProbe;
+import org.palladiosimulator.probeframework.probes.TriggeredProbeSet;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -45,7 +45,7 @@ public final class CalculatorHelper {
      *            The Simucom Model
      */
     public static void setupWaitingTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
-        final ProbeSpecContext ctx = model.getProbeSpecContext();
+        final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
         // build waiting time calculator
         final List<Probe> startStopProbes = buildStartStopProbes(model);
@@ -84,7 +84,7 @@ public final class CalculatorHelper {
      *            the resource
      */
     public static void setupHoldTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
-        final ProbeSpecContext ctx = model.getProbeSpecContext();
+        final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
         final List<Probe> startStopProbes = buildStartStopProbes(model);
         ctx.getCalculatorFactory().buildHoldTimeCalculator(
@@ -128,7 +128,7 @@ public final class CalculatorHelper {
      *            the resource
      */
     public static void setupDemandCalculator(final AbstractScheduledResource r, final SimuComModel model) {
-        final ProbeSpecContext ctx = model.getProbeSpecContext();
+        final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
         final Probe scheduledResourceProbe = getEventProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakeScheduledResourceDemandProbe(r), "Demand");
@@ -145,7 +145,7 @@ public final class CalculatorHelper {
      *            the resource
      */
     public static void setupStateCalculator(final AbstractScheduledResource scheduledResource, final SimuComModel model) {
-        final ProbeSpecContext ctx = model.getProbeSpecContext();
+        final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
         // setup a calculator for each instance
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
@@ -164,7 +164,7 @@ public final class CalculatorHelper {
     }
 
     public static void setupOverallUtilizationCalculator(final AbstractScheduledResource r, final SimuComModel model) {
-        final ProbeSpecContext ctx = model.getProbeSpecContext();
+        final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
         r.addOverallUtilizationListener(new IOverallUtilizationListener() {
 
@@ -185,18 +185,18 @@ public final class CalculatorHelper {
                 //                // build ProbeSetSamples and publish them on the blackboard
                 //                // TODO maybe null instead of empty string is better here
                 //                final RequestContext context = new RequestContext("");
-                //                blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(takeTimeSample(0.0, ctx),
+                //                blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(takeTimeSample(0.0, ctx),
                 //                        takeStateProbe(1l, ctx), context, "", stateProbeSetID));
-                //                blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(
+                //                blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
                 //                        takeTimeSample(resourceDemand, ctx), takeStateProbe(0l, ctx), context, "", stateProbeSetID));
-                //                blackboard.addSampleAfterSimulationEnd(ProbeSpecUtils.buildProbeSetSample(
+                //                blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
                 //                        takeTimeSample(totalTime, ctx), takeStateProbe(1l, ctx), context, "", stateProbeSetID));
             }
         });
     }
 
     public static void setupStateCalculator(final IPassiveResource resource, final SimuComModel model) {
-        final ProbeSpecContext ctx = model.getProbeSpecContext();
+        final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakePassiveResourceStateProbe(resource),"State");

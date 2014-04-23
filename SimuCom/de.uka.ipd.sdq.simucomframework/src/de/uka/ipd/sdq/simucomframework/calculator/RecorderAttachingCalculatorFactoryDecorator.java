@@ -5,10 +5,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.palladiosimulator.probespec.framework.ProbeSpecContext;
-import org.palladiosimulator.probespec.framework.calculator.Calculator;
-import org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory;
-import org.palladiosimulator.probespec.framework.probes.Probe;
+import org.palladiosimulator.probeframework.ProbeFrameworkContext;
+import org.palladiosimulator.probeframework.calculator.Calculator;
+import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
+import org.palladiosimulator.probeframework.probes.Probe;
 import org.palladiosimulator.recorderspec.AbstractRecorderConfiguration;
 import org.palladiosimulator.recorderspec.Recorder;
 import org.palladiosimulator.recorderspec.launch.IRecorderConfiguration;
@@ -46,7 +46,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildResponseTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildResponseTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildResponseTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -57,7 +57,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildDemandBasedWaitingTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildDemandBasedWaitingTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildDemandBasedWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -68,7 +68,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildWaitingTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildWaitingTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -79,7 +79,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probes
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildHoldTimeCalculator(java.lang.String, java.util.List)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildHoldTimeCalculator(java.lang.String, java.util.List)
      */
     @Override
     public Calculator buildHoldTimeCalculator(final String calculatorName, final List<Probe> probes) {
@@ -90,7 +90,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildStateCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildStateCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
      */
     @Override
     public Calculator buildStateCalculator(final String calculatorName, final Probe probe) {
@@ -101,7 +101,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildOverallUtilizationCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildOverallUtilizationCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
      */
     @Override
     public Calculator buildOverallUtilizationCalculator(final String calculatorName, final Probe probe) {
@@ -112,7 +112,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildDemandCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildDemandCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
      */
     @Override
     public Calculator buildDemandCalculator(final String calculatorName, final Probe probe) {
@@ -123,7 +123,7 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * @param calculatorName
      * @param probe
      * @return
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#buildExecutionResultCalculator(java.lang.String, org.palladiosimulator.probespec.framework.probes.Probe)
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildExecutionResultCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
      */
     @Override
     public Calculator buildExecutionResultCalculator(final String calculatorName, final Probe probe) {
@@ -136,12 +136,12 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     }
 
     /**
-     * @param probeSpecContext
-     * @see org.palladiosimulator.probespec.framework.calculator.ICalculatorFactory#setProbeSpecContext(org.palladiosimulator.probespec.framework.ProbeSpecContext)
+     * @param probeFrameworkContext
+     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#setProbeFrameworkContext(org.palladiosimulator.probeframework.ProbeFrameworkContext)
      */
     @Override
-    public void setProbeSpecContext(final ProbeSpecContext probeSpecContext) {
-        decoratedCalculatorFactory.setProbeSpecContext(probeSpecContext);
+    public void setProbeFrameworkContext(final ProbeFrameworkContext probeFrameworkContext) {
+        decoratedCalculatorFactory.setProbeFrameworkContext(probeFrameworkContext);
     }
 
     /**

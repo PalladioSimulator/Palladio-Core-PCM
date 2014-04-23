@@ -48,7 +48,7 @@ public class CreateProtoComMetaDataFilesJob extends AbstractCreateMetaDataFilesJ
 		 "org.eclipse.osgi",
 		 "de.uka.ipd.sdq.scheduler",
 		 "org.jscience",
-		 "org.palladiosimulator.probespec.framework",
+		 "org.palladiosimulator.probeframework",
 		 "org.palladiosimulator.recorderspec",		 
 		 "org.palladiosimulator.protocom.framework",
 		 "org.palladiosimulator.protocom.resourcestrategies",

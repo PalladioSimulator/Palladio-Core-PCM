@@ -3,10 +3,10 @@
 
 «DEFINE StartResponseTimeMeasurement FOR String»
 	// Take current time
-	((org.palladiosimulator.probespec.framework.probes.TriggeredProbe)this.startStopProbes.get("«this»").get(0)).takeMeasurement(ctx.getThread().getRequestContext());
+	((org.palladiosimulator.probeframework.probes.TriggeredProbe)this.startStopProbes.get("«this»").get(0)).takeMeasurement(ctx.getThread().getRequestContext());
 «ENDDEFINE»
 
 «DEFINE EndResponseTimeMeasurement FOR String»
 	// Take current time
-	((org.palladiosimulator.probespec.framework.probes.TriggeredProbe)this.startStopProbes.get("«this»").get(1)).takeMeasurement(ctx.getThread().getRequestContext());
+	((org.palladiosimulator.probeframework.probes.TriggeredProbe)this.startStopProbes.get("«this»").get(1)).takeMeasurement(ctx.getThread().getRequestContext());
 «ENDDEFINE»
