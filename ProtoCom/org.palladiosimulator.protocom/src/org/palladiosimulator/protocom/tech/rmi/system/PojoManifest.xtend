@@ -39,7 +39,7 @@ class PojoManifest extends PojoMFFile<System>{
  de.uka.ipd.sdq.scheduler,
  org.jscience,
  org.palladiosimulator.probeframework,
- org.palladiosimulator.recorderspec,		
+ org.palladiosimulator.recorderframework,		
  org.palladiosimulator.protocom.framework,
  org.palladiosimulator.protocom.resourcestrategies,
  org.junit,

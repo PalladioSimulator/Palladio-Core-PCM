@@ -34,8 +34,8 @@ import org.eclipse.swt.widgets.Group;
 import org.eclipse.swt.widgets.Label;
 import org.eclipse.swt.widgets.MessageBox;
 import org.eclipse.swt.widgets.Text;
-import org.palladiosimulator.recorderspec.launch.RecorderExtensionHelper;
-import org.palladiosimulator.recorderspec.launch.RecorderTabGroup;
+import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
+import org.palladiosimulator.recorderframework.launch.RecorderTabGroup;
 
 import de.uka.ipd.sdq.codegen.simucontroller.SimuControllerImages;
 import de.uka.ipd.sdq.pcm.dialogs.selection.PalladioSelectEObjectDialog;

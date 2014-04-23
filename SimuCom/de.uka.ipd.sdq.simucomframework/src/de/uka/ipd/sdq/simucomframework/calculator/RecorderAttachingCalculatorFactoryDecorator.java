@@ -9,10 +9,10 @@ import org.palladiosimulator.probeframework.ProbeFrameworkContext;
 import org.palladiosimulator.probeframework.calculator.Calculator;
 import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
 import org.palladiosimulator.probeframework.probes.Probe;
-import org.palladiosimulator.recorderspec.AbstractRecorderConfiguration;
-import org.palladiosimulator.recorderspec.Recorder;
-import org.palladiosimulator.recorderspec.launch.IRecorderConfiguration;
-import org.palladiosimulator.recorderspec.launch.RecorderExtensionHelper;
+import org.palladiosimulator.recorderframework.AbstractRecorderConfiguration;
+import org.palladiosimulator.recorderframework.Recorder;
+import org.palladiosimulator.recorderframework.launch.IRecorderConfiguration;
+import org.palladiosimulator.recorderframework.launch.RecorderExtensionHelper;
 
 import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
