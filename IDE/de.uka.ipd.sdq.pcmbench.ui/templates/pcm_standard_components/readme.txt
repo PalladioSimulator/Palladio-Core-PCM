@@ -8,9 +8,10 @@ All time units refer to milliseconds (ms).
 Components:
 - Cache
 - StandardForwardingComponent: forwards request to the next component without affecting performance, control or data flow
+- Loadbalancer (2x)
 
 TODO:
-- Loadbalancer (2x, 3x, 4x balancing)
+- Loadbalancer (3x, 4x balancing)
 - ConnectionPool
 - Webserver
 
