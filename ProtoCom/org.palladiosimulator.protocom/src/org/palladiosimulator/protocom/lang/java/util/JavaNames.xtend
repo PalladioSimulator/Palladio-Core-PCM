@@ -427,6 +427,10 @@ class JavaNames {
 		e.basePackageName() + ".ejb"
 	}
 	
+	static def fqnJavaEEClientDeployName(Entity e){
+		e.basePackageName() + ".ejbClient"
+	}
+	
 	static def fqnJavaEEDescriptorPath(Entity e){
 	//	e.basePackageName() + "/ejb"  + 
 		"/" + "ejbModule/META-INF/"

@@ -36,7 +36,7 @@ class JeeClass extends JCompilationUnit<IJeeClass> implements IJeeClass {
 	override body() {
 			'''		
 			«FOR dependencyInjection : jeeClassDependencyInjection»
-				@«jeeClassDependencyInjectionAnnotation»(name=«jeeClassDependencyInjectionNameAttribute(dependencyInjection)»)
+				@«jeeClassDependencyInjectionAnnotation»(name="«jeeClassDependencyInjectionNameAttribute(dependencyInjection)»")
 				«field(dependencyInjection)»
 			«ENDFOR»
 			

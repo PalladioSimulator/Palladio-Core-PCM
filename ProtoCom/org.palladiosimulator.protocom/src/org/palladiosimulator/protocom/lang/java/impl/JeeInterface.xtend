@@ -9,7 +9,7 @@ class JeeInterface extends JCompilationUnit<IJeeInterface> implements IJeeInterf
 		'''
 		package «packageName»;
 		
-		@«jeeInterfaceAnnotation»;
+		@«jeeInterfaceAnnotation»
 		public interface «compilationUnitName» «implementedClasses»
 		'''
 	}

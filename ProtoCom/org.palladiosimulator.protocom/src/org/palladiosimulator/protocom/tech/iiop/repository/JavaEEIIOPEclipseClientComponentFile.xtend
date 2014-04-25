@@ -9,6 +9,9 @@ class JavaEEIIOPEclipseClientComponentFile extends JavaEEIIOPEclipseComponentFil
 		super(pcmEntity)
 	}
 	
+	override wbModuleDeployName() {
+		JavaNames::fqnJavaEEClientDeployName(pcmEntity)
+	}	
 	override wbResource() {
 	}
 	
