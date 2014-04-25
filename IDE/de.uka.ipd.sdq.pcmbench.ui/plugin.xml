@@ -168,5 +168,25 @@
          </model_file>
       </model_template>
    </extension>
+   <extension
+         point="de.uka.ipd.sdq.pcmbench.ui.wizard.template">
+      <model_template
+            description="Creates a Palladio project containing standard reusable components and interfaces (e.g. Cache, Loadbalancer, Connection Pool, Delegating Component)."
+            name="PCM Standard Components and Interfaces Repository">
+         <model_file
+               target_file="PcmStandard.repository"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/pcm_standard_components/PcmStandard.repository">
+         </model_file>
+         <model_file
+               target_file="PcmStandard.repository_diagram"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/pcm_standard_components/PcmStandard.repository_diagram">
+         </model_file>
+         <model_file
+               target_file="readme.txt"
+               template_uri="platform:/plugin/de.uka.ipd.sdq.pcmbench.ui/templates/pcm_standard_components/readme.txt">
+         </model_file>
+      </model_template>
+   </extension>
+
 
 </plugin>
