@@ -38,154 +38,154 @@ import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
  */
 public class CommunicationLinkReliabilityParameterImpl extends SingleSensitivityParameterImpl implements CommunicationLinkReliabilityParameter {
 	/**
-	 * The cached value of the '{@link #getCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter() <em>Communication Link Resource Specification Communication Link Reliability Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter() <em>Communication Link Resource Specification Communication Link Reliability Parameter</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter()
+     * @generated
+     * @ordered
+     */
 	protected CommunicationLinkResourceSpecification communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected CommunicationLinkReliabilityParameterImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.COMMUNICATION_LINK_RELIABILITY_PARAMETER;
-	}
+        return SensitivityPackage.Literals.COMMUNICATION_LINK_RELIABILITY_PARAMETER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public CommunicationLinkResourceSpecification getCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter() {
-		if (communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter != null && communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter.eIsProxy()) {
-			InternalEObject oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = (InternalEObject)communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
-			communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = (CommunicationLinkResourceSpecification)eResolveProxy(oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter);
-			if (communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter != oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER, oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter, communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter));
-			}
-		}
-		return communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
-	}
+        if (communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter != null && communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter.eIsProxy()) {
+            InternalEObject oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = (InternalEObject)communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
+            communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = (CommunicationLinkResourceSpecification)eResolveProxy(oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter);
+            if (communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter != oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER, oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter, communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter));
+            }
+        }
+        return communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public CommunicationLinkResourceSpecification basicGetCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter() {
-		return communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
-	}
+        return communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter(CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter) {
-		CommunicationLinkResourceSpecification oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
-		communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = newCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER, oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter, communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter));
-	}
+        CommunicationLinkResourceSpecification oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
+        communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter = newCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER, oldCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter, communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public boolean CommunicationLinkParameterMustHaveDoubleVariation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 SensitivityValidator.DIAGNOSTIC_SOURCE,
-						 SensitivityValidator.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "CommunicationLinkParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
+        // TODO: implement this method
+        // -> specify the condition that violates the invariant
+        // -> verify the details of the diagnostic, including severity and message
+        // Ensure that you remove @generated or mark it @generated NOT
+        if (false) {
+            if (diagnostics != null) {
+                diagnostics.add
+                    (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                         SensitivityValidator.DIAGNOSTIC_SOURCE,
+                         SensitivityValidator.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
+                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "CommunicationLinkParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
+                         new Object [] { this }));
+            }
+            return false;
+        }
+        return true;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
-				if (resolve) return getCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter();
-				return basicGetCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
+                if (resolve) return getCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter();
+                return basicGetCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
-				setCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter((CommunicationLinkResourceSpecification)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
+                setCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter((CommunicationLinkResourceSpecification)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
-				setCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter((CommunicationLinkResourceSpecification)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
+                setCommunicationLinkResourceSpecification__CommunicationLinkReliabilityParameter((CommunicationLinkResourceSpecification)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
-				return communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMMUNICATION_LINK_RELIABILITY_PARAMETER__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_COMMUNICATION_LINK_RELIABILITY_PARAMETER:
+                return communicationLinkResourceSpecification__CommunicationLinkReliabilityParameter != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //CommunicationLinkReliabilityParameterImpl

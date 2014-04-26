@@ -15,43 +15,43 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface ResourceenvironmentFactory extends EFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     ResourceenvironmentFactory eINSTANCE = de.uka.ipd.sdq.pcm.resourceenvironment.impl.ResourceenvironmentFactoryImpl.init();
 
     /**
-	 * Returns a new object of class '<em>Resource Environment</em>'.
-	 * <!-- begin-user-doc --> <!--
+     * Returns a new object of class '<em>Resource Environment</em>'.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return a new object of class '<em>Resource Environment</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Resource Environment</em>'.
+     * @generated
+     */
     ResourceEnvironment createResourceEnvironment();
 
     /**
-	 * Returns a new object of class '<em>Linking Resource</em>'.
-	 * <!-- begin-user-doc --> <!--
+     * Returns a new object of class '<em>Linking Resource</em>'.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return a new object of class '<em>Linking Resource</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Linking Resource</em>'.
+     * @generated
+     */
     LinkingResource createLinkingResource();
 
     /**
-	 * Returns a new object of class '<em>Resource Container</em>'.
-	 * <!-- begin-user-doc --> <!--
+     * Returns a new object of class '<em>Resource Container</em>'.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return a new object of class '<em>Resource Container</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Resource Container</em>'.
+     * @generated
+     */
     ResourceContainer createResourceContainer();
 
     /**
@@ -73,11 +73,11 @@ public interface ResourceenvironmentFactory extends EFactory {
     CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification();
 
     /**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
     ResourceenvironmentPackage getResourceenvironmentPackage();
 
 } // ResourceenvironmentFactory

@@ -13,51 +13,51 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface SeffPerformanceFactory extends EFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     SeffPerformanceFactory eINSTANCE = de.uka.ipd.sdq.pcm.seff.seff_performance.impl.SeffPerformanceFactoryImpl.init();
 
     /**
-	 * Returns a new object of class '<em>Infrastructure Call</em>'.
-	 * <!-- begin-user-doc --> <!--
+     * Returns a new object of class '<em>Infrastructure Call</em>'.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return a new object of class '<em>Infrastructure Call</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Infrastructure Call</em>'.
+     * @generated
+     */
     InfrastructureCall createInfrastructureCall();
 
     /**
-	 * Returns a new object of class '<em>Resource Call</em>'.
-	 * <!-- begin-user-doc --> <!--
+     * Returns a new object of class '<em>Resource Call</em>'.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @return a new object of class '<em>Resource Call</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Resource Call</em>'.
+     * @generated
+     */
     ResourceCall createResourceCall();
 
     /**
-	 * Returns a new object of class '<em>Parametric Resource Demand</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Parametric Resource Demand</em>'.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parametric Resource Demand</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Parametric Resource Demand</em>'.
+     * @generated
+     */
     ParametricResourceDemand createParametricResourceDemand();
 
     /**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
     SeffPerformancePackage getSeffPerformancePackage();
 
 } // SeffPerformanceFactory

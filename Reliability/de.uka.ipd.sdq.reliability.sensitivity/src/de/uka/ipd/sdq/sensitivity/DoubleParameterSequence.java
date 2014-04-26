@@ -30,18 +30,18 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DoubleParameterSequence extends DoubleParameterVariation {
 	/**
-	 * Returns the value of the '<em><b>Double Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Double}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Double Values</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.Double}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The&nbsp;list&nbsp;of&nbsp;DOUBLE&nbsp;values.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>Double Values</em>' attribute list.
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleParameterSequence_DoubleValues()
-	 * @model unique="false" required="true"
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * The&nbsp;list&nbsp;of&nbsp;DOUBLE&nbsp;values.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>Double Values</em>' attribute list.
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleParameterSequence_DoubleValues()
+     * @model unique="false" required="true"
+     * @generated
+     */
 	EList<Double> getDoubleValues();
 
 } // DoubleParameterSequence

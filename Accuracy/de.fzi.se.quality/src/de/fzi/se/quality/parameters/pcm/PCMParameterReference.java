@@ -8,10 +8,6 @@ package de.fzi.se.quality.parameters.pcm;
 
 import de.fzi.se.quality.parameters.ParameterReference;
 
-import de.fzi.se.quality.qualityannotation.PCMParameterPartition;
-
-import de.uka.ipd.sdq.identifier.Identifier;
-
 /**
  * <!-- begin-user-doc -->
  * A representation of the model object '<em><b>Parameter Reference</b></em>'.

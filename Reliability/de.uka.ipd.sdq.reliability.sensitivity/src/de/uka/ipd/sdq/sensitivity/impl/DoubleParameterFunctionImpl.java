@@ -22,22 +22,22 @@ import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
  */
 public abstract class DoubleParameterFunctionImpl extends DoubleParameterVariationImpl implements DoubleParameterFunction {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DoubleParameterFunctionImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.DOUBLE_PARAMETER_FUNCTION;
-	}
+        return SensitivityPackage.Literals.DOUBLE_PARAMETER_FUNCTION;
+    }
 
 } //DoubleParameterFunctionImpl

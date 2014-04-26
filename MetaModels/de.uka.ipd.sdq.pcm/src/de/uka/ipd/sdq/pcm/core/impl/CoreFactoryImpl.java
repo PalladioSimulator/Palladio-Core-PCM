@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.core.impl;
 
-import de.uka.ipd.sdq.pcm.core.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -22,76 +21,76 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  */
 public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static CoreFactory init() {
-		try {
-			CoreFactory theCoreFactory = (CoreFactory)EPackage.Registry.INSTANCE.getEFactory(CorePackage.eNS_URI);
-			if (theCoreFactory != null) {
-				return theCoreFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new CoreFactoryImpl();
-	}
+        try {
+            CoreFactory theCoreFactory = (CoreFactory)EPackage.Registry.INSTANCE.getEFactory(CorePackage.eNS_URI);
+            if (theCoreFactory != null) {
+                return theCoreFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new CoreFactoryImpl();
+    }
 
     /**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public CoreFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case CorePackage.PCM_RANDOM_VARIABLE: return createPCMRandomVariable();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case CorePackage.PCM_RANDOM_VARIABLE: return createPCMRandomVariable();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public PCMRandomVariable createPCMRandomVariable() {
-		PCMRandomVariableImpl pcmRandomVariable = new PCMRandomVariableImpl();
-		return pcmRandomVariable;
-	}
+        PCMRandomVariableImpl pcmRandomVariable = new PCMRandomVariableImpl();
+        return pcmRandomVariable;
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public CorePackage getCorePackage() {
-		return (CorePackage)getEPackage();
-	}
+        return (CorePackage)getEPackage();
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @deprecated
+     * @generated
+     */
     @Deprecated
     public static CorePackage getPackage() {
-		return CorePackage.eINSTANCE;
-	}
+        return CorePackage.eINSTANCE;
+    }
 
 } // CoreFactoryImpl

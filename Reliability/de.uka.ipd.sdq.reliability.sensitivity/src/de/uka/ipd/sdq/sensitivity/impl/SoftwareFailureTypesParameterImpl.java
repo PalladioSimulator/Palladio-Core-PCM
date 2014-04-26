@@ -38,129 +38,129 @@ import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
  */
 public class SoftwareFailureTypesParameterImpl extends SingleSensitivityParameterImpl implements SoftwareFailureTypesParameter {
 	/**
-	 * The cached value of the '{@link #getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter() <em>Software Induced Failure Types Software Failure Type Reliability Parameter</em>}' reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter() <em>Software Induced Failure Types Software Failure Type Reliability Parameter</em>}' reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter()
+     * @generated
+     * @ordered
+     */
 	protected EList<SoftwareInducedFailureType> softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected SoftwareFailureTypesParameterImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.SOFTWARE_FAILURE_TYPES_PARAMETER;
-	}
+        return SensitivityPackage.Literals.SOFTWARE_FAILURE_TYPES_PARAMETER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<SoftwareInducedFailureType> getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter() {
-		if (softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter == null) {
-			softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter = new EObjectResolvingEList<SoftwareInducedFailureType>(SoftwareInducedFailureType.class, this, SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER);
-		}
-		return softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter;
-	}
+        if (softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter == null) {
+            softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter = new EObjectResolvingEList<SoftwareInducedFailureType>(SoftwareInducedFailureType.class, this, SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER);
+        }
+        return softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public boolean SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 SensitivityValidator.DIAGNOSTIC_SOURCE,
-						 SensitivityValidator.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
+        // TODO: implement this method
+        // -> specify the condition that violates the invariant
+        // -> verify the details of the diagnostic, including severity and message
+        // Ensure that you remove @generated or mark it @generated NOT
+        if (false) {
+            if (diagnostics != null) {
+                diagnostics.add
+                    (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                         SensitivityValidator.DIAGNOSTIC_SOURCE,
+                         SensitivityValidator.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
+                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "SoftwareFailureTypeReliabilityParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
+                         new Object [] { this }));
+            }
+            return false;
+        }
+        return true;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
-				return getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
+                return getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
-				getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter().clear();
-				getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter().addAll((Collection<? extends SoftwareInducedFailureType>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
+                getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter().clear();
+                getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter().addAll((Collection<? extends SoftwareInducedFailureType>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
-				getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
+                getSoftwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
-				return softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter != null && !softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.SOFTWARE_FAILURE_TYPES_PARAMETER__SOFTWARE_INDUCED_FAILURE_TYPES_SOFTWARE_FAILURE_TYPE_RELIABILITY_PARAMETER:
+                return softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter != null && !softwareInducedFailureTypes__SoftwareFailureTypeReliabilityParameter.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //SoftwareFailureTypesParameterImpl

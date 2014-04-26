@@ -6,11 +6,10 @@
  */
 package de.fzi.se.quality.qualityannotation;
 
-import de.fzi.se.quality.parameters.ParameterReference;
-
 import org.eclipse.emf.common.util.EList;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.fzi.se.quality.parameters.ParameterReference;
 
 /**
  * <!-- begin-user-doc -->

@@ -13,25 +13,25 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface QosPerformanceFactory extends EFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     QosPerformanceFactory eINSTANCE = de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformanceFactoryImpl.init();
 
     /**
-	 * Returns a new object of class '<em>System Specified Execution Time</em>'.
-	 * <!-- begin-user-doc
+     * Returns a new object of class '<em>System Specified Execution Time</em>'.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @return a new object of class '<em>System Specified Execution Time</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>System Specified Execution Time</em>'.
+     * @generated
+     */
     SystemSpecifiedExecutionTime createSystemSpecifiedExecutionTime();
 
     /**
@@ -44,11 +44,11 @@ public interface QosPerformanceFactory extends EFactory {
     ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime();
 
     /**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the package supported by this factory.
+     * @generated
+     */
     QosPerformancePackage getQosPerformancePackage();
 
 } // QosPerformanceFactory

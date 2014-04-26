@@ -18,9 +18,9 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface DummyClass extends EObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // DummyClass

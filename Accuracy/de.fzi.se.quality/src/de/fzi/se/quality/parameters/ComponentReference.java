@@ -7,7 +7,6 @@
 package de.fzi.se.quality.parameters;
 
 import de.uka.ipd.sdq.identifier.Identifier;
-import org.eclipse.emf.ecore.EObject;
 
 /**
  * <!-- begin-user-doc -->
@@ -27,31 +26,31 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface ComponentReference extends Identifier {
 	/**
-	 * Returns the value of the '<em><b>Component Instance</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.ComponentInstance#getComponentReference <em>Component Reference</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Component Instance</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.fzi.se.quality.parameters.ComponentInstance#getComponentReference <em>Component Reference</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Component Instance</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Component Instance</em>' container reference.
-	 * @see #setComponentInstance(ComponentInstance)
-	 * @see de.fzi.se.quality.parameters.ParametersPackage#getComponentReference_ComponentInstance()
-	 * @see de.fzi.se.quality.parameters.ComponentInstance#getComponentReference
-	 * @model opposite="componentReference" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Component Instance</em>' container reference.
+     * @see #setComponentInstance(ComponentInstance)
+     * @see de.fzi.se.quality.parameters.ParametersPackage#getComponentReference_ComponentInstance()
+     * @see de.fzi.se.quality.parameters.ComponentInstance#getComponentReference
+     * @model opposite="componentReference" transient="false" ordered="false"
+     * @generated
+     */
 	ComponentInstance getComponentInstance();
 
 	/**
-	 * Sets the value of the '{@link de.fzi.se.quality.parameters.ComponentReference#getComponentInstance <em>Component Instance</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.fzi.se.quality.parameters.ComponentReference#getComponentInstance <em>Component Instance</em>}' container reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Component Instance</em>' container reference.
-	 * @see #getComponentInstance()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Component Instance</em>' container reference.
+     * @see #getComponentInstance()
+     * @generated
+     */
 	void setComponentInstance(ComponentInstance value);
 
 } // ComponentReference

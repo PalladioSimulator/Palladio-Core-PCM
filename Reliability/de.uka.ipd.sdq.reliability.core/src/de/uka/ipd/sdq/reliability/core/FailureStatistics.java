@@ -11,10 +11,9 @@ import java.util.TreeSet;
 import org.apache.commons.collections15.Bag;
 import org.apache.commons.collections15.bag.TreeBag;
 import org.apache.log4j.Logger;
-import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.palladiosimulator.commons.designpatterns.AbstractObservable;
-import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataFactory;
-import org.palladiosimulator.edp2.models.ExperimentData.Identifier;
+import org.palladiosimulator.metricspec.Identifier;
+import org.palladiosimulator.metricspec.util.builder.IdentifierBuilder;
 import org.palladiosimulator.probeframework.probes.EventProbe;
 
 import de.uka.ipd.sdq.reliability.core.probe.TakeExecutionResultProbe;
@@ -23,8 +22,6 @@ import de.uka.ipd.sdq.reliability.core.probe.TakeExecutionResultProbe;
  * Singleton class that is used for counting simulated failures and printing statistics.
  */
 public class FailureStatistics extends AbstractObservable<IFailureStatisticsListener> {
-
-    private final static ExperimentDataFactory experimentDataFactory = ExperimentDataFactory.eINSTANCE;
 
     /**
      * Stores the session ids of all failed usage scenario runs.
@@ -56,13 +53,16 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
     /**
      * The constructor.
      */
+    @SuppressWarnings("unchecked")
     public FailureStatistics() {
         super();
         for (final FailureType t : FailureType.values()) {
             failureCounter.put(t,new TreeBag<MarkovFailureType>());
         }
-        this.successIdentifier = experimentDataFactory.createIdentifier("Success");
-        this.successIdentifier.setUuid(EcoreUtil.generateUUID());
+        this.successIdentifier = IdentifierBuilder.
+                newIdentifierBuilder().
+                literal("Success").
+                build();
         if (simFailureTypes == null) {
             simFailureTypes = Collections.EMPTY_MAP;
         }
@@ -399,8 +399,10 @@ public class FailureStatistics extends AbstractObservable<IFailureStatisticsList
         // Build failure type mapping:
         simFailureTypes = new HashMap<MarkovFailureType, Identifier>();
         for (final MarkovFailureType failureType : failureTypes) {
-            final Identifier identifier = experimentDataFactory.createIdentifier(failureType.getName());
-            identifier.setUuid(EcoreUtil.generateUUID());
+            final Identifier identifier = IdentifierBuilder.
+                    newIdentifierBuilder().
+                    literal(failureType.getName()).
+                    build();
             simFailureTypes.put(failureType, identifier);
         }
     }

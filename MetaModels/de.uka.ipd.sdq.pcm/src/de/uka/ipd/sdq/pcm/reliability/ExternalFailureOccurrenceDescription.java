@@ -34,9 +34,9 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnn
  */
 public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceDescription {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -66,12 +66,12 @@ public interface ExternalFailureOccurrenceDescription extends FailureOccurrenceD
     SpecifiedReliabilityAnnotation getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription <em>Specified Reliability Annotation External Failure Occurrence Description</em>}' container reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specified Reliability Annotation External Failure Occurrence Description</em>' container reference.
-	 * @see #getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription#getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription <em>Specified Reliability Annotation External Failure Occurrence Description</em>}' container reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Specified Reliability Annotation External Failure Occurrence Description</em>' container reference.
+     * @see #getSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription()
+     * @generated
+     */
     void setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(SpecifiedReliabilityAnnotation value);
 
     /**

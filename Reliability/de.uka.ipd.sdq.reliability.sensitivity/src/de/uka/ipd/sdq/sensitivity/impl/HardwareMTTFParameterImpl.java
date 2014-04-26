@@ -30,47 +30,47 @@ import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
  */
 public class HardwareMTTFParameterImpl extends SingleSensitivityParameterImpl implements HardwareMTTFParameter {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected HardwareMTTFParameterImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.HARDWARE_MTTF_PARAMETER;
-	}
+        return SensitivityPackage.Literals.HARDWARE_MTTF_PARAMETER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public boolean HardwareMTTFParameterMustHaveDoubleVariation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 SensitivityValidator.DIAGNOSTIC_SOURCE,
-						 SensitivityValidator.HARDWARE_MTTF_PARAMETER__HARDWARE_MTTF_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "HardwareMTTFParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
+        // TODO: implement this method
+        // -> specify the condition that violates the invariant
+        // -> verify the details of the diagnostic, including severity and message
+        // Ensure that you remove @generated or mark it @generated NOT
+        if (false) {
+            if (diagnostics != null) {
+                diagnostics.add
+                    (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                         SensitivityValidator.DIAGNOSTIC_SOURCE,
+                         SensitivityValidator.HARDWARE_MTTF_PARAMETER__HARDWARE_MTTF_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
+                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "HardwareMTTFParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
+                         new Object [] { this }));
+            }
+            return false;
+        }
+        return true;
+    }
 
 } //HardwareMTTFParameterImpl

@@ -21,7 +21,6 @@ import de.fzi.se.quality.qualityannotation.ProbabilisticElement;
 import de.fzi.se.quality.qualityannotation.QualityAnnotation;
 import de.fzi.se.quality.qualityannotation.REPrecision;
 import de.fzi.se.quality.qualityannotation.RequiredElement;
-import de.fzi.se.quality.util.EMFHelper;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface;
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole;

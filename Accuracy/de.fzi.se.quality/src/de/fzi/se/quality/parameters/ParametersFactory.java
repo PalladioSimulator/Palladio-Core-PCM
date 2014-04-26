@@ -18,47 +18,47 @@ import org.eclipse.emf.ecore.EFactory;
  */
 public interface ParametersFactory extends EFactory {
 	/**
-	 * The singleton instance of the factory.
-	 * <!-- begin-user-doc -->
+     * The singleton instance of the factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	ParametersFactory eINSTANCE = de.fzi.se.quality.parameters.impl.ParametersFactoryImpl.init();
 
 	/**
-	 * Returns a new object of class '<em>Parameter Instance</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Parameter Instance</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Parameter Instance</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Parameter Instance</em>'.
+     * @generated
+     */
 	ParameterInstance createParameterInstance();
 
 	/**
-	 * Returns a new object of class '<em>Call Instance</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Call Instance</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Call Instance</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Call Instance</em>'.
+     * @generated
+     */
 	CallInstance createCallInstance();
 
 	/**
-	 * Returns a new object of class '<em>Component Instance</em>'.
-	 * <!-- begin-user-doc -->
+     * Returns a new object of class '<em>Component Instance</em>'.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return a new object of class '<em>Component Instance</em>'.
-	 * @generated
-	 */
+     * @return a new object of class '<em>Component Instance</em>'.
+     * @generated
+     */
 	ComponentInstance createComponentInstance();
 
 	/**
-	 * Returns the package supported by this factory.
-	 * <!-- begin-user-doc -->
+     * Returns the package supported by this factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @return the package supported by this factory.
-	 * @generated
-	 */
+     * @return the package supported by this factory.
+     * @generated
+     */
 	ParametersPackage getParametersPackage();
 
 } //ParametersFactory

@@ -6,10 +6,10 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.fzi.se.quality.qualityannotation.NoPrecision;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class NoPrecisionImpl extends PrecisionImpl implements NoPrecision {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected NoPrecisionImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return QualityAnnotationPackage.Literals.NO_PRECISION;
-	}
+        return QualityAnnotationPackage.Literals.NO_PRECISION;
+    }
 
 } //NoPrecisionImpl

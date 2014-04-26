@@ -36,47 +36,47 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface SensitivityConfiguration extends Entity {
 	/**
-	 * Returns the value of the '<em><b>Sensitivity Parameters Sensitivity Configuration</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameter#getSensitivityConfiguration__SensitivityParameter <em>Sensitivity Configuration Sensitivity Parameter</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Sensitivity Parameters Sensitivity Configuration</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameter#getSensitivityConfiguration__SensitivityParameter <em>Sensitivity Configuration Sensitivity Parameter</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sensitivity Parameters Sensitivity Configuration</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sensitivity Parameters Sensitivity Configuration</em>' containment reference.
-	 * @see #setSensitivityParameters__SensitivityConfiguration(SensitivityParameter)
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityConfiguration_SensitivityParameters__SensitivityConfiguration()
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityParameter#getSensitivityConfiguration__SensitivityParameter
-	 * @model opposite="sensitivityConfiguration__SensitivityParameter" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Sensitivity Parameters Sensitivity Configuration</em>' containment reference.
+     * @see #setSensitivityParameters__SensitivityConfiguration(SensitivityParameter)
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityConfiguration_SensitivityParameters__SensitivityConfiguration()
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityParameter#getSensitivityConfiguration__SensitivityParameter
+     * @model opposite="sensitivityConfiguration__SensitivityParameter" containment="true" required="true" ordered="false"
+     * @generated
+     */
 	SensitivityParameter getSensitivityParameters__SensitivityConfiguration();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityParameters__SensitivityConfiguration <em>Sensitivity Parameters Sensitivity Configuration</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityParameters__SensitivityConfiguration <em>Sensitivity Parameters Sensitivity Configuration</em>}' containment reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sensitivity Parameters Sensitivity Configuration</em>' containment reference.
-	 * @see #getSensitivityParameters__SensitivityConfiguration()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Sensitivity Parameters Sensitivity Configuration</em>' containment reference.
+     * @see #getSensitivityParameters__SensitivityConfiguration()
+     * @generated
+     */
 	void setSensitivityParameters__SensitivityConfiguration(SensitivityParameter value);
 
 	/**
-	 * Returns the value of the '<em><b>Sensitivity Result Specifications Sensitivity Configuration</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Sensitivity Result Specifications Sensitivity Configuration</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sensitivity Result Specifications Sensitivity Configuration</em>' containment reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sensitivity Result Specifications Sensitivity Configuration</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityConfiguration_SensitivityResultSpecifications__SensitivityConfiguration()
-	 * @model containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Sensitivity Result Specifications Sensitivity Configuration</em>' containment reference list.
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityConfiguration_SensitivityResultSpecifications__SensitivityConfiguration()
+     * @model containment="true" ordered="false"
+     * @generated
+     */
 	EList<SensitivityResultSpecification> getSensitivityResultSpecifications__SensitivityConfiguration();
 
 } // SensitivityConfiguration

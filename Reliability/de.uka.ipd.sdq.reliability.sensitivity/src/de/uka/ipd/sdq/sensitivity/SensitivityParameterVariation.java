@@ -31,31 +31,31 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface SensitivityParameterVariation extends EObject {
 	/**
-	 * Returns the value of the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter#getSensitivityParameterVariation__SingleSensitivityParameter <em>Sensitivity Parameter Variation Single Sensitivity Parameter</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Single Sensitivity Parameter Sensitivity Parameter Variation</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter#getSensitivityParameterVariation__SingleSensitivityParameter <em>Sensitivity Parameter Variation Single Sensitivity Parameter</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Single Sensitivity Parameter Sensitivity Parameter Variation</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Single Sensitivity Parameter Sensitivity Parameter Variation</em>' container reference.
-	 * @see #setSingleSensitivityParameter__SensitivityParameterVariation(SingleSensitivityParameter)
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityParameterVariation_SingleSensitivityParameter__SensitivityParameterVariation()
-	 * @see de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter#getSensitivityParameterVariation__SingleSensitivityParameter
-	 * @model opposite="sensitivityParameterVariation__SingleSensitivityParameter" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Single Sensitivity Parameter Sensitivity Parameter Variation</em>' container reference.
+     * @see #setSingleSensitivityParameter__SensitivityParameterVariation(SingleSensitivityParameter)
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityParameterVariation_SingleSensitivityParameter__SensitivityParameterVariation()
+     * @see de.uka.ipd.sdq.sensitivity.SingleSensitivityParameter#getSensitivityParameterVariation__SingleSensitivityParameter
+     * @model opposite="sensitivityParameterVariation__SingleSensitivityParameter" required="true" transient="false" ordered="false"
+     * @generated
+     */
 	SingleSensitivityParameter getSingleSensitivityParameter__SensitivityParameterVariation();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameterVariation#getSingleSensitivityParameter__SensitivityParameterVariation <em>Single Sensitivity Parameter Sensitivity Parameter Variation</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameterVariation#getSingleSensitivityParameter__SensitivityParameterVariation <em>Single Sensitivity Parameter Sensitivity Parameter Variation</em>}' container reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Single Sensitivity Parameter Sensitivity Parameter Variation</em>' container reference.
-	 * @see #getSingleSensitivityParameter__SensitivityParameterVariation()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Single Sensitivity Parameter Sensitivity Parameter Variation</em>' container reference.
+     * @see #getSingleSensitivityParameter__SensitivityParameterVariation()
+     * @generated
+     */
 	void setSingleSensitivityParameter__SensitivityParameterVariation(SingleSensitivityParameter value);
 
 } // SensitivityParameterVariation

@@ -29,137 +29,137 @@ import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
  */
 public class FailureDimensionResultSpecificationImpl extends SensitivityResultSpecificationImpl implements FailureDimensionResultSpecification {
 	/**
-	 * The default value of the '{@link #getFailureDimension__FailureDimensionResultSpecification() <em>Failure Dimension Failure Dimension Result Specification</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getFailureDimension__FailureDimensionResultSpecification() <em>Failure Dimension Failure Dimension Result Specification</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFailureDimension__FailureDimensionResultSpecification()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getFailureDimension__FailureDimensionResultSpecification()
+     * @generated
+     * @ordered
+     */
 	protected static final FailureDimension FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT = FailureDimension.SOFTWARE;
 
 	/**
-	 * The cached value of the '{@link #getFailureDimension__FailureDimensionResultSpecification() <em>Failure Dimension Failure Dimension Result Specification</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getFailureDimension__FailureDimensionResultSpecification() <em>Failure Dimension Failure Dimension Result Specification</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getFailureDimension__FailureDimensionResultSpecification()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getFailureDimension__FailureDimensionResultSpecification()
+     * @generated
+     * @ordered
+     */
 	protected FailureDimension failureDimension__FailureDimensionResultSpecification = FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected FailureDimensionResultSpecificationImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.FAILURE_DIMENSION_RESULT_SPECIFICATION;
-	}
+        return SensitivityPackage.Literals.FAILURE_DIMENSION_RESULT_SPECIFICATION;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public FailureDimension getFailureDimension__FailureDimensionResultSpecification() {
-		return failureDimension__FailureDimensionResultSpecification;
-	}
+        return failureDimension__FailureDimensionResultSpecification;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setFailureDimension__FailureDimensionResultSpecification(FailureDimension newFailureDimension__FailureDimensionResultSpecification) {
-		FailureDimension oldFailureDimension__FailureDimensionResultSpecification = failureDimension__FailureDimensionResultSpecification;
-		failureDimension__FailureDimensionResultSpecification = newFailureDimension__FailureDimensionResultSpecification == null ? FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT : newFailureDimension__FailureDimensionResultSpecification;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION, oldFailureDimension__FailureDimensionResultSpecification, failureDimension__FailureDimensionResultSpecification));
-	}
+        FailureDimension oldFailureDimension__FailureDimensionResultSpecification = failureDimension__FailureDimensionResultSpecification;
+        failureDimension__FailureDimensionResultSpecification = newFailureDimension__FailureDimensionResultSpecification == null ? FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT : newFailureDimension__FailureDimensionResultSpecification;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION, oldFailureDimension__FailureDimensionResultSpecification, failureDimension__FailureDimensionResultSpecification));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
-				return getFailureDimension__FailureDimensionResultSpecification();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
+                return getFailureDimension__FailureDimensionResultSpecification();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
-				setFailureDimension__FailureDimensionResultSpecification((FailureDimension)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
+                setFailureDimension__FailureDimensionResultSpecification((FailureDimension)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
-				setFailureDimension__FailureDimensionResultSpecification(FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
+                setFailureDimension__FailureDimensionResultSpecification(FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
-				return failureDimension__FailureDimensionResultSpecification != FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.FAILURE_DIMENSION_RESULT_SPECIFICATION__FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION:
+                return failureDimension__FailureDimensionResultSpecification != FAILURE_DIMENSION_FAILURE_DIMENSION_RESULT_SPECIFICATION_EDEFAULT;
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (failureDimension__FailureDimensionResultSpecification: ");
-		result.append(failureDimension__FailureDimensionResultSpecification);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (failureDimension__FailureDimensionResultSpecification: ");
+        result.append(failureDimension__FailureDimensionResultSpecification);
+        result.append(')');
+        return result.toString();
+    }
 
 } //FailureDimensionResultSpecificationImpl

@@ -37,35 +37,35 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  */
 public interface ServiceEffectSpecification extends EObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Seff Type ID</b></em>' attribute.
-	 * The default value is <code>"1"</code>.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Seff Type ID</b></em>' attribute.
+     * The default value is <code>"1"</code>.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Seff Type ID</em>' attribute isn't clear, there really should be
      * more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Seff Type ID</em>' attribute.
-	 * @see #setSeffTypeID(String)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_SeffTypeID()
-	 * @model default="1" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Seff Type ID</em>' attribute.
+     * @see #setSeffTypeID(String)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_SeffTypeID()
+     * @model default="1" required="true" ordered="false"
+     * @generated
+     */
     String getSeffTypeID();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type ID</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Seff Type ID</em>' attribute.
-	 * @see #getSeffTypeID()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getSeffTypeID <em>Seff Type ID</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Seff Type ID</em>' attribute.
+     * @see #getSeffTypeID()
+     * @generated
+     */
     void setSeffTypeID(String value);
 
     /**
@@ -86,30 +86,30 @@ public interface ServiceEffectSpecification extends EObject {
     Signature getDescribedService__SEFF();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>Described Service SEFF</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Described Service SEFF</em>' reference.
-	 * @see #getDescribedService__SEFF()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification#getDescribedService__SEFF <em>Described Service SEFF</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Described Service SEFF</em>' reference.
+     * @see #getDescribedService__SEFF()
+     * @generated
+     */
     void setDescribedService__SEFF(Signature value);
 
     /**
-	 * Returns the value of the '<em><b>Basic Component Service Effect Specification</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Basic Component Service Effect Specification</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent <em>Service Effect Specifications Basic Component</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Basic Component Service Effect Specification</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Basic Component Service Effect Specification</em>' container reference.
-	 * @see #setBasicComponent_ServiceEffectSpecification(BasicComponent)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification()
-	 * @see de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
-	 * @model opposite="serviceEffectSpecifications__BasicComponent" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Basic Component Service Effect Specification</em>' container reference.
+     * @see #setBasicComponent_ServiceEffectSpecification(BasicComponent)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification_BasicComponent_ServiceEffectSpecification()
+     * @see de.uka.ipd.sdq.pcm.repository.BasicComponent#getServiceEffectSpecifications__BasicComponent
+     * @model opposite="serviceEffectSpecifications__BasicComponent" required="true" transient="false" ordered="false"
+     * @generated
+     */
     BasicComponent getBasicComponent_ServiceEffectSpecification();
 
     /**

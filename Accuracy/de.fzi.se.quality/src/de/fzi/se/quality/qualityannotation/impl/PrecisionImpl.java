@@ -6,12 +6,11 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.fzi.se.quality.qualityannotation.Precision;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
-
 import de.uka.ipd.sdq.identifier.impl.IdentifierImpl;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -24,22 +23,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public abstract class PrecisionImpl extends IdentifierImpl implements Precision {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PrecisionImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return QualityAnnotationPackage.Literals.PRECISION;
-	}
+        return QualityAnnotationPackage.Literals.PRECISION;
+    }
 
 } //PrecisionImpl

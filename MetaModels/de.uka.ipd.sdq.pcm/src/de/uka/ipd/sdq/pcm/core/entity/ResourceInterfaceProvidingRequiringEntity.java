@@ -17,9 +17,9 @@ package de.uka.ipd.sdq.pcm.core.entity;
 public interface ResourceInterfaceProvidingRequiringEntity extends ResourceInterfaceRequiringEntity,
         ResourceInterfaceProvidingEntity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // ResourceInterfaceProvidingRequiringEntity

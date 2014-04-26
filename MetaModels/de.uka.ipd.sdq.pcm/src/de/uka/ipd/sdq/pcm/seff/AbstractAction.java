@@ -32,27 +32,27 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface AbstractAction extends Entity {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Predecessor Abstract Action</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getSuccessor_AbstractAction <em>Successor Abstract Action</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Predecessor Abstract Action</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getSuccessor_AbstractAction <em>Successor Abstract Action</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Predecessor Abstract Action</em>' reference isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Predecessor Abstract Action</em>' reference.
-	 * @see #setPredecessor_AbstractAction(AbstractAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractAction_Predecessor_AbstractAction()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getSuccessor_AbstractAction
-	 * @model opposite="successor_AbstractAction" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Predecessor Abstract Action</em>' reference.
+     * @see #setPredecessor_AbstractAction(AbstractAction)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractAction_Predecessor_AbstractAction()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getSuccessor_AbstractAction
+     * @model opposite="successor_AbstractAction" ordered="false"
+     * @generated
+     */
     AbstractAction getPredecessor_AbstractAction();
 
     /**
@@ -69,48 +69,48 @@ public interface AbstractAction extends Entity {
     void setPredecessor_AbstractAction(AbstractAction value);
 
     /**
-	 * Returns the value of the '<em><b>Successor Abstract Action</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getPredecessor_AbstractAction <em>Predecessor Abstract Action</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Successor Abstract Action</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getPredecessor_AbstractAction <em>Predecessor Abstract Action</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Successor Abstract Action</em>' reference isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Successor Abstract Action</em>' reference.
-	 * @see #setSuccessor_AbstractAction(AbstractAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractAction_Successor_AbstractAction()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getPredecessor_AbstractAction
-	 * @model opposite="predecessor_AbstractAction" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Successor Abstract Action</em>' reference.
+     * @see #setSuccessor_AbstractAction(AbstractAction)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractAction_Successor_AbstractAction()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getPredecessor_AbstractAction
+     * @model opposite="predecessor_AbstractAction" ordered="false"
+     * @generated
+     */
     AbstractAction getSuccessor_AbstractAction();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getSuccessor_AbstractAction <em>Successor Abstract Action</em>}' reference.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Successor Abstract Action</em>' reference.
-	 * @see #getSuccessor_AbstractAction()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getSuccessor_AbstractAction <em>Successor Abstract Action</em>}' reference.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Successor Abstract Action</em>' reference.
+     * @see #getSuccessor_AbstractAction()
+     * @generated
+     */
     void setSuccessor_AbstractAction(AbstractAction value);
 
     /**
-	 * Returns the value of the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps Behaviour</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Resource Demanding Behaviour Abstract Action</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps Behaviour</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Demanding Behaviour Abstract Action</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Demanding Behaviour Abstract Action</em>' container reference.
-	 * @see #setResourceDemandingBehaviour_AbstractAction(ResourceDemandingBehaviour)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractAction_ResourceDemandingBehaviour_AbstractAction()
-	 * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour
-	 * @model opposite="steps_Behaviour" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Resource Demanding Behaviour Abstract Action</em>' container reference.
+     * @see #setResourceDemandingBehaviour_AbstractAction(ResourceDemandingBehaviour)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getAbstractAction_ResourceDemandingBehaviour_AbstractAction()
+     * @see de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour
+     * @model opposite="steps_Behaviour" transient="false" ordered="false"
+     * @generated
+     */
     ResourceDemandingBehaviour getResourceDemandingBehaviour_AbstractAction();
 
     /**

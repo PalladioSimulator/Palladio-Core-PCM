@@ -6,10 +6,10 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
+import org.eclipse.emf.ecore.EClass;
+
 import de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
-
-import org.eclipse.emf.ecore.EClass;
 
 /**
  * <!-- begin-user-doc -->
@@ -22,22 +22,22 @@ import org.eclipse.emf.ecore.EClass;
  */
 public class ExactlyAsSpecifiedPrecisionImpl extends PrecisionImpl implements ExactlyAsSpecifiedPrecision {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ExactlyAsSpecifiedPrecisionImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return QualityAnnotationPackage.Literals.EXACTLY_AS_SPECIFIED_PRECISION;
-	}
+        return QualityAnnotationPackage.Literals.EXACTLY_AS_SPECIFIED_PRECISION;
+    }
 
 } //ExactlyAsSpecifiedPrecisionImpl

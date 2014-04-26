@@ -40,37 +40,37 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
  */
 public interface SpecifiedExecutionTime extends SpecifiedQoSAnnotation {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable <em>Specified Execution Time PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable <em>Specified Execution Time PCM Random Variable</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Specification Specified Execution Time</em>' containment reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specification Specified Execution Time</em>' containment reference.
-	 * @see #setSpecification_SpecifiedExecutionTime(PCMRandomVariable)
-	 * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime()
-	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable
-	 * @model opposite="specifiedExecutionTime_PCMRandomVariable" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Specification Specified Execution Time</em>' containment reference.
+     * @see #setSpecification_SpecifiedExecutionTime(PCMRandomVariable)
+     * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.QosPerformancePackage#getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime()
+     * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getSpecifiedExecutionTime_PCMRandomVariable
+     * @model opposite="specifiedExecutionTime_PCMRandomVariable" containment="true" required="true" ordered="false"
+     * @generated
+     */
     PCMRandomVariable getSpecification_SpecifiedExecutionTime();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}' containment reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime#getSpecification_SpecifiedExecutionTime <em>Specification Specified Execution Time</em>}' containment reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Specification Specified Execution Time</em>' containment reference.
-	 * @see #getSpecification_SpecifiedExecutionTime()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Specification Specified Execution Time</em>' containment reference.
+     * @see #getSpecification_SpecifiedExecutionTime()
+     * @generated
+     */
     void setSpecification_SpecifiedExecutionTime(PCMRandomVariable value);
 
 } // SpecifiedExecutionTime

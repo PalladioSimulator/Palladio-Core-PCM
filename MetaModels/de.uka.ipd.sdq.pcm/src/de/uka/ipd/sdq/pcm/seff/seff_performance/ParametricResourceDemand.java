@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  * <em><b>Parametric Resource Demand</b></em>'. <!-- end-user-doc -->
  *
  * <!-- begin-model-doc -->
- * TODO&nbsp;(Überarbeitung&nbsp;durch&nbsp;MH)<br />
+ * TODO&nbsp;(Ãœberarbeitung&nbsp;durch&nbsp;MH)<br />
  * Parametric&nbsp;Resource&nbsp;Demand&nbsp;Specifies&nbsp;the&nbsp;amount&nbsp;of&nbsp;processing&nbsp;requested&nbsp;from&nbsp;a&nbsp;certain&nbsp;type&nbsp;of&nbsp;resource&nbsp;in&nbsp;a&nbsp;parametrised&nbsp;way.&nbsp;It&nbsp;assigns&nbsp;the&nbsp;demand&nbsp;specified&nbsp;as&nbsp;a&nbsp;Random-Variable&nbsp;to&nbsp;an&nbsp;abstract&nbsp;ProcessingResourceType&nbsp;(e.g.,&nbsp;CPU,&nbsp;hard&nbsp;disk)&nbsp;instead&nbsp;of&nbsp;a&nbsp;concrete&nbsp;ProcessingResourceSpecification&nbsp;(e.g.,&nbsp;5&nbsp;Ghz&nbsp;CPU,&nbsp;20&nbsp;MByte/s&nbsp;hard&nbsp;disk).&nbsp;This&nbsp;keeps&nbsp;the&nbsp;RDSEFF&nbsp;independent&nbsp;from&nbsp;a&nbsp;specific&nbsp;resource&nbsp;environment,&nbsp;and&nbsp;makes&nbsp;the&nbsp;concrete&nbsp;resources&nbsp;replaceable&nbsp;to&nbsp;answer&nbsp;sizing&nbsp;questions.<br />
  * The&nbsp;demand's&nbsp;unit&nbsp;is&nbsp;equal&nbsp;for&nbsp;all&nbsp;ProcessingResourceSpecifications&nbsp;referencing<br />
  * the&nbsp;same&nbsp;ProcessingResourceType.&nbsp;It&nbsp;can&nbsp;for&nbsp;example&nbsp;be&nbsp;"WorkUnits"<br />
@@ -77,27 +77,27 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
  */
 public interface ParametricResourceDemand extends EObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Specification Parameteric Resource Demand</b></em>' containment reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable <em>Parametric Resource Demand PCM Random Variable</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Specification Parameteric Resource Demand</b></em>' containment reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable <em>Parametric Resource Demand PCM Random Variable</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Specification Parameteric Resource Demand</em>' containment
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Specification Parameteric Resource Demand</em>' containment reference.
-	 * @see #setSpecification_ParametericResourceDemand(PCMRandomVariable)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Specification_ParametericResourceDemand()
-	 * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
-	 * @model opposite="parametricResourceDemand_PCMRandomVariable" containment="true" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Specification Parameteric Resource Demand</em>' containment reference.
+     * @see #setSpecification_ParametericResourceDemand(PCMRandomVariable)
+     * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Specification_ParametericResourceDemand()
+     * @see de.uka.ipd.sdq.pcm.core.PCMRandomVariable#getParametricResourceDemand_PCMRandomVariable
+     * @model opposite="parametricResourceDemand_PCMRandomVariable" containment="true" required="true" ordered="false"
+     * @generated
+     */
     PCMRandomVariable getSpecification_ParametericResourceDemand();
 
     /**
@@ -115,57 +115,57 @@ public interface ParametricResourceDemand extends EObject {
     void setSpecification_ParametericResourceDemand(PCMRandomVariable value);
 
     /**
-	 * Returns the value of the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Required Resource Parametric Resource Demand</b></em>' reference.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Required Resource Parametric Resource Demand</em>' reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Required Resource Parametric Resource Demand</em>' reference.
-	 * @see #setRequiredResource_ParametricResourceDemand(ProcessingResourceType)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_RequiredResource_ParametricResourceDemand()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Required Resource Parametric Resource Demand</em>' reference.
+     * @see #setRequiredResource_ParametricResourceDemand(ProcessingResourceType)
+     * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_RequiredResource_ParametricResourceDemand()
+     * @model required="true" ordered="false"
+     * @generated
+     */
     ProcessingResourceType getRequiredResource_ParametricResourceDemand();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getRequiredResource_ParametricResourceDemand <em>Required Resource Parametric Resource Demand</em>}' reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Required Resource Parametric Resource Demand</em>' reference.
-	 * @see #getRequiredResource_ParametricResourceDemand()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Required Resource Parametric Resource Demand</em>' reference.
+     * @see #getRequiredResource_ParametricResourceDemand()
+     * @generated
+     */
     void setRequiredResource_ParametricResourceDemand(ProcessingResourceType value);
 
     /**
-	 * Returns the value of the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action <em>Resource Demand Action</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Action Parametric Resource Demand</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action <em>Resource Demand Action</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Action Parametric Resource Demand</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Action Parametric Resource Demand</em>' container reference.
-	 * @see #setAction_ParametricResourceDemand(AbstractInternalControlFlowAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Action_ParametricResourceDemand()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
-	 * @model opposite="resourceDemand_Action" required="true" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Action Parametric Resource Demand</em>' container reference.
+     * @see #setAction_ParametricResourceDemand(AbstractInternalControlFlowAction)
+     * @see de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage#getParametricResourceDemand_Action_ParametricResourceDemand()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction#getResourceDemand_Action
+     * @model opposite="resourceDemand_Action" required="true" transient="false" ordered="false"
+     * @generated
+     */
     AbstractInternalControlFlowAction getAction_ParametricResourceDemand();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand#getAction_ParametricResourceDemand <em>Action Parametric Resource Demand</em>}' container reference.
+     * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Action Parametric Resource Demand</em>' container reference.
-	 * @see #getAction_ParametricResourceDemand()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Action Parametric Resource Demand</em>' container reference.
+     * @see #getAction_ParametricResourceDemand()
+     * @generated
+     */
     void setAction_ParametricResourceDemand(AbstractInternalControlFlowAction value);
 
     /**

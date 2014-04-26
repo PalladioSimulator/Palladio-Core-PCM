@@ -23,22 +23,22 @@ import de.uka.ipd.sdq.sensitivity.SensitivityResultSpecification;
  */
 public abstract class SensitivityResultSpecificationImpl extends EntityImpl implements SensitivityResultSpecification {
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected SensitivityResultSpecificationImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.SENSITIVITY_RESULT_SPECIFICATION;
-	}
+        return SensitivityPackage.Literals.SENSITIVITY_RESULT_SPECIFICATION;
+    }
 
 } //SensitivityResultSpecificationImpl

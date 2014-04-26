@@ -1,6 +1,6 @@
 package de.uka.ipd.sdq.simucomframework;
 
-import org.palladiosimulator.measurementspec.requestcontext.RequestContext;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
 
 import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;

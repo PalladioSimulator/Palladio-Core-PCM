@@ -6,15 +6,13 @@ import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.unit.Unit;
 
-import org.eclipse.emf.ecore.util.EcoreUtil;
-import org.palladiosimulator.edp2.impl.IdentifierMeasure;
-import org.palladiosimulator.edp2.models.ExperimentData.BaseMetricDescription;
-import org.palladiosimulator.edp2.models.ExperimentData.DataType;
-import org.palladiosimulator.edp2.models.ExperimentData.ExperimentDataFactory;
-import org.palladiosimulator.edp2.models.ExperimentData.Identifier;
-import org.palladiosimulator.edp2.models.ExperimentData.Monotonic;
-import org.palladiosimulator.edp2.models.ExperimentData.Scale;
-import org.palladiosimulator.edp2.models.ExperimentData.TextualBaseMetricDescription;
+import org.palladiosimulator.measurementspec.IdentifierMeasure;
+import org.palladiosimulator.metricspec.BaseMetricDescription;
+import org.palladiosimulator.metricspec.DataType;
+import org.palladiosimulator.metricspec.Identifier;
+import org.palladiosimulator.metricspec.Monotonic;
+import org.palladiosimulator.metricspec.Scale;
+import org.palladiosimulator.metricspec.util.builder.TextualBaseMetricDescriptionBuilder;
 import org.palladiosimulator.probeframework.probes.BasicEventProbe;
 
 import de.uka.ipd.sdq.reliability.core.FailureStatistics;
@@ -31,21 +29,21 @@ import de.uka.ipd.sdq.reliability.core.MarkovFailureType;
  */
 public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics, Identifier, Dimensionless> implements IFailureStatisticsListener {
 
-    private final static ExperimentDataFactory experimentDataFactory = ExperimentDataFactory.eINSTANCE;
-
     public TakeExecutionResultProbe(final FailureStatistics failureStatistics, final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
         super(failureStatistics,createMetricDescription(simFailureTypes,successIdentifier));
     }
 
     private static BaseMetricDescription createMetricDescription(final Map<MarkovFailureType, Identifier> simFailureTypes, final Identifier successIdentifier) {
-        final TextualBaseMetricDescription description = experimentDataFactory.createTextualBaseMetricDescription(
-                "Execution Result",
-                "Enumeration of all failure types which might happen in a reliability simulation",
-                Scale.NOMINAL, DataType.QUALITATIVE, Monotonic.NO);
-        description.setUuid(EcoreUtil.generateUUID());
-        description.getIdentifiers().addAll(simFailureTypes.values());
-        description.getIdentifiers().add(successIdentifier);
-        return description;
+        return TextualBaseMetricDescriptionBuilder.
+                newTextualBaseMetricDescriptionBuilder().
+                name("Execution Result").
+                textualDescription("Enumeration of all failure types which might happen in a reliability simulation").
+                scale(Scale.NOMINAL).
+                dataType(DataType.QUANTITATIVE).
+                monotonic(Monotonic.NO).
+                identifiers(simFailureTypes.values()).
+                identifiers(successIdentifier).
+                build();
     }
 
     @Override

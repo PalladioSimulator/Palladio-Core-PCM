@@ -32,48 +32,48 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface DoubleOffsetSequence extends DoubleParameterVariation {
 	/**
-	 * Returns the value of the '<em><b>Offset Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.Double}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Offset Values</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.Double}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Offset Values</em>' attribute list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Offset Values</em>' attribute list.
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleOffsetSequence_OffsetValues()
-	 * @model unique="false" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Offset Values</em>' attribute list.
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleOffsetSequence_OffsetValues()
+     * @model unique="false" required="true" ordered="false"
+     * @generated
+     */
 	EList<Double> getOffsetValues();
 
 	/**
-	 * Returns the value of the '<em><b>Double Offset Type Double Offset Sequence</b></em>' attribute.
-	 * The literals are from the enumeration {@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Double Offset Type Double Offset Sequence</b></em>' attribute.
+     * The literals are from the enumeration {@link de.uka.ipd.sdq.sensitivity.DoubleOffsetType}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Double Offset Type Double Offset Sequence</em>' attribute isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Double Offset Type Double Offset Sequence</em>' attribute.
-	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetType
-	 * @see #setDoubleOffsetType__DoubleOffsetSequence(DoubleOffsetType)
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleOffsetSequence_DoubleOffsetType__DoubleOffsetSequence()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Double Offset Type Double Offset Sequence</em>' attribute.
+     * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetType
+     * @see #setDoubleOffsetType__DoubleOffsetSequence(DoubleOffsetType)
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getDoubleOffsetSequence_DoubleOffsetType__DoubleOffsetSequence()
+     * @model required="true" ordered="false"
+     * @generated
+     */
 	DoubleOffsetType getDoubleOffsetType__DoubleOffsetSequence();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence#getDoubleOffsetType__DoubleOffsetSequence <em>Double Offset Type Double Offset Sequence</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.DoubleOffsetSequence#getDoubleOffsetType__DoubleOffsetSequence <em>Double Offset Type Double Offset Sequence</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Double Offset Type Double Offset Sequence</em>' attribute.
-	 * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetType
-	 * @see #getDoubleOffsetType__DoubleOffsetSequence()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Double Offset Type Double Offset Sequence</em>' attribute.
+     * @see de.uka.ipd.sdq.sensitivity.DoubleOffsetType
+     * @see #getDoubleOffsetType__DoubleOffsetSequence()
+     * @generated
+     */
 	void setDoubleOffsetType__DoubleOffsetSequence(DoubleOffsetType value);
 
 } // DoubleOffsetSequence

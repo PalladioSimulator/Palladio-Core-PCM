@@ -6,14 +6,12 @@
  */
 package de.fzi.se.quality.qualityannotation.impl;
 
+import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.impl.ENotificationImpl;
+
 import de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision;
 import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
-
-import org.eclipse.emf.common.notify.Notification;
-
-import org.eclipse.emf.ecore.EClass;
-
-import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,190 +29,190 @@ import org.eclipse.emf.ecore.impl.ENotificationImpl;
  */
 public class LimitedDeviationPrecisionImpl extends PrecisionImpl implements LimitedDeviationPrecision {
 	/**
-	 * The default value of the '{@link #getAbsolute() <em>Absolute</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getAbsolute() <em>Absolute</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbsolute()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getAbsolute()
+     * @generated
+     * @ordered
+     */
 	protected static final double ABSOLUTE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getAbsolute() <em>Absolute</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getAbsolute() <em>Absolute</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getAbsolute()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getAbsolute()
+     * @generated
+     * @ordered
+     */
 	protected double absolute = ABSOLUTE_EDEFAULT;
 
 	/**
-	 * The default value of the '{@link #getRelative() <em>Relative</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #getRelative() <em>Relative</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelative()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getRelative()
+     * @generated
+     * @ordered
+     */
 	protected static final double RELATIVE_EDEFAULT = 0.0;
 
 	/**
-	 * The cached value of the '{@link #getRelative() <em>Relative</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getRelative() <em>Relative</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRelative()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getRelative()
+     * @generated
+     * @ordered
+     */
 	protected double relative = RELATIVE_EDEFAULT;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected LimitedDeviationPrecisionImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return QualityAnnotationPackage.Literals.LIMITED_DEVIATION_PRECISION;
-	}
+        return QualityAnnotationPackage.Literals.LIMITED_DEVIATION_PRECISION;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public double getAbsolute() {
-		return absolute;
-	}
+        return absolute;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setAbsolute(double newAbsolute) {
-		double oldAbsolute = absolute;
-		absolute = newAbsolute;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE, oldAbsolute, absolute));
-	}
+        double oldAbsolute = absolute;
+        absolute = newAbsolute;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE, oldAbsolute, absolute));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public double getRelative() {
-		return relative;
-	}
+        return relative;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setRelative(double newRelative) {
-		double oldRelative = relative;
-		relative = newRelative;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE, oldRelative, relative));
-	}
+        double oldRelative = relative;
+        relative = newRelative;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE, oldRelative, relative));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
-				return getAbsolute();
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
-				return getRelative();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
+                return getAbsolute();
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
+                return getRelative();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
-				setAbsolute((Double)newValue);
-				return;
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
-				setRelative((Double)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
+                setAbsolute((Double)newValue);
+                return;
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
+                setRelative((Double)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
-				setAbsolute(ABSOLUTE_EDEFAULT);
-				return;
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
-				setRelative(RELATIVE_EDEFAULT);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
+                setAbsolute(ABSOLUTE_EDEFAULT);
+                return;
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
+                setRelative(RELATIVE_EDEFAULT);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
-				return absolute != ABSOLUTE_EDEFAULT;
-			case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
-				return relative != RELATIVE_EDEFAULT;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__ABSOLUTE:
+                return absolute != ABSOLUTE_EDEFAULT;
+            case QualityAnnotationPackage.LIMITED_DEVIATION_PRECISION__RELATIVE:
+                return relative != RELATIVE_EDEFAULT;
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (absolute: ");
-		result.append(absolute);
-		result.append(", relative: ");
-		result.append(relative);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (absolute: ");
+        result.append(absolute);
+        result.append(", relative: ");
+        result.append(relative);
+        result.append(')');
+        return result.toString();
+    }
 
 } //LimitedDeviationPrecisionImpl

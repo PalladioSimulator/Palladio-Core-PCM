@@ -37,27 +37,27 @@ import de.uka.ipd.sdq.identifier.Identifier;
  */
 public interface ResourceDemandingBehaviour extends Identifier {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>' container reference.
-	 * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
-	 * @model opposite="bodyBehaviour_Loop" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>' container reference.
+     * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
+     * @model opposite="bodyBehaviour_Loop" transient="false" ordered="false"
+     * @generated
+     */
     AbstractLoopAction getAbstractLoopAction_ResourceDemandingBehaviour();
 
     /**
@@ -75,21 +75,21 @@ public interface ResourceDemandingBehaviour extends Identifier {
     void setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction value);
 
     /**
-	 * Returns the value of the '<em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>' container reference.
-	 * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
-	 * @model opposite="branchBehaviour_BranchTransition" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>' container reference.
+     * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
+     * @model opposite="branchBehaviour_BranchTransition" transient="false" ordered="false"
+     * @generated
+     */
     AbstractBranchTransition getAbstractBranchTransition_ResourceDemandingBehaviour();
 
     /**
@@ -108,21 +108,21 @@ public interface ResourceDemandingBehaviour extends Identifier {
     void setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition value);
 
     /**
-	 * Returns the value of the '<em><b>Steps Behaviour</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.AbstractAction}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction <em>Resource Demanding Behaviour Abstract Action</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Steps Behaviour</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.AbstractAction}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction <em>Resource Demanding Behaviour Abstract Action</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Steps Behaviour</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Steps Behaviour</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_Steps_Behaviour()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
-	 * @model opposite="resourceDemandingBehaviour_AbstractAction" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Steps Behaviour</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_Steps_Behaviour()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
+     * @model opposite="resourceDemandingBehaviour_AbstractAction" containment="true" ordered="false"
+     * @generated
+     */
     EList<AbstractAction> getSteps_Behaviour();
 
     /**

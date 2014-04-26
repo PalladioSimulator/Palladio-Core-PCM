@@ -3,9 +3,9 @@ package de.uka.ipd.sdq.simucomframework.usage;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
 import org.palladiosimulator.probeframework.probes.Probe;
 import org.palladiosimulator.probeframework.probes.TriggeredProbe;
-import org.palladiosimulator.measurementspec.requestcontext.RequestContext;
 
 import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;

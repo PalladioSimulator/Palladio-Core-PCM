@@ -6,20 +6,48 @@
  */
 package de.fzi.se.quality.qualityannotation.util;
 
-import de.fzi.se.quality.QualityStatement;
-
-import de.fzi.se.quality.parameters.ParameterPartition;
-
-import de.fzi.se.quality.qualityannotation.*;
-
-import de.uka.ipd.sdq.identifier.Identifier;
-
 import org.eclipse.emf.common.notify.Adapter;
 import org.eclipse.emf.common.notify.Notifier;
-
 import org.eclipse.emf.common.notify.impl.AdapterFactoryImpl;
-
 import org.eclipse.emf.ecore.EObject;
+
+import de.fzi.se.quality.QualityStatement;
+import de.fzi.se.quality.parameters.ParameterPartition;
+import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition;
+import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval;
+import de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange;
+import de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision;
+import de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation;
+import de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision;
+import de.fzi.se.quality.qualityannotation.NoPrecision;
+import de.fzi.se.quality.qualityannotation.PCMPE;
+import de.fzi.se.quality.qualityannotation.PCMPEAllDecisions;
+import de.fzi.se.quality.qualityannotation.PCMPEDecision;
+import de.fzi.se.quality.qualityannotation.PCMParameterPartition;
+import de.fzi.se.quality.qualityannotation.PCMRE;
+import de.fzi.se.quality.qualityannotation.PCMRECIBehavior;
+import de.fzi.se.quality.qualityannotation.PCMRECategory;
+import de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface;
+import de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole;
+import de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature;
+import de.fzi.se.quality.qualityannotation.PCMREInterface;
+import de.fzi.se.quality.qualityannotation.PCMREResource;
+import de.fzi.se.quality.qualityannotation.PCMREResourceInterface;
+import de.fzi.se.quality.qualityannotation.PCMREResourceRole;
+import de.fzi.se.quality.qualityannotation.PCMREResourceSignature;
+import de.fzi.se.quality.qualityannotation.PCMRERole;
+import de.fzi.se.quality.qualityannotation.PCMRESignature;
+import de.fzi.se.quality.qualityannotation.PCMServiceSpecification;
+import de.fzi.se.quality.qualityannotation.ParameterValueDeviation;
+import de.fzi.se.quality.qualityannotation.Precision;
+import de.fzi.se.quality.qualityannotation.ProbabilisticElement;
+import de.fzi.se.quality.qualityannotation.QualityAnnotation;
+import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
+import de.fzi.se.quality.qualityannotation.REPrecision;
+import de.fzi.se.quality.qualityannotation.RequiredElement;
+import de.fzi.se.quality.qualityannotation.RequiredElementDeviation;
+import de.fzi.se.quality.qualityannotation.ServiceSpecification;
+import de.uka.ipd.sdq.identifier.Identifier;
 
 /**
  * <!-- begin-user-doc -->
@@ -31,730 +59,730 @@ import org.eclipse.emf.ecore.EObject;
  */
 public class QualityAnnotationAdapterFactory extends AdapterFactoryImpl {
 	/**
-	 * The cached model package.
-	 * <!-- begin-user-doc -->
+     * The cached model package.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected static QualityAnnotationPackage modelPackage;
 
 	/**
-	 * Creates an instance of the adapter factory.
-	 * <!-- begin-user-doc -->
+     * Creates an instance of the adapter factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public QualityAnnotationAdapterFactory() {
-		if (modelPackage == null) {
-			modelPackage = QualityAnnotationPackage.eINSTANCE;
-		}
-	}
+        if (modelPackage == null) {
+            modelPackage = QualityAnnotationPackage.eINSTANCE;
+        }
+    }
 
 	/**
-	 * Returns whether this factory is applicable for the type of the object.
-	 * <!-- begin-user-doc -->
+     * Returns whether this factory is applicable for the type of the object.
+     * <!-- begin-user-doc -->
 	 * This implementation returns <code>true</code> if the object is either the model's package or is an instance object of the model.
 	 * <!-- end-user-doc -->
-	 * @return whether this factory is applicable for the type of the object.
-	 * @generated
-	 */
+     * @return whether this factory is applicable for the type of the object.
+     * @generated
+     */
 	@Override
 	public boolean isFactoryForType(Object object) {
-		if (object == modelPackage) {
-			return true;
-		}
-		if (object instanceof EObject) {
-			return ((EObject)object).eClass().getEPackage() == modelPackage;
-		}
-		return false;
-	}
+        if (object == modelPackage) {
+            return true;
+        }
+        if (object instanceof EObject) {
+            return ((EObject)object).eClass().getEPackage() == modelPackage;
+        }
+        return false;
+    }
 
 	/**
-	 * The switch that delegates to the <code>createXXX</code> methods.
-	 * <!-- begin-user-doc -->
+     * The switch that delegates to the <code>createXXX</code> methods.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected QualityAnnotationSwitch<Adapter> modelSwitch =
 		new QualityAnnotationSwitch<Adapter>() {
-			@Override
-			public Adapter caseParameterValueDeviation(ParameterValueDeviation object) {
-				return createParameterValueDeviationAdapter();
-			}
-			@Override
-			public Adapter caseQualityAnnotation(QualityAnnotation object) {
-				return createQualityAnnotationAdapter();
-			}
-			@Override
-			public Adapter caseServiceSpecification(ServiceSpecification object) {
-				return createServiceSpecificationAdapter();
-			}
-			@Override
-			public Adapter caseRequiredElement(RequiredElement object) {
-				return createRequiredElementAdapter();
-			}
-			@Override
-			public Adapter caseRequiredElementDeviation(RequiredElementDeviation object) {
-				return createRequiredElementDeviationAdapter();
-			}
-			@Override
-			public Adapter caseInternalStateInfluenceAnalysisAggregation(InternalStateInfluenceAnalysisAggregation object) {
-				return createInternalStateInfluenceAnalysisAggregationAdapter();
-			}
-			@Override
-			public Adapter casePrecision(Precision object) {
-				return createPrecisionAdapter();
-			}
-			@Override
-			public Adapter caseREPrecision(REPrecision object) {
-				return createREPrecisionAdapter();
-			}
-			@Override
-			public Adapter caseProbabilisticElement(ProbabilisticElement object) {
-				return createProbabilisticElementAdapter();
-			}
-			@Override
-			public Adapter caseCharacterisedPCMParameterPartition(CharacterisedPCMParameterPartition object) {
-				return createCharacterisedPCMParameterPartitionAdapter();
-			}
-			@Override
-			public Adapter casePCMParameterPartition(PCMParameterPartition object) {
-				return createPCMParameterPartitionAdapter();
-			}
-			@Override
-			public Adapter caseCharacterisedPCMParameterPartitionInterval(CharacterisedPCMParameterPartitionInterval object) {
-				return createCharacterisedPCMParameterPartitionIntervalAdapter();
-			}
-			@Override
-			public Adapter caseCharacterisedPCMParameterPartitionRange(CharacterisedPCMParameterPartitionRange object) {
-				return createCharacterisedPCMParameterPartitionRangeAdapter();
-			}
-			@Override
-			public Adapter caseExactlyAsSpecifiedPrecision(ExactlyAsSpecifiedPrecision object) {
-				return createExactlyAsSpecifiedPrecisionAdapter();
-			}
-			@Override
-			public Adapter caseLimitedDeviationPrecision(LimitedDeviationPrecision object) {
-				return createLimitedDeviationPrecisionAdapter();
-			}
-			@Override
-			public Adapter caseNoPrecision(NoPrecision object) {
-				return createNoPrecisionAdapter();
-			}
-			@Override
-			public Adapter casePCMRECategory(PCMRECategory object) {
-				return createPCMRECategoryAdapter();
-			}
-			@Override
-			public Adapter casePCMRE(PCMRE object) {
-				return createPCMREAdapter();
-			}
-			@Override
-			public Adapter casePCMREInterface(PCMREInterface object) {
-				return createPCMREInterfaceAdapter();
-			}
-			@Override
-			public Adapter casePCMRERole(PCMRERole object) {
-				return createPCMRERoleAdapter();
-			}
-			@Override
-			public Adapter casePCMRESignature(PCMRESignature object) {
-				return createPCMRESignatureAdapter();
-			}
-			@Override
-			public Adapter casePCMServiceSpecification(PCMServiceSpecification object) {
-				return createPCMServiceSpecificationAdapter();
-			}
-			@Override
-			public Adapter casePCMREResourceInterface(PCMREResourceInterface object) {
-				return createPCMREResourceInterfaceAdapter();
-			}
-			@Override
-			public Adapter casePCMREResourceSignature(PCMREResourceSignature object) {
-				return createPCMREResourceSignatureAdapter();
-			}
-			@Override
-			public Adapter casePCMREResource(PCMREResource object) {
-				return createPCMREResourceAdapter();
-			}
-			@Override
-			public Adapter casePCMREResourceRole(PCMREResourceRole object) {
-				return createPCMREResourceRoleAdapter();
-			}
-			@Override
-			public Adapter casePCMRECIBehavior(PCMRECIBehavior object) {
-				return createPCMRECIBehaviorAdapter();
-			}
-			@Override
-			public Adapter casePCMREInfrastructureInterface(PCMREInfrastructureInterface object) {
-				return createPCMREInfrastructureInterfaceAdapter();
-			}
-			@Override
-			public Adapter casePCMREInfrastructureRole(PCMREInfrastructureRole object) {
-				return createPCMREInfrastructureRoleAdapter();
-			}
-			@Override
-			public Adapter casePCMREInfrastructureSignature(PCMREInfrastructureSignature object) {
-				return createPCMREInfrastructureSignatureAdapter();
-			}
-			@Override
-			public Adapter casePCMPE(PCMPE object) {
-				return createPCMPEAdapter();
-			}
-			@Override
-			public Adapter casePCMPEAllDecisions(PCMPEAllDecisions object) {
-				return createPCMPEAllDecisionsAdapter();
-			}
-			@Override
-			public Adapter casePCMPEDecision(PCMPEDecision object) {
-				return createPCMPEDecisionAdapter();
-			}
-			@Override
-			public Adapter caseIdentifier(Identifier object) {
-				return createIdentifierAdapter();
-			}
-			@Override
-			public Adapter caseQualityStatement(QualityStatement object) {
-				return createQualityStatementAdapter();
-			}
-			@Override
-			public Adapter caseParameterPartition(ParameterPartition object) {
-				return createParameterPartitionAdapter();
-			}
-			@Override
-			public Adapter defaultCase(EObject object) {
-				return createEObjectAdapter();
-			}
-		};
+            @Override
+            public Adapter caseParameterValueDeviation(ParameterValueDeviation object) {
+                return createParameterValueDeviationAdapter();
+            }
+            @Override
+            public Adapter caseQualityAnnotation(QualityAnnotation object) {
+                return createQualityAnnotationAdapter();
+            }
+            @Override
+            public Adapter caseServiceSpecification(ServiceSpecification object) {
+                return createServiceSpecificationAdapter();
+            }
+            @Override
+            public Adapter caseRequiredElement(RequiredElement object) {
+                return createRequiredElementAdapter();
+            }
+            @Override
+            public Adapter caseRequiredElementDeviation(RequiredElementDeviation object) {
+                return createRequiredElementDeviationAdapter();
+            }
+            @Override
+            public Adapter caseInternalStateInfluenceAnalysisAggregation(InternalStateInfluenceAnalysisAggregation object) {
+                return createInternalStateInfluenceAnalysisAggregationAdapter();
+            }
+            @Override
+            public Adapter casePrecision(Precision object) {
+                return createPrecisionAdapter();
+            }
+            @Override
+            public Adapter caseREPrecision(REPrecision object) {
+                return createREPrecisionAdapter();
+            }
+            @Override
+            public Adapter caseProbabilisticElement(ProbabilisticElement object) {
+                return createProbabilisticElementAdapter();
+            }
+            @Override
+            public Adapter caseCharacterisedPCMParameterPartition(CharacterisedPCMParameterPartition object) {
+                return createCharacterisedPCMParameterPartitionAdapter();
+            }
+            @Override
+            public Adapter casePCMParameterPartition(PCMParameterPartition object) {
+                return createPCMParameterPartitionAdapter();
+            }
+            @Override
+            public Adapter caseCharacterisedPCMParameterPartitionInterval(CharacterisedPCMParameterPartitionInterval object) {
+                return createCharacterisedPCMParameterPartitionIntervalAdapter();
+            }
+            @Override
+            public Adapter caseCharacterisedPCMParameterPartitionRange(CharacterisedPCMParameterPartitionRange object) {
+                return createCharacterisedPCMParameterPartitionRangeAdapter();
+            }
+            @Override
+            public Adapter caseExactlyAsSpecifiedPrecision(ExactlyAsSpecifiedPrecision object) {
+                return createExactlyAsSpecifiedPrecisionAdapter();
+            }
+            @Override
+            public Adapter caseLimitedDeviationPrecision(LimitedDeviationPrecision object) {
+                return createLimitedDeviationPrecisionAdapter();
+            }
+            @Override
+            public Adapter caseNoPrecision(NoPrecision object) {
+                return createNoPrecisionAdapter();
+            }
+            @Override
+            public Adapter casePCMRECategory(PCMRECategory object) {
+                return createPCMRECategoryAdapter();
+            }
+            @Override
+            public Adapter casePCMRE(PCMRE object) {
+                return createPCMREAdapter();
+            }
+            @Override
+            public Adapter casePCMREInterface(PCMREInterface object) {
+                return createPCMREInterfaceAdapter();
+            }
+            @Override
+            public Adapter casePCMRERole(PCMRERole object) {
+                return createPCMRERoleAdapter();
+            }
+            @Override
+            public Adapter casePCMRESignature(PCMRESignature object) {
+                return createPCMRESignatureAdapter();
+            }
+            @Override
+            public Adapter casePCMServiceSpecification(PCMServiceSpecification object) {
+                return createPCMServiceSpecificationAdapter();
+            }
+            @Override
+            public Adapter casePCMREResourceInterface(PCMREResourceInterface object) {
+                return createPCMREResourceInterfaceAdapter();
+            }
+            @Override
+            public Adapter casePCMREResourceSignature(PCMREResourceSignature object) {
+                return createPCMREResourceSignatureAdapter();
+            }
+            @Override
+            public Adapter casePCMREResource(PCMREResource object) {
+                return createPCMREResourceAdapter();
+            }
+            @Override
+            public Adapter casePCMREResourceRole(PCMREResourceRole object) {
+                return createPCMREResourceRoleAdapter();
+            }
+            @Override
+            public Adapter casePCMRECIBehavior(PCMRECIBehavior object) {
+                return createPCMRECIBehaviorAdapter();
+            }
+            @Override
+            public Adapter casePCMREInfrastructureInterface(PCMREInfrastructureInterface object) {
+                return createPCMREInfrastructureInterfaceAdapter();
+            }
+            @Override
+            public Adapter casePCMREInfrastructureRole(PCMREInfrastructureRole object) {
+                return createPCMREInfrastructureRoleAdapter();
+            }
+            @Override
+            public Adapter casePCMREInfrastructureSignature(PCMREInfrastructureSignature object) {
+                return createPCMREInfrastructureSignatureAdapter();
+            }
+            @Override
+            public Adapter casePCMPE(PCMPE object) {
+                return createPCMPEAdapter();
+            }
+            @Override
+            public Adapter casePCMPEAllDecisions(PCMPEAllDecisions object) {
+                return createPCMPEAllDecisionsAdapter();
+            }
+            @Override
+            public Adapter casePCMPEDecision(PCMPEDecision object) {
+                return createPCMPEDecisionAdapter();
+            }
+            @Override
+            public Adapter caseIdentifier(Identifier object) {
+                return createIdentifierAdapter();
+            }
+            @Override
+            public Adapter caseQualityStatement(QualityStatement object) {
+                return createQualityStatementAdapter();
+            }
+            @Override
+            public Adapter caseParameterPartition(ParameterPartition object) {
+                return createParameterPartitionAdapter();
+            }
+            @Override
+            public Adapter defaultCase(EObject object) {
+                return createEObjectAdapter();
+            }
+        };
 
 	/**
-	 * Creates an adapter for the <code>target</code>.
-	 * <!-- begin-user-doc -->
+     * Creates an adapter for the <code>target</code>.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param target the object to adapt.
-	 * @return the adapter for the <code>target</code>.
-	 * @generated
-	 */
+     * @param target the object to adapt.
+     * @return the adapter for the <code>target</code>.
+     * @generated
+     */
 	@Override
 	public Adapter createAdapter(Notifier target) {
-		return modelSwitch.doSwitch((EObject)target);
-	}
+        return modelSwitch.doSwitch((EObject)target);
+    }
 
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation <em>Parameter Value Deviation</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation <em>Parameter Value Deviation</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.ParameterValueDeviation
+     * @generated
+     */
 	public Adapter createParameterValueDeviationAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation <em>Quality Annotation</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.QualityAnnotation <em>Quality Annotation</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotation
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.QualityAnnotation
+     * @generated
+     */
 	public Adapter createQualityAnnotationAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ServiceSpecification <em>Service Specification</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ServiceSpecification <em>Service Specification</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.ServiceSpecification
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.ServiceSpecification
+     * @generated
+     */
 	public Adapter createServiceSpecificationAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.RequiredElement <em>Required Element</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.RequiredElement <em>Required Element</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.RequiredElement
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.RequiredElement
+     * @generated
+     */
 	public Adapter createRequiredElementAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation <em>Required Element Deviation</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation <em>Required Element Deviation</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.RequiredElementDeviation
+     * @generated
+     */
 	public Adapter createRequiredElementDeviationAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation <em>Internal State Influence Analysis Aggregation</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation
+     * @generated
+     */
 	public Adapter createInternalStateInfluenceAnalysisAggregationAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.REPrecision <em>RE Precision</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.REPrecision <em>RE Precision</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.REPrecision
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.REPrecision
+     * @generated
+     */
 	public Adapter createREPrecisionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement <em>Probabilistic Element</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ProbabilisticElement <em>Probabilistic Element</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.ProbabilisticElement
+     * @generated
+     */
 	public Adapter createProbabilisticElementAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.Precision <em>Precision</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.Precision <em>Precision</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.Precision
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.Precision
+     * @generated
+     */
 	public Adapter createPrecisionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMParameterPartition <em>PCM Parameter Partition</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMParameterPartition <em>PCM Parameter Partition</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMParameterPartition
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMParameterPartition
+     * @generated
+     */
 	public Adapter createPCMParameterPartitionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition <em>Characterised PCM Parameter Partition</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition <em>Characterised PCM Parameter Partition</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartition
+     * @generated
+     */
 	public Adapter createCharacterisedPCMParameterPartitionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval <em>Characterised PCM Parameter Partition Interval</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval <em>Characterised PCM Parameter Partition Interval</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval
+     * @generated
+     */
 	public Adapter createCharacterisedPCMParameterPartitionIntervalAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange <em>Characterised PCM Parameter Partition Range</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange <em>Characterised PCM Parameter Partition Range</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange
+     * @generated
+     */
 	public Adapter createCharacterisedPCMParameterPartitionRangeAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision <em>Exactly As Specified Precision</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision <em>Exactly As Specified Precision</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision
+     * @generated
+     */
 	public Adapter createExactlyAsSpecifiedPrecisionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision <em>Limited Deviation Precision</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision <em>Limited Deviation Precision</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision
+     * @generated
+     */
 	public Adapter createLimitedDeviationPrecisionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.NoPrecision <em>No Precision</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.NoPrecision <em>No Precision</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.NoPrecision
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.NoPrecision
+     * @generated
+     */
 	public Adapter createNoPrecisionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRECategory <em>PCMRE Category</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRECategory <em>PCMRE Category</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMRECategory
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMRECategory
+     * @generated
+     */
 	public Adapter createPCMRECategoryAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRE <em>PCMRE</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRE <em>PCMRE</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMRE
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMRE
+     * @generated
+     */
 	public Adapter createPCMREAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInterface <em>PCMRE Interface</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInterface <em>PCMRE Interface</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREInterface
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREInterface
+     * @generated
+     */
 	public Adapter createPCMREInterfaceAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRERole <em>PCMRE Role</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRERole <em>PCMRE Role</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMRERole
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMRERole
+     * @generated
+     */
 	public Adapter createPCMRERoleAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRESignature <em>PCMRE Signature</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRESignature <em>PCMRE Signature</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMRESignature
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMRESignature
+     * @generated
+     */
 	public Adapter createPCMRESignatureAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification <em>PCM Service Specification</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification <em>PCM Service Specification</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMServiceSpecification
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMServiceSpecification
+     * @generated
+     */
 	public Adapter createPCMServiceSpecificationAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceInterface <em>PCMRE Resource Interface</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceInterface <em>PCMRE Resource Interface</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceInterface
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREResourceInterface
+     * @generated
+     */
 	public Adapter createPCMREResourceInterfaceAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceSignature <em>PCMRE Resource Signature</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceSignature <em>PCMRE Resource Signature</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceSignature
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREResourceSignature
+     * @generated
+     */
 	public Adapter createPCMREResourceSignatureAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResource <em>PCMRE Resource</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResource <em>PCMRE Resource</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREResource
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREResource
+     * @generated
+     */
 	public Adapter createPCMREResourceAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceRole <em>PCMRE Resource Role</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREResourceRole <em>PCMRE Resource Role</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREResourceRole
+     * @generated
+     */
 	public Adapter createPCMREResourceRoleAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior <em>PCMRECI Behavior</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior <em>PCMRECI Behavior</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMRECIBehavior
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMRECIBehavior
+     * @generated
+     */
 	public Adapter createPCMRECIBehaviorAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface <em>PCMRE Infrastructure Interface</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface <em>PCMRE Infrastructure Interface</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface
+     * @generated
+     */
 	public Adapter createPCMREInfrastructureInterfaceAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole <em>PCMRE Infrastructure Role</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole <em>PCMRE Infrastructure Role</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole
+     * @generated
+     */
 	public Adapter createPCMREInfrastructureRoleAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature <em>PCMRE Infrastructure Signature</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature <em>PCMRE Infrastructure Signature</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature
+     * @generated
+     */
 	public Adapter createPCMREInfrastructureSignatureAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPE <em>PCMPE</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPE <em>PCMPE</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMPE
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMPE
+     * @generated
+     */
 	public Adapter createPCMPEAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions <em>PCMPE All Decisions</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions <em>PCMPE All Decisions</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMPEAllDecisions
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMPEAllDecisions
+     * @generated
+     */
 	public Adapter createPCMPEAllDecisionsAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPEDecision <em>PCMPE Decision</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.qualityannotation.PCMPEDecision <em>PCMPE Decision</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.qualityannotation.PCMPEDecision
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.qualityannotation.PCMPEDecision
+     * @generated
+     */
 	public Adapter createPCMPEDecisionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.uka.ipd.sdq.identifier.Identifier <em>Identifier</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.uka.ipd.sdq.identifier.Identifier
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.uka.ipd.sdq.identifier.Identifier
+     * @generated
+     */
 	public Adapter createIdentifierAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.QualityStatement <em>Statement</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.QualityStatement <em>Statement</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.QualityStatement
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.QualityStatement
+     * @generated
+     */
 	public Adapter createQualityStatementAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for an object of class '{@link de.fzi.se.quality.parameters.ParameterPartition <em>Parameter Partition</em>}'.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for an object of class '{@link de.fzi.se.quality.parameters.ParameterPartition <em>Parameter Partition</em>}'.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null so that we can easily ignore cases;
 	 * it's useful to ignore a case when inheritance will catch all the cases anyway.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @see de.fzi.se.quality.parameters.ParameterPartition
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @see de.fzi.se.quality.parameters.ParameterPartition
+     * @generated
+     */
 	public Adapter createParameterPartitionAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * Creates a new adapter for the default case.
-	 * <!-- begin-user-doc -->
+     * Creates a new adapter for the default case.
+     * <!-- begin-user-doc -->
 	 * This default implementation returns null.
 	 * <!-- end-user-doc -->
-	 * @return the new adapter.
-	 * @generated
-	 */
+     * @return the new adapter.
+     * @generated
+     */
 	public Adapter createEObjectAdapter() {
-		return null;
-	}
+        return null;
+    }
 
 } //QualityAnnotationAdapterFactory

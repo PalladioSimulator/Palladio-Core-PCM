@@ -30,45 +30,45 @@ import org.eclipse.emf.ecore.EObject;
  */
 public interface UsageModel extends EObject {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>User Data Usage Model</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.UserData}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model User Data</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>User Data Usage Model</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.UserData}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model User Data</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>User Data Usage Model</em>' containment reference list isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>User Data Usage Model</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UserData_UsageModel()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
-	 * @model opposite="usageModel_UserData" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>User Data Usage Model</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UserData_UsageModel()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
+     * @model opposite="usageModel_UserData" containment="true" ordered="false"
+     * @generated
+     */
     EList<UserData> getUserData_UsageModel();
 
     /**
-	 * Returns the value of the '<em><b>Usage Scenario Usage Model</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario <em>Usage Model Usage Scenario</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Usage Scenario Usage Model</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario <em>Usage Model Usage Scenario</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Scenario Usage Model</em>' containment reference list isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Usage Scenario Usage Model</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UsageScenario_UsageModel()
-	 * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
-	 * @model opposite="usageModel_UsageScenario" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Usage Scenario Usage Model</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUsageModel_UsageScenario_UsageModel()
+     * @see de.uka.ipd.sdq.pcm.usagemodel.UsageScenario#getUsageModel_UsageScenario
+     * @model opposite="usageModel_UsageScenario" containment="true" ordered="false"
+     * @generated
+     */
     EList<UsageScenario> getUsageScenario_UsageModel();
 
 } // UsageModel

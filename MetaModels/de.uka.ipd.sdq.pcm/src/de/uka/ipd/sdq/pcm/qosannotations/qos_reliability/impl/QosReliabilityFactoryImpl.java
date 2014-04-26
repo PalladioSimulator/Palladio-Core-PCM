@@ -3,7 +3,6 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.impl;
 
-import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.*;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
@@ -20,76 +19,76 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnn
  */
 public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliabilityFactory {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Creates the default factory implementation.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates the default factory implementation.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static QosReliabilityFactory init() {
-		try {
-			QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory(QosReliabilityPackage.eNS_URI);
-			if (theQosReliabilityFactory != null) {
-				return theQosReliabilityFactory;
-			}
-		}
-		catch (Exception exception) {
-			EcorePlugin.INSTANCE.log(exception);
-		}
-		return new QosReliabilityFactoryImpl();
-	}
+        try {
+            QosReliabilityFactory theQosReliabilityFactory = (QosReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory(QosReliabilityPackage.eNS_URI);
+            if (theQosReliabilityFactory != null) {
+                return theQosReliabilityFactory;
+            }
+        }
+        catch (Exception exception) {
+            EcorePlugin.INSTANCE.log(exception);
+        }
+        return new QosReliabilityFactoryImpl();
+    }
 
     /**
-	 * Creates an instance of the factory.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the factory.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public QosReliabilityFactoryImpl() {
-		super();
-	}
+        super();
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     @Override
     public EObject create(EClass eClass) {
-		switch (eClass.getClassifierID()) {
-			case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION: return createSpecifiedReliabilityAnnotation();
-			default:
-				throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
-		}
-	}
+        switch (eClass.getClassifierID()) {
+            case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION: return createSpecifiedReliabilityAnnotation();
+            default:
+                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        }
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public SpecifiedReliabilityAnnotation createSpecifiedReliabilityAnnotation() {
-		SpecifiedReliabilityAnnotationImpl specifiedReliabilityAnnotation = new SpecifiedReliabilityAnnotationImpl();
-		return specifiedReliabilityAnnotation;
-	}
+        SpecifiedReliabilityAnnotationImpl specifiedReliabilityAnnotation = new SpecifiedReliabilityAnnotationImpl();
+        return specifiedReliabilityAnnotation;
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public QosReliabilityPackage getQosReliabilityPackage() {
-		return (QosReliabilityPackage)getEPackage();
-	}
+        return (QosReliabilityPackage)getEPackage();
+    }
 
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @deprecated
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @deprecated
+     * @generated
+     */
     @Deprecated
     public static QosReliabilityPackage getPackage() {
-		return QosReliabilityPackage.eINSTANCE;
-	}
+        return QosReliabilityPackage.eINSTANCE;
+    }
 
 } // QosReliabilityFactoryImpl

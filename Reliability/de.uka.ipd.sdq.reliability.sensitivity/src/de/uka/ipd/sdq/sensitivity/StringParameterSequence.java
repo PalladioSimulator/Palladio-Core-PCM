@@ -33,18 +33,18 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface StringParameterSequence extends SensitivityParameterVariation {
 	/**
-	 * Returns the value of the '<em><b>String Values</b></em>' attribute list.
-	 * The list contents are of type {@link java.lang.String}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>String Values</b></em>' attribute list.
+     * The list contents are of type {@link java.lang.String}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * The&nbsp;list&nbsp;of&nbsp;STRING&nbsp;values.
-	 * <!-- end-model-doc -->
-	 * @return the value of the '<em>String Values</em>' attribute list.
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getStringParameterSequence_StringValues()
-	 * @model unique="false" required="true" ordered="false"
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * The&nbsp;list&nbsp;of&nbsp;STRING&nbsp;values.
+     * <!-- end-model-doc -->
+     * @return the value of the '<em>String Values</em>' attribute list.
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getStringParameterSequence_StringValues()
+     * @model unique="false" required="true" ordered="false"
+     * @generated
+     */
 	EList<String> getStringValues();
 
 } // StringParameterSequence

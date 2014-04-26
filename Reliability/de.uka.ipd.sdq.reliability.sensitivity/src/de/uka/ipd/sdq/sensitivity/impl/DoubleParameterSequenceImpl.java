@@ -30,120 +30,120 @@ import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
  */
 public class DoubleParameterSequenceImpl extends DoubleParameterVariationImpl implements DoubleParameterSequence {
 	/**
-	 * The cached value of the '{@link #getDoubleValues() <em>Double Values</em>}' attribute list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getDoubleValues() <em>Double Values</em>}' attribute list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getDoubleValues()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getDoubleValues()
+     * @generated
+     * @ordered
+     */
 	protected EList<Double> doubleValues;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected DoubleParameterSequenceImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.DOUBLE_PARAMETER_SEQUENCE;
-	}
+        return SensitivityPackage.Literals.DOUBLE_PARAMETER_SEQUENCE;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<Double> getDoubleValues() {
-		if (doubleValues == null) {
-			doubleValues = new EDataTypeEList<Double>(Double.class, this, SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES);
-		}
-		return doubleValues;
-	}
+        if (doubleValues == null) {
+            doubleValues = new EDataTypeEList<Double>(Double.class, this, SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES);
+        }
+        return doubleValues;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
-				return getDoubleValues();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
+                return getDoubleValues();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
-				getDoubleValues().clear();
-				getDoubleValues().addAll((Collection<? extends Double>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
+                getDoubleValues().clear();
+                getDoubleValues().addAll((Collection<? extends Double>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
-				getDoubleValues().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
+                getDoubleValues().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
-				return doubleValues != null && !doubleValues.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.DOUBLE_PARAMETER_SEQUENCE__DOUBLE_VALUES:
+                return doubleValues != null && !doubleValues.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (doubleValues: ");
-		result.append(doubleValues);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (doubleValues: ");
+        result.append(doubleValues);
+        result.append(')');
+        return result.toString();
+    }
 
 } //DoubleParameterSequenceImpl

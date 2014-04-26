@@ -23,30 +23,30 @@ import de.uka.ipd.sdq.sensitivity.SensitivityPackage;
 public class SensitivityXMLProcessor extends XMLProcessor {
 
 	/**
-	 * Public constructor to instantiate the helper.
-	 * <!-- begin-user-doc -->
+     * Public constructor to instantiate the helper.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public SensitivityXMLProcessor() {
-		super((EPackage.Registry.INSTANCE));
-		SensitivityPackage.eINSTANCE.eClass();
-	}
+        super((EPackage.Registry.INSTANCE));
+        SensitivityPackage.eINSTANCE.eClass();
+    }
 	
 	/**
-	 * Register for "*" and "xml" file extensions the SensitivityResourceFactoryImpl factory.
-	 * <!-- begin-user-doc -->
+     * Register for "*" and "xml" file extensions the SensitivityResourceFactoryImpl factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected Map<String, Resource.Factory> getRegistrations() {
-		if (registrations == null) {
-			super.getRegistrations();
-			registrations.put(XML_EXTENSION, new SensitivityResourceFactoryImpl());
-			registrations.put(STAR_EXTENSION, new SensitivityResourceFactoryImpl());
-		}
-		return registrations;
-	}
+        if (registrations == null) {
+            super.getRegistrations();
+            registrations.put(XML_EXTENSION, new SensitivityResourceFactoryImpl());
+            registrations.put(STAR_EXTENSION, new SensitivityResourceFactoryImpl());
+        }
+        return registrations;
+    }
 
 } //SensitivityXMLProcessor

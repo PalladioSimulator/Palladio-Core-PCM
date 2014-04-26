@@ -38,55 +38,55 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  */
 public interface CharacterisedPCMParameterPartitionInterval extends CharacterisedPCMParameterPartition {
 	/**
-	 * Returns the value of the '<em><b>From</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>From</b></em>' containment reference.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>From</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>From</em>' containment reference.
-	 * @see #setFrom(PCMRandomVariable)
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartitionInterval_From()
-	 * @model containment="true" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>From</em>' containment reference.
+     * @see #setFrom(PCMRandomVariable)
+     * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartitionInterval_From()
+     * @model containment="true" required="true" ordered="false"
+     * @generated
+     */
 	PCMRandomVariable getFrom();
 
 	/**
-	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval#getFrom <em>From</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval#getFrom <em>From</em>}' containment reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>From</em>' containment reference.
-	 * @see #getFrom()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>From</em>' containment reference.
+     * @see #getFrom()
+     * @generated
+     */
 	void setFrom(PCMRandomVariable value);
 
 	/**
-	 * Returns the value of the '<em><b>To</b></em>' containment reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>To</b></em>' containment reference.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>To</em>' containment reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>To</em>' containment reference.
-	 * @see #setTo(PCMRandomVariable)
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartitionInterval_To()
-	 * @model containment="true" required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>To</em>' containment reference.
+     * @see #setTo(PCMRandomVariable)
+     * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getCharacterisedPCMParameterPartitionInterval_To()
+     * @model containment="true" required="true" ordered="false"
+     * @generated
+     */
 	PCMRandomVariable getTo();
 
 	/**
-	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval#getTo <em>To</em>}' containment reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval#getTo <em>To</em>}' containment reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>To</em>' containment reference.
-	 * @see #getTo()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>To</em>' containment reference.
+     * @see #getTo()
+     * @generated
+     */
 	void setTo(PCMRandomVariable value);
 
 } // CharacterisedPCMParameterPartitionInterval

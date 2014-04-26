@@ -32,19 +32,19 @@ import de.uka.ipd.sdq.pcm.reliability.FailureType;
  */
 public interface FailureTypeResultSpecification extends SensitivityResultSpecification {
 	/**
-	 * Returns the value of the '<em><b>Failure Types Failure Type Result Specification</b></em>' reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.reliability.FailureType}.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Failure Types Failure Type Result Specification</b></em>' reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.reliability.FailureType}.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Failure Types Failure Type Result Specification</em>' reference list isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Failure Types Failure Type Result Specification</em>' reference list.
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getFailureTypeResultSpecification_FailureTypes__FailureTypeResultSpecification()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Failure Types Failure Type Result Specification</em>' reference list.
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getFailureTypeResultSpecification_FailureTypes__FailureTypeResultSpecification()
+     * @model required="true" ordered="false"
+     * @generated
+     */
 	EList<FailureType> getFailureTypes__FailureTypeResultSpecification();
 
 } // FailureTypeResultSpecification

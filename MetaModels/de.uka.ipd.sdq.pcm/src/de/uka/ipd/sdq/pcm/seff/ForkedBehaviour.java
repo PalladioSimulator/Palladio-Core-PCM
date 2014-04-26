@@ -27,65 +27,65 @@ package de.uka.ipd.sdq.pcm.seff;
  */
 public interface ForkedBehaviour extends ResourceDemandingBehaviour {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Synchronisation Point Forked Behaviour</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint <em>Synchronous Forked Behaviours Synchronisation Point</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Synchronisation Point Forked Behaviour</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint <em>Synchronous Forked Behaviours Synchronisation Point</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Synchronisation Point Forked Behaviour</em>' container reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Synchronisation Point Forked Behaviour</em>' container reference.
-	 * @see #setSynchronisationPoint_ForkedBehaviour(SynchronisationPoint)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour_SynchronisationPoint_ForkedBehaviour()
-	 * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
-	 * @model opposite="synchronousForkedBehaviours_SynchronisationPoint" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Synchronisation Point Forked Behaviour</em>' container reference.
+     * @see #setSynchronisationPoint_ForkedBehaviour(SynchronisationPoint)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour_SynchronisationPoint_ForkedBehaviour()
+     * @see de.uka.ipd.sdq.pcm.seff.SynchronisationPoint#getSynchronousForkedBehaviours_SynchronisationPoint
+     * @model opposite="synchronousForkedBehaviours_SynchronisationPoint" transient="false" ordered="false"
+     * @generated
+     */
     SynchronisationPoint getSynchronisationPoint_ForkedBehaviour();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour <em>Synchronisation Point Forked Behaviour</em>}' container reference.
-	 * <!-- begin-user-doc
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getSynchronisationPoint_ForkedBehaviour <em>Synchronisation Point Forked Behaviour</em>}' container reference.
+     * <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Synchronisation Point Forked Behaviour</em>' container reference.
-	 * @see #getSynchronisationPoint_ForkedBehaviour()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Synchronisation Point Forked Behaviour</em>' container reference.
+     * @see #getSynchronisationPoint_ForkedBehaviour()
+     * @generated
+     */
     void setSynchronisationPoint_ForkedBehaviour(SynchronisationPoint value);
 
     /**
-	 * Returns the value of the '<em><b>Fork Action Forked Behaivour</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction <em>Asynchronous Forked Behaviours Fork Action</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Fork Action Forked Behaivour</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction <em>Asynchronous Forked Behaviours Fork Action</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Fork Action Forked Behaivour</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Fork Action Forked Behaivour</em>' container reference.
-	 * @see #setForkAction_ForkedBehaivour(ForkAction)
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour_ForkAction_ForkedBehaivour()
-	 * @see de.uka.ipd.sdq.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction
-	 * @model opposite="asynchronousForkedBehaviours_ForkAction" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Fork Action Forked Behaivour</em>' container reference.
+     * @see #setForkAction_ForkedBehaivour(ForkAction)
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getForkedBehaviour_ForkAction_ForkedBehaivour()
+     * @see de.uka.ipd.sdq.pcm.seff.ForkAction#getAsynchronousForkedBehaviours_ForkAction
+     * @model opposite="asynchronousForkedBehaviours_ForkAction" transient="false" ordered="false"
+     * @generated
+     */
     ForkAction getForkAction_ForkedBehaivour();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork Action Forked Behaivour</em>}' container reference.
-	 * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.ForkedBehaviour#getForkAction_ForkedBehaivour <em>Fork Action Forked Behaivour</em>}' container reference.
+     * <!-- begin-user-doc --> <!--
      * end-user-doc -->
-	 * @param value the new value of the '<em>Fork Action Forked Behaivour</em>' container reference.
-	 * @see #getForkAction_ForkedBehaivour()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Fork Action Forked Behaivour</em>' container reference.
+     * @see #getForkAction_ForkedBehaivour()
+     * @generated
+     */
     void setForkAction_ForkedBehaivour(ForkAction value);
 
 } // ForkedBehaviour

@@ -5,10 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import java.util.Map;
-
-import org.eclipse.emf.common.util.DiagnosticChain;
-
 import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
 
 /**
@@ -26,9 +22,9 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity;
  */
 public interface CompositeComponent extends ComposedProvidingRequiringEntity, ImplementationComponentType {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
 } // CompositeComponent

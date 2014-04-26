@@ -28,28 +28,28 @@ import de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType;
  */
 public interface CommunicationLinkResourceType extends ResourceType {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Network Induced Failure Type Communication Link Resource Type</b></em>' reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType <em>Communication Link Resource Type Network Induced Failure Type</em>}'.
-	 * <!-- begin-user-doc
+     * Returns the value of the '<em><b>Network Induced Failure Type Communication Link Resource Type</b></em>' reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType <em>Communication Link Resource Type Network Induced Failure Type</em>}'.
+     * <!-- begin-user-doc
      * -->
      * <p>
      * If the meaning of the '<em>Network Induced Failure Type Communication Link Resource Type</em>
      * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Network Induced Failure Type Communication Link Resource Type</em>' reference.
-	 * @see #setNetworkInducedFailureType__CommunicationLinkResourceType(NetworkInducedFailureType)
-	 * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType()
-	 * @see de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType
-	 * @model opposite="communicationLinkResourceType__NetworkInducedFailureType" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Network Induced Failure Type Communication Link Resource Type</em>' reference.
+     * @see #setNetworkInducedFailureType__CommunicationLinkResourceType(NetworkInducedFailureType)
+     * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getCommunicationLinkResourceType_NetworkInducedFailureType__CommunicationLinkResourceType()
+     * @see de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType#getCommunicationLinkResourceType__NetworkInducedFailureType
+     * @model opposite="communicationLinkResourceType__NetworkInducedFailureType" ordered="false"
+     * @generated
+     */
     NetworkInducedFailureType getNetworkInducedFailureType__CommunicationLinkResourceType();
 
     /**

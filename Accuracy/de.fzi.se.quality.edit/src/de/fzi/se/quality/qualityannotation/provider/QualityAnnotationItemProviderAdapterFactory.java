@@ -38,766 +38,766 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class QualityAnnotationItemProviderAdapterFactory extends QualityAnnotationAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the root adapter factory that delegates to this adapter factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-	 * <!-- begin-user-doc -->
+     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-	 * <!-- begin-user-doc -->
+     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This constructs an instance.
-	 * <!-- begin-user-doc -->
+     * This constructs an instance.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public QualityAnnotationItemProviderAdapterFactory() {
-		supportedTypes.add(IEditingDomainItemProvider.class);
-		supportedTypes.add(IStructuredItemContentProvider.class);
-		supportedTypes.add(ITreeItemContentProvider.class);
-		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);
-	}
+        supportedTypes.add(IEditingDomainItemProvider.class);
+        supportedTypes.add(IStructuredItemContentProvider.class);
+        supportedTypes.add(ITreeItemContentProvider.class);
+        supportedTypes.add(IItemLabelProvider.class);
+        supportedTypes.add(IItemPropertySource.class);
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ParameterValueDeviationItemProvider parameterValueDeviationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.ParameterValueDeviation}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createParameterValueDeviationAdapter() {
-		if (parameterValueDeviationItemProvider == null) {
-			parameterValueDeviationItemProvider = new ParameterValueDeviationItemProvider(this);
-		}
+        if (parameterValueDeviationItemProvider == null) {
+            parameterValueDeviationItemProvider = new ParameterValueDeviationItemProvider(this);
+        }
 
-		return parameterValueDeviationItemProvider;
-	}
+        return parameterValueDeviationItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.QualityAnnotation} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.QualityAnnotation} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected QualityAnnotationItemProvider qualityAnnotationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.QualityAnnotation}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.QualityAnnotation}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createQualityAnnotationAdapter() {
-		if (qualityAnnotationItemProvider == null) {
-			qualityAnnotationItemProvider = new QualityAnnotationItemProvider(this);
-		}
+        if (qualityAnnotationItemProvider == null) {
+            qualityAnnotationItemProvider = new QualityAnnotationItemProvider(this);
+        }
 
-		return qualityAnnotationItemProvider;
-	}
+        return qualityAnnotationItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected RequiredElementDeviationItemProvider requiredElementDeviationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.RequiredElementDeviation}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createRequiredElementDeviationAdapter() {
-		if (requiredElementDeviationItemProvider == null) {
-			requiredElementDeviationItemProvider = new RequiredElementDeviationItemProvider(this);
-		}
+        if (requiredElementDeviationItemProvider == null) {
+            requiredElementDeviationItemProvider = new RequiredElementDeviationItemProvider(this);
+        }
 
-		return requiredElementDeviationItemProvider;
-	}
+        return requiredElementDeviationItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected InternalStateInfluenceAnalysisAggregationItemProvider internalStateInfluenceAnalysisAggregationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.InternalStateInfluenceAnalysisAggregation}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createInternalStateInfluenceAnalysisAggregationAdapter() {
-		if (internalStateInfluenceAnalysisAggregationItemProvider == null) {
-			internalStateInfluenceAnalysisAggregationItemProvider = new InternalStateInfluenceAnalysisAggregationItemProvider(this);
-		}
+        if (internalStateInfluenceAnalysisAggregationItemProvider == null) {
+            internalStateInfluenceAnalysisAggregationItemProvider = new InternalStateInfluenceAnalysisAggregationItemProvider(this);
+        }
 
-		return internalStateInfluenceAnalysisAggregationItemProvider;
-	}
+        return internalStateInfluenceAnalysisAggregationItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.REPrecision} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.REPrecision} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected REPrecisionItemProvider rePrecisionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.REPrecision}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.REPrecision}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createREPrecisionAdapter() {
-		if (rePrecisionItemProvider == null) {
-			rePrecisionItemProvider = new REPrecisionItemProvider(this);
-		}
+        if (rePrecisionItemProvider == null) {
+            rePrecisionItemProvider = new REPrecisionItemProvider(this);
+        }
 
-		return rePrecisionItemProvider;
-	}
+        return rePrecisionItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMParameterPartition} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMParameterPartition} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMParameterPartitionItemProvider pcmParameterPartitionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMParameterPartition}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMParameterPartition}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMParameterPartitionAdapter() {
-		if (pcmParameterPartitionItemProvider == null) {
-			pcmParameterPartitionItemProvider = new PCMParameterPartitionItemProvider(this);
-		}
+        if (pcmParameterPartitionItemProvider == null) {
+            pcmParameterPartitionItemProvider = new PCMParameterPartitionItemProvider(this);
+        }
 
-		return pcmParameterPartitionItemProvider;
-	}
+        return pcmParameterPartitionItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected CharacterisedPCMParameterPartitionIntervalItemProvider characterisedPCMParameterPartitionIntervalItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionInterval}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createCharacterisedPCMParameterPartitionIntervalAdapter() {
-		if (characterisedPCMParameterPartitionIntervalItemProvider == null) {
-			characterisedPCMParameterPartitionIntervalItemProvider = new CharacterisedPCMParameterPartitionIntervalItemProvider(this);
-		}
+        if (characterisedPCMParameterPartitionIntervalItemProvider == null) {
+            characterisedPCMParameterPartitionIntervalItemProvider = new CharacterisedPCMParameterPartitionIntervalItemProvider(this);
+        }
 
-		return characterisedPCMParameterPartitionIntervalItemProvider;
-	}
+        return characterisedPCMParameterPartitionIntervalItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected CharacterisedPCMParameterPartitionRangeItemProvider characterisedPCMParameterPartitionRangeItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.CharacterisedPCMParameterPartitionRange}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createCharacterisedPCMParameterPartitionRangeAdapter() {
-		if (characterisedPCMParameterPartitionRangeItemProvider == null) {
-			characterisedPCMParameterPartitionRangeItemProvider = new CharacterisedPCMParameterPartitionRangeItemProvider(this);
-		}
+        if (characterisedPCMParameterPartitionRangeItemProvider == null) {
+            characterisedPCMParameterPartitionRangeItemProvider = new CharacterisedPCMParameterPartitionRangeItemProvider(this);
+        }
 
-		return characterisedPCMParameterPartitionRangeItemProvider;
-	}
+        return characterisedPCMParameterPartitionRangeItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ExactlyAsSpecifiedPrecisionItemProvider exactlyAsSpecifiedPrecisionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.ExactlyAsSpecifiedPrecision}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createExactlyAsSpecifiedPrecisionAdapter() {
-		if (exactlyAsSpecifiedPrecisionItemProvider == null) {
-			exactlyAsSpecifiedPrecisionItemProvider = new ExactlyAsSpecifiedPrecisionItemProvider(this);
-		}
+        if (exactlyAsSpecifiedPrecisionItemProvider == null) {
+            exactlyAsSpecifiedPrecisionItemProvider = new ExactlyAsSpecifiedPrecisionItemProvider(this);
+        }
 
-		return exactlyAsSpecifiedPrecisionItemProvider;
-	}
+        return exactlyAsSpecifiedPrecisionItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected LimitedDeviationPrecisionItemProvider limitedDeviationPrecisionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.LimitedDeviationPrecision}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createLimitedDeviationPrecisionAdapter() {
-		if (limitedDeviationPrecisionItemProvider == null) {
-			limitedDeviationPrecisionItemProvider = new LimitedDeviationPrecisionItemProvider(this);
-		}
+        if (limitedDeviationPrecisionItemProvider == null) {
+            limitedDeviationPrecisionItemProvider = new LimitedDeviationPrecisionItemProvider(this);
+        }
 
-		return limitedDeviationPrecisionItemProvider;
-	}
+        return limitedDeviationPrecisionItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.NoPrecision} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.NoPrecision} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected NoPrecisionItemProvider noPrecisionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.NoPrecision}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.NoPrecision}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createNoPrecisionAdapter() {
-		if (noPrecisionItemProvider == null) {
-			noPrecisionItemProvider = new NoPrecisionItemProvider(this);
-		}
+        if (noPrecisionItemProvider == null) {
+            noPrecisionItemProvider = new NoPrecisionItemProvider(this);
+        }
 
-		return noPrecisionItemProvider;
-	}
+        return noPrecisionItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRECategory} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRECategory} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMRECategoryItemProvider pcmreCategoryItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRECategory}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRECategory}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMRECategoryAdapter() {
-		if (pcmreCategoryItemProvider == null) {
-			pcmreCategoryItemProvider = new PCMRECategoryItemProvider(this);
-		}
+        if (pcmreCategoryItemProvider == null) {
+            pcmreCategoryItemProvider = new PCMRECategoryItemProvider(this);
+        }
 
-		return pcmreCategoryItemProvider;
-	}
+        return pcmreCategoryItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInterface} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInterface} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREInterfaceItemProvider pcmreInterfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInterface}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInterface}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREInterfaceAdapter() {
-		if (pcmreInterfaceItemProvider == null) {
-			pcmreInterfaceItemProvider = new PCMREInterfaceItemProvider(this);
-		}
+        if (pcmreInterfaceItemProvider == null) {
+            pcmreInterfaceItemProvider = new PCMREInterfaceItemProvider(this);
+        }
 
-		return pcmreInterfaceItemProvider;
-	}
+        return pcmreInterfaceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRERole} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRERole} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMRERoleItemProvider pcmreRoleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRERole}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRERole}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMRERoleAdapter() {
-		if (pcmreRoleItemProvider == null) {
-			pcmreRoleItemProvider = new PCMRERoleItemProvider(this);
-		}
+        if (pcmreRoleItemProvider == null) {
+            pcmreRoleItemProvider = new PCMRERoleItemProvider(this);
+        }
 
-		return pcmreRoleItemProvider;
-	}
+        return pcmreRoleItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRESignature} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRESignature} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMRESignatureItemProvider pcmreSignatureItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRESignature}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRESignature}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMRESignatureAdapter() {
-		if (pcmreSignatureItemProvider == null) {
-			pcmreSignatureItemProvider = new PCMRESignatureItemProvider(this);
-		}
+        if (pcmreSignatureItemProvider == null) {
+            pcmreSignatureItemProvider = new PCMRESignatureItemProvider(this);
+        }
 
-		return pcmreSignatureItemProvider;
-	}
+        return pcmreSignatureItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMServiceSpecificationItemProvider pcmServiceSpecificationItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMServiceSpecificationAdapter() {
-		if (pcmServiceSpecificationItemProvider == null) {
-			pcmServiceSpecificationItemProvider = new PCMServiceSpecificationItemProvider(this);
-		}
+        if (pcmServiceSpecificationItemProvider == null) {
+            pcmServiceSpecificationItemProvider = new PCMServiceSpecificationItemProvider(this);
+        }
 
-		return pcmServiceSpecificationItemProvider;
-	}
+        return pcmServiceSpecificationItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceInterface} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceInterface} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREResourceInterfaceItemProvider pcmreResourceInterfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceInterface}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceInterface}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREResourceInterfaceAdapter() {
-		if (pcmreResourceInterfaceItemProvider == null) {
-			pcmreResourceInterfaceItemProvider = new PCMREResourceInterfaceItemProvider(this);
-		}
+        if (pcmreResourceInterfaceItemProvider == null) {
+            pcmreResourceInterfaceItemProvider = new PCMREResourceInterfaceItemProvider(this);
+        }
 
-		return pcmreResourceInterfaceItemProvider;
-	}
+        return pcmreResourceInterfaceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceSignature} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceSignature} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREResourceSignatureItemProvider pcmreResourceSignatureItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceSignature}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceSignature}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREResourceSignatureAdapter() {
-		if (pcmreResourceSignatureItemProvider == null) {
-			pcmreResourceSignatureItemProvider = new PCMREResourceSignatureItemProvider(this);
-		}
+        if (pcmreResourceSignatureItemProvider == null) {
+            pcmreResourceSignatureItemProvider = new PCMREResourceSignatureItemProvider(this);
+        }
 
-		return pcmreResourceSignatureItemProvider;
-	}
+        return pcmreResourceSignatureItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResource} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResource} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREResourceItemProvider pcmreResourceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResource}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResource}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREResourceAdapter() {
-		if (pcmreResourceItemProvider == null) {
-			pcmreResourceItemProvider = new PCMREResourceItemProvider(this);
-		}
+        if (pcmreResourceItemProvider == null) {
+            pcmreResourceItemProvider = new PCMREResourceItemProvider(this);
+        }
 
-		return pcmreResourceItemProvider;
-	}
+        return pcmreResourceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREResourceRoleItemProvider pcmreResourceRoleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREResourceRole}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREResourceRoleAdapter() {
-		if (pcmreResourceRoleItemProvider == null) {
-			pcmreResourceRoleItemProvider = new PCMREResourceRoleItemProvider(this);
-		}
+        if (pcmreResourceRoleItemProvider == null) {
+            pcmreResourceRoleItemProvider = new PCMREResourceRoleItemProvider(this);
+        }
 
-		return pcmreResourceRoleItemProvider;
-	}
+        return pcmreResourceRoleItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMRECIBehaviorItemProvider pcmreciBehaviorItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMRECIBehavior}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMRECIBehaviorAdapter() {
-		if (pcmreciBehaviorItemProvider == null) {
-			pcmreciBehaviorItemProvider = new PCMRECIBehaviorItemProvider(this);
-		}
+        if (pcmreciBehaviorItemProvider == null) {
+            pcmreciBehaviorItemProvider = new PCMRECIBehaviorItemProvider(this);
+        }
 
-		return pcmreciBehaviorItemProvider;
-	}
+        return pcmreciBehaviorItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREInfrastructureInterfaceItemProvider pcmreInfrastructureInterfaceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureInterface}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREInfrastructureInterfaceAdapter() {
-		if (pcmreInfrastructureInterfaceItemProvider == null) {
-			pcmreInfrastructureInterfaceItemProvider = new PCMREInfrastructureInterfaceItemProvider(this);
-		}
+        if (pcmreInfrastructureInterfaceItemProvider == null) {
+            pcmreInfrastructureInterfaceItemProvider = new PCMREInfrastructureInterfaceItemProvider(this);
+        }
 
-		return pcmreInfrastructureInterfaceItemProvider;
-	}
+        return pcmreInfrastructureInterfaceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREInfrastructureRoleItemProvider pcmreInfrastructureRoleItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureRole}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREInfrastructureRoleAdapter() {
-		if (pcmreInfrastructureRoleItemProvider == null) {
-			pcmreInfrastructureRoleItemProvider = new PCMREInfrastructureRoleItemProvider(this);
-		}
+        if (pcmreInfrastructureRoleItemProvider == null) {
+            pcmreInfrastructureRoleItemProvider = new PCMREInfrastructureRoleItemProvider(this);
+        }
 
-		return pcmreInfrastructureRoleItemProvider;
-	}
+        return pcmreInfrastructureRoleItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMREInfrastructureSignatureItemProvider pcmreInfrastructureSignatureItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMREInfrastructureSignature}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMREInfrastructureSignatureAdapter() {
-		if (pcmreInfrastructureSignatureItemProvider == null) {
-			pcmreInfrastructureSignatureItemProvider = new PCMREInfrastructureSignatureItemProvider(this);
-		}
+        if (pcmreInfrastructureSignatureItemProvider == null) {
+            pcmreInfrastructureSignatureItemProvider = new PCMREInfrastructureSignatureItemProvider(this);
+        }
 
-		return pcmreInfrastructureSignatureItemProvider;
-	}
+        return pcmreInfrastructureSignatureItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMPEAllDecisionsItemProvider pcmpeAllDecisionsItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMPEAllDecisions}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMPEAllDecisionsAdapter() {
-		if (pcmpeAllDecisionsItemProvider == null) {
-			pcmpeAllDecisionsItemProvider = new PCMPEAllDecisionsItemProvider(this);
-		}
+        if (pcmpeAllDecisionsItemProvider == null) {
+            pcmpeAllDecisionsItemProvider = new PCMPEAllDecisionsItemProvider(this);
+        }
 
-		return pcmpeAllDecisionsItemProvider;
-	}
+        return pcmpeAllDecisionsItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMPEDecision} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.qualityannotation.PCMPEDecision} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMPEDecisionItemProvider pcmpeDecisionItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMPEDecision}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.qualityannotation.PCMPEDecision}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMPEDecisionAdapter() {
-		if (pcmpeDecisionItemProvider == null) {
-			pcmpeDecisionItemProvider = new PCMPEDecisionItemProvider(this);
-		}
+        if (pcmpeDecisionItemProvider == null) {
+            pcmpeDecisionItemProvider = new PCMPEDecisionItemProvider(this);
+        }
 
-		return pcmpeDecisionItemProvider;
-	}
+        return pcmpeDecisionItemProvider;
+    }
 
 	/**
-	 * This returns the root adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
+     * This returns the root adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-	}
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+    }
 
 	/**
-	 * This sets the composed adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
+     * This sets the composed adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-		this.parentAdapterFactory = parentAdapterFactory;
-	}
+        this.parentAdapterFactory = parentAdapterFactory;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean isFactoryForType(Object type) {
-		return supportedTypes.contains(type) || super.isFactoryForType(type);
-	}
+        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    }
 
 	/**
-	 * This implementation substitutes the factory itself as the key for the adapter.
-	 * <!-- begin-user-doc -->
+     * This implementation substitutes the factory itself as the key for the adapter.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
-		return super.adapt(notifier, this);
-	}
+        return super.adapt(notifier, this);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object adapt(Object object, Object type) {
-		if (isFactoryForType(type)) {
-			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-				return adapter;
-			}
-		}
+        if (isFactoryForType(type)) {
+            Object adapter = super.adapt(object, type);
+            if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+                return adapter;
+            }
+        }
 
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * This adds a listener.
-	 * <!-- begin-user-doc -->
+     * This adds a listener.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.addListener(notifyChangedListener);
-	}
+        changeNotifier.addListener(notifyChangedListener);
+    }
 
 	/**
-	 * This removes a listener.
-	 * <!-- begin-user-doc -->
+     * This removes a listener.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.removeListener(notifyChangedListener);
-	}
+        changeNotifier.removeListener(notifyChangedListener);
+    }
 
 	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-	 * <!-- begin-user-doc -->
+     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void fireNotifyChanged(Notification notification) {
-		changeNotifier.fireNotifyChanged(notification);
+        changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null) {
-			parentAdapterFactory.fireNotifyChanged(notification);
-		}
-	}
+        if (parentAdapterFactory != null) {
+            parentAdapterFactory.fireNotifyChanged(notification);
+        }
+    }
 
 	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
+     * This disposes all of the item providers created by this factory. 
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void dispose() {
-		if (parameterValueDeviationItemProvider != null) parameterValueDeviationItemProvider.dispose();
-		if (qualityAnnotationItemProvider != null) qualityAnnotationItemProvider.dispose();
-		if (requiredElementDeviationItemProvider != null) requiredElementDeviationItemProvider.dispose();
-		if (internalStateInfluenceAnalysisAggregationItemProvider != null) internalStateInfluenceAnalysisAggregationItemProvider.dispose();
-		if (rePrecisionItemProvider != null) rePrecisionItemProvider.dispose();
-		if (pcmParameterPartitionItemProvider != null) pcmParameterPartitionItemProvider.dispose();
-		if (characterisedPCMParameterPartitionIntervalItemProvider != null) characterisedPCMParameterPartitionIntervalItemProvider.dispose();
-		if (characterisedPCMParameterPartitionRangeItemProvider != null) characterisedPCMParameterPartitionRangeItemProvider.dispose();
-		if (exactlyAsSpecifiedPrecisionItemProvider != null) exactlyAsSpecifiedPrecisionItemProvider.dispose();
-		if (limitedDeviationPrecisionItemProvider != null) limitedDeviationPrecisionItemProvider.dispose();
-		if (noPrecisionItemProvider != null) noPrecisionItemProvider.dispose();
-		if (pcmreCategoryItemProvider != null) pcmreCategoryItemProvider.dispose();
-		if (pcmreInterfaceItemProvider != null) pcmreInterfaceItemProvider.dispose();
-		if (pcmreRoleItemProvider != null) pcmreRoleItemProvider.dispose();
-		if (pcmreSignatureItemProvider != null) pcmreSignatureItemProvider.dispose();
-		if (pcmServiceSpecificationItemProvider != null) pcmServiceSpecificationItemProvider.dispose();
-		if (pcmreResourceInterfaceItemProvider != null) pcmreResourceInterfaceItemProvider.dispose();
-		if (pcmreResourceSignatureItemProvider != null) pcmreResourceSignatureItemProvider.dispose();
-		if (pcmreResourceItemProvider != null) pcmreResourceItemProvider.dispose();
-		if (pcmreResourceRoleItemProvider != null) pcmreResourceRoleItemProvider.dispose();
-		if (pcmreciBehaviorItemProvider != null) pcmreciBehaviorItemProvider.dispose();
-		if (pcmreInfrastructureInterfaceItemProvider != null) pcmreInfrastructureInterfaceItemProvider.dispose();
-		if (pcmreInfrastructureRoleItemProvider != null) pcmreInfrastructureRoleItemProvider.dispose();
-		if (pcmreInfrastructureSignatureItemProvider != null) pcmreInfrastructureSignatureItemProvider.dispose();
-		if (pcmpeAllDecisionsItemProvider != null) pcmpeAllDecisionsItemProvider.dispose();
-		if (pcmpeDecisionItemProvider != null) pcmpeDecisionItemProvider.dispose();
-	}
+        if (parameterValueDeviationItemProvider != null) parameterValueDeviationItemProvider.dispose();
+        if (qualityAnnotationItemProvider != null) qualityAnnotationItemProvider.dispose();
+        if (requiredElementDeviationItemProvider != null) requiredElementDeviationItemProvider.dispose();
+        if (internalStateInfluenceAnalysisAggregationItemProvider != null) internalStateInfluenceAnalysisAggregationItemProvider.dispose();
+        if (rePrecisionItemProvider != null) rePrecisionItemProvider.dispose();
+        if (pcmParameterPartitionItemProvider != null) pcmParameterPartitionItemProvider.dispose();
+        if (characterisedPCMParameterPartitionIntervalItemProvider != null) characterisedPCMParameterPartitionIntervalItemProvider.dispose();
+        if (characterisedPCMParameterPartitionRangeItemProvider != null) characterisedPCMParameterPartitionRangeItemProvider.dispose();
+        if (exactlyAsSpecifiedPrecisionItemProvider != null) exactlyAsSpecifiedPrecisionItemProvider.dispose();
+        if (limitedDeviationPrecisionItemProvider != null) limitedDeviationPrecisionItemProvider.dispose();
+        if (noPrecisionItemProvider != null) noPrecisionItemProvider.dispose();
+        if (pcmreCategoryItemProvider != null) pcmreCategoryItemProvider.dispose();
+        if (pcmreInterfaceItemProvider != null) pcmreInterfaceItemProvider.dispose();
+        if (pcmreRoleItemProvider != null) pcmreRoleItemProvider.dispose();
+        if (pcmreSignatureItemProvider != null) pcmreSignatureItemProvider.dispose();
+        if (pcmServiceSpecificationItemProvider != null) pcmServiceSpecificationItemProvider.dispose();
+        if (pcmreResourceInterfaceItemProvider != null) pcmreResourceInterfaceItemProvider.dispose();
+        if (pcmreResourceSignatureItemProvider != null) pcmreResourceSignatureItemProvider.dispose();
+        if (pcmreResourceItemProvider != null) pcmreResourceItemProvider.dispose();
+        if (pcmreResourceRoleItemProvider != null) pcmreResourceRoleItemProvider.dispose();
+        if (pcmreciBehaviorItemProvider != null) pcmreciBehaviorItemProvider.dispose();
+        if (pcmreInfrastructureInterfaceItemProvider != null) pcmreInfrastructureInterfaceItemProvider.dispose();
+        if (pcmreInfrastructureRoleItemProvider != null) pcmreInfrastructureRoleItemProvider.dispose();
+        if (pcmreInfrastructureSignatureItemProvider != null) pcmreInfrastructureSignatureItemProvider.dispose();
+        if (pcmpeAllDecisionsItemProvider != null) pcmpeAllDecisionsItemProvider.dispose();
+        if (pcmpeDecisionItemProvider != null) pcmpeDecisionItemProvider.dispose();
+    }
 
 }

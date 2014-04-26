@@ -6,15 +6,13 @@
  */
 package de.fzi.se.quality.qualityannotation.util;
 
-import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
-
 import java.util.Map;
 
 import org.eclipse.emf.ecore.EPackage;
-
 import org.eclipse.emf.ecore.resource.Resource;
-
 import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
+
+import de.fzi.se.quality.qualityannotation.QualityAnnotationPackage;
 
 /**
  * This class contains helper methods to serialize and deserialize XML documents
@@ -25,30 +23,30 @@ import org.eclipse.emf.ecore.xmi.util.XMLProcessor;
 public class QualityAnnotationXMLProcessor extends XMLProcessor {
 
 	/**
-	 * Public constructor to instantiate the helper.
-	 * <!-- begin-user-doc -->
+     * Public constructor to instantiate the helper.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public QualityAnnotationXMLProcessor() {
-		super((EPackage.Registry.INSTANCE));
-		QualityAnnotationPackage.eINSTANCE.eClass();
-	}
+        super((EPackage.Registry.INSTANCE));
+        QualityAnnotationPackage.eINSTANCE.eClass();
+    }
 	
 	/**
-	 * Register for "*" and "xml" file extensions the QualityAnnotationResourceFactoryImpl factory.
-	 * <!-- begin-user-doc -->
+     * Register for "*" and "xml" file extensions the QualityAnnotationResourceFactoryImpl factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected Map<String, Resource.Factory> getRegistrations() {
-		if (registrations == null) {
-			super.getRegistrations();
-			registrations.put(XML_EXTENSION, new QualityAnnotationResourceFactoryImpl());
-			registrations.put(STAR_EXTENSION, new QualityAnnotationResourceFactoryImpl());
-		}
-		return registrations;
-	}
+        if (registrations == null) {
+            super.getRegistrations();
+            registrations.put(XML_EXTENSION, new QualityAnnotationResourceFactoryImpl());
+            registrations.put(STAR_EXTENSION, new QualityAnnotationResourceFactoryImpl());
+        }
+        return registrations;
+    }
 
 } //QualityAnnotationXMLProcessor

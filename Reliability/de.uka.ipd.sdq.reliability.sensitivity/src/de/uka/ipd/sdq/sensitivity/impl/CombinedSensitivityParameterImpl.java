@@ -37,200 +37,200 @@ import de.uka.ipd.sdq.sensitivity.SensitivityParameter;
  */
 public class CombinedSensitivityParameterImpl extends SensitivityParameterImpl implements CombinedSensitivityParameter {
 	/**
-	 * The default value of the '{@link #isCombinatory() <em>Is Combinatory</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The default value of the '{@link #isCombinatory() <em>Is Combinatory</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCombinatory()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #isCombinatory()
+     * @generated
+     * @ordered
+     */
 	protected static final boolean IS_COMBINATORY_EDEFAULT = false;
 
 	/**
-	 * The cached value of the '{@link #isCombinatory() <em>Is Combinatory</em>}' attribute.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #isCombinatory() <em>Is Combinatory</em>}' attribute.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #isCombinatory()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #isCombinatory()
+     * @generated
+     * @ordered
+     */
 	protected boolean isCombinatory = IS_COMBINATORY_EDEFAULT;
 
 	/**
-	 * The cached value of the '{@link #getChildParameters__CombinedSensitivityParameter() <em>Child Parameters Combined Sensitivity Parameter</em>}' containment reference list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getChildParameters__CombinedSensitivityParameter() <em>Child Parameters Combined Sensitivity Parameter</em>}' containment reference list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getChildParameters__CombinedSensitivityParameter()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getChildParameters__CombinedSensitivityParameter()
+     * @generated
+     * @ordered
+     */
 	protected EList<SensitivityParameter> childParameters__CombinedSensitivityParameter;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected CombinedSensitivityParameterImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.COMBINED_SENSITIVITY_PARAMETER;
-	}
+        return SensitivityPackage.Literals.COMBINED_SENSITIVITY_PARAMETER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public boolean isCombinatory() {
-		return isCombinatory;
-	}
+        return isCombinatory;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setIsCombinatory(boolean newIsCombinatory) {
-		boolean oldIsCombinatory = isCombinatory;
-		isCombinatory = newIsCombinatory;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY, oldIsCombinatory, isCombinatory));
-	}
+        boolean oldIsCombinatory = isCombinatory;
+        isCombinatory = newIsCombinatory;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY, oldIsCombinatory, isCombinatory));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<SensitivityParameter> getChildParameters__CombinedSensitivityParameter() {
-		if (childParameters__CombinedSensitivityParameter == null) {
-			childParameters__CombinedSensitivityParameter = new EObjectContainmentWithInverseEList<SensitivityParameter>(SensitivityParameter.class, this, SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER, SensitivityPackage.SENSITIVITY_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER);
-		}
-		return childParameters__CombinedSensitivityParameter;
-	}
+        if (childParameters__CombinedSensitivityParameter == null) {
+            childParameters__CombinedSensitivityParameter = new EObjectContainmentWithInverseEList<SensitivityParameter>(SensitivityParameter.class, this, SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER, SensitivityPackage.SENSITIVITY_PARAMETER__PARENT_PARAMETER_SENSITIVITY_PARAMETER);
+        }
+        return childParameters__CombinedSensitivityParameter;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
-				return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildParameters__CombinedSensitivityParameter()).basicAdd(otherEnd, msgs);
-		}
-		return super.eInverseAdd(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
+                return ((InternalEList<InternalEObject>)(InternalEList<?>)getChildParameters__CombinedSensitivityParameter()).basicAdd(otherEnd, msgs);
+        }
+        return super.eInverseAdd(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
-		switch (featureID) {
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
-				return ((InternalEList<?>)getChildParameters__CombinedSensitivityParameter()).basicRemove(otherEnd, msgs);
-		}
-		return super.eInverseRemove(otherEnd, featureID, msgs);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
+                return ((InternalEList<?>)getChildParameters__CombinedSensitivityParameter()).basicRemove(otherEnd, msgs);
+        }
+        return super.eInverseRemove(otherEnd, featureID, msgs);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
-				return isCombinatory();
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
-				return getChildParameters__CombinedSensitivityParameter();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
+                return isCombinatory();
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
+                return getChildParameters__CombinedSensitivityParameter();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
-				setIsCombinatory((Boolean)newValue);
-				return;
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
-				getChildParameters__CombinedSensitivityParameter().clear();
-				getChildParameters__CombinedSensitivityParameter().addAll((Collection<? extends SensitivityParameter>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
+                setIsCombinatory((Boolean)newValue);
+                return;
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
+                getChildParameters__CombinedSensitivityParameter().clear();
+                getChildParameters__CombinedSensitivityParameter().addAll((Collection<? extends SensitivityParameter>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
-				setIsCombinatory(IS_COMBINATORY_EDEFAULT);
-				return;
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
-				getChildParameters__CombinedSensitivityParameter().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
+                setIsCombinatory(IS_COMBINATORY_EDEFAULT);
+                return;
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
+                getChildParameters__CombinedSensitivityParameter().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
-				return isCombinatory != IS_COMBINATORY_EDEFAULT;
-			case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
-				return childParameters__CombinedSensitivityParameter != null && !childParameters__CombinedSensitivityParameter.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__IS_COMBINATORY:
+                return isCombinatory != IS_COMBINATORY_EDEFAULT;
+            case SensitivityPackage.COMBINED_SENSITIVITY_PARAMETER__CHILD_PARAMETERS_COMBINED_SENSITIVITY_PARAMETER:
+                return childParameters__CombinedSensitivityParameter != null && !childParameters__CombinedSensitivityParameter.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (isCombinatory: ");
-		result.append(isCombinatory);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (isCombinatory: ");
+        result.append(isCombinatory);
+        result.append(')');
+        return result.toString();
+    }
 
 } //CombinedSensitivityParameterImpl

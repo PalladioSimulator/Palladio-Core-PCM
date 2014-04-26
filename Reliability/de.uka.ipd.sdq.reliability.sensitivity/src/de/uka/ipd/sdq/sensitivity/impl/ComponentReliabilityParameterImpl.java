@@ -38,154 +38,154 @@ import de.uka.ipd.sdq.sensitivity.util.SensitivityValidator;
  */
 public class ComponentReliabilityParameterImpl extends SingleSensitivityParameterImpl implements ComponentReliabilityParameter {
 	/**
-	 * The cached value of the '{@link #getBasicComponent__ComponentReliabilityParameter() <em>Basic Component Component Reliability Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getBasicComponent__ComponentReliabilityParameter() <em>Basic Component Component Reliability Parameter</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getBasicComponent__ComponentReliabilityParameter()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getBasicComponent__ComponentReliabilityParameter()
+     * @generated
+     * @ordered
+     */
 	protected BasicComponent basicComponent__ComponentReliabilityParameter;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ComponentReliabilityParameterImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.COMPONENT_RELIABILITY_PARAMETER;
-	}
+        return SensitivityPackage.Literals.COMPONENT_RELIABILITY_PARAMETER;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public BasicComponent getBasicComponent__ComponentReliabilityParameter() {
-		if (basicComponent__ComponentReliabilityParameter != null && basicComponent__ComponentReliabilityParameter.eIsProxy()) {
-			InternalEObject oldBasicComponent__ComponentReliabilityParameter = (InternalEObject)basicComponent__ComponentReliabilityParameter;
-			basicComponent__ComponentReliabilityParameter = (BasicComponent)eResolveProxy(oldBasicComponent__ComponentReliabilityParameter);
-			if (basicComponent__ComponentReliabilityParameter != oldBasicComponent__ComponentReliabilityParameter) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER, oldBasicComponent__ComponentReliabilityParameter, basicComponent__ComponentReliabilityParameter));
-			}
-		}
-		return basicComponent__ComponentReliabilityParameter;
-	}
+        if (basicComponent__ComponentReliabilityParameter != null && basicComponent__ComponentReliabilityParameter.eIsProxy()) {
+            InternalEObject oldBasicComponent__ComponentReliabilityParameter = (InternalEObject)basicComponent__ComponentReliabilityParameter;
+            basicComponent__ComponentReliabilityParameter = (BasicComponent)eResolveProxy(oldBasicComponent__ComponentReliabilityParameter);
+            if (basicComponent__ComponentReliabilityParameter != oldBasicComponent__ComponentReliabilityParameter) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER, oldBasicComponent__ComponentReliabilityParameter, basicComponent__ComponentReliabilityParameter));
+            }
+        }
+        return basicComponent__ComponentReliabilityParameter;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public BasicComponent basicGetBasicComponent__ComponentReliabilityParameter() {
-		return basicComponent__ComponentReliabilityParameter;
-	}
+        return basicComponent__ComponentReliabilityParameter;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setBasicComponent__ComponentReliabilityParameter(BasicComponent newBasicComponent__ComponentReliabilityParameter) {
-		BasicComponent oldBasicComponent__ComponentReliabilityParameter = basicComponent__ComponentReliabilityParameter;
-		basicComponent__ComponentReliabilityParameter = newBasicComponent__ComponentReliabilityParameter;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER, oldBasicComponent__ComponentReliabilityParameter, basicComponent__ComponentReliabilityParameter));
-	}
+        BasicComponent oldBasicComponent__ComponentReliabilityParameter = basicComponent__ComponentReliabilityParameter;
+        basicComponent__ComponentReliabilityParameter = newBasicComponent__ComponentReliabilityParameter;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER, oldBasicComponent__ComponentReliabilityParameter, basicComponent__ComponentReliabilityParameter));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public boolean ComponentReliabilityParameterMustHaveDoubleVariation(DiagnosticChain diagnostics, Map<Object, Object> context) {
-		// TODO: implement this method
-		// -> specify the condition that violates the invariant
-		// -> verify the details of the diagnostic, including severity and message
-		// Ensure that you remove @generated or mark it @generated NOT
-		if (false) {
-			if (diagnostics != null) {
-				diagnostics.add
-					(new BasicDiagnostic
-						(Diagnostic.ERROR,
-						 SensitivityValidator.DIAGNOSTIC_SOURCE,
-						 SensitivityValidator.COMPONENT_RELIABILITY_PARAMETER__COMPONENT_RELIABILITY_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
-						 EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ComponentReliabilityParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
-						 new Object [] { this }));
-			}
-			return false;
-		}
-		return true;
-	}
+        // TODO: implement this method
+        // -> specify the condition that violates the invariant
+        // -> verify the details of the diagnostic, including severity and message
+        // Ensure that you remove @generated or mark it @generated NOT
+        if (false) {
+            if (diagnostics != null) {
+                diagnostics.add
+                    (new BasicDiagnostic
+                        (Diagnostic.ERROR,
+                         SensitivityValidator.DIAGNOSTIC_SOURCE,
+                         SensitivityValidator.COMPONENT_RELIABILITY_PARAMETER__COMPONENT_RELIABILITY_PARAMETER_MUST_HAVE_DOUBLE_VARIATION,
+                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "ComponentReliabilityParameterMustHaveDoubleVariation", EObjectValidator.getObjectLabel(this, context) }),
+                         new Object [] { this }));
+            }
+            return false;
+        }
+        return true;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
-				if (resolve) return getBasicComponent__ComponentReliabilityParameter();
-				return basicGetBasicComponent__ComponentReliabilityParameter();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
+                if (resolve) return getBasicComponent__ComponentReliabilityParameter();
+                return basicGetBasicComponent__ComponentReliabilityParameter();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
-				setBasicComponent__ComponentReliabilityParameter((BasicComponent)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
+                setBasicComponent__ComponentReliabilityParameter((BasicComponent)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
-				setBasicComponent__ComponentReliabilityParameter((BasicComponent)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
+                setBasicComponent__ComponentReliabilityParameter((BasicComponent)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
-				return basicComponent__ComponentReliabilityParameter != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.COMPONENT_RELIABILITY_PARAMETER__BASIC_COMPONENT_COMPONENT_RELIABILITY_PARAMETER:
+                return basicComponent__ComponentReliabilityParameter != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //ComponentReliabilityParameterImpl

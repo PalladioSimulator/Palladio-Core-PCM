@@ -31,27 +31,27 @@ import org.eclipse.emf.common.util.EList;
  */
 public interface BranchAction extends AbstractInternalControlFlowAction {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * Returns the value of the '<em><b>Branches Branch</b></em>' containment reference list.
-	 * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition}.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition <em>Branch Action Abstract Branch Transition</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Branches Branch</b></em>' containment reference list.
+     * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition}.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition <em>Branch Action Abstract Branch Transition</em>}'.
+     * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Branches Branch</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-	 * @return the value of the '<em>Branches Branch</em>' containment reference list.
-	 * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchAction_Branches_Branch()
-	 * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
-	 * @model opposite="branchAction_AbstractBranchTransition" containment="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Branches Branch</em>' containment reference list.
+     * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getBranchAction_Branches_Branch()
+     * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchAction_AbstractBranchTransition
+     * @model opposite="branchAction_AbstractBranchTransition" containment="true" ordered="false"
+     * @generated
+     */
     EList<AbstractBranchTransition> getBranches_Branch();
 
     /**

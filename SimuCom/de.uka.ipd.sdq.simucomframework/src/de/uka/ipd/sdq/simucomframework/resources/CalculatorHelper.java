@@ -3,9 +3,9 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Arrays;
 import java.util.List;
 
-import org.palladiosimulator.edp2.models.ExperimentData.MetricDescription;
 import org.palladiosimulator.measurementspec.BasicMeasurement;
-import org.palladiosimulator.metricspec.MetricDescriptionConstants;
+import org.palladiosimulator.metricspec.MetricDescription;
+import org.palladiosimulator.metricspec.constants.MetricDescriptionConstants;
 import org.palladiosimulator.probeframework.ProbeFrameworkContext;
 import org.palladiosimulator.probeframework.probes.EventProbe;
 import org.palladiosimulator.probeframework.probes.EventProbeSet;

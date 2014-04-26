@@ -38,310 +38,310 @@ import org.eclipse.emf.edit.provider.ITreeItemContentProvider;
  */
 public class PCMItemProviderAdapterFactory extends PCMAdapterFactory implements ComposeableAdapterFactory, IChangeNotifier, IDisposable {
 	/**
-	 * This keeps track of the root adapter factory that delegates to this adapter factory.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the root adapter factory that delegates to this adapter factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected ComposedAdapterFactory parentAdapterFactory;
 
 	/**
-	 * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
-	 * <!-- begin-user-doc -->
+     * This is used to implement {@link org.eclipse.emf.edit.provider.IChangeNotifier}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected IChangeNotifier changeNotifier = new ChangeNotifier();
 
 	/**
-	 * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
-	 * <!-- begin-user-doc -->
+     * This keeps track of all the supported types checked by {@link #isFactoryForType isFactoryForType}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected Collection<Object> supportedTypes = new ArrayList<Object>();
 
 	/**
-	 * This constructs an instance.
-	 * <!-- begin-user-doc -->
+     * This constructs an instance.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public PCMItemProviderAdapterFactory() {
-		supportedTypes.add(IEditingDomainItemProvider.class);
-		supportedTypes.add(IStructuredItemContentProvider.class);
-		supportedTypes.add(ITreeItemContentProvider.class);
-		supportedTypes.add(IItemLabelProvider.class);
-		supportedTypes.add(IItemPropertySource.class);
-	}
+        supportedTypes.add(IEditingDomainItemProvider.class);
+        supportedTypes.add(IStructuredItemContentProvider.class);
+        supportedTypes.add(ITreeItemContentProvider.class);
+        supportedTypes.add(IItemLabelProvider.class);
+        supportedTypes.add(IItemPropertySource.class);
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMParameterValue} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMParameterValue} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMParameterValueItemProvider pcmParameterValueItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMParameterValue}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMParameterValue}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMParameterValueAdapter() {
-		if (pcmParameterValueItemProvider == null) {
-			pcmParameterValueItemProvider = new PCMParameterValueItemProvider(this);
-		}
+        if (pcmParameterValueItemProvider == null) {
+            pcmParameterValueItemProvider = new PCMParameterValueItemProvider(this);
+        }
 
-		return pcmParameterValueItemProvider;
-	}
+        return pcmParameterValueItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMInfrastructureOperationReferenceItemProvider pcmInfrastructureOperationReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMInfrastructureOperationReference}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMInfrastructureOperationReferenceAdapter() {
-		if (pcmInfrastructureOperationReferenceItemProvider == null) {
-			pcmInfrastructureOperationReferenceItemProvider = new PCMInfrastructureOperationReferenceItemProvider(this);
-		}
+        if (pcmInfrastructureOperationReferenceItemProvider == null) {
+            pcmInfrastructureOperationReferenceItemProvider = new PCMInfrastructureOperationReferenceItemProvider(this);
+        }
 
-		return pcmInfrastructureOperationReferenceItemProvider;
-	}
+        return pcmInfrastructureOperationReferenceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMBusinessOperationReferenceItemProvider pcmBusinessOperationReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMBusinessOperationReference}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMBusinessOperationReferenceAdapter() {
-		if (pcmBusinessOperationReferenceItemProvider == null) {
-			pcmBusinessOperationReferenceItemProvider = new PCMBusinessOperationReferenceItemProvider(this);
-		}
+        if (pcmBusinessOperationReferenceItemProvider == null) {
+            pcmBusinessOperationReferenceItemProvider = new PCMBusinessOperationReferenceItemProvider(this);
+        }
 
-		return pcmBusinessOperationReferenceItemProvider;
-	}
+        return pcmBusinessOperationReferenceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMComponentReference} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMComponentReference} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMComponentReferenceItemProvider pcmComponentReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMComponentReference}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMComponentReference}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMComponentReferenceAdapter() {
-		if (pcmComponentReferenceItemProvider == null) {
-			pcmComponentReferenceItemProvider = new PCMComponentReferenceItemProvider(this);
-		}
+        if (pcmComponentReferenceItemProvider == null) {
+            pcmComponentReferenceItemProvider = new PCMComponentReferenceItemProvider(this);
+        }
 
-		return pcmComponentReferenceItemProvider;
-	}
+        return pcmComponentReferenceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMComponentParameterReferenceItemProvider pcmComponentParameterReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMComponentParameterReference}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMComponentParameterReferenceAdapter() {
-		if (pcmComponentParameterReferenceItemProvider == null) {
-			pcmComponentParameterReferenceItemProvider = new PCMComponentParameterReferenceItemProvider(this);
-		}
+        if (pcmComponentParameterReferenceItemProvider == null) {
+            pcmComponentParameterReferenceItemProvider = new PCMComponentParameterReferenceItemProvider(this);
+        }
 
-		return pcmComponentParameterReferenceItemProvider;
-	}
+        return pcmComponentParameterReferenceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMOperationParameterReferenceItemProvider pcmOperationParameterReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMOperationParameterReferenceAdapter() {
-		if (pcmOperationParameterReferenceItemProvider == null) {
-			pcmOperationParameterReferenceItemProvider = new PCMOperationParameterReferenceItemProvider(this);
-		}
+        if (pcmOperationParameterReferenceItemProvider == null) {
+            pcmOperationParameterReferenceItemProvider = new PCMOperationParameterReferenceItemProvider(this);
+        }
 
-		return pcmOperationParameterReferenceItemProvider;
-	}
+        return pcmOperationParameterReferenceItemProvider;
+    }
 
 	/**
-	 * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference} instances.
-	 * <!-- begin-user-doc -->
+     * This keeps track of the one adapter used for all {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference} instances.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMRequiredBusinessOperationReturnParameterReferenceItemProvider pcmRequiredBusinessOperationReturnParameterReferenceItemProvider;
 
 	/**
-	 * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference}.
-	 * <!-- begin-user-doc -->
+     * This creates an adapter for a {@link de.fzi.se.quality.parameters.pcm.PCMRequiredBusinessOperationReturnParameterReference}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter createPCMRequiredBusinessOperationReturnParameterReferenceAdapter() {
-		if (pcmRequiredBusinessOperationReturnParameterReferenceItemProvider == null) {
-			pcmRequiredBusinessOperationReturnParameterReferenceItemProvider = new PCMRequiredBusinessOperationReturnParameterReferenceItemProvider(this);
-		}
+        if (pcmRequiredBusinessOperationReturnParameterReferenceItemProvider == null) {
+            pcmRequiredBusinessOperationReturnParameterReferenceItemProvider = new PCMRequiredBusinessOperationReturnParameterReferenceItemProvider(this);
+        }
 
-		return pcmRequiredBusinessOperationReturnParameterReferenceItemProvider;
-	}
+        return pcmRequiredBusinessOperationReturnParameterReferenceItemProvider;
+    }
 
 	/**
-	 * This returns the root adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
+     * This returns the root adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public ComposeableAdapterFactory getRootAdapterFactory() {
-		return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
-	}
+        return parentAdapterFactory == null ? this : parentAdapterFactory.getRootAdapterFactory();
+    }
 
 	/**
-	 * This sets the composed adapter factory that contains this factory.
-	 * <!-- begin-user-doc -->
+     * This sets the composed adapter factory that contains this factory.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setParentAdapterFactory(ComposedAdapterFactory parentAdapterFactory) {
-		this.parentAdapterFactory = parentAdapterFactory;
-	}
+        this.parentAdapterFactory = parentAdapterFactory;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean isFactoryForType(Object type) {
-		return supportedTypes.contains(type) || super.isFactoryForType(type);
-	}
+        return supportedTypes.contains(type) || super.isFactoryForType(type);
+    }
 
 	/**
-	 * This implementation substitutes the factory itself as the key for the adapter.
-	 * <!-- begin-user-doc -->
+     * This implementation substitutes the factory itself as the key for the adapter.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Adapter adapt(Notifier notifier, Object type) {
-		return super.adapt(notifier, this);
-	}
+        return super.adapt(notifier, this);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object adapt(Object object, Object type) {
-		if (isFactoryForType(type)) {
-			Object adapter = super.adapt(object, type);
-			if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
-				return adapter;
-			}
-		}
+        if (isFactoryForType(type)) {
+            Object adapter = super.adapt(object, type);
+            if (!(type instanceof Class<?>) || (((Class<?>)type).isInstance(adapter))) {
+                return adapter;
+            }
+        }
 
-		return null;
-	}
+        return null;
+    }
 
 	/**
-	 * This adds a listener.
-	 * <!-- begin-user-doc -->
+     * This adds a listener.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void addListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.addListener(notifyChangedListener);
-	}
+        changeNotifier.addListener(notifyChangedListener);
+    }
 
 	/**
-	 * This removes a listener.
-	 * <!-- begin-user-doc -->
+     * This removes a listener.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void removeListener(INotifyChangedListener notifyChangedListener) {
-		changeNotifier.removeListener(notifyChangedListener);
-	}
+        changeNotifier.removeListener(notifyChangedListener);
+    }
 
 	/**
-	 * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
-	 * <!-- begin-user-doc -->
+     * This delegates to {@link #changeNotifier} and to {@link #parentAdapterFactory}.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void fireNotifyChanged(Notification notification) {
-		changeNotifier.fireNotifyChanged(notification);
+        changeNotifier.fireNotifyChanged(notification);
 
-		if (parentAdapterFactory != null) {
-			parentAdapterFactory.fireNotifyChanged(notification);
-		}
-	}
+        if (parentAdapterFactory != null) {
+            parentAdapterFactory.fireNotifyChanged(notification);
+        }
+    }
 
 	/**
-	 * This disposes all of the item providers created by this factory. 
-	 * <!-- begin-user-doc -->
+     * This disposes all of the item providers created by this factory. 
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void dispose() {
-		if (pcmParameterValueItemProvider != null) pcmParameterValueItemProvider.dispose();
-		if (pcmInfrastructureOperationReferenceItemProvider != null) pcmInfrastructureOperationReferenceItemProvider.dispose();
-		if (pcmBusinessOperationReferenceItemProvider != null) pcmBusinessOperationReferenceItemProvider.dispose();
-		if (pcmComponentReferenceItemProvider != null) pcmComponentReferenceItemProvider.dispose();
-		if (pcmComponentParameterReferenceItemProvider != null) pcmComponentParameterReferenceItemProvider.dispose();
-		if (pcmOperationParameterReferenceItemProvider != null) pcmOperationParameterReferenceItemProvider.dispose();
-		if (pcmRequiredBusinessOperationReturnParameterReferenceItemProvider != null) pcmRequiredBusinessOperationReturnParameterReferenceItemProvider.dispose();
-	}
+        if (pcmParameterValueItemProvider != null) pcmParameterValueItemProvider.dispose();
+        if (pcmInfrastructureOperationReferenceItemProvider != null) pcmInfrastructureOperationReferenceItemProvider.dispose();
+        if (pcmBusinessOperationReferenceItemProvider != null) pcmBusinessOperationReferenceItemProvider.dispose();
+        if (pcmComponentReferenceItemProvider != null) pcmComponentReferenceItemProvider.dispose();
+        if (pcmComponentParameterReferenceItemProvider != null) pcmComponentParameterReferenceItemProvider.dispose();
+        if (pcmOperationParameterReferenceItemProvider != null) pcmOperationParameterReferenceItemProvider.dispose();
+        if (pcmRequiredBusinessOperationReturnParameterReferenceItemProvider != null) pcmRequiredBusinessOperationReturnParameterReferenceItemProvider.dispose();
+    }
 
 }

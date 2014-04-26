@@ -36,42 +36,42 @@ import de.uka.ipd.sdq.pcm.seff.ProbabilisticBranchTransition;
  */
 public interface ProbabilisticBranchParameter extends SingleSensitivityParameter {
 	/**
-	 * Returns the value of the '<em><b>Probabilistic Branch Transition Probabilistic Branch Parameter</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Probabilistic Branch Transition Probabilistic Branch Parameter</b></em>' reference.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Probabilistic Branch Transition Probabilistic Branch Parameter</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Probabilistic Branch Transition Probabilistic Branch Parameter</em>' reference.
-	 * @see #setProbabilisticBranchTransition__ProbabilisticBranchParameter(ProbabilisticBranchTransition)
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getProbabilisticBranchParameter_ProbabilisticBranchTransition__ProbabilisticBranchParameter()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Probabilistic Branch Transition Probabilistic Branch Parameter</em>' reference.
+     * @see #setProbabilisticBranchTransition__ProbabilisticBranchParameter(ProbabilisticBranchTransition)
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getProbabilisticBranchParameter_ProbabilisticBranchTransition__ProbabilisticBranchParameter()
+     * @model required="true" ordered="false"
+     * @generated
+     */
 	ProbabilisticBranchTransition getProbabilisticBranchTransition__ProbabilisticBranchParameter();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.ProbabilisticBranchParameter#getProbabilisticBranchTransition__ProbabilisticBranchParameter <em>Probabilistic Branch Transition Probabilistic Branch Parameter</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.ProbabilisticBranchParameter#getProbabilisticBranchTransition__ProbabilisticBranchParameter <em>Probabilistic Branch Transition Probabilistic Branch Parameter</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Probabilistic Branch Transition Probabilistic Branch Parameter</em>' reference.
-	 * @see #getProbabilisticBranchTransition__ProbabilisticBranchParameter()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Probabilistic Branch Transition Probabilistic Branch Parameter</em>' reference.
+     * @see #getProbabilisticBranchTransition__ProbabilisticBranchParameter()
+     * @generated
+     */
 	void setProbabilisticBranchTransition__ProbabilisticBranchParameter(ProbabilisticBranchTransition value);
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * <!-- begin-model-doc -->
-	 * self.sensitivityParameterVariation__SingleSensitivityParameter.oclIsTypeOf(DoubleParameterVariation)
-	 * @param diagnostics The chain of diagnostics to which problems are to be appended.
-	 * @param context The cache of context-specific information.
-	 * <!-- end-model-doc -->
-	 * @model
-	 * @generated
-	 */
+     * <!-- begin-model-doc -->
+     * self.sensitivityParameterVariation__SingleSensitivityParameter.oclIsTypeOf(DoubleParameterVariation)
+     * @param diagnostics The chain of diagnostics to which problems are to be appended.
+     * @param context The cache of context-specific information.
+     * <!-- end-model-doc -->
+     * @model
+     * @generated
+     */
 	boolean ProbabilisticBranchParameterMustHaveDoubleVariation(DiagnosticChain diagnostics, Map<Object, Object> context);
 
 } // ProbabilisticBranchParameter

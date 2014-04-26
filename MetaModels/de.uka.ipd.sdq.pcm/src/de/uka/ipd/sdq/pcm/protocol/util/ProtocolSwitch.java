@@ -5,7 +5,6 @@
  */
 package de.uka.ipd.sdq.pcm.protocol.util;
 
-import de.uka.ipd.sdq.pcm.protocol.*;
 import java.util.List;
 
 import org.eclipse.emf.ecore.EClass;
@@ -25,75 +24,75 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
  */
 public class ProtocolSwitch<T> {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-	 * The cached model package
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * The cached model package
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     protected static ProtocolPackage modelPackage;
 
     /**
-	 * Creates an instance of the switch.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * Creates an instance of the switch.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     public ProtocolSwitch() {
-		if (modelPackage == null) {
-			modelPackage = ProtocolPackage.eINSTANCE;
-		}
-	}
+        if (modelPackage == null) {
+            modelPackage = ProtocolPackage.eINSTANCE;
+        }
+    }
 
     /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
     public T doSwitch(EObject theEObject) {
-		return doSwitch(theEObject.eClass(), theEObject);
-	}
+        return doSwitch(theEObject.eClass(), theEObject);
+    }
 
     /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
     protected T doSwitch(EClass theEClass, EObject theEObject) {
-		if (theEClass.eContainer() == modelPackage) {
-			return doSwitch(theEClass.getClassifierID(), theEObject);
-		}
-		else {
-			List<EClass> eSuperTypes = theEClass.getESuperTypes();
-			return
-				eSuperTypes.isEmpty() ?
-					defaultCase(theEObject) :
-					doSwitch(eSuperTypes.get(0), theEObject);
-		}
-	}
+        if (theEClass.eContainer() == modelPackage) {
+            return doSwitch(theEClass.getClassifierID(), theEObject);
+        }
+        else {
+            List<EClass> eSuperTypes = theEClass.getESuperTypes();
+            return
+                eSuperTypes.isEmpty() ?
+                    defaultCase(theEObject) :
+                    doSwitch(eSuperTypes.get(0), theEObject);
+        }
+    }
 
     /**
-	 * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @return the first non-null result returned by a <code>caseXXX</code> call.
-	 * @generated
-	 */
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @return the first non-null result returned by a <code>caseXXX</code> call.
+     * @generated
+     */
     protected T doSwitch(int classifierID, EObject theEObject) {
-		switch (classifierID) {
-			case ProtocolPackage.PROTOCOL: {
-				Protocol protocol = (Protocol)theEObject;
-				T result = caseProtocol(protocol);
-				if (result == null) result = defaultCase(theEObject);
-				return result;
-			}
-			default: return defaultCase(theEObject);
-		}
-	}
+        switch (classifierID) {
+            case ProtocolPackage.PROTOCOL: {
+                Protocol protocol = (Protocol)theEObject;
+                T result = caseProtocol(protocol);
+                if (result == null) result = defaultCase(theEObject);
+                return result;
+            }
+            default: return defaultCase(theEObject);
+        }
+    }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>Protocol</em>'. <!--
@@ -107,8 +106,8 @@ public class ProtocolSwitch<T> {
      * @generated
      */
     public T caseProtocol(Protocol object) {
-		return null;
-	}
+        return null;
+    }
 
     /**
      * Returns the result of interpreting the object as an instance of '<em>EObject</em>'. <!--
@@ -122,7 +121,7 @@ public class ProtocolSwitch<T> {
      * @generated
      */
     public T defaultCase(EObject object) {
-		return null;
-	}
+        return null;
+    }
 
 } // ProtocolSwitch

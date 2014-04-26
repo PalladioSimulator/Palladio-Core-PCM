@@ -33,188 +33,188 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature;
  */
 public class PCMBusinessOperationReferenceImpl extends OperationReferenceImpl implements PCMBusinessOperationReference {
 	/**
-	 * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getRole() <em>Role</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getRole()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getRole()
+     * @generated
+     * @ordered
+     */
 	protected OperationRequiredRole role;
 
 	/**
-	 * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getSignature() <em>Signature</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getSignature()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getSignature()
+     * @generated
+     * @ordered
+     */
 	protected OperationSignature signature;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected PCMBusinessOperationReferenceImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return PCMPackage.Literals.PCM_BUSINESS_OPERATION_REFERENCE;
-	}
+        return PCMPackage.Literals.PCM_BUSINESS_OPERATION_REFERENCE;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public OperationRequiredRole getRole() {
-		if (role != null && role.eIsProxy()) {
-			InternalEObject oldRole = (InternalEObject)role;
-			role = (OperationRequiredRole)eResolveProxy(oldRole);
-			if (role != oldRole) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE, oldRole, role));
-			}
-		}
-		return role;
-	}
+        if (role != null && role.eIsProxy()) {
+            InternalEObject oldRole = (InternalEObject)role;
+            role = (OperationRequiredRole)eResolveProxy(oldRole);
+            if (role != oldRole) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE, oldRole, role));
+            }
+        }
+        return role;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public OperationRequiredRole basicGetRole() {
-		return role;
-	}
+        return role;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setRole(OperationRequiredRole newRole) {
-		OperationRequiredRole oldRole = role;
-		role = newRole;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE, oldRole, role));
-	}
+        OperationRequiredRole oldRole = role;
+        role = newRole;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE, oldRole, role));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public OperationSignature getSignature() {
-		if (signature != null && signature.eIsProxy()) {
-			InternalEObject oldSignature = (InternalEObject)signature;
-			signature = (OperationSignature)eResolveProxy(oldSignature);
-			if (signature != oldSignature) {
-				if (eNotificationRequired())
-					eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
-			}
-		}
-		return signature;
-	}
+        if (signature != null && signature.eIsProxy()) {
+            InternalEObject oldSignature = (InternalEObject)signature;
+            signature = (OperationSignature)eResolveProxy(oldSignature);
+            if (signature != oldSignature) {
+                if (eNotificationRequired())
+                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
+            }
+        }
+        return signature;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public OperationSignature basicGetSignature() {
-		return signature;
-	}
+        return signature;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public void setSignature(OperationSignature newSignature) {
-		OperationSignature oldSignature = signature;
-		signature = newSignature;
-		if (eNotificationRequired())
-			eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
-	}
+        OperationSignature oldSignature = signature;
+        signature = newSignature;
+        if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET, PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE, oldSignature, signature));
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
-				if (resolve) return getRole();
-				return basicGetRole();
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
-				if (resolve) return getSignature();
-				return basicGetSignature();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+                if (resolve) return getRole();
+                return basicGetRole();
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
+                if (resolve) return getSignature();
+                return basicGetSignature();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
-				setRole((OperationRequiredRole)newValue);
-				return;
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
-				setSignature((OperationSignature)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+                setRole((OperationRequiredRole)newValue);
+                return;
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
+                setSignature((OperationSignature)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
-				setRole((OperationRequiredRole)null);
-				return;
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
-				setSignature((OperationSignature)null);
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+                setRole((OperationRequiredRole)null);
+                return;
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
+                setSignature((OperationSignature)null);
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
-				return role != null;
-			case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
-				return signature != null;
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__ROLE:
+                return role != null;
+            case PCMPackage.PCM_BUSINESS_OPERATION_REFERENCE__SIGNATURE:
+                return signature != null;
+        }
+        return super.eIsSet(featureID);
+    }
 
 } //PCMBusinessOperationReferenceImpl

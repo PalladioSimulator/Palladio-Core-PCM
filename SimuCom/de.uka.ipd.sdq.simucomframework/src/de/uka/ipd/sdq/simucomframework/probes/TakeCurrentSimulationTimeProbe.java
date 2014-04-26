@@ -6,9 +6,9 @@ import javax.measure.Measure;
 import javax.measure.quantity.Duration;
 import javax.measure.unit.SI;
 
-import org.palladiosimulator.metricspec.MetricDescriptionConstants;
+import org.palladiosimulator.metricspec.constants.MetricDescriptionConstants;
+import org.palladiosimulator.probeframework.measurement.RequestContext;
 import org.palladiosimulator.probeframework.probes.BasicObjectStateProbe;
-import org.palladiosimulator.measurementspec.requestcontext.RequestContext;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 

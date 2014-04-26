@@ -26,29 +26,29 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
  */
 public interface PCMServiceSpecification extends ServiceSpecification {
 	/**
-	 * Returns the value of the '<em><b>Resource Demanding SEFF</b></em>' reference.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Resource Demanding SEFF</b></em>' reference.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Resource Demanding SEFF</em>' reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Resource Demanding SEFF</em>' reference.
-	 * @see #setResourceDemandingSEFF(ResourceDemandingSEFF)
-	 * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMServiceSpecification_ResourceDemandingSEFF()
-	 * @model required="true" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Resource Demanding SEFF</em>' reference.
+     * @see #setResourceDemandingSEFF(ResourceDemandingSEFF)
+     * @see de.fzi.se.quality.qualityannotation.QualityAnnotationPackage#getPCMServiceSpecification_ResourceDemandingSEFF()
+     * @model required="true" ordered="false"
+     * @generated
+     */
 	ResourceDemandingSEFF getResourceDemandingSEFF();
 
 	/**
-	 * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification#getResourceDemandingSEFF <em>Resource Demanding SEFF</em>}' reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.fzi.se.quality.qualityannotation.PCMServiceSpecification#getResourceDemandingSEFF <em>Resource Demanding SEFF</em>}' reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Resource Demanding SEFF</em>' reference.
-	 * @see #getResourceDemandingSEFF()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Resource Demanding SEFF</em>' reference.
+     * @see #getResourceDemandingSEFF()
+     * @generated
+     */
 	void setResourceDemandingSEFF(ResourceDemandingSEFF value);
 
 } // PCMServiceSpecification

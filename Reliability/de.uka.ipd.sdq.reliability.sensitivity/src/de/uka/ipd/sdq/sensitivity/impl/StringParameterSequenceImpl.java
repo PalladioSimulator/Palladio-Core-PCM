@@ -30,120 +30,120 @@ import de.uka.ipd.sdq.sensitivity.StringParameterSequence;
  */
 public class StringParameterSequenceImpl extends SensitivityParameterVariationImpl implements StringParameterSequence {
 	/**
-	 * The cached value of the '{@link #getStringValues() <em>String Values</em>}' attribute list.
-	 * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getStringValues() <em>String Values</em>}' attribute list.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @see #getStringValues()
-	 * @generated
-	 * @ordered
-	 */
+     * @see #getStringValues()
+     * @generated
+     * @ordered
+     */
 	protected EList<String> stringValues;
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	protected StringParameterSequenceImpl() {
-		super();
-	}
+        super();
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	protected EClass eStaticClass() {
-		return SensitivityPackage.Literals.STRING_PARAMETER_SEQUENCE;
-	}
+        return SensitivityPackage.Literals.STRING_PARAMETER_SEQUENCE;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	public EList<String> getStringValues() {
-		if (stringValues == null) {
-			stringValues = new EDataTypeEList<String>(String.class, this, SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES);
-		}
-		return stringValues;
-	}
+        if (stringValues == null) {
+            stringValues = new EDataTypeEList<String>(String.class, this, SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES);
+        }
+        return stringValues;
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public Object eGet(int featureID, boolean resolve, boolean coreType) {
-		switch (featureID) {
-			case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-				return getStringValues();
-		}
-		return super.eGet(featureID, resolve, coreType);
-	}
+        switch (featureID) {
+            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+                return getStringValues();
+        }
+        return super.eGet(featureID, resolve, coreType);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@SuppressWarnings("unchecked")
 	@Override
 	public void eSet(int featureID, Object newValue) {
-		switch (featureID) {
-			case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-				getStringValues().clear();
-				getStringValues().addAll((Collection<? extends String>)newValue);
-				return;
-		}
-		super.eSet(featureID, newValue);
-	}
+        switch (featureID) {
+            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+                getStringValues().clear();
+                getStringValues().addAll((Collection<? extends String>)newValue);
+                return;
+        }
+        super.eSet(featureID, newValue);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public void eUnset(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-				getStringValues().clear();
-				return;
-		}
-		super.eUnset(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+                getStringValues().clear();
+                return;
+        }
+        super.eUnset(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public boolean eIsSet(int featureID) {
-		switch (featureID) {
-			case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
-				return stringValues != null && !stringValues.isEmpty();
-		}
-		return super.eIsSet(featureID);
-	}
+        switch (featureID) {
+            case SensitivityPackage.STRING_PARAMETER_SEQUENCE__STRING_VALUES:
+                return stringValues != null && !stringValues.isEmpty();
+        }
+        return super.eIsSet(featureID);
+    }
 
 	/**
-	 * <!-- begin-user-doc -->
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @generated
-	 */
+     * @generated
+     */
 	@Override
 	public String toString() {
-		if (eIsProxy()) return super.toString();
+        if (eIsProxy()) return super.toString();
 
-		StringBuffer result = new StringBuffer(super.toString());
-		result.append(" (stringValues: ");
-		result.append(stringValues);
-		result.append(')');
-		return result.toString();
-	}
+        StringBuffer result = new StringBuffer(super.toString());
+        result.append(" (stringValues: ");
+        result.append(stringValues);
+        result.append(')');
+        return result.toString();
+    }
 
 } //StringParameterSequenceImpl

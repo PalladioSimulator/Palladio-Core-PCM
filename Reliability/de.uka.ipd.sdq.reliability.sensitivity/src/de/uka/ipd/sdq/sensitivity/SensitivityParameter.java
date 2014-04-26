@@ -35,59 +35,59 @@ import de.uka.ipd.sdq.pcm.core.entity.Entity;
  */
 public interface SensitivityParameter extends Entity {
 	/**
-	 * Returns the value of the '<em><b>Parent Parameter Sensitivity Parameter</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter#getChildParameters__CombinedSensitivityParameter <em>Child Parameters Combined Sensitivity Parameter</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Parent Parameter Sensitivity Parameter</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter#getChildParameters__CombinedSensitivityParameter <em>Child Parameters Combined Sensitivity Parameter</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Parent Parameter Sensitivity Parameter</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Parent Parameter Sensitivity Parameter</em>' container reference.
-	 * @see #setParentParameter__SensitivityParameter(CombinedSensitivityParameter)
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityParameter_ParentParameter__SensitivityParameter()
-	 * @see de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter#getChildParameters__CombinedSensitivityParameter
-	 * @model opposite="childParameters__CombinedSensitivityParameter" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Parent Parameter Sensitivity Parameter</em>' container reference.
+     * @see #setParentParameter__SensitivityParameter(CombinedSensitivityParameter)
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityParameter_ParentParameter__SensitivityParameter()
+     * @see de.uka.ipd.sdq.sensitivity.CombinedSensitivityParameter#getChildParameters__CombinedSensitivityParameter
+     * @model opposite="childParameters__CombinedSensitivityParameter" transient="false" ordered="false"
+     * @generated
+     */
 	CombinedSensitivityParameter getParentParameter__SensitivityParameter();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameter#getParentParameter__SensitivityParameter <em>Parent Parameter Sensitivity Parameter</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameter#getParentParameter__SensitivityParameter <em>Parent Parameter Sensitivity Parameter</em>}' container reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Parent Parameter Sensitivity Parameter</em>' container reference.
-	 * @see #getParentParameter__SensitivityParameter()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Parent Parameter Sensitivity Parameter</em>' container reference.
+     * @see #getParentParameter__SensitivityParameter()
+     * @generated
+     */
 	void setParentParameter__SensitivityParameter(CombinedSensitivityParameter value);
 
 	/**
-	 * Returns the value of the '<em><b>Sensitivity Configuration Sensitivity Parameter</b></em>' container reference.
-	 * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityParameters__SensitivityConfiguration <em>Sensitivity Parameters Sensitivity Configuration</em>}'.
-	 * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Sensitivity Configuration Sensitivity Parameter</b></em>' container reference.
+     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityParameters__SensitivityConfiguration <em>Sensitivity Parameters Sensitivity Configuration</em>}'.
+     * <!-- begin-user-doc -->
 	 * <p>
 	 * If the meaning of the '<em>Sensitivity Configuration Sensitivity Parameter</em>' container reference isn't clear,
 	 * there really should be more of a description here...
 	 * </p>
 	 * <!-- end-user-doc -->
-	 * @return the value of the '<em>Sensitivity Configuration Sensitivity Parameter</em>' container reference.
-	 * @see #setSensitivityConfiguration__SensitivityParameter(SensitivityConfiguration)
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityParameter_SensitivityConfiguration__SensitivityParameter()
-	 * @see de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityParameters__SensitivityConfiguration
-	 * @model opposite="sensitivityParameters__SensitivityConfiguration" transient="false" ordered="false"
-	 * @generated
-	 */
+     * @return the value of the '<em>Sensitivity Configuration Sensitivity Parameter</em>' container reference.
+     * @see #setSensitivityConfiguration__SensitivityParameter(SensitivityConfiguration)
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityPackage#getSensitivityParameter_SensitivityConfiguration__SensitivityParameter()
+     * @see de.uka.ipd.sdq.sensitivity.SensitivityConfiguration#getSensitivityParameters__SensitivityConfiguration
+     * @model opposite="sensitivityParameters__SensitivityConfiguration" transient="false" ordered="false"
+     * @generated
+     */
 	SensitivityConfiguration getSensitivityConfiguration__SensitivityParameter();
 
 	/**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameter#getSensitivityConfiguration__SensitivityParameter <em>Sensitivity Configuration Sensitivity Parameter</em>}' container reference.
-	 * <!-- begin-user-doc -->
+     * Sets the value of the '{@link de.uka.ipd.sdq.sensitivity.SensitivityParameter#getSensitivityConfiguration__SensitivityParameter <em>Sensitivity Configuration Sensitivity Parameter</em>}' container reference.
+     * <!-- begin-user-doc -->
 	 * <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Sensitivity Configuration Sensitivity Parameter</em>' container reference.
-	 * @see #getSensitivityConfiguration__SensitivityParameter()
-	 * @generated
-	 */
+     * @param value the new value of the '<em>Sensitivity Configuration Sensitivity Parameter</em>' container reference.
+     * @see #getSensitivityConfiguration__SensitivityParameter()
+     * @generated
+     */
 	void setSensitivityConfiguration__SensitivityParameter(SensitivityConfiguration value);
 
 } // SensitivityParameter

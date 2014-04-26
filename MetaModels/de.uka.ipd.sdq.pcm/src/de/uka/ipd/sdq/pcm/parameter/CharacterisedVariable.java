@@ -28,9 +28,9 @@ import de.uka.ipd.sdq.stoex.Variable;
  */
 public interface CharacterisedVariable extends Variable {
     /**
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @generated
-	 */
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @generated
+     */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
@@ -51,13 +51,13 @@ public interface CharacterisedVariable extends Variable {
     VariableCharacterisationType getCharacterisationType();
 
     /**
-	 * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>Characterisation Type</em>}' attribute.
-	 * <!-- begin-user-doc --> <!-- end-user-doc -->
-	 * @param value the new value of the '<em>Characterisation Type</em>' attribute.
-	 * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
-	 * @see #getCharacterisationType()
-	 * @generated
-	 */
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.parameter.CharacterisedVariable#getCharacterisationType <em>Characterisation Type</em>}' attribute.
+     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * @param value the new value of the '<em>Characterisation Type</em>' attribute.
+     * @see de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType
+     * @see #getCharacterisationType()
+     * @generated
+     */
     void setCharacterisationType(VariableCharacterisationType value);
 
 } // CharacterisedVariable
