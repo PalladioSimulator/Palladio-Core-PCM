@@ -10,7 +10,6 @@ import org.palladiosimulator.measurementspec.IdentifierMeasure;
 import org.palladiosimulator.metricspec.BaseMetricDescription;
 import org.palladiosimulator.metricspec.DataType;
 import org.palladiosimulator.metricspec.Identifier;
-import org.palladiosimulator.metricspec.Monotonic;
 import org.palladiosimulator.metricspec.Scale;
 import org.palladiosimulator.metricspec.util.builder.TextualBaseMetricDescriptionBuilder;
 import org.palladiosimulator.probeframework.probes.BasicEventProbe;
@@ -40,7 +39,6 @@ public class TakeExecutionResultProbe extends BasicEventProbe<FailureStatistics,
                 textualDescription("Enumeration of all failure types which might happen in a reliability simulation").
                 scale(Scale.NOMINAL).
                 dataType(DataType.QUANTITATIVE).
-                monotonic(Monotonic.NO).
                 identifiers(simFailureTypes.values()).
                 identifiers(successIdentifier).
                 build();
