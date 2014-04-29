@@ -1,0 +1,26 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: EventSim System Simulation
+Bundle-SymbolicName: edu.kit.ipd.sdq.eventsim.system
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: edu.kit.ipd.sdq.eventsim.system.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ edu.kit.ipd.sdq.eventsim.core;bundle-version="1.0.0",
+ de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
+ de.uka.ipd.sdq.simulation.abstractsimengine;bundle-version="1.0.0",
+ de.uka.ipd.sdq.simucomframework.variables,
+ org.apache.log4j,
+ de.uka.ipd.sdq.scheduler;bundle-version="1.0.0",
+ de.uka.ipd.sdq.probfunction.math,
+ edu.kit.ipd.sdq.simcomp,
+ org.eclipse.osgi.services,
+ edu.kit.ipd.sdq.simcomp.middleware,
+ de.uka.ipd.sdq.probespec.framework,
+ de.uka.ipd.sdq.simulation,
+ de.uka.ipd.sdq.simucomframework
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: edu.kit.ipd.sdq.eventsim.system.command.seff,
+ edu.kit.ipd.sdq.eventsim.system.component,
+ edu.kit.ipd.sdq.eventsim.system.entities
+Service-Component: OSGI-INF/component.xml

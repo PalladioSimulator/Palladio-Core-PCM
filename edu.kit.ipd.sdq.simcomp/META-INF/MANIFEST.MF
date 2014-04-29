@@ -1,0 +1,19 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Simulation Component Definitions
+Bundle-SymbolicName: edu.kit.ipd.sdq.simcomp
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: edu.kit.ipd.sdq.simcomp.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ de.uka.ipd.sdq.simulation,
+ de.uka.ipd.sdq.pcm,
+ de.uka.ipd.sdq.simulation.abstractsimengine,
+ de.uka.ipd.sdq.probespec.framework
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Export-Package: edu.kit.ipd.sdq.simcomp.component,
+ edu.kit.ipd.sdq.simcomp.event,
+ edu.kit.ipd.sdq.simcomp.event.simulation,
+ edu.kit.ipd.sdq.simcomp.event.system,
+ edu.kit.ipd.sdq.simcomp.event.workload,
+ edu.kit.ipd.sdq.simcomp.exception
