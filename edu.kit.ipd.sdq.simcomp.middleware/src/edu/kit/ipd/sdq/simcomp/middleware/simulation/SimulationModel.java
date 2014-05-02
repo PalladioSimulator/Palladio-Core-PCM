@@ -52,23 +52,24 @@ public class SimulationModel extends SchedulerModel implements ISimulationModel 
 	}
 
 	@Override
+	public ISimulationConfiguration getConfiguration() {
+		return this.middleware.getSimulationConfiguration();
+	}
+
+	@Override
 	public void init() {
-		// first we trigger the init events
+		// before the simulation start we trigger the init event
 		ISimulationConfiguration simulationConfiguration = this.middleware.getSimulationConfiguration();
 		this.middleware.triggerEvent(new SimulationInitEvent(simulationConfiguration));
 
-		// after the initlaization has finished we trigger the simulation start
+		// after the initialization has finished we trigger the simulation start event
 		this.middleware.triggerEvent(new SimulationStartEvent());
 	}
 
 	@Override
 	public void finalise() {
+		// after the simulation has stopped we trigger the finalize event for cleanup tasks
 		this.middleware.triggerEvent(new SimulationFinalizeEvent());
-	}
-
-	@Override
-	public ISimulationConfiguration getConfiguration() {
-		return this.middleware.getSimulationConfiguration();
 	}
 
 }

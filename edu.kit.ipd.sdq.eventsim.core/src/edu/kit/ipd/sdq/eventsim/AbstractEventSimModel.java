@@ -11,7 +11,7 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
 /**
  * This class is the basis for a simulation component based on EventSim. It
- * contains the management of the active event sim entities.
+ * contains the management of the active EventSim entities.
  * 
  * @author Christoph Föhrdes
  */
@@ -25,8 +25,7 @@ abstract public class AbstractEventSimModel {
 	public AbstractEventSimModel(ISimulationMiddleware middleware) {
 		this.middleware = middleware;
 		this.activeEntitiesList = new CopyOnWriteArrayList<EventSimEntity>();
-		this.config = new EventSimConfig(middleware.getSimulationConfiguration().getConfigurationMap(), middleware
-				.getSimulationConfiguration().isDebug());
+		this.config = new EventSimConfig(middleware.getSimulationConfiguration().getConfigurationMap(), middleware.getSimulationConfiguration().isDebug());
 		this.executor = new PCMModelCommandExecutor(middleware.getPCMModel());
 	}
 

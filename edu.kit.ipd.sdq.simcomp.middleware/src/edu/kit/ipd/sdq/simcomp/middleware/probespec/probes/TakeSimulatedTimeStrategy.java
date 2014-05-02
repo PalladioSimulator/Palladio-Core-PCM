@@ -26,7 +26,6 @@ public class TakeSimulatedTimeStrategy implements IProbeStrategy {
      * @param o
      *            expects a {@link ISimulationControl}
      */
-    @SuppressWarnings("unchecked")
     @Override
     public ProbeSample<Double, Duration> takeSample(String probeId, Object... o) {
         double simTime = 0;

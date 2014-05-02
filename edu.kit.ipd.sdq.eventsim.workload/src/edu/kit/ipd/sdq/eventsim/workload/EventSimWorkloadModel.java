@@ -2,20 +2,12 @@ package edu.kit.ipd.sdq.eventsim.workload;
 
 import java.util.List;
 
-import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
-import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
-import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
-import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
-import de.uka.ipd.sdq.simulation.ISimulationListener;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
-import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.command.parameter.InstallSystemCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.workload.debug.DebugUsageTraversalListener;
@@ -24,25 +16,22 @@ import edu.kit.ipd.sdq.eventsim.workload.generator.BuildWorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.generator.IWorkloadGenerator;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageBehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageInterpreterConfiguration;
+import edu.kit.ipd.sdq.eventsim.workload.probespec.commands.BuildUsageResponseTimeCalculators;
+import edu.kit.ipd.sdq.eventsim.workload.probespec.commands.MountSystemCallProbes;
+import edu.kit.ipd.sdq.eventsim.workload.probespec.commands.MountUsageScenarioProbes;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.CalculatorFactory;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.SimCompGarbageCollector;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.EventSimProbeStrategyRegistry;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.MaxMeasurementsStopCondition;
 
 /**
- * The simulation model. This is the central class of an EventSim simulation
+ * The EventSim workload simulation model. This is the central class of the workload simulation.
+ * 
  * run. Before the simulation starts, it initialises the simulation in the
  * {@code init()} method. During the simulation, it provides information about
  * the PCM model that is to be simulated, the simulation configuration and the
  * simulation status. Finally, it cleans up after a simulation run in the
  * {finalise()} method.
- * <p>
- * Instances are created by using the static {@code create} method that builds
- * the simulation model in accordance with a specified simulation configuration.
  * 
  * @author Philipp Merkle
  * @author Christoph Föhrdes
@@ -66,7 +55,7 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	 */
 	@Override
 	public void init() {
-		
+
 		// initialise behaviour interpreters
 		usageInterpreter = new UsageBehaviourInterpreter(new UsageInterpreterConfiguration());
 
@@ -84,8 +73,8 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 		this.execute(new InstallSystemCallParameterHandling(this.usageInterpreter.getConfiguration()));
 
 		// initialise the Probe Specification
-		//this.initialiseProbeSpecification();
-		
+		this.initProbeSpecification();
+
 		// setup system processed request event listener
 		this.getSimulationMiddleware().registerEventHandler(SystemRequestProcessed.EVENT_ID, new IEventHandler<SystemRequestProcessed>() {
 
@@ -100,9 +89,6 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 		});
 
-		// notify registered listeners that the simulation is about to start...
-		this.notifyStartListeners();
-
 		// ...and start the simulation by generating the workload
 		final List<IWorkloadGenerator> workloadGenerators = this.execute(new BuildWorkloadGenerator(this));
 		for (final IWorkloadGenerator d : workloadGenerators) {
@@ -111,85 +97,17 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	}
 
 	/**
-	 * Initialises the Probe Specification by building the
-	 * {@link ProbeSpecContext}, setting up the calculators and mounting the
-	 * probes.
+	 * Initializes the Probe Specification by setting up the calculators and mounting the probes.
 	 */
-	private void initialiseProbeSpecification() {
+	private void initProbeSpecification() {
 
-		// initialise ProbeSpecification context
-		probeSpecContext.initialise(blackboard, new EventSimProbeStrategyRegistry(), new CalculatorFactory(this));
+		// build calculators
+        this.execute(new BuildUsageResponseTimeCalculators(this));
 
-		// install a garbage collector which keeps track of the samples stored
-		// on the blackboard and
-		// removes samples when they become obsolete
-		IRegionBasedGarbageCollector<RequestContext> garbageCollector = new SimCompGarbageCollector(blackboard);
-		probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
+		// mount probes
+		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
+		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
 
-		/*
-		 * // build calculators this.execute(new
-		 * BuildResponseTimeCalculators(this)); this.execute(new
-		 * BuildActiveResourceCalculators(this, this.resourceEnvironment));
-		 * this.execute(new BuildPassiveResourceCalculators(this,
-		 * this.passiveResourceRegistry));
-		 * 
-		 * // mount probes this.execute(new
-		 * MountUsageScenarioProbes(this.usageInterpreter.getConfiguration()));
-		 * this.execute(new
-		 * MountSystemCallProbes(this.usageInterpreter.getConfiguration()));
-		 * this.execute(new
-		 * MountExternalCallProbes(this.seffInterpreter.getConfiguration()));
-		 * this.execute(new MountActiveResourceProbes(this,
-		 * this.resourceEnvironment)); this.execute(new
-		 * MountPassiveResourceProbes(this, this.passiveResourceRegistry));
-		 */
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
-	public void finalise() {
-		// notify observers that the simulation is finished (below we just clean
-		// up...)
-		this.notifyStopListeners();
-
-		// notify active entities that the simulation is finished (and
-		// therefore, also their
-		// existence in the simulated system)
-		for (EventSimEntity entity : activeEntitiesList) {
-			assert entity.getState().equals(EventSimEntity.EntityState.ENTERED_SYSTEM) : "Found an entity in the " + "list of active entities which is in the state " + entity.getState() + ", and therefore can not be an active entity.";
-			entity.notifyLeftSystem();
-		}
-		assert activeEntitiesList.isEmpty() : "There are some entities left in the list of active entities, though " + "each of them was asked to leave the system.";
-
-		// notify active resources about the simulation stop
-		deactivateResources();
-
-		// clean up
-		if (logger.isDebugEnabled()) {
-			logger.debug("Cleaning up...");
-		}
-		EventSimEntity.resetIdGenerator();
-		probeSpecContext.finish();
-		AbstractActiveResource.cleanProcesses();
-
-		if (logger.isEnabledFor(Level.INFO))
-			logger.info("Simulation took " + getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
-
-		// TODO
-		// traceRecorder.print();
-		// ((CountingPCMModelCommandExecutor)executor).printStatistics();
-	}
-
-	/**
-	 * Notifies all active resources that the simulation run has stopped.
-	 */
-	private void deactivateResources() {
-		for (SimulatedResourceContainer c : this.resourceEnvironment.getResourceContainers()) {
-			for (SimActiveResource r : c.getResources()) {
-				r.deactivateResource();
-			}
-		}
 	}
 
 	/**
@@ -214,26 +132,13 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 		return this.mainMeasurementsCount;
 	}
 
+	/**
+	 * Gives access to the usage behavior interpreter
+	 * 
+	 * @return A usage behavior interpreter
+	 */
 	public UsageBehaviourInterpreter getUsageInterpreter() {
 		return usageInterpreter;
-	}
-
-	/**
-	 * Notfies all simulation observers that the simulation is about to start
-	 */
-	private void notifyStartListeners() {
-		for (final ISimulationListener l : this.getEventSimConfig().getListeners()) {
-			l.simulationStart();
-		}
-	}
-
-	/**
-	 * Notfies all simulation observers that the simulation has stopped
-	 */
-	private void notifyStopListeners() {
-		for (final ISimulationListener l : this.getEventSimConfig().getListeners()) {
-			l.simulationStop();
-		}
 	}
 
 }

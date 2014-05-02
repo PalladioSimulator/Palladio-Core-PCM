@@ -36,6 +36,7 @@ import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationConfiguration;
  * persists the calculator results.
  * 
  * @author Philipp Merkle
+ * @author Christoph Föhrdes
  * 
  */
 public class CalculatorFactory implements ICalculatorFactory {

@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.probespec.commands;
+package edu.kit.ipd.sdq.eventsim.system.probespec.commands;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,14 +13,15 @@ import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.utils.ProbeSpecUtils;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.eventsim.command.seff.FindExternalCallActionsInSeff;
-import edu.kit.ipd.sdq.eventsim.command.seff.FindSeffsForAssemblyContext;
-import edu.kit.ipd.sdq.eventsim.interpreter.listener.ISeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.interpreter.listener.ITraversalListener;
-import edu.kit.ipd.sdq.eventsim.interpreter.seff.SeffInterpreterConfiguration;
+import edu.kit.ipd.sdq.eventsim.system.command.seff.FindExternalCallActionsInSeff;
+import edu.kit.ipd.sdq.eventsim.system.command.seff.FindSeffsForAssemblyContext;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.listener.ISeffTraversalListener;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfiguration;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
+import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
 /**
  * This command registers a {@link ITraversalListener} before and after each
@@ -28,21 +29,24 @@ import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
  * after a call in order to enable the calculation of the call's response time.
  * 
  * @author Philipp Merkle
+ * @author Christoph Föhrdes
  * 
  */
 public class MountExternalCallProbes implements IPCMCommand<Void> {
 
     private final SeffInterpreterConfiguration interpreterConfig;
+	private ISimulationMiddleware middleware;
     
-    public MountExternalCallProbes(SeffInterpreterConfiguration interpreterConfig) {
+    public MountExternalCallProbes(SeffInterpreterConfiguration interpreterConfig, ISimulationMiddleware middleware) {
         this.interpreterConfig = interpreterConfig;
+        this.middleware = middleware;
     }
     
     /**
      * {@inheritDoc}
      */
     @Override
-    public Void execute(PCMModel pcm, ICommandExecutor<PCMModel> executor) {
+    public Void execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
         for (AllocationContext allocationCtx : pcm.getAllocationModel().getAllocationContexts_Allocation()) {
             AssemblyContext assemblyCtx = allocationCtx.getAssemblyContext_AllocationContext();
 
@@ -64,7 +68,7 @@ public class MountExternalCallProbes implements IPCMCommand<Void> {
                     @Override
                     public void before(AbstractAction action, Request r, RequestState state) {
                         // take current time sample
-                        ProbeSpecContext probeSpecContext = r.getModel().getProbeSpecContext();
+                        ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
                         AssemblyContext assemblyCtx = state.getComponent().getAssemblyCtx();
                         probeSpecContext.getSampleBlackboard().addSample(
                                 ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()
@@ -77,7 +81,7 @@ public class MountExternalCallProbes implements IPCMCommand<Void> {
                     @Override
                     public void after(AbstractAction action, Request r, RequestState state) {
                         // take current time sample
-                        ProbeSpecContext probeSpecContext = r.getModel().getProbeSpecContext();
+                        ProbeSpecContext probeSpecContext = middleware.getProbeSpecContext();
                         AssemblyContext assemblyCtx = state.getComponent().getAssemblyCtx();
                         probeSpecContext.getSampleBlackboard().addSample(
                                 ProbeSpecUtils.buildProbeSetSample(probeSpecContext.getProbeStrategyRegistry()

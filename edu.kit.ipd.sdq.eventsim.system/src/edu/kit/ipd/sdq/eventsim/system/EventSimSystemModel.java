@@ -8,11 +8,6 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.probespec.framework.BlackboardFactory;
-import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
-import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
-import de.uka.ipd.sdq.probespec.framework.RequestContext;
-import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
@@ -20,14 +15,6 @@ import de.uka.ipd.sdq.simulation.ISimulationListener;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.User;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.BuildActiveResourceCalculators;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.BuildPassiveResourceCalculators;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.BuildResponseTimeCalculators;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.MountActiveResourceProbes;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.MountExternalCallProbes;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.MountPassiveResourceProbes;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.MountSystemCallProbes;
-import edu.kit.ipd.sdq.eventsim.probespec.commands.MountUsageScenarioProbes;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.parameter.InstallExternalCallParameterHandling;
@@ -37,6 +24,8 @@ import edu.kit.ipd.sdq.eventsim.system.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.system.events.BeginSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffBehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfiguration;
+import edu.kit.ipd.sdq.eventsim.system.probespec.commands.BuildResponseTimeCalculators;
+import edu.kit.ipd.sdq.eventsim.system.probespec.commands.MountExternalCallProbes;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.PassiveResourceRegistry;
@@ -48,10 +37,6 @@ import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedRe
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
 import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestStart;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.CalculatorFactory;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.SimCompGarbageCollector;
-import edu.kit.ipd.sdq.simcomp.middleware.probespec.EventSimProbeStrategyRegistry;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.MaxMeasurementsStopCondition;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationModel;
 
 /**
@@ -124,45 +109,35 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		// setup handling for PCM parameter characterisations
 		this.execute(new InstallExternalCallParameterHandling(this.seffInterpreter.getConfiguration()));
 
-		// initialise the Probe Specification
-		//this.initialiseProbeSpecification();
+		// initialize the Probe Specification
+		this.initProbeSpecification();
 
 		// notify registered listeners that the simulation is about to start...
 		//this.notifyStartListeners();
 	}
 
 	/**
-	 * Initialises the Probe Specification by building the
-	 * {@link ProbeSpecContext}, setting up the calculators and mounting the
-	 * probes.
+	 * Initializes the Probe Specification by setting up the calculators and mounting the probes.
 	 */
-	private void initialiseProbeSpecification() {
-		// create ProbeSpecification context
-		probeSpecContext = new ProbeSpecContext();
-
-		// create a blackboard of the specified type
-		ISampleBlackboard blackboard = BlackboardFactory.createBlackboard(config.getBlackboardType(), probeSpecContext.getThreadManager());
-
-		// initialise ProbeSpecification context
-		probeSpecContext.initialise(blackboard, new EventSimProbeStrategyRegistry(), new CalculatorFactory(this));
-
-		// install a garbage collector which keeps track of the samples stored
-		// on the blackboard and
-		// removes samples when they become obsolete
-		IRegionBasedGarbageCollector<RequestContext> garbageCollector = new SimCompGarbageCollector(blackboard);
-		probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
+	private void initProbeSpecification() {
 
 		// build calculators
-		this.execute(new BuildResponseTimeCalculators(this));
-		this.execute(new BuildActiveResourceCalculators(this, this.resourceEnvironment));
-		this.execute(new BuildPassiveResourceCalculators(this, this.passiveResourceRegistry));
+        this.execute(new BuildResponseTimeCalculators(this));
 
 		// mount probes
-		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration()));
-		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration()));
-		this.execute(new MountExternalCallProbes(this.seffInterpreter.getConfiguration()));
+		this.execute(new MountExternalCallProbes(this.seffInterpreter.getConfiguration(), this.getSimulationMiddleware()));
+
+        /*
+        TODO (SimComp): Move tasks to resource simulation component
+
+		// build calculators
+		this.execute(new BuildActiveResourceCalculators(this, this.resourceEnvironment));
+		this.execute(new BuildPassiveResourceCalculators(this, this.passiveResourceRegistry));
+		
+		// mount probes
 		this.execute(new MountActiveResourceProbes(this, this.resourceEnvironment));
 		this.execute(new MountPassiveResourceProbes(this, this.passiveResourceRegistry));
+		*/
 	}
 
 	/**
@@ -189,9 +164,8 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	}
 
 	public void finalise() {
-		// TODo (SimComp): move the finalise of both event sim model to a good place based on event
-		// notify observers that the simulation is finished (below we just clean
-		// up...)
+		// TODO (SimComp): move the finalize of all EventSim model to a good place based on event
+		// notify observers that the simulation is finished (below we just clean up...)
 		this.notifyStopListeners();
 
 		// notify active entities that the simulation is finished (and
@@ -217,9 +191,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		if (logger.isEnabledFor(Level.INFO))
 			logger.info("Simulation took " + this.getSimulationMiddleware().getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
 
-		// TODO
-		// traceRecorder.print();
-		// ((CountingPCMModelCommandExecutor)executor).printStatistics();
 	}
 
 	/**

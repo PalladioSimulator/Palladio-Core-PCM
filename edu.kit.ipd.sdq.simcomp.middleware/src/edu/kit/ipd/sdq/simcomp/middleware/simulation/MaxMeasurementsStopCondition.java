@@ -3,6 +3,11 @@ package edu.kit.ipd.sdq.simcomp.middleware.simulation;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
+/**
+ * 
+ * @author Christoph Föhrdes
+ * 
+ */
 public class MaxMeasurementsStopCondition implements SimCondition {
 
     private ISimulationMiddleware middleware;
