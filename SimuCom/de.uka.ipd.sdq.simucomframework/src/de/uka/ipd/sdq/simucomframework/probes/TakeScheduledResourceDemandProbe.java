@@ -10,32 +10,54 @@ import org.palladiosimulator.probeframework.probes.BasicEventProbe;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
 import de.uka.ipd.sdq.simucomframework.resources.IDemandListener;
-import de.uka.ipd.sdq.simucomframework.resources.ScheduledResource;
 
 /**
- * ProbeStrategy which is able to measure the demanded time of a {@link ScheduledResource}. The unit
- * is assumed to be {@link SI#SECOND}.
+ * Measures a resource demand metric (in seconds) by listening to demands to a
+ * scheduled resource (event source type). Therefore, it has to implement the
+ * <code>IDemandListener</code> interface and to register itself in the
+ * <code>registerListener</code> method to this scheduled resource. The measured
+ * demand is directly received by the <code>demand</code> call-back method of
+ * the listener.
  * 
- * @author Steffen Becker, Philipp Merkle
+ * @author Sebastian Lehrig, Steffen Becker
  * 
  */
-public class TakeScheduledResourceDemandProbe extends BasicEventProbe<AbstractScheduledResource, Double, Duration> implements IDemandListener {
+public class TakeScheduledResourceDemandProbe extends
+		BasicEventProbe<AbstractScheduledResource, Double, Duration> implements
+		IDemandListener {
 
-    public TakeScheduledResourceDemandProbe(final AbstractScheduledResource r) {
-        super(r,MetricDescriptionConstants.RESOURCE_DEMAND_METRIC);
-    }
+	/**
+	 * Default constructor.
+	 * 
+	 * @param resource
+	 *            The event source is a scheduled resource, thus, notifying
+	 *            about newly available demands.
+	 */
+	public TakeScheduledResourceDemandProbe(
+			final AbstractScheduledResource resource) {
+		super(resource, MetricDescriptionConstants.RESOURCE_DEMAND_METRIC);
+	}
 
-    @Override
-    public void demand(final double demand) {
-        notify(Measure.valueOf(demand, SI.SECOND));
-    }
+	/**
+	 * The demand measure is directly forwarded to the notify method.
+	 */
+	@Override
+	public void demand(final double demand) {
+		notify(Measure.valueOf(demand, SI.SECOND));
+	}
 
-    @Override
-    public void demandCompleted(final ISchedulableProcess simProcess) {
-    }
+	/**
+	 * No need to react on demand completion within this probe.
+	 */
+	@Override
+	public void demandCompleted(final ISchedulableProcess simProcess) {
+	}
 
-    @Override
-    protected void registerListener() {
-        this.eventSource.addDemandListener(this);
-    }
+	/**
+	 * Registers this class to the scheduled resource (event source type).
+	 */
+	@Override
+	protected void registerListener() {
+		this.eventSource.addDemandListener(this);
+	}
 }

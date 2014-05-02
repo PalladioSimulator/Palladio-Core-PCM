@@ -10,21 +10,35 @@ import org.palladiosimulator.probeframework.probes.BasicObjectStateProbe;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 
 /**
- * ProbeStrategy which is able to measure the state of a
- * {@link IPassiveResource}. The state is calculated as follows:
- * <code>state = capacity - available</code>.
- *
- * @author Philipp Merkle
- *
+ * Measures a passive resource state metric (dimensionless) by calculating the
+ * difference between the capacity of the passive resource (observed state
+ * object) and its available resources.
+ * 
+ * @author Sebastian Lehrig, Steffen Becker
  */
-public class TakePassiveResourceStateProbe extends BasicObjectStateProbe<IPassiveResource, Long, Dimensionless> {
+public class TakePassiveResourceStateProbe extends
+		BasicObjectStateProbe<IPassiveResource, Long, Dimensionless> {
 
-    public TakePassiveResourceStateProbe(final IPassiveResource passiveResource) {
-        super(passiveResource,MetricDescriptionConstants.PASSIVE_RESOURCE_STATE_METRIC);
-    }
+	/**
+	 * Default constructor.
+	 * 
+	 * @param passiveResource
+	 *            The observer object is a passive resource, thus, allowing to
+	 *            request its capacity and its available resources.
+	 */
+	public TakePassiveResourceStateProbe(final IPassiveResource passiveResource) {
+		super(passiveResource,
+				MetricDescriptionConstants.PASSIVE_RESOURCE_STATE_METRIC);
+	}
 
-    @Override
-    protected Measure<Long, Dimensionless> getBasicMeasure(final RequestContext measurementContext) {
-        return Measure.valueOf(getStateObject().getCapacity() - getStateObject().getAvailable(), Dimensionless.UNIT);
-    }
+	/**
+	 * Measures the difference of capacity and available resources as
+	 * requested from the passive resource (observed state object).
+	 */
+	@Override
+	protected Measure<Long, Dimensionless> getBasicMeasure(
+			final RequestContext measurementContext) {
+		return Measure.valueOf(getStateObject().getCapacity()
+				- getStateObject().getAvailable(), Dimensionless.UNIT);
+	}
 }

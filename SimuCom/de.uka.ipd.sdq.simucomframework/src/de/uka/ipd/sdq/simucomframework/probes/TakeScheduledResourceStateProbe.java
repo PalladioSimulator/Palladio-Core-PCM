@@ -10,25 +10,45 @@ import org.palladiosimulator.probeframework.probes.BasicObjectStateProbe;
 import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
 
 /**
- * ProbeStrategy which is able to measure the state of a
- * {@link AbstractScheduledResource}. The state is the total job count of the
- * resource.
- *
- * @author Philipp Merkle
- *
+ * Measures a CPU state metric (dimensionless) by requesting the queue length
+ * from the scheduled CPU resource (observed state object). Because scheduled
+ * resources can have many instances (e.g., a CPU can have many cores), a
+ * pointer to the concrete instance is used.
+ * 
+ * @author Sebastian Lehrig, Steffen Becker
  */
-public class TakeScheduledResourceStateProbe extends BasicObjectStateProbe<AbstractScheduledResource, Long, Dimensionless> {
+public class TakeScheduledResourceStateProbe extends
+		BasicObjectStateProbe<AbstractScheduledResource, Long, Dimensionless> {
 
-    private final int instance;
+	/** Pointer to the concrete instance of the scheduled resource, e.g., CPU 0 */
+	private final int instance;
 
-    public TakeScheduledResourceStateProbe(final AbstractScheduledResource scheduledResource, final int instance) {
-        super(scheduledResource,MetricDescriptionConstants.CPU_STATE_METRIC);
-        this.instance = instance;
-    }
+	/**
+	 * Default constructor.
+	 * 
+	 * @param scheduledResource
+	 *            The observer object is a scheduled resource, thus, allowing to
+	 *            request its queue length.
+	 * @param instance
+	 *            Pointer to the concrete instance of the scheduled resource,
+	 *            e.g., CPU 0.
+	 */
+	public TakeScheduledResourceStateProbe(
+			final AbstractScheduledResource scheduledResource,
+			final int instance) {
+		super(scheduledResource, MetricDescriptionConstants.CPU_STATE_METRIC);
+		this.instance = instance;
+	}
 
-    @Override
-    protected Measure<Long, Dimensionless> getBasicMeasure(final RequestContext measurementContext) {
-        return Measure.valueOf(getStateObject().getQueueLength(instance), Dimensionless.UNIT);
-    }
+	/**
+	 * Measures the queue length from the scheduled resources (observed state
+	 * object).
+	 */
+	@Override
+	protected Measure<Long, Dimensionless> getBasicMeasure(
+			final RequestContext measurementContext) {
+		return Measure.valueOf(getStateObject().getQueueLength(instance),
+				Dimensionless.UNIT);
+	}
 
 }
