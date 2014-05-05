@@ -12,7 +12,7 @@ Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.1.0",
  de.uka.ipd.sdq.completions;bundle-version="1.0.0",
  org.eclipse.ui;visibility:=reexport,
  org.eclipse.core.runtime;visibility:=reexport,
- de.uka.ipd.sdq.featureconfig;bundle-version="1.0.0",
+ de.uka.ipd.sdq.featureconfig;bundle-version="2.1.0",
  org.eclipse.debug.core;visibility:=reexport,
  de.uka.ipd.sdq.errorhandling;bundle-version="1.0.0",
  org.eclipse.debug.ui;bundle-version="3.5.1";visibility:=reexport
