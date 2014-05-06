@@ -14,9 +14,10 @@
   <rm:locator pattern="^org\.eclipse\.m2m\..*" searchPathRef="m2m" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.gmf\..*" searchPathRef="m2m" failOnError="false"/>
   <rm:locator pattern="^de\.ikv\.medini\.qvt\..*" searchPathRef="mediniqvt" failOnError="false"/>
-  <rm:locator pattern="^com\.google\.guava*" searchPathRef="google_guava" failOnError="false"/>
-  <rm:locator pattern="^org\.eclipse\.xtend*" searchPathRef="xtext" failOnError="false"/>
-  <rm:locator pattern="^org\.eclipse\.xtext*" searchPathRef="xtext" failOnError="false"/>
+  <rm:locator pattern="^com\.google\.guava.*" searchPathRef="google_guava" failOnError="false"/>
+  <rm:locator pattern="^org\.eclipse\.xtend.*" searchPathRef="xtext" failOnError="false"/>
+  <rm:locator pattern="^org\.eclipse\.xtext.*" searchPathRef="xtext" failOnError="false"/>
+  <rm:locator pattern="^org\.objectweb\..*" searchPathRef="xtext" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.emf\.mwe\..*" searchPathRef="xtext" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.emf\.mwe2\..*" searchPathRef="xtext" failOnError="false"/>
   <rm:locator pattern="^org\.eclipse\.emf\..*" searchPathRef="emf" failOnError="false"/>
