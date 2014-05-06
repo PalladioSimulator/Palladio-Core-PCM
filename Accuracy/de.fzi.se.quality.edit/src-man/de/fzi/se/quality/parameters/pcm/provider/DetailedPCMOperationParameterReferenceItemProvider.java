@@ -6,7 +6,6 @@ package de.fzi.se.quality.parameters.pcm.provider;
 import org.eclipse.emf.common.notify.AdapterFactory;
 
 import de.fzi.se.quality.parameters.pcm.PCMOperationParameterReference;
-import de.fzi.se.quality.parameters.pcm.provider.PCMOperationParameterReferenceItemProvider;
 import de.fzi.se.quality.qualityannotation.provider.QualityPalladioItemProvider;
 
 /** Item provider for {@link PCMOperationParameterReference}.

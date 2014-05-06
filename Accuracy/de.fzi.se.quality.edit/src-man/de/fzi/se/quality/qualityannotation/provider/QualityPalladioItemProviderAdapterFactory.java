@@ -14,21 +14,21 @@ import de.uka.ipd.sdq.pcmbench.ui.provider.PalladioItemProviderAdapterFactory;
  *
  */
 public class QualityPalladioItemProviderAdapterFactory extends
-		PalladioItemProviderAdapterFactory {
+PalladioItemProviderAdapterFactory {
 
-	public QualityPalladioItemProviderAdapterFactory(
-			AdapterFactory decoratedAdapterFactory) {
-		super(decoratedAdapterFactory);
-	}
+    public QualityPalladioItemProviderAdapterFactory(
+            final AdapterFactory decoratedAdapterFactory) {
+        super(decoratedAdapterFactory);
+    }
 
-	@Override
-	protected IItemProviderDecorator createItemProviderDecorator(Object target,
-			Object Type) {
-		PalladioItemProvider result = new QualityPalladioItemProvider(this);
-		if (((Class)Type).isInstance(result)) {
-			result.addListener(this);
-			return result;
-		}
-		return null;
-	}
+    @Override
+    protected IItemProviderDecorator createItemProviderDecorator(final Object target,
+            final Object Type) {
+        final PalladioItemProvider result = new QualityPalladioItemProvider(this);
+        if (((Class<?>)Type).isInstance(result)) {
+            result.addListener(this);
+            return result;
+        }
+        return null;
+    }
 }

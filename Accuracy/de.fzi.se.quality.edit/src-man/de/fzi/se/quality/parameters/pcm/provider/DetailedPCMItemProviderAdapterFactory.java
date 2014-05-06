@@ -6,7 +6,6 @@ package de.fzi.se.quality.parameters.pcm.provider;
 import org.eclipse.emf.common.notify.Adapter;
 
 import de.fzi.se.quality.parameters.pcm.PCMParameterReference;
-import de.fzi.se.quality.parameters.pcm.provider.PCMItemProviderAdapterFactory;
 
 /**Adapter factory providing detailed information on {@link PCMParameterReference} instances.
  * @author groenda
