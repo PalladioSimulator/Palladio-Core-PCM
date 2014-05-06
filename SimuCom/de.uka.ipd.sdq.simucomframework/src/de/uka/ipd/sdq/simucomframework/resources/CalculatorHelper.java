@@ -8,10 +8,10 @@ import org.palladiosimulator.metricspec.MetricDescription;
 import org.palladiosimulator.metricspec.constants.MetricDescriptionConstants;
 import org.palladiosimulator.probeframework.ProbeFrameworkContext;
 import org.palladiosimulator.probeframework.probes.EventProbe;
-import org.palladiosimulator.probeframework.probes.EventProbeSet;
+import org.palladiosimulator.probeframework.probes.EventProbeList;
 import org.palladiosimulator.probeframework.probes.Probe;
 import org.palladiosimulator.probeframework.probes.TriggeredProbe;
-import org.palladiosimulator.probeframework.probes.TriggeredProbeSet;
+import org.palladiosimulator.probeframework.probes.TriggeredProbeList;
 
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
@@ -222,18 +222,18 @@ public final class CalculatorHelper {
         });
     }
 
-    protected static TriggeredProbeSet getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
+    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
             final MetricDescription metric) {
-        return new TriggeredProbeSet(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metric);
+        return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metric);
     }
 
-    protected static TriggeredProbeSet getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
+    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
             final String metricName) {
-        return new TriggeredProbeSet(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metricName);
+        return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metricName);
     }
 
-    protected static EventProbeSet getEventProbeSetWithCurrentTime(final ISimulationControl control, final EventProbe<?> additionalProbe,
+    protected static EventProbeList getEventProbeSetWithCurrentTime(final ISimulationControl control, final EventProbe<?> additionalProbe,
             final String metricName) {
-        return new EventProbeSet(additionalProbe,Arrays.asList((Probe)new TakeCurrentSimulationTimeProbe(control)), metricName);
+        return new EventProbeList(additionalProbe,Arrays.asList((Probe)new TakeCurrentSimulationTimeProbe(control)), metricName);
     }
 }

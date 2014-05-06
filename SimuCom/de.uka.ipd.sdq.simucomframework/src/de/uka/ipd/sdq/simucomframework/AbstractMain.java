@@ -10,7 +10,7 @@ import org.apache.log4j.Logger;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceRegistration;
-import org.palladiosimulator.probeframework.probes.EventProbeSet;
+import org.palladiosimulator.probeframework.probes.EventProbeList;
 import org.palladiosimulator.probeframework.probes.Probe;
 
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.DisplayIssuesDialog;
@@ -197,7 +197,7 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
         if (model.getConfiguration().getSimulateFailures()) {
             model.getProbeFrameworkContext().getCalculatorFactory().
             buildExecutionResultCalculator("System execution results",
-                    new EventProbeSet(
+                    new EventProbeList(
                             model.getFailureStatistics().getExecutionResultProbe(),
                             Arrays.asList((Probe)new TakeCurrentSimulationTimeProbe(this.model.getSimulationControl())),
                             "ExecutionResult")
