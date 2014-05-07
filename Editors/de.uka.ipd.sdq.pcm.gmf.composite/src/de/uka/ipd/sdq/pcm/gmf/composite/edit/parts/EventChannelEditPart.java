@@ -60,13 +60,14 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public EventChannelEditPart(View view) {
+    public EventChannelEditPart(final View view) {
         super(view);
     }
 
     /**
      * @generated
      */
+    @Override
     protected void createDefaultEditPolicies() {
         super.createDefaultEditPolicies();
         installEditPolicy(EditPolicyRoles.SEMANTIC_ROLE, new EventChannelItemSemanticEditPolicy());
@@ -80,9 +81,10 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected LayoutEditPolicy createLayoutEditPolicy() {
-        org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
+        final org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy lep = new org.eclipse.gmf.runtime.diagram.ui.editpolicies.LayoutEditPolicy() {
 
-            protected EditPolicy createChildEditPolicy(EditPart child) {
+            @Override
+            protected EditPolicy createChildEditPolicy(final EditPart child) {
                 EditPolicy result = child.getEditPolicy(EditPolicy.PRIMARY_DRAG_ROLE);
                 if (result == null) {
                     result = new NonResizableEditPolicy();
@@ -90,11 +92,13 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
                 return result;
             }
 
-            protected Command getMoveChildrenCommand(Request request) {
+            @Override
+            protected Command getMoveChildrenCommand(final Request request) {
                 return null;
             }
 
-            protected Command getCreateCommand(CreateRequest request) {
+            @Override
+            protected Command getCreateCommand(final CreateRequest request) {
                 return null;
             }
         };
@@ -118,7 +122,7 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected boolean addFixedChild(EditPart childEditPart) {
+    protected boolean addFixedChild(final EditPart childEditPart) {
         if (childEditPart instanceof EventChannelEntityNameEditPart) {
             ((EventChannelEntityNameEditPart) childEditPart).setLabel(getPrimaryShape()
                     .getFigureEventChannelLabelFigure());
@@ -130,7 +134,7 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected boolean removeFixedChild(EditPart childEditPart) {
+    protected boolean removeFixedChild(final EditPart childEditPart) {
         if (childEditPart instanceof EventChannelEntityNameEditPart) {
             return true;
         }
@@ -140,7 +144,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected void addChildVisual(EditPart childEditPart, int index) {
+    @Override
+    protected void addChildVisual(final EditPart childEditPart, final int index) {
         if (addFixedChild(childEditPart)) {
             return;
         }
@@ -150,7 +155,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected void removeChildVisual(EditPart childEditPart) {
+    @Override
+    protected void removeChildVisual(final EditPart childEditPart) {
         if (removeFixedChild(childEditPart)) {
             return;
         }
@@ -160,7 +166,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected IFigure getContentPaneFor(IGraphicalEditPart editPart) {
+    @Override
+    protected IFigure getContentPaneFor(final IGraphicalEditPart editPart) {
         return getContentPane();
     }
 
@@ -168,7 +175,7 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
      * @generated
      */
     protected NodeFigure createNodePlate() {
-        DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(80, 40);
+        final DefaultSizeNodeFigure result = new DefaultSizeNodeFigure(80, 40);
         return result;
     }
 
@@ -180,10 +187,11 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
      * 
      * @generated
      */
+    @Override
     protected NodeFigure createNodeFigure() {
-        NodeFigure figure = createNodePlate();
+        final NodeFigure figure = createNodePlate();
         figure.setLayoutManager(new StackLayout());
-        IFigure shape = createNodeShape();
+        final IFigure shape = createNodeShape();
         figure.add(shape);
         contentPane = setupContentPane(shape);
         return figure;
@@ -197,9 +205,9 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
      *            instance of generated figure class
      * @generated
      */
-    protected IFigure setupContentPane(IFigure nodeShape) {
+    protected IFigure setupContentPane(final IFigure nodeShape) {
         if (nodeShape.getLayoutManager() == null) {
-            ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
+            final ConstrainedToolbarLayout layout = new ConstrainedToolbarLayout();
             layout.setSpacing(5);
             nodeShape.setLayoutManager(layout);
         }
@@ -209,6 +217,7 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     public IFigure getContentPane() {
         if (contentPane != null) {
             return contentPane;
@@ -219,7 +228,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected void setForegroundColor(Color color) {
+    @Override
+    protected void setForegroundColor(final Color color) {
         if (primaryShape != null) {
             primaryShape.setForegroundColor(color);
         }
@@ -228,7 +238,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected void setBackgroundColor(Color color) {
+    @Override
+    protected void setBackgroundColor(final Color color) {
         if (primaryShape != null) {
             primaryShape.setBackgroundColor(color);
         }
@@ -237,7 +248,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected void setLineWidth(int width) {
+    @Override
+    protected void setLineWidth(final int width) {
         if (primaryShape instanceof Shape) {
             ((Shape) primaryShape).setLineWidth(width);
         }
@@ -246,7 +258,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    protected void setLineType(int style) {
+    @Override
+    protected void setLineType(final int style) {
         if (primaryShape instanceof Shape) {
             ((Shape) primaryShape).setLineStyle(style);
         }
@@ -255,6 +268,7 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
+    @Override
     public EditPart getPrimaryChildEditPart() {
         return getChildBySemanticHint(PalladioComponentModelVisualIDRegistry
                 .getType(EventChannelEntityNameEditPart.VISUAL_ID));
@@ -264,7 +278,7 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
      * @generated
      */
     public List<IElementType> getMARelTypesOnTarget() {
-        ArrayList<IElementType> types = new ArrayList<IElementType>(2);
+        final ArrayList<IElementType> types = new ArrayList<IElementType>(2);
         types.add(PalladioComponentModelElementTypes.EventChannelSinkConnector_4010);
         types.add(PalladioComponentModelElementTypes.EventChannelSourceConnector_4009);
         return types;
@@ -273,8 +287,8 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
     /**
      * @generated
      */
-    public List<IElementType> getMATypesForSource(IElementType relationshipType) {
-        LinkedList<IElementType> types = new LinkedList<IElementType>();
+    public List<IElementType> getMATypesForSource(final IElementType relationshipType) {
+        final LinkedList<IElementType> types = new LinkedList<IElementType>();
         if (relationshipType == PalladioComponentModelElementTypes.EventChannelSinkConnector_4010) {
             types.add(PalladioComponentModelElementTypes.SinkRole_3014);
         } else if (relationshipType == PalladioComponentModelElementTypes.EventChannelSourceConnector_4009) {
@@ -298,7 +312,7 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
          */
         public EventChannelFigure() {
 
-            GridLayout layoutThis = new GridLayout();
+            final GridLayout layoutThis = new GridLayout();
             layoutThis.numColumns = 1;
             layoutThis.makeColumnsEqualWidth = true;
             this.setLayoutManager(layoutThis);
@@ -319,9 +333,9 @@ public class EventChannelEditPart extends ShapeNodeEditPart {
 
             fFigureEventChannelLabelFigure = new WrappingLabel();
 
-            fFigureEventChannelLabelFigure.setText("<É>");
+            fFigureEventChannelLabelFigure.setText("<?>");
 
-            GridData constraintFFigureEventChannelLabelFigure = new GridData();
+            final GridData constraintFFigureEventChannelLabelFigure = new GridData();
             constraintFFigureEventChannelLabelFigure.verticalAlignment = GridData.CENTER;
             constraintFFigureEventChannelLabelFigure.horizontalAlignment = GridData.CENTER;
             constraintFFigureEventChannelLabelFigure.horizontalIndent = 0;

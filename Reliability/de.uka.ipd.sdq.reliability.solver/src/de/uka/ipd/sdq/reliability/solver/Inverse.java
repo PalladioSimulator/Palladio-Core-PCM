@@ -4,7 +4,7 @@ package de.uka.ipd.sdq.reliability.solver;
 //                                                                       //
 // Program file name: Inverse.java                                       //
 //                                                                       //
-// © Tao Pang 2006                                                       //
+// (c) Tao Pang 2006                                                       //
 //                                                                       //
 // Last modified: January 18, 2006                                       //
 //                                                                       //
@@ -21,21 +21,23 @@ package de.uka.ipd.sdq.reliability.solver;
 
 public class Inverse {
 
-    public static void gaussian(double a[][], int index[]) {
-        int n = index.length;
-        double c[] = new double[n];
+    public static void gaussian(final double a[][], final int index[]) {
+        final int n = index.length;
+        final double c[] = new double[n];
 
         // Initialize the index
-        for (int i = 0; i < n; ++i)
+        for (int i = 0; i < n; ++i) {
             index[i] = i;
+        }
 
         // Find the rescaling factors, one from each row
         for (int i = 0; i < n; ++i) {
             double c1 = 0;
             for (int j = 0; j < n; ++j) {
-                double c0 = Math.abs(a[i][j]);
-                if (c0 > c1)
+                final double c0 = Math.abs(a[i][j]);
+                if (c0 > c1) {
                     c1 = c0;
+                }
             }
             c[i] = c1;
         }
@@ -54,18 +56,19 @@ public class Inverse {
             }
 
             // Interchange rows according to the pivoting order
-            int itmp = index[j];
+            final int itmp = index[j];
             index[j] = index[k];
             index[k] = itmp;
             for (int i = j + 1; i < n; ++i) {
-                double pj = a[index[i]][j] / a[index[j]][j];
+                final double pj = a[index[i]][j] / a[index[j]][j];
 
                 // Record pivoting ratios below the diagonal
                 a[index[i]][j] = pj;
 
                 // Modify other elements accordingly
-                for (int l = j + 1; l < n; ++l)
+                for (int l = j + 1; l < n; ++l) {
                     a[index[i]][l] -= pj * a[index[j]][l];
+                }
             }
         }
     }
@@ -73,22 +76,26 @@ public class Inverse {
     // Method to carry out the partial-pivoting Gaussian
     // elimination. Here index[] stores pivoting order.
 
-    public static double[][] invert(double a[][]) {
-        int n = a.length;
-        double x[][] = new double[n][n];
-        double b[][] = new double[n][n];
-        int index[] = new int[n];
-        for (int i = 0; i < n; ++i)
+    public static double[][] invert(final double a[][]) {
+        final int n = a.length;
+        final double x[][] = new double[n][n];
+        final double b[][] = new double[n][n];
+        final int index[] = new int[n];
+        for (int i = 0; i < n; ++i) {
             b[i][i] = 1;
+        }
 
         // Transform the matrix into an upper triangle
         gaussian(a, index);
 
         // Update the matrix b[i][j] with the ratios stored
-        for (int i = 0; i < n - 1; ++i)
-            for (int j = i + 1; j < n; ++j)
-                for (int k = 0; k < n; ++k)
+        for (int i = 0; i < n - 1; ++i) {
+            for (int j = i + 1; j < n; ++j) {
+                for (int k = 0; k < n; ++k) {
                     b[index[j]][k] -= a[index[j]][i] * b[index[i]][k];
+                }
+            }
+        }
 
         // Perform backward substitutions
         for (int i = 0; i < n; ++i) {

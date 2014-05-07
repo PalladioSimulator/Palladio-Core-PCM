@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.spa.expression.Expression;
  * DTMC for more accurate predictions. Chapter 6.3.3 will provide the syntax and
  * semantics of SREs, afterwards Chapter 6.3.4 shows how to compute overall
  * sojourn times with SREs. Only a partial transformation of PCM instances to
- * SREs is possible, because of the model’s limited expressiveness. The
+ * SREs is possible, because of the model's limited expressiveness. The
  * transformation is straight-forward, as the control flow modelling of PCM
  * instances and SREs are closely aligned. Chapter 6.3.5 will describe the
  * transformation PCM2SRE. While allowing accurate predictions by supporting
@@ -57,147 +57,152 @@ import de.uka.ipd.sdq.spa.expression.Expression;
  */
 public class Pcm2RegExStrategy implements SolverStrategy {
 
-	Expression stoRegEx;
+    Expression stoRegEx;
 
-	protected IProbabilityFunctionFactory iProbFuncFactory = 
-		IProbabilityFunctionFactory.eINSTANCE;
-	
-	private static Logger logger = Logger.getLogger(Pcm2RegExStrategy.class.getName());
-	
-	private long overallDuration = 0;
+    protected IProbabilityFunctionFactory iProbFuncFactory =
+            IProbabilityFunctionFactory.eINSTANCE;
 
-	private PCMSolverWorkflowRunConfiguration configuration;
-	
-	public Pcm2RegExStrategy(PCMSolverWorkflowRunConfiguration configuration) {
-		this.configuration = configuration;
-	}
+    private static Logger logger = Logger.getLogger(Pcm2RegExStrategy.class.getName());
 
-	public void loadTransformedModel(String fileName) {
-		EObject object = EMFHelper.loadFromXMIFile(fileName);
-		if (object instanceof Expression){
-			this.stoRegEx = (Expression)object;
-		} else {
-			logger.warn("Could not load "+fileName+" because is not an Expression model");
-		}
-	}
+    private long overallDuration = 0;
 
-	public void solve() {
-		if (stoRegEx != null){
-			long timeBeforeCalc = System.nanoTime();
-			ExpressionSolver solver = new ExpressionSolver();
-			ManagedPDF resultPDF = solver.getResponseTime(stoRegEx);
-			
-			if(resultPDF == null){
-				logger.error("StochasticRegularExpression could not be solved!");
-				return;
-			}
-			
-			long timeAfterCalc = System.nanoTime();
-			long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
-			overallDuration += duration;
-			logger.info("Finished Running ExprSolver:\t"+ duration + " ms");
-			logger.debug("Resulting PDF:\t\t\t"+resultPDF.toString());
-			logger.trace("As csv:\n\nx;probability\n"+new ProbFunctionCSVPrint().doSwitch(resultPDF.getModelBoxedPdf()));
-			
-			visualize(resultPDF.getPdfTimeDomain());
-			long timeAfterVisualisation = System.nanoTime();
-			
-			//logger.info("PDF in time domain: "+resultPDF.getPdfTimeDomain());
-			
-			duration = TimeUnit.NANOSECONDS.toMillis(timeAfterVisualisation-timeAfterCalc);
-			overallDuration += duration;
-			logger.info("Finished Visualisation:\t\t"+ duration + " ms");
-			logger.info("Finished SRE-Solver:\t\t"+ overallDuration+ " ms");
-			
-		} else
-			logger.error("No StochasticRegularExpression available for solution!");
-	}
+    private final PCMSolverWorkflowRunConfiguration configuration;
 
-	public void storeTransformedModel(String fileName) {
-		
-		EMFHelper.saveToXMIFile(stoRegEx, fileName);
-		
-	}
+    public Pcm2RegExStrategy(final PCMSolverWorkflowRunConfiguration configuration) {
+        this.configuration = configuration;
+    }
 
-	public void transform(PCMInstance model) {
-		
-		if (!this.configuration.isUseSREInputModel()){
-			long timeBeforeCalc = System.nanoTime();
-			runDSolver(model);
-			runPcm2RegEx(model);
-			printStoRegEx();
-		
-			storeTransformedModel(this.configuration.getSREOutputFile());
-		
-			long timeAfterCalc = System.nanoTime();
-			long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
-			overallDuration += duration;
-			logger.info("Finished Running PCM2SRE:\t\t"+ duration + " ms");
-		} else {
-			String filename = this.configuration.getSREOutputFile();
-			loadTransformedModel(filename);
-			logger.warn("Using predefined Expression model "+filename);
-		}
-		
-		
-	}
+    @Override
+    public void loadTransformedModel(final String fileName) {
+        final EObject object = EMFHelper.loadFromXMIFile(fileName);
+        if (object instanceof Expression){
+            this.stoRegEx = (Expression)object;
+        } else {
+            logger.warn("Could not load "+fileName+" because is not an Expression model");
+        }
+    }
 
-	private void printStoRegEx() {
-		ExpressionPrinter expPrinter = new ExpressionPrinter();
-		expPrinter.doSwitch(stoRegEx);
-		logger.debug("ExpressionPrinter: "+expPrinter.getOutput());
-	}
+    @Override
+    public void solve() {
+        if (stoRegEx != null){
+            final long timeBeforeCalc = System.nanoTime();
+            final ExpressionSolver solver = new ExpressionSolver();
+            final ManagedPDF resultPDF = solver.getResponseTime(stoRegEx);
 
-	private void runPcm2RegEx(PCMInstance model) {
-		TransformUsageModelVisitor umVisit = new TransformUsageModelVisitor(model);
-		UsageScenario us = (UsageScenario)model.getUsageModel().getUsageScenario_UsageModel().get(0);
-		try {
-			stoRegEx = (Expression)umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
-		} catch (Exception e) {
-			logger.error("Transforming the PCM instance into a stochastic regular expression caused an Exception! Check your model for broken references, e.g. old, dangling Connectors." + e.getMessage());
-			e.printStackTrace();
-			
-			throw new RuntimeException(e);
-		}
-	}
+            if(resultPDF == null){
+                logger.error("StochasticRegularExpression could not be solved!");
+                return;
+            }
 
-	private void runDSolver(PCMInstance model) {
-		UsageModelVisitor visitor = new UsageModelVisitor(model);
-		try {
-			UsageScenario us = (UsageScenario) model.getUsageModel()
-					.getUsageScenario_UsageModel().get(0);
-			visitor.doSwitch(us.getScenarioBehaviour_UsageScenario());
-		} catch (Exception e) {
-			logger.error("Running the dependency solver caused an Exception! Check your model for broken references, e.g. old, dangling Connectors." + e.getMessage());
-			e.printStackTrace();
-			
-			throw new RuntimeException(e);
-		}
-	}
-	
-	private void visualize(IProbabilityDensityFunction iPDF) {
-		ISamplePDF samplePDF = null;
-		try {
-			samplePDF = iProbFuncFactory.transformToSamplePDF(iPDF);
-		} catch (UnknownPDFTypeException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		try {
-			double dist = 0.0;
-			try {
-				dist = PDFConfiguration.getCurrentConfiguration().getDistance();
-			} catch (ConfigurationNotSetException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-			JFVisualisation vis = new JFVisualisation(dist);
-			vis.addSamplePDF(samplePDF,"Execution Time");
-			vis.visualizeOverlay();
-		} catch (ProbabilityFunctionException e) {
-			e.printStackTrace();
-		}
-	}
+            final long timeAfterCalc = System.nanoTime();
+            long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
+            overallDuration += duration;
+            logger.info("Finished Running ExprSolver:\t"+ duration + " ms");
+            logger.debug("Resulting PDF:\t\t\t"+resultPDF.toString());
+            logger.trace("As csv:\n\nx;probability\n"+new ProbFunctionCSVPrint().doSwitch(resultPDF.getModelBoxedPdf()));
+
+            visualize(resultPDF.getPdfTimeDomain());
+            final long timeAfterVisualisation = System.nanoTime();
+
+            //logger.info("PDF in time domain: "+resultPDF.getPdfTimeDomain());
+
+            duration = TimeUnit.NANOSECONDS.toMillis(timeAfterVisualisation-timeAfterCalc);
+            overallDuration += duration;
+            logger.info("Finished Visualisation:\t\t"+ duration + " ms");
+            logger.info("Finished SRE-Solver:\t\t"+ overallDuration+ " ms");
+
+        } else {
+            logger.error("No StochasticRegularExpression available for solution!");
+        }
+    }
+
+    @Override
+    public void storeTransformedModel(final String fileName) {
+
+        EMFHelper.saveToXMIFile(stoRegEx, fileName);
+
+    }
+
+    @Override
+    public void transform(final PCMInstance model) {
+
+        if (!this.configuration.isUseSREInputModel()){
+            final long timeBeforeCalc = System.nanoTime();
+            runDSolver(model);
+            runPcm2RegEx(model);
+            printStoRegEx();
+
+            storeTransformedModel(this.configuration.getSREOutputFile());
+
+            final long timeAfterCalc = System.nanoTime();
+            final long duration = TimeUnit.NANOSECONDS.toMillis(timeAfterCalc-timeBeforeCalc);
+            overallDuration += duration;
+            logger.info("Finished Running PCM2SRE:\t\t"+ duration + " ms");
+        } else {
+            final String filename = this.configuration.getSREOutputFile();
+            loadTransformedModel(filename);
+            logger.warn("Using predefined Expression model "+filename);
+        }
+
+
+    }
+
+    private void printStoRegEx() {
+        final ExpressionPrinter expPrinter = new ExpressionPrinter();
+        expPrinter.doSwitch(stoRegEx);
+        logger.debug("ExpressionPrinter: "+expPrinter.getOutput());
+    }
+
+    private void runPcm2RegEx(final PCMInstance model) {
+        final TransformUsageModelVisitor umVisit = new TransformUsageModelVisitor(model);
+        final UsageScenario us = model.getUsageModel().getUsageScenario_UsageModel().get(0);
+        try {
+            stoRegEx = (Expression)umVisit.doSwitch(us.getScenarioBehaviour_UsageScenario());
+        } catch (final Exception e) {
+            logger.error("Transforming the PCM instance into a stochastic regular expression caused an Exception! Check your model for broken references, e.g. old, dangling Connectors." + e.getMessage());
+            e.printStackTrace();
+
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void runDSolver(final PCMInstance model) {
+        final UsageModelVisitor visitor = new UsageModelVisitor(model);
+        try {
+            final UsageScenario us = model.getUsageModel()
+                    .getUsageScenario_UsageModel().get(0);
+            visitor.doSwitch(us.getScenarioBehaviour_UsageScenario());
+        } catch (final Exception e) {
+            logger.error("Running the dependency solver caused an Exception! Check your model for broken references, e.g. old, dangling Connectors." + e.getMessage());
+            e.printStackTrace();
+
+            throw new RuntimeException(e);
+        }
+    }
+
+    private void visualize(final IProbabilityDensityFunction iPDF) {
+        ISamplePDF samplePDF = null;
+        try {
+            samplePDF = iProbFuncFactory.transformToSamplePDF(iPDF);
+        } catch (final UnknownPDFTypeException e1) {
+            // TODO Auto-generated catch block
+            e1.printStackTrace();
+        }
+
+        try {
+            double dist = 0.0;
+            try {
+                dist = PDFConfiguration.getCurrentConfiguration().getDistance();
+            } catch (final ConfigurationNotSetException e) {
+                // TODO Auto-generated catch block
+                e.printStackTrace();
+            }
+            final JFVisualisation vis = new JFVisualisation(dist);
+            vis.addSamplePDF(samplePDF,"Execution Time");
+            vis.visualizeOverlay();
+        } catch (final ProbabilityFunctionException e) {
+            e.printStackTrace();
+        }
+    }
 
 }
