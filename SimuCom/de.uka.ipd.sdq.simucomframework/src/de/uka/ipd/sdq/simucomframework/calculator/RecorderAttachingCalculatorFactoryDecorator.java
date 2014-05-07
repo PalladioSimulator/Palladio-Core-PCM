@@ -5,7 +5,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.palladiosimulator.probeframework.ProbeFrameworkContext;
 import org.palladiosimulator.probeframework.calculator.Calculator;
 import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
 import org.palladiosimulator.probeframework.probes.Probe;
@@ -133,15 +132,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     @Override
     public Calculator buildIdentityCalculator(String calculatorName, Probe probe) {
         return setupRecorder(calculatorName, decoratedCalculatorFactory.buildIdentityCalculator(calculatorName, probe));
-    }
-
-    /**
-     * @param probeFrameworkContext
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#setProbeFrameworkContext(org.palladiosimulator.probeframework.ProbeFrameworkContext)
-     */
-    @Override
-    public void setProbeFrameworkContext(final ProbeFrameworkContext probeFrameworkContext) {
-        decoratedCalculatorFactory.setProbeFrameworkContext(probeFrameworkContext);
     }
 
     /**
