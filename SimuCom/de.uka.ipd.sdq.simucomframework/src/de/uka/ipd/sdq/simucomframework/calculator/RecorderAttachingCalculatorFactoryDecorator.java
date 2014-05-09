@@ -5,6 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
+import org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint;
 import org.palladiosimulator.probeframework.calculator.Calculator;
 import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
 import org.palladiosimulator.probeframework.probes.Probe;
@@ -32,6 +34,8 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     private final String experimentRunName;
 
     private final ICalculatorFactory decoratedCalculatorFactory;
+    
+    private final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
 
     public RecorderAttachingCalculatorFactoryDecorator(final ICalculatorFactory decoratedCalculatorFactory, final SimuComConfig configuration) {
         super();
@@ -141,9 +145,11 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     private Calculator setupRecorder(
             final String calculatorName,
             final Calculator calculator) {
+        StringMeasuringPoint measuringPoint = measuringpointFactory.createStringMeasuringPoint();
+        measuringPoint.setMeasuringPoint(calculatorName);
         final Map<String, Object> recorderConfigurationMap = new HashMap<String,Object>();
         recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC, calculator.getMetricDesciption());
-        recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURED_ELEMENT_DESCRIPTION, calculatorName);
+        recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURING_POINT, measuringPoint);
 
         final Recorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration.getRecorderName());
         final IRecorderConfiguration recorderConfiguration = this.configuration.
