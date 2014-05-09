@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource;
  * Measures a CPU state metric (dimensionless) by requesting the queue length
  * from the scheduled CPU resource (observed state object). Because scheduled
  * resources can have many instances (e.g., a CPU can have many cores), a
- * pointer to the concrete instance is used.
+ * pointer to the concrete instance is used additionally.
  * 
  * @author Sebastian Lehrig, Steffen Becker
  */
