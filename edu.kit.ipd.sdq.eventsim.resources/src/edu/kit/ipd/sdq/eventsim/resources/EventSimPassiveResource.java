@@ -18,8 +18,13 @@ public class EventSimPassiveResource implements IPassiveResource {
 	}
 
 	@Override
-	public boolean acquire(IRequest request, PassiveResource passiveResouce, int i, boolean b, double timeoutValue) {
-		return this.model.acquire(request, passiveResouce, i, b, timeoutValue);
+	public boolean acquire(IRequest request, PassiveResource specification, int i, boolean b, double timeoutValue) {
+		return this.model.acquire(request, specification, i, b, timeoutValue);
+	}
+
+	@Override
+	public void release(IRequest request, PassiveResource specification, int i) {
+		this.model.release(request, specification, i);
 	}
 
 	/**

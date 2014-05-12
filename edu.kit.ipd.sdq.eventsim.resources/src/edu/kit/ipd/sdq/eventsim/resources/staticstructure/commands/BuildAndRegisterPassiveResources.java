@@ -60,8 +60,7 @@ public class BuildAndRegisterPassiveResources implements IPCMCommand<Void> {
             // for each passive resource specification
             for (PassiveResource specification : basicComponent.getPassiveResource_BasicComponent()) {
                 // create passive resource
-                SimPassiveResource simResource = ResourceFactory.createPassiveResource(model, specification,
-                        ctx.getAssemblyContext_AllocationContext());
+                SimPassiveResource simResource = ResourceFactory.createPassiveResource(model, specification, ctx.getAssemblyContext_AllocationContext());
 
                 // register the created passive resource
                 this.passiveResourceRegistry.registerPassiveResource(specification, simResource, ctx.getAssemblyContext_AllocationContext());

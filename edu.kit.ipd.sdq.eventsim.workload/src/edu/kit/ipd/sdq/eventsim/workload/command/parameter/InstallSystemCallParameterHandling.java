@@ -6,6 +6,7 @@ import java.util.Set;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
@@ -17,6 +18,7 @@ import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
+import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.ParameterHelper;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindSystemCallsOfScenario;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
@@ -90,10 +92,10 @@ public class InstallSystemCallParameterHandling implements IPCMCommand<Void> {
             final SimulatedStackframe<Object> serviceBodyFrame = ctx.getStack().createAndPushNewStackFrame();
 
             // add component parameters
-            // TODO (SimComp): find a place to setup the paramter handling (based on event)
-            //final AssemblyContext assemblyCtx = model.execute(new FindAssemblyContextForSystemCall(call));
-            //final ComponentInstance component = model.getComponent(assemblyCtx);
-            //serviceBodyFrame.addVariables(component.getComponentParameters());
+            // TODO (SimComp): find a place to setup the parameter handling (based on event)
+            final AssemblyContext assemblyCtx = model.execute(new FindAssemblyContextForSystemCall(call));
+            final ComponentInstance component = model.getComponent(assemblyCtx);
+            serviceBodyFrame.addVariables(component.getComponentParameters());
 
             // evaluate the input parameters and add them to the call's scope
             final List<VariableUsage> parameters = call.getInputParameterUsages_EntryLevelSystemCall();

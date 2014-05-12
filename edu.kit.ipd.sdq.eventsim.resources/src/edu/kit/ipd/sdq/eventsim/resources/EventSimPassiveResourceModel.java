@@ -44,14 +44,18 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 		this.execute(new MountPassiveResourceProbes(this, this.passiveResourceRegistry));
 	}
 
-	public boolean acquire(IRequest request, PassiveResource passiveResouce, int i, boolean b, double timeoutValue) {
+	public boolean acquire(IRequest request, PassiveResource specification, int i, boolean b, double timeoutValue) {
 		Request eventSimRequest = (Request) request;
-		RequestState state = eventSimRequest.getRequestState();
-
-        SimPassiveResource res = state.getComponent().getPassiveResource(passiveResouce);
+        SimPassiveResource res = this.getPassiveResource(specification);
         boolean acquired = res.acquire(eventSimRequest.getSimulatedProcess(), i, b, timeoutValue);
 
 		return acquired;
+	}
+
+	public void release(IRequest request, PassiveResource specification, int i) {
+		Request eventSimRequest = (Request) request;
+        final SimPassiveResource res = this.getPassiveResource(specification);
+        res.release(eventSimRequest.getSimulatedProcess(), 1);
 	}
 
 	/**

@@ -12,6 +12,7 @@ import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.resources.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.BuildActiveResourceCalculators;
 import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.MountActiveResourceProbes;
@@ -76,7 +77,7 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 
 		final double absoluteDemand = NumberConverter.toDouble(state.getStoExContext().evaluate(demandSpecification.getSpecification()));
 
-		final SimulatedResourceContainer resourceContainer = state.getComponent().getResourceContainer();
+		final SimulatedResourceContainer resourceContainer = (SimulatedResourceContainer) state.getComponent().getResourceContainer();
 
 		System.out.println("fetch resource (type: " + resourceType.getEntityName() + ")");
 		final SimActiveResource resource = resourceContainer.findResource(resourceType);
@@ -118,6 +119,10 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	 */
 	public ComponentInstance getComponent(final AssemblyContext assemblyContext) {
 		return this.componentRegistry.get(assemblyContext.getId());
+	}
+
+	public ISchedulingFactory getSchedulingFactory() {
+		return schedulingFactory;
 	}
 
 }

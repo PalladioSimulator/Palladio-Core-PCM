@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
-import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.repository.ProvidedRole;
 import de.uka.ipd.sdq.pcm.repository.RequiredRole;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
@@ -18,7 +17,6 @@ import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceContainer;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 /**
@@ -54,7 +52,7 @@ public class ComponentInstance {
     private List<RoleInstance> requiredRoles;
     private final AssemblyContext assemblyCtx;
     private final SimulatedStackframe<Object> componentParameters;
-    private final SimulatedResourceContainer resourceContainer;
+    private final IResourceContainer resourceContainer;
 
     /**
      * Constructs a new component instance by specifying the three contexts as described in the
@@ -67,7 +65,7 @@ public class ComponentInstance {
      * @para assemblyCtx the AssemblyContext
      */
     public ComponentInstance(final AbstractEventSimModel model, final BasicComponent type, final AssemblyContext assemblyCtx,
-            final SimulatedResourceContainer deployedOn, final SimulatedStackframe<Object> parameters) {
+            final IResourceContainer deployedOn, final SimulatedStackframe<Object> parameters) {
         assert (model != null) : "The argument model may not be null.";
         assert (type != null) : "The argument type may not be null.";
         assert (assemblyCtx != null) : "The argument assemblyCtx may not be null.";
@@ -189,22 +187,8 @@ public class ComponentInstance {
     /**
      * @return the resource container in which the component instance is deployed
      */
-    public SimulatedResourceContainer getResourceContainer() {
+    public IResourceContainer getResourceContainer() {
         return this.resourceContainer;
-    }
-
-    /**
-     * @param specification
-     *            the passive resource specification
-     * @return the resource instance for the given resource specification
-     */
-    public SimPassiveResource getPassiveResource(final PassiveResource specification) {
-        final SimPassiveResource simResource = this.model.getPassiveResourceRegistry().getPassiveResourceForContext(specification, this.assemblyCtx);
-        if (simResource == null) {
-            throw new RuntimeException("Passive resource " + PCMEntityHelper.toString(specification)
-                    + " for assembly context " + PCMEntityHelper.toString(this.assemblyCtx) + " could not be found.");
-        }
-        return simResource;
     }
 
 }

@@ -18,6 +18,7 @@ import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimLinkingResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationModel;
 
 public class ResourceFactory {
 
@@ -82,7 +83,7 @@ public class ResourceFactory {
 		final PCMRandomVariable throughput = specification.getThroughput_CommunicationLinkResourceSpecification();
 
 		String resourceName = SchedulingStrategy.FCFS.toString();
-		EventSimSystemModel systemModel = (EventSimSystemModel) model;
+		EventSimActiveResourceModel systemModel = (EventSimActiveResourceModel) model;
 		IActiveResource resource = systemModel.getSchedulingFactory().createSimFCFSResource(resourceName, getNextResourceId());
 
 		final SimLinkingResource r = new SimLinkingResource(model, resource, latency.getSpecification(), throughput.getSpecification());

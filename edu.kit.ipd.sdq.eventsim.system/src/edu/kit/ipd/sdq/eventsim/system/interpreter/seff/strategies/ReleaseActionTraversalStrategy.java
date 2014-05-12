@@ -5,10 +5,11 @@ import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTraversalInstructionFactory;
+import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
+import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
 /**
  * This traversal strategy is responsible for {@link ReleaseAction}s.
@@ -27,11 +28,15 @@ public class ReleaseActionTraversalStrategy implements ISeffTraversalStrategy<Re
             throw new EventSimException("Parametric resource demands are not yet supported for ReleaseActions.");
         }
 
-        final PassiveResource passiveResouce = action.getPassiveResource_ReleaseAction();
+        request.setRequestState(state);
 
-        // TODO (SimComp): move to resource plugin
-        final SimPassiveResource res = state.getComponent().getPassiveResource(passiveResouce);
-        res.release(request.getSimulatedProcess(), 1);
+        // fetch passive resource simulation component
+        // TODO (SimComp): provide passive resource context
+        ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
+        IPassiveResource passiveResourceSimulation = (IPassiveResource) middleware.getSimulationComponent(IPassiveResource.class, null);
+
+        final PassiveResource passiveResouce = action.getPassiveResource_ReleaseAction();
+        passiveResourceSimulation.release(request, passiveResouce, 1);
 
         return RequestTraversalInstructionFactory.traverseNextAction(action.getSuccessor_AbstractAction());
     }

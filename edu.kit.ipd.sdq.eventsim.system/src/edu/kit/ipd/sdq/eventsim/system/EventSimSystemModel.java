@@ -13,6 +13,7 @@ import de.uka.ipd.sdq.simulation.ISimulationListener;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.entities.User;
+import edu.kit.ipd.sdq.eventsim.resources.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.resources.staticstructure.AllocationRegistry;
 import edu.kit.ipd.sdq.eventsim.resources.staticstructure.PassiveResourceRegistry;
 import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceContainer;
@@ -21,7 +22,6 @@ import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildAndRegis
 import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildResourceAllocation;
 import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildSimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
-import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.parameter.InstallExternalCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.system.debug.DebugSeffTraversalListener;
@@ -175,10 +175,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		for (final ISimulationListener l : this.getEventSimConfig().getListeners()) {
 			l.simulationStop();
 		}
-	}
-
-	public ISchedulingFactory getSchedulingFactory() {
-		return schedulingFactory;
 	}
 
 }
