@@ -20,7 +20,7 @@ import edu.kit.ipd.sdq.simcomp.exception.UnknownSimulationComponent;
 public interface ISimulationMiddleware {
 
 	/**
-	 * A list of simulation events triggered by this simulation component.
+	 * List of simulation events triggered by this simulation component.
 	 */
 	@SuppressWarnings("rawtypes")
 	public static Class[] componentEvents = new Class[] { 
