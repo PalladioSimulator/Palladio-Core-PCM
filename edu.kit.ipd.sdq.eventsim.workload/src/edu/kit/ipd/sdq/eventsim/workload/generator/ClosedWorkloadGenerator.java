@@ -10,8 +10,8 @@ import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
 import edu.kit.ipd.sdq.eventsim.workload.events.BeginUsageTraversalEvent;
+import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.event.workload.WorkloadUserFinished;
-import edu.kit.ipd.sdq.simcomp.event.workload.WorkloadUserSpawn;
 
 /**
  * A closed workload is a workload sustaining a fixed amount of {@link User}s, which are called the
@@ -28,7 +28,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
     private final ClosedWorkload workload;
     private final int population;
     private final PCMRandomVariable thinkTime;
-    private final IRegionBasedGarbageCollector<RequestContext> blackboardGarbageCollector = null;
+    private final IRegionBasedGarbageCollector<RequestContext> blackboardGarbageCollector;
 
     /**
      * Constructs a closed workload in accordance with the specified workload description.
@@ -43,8 +43,9 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
         this.workload = workload;
         this.population = workload.getPopulation();
         this.thinkTime = workload.getThinkTime_ClosedWorkload();
-        // TODO (SimComp): reactivate garbage collector
-        //this.blackboardGarbageCollector = this.model.getProbeSpecContext().getBlackboardGarbageCollector();
+
+        ISimulationMiddleware middleware = model.getSimulationMiddleware();
+        this.blackboardGarbageCollector = middleware.getProbeSpecContext().getBlackboardGarbageCollector();
     }
 
     /**
@@ -79,8 +80,7 @@ public class ClosedWorkloadGenerator implements IWorkloadGenerator {
             	// trigger event that the user finished his work
             	model.getSimulationMiddleware().triggerEvent(new WorkloadUserFinished(user));
 
-                //ClosedWorkloadGenerator.this.blackboardGarbageCollector.leaveRegion(user.getRequestContext().rootContext());
-                ClosedWorkloadGenerator.this.model.increaseMainMeasurementsCount();
+                ClosedWorkloadGenerator.this.blackboardGarbageCollector.leaveRegion(user.getRequestContext().rootContext());
                 ClosedWorkloadGenerator.this.spawnUser();
             }
 

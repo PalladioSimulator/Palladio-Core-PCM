@@ -12,8 +12,9 @@ import org.eclipse.emf.ecore.EClass;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.interpreter.InterpreterConfiguration;
-import edu.kit.ipd.sdq.eventsim.system.entities.Request;
+import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.listener.ISeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies.AcquireActionTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies.BranchActionTraversalStrategy;
@@ -25,7 +26,6 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies.ReleaseAction
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies.SetVariableActionTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies.StartActionTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies.StopActionTraversalStrategy;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 
 public class SeffInterpreterConfiguration implements InterpreterConfiguration<AbstractAction, Request, RequestState> {
 

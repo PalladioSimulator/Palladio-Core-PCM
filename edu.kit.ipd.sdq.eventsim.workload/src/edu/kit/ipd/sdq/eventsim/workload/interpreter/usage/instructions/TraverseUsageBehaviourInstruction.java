@@ -20,8 +20,7 @@ import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstru
  * @author Philipp Merkle
  * 
  */
-public class TraverseUsageBehaviourInstruction implements ITraversalInstruction<AbstractUserAction, UserState>,
-        IUsageTraversalInstruction {
+public class TraverseUsageBehaviourInstruction implements ITraversalInstruction<AbstractUserAction, UserState>, IUsageTraversalInstruction {
 
     private final AbstractEventSimModel model;
     private final ScenarioBehaviour behaviour;

@@ -12,15 +12,15 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.entities.ForkedRequest;
+import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.interpreter.BehaviourInterpreter;
+import edu.kit.ipd.sdq.eventsim.interpreter.state.ForkedRequestState;
+import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
+import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionInResourceDemandingBehaviour;
-import edu.kit.ipd.sdq.eventsim.system.entities.ForkedRequest;
-import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.listener.ISeffTraversalListener;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.state.ForkedRequestState;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 /**

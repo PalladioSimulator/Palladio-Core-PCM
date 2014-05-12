@@ -3,11 +3,11 @@ package edu.kit.ipd.sdq.eventsim.system.events;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
+import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
+import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
-import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffBehaviourInterpreter;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 
 /**
  * Schedule this event to begin the traversal of a {@link ResourceDemandingSEFF} (RD-SEFF).

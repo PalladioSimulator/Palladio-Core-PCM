@@ -2,7 +2,7 @@ package edu.kit.ipd.sdq.eventsim.system.interpreter.seff;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
 
 /**
  * @author Philipp Merkle

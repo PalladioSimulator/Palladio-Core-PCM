@@ -20,11 +20,11 @@ import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
+import edu.kit.ipd.sdq.eventsim.resources.staticstructure.AllocationRegistry;
+import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceContainer;
+import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
+import edu.kit.ipd.sdq.eventsim.staticstructure.RoleInstance;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.RoleInstance;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.eventsim.util.ParameterHelper;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
@@ -79,7 +79,7 @@ public class BuildComponentInstances implements IPCMCommand<Map<String, Componen
                 }
 
                 SimulatedStackframe<Object> componentParameters = createComponentParameters(basicComponent, assemblyCtx);
-                ComponentInstance componentInstance = new ComponentInstance(this.model, basicComponent, assemblyCtx, resourceContainer, componentParameters);
+                ComponentInstance componentInstance = new Compone ntInstance(this.model, basicComponent, assemblyCtx, resourceContainer, componentParameters);
                 componentsMap.put(assemblyCtx.getId(), componentInstance);
             } else {
             	if(logger.isEnabledFor(Level.WARN))

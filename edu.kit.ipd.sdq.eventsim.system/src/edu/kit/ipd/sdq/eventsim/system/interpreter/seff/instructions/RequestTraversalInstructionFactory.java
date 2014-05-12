@@ -7,9 +7,9 @@ import edu.kit.ipd.sdq.eventsim.interpreter.instructions.EndTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseAfterLeavingScope;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseNextAction;
+import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 
 public class RequestTraversalInstructionFactory {
 

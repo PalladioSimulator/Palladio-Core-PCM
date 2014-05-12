@@ -1,0 +1,21 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Resource Simulation Component
+Bundle-SymbolicName: edu.kit.ipd.sdq.eventsim.resources
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: edu.kit.ipd.sdq.eventsim.resources.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ edu.kit.ipd.sdq.simcomp,
+ de.uka.ipd.sdq.simucomframework,
+ edu.kit.ipd.sdq.eventsim.core,
+ de.uka.ipd.sdq.pcm,
+ de.uka.ipd.sdq.simucomframework.variables,
+ de.uka.ipd.sdq.scheduler,
+ org.apache.log4j,
+ de.uka.ipd.sdq.simulation.abstractsimengine,
+ de.uka.ipd.sdq.probespec.framework,
+ org.jscience,
+ edu.kit.ipd.sdq.simcomp.middleware
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/*.xml

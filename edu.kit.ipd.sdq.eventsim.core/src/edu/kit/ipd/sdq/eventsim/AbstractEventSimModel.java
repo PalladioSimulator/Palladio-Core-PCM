@@ -1,8 +1,5 @@
 package edu.kit.ipd.sdq.eventsim;
 
-import java.util.List;
-import java.util.concurrent.CopyOnWriteArrayList;
-
 import edu.kit.ipd.sdq.eventsim.command.ICommand;
 import edu.kit.ipd.sdq.eventsim.command.PCMModelCommandExecutor;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
@@ -18,15 +15,15 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 abstract public class AbstractEventSimModel {
 
 	private ISimulationMiddleware middleware;
-	private final List<EventSimEntity> activeEntitiesList;
 	private EventSimConfig config;
 	private PCMModelCommandExecutor executor;
+	private EntityRegistry entityRegistry;
 
 	public AbstractEventSimModel(ISimulationMiddleware middleware) {
 		this.middleware = middleware;
-		this.activeEntitiesList = new CopyOnWriteArrayList<EventSimEntity>();
 		this.config = new EventSimConfig(middleware.getSimulationConfiguration().getConfigurationMap(), middleware.getSimulationConfiguration().isDebug());
 		this.executor = new PCMModelCommandExecutor(middleware.getPCMModel());
+		this.entityRegistry = EntityRegistry.getInstance();
 	}
 
 	public ISimulationMiddleware getSimulationMiddleware() {
@@ -65,7 +62,7 @@ abstract public class AbstractEventSimModel {
 	 *            the entity that has just been spawned
 	 */
 	public void registerEntity(EventSimEntity entity) {
-		this.activeEntitiesList.add(entity);
+		this.entityRegistry.registerEntity(entity);
 	}
 
 	/**
@@ -76,7 +73,7 @@ abstract public class AbstractEventSimModel {
 	 *            the entity that has just finished their simulated behaviour
 	 */
 	public void unregisterEntity(EventSimEntity entity) {
-		this.activeEntitiesList.remove(entity);
+		this.entityRegistry.unregisterEntity(entity);
 	}
 
 	/**

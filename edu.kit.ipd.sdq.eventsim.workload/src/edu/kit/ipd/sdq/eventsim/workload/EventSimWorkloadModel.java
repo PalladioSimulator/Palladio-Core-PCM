@@ -39,21 +39,21 @@ import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
  */
 public class EventSimWorkloadModel extends AbstractEventSimModel {
 
-	public EventSimWorkloadModel(ISimulationMiddleware middleware) {
-		super(middleware);
-	}
-
 	private static final Logger logger = Logger.getLogger(EventSimWorkloadModel.class);
 
-	private long mainMeasurementsCount;
-
+	private ISimulationMiddleware middleware;
+	
 	private UsageBehaviourInterpreter usageInterpreter;
+
+	public EventSimWorkloadModel(ISimulationMiddleware middleware) {
+		super(middleware);
+		this.middleware = middleware;
+	}
 
 	/**
 	 * This method prepares the EventSim workload simulator and creates the
 	 * initial events to start the workload generation.
 	 */
-	@Override
 	public void init() {
 
 		// initialise behaviour interpreters
@@ -72,11 +72,24 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 		// setup handling for PCM parameter characterisations
 		this.execute(new InstallSystemCallParameterHandling(this.usageInterpreter.getConfiguration()));
 
-		// initialise the Probe Specification
 		this.initProbeSpecification();
 
+		this.registerEventHandler();
+
+		// ...and start the simulation by generating the workload
+		final List<IWorkloadGenerator> workloadGenerators = this.execute(new BuildWorkloadGenerator(this));
+		for (final IWorkloadGenerator d : workloadGenerators) {
+			d.processWorkload();
+		}
+	}
+
+	/**
+	 * Register event handler to react on specific simulation events.
+	 */
+	private void registerEventHandler() {
+
 		// setup system processed request event listener
-		this.getSimulationMiddleware().registerEventHandler(SystemRequestProcessed.EVENT_ID, new IEventHandler<SystemRequestProcessed>() {
+		this.middleware.registerEventHandler(SystemRequestProcessed.EVENT_ID, new IEventHandler<SystemRequestProcessed>() {
 
 			@Override
 			public void handle(SystemRequestProcessed simulationEvent) {
@@ -89,11 +102,6 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 		});
 
-		// ...and start the simulation by generating the workload
-		final List<IWorkloadGenerator> workloadGenerators = this.execute(new BuildWorkloadGenerator(this));
-		for (final IWorkloadGenerator d : workloadGenerators) {
-			d.processWorkload();
-		}
 	}
 
 	/**
@@ -102,34 +110,11 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	private void initProbeSpecification() {
 
 		// build calculators
-        this.execute(new BuildUsageResponseTimeCalculators(this));
+		this.execute(new BuildUsageResponseTimeCalculators(this));
 
 		// mount probes
-		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
-		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
-
-	}
-
-	/**
-	 * Increases the number of measurements, which has been taken, by one.
-	 * <p>
-	 * Notice that one measurements refers to one {@link User} that has
-	 * completely traversed the simulated system.
-	 */
-	public void increaseMainMeasurementsCount() {
-		this.mainMeasurementsCount++;
-	}
-
-	/**
-	 * Returns the number of measurements, which has been taken.
-	 * <p>
-	 * Notice that one measurements refers to one {@link User} that has
-	 * completely traversed the simulated system.
-	 * 
-	 * @return the current number of measurements
-	 */
-	public long getMainMeasurementsCount() {
-		return this.mainMeasurementsCount;
+		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration(), this.middleware));
+		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration(), this.middleware));
 	}
 
 	/**
@@ -139,6 +124,15 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	 */
 	public UsageBehaviourInterpreter getUsageInterpreter() {
 		return usageInterpreter;
+	}
+
+	/**
+	 * Gives access to the current simulation middleware instance.
+	 * 
+	 * @return A simulation middleware instance
+	 */
+	public ISimulationMiddleware getSimulationMiddleware() {
+		return this.middleware;
 	}
 
 }

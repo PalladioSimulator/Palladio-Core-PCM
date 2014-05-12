@@ -24,7 +24,7 @@ public class EntryLevelSystemCallTraversalStrategy implements IUsageTraversalStr
 	@Override
 	public IUsageTraversalInstruction traverse(final EntryLevelSystemCall call, final User user, final UserState state) {
 
-		// store event sim specific state to the user
+		// store EventSim specific state to the user
 		user.setUserState(state);
 		
 		// fetch the system simulation component

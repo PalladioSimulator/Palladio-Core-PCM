@@ -39,6 +39,12 @@ public class EventSimWorkload implements IWorkload {
 		});
 	}
 
+	/**
+	 * Binds a simulation middleware instance to the simulation component.
+	 * Called by the declarative service framework.
+	 * 
+	 * @param middleware
+	 */
 	public void bindSimulationMiddleware(ISimulationMiddleware middleware) {
 		this.middleware = middleware;
 
@@ -46,6 +52,12 @@ public class EventSimWorkload implements IWorkload {
 		this.registerEventHandler();
 	}
 
+	/**
+	 * Unbind a simulation middleware instance from the simulation component
+	 * when it is deactivated. Called by the declarative service framework.
+	 * 
+	 * @param middleware
+	 */
 	public void unbindSimulationMiddleware(ISimulationMiddleware middleware) {
 		if (this.middleware.equals(middleware)) {
 			this.middleware = null;

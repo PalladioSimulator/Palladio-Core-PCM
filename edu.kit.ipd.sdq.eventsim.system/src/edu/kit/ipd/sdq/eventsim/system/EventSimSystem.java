@@ -33,7 +33,7 @@ public class EventSimSystem implements ISystem {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Received service call from " + user.getId() + " on " + call.getEntityName() + " (" + call.getOperationSignature__EntryLevelSystemCall().getEntityName() + ")");
 		}
-		
+
 		// delegate the system call to the event sim model
 		this.model.callService(user, call);
 
@@ -53,6 +53,12 @@ public class EventSimSystem implements ISystem {
 		});
 	}
 
+	/**
+	 * Binds a simulation middleware instance to the simulation component.
+	 * Called by the declarative service framework.
+	 * 
+	 * @param middleware
+	 */
 	public void bindSimulationMiddleware(ISimulationMiddleware middleware) {
 		this.middleware = middleware;
 
@@ -60,6 +66,12 @@ public class EventSimSystem implements ISystem {
 		this.registerEventHandler();
 	}
 
+	/**
+	 * Unbind a simulation middleware instance from the simulation component
+	 * when it is deactivated. Called by the declarative service framework.
+	 * 
+	 * @param middleware
+	 */
 	public void unbindSimulationMiddleware(ISimulationMiddleware middleware) {
 		if (this.middleware.equals(middleware)) {
 			this.middleware = null;

@@ -23,7 +23,7 @@ public class BranchTraversalStrategy implements IUsageTraversalStrategy<Branch> 
      */
     @Override
     public IUsageTraversalInstruction traverse(final Branch branch, final User user, final UserState state) {
-        AbstractEventSimModel model = user.getEventSimModel();
+    	AbstractEventSimModel model = user.getEventSimModel();
         ScenarioBehaviour behaviour = null;
         double sum = 0;
         final double rand = model.getEventSimConfig().getRandomGenerator().random();

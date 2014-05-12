@@ -12,6 +12,7 @@ import java.util.Observer;
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
+import org.osgi.framework.ServiceRegistration;
 import org.osgi.service.component.ComponentContext;
 import org.osgi.service.event.Event;
 import org.osgi.service.event.EventAdmin;
@@ -37,6 +38,7 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationContext;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationEvent;
+import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationStopEvent;
 import edu.kit.ipd.sdq.simcomp.event.workload.WorkloadUserFinished;
 import edu.kit.ipd.sdq.simcomp.exception.UnknownSimulationComponent;
@@ -67,9 +69,11 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private EventAdmin eventAdmin;
 	private ProbeSpecContext probeSpecContext;
 	private int measurementCount;
+	private List<ServiceRegistration<?>> eventHandlerRegistry;
 
 	public SimulationMiddleware() {
 		this.simComponentRegistry = new ArrayList<ISimulationComponent>();
+		this.eventHandlerRegistry = new ArrayList<ServiceRegistration<?>>();
 	}
 
 	/**
@@ -100,6 +104,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		this.eventAdmin = bundleContext.getService(eventAdminServiceReference);
 
 		this.initPropeFramework();
+		
+		this.registerEventHandler();
 
 		this.setupStopConditions(config);
 	}
@@ -124,6 +130,23 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		// register simulation time strategy
 		probeSpecContext.getProbeStrategyRegistry().registerProbeStrategy(new TakeSimulatedTimeStrategy(), ProbeType.CURRENT_TIME, null);
+	}
+
+	/**
+	 * Register event handler to react on specific simulation events.
+	 */
+	private void registerEventHandler() {
+
+		// setup system processed request event listener
+		this.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
+
+			@Override
+			public void handle(SimulationFinalizeEvent event) {
+				cleanup();
+			}
+
+		});
+
 	}
 
 	/**
@@ -231,6 +254,13 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	/**
+	 * Called after a simulation run to cleanup the simulator.
+	 */
+	private void cleanup() {
+		
+	}
+
+	/**
 	 * Gives access to the simulation configuration of the current simulation
 	 * run.
 	 * 
@@ -324,7 +354,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		BundleContext bundleContext = Activator.getContext();
 		Dictionary<String, Object> properties = new Hashtable<String, Object>();
 		properties.put(EventConstants.EVENT_TOPIC, eventId);
-		bundleContext.registerService(EventHandler.class.getName(), new EventHandler() {
+		ServiceRegistration<?> handlerService = bundleContext.registerService(EventHandler.class.getName(), new EventHandler() {
 
 			@Override
 			@SuppressWarnings("unchecked")
@@ -335,7 +365,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		}, properties);
 
-		// TODO (SimComp): When simulation finished or crashed ensure the listener services are unregistered
+		// store service reference for later cleanup
+		this.eventHandlerRegistry.add(handlerService);
 	}
 
 	@Override
