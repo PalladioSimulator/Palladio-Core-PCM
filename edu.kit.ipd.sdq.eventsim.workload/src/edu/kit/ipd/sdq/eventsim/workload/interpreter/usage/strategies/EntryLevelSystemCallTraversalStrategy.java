@@ -26,7 +26,7 @@ public class EntryLevelSystemCallTraversalStrategy implements IUsageTraversalStr
 
 		// store EventSim specific state to the user
 		user.setUserState(state);
-		
+
 		// fetch the system simulation component
 		ISimulationMiddleware middleware = user.getEventSimModel().getSimulationMiddleware();
 		ISystem system = (ISystem) middleware.getSimulationComponent(ISystem.class, null);

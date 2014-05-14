@@ -3,7 +3,6 @@ package edu.kit.ipd.sdq.eventsim.resources;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.BuildPassiveResourceCalculators;
 import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.MountPassiveResourceProbes;

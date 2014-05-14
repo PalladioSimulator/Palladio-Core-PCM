@@ -28,6 +28,7 @@ public class ReleaseActionTraversalStrategy implements ISeffTraversalStrategy<Re
             throw new EventSimException("Parametric resource demands are not yet supported for ReleaseActions.");
         }
 
+		// store EventSim specific state to the request
         request.setRequestState(state);
 
         // fetch passive resource simulation component

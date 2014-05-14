@@ -1,26 +1,14 @@
 package edu.kit.ipd.sdq.eventsim.system;
 
-import java.util.Map;
-
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
-import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
 import de.uka.ipd.sdq.simulation.ISimulationListener;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.entities.User;
-import edu.kit.ipd.sdq.eventsim.resources.command.BuildComponentInstances;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.AllocationRegistry;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.PassiveResourceRegistry;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceContainer;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceEnvironment;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildAndRegisterPassiveResources;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildResourceAllocation;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildSimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.parameter.InstallExternalCallParameterHandling;
@@ -33,7 +21,6 @@ import edu.kit.ipd.sdq.eventsim.system.probespec.commands.MountExternalCallProbe
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
 import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestStart;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationModel;
 
 /**
  * The simulation model. This is the central class of an EventSim simulation

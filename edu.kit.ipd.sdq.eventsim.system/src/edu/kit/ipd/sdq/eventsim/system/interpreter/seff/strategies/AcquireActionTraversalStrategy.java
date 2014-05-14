@@ -31,6 +31,7 @@ public class AcquireActionTraversalStrategy implements ISeffTraversalStrategy<Ac
             throw new EventSimException("Parametric resource demands are not yet supported for AcquireActions.");
         }
 
+		// store EventSim specific state to the request
         request.setRequestState(state);
 
         // fetch passive resource simulation component
