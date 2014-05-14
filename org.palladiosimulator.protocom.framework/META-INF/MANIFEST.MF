@@ -1,0 +1,22 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: ProtoCom Framework
+Bundle-SymbolicName: org.palladiosimulator.protocom.framework
+Bundle-Version: 1.0.0.qualifier
+Export-Package: .,
+ org.palladiosimulator.protocom.framework,
+ org.palladiosimulator.protocom.framework.experiment,
+ org.palladiosimulator.protocom.framework.port,
+ org.palladiosimulator.protocom.framework.registry,
+ org.palladiosimulator.protocom.framework.strategies,
+ org.palladiosimulator.protocom.framework.usage,
+ org.palladiosimulator.protocom.framework.utils,
+ org.palladiosimulator.protocom.framework.visitor
+Require-Bundle: org.apache.log4j,
+ org.palladiosimulator.protocom.resourcestrategies,
+ de.uka.ipd.sdq.sensorframework,
+ org.apache.commons.cli;visibility:=reexport,
+ de.uka.ipd.sdq.simucomframework.variables;bundle-version="1.0.0",
+ de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0"
+Bundle-Vendor: palladiosimulator.org
+Bundle-RequiredExecutionEnvironment: JavaSE-1.6
