@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" immediate="true" name="edu.kit.ipd.sdq.eventsim.system">
    <service>
-      <provide interface="edu.kit.ipd.sdq.simcomp.component.ISimulationComponent"/>
+      <provide interface="edu.kit.ipd.sdq.simcomp.component.ISystem"/>
    </service>
    <reference name="ISimulationMiddleware" interface="edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware" cardinality="0..1" policy="dynamic" bind="bindSimulationMiddleware" unbind="unbindSimulationMiddleware"/>
    <implementation class="edu.kit.ipd.sdq.eventsim.system.EventSimSystem"/>
