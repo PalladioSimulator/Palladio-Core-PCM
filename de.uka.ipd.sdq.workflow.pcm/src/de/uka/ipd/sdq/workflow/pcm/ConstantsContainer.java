@@ -57,6 +57,7 @@ public class ConstantsContainer {
 
 	public static final String MODEL_TO_TEXT_CHOICE = "modelToTextTarget";
 	public static final String MODEL_TO_TEXT_TARGET_JAVA_EE_EJB = "Java EE EJB Performance Prototype";
+	public static final String MODEL_TO_TEXT_TARGET_JAVA_EE_SERVLET = "Java EE Servlet Performance Prototype";
 	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI_STUBS = "Java SE RMI Code Stubs";
 	public static final String MODEL_TO_TEXT_TARGET_JAVA_SE_RMI = "Java SE RMI Performance Prototype";
 

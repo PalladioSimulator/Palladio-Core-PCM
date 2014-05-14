@@ -89,11 +89,12 @@ class ProtoComProject {
 	
 	private def String[] createNatures() {
 		if ( this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO || 
-			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO
-			 )
+			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO)
 		{
 			return ProtoComConstants.JAVA_SE_NATURE;			
-		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
+		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3 || 
+			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.SERVLET)
+		{
 			return ProtoComConstants.JAVA_EE_NATURE;	
 		} else {
 			throw new RuntimeException("No suitable project natures found (project type is \""+this.projectType+"\")");
@@ -102,11 +103,12 @@ class ProtoComProject {
 	
 	private def String[] createBuilders() {
 		if ( this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.PROTO || 
-			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO
-			 )
+			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.POJO)
 		{
 			return ProtoComConstants.JAVA_SE_BUILDERS;			
-		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3){
+		} else if (this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.EJB3 || 
+			this.projectType == AbstractCodeGenerationWorkflowRunConfiguration.CodeGenerationAdvice.SERVLET)
+		{
 			return ProtoComConstants.JAVA_EE_BUILDERS;	
 		} else {
 			throw new RuntimeException("No suitable project builders found (project type is \""+this.projectType+"\")");

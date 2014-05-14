@@ -34,6 +34,7 @@ Export-Package: org.palladiosimulator.protocom,
  org.palladiosimulator.protocom.traverse.framework.system,
  org.palladiosimulator.protocom.traverse.framework.usage,
  org.palladiosimulator.protocom.traverse.jee,
+ org.palladiosimulator.protocom.traverse.jeeservlet,
  org.palladiosimulator.protocom.traverse.jse,
  org.palladiosimulator.protocom.traverse.jsestub
 Bundle-Vendor: palladiosimulator.org

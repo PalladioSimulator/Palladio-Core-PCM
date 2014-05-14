@@ -42,8 +42,10 @@ extends
 			config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.PROTO);
 		} else if (ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_SE_RMI_STUBS.equals(modelToCodeTarget)) {
 			config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.POJO);
-		} else {
+		} else if (ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_EE_EJB.equals(modelToCodeTarget)) {
 			config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.EJB3);
+		} else if (ConstantsContainer.MODEL_TO_TEXT_TARGET_JAVA_EE_SERVLET.equals(modelToCodeTarget)) {
+			config.setCodeGenerationAdvicesFile(CodeGenerationAdvice.SERVLET);
 		}
 		
 		
