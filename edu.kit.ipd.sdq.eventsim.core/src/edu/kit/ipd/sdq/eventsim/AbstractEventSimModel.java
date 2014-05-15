@@ -1,5 +1,8 @@
 package edu.kit.ipd.sdq.eventsim;
 
+import java.util.List;
+import java.util.concurrent.CopyOnWriteArrayList;
+
 import edu.kit.ipd.sdq.eventsim.command.ICommand;
 import edu.kit.ipd.sdq.eventsim.command.PCMModelCommandExecutor;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
@@ -17,13 +20,13 @@ abstract public class AbstractEventSimModel {
 	private ISimulationMiddleware middleware;
 	private EventSimConfig config;
 	private PCMModelCommandExecutor executor;
-	private EntityRegistry entityRegistry;
+	private final List<EventSimEntity> activeEntitiesList;
 
 	public AbstractEventSimModel(ISimulationMiddleware middleware) {
 		this.middleware = middleware;
 		this.config = new EventSimConfig(middleware.getSimulationConfiguration().getConfigurationMap(), middleware.getSimulationConfiguration().isDebug());
 		this.executor = new PCMModelCommandExecutor(middleware.getPCMModel());
-		this.entityRegistry = EntityRegistry.getInstance();
+		this.activeEntitiesList = new CopyOnWriteArrayList<EventSimEntity>();
 	}
 
 	public ISimulationMiddleware getSimulationMiddleware() {
@@ -54,26 +57,26 @@ abstract public class AbstractEventSimModel {
 	 * Once the registered entity has left the simulation system,
 	 * {@link #unregisterEntity(EventSimEntity)} should be called. Entities that
 	 * were registered, but have not been unregistered are deemed as active
-	 * entities, i.e. they have not yet finished simulating their behaviour.
-	 * When the simulation is about to stop, the {@code finalise} method
-	 * notifies active entities of the imminent stop.
+	 * entities, i.e. they have not yet finished simulating their behavior. When
+	 * the simulation is about to stop, the {@code finalise} method notifies
+	 * active entities of the imminent stop.
 	 * 
 	 * @param entity
 	 *            the entity that has just been spawned
 	 */
 	public void registerEntity(EventSimEntity entity) {
-		this.entityRegistry.registerEntity(entity);
+		this.activeEntitiesList.add(entity);
 	}
 
 	/**
 	 * Informs this simulation model that the specified entity has finished to
-	 * simulate its behaviour and is about to leave the simulated system.
+	 * simulate its behavior and is about to leave the simulated system.
 	 * 
 	 * @param entity
-	 *            the entity that has just finished their simulated behaviour
+	 *            the entity that has just finished their simulated behavior
 	 */
 	public void unregisterEntity(EventSimEntity entity) {
-		this.entityRegistry.unregisterEntity(entity);
+		this.activeEntitiesList.remove(entity);
 	}
 
 	/**
@@ -83,6 +86,22 @@ abstract public class AbstractEventSimModel {
 	 */
 	public EventSimConfig getEventSimConfig() {
 		return this.config;
+	}
+
+	/**
+	 * This method does some common EventSim related clean up.
+	 * Should be called when a simulation has stopped.
+	 */
+	public void finalise() {
+
+		// notify active entities that the simulation is finished (and
+		// therefore, also their existence in the simulated system)
+		for (EventSimEntity entity : activeEntitiesList) {
+			assert entity.getState().equals(EventSimEntity.EntityState.ENTERED_SYSTEM) : "Found an entity in the " + "list of active entities which is in the state " + entity.getState() + ", and therefore can not be an active entity.";
+			entity.notifyLeftSystem();
+		}
+		assert activeEntitiesList.isEmpty() : "There are some entities left in the list of active entities, though " + "each of them was asked to leave the system.";
+
 	}
 
 }

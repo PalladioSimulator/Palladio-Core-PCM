@@ -7,6 +7,7 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.ISystem;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
 import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
 
 public class EventSimSystem implements ISystem {
@@ -22,6 +23,13 @@ public class EventSimSystem implements ISystem {
 	public void init() {
 		this.model = new EventSimSystemModel(middleware);
 		this.model.init();
+	}
+
+	/**
+	 * Cleans up the system simulation component
+	 */
+	public void finalise() {
+		this.model.finalise();
 	}
 
 	/**
@@ -48,6 +56,15 @@ public class EventSimSystem implements ISystem {
 			@Override
 			public void handle(SimulationInitEvent event) {
 				EventSimSystem.this.init();
+			}
+
+		});
+
+		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
+
+			@Override
+			public void handle(SimulationFinalizeEvent event) {
+				EventSimSystem.this.finalise();
 			}
 
 		});

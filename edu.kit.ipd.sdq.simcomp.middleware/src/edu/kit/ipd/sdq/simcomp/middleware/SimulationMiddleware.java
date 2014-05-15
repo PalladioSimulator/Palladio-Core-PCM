@@ -9,6 +9,7 @@ import java.util.Map;
 import java.util.Observable;
 import java.util.Observer;
 
+import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
@@ -142,7 +143,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 			@Override
 			public void handle(SimulationFinalizeEvent event) {
-				cleanup();
+				finalise();
 			}
 
 		});
@@ -254,10 +255,18 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	/**
-	 * Called after a simulation run to cleanup the simulator.
+	 * Called after a simulation run to perform some clean up.
 	 */
-	private void cleanup() {
-		
+	private void finalise() {
+		if (logger.isDebugEnabled()) {
+			logger.debug("Cleaning up...");
+		}
+
+		this.probeSpecContext.finish();
+
+		if (logger.isEnabledFor(Level.INFO)) {
+			logger.info("Simulation took " + this.getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
+		}
 	}
 
 	/**

@@ -102,46 +102,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		new BeginSeffTraversalEvent(this, component, signature, eventSimUser.getUserState()).schedule(request, 0);
 	}
 
-	/*
-	public void finalise() {
-		// TODO (SimComp): move the finalize of all EventSim model to a good place based on event
-		// notify observers that the simulation is finished (below we just clean up...)
-		this.notifyStopListeners();
-
-		// notify active entities that the simulation is finished (and
-		// therefore, also their
-		// existence in the simulated system)
-		//for (EventSimEntity entity : activeEntitiesList) {
-		//	assert entity.getState().equals(EventSimEntity.EntityState.ENTERED_SYSTEM) : "Found an entity in the " + "list of active entities which is in the state " + entity.getState() + ", and therefore can not be an active entity.";
-		//	entity.notifyLeftSystem();
-		//}
-		//assert activeEntitiesList.isEmpty() : "There are some entities left in the list of active entities, though " + "each of them was asked to leave the system.";
-
-		// notify active resources about the simulation stop
-		deactivateResources();
-
-		// clean up
-		if (logger.isDebugEnabled()) {
-			logger.debug("Cleaning up...");
-		}
-		EventSimEntity.resetIdGenerator();
-		probeSpecContext.finish();
-		AbstractActiveResource.cleanProcesses();
-
-		if (logger.isEnabledFor(Level.INFO))
-			logger.info("Simulation took " + this.getSimulationMiddleware().getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
-
-	}
-
-	private void deactivateResources() {
-		for (SimulatedResourceContainer c : this.resourceEnvironment.getResourceContainers()) {
-			for (SimActiveResource r : c.getResources()) {
-				r.deactivateResource();
-			}
-		}
-	}
-	*/
-
 	public SeffBehaviourInterpreter getSeffInterpreter() {
 		return seffInterpreter;
 	}

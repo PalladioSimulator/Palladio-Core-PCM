@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.command.parameter.InstallSystemCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.workload.debug.DebugUsageTraversalListener;
@@ -115,6 +116,13 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 		// mount probes
 		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration(), this.middleware));
 		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration(), this.middleware));
+	}
+
+	@Override
+	public void finalise() {
+		super.finalise();
+
+		EventSimEntity.resetIdGenerator();
 	}
 
 	/**

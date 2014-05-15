@@ -5,6 +5,7 @@ import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
 
 public class EventSimPassiveResource implements IPassiveResource {
@@ -12,6 +13,9 @@ public class EventSimPassiveResource implements IPassiveResource {
 	private ISimulationMiddleware middleware;
 	private EventSimPassiveResourceModel model;
 
+	/**
+	 * Initializes the passive resource simulation component
+	 */
 	public void init() {
 		this.model = new EventSimPassiveResourceModel(this.middleware);
 		this.model.init();
@@ -28,6 +32,13 @@ public class EventSimPassiveResource implements IPassiveResource {
 	}
 
 	/**
+	 * Cleans up the system simulation component
+	 */
+	public void finalise() {
+		this.model.finalise();
+	}
+
+	/**
 	 * Registers the event handler which will initialize the system simulation
 	 */
 	private void registerEventHandler() {
@@ -36,6 +47,15 @@ public class EventSimPassiveResource implements IPassiveResource {
 			@Override
 			public void handle(SimulationInitEvent event) {
 				EventSimPassiveResource.this.init();
+			}
+
+		});
+
+		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
+
+			@Override
+			public void handle(SimulationFinalizeEvent event) {
+				EventSimPassiveResource.this.finalise();
 			}
 
 		});

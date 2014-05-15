@@ -1,8 +1,11 @@
 package edu.kit.ipd.sdq.eventsim.workload;
 
+import org.apache.log4j.Logger;
+
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IWorkload;
 import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
 
 /**
@@ -12,16 +15,30 @@ import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
  */
 public class EventSimWorkload implements IWorkload {
 
-	ISimulationMiddleware middleware;
+	private static final Logger logger = Logger.getLogger(EventSimWorkload.class);
+
+	private ISimulationMiddleware middleware;
+	private EventSimWorkloadModel model;
 
 	@Override
 	public void generate() {
+		
+		if (logger.isDebugEnabled()) {
+			logger.debug("Generating Workload");
+		}
 
 		// create the event sim model
-		EventSimWorkloadModel model = new EventSimWorkloadModel(this.middleware);
+		model = new EventSimWorkloadModel(this.middleware);
 
 		// launch the event generation
 		model.init();
+	}
+
+	/**
+	 * Cleans up the system simulation component
+	 */
+	public void finalise() {
+		this.model.finalise();
 	}
 
 	/**
@@ -34,6 +51,15 @@ public class EventSimWorkload implements IWorkload {
 			@Override
 			public void handle(SimulationInitEvent event) {
 				EventSimWorkload.this.generate();
+			}
+
+		});
+
+		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
+
+			@Override
+			public void handle(SimulationFinalizeEvent event) {
+				EventSimWorkload.this.finalise();
 			}
 
 		});

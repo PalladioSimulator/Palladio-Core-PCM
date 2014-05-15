@@ -8,6 +8,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import de.uka.ipd.sdq.scheduler.factory.SchedulingFactory;
+import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.Request;
@@ -33,7 +34,6 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	private AllocationRegistry resourceAllocation;
 	private Map<String, ComponentInstance> componentRegistry;
 
-
 	public EventSimActiveResourceModel(ISimulationMiddleware middleware) {
 		super(middleware);
 	}
@@ -56,21 +56,21 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	}
 
 	/**
-	 * Initializes the Probe Specification by setting up the calculators and mounting the probes.
+	 * Initializes the Probe Specification by setting up the calculators and
+	 * mounting the probes.
 	 */
 	private void initProbeSpecification() {
 
 		// build calculators
 		this.execute(new BuildActiveResourceCalculators(this, this.resourceEnvironment));
-		
+
 		// mount probes
 		this.execute(new MountActiveResourceProbes(this, this.resourceEnvironment));
 	}
 
-
 	public void consume(IRequest request, ParametricResourceDemand demand) {
 		Request eventSimRequest = (Request) request;
-		
+
 		RequestState state = eventSimRequest.getRequestState();
 		final ProcessingResourceType resourceType = demand.getRequiredResource_ParametricResourceDemand();
 		final PCMRandomVariable demandSpecification = demand.getSpecification_ParametericResourceDemand();
@@ -87,6 +87,20 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 
 		System.out.println("consume resource " + resourceType.getEntityName() + " (demand: " + demand + ")");
 		resource.consumeResource(eventSimRequest.getSimulatedProcess(), absoluteDemand);
+	}
+
+	@Override
+	public void finalise() {
+		super.finalise();
+
+		// deactivate all resources
+		for (SimulatedResourceContainer c : this.resourceEnvironment.getResourceContainers()) {
+			for (SimActiveResource r : c.getResources()) {
+				r.deactivateResource();
+			}
+		}
+
+		AbstractActiveResource.cleanProcesses();
 	}
 
 	/**

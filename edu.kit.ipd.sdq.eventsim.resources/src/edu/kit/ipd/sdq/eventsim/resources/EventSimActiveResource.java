@@ -5,6 +5,7 @@ import edu.kit.ipd.sdq.simcomp.component.IActiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
 
 public class EventSimActiveResource implements IActiveResource {
@@ -12,6 +13,9 @@ public class EventSimActiveResource implements IActiveResource {
 	private ISimulationMiddleware middleware;
 	private EventSimActiveResourceModel model;
 
+	/**
+	 * Initializes the active resource simulation component
+	 */
 	public void init() {
 		this.model = new EventSimActiveResourceModel(this.middleware);
 		this.model.init();
@@ -23,6 +27,13 @@ public class EventSimActiveResource implements IActiveResource {
 	}
 
 	/**
+	 * Cleans up the system simulation component
+	 */
+	public void finalise() {
+		this.model.finalise();
+	}
+
+	/**
 	 * Registers the event handler which will initialize the system simulation
 	 */
 	private void registerEventHandler() {
@@ -31,6 +42,15 @@ public class EventSimActiveResource implements IActiveResource {
 			@Override
 			public void handle(SimulationInitEvent event) {
 				EventSimActiveResource.this.init();
+			}
+
+		});
+
+		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
+
+			@Override
+			public void handle(SimulationFinalizeEvent event) {
+				EventSimActiveResource.this.finalise();
 			}
 
 		});
