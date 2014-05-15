@@ -1,17 +1,14 @@
-package org.palladiosimulator.protocom.tech.rmi
+package org.palladiosimulator.protocom.tech.servlet
 
+import de.uka.ipd.sdq.pcm.core.entity.Entity
 import org.palladiosimulator.protocom.tech.ConceptMapping
 import org.palladiosimulator.protocom.lang.java.IJClass
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
-import de.uka.ipd.sdq.pcm.core.entity.Entity
 
 /**
- * Common super type for all provider creating Java classes. Defines default values
- * for all templates.
- * 
- * @author Thomas Zolynski
+ * @author Christian Klaussner
  */
-abstract class PojoClass<E extends Entity> extends ConceptMapping<E> implements IJClass {
+class ServletClass<E extends Entity> extends ConceptMapping<E> implements IJClass {
 	
 	new(E pcmEntity) {
 		super(pcmEntity)
@@ -48,8 +45,6 @@ abstract class PojoClass<E extends Entity> extends ConceptMapping<E> implements 
 		JavaNames::getFileName(pcmEntity)
 	}
 	
-	override projectName(){
-		
-	}
-	
+	override projectName() {
+	}	
 }
