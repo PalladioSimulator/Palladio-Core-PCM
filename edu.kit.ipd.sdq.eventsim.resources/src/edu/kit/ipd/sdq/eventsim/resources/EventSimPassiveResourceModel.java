@@ -8,6 +8,7 @@ import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.BuildPassiveResourc
 import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.MountPassiveResourceProbes;
 import edu.kit.ipd.sdq.eventsim.resources.staticstructure.PassiveResourceRegistry;
 import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildAndRegisterPassiveResources;
+import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
@@ -45,7 +46,8 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 
 	public boolean acquire(IRequest request, PassiveResource specification, int i, boolean b, double timeoutValue) {
 		Request eventSimRequest = (Request) request;
-        SimPassiveResource res = this.getPassiveResource(specification);
+		ComponentInstance component = eventSimRequest.getRequestState().getComponent();
+        SimPassiveResource res = this.getPassiveResource(specification, component);
         boolean acquired = res.acquire(eventSimRequest.getSimulatedProcess(), i, b, timeoutValue);
 
 		return acquired;
@@ -53,7 +55,8 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 
 	public void release(IRequest request, PassiveResource specification, int i) {
 		Request eventSimRequest = (Request) request;
-        final SimPassiveResource res = this.getPassiveResource(specification);
+		ComponentInstance component = eventSimRequest.getRequestState().getComponent();
+        final SimPassiveResource res = this.getPassiveResource(specification, component);
         res.release(eventSimRequest.getSimulatedProcess(), 1);
 	}
 
@@ -71,11 +74,11 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
      *            the passive resource specification
      * @return the resource instance for the given resource specification
      */
-    public SimPassiveResource getPassiveResource(final PassiveResource specification) {
-        final SimPassiveResource simResource = this.getPassiveResourceRegistry().getPassiveResourceForContext(specification, this.assemblyCtx);
+    public SimPassiveResource getPassiveResource(final PassiveResource specification, ComponentInstance component) {
+        final SimPassiveResource simResource = this.getPassiveResourceRegistry().getPassiveResourceForContext(specification, component.getAssemblyCtx());
         if (simResource == null) {
             throw new RuntimeException("Passive resource " + PCMEntityHelper.toString(specification)
-                    + " for assembly context " + PCMEntityHelper.toString(this.assemblyCtx) + " could not be found.");
+                    + " for assembly context " + PCMEntityHelper.toString(component.getAssemblyCtx()) + " could not be found.");
         }
         return simResource;
     }
