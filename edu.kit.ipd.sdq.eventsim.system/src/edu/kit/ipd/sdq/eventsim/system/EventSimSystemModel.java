@@ -14,12 +14,15 @@ import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.parameter.InstallExternalCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.system.debug.DebugSeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.events.BeginSeffTraversalEvent;
+import edu.kit.ipd.sdq.eventsim.system.handler.AfterSystemCallParameterHandler;
+import edu.kit.ipd.sdq.eventsim.system.handler.BeforeSystemCallParameterHandler;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffBehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfiguration;
 import edu.kit.ipd.sdq.eventsim.system.probespec.commands.BuildResponseTimeCalculators;
 import edu.kit.ipd.sdq.eventsim.system.probespec.commands.MountExternalCallProbes;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
+import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
 import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestStart;
 
 /**
@@ -59,11 +62,23 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		// setup handling for PCM parameter characterisations
 		this.execute(new InstallExternalCallParameterHandling(this.seffInterpreter.getConfiguration()));
 
-		// initialize the probe specification
 		this.initProbeSpecification();
+
+		this.registerEventHandler();
 
 		// notify registered listeners that the simulation is about to start...
 		//this.notifyStartListeners();
+	}
+
+	/**
+	 * Register event handler to react on specific simulation events.
+	 */
+	private void registerEventHandler() {
+
+		// setup system call parameter handling
+		this.getSimulationMiddleware().registerEventHandler(SystemRequestStart.EVENT_ID, new BeforeSystemCallParameterHandler(this));
+		this.getSimulationMiddleware().registerEventHandler(SystemRequestProcessed.EVENT_ID, new AfterSystemCallParameterHandler());
+
 	}
 
 	/**

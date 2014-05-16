@@ -10,7 +10,6 @@ import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.entities.User;
-import edu.kit.ipd.sdq.eventsim.workload.command.parameter.InstallSystemCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.workload.debug.DebugUsageTraversalListener;
 import edu.kit.ipd.sdq.eventsim.workload.events.ResumeUsageTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.workload.generator.BuildWorkloadGenerator;
@@ -41,14 +40,11 @@ import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
 public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 	private static final Logger logger = Logger.getLogger(EventSimWorkloadModel.class);
-
-	private ISimulationMiddleware middleware;
 	
 	private UsageBehaviourInterpreter usageInterpreter;
 
 	public EventSimWorkloadModel(ISimulationMiddleware middleware) {
 		super(middleware);
-		this.middleware = middleware;
 	}
 
 	/**
@@ -70,9 +66,6 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 			DebugUsageTraversalListener.install(this.usageInterpreter.getConfiguration());
 		}
 
-		// setup handling for PCM parameter characterisations
-		this.execute(new InstallSystemCallParameterHandling(this.usageInterpreter.getConfiguration()));
-
 		this.initProbeSpecification();
 
 		this.registerEventHandler();
@@ -90,7 +83,7 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	private void registerEventHandler() {
 
 		// setup system processed request event listener
-		this.middleware.registerEventHandler(SystemRequestProcessed.EVENT_ID, new IEventHandler<SystemRequestProcessed>() {
+		this.getSimulationMiddleware().registerEventHandler(SystemRequestProcessed.EVENT_ID, new IEventHandler<SystemRequestProcessed>() {
 
 			@Override
 			public void handle(SystemRequestProcessed simulationEvent) {
@@ -114,8 +107,8 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 		this.execute(new BuildUsageResponseTimeCalculators(this));
 
 		// mount probes
-		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration(), this.middleware));
-		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration(), this.middleware));
+		this.execute(new MountUsageScenarioProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
+		this.execute(new MountSystemCallProbes(this.usageInterpreter.getConfiguration(), this.getSimulationMiddleware()));
 	}
 
 	@Override
@@ -132,15 +125,6 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 	 */
 	public UsageBehaviourInterpreter getUsageInterpreter() {
 		return usageInterpreter;
-	}
-
-	/**
-	 * Gives access to the current simulation middleware instance.
-	 * 
-	 * @return A simulation middleware instance
-	 */
-	public ISimulationMiddleware getSimulationMiddleware() {
-		return this.middleware;
 	}
 
 }
