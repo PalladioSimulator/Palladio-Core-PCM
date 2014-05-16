@@ -51,8 +51,8 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 		assemblyContext.addPossibleValue("Assembly Ctx 3");
 		pasiveResType.addContextField(assemblyContext);
 		// specify the meta data about available components
-		activeResType.addAvailableComponent(new SimulationComponentMetaData("resource.passive.eventsim", "EventSim Active Resource"));
-		activeResType.addAvailableComponent(new SimulationComponentMetaData("resource.passive.alternative", "Alternative Active Resource Sim"));
+		pasiveResType.addAvailableComponent(new SimulationComponentMetaData("resource.passive.eventsim", "EventSim Passive Resource"));
+		pasiveResType.addAvailableComponent(new SimulationComponentMetaData("resource.passive.alternative", "Alternative Passive Resource Sim"));
 		simCompTypes.add(pasiveResType);
 	}
 

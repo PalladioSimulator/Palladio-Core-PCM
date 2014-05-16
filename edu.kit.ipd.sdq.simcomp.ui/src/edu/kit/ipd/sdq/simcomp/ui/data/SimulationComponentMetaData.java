@@ -24,4 +24,9 @@ public class SimulationComponentMetaData {
 		return title;
 	}
 
+	@Override
+	public String toString() {
+		return this.title;
+	}
+
 }

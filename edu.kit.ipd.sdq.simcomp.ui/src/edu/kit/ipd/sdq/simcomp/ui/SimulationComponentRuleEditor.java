@@ -1,7 +1,11 @@
 package edu.kit.ipd.sdq.simcomp.ui;
 
+import java.util.List;
+
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.SelectionAdapter;
+import org.eclipse.swt.events.SelectionEvent;
 import org.eclipse.swt.graphics.Point;
 import org.eclipse.swt.graphics.Rectangle;
 import org.eclipse.swt.layout.GridData;
@@ -16,12 +20,14 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
+import edu.kit.ipd.sdq.simcomp.ui.data.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.ui.data.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.ui.data.SimulationContextField;
 
 public class SimulationComponentRuleEditor {
 
 	private SimulationComponentType simCompType;
+	private Table table;
 
 	public SimulationComponentRuleEditor(Composite parent, SimulationComponentType simCompType) {
 
@@ -48,7 +54,7 @@ public class SimulationComponentRuleEditor {
 	private void createRuleTable(Composite parent) {
 
 		// create the basic table
-		final Table table = new Table(parent, SWT.BORDER | SWT.MULTI);
+		table = new Table(parent, SWT.BORDER | SWT.MULTI);
 		table.setLayoutData(new GridData(SWT.FILL, SWT.FILL, true, true));
 		table.setLinesVisible(true);
 		table.setHeaderVisible(true);
@@ -66,7 +72,7 @@ public class SimulationComponentRuleEditor {
 
 		for (int i = 0; i < 3; i++) {
 			TableItem item = new TableItem(table, SWT.NONE);
-			item.setText(new String[] { "" + i, "" + i, "" + i });
+			item.setText(new String[] { "*", "*", "*" });
 		}
 
 		final TableEditor editor = new TableEditor(table);
@@ -90,7 +96,9 @@ public class SimulationComponentRuleEditor {
 							final int column = i;
 
 							final Combo combo = new Combo(table, SWT.READ_ONLY);
-							combo.setItems(new String[] { "Value 1", "Value 2", "Value 3", "Value 4" });
+							combo.setItems(getPossibleValuesForColumn(column));
+							combo.select(0); // TODO (SimComp): If row has value
+												// select the value
 
 							Listener comboListener = new Listener() {
 								@Override
@@ -135,6 +143,30 @@ public class SimulationComponentRuleEditor {
 		});
 	}
 
+	private String[] getPossibleValuesForColumn(int column) {
+		String[] possibleValues = new String[0];
+
+		if (column < simCompType.getContextFields().size()) {
+			// context field column selected
+			List<String> possibleValueList = simCompType.getContextFields().get(column).getPossibleValues();
+			possibleValues = possibleValueList.toArray(new String[possibleValueList.size() + 1]);
+			System.arraycopy(possibleValues, 0, possibleValues, 1, possibleValueList.size());
+			possibleValues[0] = "*";
+
+			return possibleValues;
+		} else {
+			// simulation component field selected
+			List<SimulationComponentMetaData> components = simCompType.getAvailableComponents();
+			possibleValues = new String[components.size() + 1];
+			possibleValues[0] = "*";
+			for (int j = 0; j < components.size(); j++) {
+				possibleValues[j + 1] = components.get(j).toString();
+			}
+
+			return possibleValues;
+		}
+	}
+
 	/**
 	 * Creates the controls which create, delete or modify a rules position.
 	 * 
@@ -144,10 +176,25 @@ public class SimulationComponentRuleEditor {
 		final Button btnCreate = new Button(parent, SWT.PUSH);
 		btnCreate.setText("Create Rule");
 		btnCreate.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
+		btnCreate.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				TableItem item = new TableItem(table, SWT.NONE);
+				item.setText(new String[] { "*", "*", "*" });
+
+				table.select(table.getItems().length);
+			}
+		});
 
 		final Button btnDelete = new Button(parent, SWT.PUSH);
 		btnDelete.setText("Delete Rule");
 		btnDelete.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
+		btnDelete.addSelectionListener(new SelectionAdapter() {
+			@Override
+			public void widgetSelected(SelectionEvent e) {
+				table.remove(table.getSelectionIndices());
+			}
+		});
 
 		final Button btnMoveUp = new Button(parent, SWT.PUSH);
 		btnMoveUp.setText("Move Up");
