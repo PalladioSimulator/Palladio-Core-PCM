@@ -2,7 +2,6 @@ package edu.kit.ipd.sdq.eventsim.resources.probespec.commands;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Set;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.calculator.Calculator;
@@ -13,7 +12,6 @@ import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.resources.SchedulingPolicy;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
@@ -32,7 +30,8 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculator>> {
 
     private AbstractEventSimModel model;
-    private SimulatedResourceEnvironment environment;
+//    private SimulatedResourceEnvironment environment;
+    private SimActiveResource resource;
 
     /**
      * Constructs a new command that creates calculators for resources contained in the specified
@@ -41,9 +40,9 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
      * @param environment
      *            the resource environment
      */
-    public BuildActiveResourceCalculators(AbstractEventSimModel model, SimulatedResourceEnvironment environment) {
-        this.environment = environment;
+    public BuildActiveResourceCalculators(AbstractEventSimModel model, SimActiveResource resource) {
         this.model = model;
+        this.resource = resource;
     }
 
     /**
@@ -53,34 +52,34 @@ public class BuildActiveResourceCalculators implements IPCMCommand<List<Calculat
     public List<Calculator> execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
     	ProbeSpecContext probeSpecContext = this.model.getSimulationMiddleware().getProbeSpecContext();
     	
-    	// collect all active resources
-        Set<SimActiveResource> resources = model.execute(new CollectActiveResources(environment));
+//    	// collect all active resources
+//        Set<SimActiveResource> resources = model.execute(new CollectActiveResources(environment));
 
         // build calculators for each active resource
         List<Calculator> calculators = new ArrayList<Calculator>();
-        for (SimActiveResource r : resources) {
-            calculators.add(setupDemandCalculator(probeSpecContext, r));
+        
+            calculators.add(setupDemandCalculator(probeSpecContext, resource));
 
             // setup utilization calculators depending on their scheduling strategy and number
             // of cores
-            SchedulingPolicy strategy = r.getSchedulingStrategy();
+            SchedulingPolicy strategy = resource.getSchedulingStrategy();
             if (strategy.equals(SchedulingPolicy.PROCESSOR_SHARING)) {
-                if (r.getNumberOfInstances() == 1) {
-                    calculators.addAll(setupResourceStateCalculator(probeSpecContext, r));
+                if (resource.getNumberOfInstances() == 1) {
+                    calculators.addAll(setupResourceStateCalculator(probeSpecContext, resource));
                 } else {
-                    calculators.add(setupOverallUtilisationCalculator(probeSpecContext, r));
+                    calculators.add(setupOverallUtilisationCalculator(probeSpecContext, resource));
                 }
             } else if (strategy.equals(SchedulingPolicy.DELAY) || strategy.equals(SchedulingPolicy.FCFS)) {
-                assert (r.getNumberOfInstances() == 1) : "DELAY and FCFS resources are expected to "
+                assert (resource.getNumberOfInstances() == 1) : "DELAY and FCFS resources are expected to "
                         + "have exactly one core";
-                calculators.addAll(setupResourceStateCalculator(probeSpecContext, r));
+                calculators.addAll(setupResourceStateCalculator(probeSpecContext, resource));
 //            } else if (strategy.equals(SchedulingPolicy.EXACT)) {
 //                calculators.add(setupOverallUtilisationCalculator(this.model.getProbeSpecContext(), r));
             } else {
-                throw new RuntimeException("Could not setup utilization calculator at resource " + r.getDescription()
+                throw new RuntimeException("Could not setup utilization calculator at resource " + resource.getDescription()
                         + " as it is unknown how to handle the scheduling strategy " + strategy.name() + ".");
             }
-        }
+        
         return calculators;
     }
 

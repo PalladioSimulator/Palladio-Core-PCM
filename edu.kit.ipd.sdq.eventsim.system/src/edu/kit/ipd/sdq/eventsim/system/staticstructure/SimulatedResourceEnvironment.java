@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.resources.staticstructure;
+package edu.kit.ipd.sdq.eventsim.system.staticstructure;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -6,7 +6,7 @@ import java.util.List;
 import java.util.Map;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildSimulatedResourceEnvironment;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedResourceEnvironment;
 
 /**
  * This class serves a registry for {@link SimulatedResourceContainer}s by mapping resource

@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.workload.generator;
 
-import edu.kit.ipd.sdq.eventsim.entities.User;
+import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 
 /**
  * Classes implementing this interfaces generate the workload for the system under simulation. For

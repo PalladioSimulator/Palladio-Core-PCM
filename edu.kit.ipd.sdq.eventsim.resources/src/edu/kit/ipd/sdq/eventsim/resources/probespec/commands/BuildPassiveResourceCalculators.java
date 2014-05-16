@@ -12,17 +12,16 @@ import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.PassiveResourceRegistry;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 public class BuildPassiveResourceCalculators implements IPCMCommand<List<Calculator>> {
 
     private AbstractEventSimModel model;
-    private PassiveResourceRegistry registry;
+	private SimPassiveResource resource;
 
-    public BuildPassiveResourceCalculators(AbstractEventSimModel model, PassiveResourceRegistry registry) {
-        this.registry = registry;
+    public BuildPassiveResourceCalculators(AbstractEventSimModel model, SimPassiveResource resource) {
         this.model = model;
+        this.resource = resource;
     }
 
     @Override
@@ -30,11 +29,11 @@ public class BuildPassiveResourceCalculators implements IPCMCommand<List<Calcula
     	ProbeSpecContext probeSpecContext = this.model.getSimulationMiddleware().getProbeSpecContext();
     	
         List<Calculator> calculators = new ArrayList<Calculator>();
-        for (SimPassiveResource r : registry.getPassiveResources()) {
-            calculators.add(setupStateCalculator(probeSpecContext, r));
-            calculators.add(setupWaitingTimeCalculator(probeSpecContext, r));
-            calculators.add(setupHoldTimeCalculator(probeSpecContext, r));
-        }
+//        for (SimPassiveResource r : registry.getPassiveResources()) {
+            calculators.add(setupStateCalculator(probeSpecContext, resource));
+            calculators.add(setupWaitingTimeCalculator(probeSpecContext, resource));
+            calculators.add(setupHoldTimeCalculator(probeSpecContext, resource));
+//        }
         return calculators;
     }
 

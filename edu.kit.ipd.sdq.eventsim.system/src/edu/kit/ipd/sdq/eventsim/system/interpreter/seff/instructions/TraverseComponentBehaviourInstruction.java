@@ -5,10 +5,10 @@ import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour;
 import de.uka.ipd.sdq.pcm.seff.StartAction;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalInstruction;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.system.command.seff.FindActionInResourceDemandingBehaviour;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 
 /**
  *  TODO: adjust javadoc since the term scope is slightly outdated and should be better denoted by

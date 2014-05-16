@@ -17,7 +17,7 @@ public interface IUser {
 	public String getId();
 
 	/**
-	 * The unique identifier for the prope framework
+	 * The unique identifier for the probe framework
 	 * 
 	 * @return A request context
 	 */

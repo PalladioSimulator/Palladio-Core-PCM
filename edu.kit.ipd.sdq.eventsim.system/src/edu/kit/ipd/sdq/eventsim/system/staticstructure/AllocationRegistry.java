@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.resources.staticstructure;
+package edu.kit.ipd.sdq.eventsim.system.staticstructure;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -7,7 +7,7 @@ import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands.BuildResourceAllocation;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildResourceAllocation;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 
 /**

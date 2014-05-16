@@ -1,5 +1,6 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
@@ -22,13 +23,13 @@ public class EventSimPassiveResource implements IPassiveResource {
 	}
 
 	@Override
-	public boolean acquire(IRequest request, PassiveResource specification, int i, boolean b, double timeoutValue) {
-		return this.model.acquire(request, specification, i, b, timeoutValue);
+	public boolean acquire(IRequest request, AssemblyContext ctx, PassiveResource specification, int i, boolean b, double timeoutValue) {
+		return this.model.acquire(request, ctx, specification, i, b, timeoutValue);
 	}
 
 	@Override
-	public void release(IRequest request, PassiveResource specification, int i) {
-		this.model.release(request, specification, i);
+	public void release(IRequest request, AssemblyContext ctx, PassiveResource specification, int i) {
+		this.model.release(request, ctx, specification, i);
 	}
 
 	/**

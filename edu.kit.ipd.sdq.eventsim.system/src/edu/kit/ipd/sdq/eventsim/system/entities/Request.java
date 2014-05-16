@@ -1,16 +1,16 @@
-package edu.kit.ipd.sdq.eventsim.entities;
+package edu.kit.ipd.sdq.eventsim.system.entities;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.osgi.service.useradmin.User;
 
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.debug.DebugEntityListener;
-import edu.kit.ipd.sdq.eventsim.entities.scheduler.IProcessListener;
-import edu.kit.ipd.sdq.eventsim.entities.scheduler.SimulatedProcess;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
 
@@ -39,11 +39,11 @@ public class Request extends EventSimEntity implements IRequest {
      */
     private RequestContext requestContext;
 
-    /**
-     * the simulated process is used to schedule resource requests issued by this Request on an
-     * active or passive resource.
-     */
-    private SimulatedProcess simulatedProcess;
+//    /**
+//     * the simulated process is used to schedule resource requests issued by this Request on an
+//     * active or passive resource.
+//     */
+//    private SimulatedProcess simulatedProcess;
 
     /**
      * the activation event encapsulates the bahaviour that is to be performed when this Request is
@@ -71,18 +71,6 @@ public class Request extends EventSimEntity implements IRequest {
         if (logger.isDebugEnabled()) {
             this.addEntityListener(new DebugEntityListener(this));
         }
-    }
-
-    protected SimulatedProcess createSimulatedProcess() {
-        // initialise the simulated process by specifying its ID and a handler that reacts when the
-        // process gets activated by the scheduler
-        SimulatedProcess process = new SimulatedProcess(this, Long.toString(this.getEntityId()), new ProcessActivatedHandler());
-
-        // add a handler that reacts when this Request has finished its execution and informs the
-        // simulated process about that.
-        this.addEntityListener(new RequestFinishedHandler(process));
-
-        return process;
     }
 
     protected RequestContext createRequestContext() {
@@ -115,6 +103,7 @@ public class Request extends EventSimEntity implements IRequest {
      * 
      * @return a unique identifier, encapsulated in a RequestContext, for this Request
      */
+    @Override
     public RequestContext getRequestContext() {
         if (this.requestContext == null) {
             this.requestContext = createRequestContext();
@@ -139,19 +128,6 @@ public class Request extends EventSimEntity implements IRequest {
     }
 
     /**
-     * Returns the simulated process that is used to schedule resource requests issued by this
-     * Request on an active or passive resource.
-     * 
-     * @return the simulated process
-     */
-    public SimulatedProcess getSimulatedProcess() {
-        if (this.simulatedProcess == null) {
-            this.simulatedProcess = this.createSimulatedProcess();
-        }
-        return this.simulatedProcess;
-    }
-
-    /**
      * Call this method when the simulated process (see: {@code getSimulatedProcess()} method) has
      * been scheduled on a resource and waits for being serviced. The specified activationEvent will
      * be scheduled as soon as the simulated process has been activated.
@@ -170,7 +146,7 @@ public class Request extends EventSimEntity implements IRequest {
      * 
      * @see #passivate(AbstractSimEventDelegator)
      */
-    protected void activate() {
+    public void activate() {
         if (this.activationEvent == null) {
         	if(logger.isEnabledFor(Level.WARN))
         		logger.warn("Tried to activate request " + this.getName() + ", but there is no activation event.");
@@ -184,58 +160,22 @@ public class Request extends EventSimEntity implements IRequest {
         this.activationEvent = null;
     }
 
-    /**
-     * This handler reacts when the Request has been finished and informs the simulated process
-     * about that.
-     * 
-     * @author Philipp Merkle
-     * 
-     */
-    private static final class RequestFinishedHandler implements IEntityListener {
-
-        private SimulatedProcess process;
-
-        public RequestFinishedHandler(SimulatedProcess process) {
-            this.process = process;
-        }
-
-        @Override
-        public void leftSystem() {
-            this.process.setFinished();
-        }
-
-        @Override
-        public void enteredSystem() {
-            // nothing to do
-        }
-
-    }
-
-    /**
-     * This handler reacts when the simulated process is being activated.
-     * 
-     * @author Philipp Merkle
-     * 
-     */
-    private final class ProcessActivatedHandler implements IProcessListener {
-
-        @Override
-        public void passivated() {
-            // nothing to do
-        }
-
-        @Override
-        public void activated() {
-            Request.this.activate();
-        }
-    }
-
 	public RequestState getRequestState() {
 		return state;
 	}
 
 	public void setRequestState(RequestState state) {
 		this.state = state;
+	}
+
+	@Override
+	public long getId() {
+		return getEntityId();
+	}
+
+	@Override
+	public void passivate() {
+		throw new UnsupportedOperationException("Not sure what has to be done here");
 	}
 
 }

@@ -1,10 +1,10 @@
 package edu.kit.ipd.sdq.eventsim.system.debug;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.listener.ISeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfiguration;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 
 public class SimSlowdown implements ISeffTraversalListener {
 

@@ -22,6 +22,7 @@ Require-Bundle: org.eclipse.core.runtime,
  edu.kit.ipd.sdq.eventsim.resources;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: edu.kit.ipd.sdq.eventsim.system.command.seff,
+Export-Package: edu.kit.ipd.sdq.eventsim.system.command,
+ edu.kit.ipd.sdq.eventsim.system.command.seff,
  edu.kit.ipd.sdq.eventsim.system.component
 Service-Component: OSGI-INF/*.xml

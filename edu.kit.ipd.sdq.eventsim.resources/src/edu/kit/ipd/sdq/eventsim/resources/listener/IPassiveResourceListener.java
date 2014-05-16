@@ -1,7 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.resources.listener;
 
-import edu.kit.ipd.sdq.eventsim.entities.scheduler.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 
 /**
  * This listener observes a {@link SimPassiveResource}. It is being notified whenever a

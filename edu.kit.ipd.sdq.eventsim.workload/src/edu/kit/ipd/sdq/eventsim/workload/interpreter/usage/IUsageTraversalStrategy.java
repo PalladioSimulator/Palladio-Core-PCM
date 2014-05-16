@@ -1,9 +1,9 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.interpreter.ITraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
+import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 
 /**
  * Use this interface for traversal strategies containing the simulation logic for usage actions,

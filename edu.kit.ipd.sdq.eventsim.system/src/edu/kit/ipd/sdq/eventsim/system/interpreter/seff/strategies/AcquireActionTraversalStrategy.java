@@ -1,15 +1,16 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.seff.AcquireAction;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.ResumeSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTraversalInstructionFactory;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
@@ -40,7 +41,8 @@ public class AcquireActionTraversalStrategy implements ISeffTraversalStrategy<Ac
         IPassiveResource passiveResourceSimulation = (IPassiveResource) middleware.getSimulationComponent(IPassiveResource.class, null);
 
         final PassiveResource passiveResouce = action.getPassiveresource_AcquireAction();
-        final boolean acquired = passiveResourceSimulation.acquire(request, passiveResouce, 1, false, action.getTimeoutValue());
+        AssemblyContext ctx = state.getComponent().getAssemblyCtx();
+        final boolean acquired = passiveResourceSimulation.acquire(request, ctx, passiveResouce, 1, false, action.getTimeoutValue());
         
         if (acquired) {
             return RequestTraversalInstructionFactory.traverseNextAction(action.getSuccessor_AbstractAction());

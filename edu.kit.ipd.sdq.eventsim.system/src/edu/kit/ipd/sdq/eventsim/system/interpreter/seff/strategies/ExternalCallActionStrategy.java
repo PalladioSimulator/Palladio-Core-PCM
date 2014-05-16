@@ -2,12 +2,12 @@ package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
 import de.uka.ipd.sdq.pcm.seff.ExternalCallAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.TraverseComponentBehaviourInstruction;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 
 /**
  * This traversal strategy is responsible for {@link ExternalCallAction}s.

@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.staticstructure;
+package edu.kit.ipd.sdq.eventsim.system.staticstructure;
 
 import de.uka.ipd.sdq.pcm.repository.OperationInterface;
 import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;

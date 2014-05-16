@@ -3,9 +3,9 @@ package edu.kit.ipd.sdq.eventsim.workload.debug;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
-import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
+import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageBehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageInterpreterConfiguration;

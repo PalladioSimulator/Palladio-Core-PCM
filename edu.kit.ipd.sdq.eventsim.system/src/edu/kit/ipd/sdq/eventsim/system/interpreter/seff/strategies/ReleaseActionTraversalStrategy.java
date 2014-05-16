@@ -1,13 +1,14 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.seff.ReleaseAction;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.exceptions.unchecked.EventSimException;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.RequestState;
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTraversalInstructionFactory;
+import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
@@ -37,7 +38,8 @@ public class ReleaseActionTraversalStrategy implements ISeffTraversalStrategy<Re
         IPassiveResource passiveResourceSimulation = (IPassiveResource) middleware.getSimulationComponent(IPassiveResource.class, null);
 
         final PassiveResource passiveResouce = action.getPassiveResource_ReleaseAction();
-        passiveResourceSimulation.release(request, passiveResouce, 1);
+        AssemblyContext ctx = state.getComponent().getAssemblyCtx();
+        passiveResourceSimulation.release(request, ctx, passiveResouce, 1);
 
         return RequestTraversalInstructionFactory.traverseNextAction(action.getSuccessor_AbstractAction());
     }

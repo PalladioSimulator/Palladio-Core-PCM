@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.resources.staticstructure;
+package edu.kit.ipd.sdq.eventsim.system.staticstructure;
 
 import java.util.List;
 

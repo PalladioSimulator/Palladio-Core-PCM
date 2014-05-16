@@ -10,32 +10,31 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.eventsim.entities.scheduler.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.resources.listener.IPassiveResourceListener;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.PassiveResourceRegistry;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
 public class MountPassiveResourceProbes implements IPCMCommand<Void> {
 
     private AbstractEventSimModel model;
-    private PassiveResourceRegistry registry;
+    private SimPassiveResource resource;
 	private ISimulationMiddleware middleware;
 
-    public MountPassiveResourceProbes(AbstractEventSimModel model, PassiveResourceRegistry registry) {
+    public MountPassiveResourceProbes(AbstractEventSimModel model, SimPassiveResource resource) {
         this.model = model;
-        this.registry = registry;
+        this.resource = resource;
         this.middleware = model.getSimulationMiddleware();
     }
 
     @Override
     public Void execute(IPCMModel model, ICommandExecutor<IPCMModel> executor) {
-        for (SimPassiveResource r : registry.getPassiveResources()) {
-            mountResourceStateProbes(r);
-            mountWaitingTimeProbes(r);
-            mountHoldTimeProbes(r);
-        }
+//        for (SimPassiveResource r : registry.getPassiveResources()) {
+            mountResourceStateProbes(resource);
+            mountWaitingTimeProbes(resource);
+            mountHoldTimeProbes(resource);
+//        }
 
         // this command is not supposed to return a value
         return null;

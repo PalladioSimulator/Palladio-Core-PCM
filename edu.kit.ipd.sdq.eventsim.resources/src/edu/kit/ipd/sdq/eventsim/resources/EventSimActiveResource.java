@@ -1,5 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import edu.kit.ipd.sdq.simcomp.component.IActiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
@@ -22,8 +24,8 @@ public class EventSimActiveResource implements IActiveResource {
 	}
 
 	@Override
-	public void consume(IRequest request, ParametricResourceDemand demand) {
-		this.model.consume(request, demand);
+	public void consume(IRequest request, ResourceContainer resourceContainer, ResourceType resourceType, double absoluteDemand) {
+		this.model.consume(request, resourceContainer, resourceType, absoluteDemand);
 	}
 
 	/**

@@ -9,10 +9,10 @@ import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.Start;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
-import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.interpreter.BehaviourInterpreter;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
 import edu.kit.ipd.sdq.eventsim.workload.command.usage.FindActionInUsageBehaviour;
+import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
 
 /**

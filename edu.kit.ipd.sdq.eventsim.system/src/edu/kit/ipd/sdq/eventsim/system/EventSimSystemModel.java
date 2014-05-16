@@ -1,18 +1,20 @@
 package edu.kit.ipd.sdq.eventsim.system;
 
+import java.util.Map;
+
 import org.apache.log4j.Logger;
+import org.osgi.service.useradmin.User;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.simulation.ISimulationListener;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
-import edu.kit.ipd.sdq.eventsim.entities.User;
-import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
+import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.parameter.InstallExternalCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.system.debug.DebugSeffTraversalListener;
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.BeginSeffTraversalEvent;
 import edu.kit.ipd.sdq.eventsim.system.handler.AfterSystemCallParameterHandler;
 import edu.kit.ipd.sdq.eventsim.system.handler.BeforeSystemCallParameterHandler;
@@ -20,6 +22,12 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffBehaviourInterpreter
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.SeffInterpreterConfiguration;
 import edu.kit.ipd.sdq.eventsim.system.probespec.commands.BuildResponseTimeCalculators;
 import edu.kit.ipd.sdq.eventsim.system.probespec.commands.MountExternalCallProbes;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.AllocationRegistry;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceEnvironment;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildResourceAllocation;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
 import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
@@ -44,6 +52,10 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	private static final Logger logger = Logger.getLogger(EventSimSystemModel.class);
 
 	private SeffBehaviourInterpreter seffInterpreter;
+	
+	private SimulatedResourceEnvironment resourceEnvironment;
+	private AllocationRegistry resourceAllocation;
+	private Map<String, ComponentInstance> componentRegistry;
 
 	public EventSimSystemModel(ISimulationMiddleware middleware) {
 		super(middleware);
@@ -66,6 +78,13 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 
 		this.registerEventHandler();
 
+		// initialise resource environment and allocation
+		this.resourceEnvironment = this.execute(new BuildSimulatedResourceEnvironment(this));
+		this.resourceAllocation = this.execute(new BuildResourceAllocation(this.resourceEnvironment));
+
+		// initialise component instances
+		this.componentRegistry = this.execute(new BuildComponentInstances(this, this.resourceAllocation));
+		
 		// notify registered listeners that the simulation is about to start...
 		//this.notifyStartListeners();
 	}
@@ -110,11 +129,11 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		final OperationSignature signature = call.getOperationSignature__EntryLevelSystemCall();
 
 		// spawn a new EventSim request
-		User eventSimUser = (User) user;
-		final Request request = new Request(this, call, eventSimUser);
+//		User eventSimUser = (User) user;
+		final Request request = new Request(this, call, user);
 		this.getSimulationMiddleware().triggerEvent(new SystemRequestStart(request));
 
-		new BeginSeffTraversalEvent(this, component, signature, eventSimUser.getUserState()).schedule(request, 0);
+		new BeginSeffTraversalEvent(this, component, signature, (User)eventSimUser.getUserState()).schedule(request, 0);
 	}
 
 	public SeffBehaviourInterpreter getSeffInterpreter() {
@@ -137,6 +156,38 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		for (final ISimulationListener l : this.getEventSimConfig().getListeners()) {
 			l.simulationStop();
 		}
+	}
+	
+	/**
+	 * Returns the resource environment comprising
+	 * {@link SimulatedResourceContainer}.
+	 * 
+	 * @return the resource environment
+	 */
+	public SimulatedResourceEnvironment getResourceEnvironment() {
+		return this.resourceEnvironment;
+	}
+
+	/**
+	 * Returns the allocation of {@link AssemblyContext}s to
+	 * {@link SimulatedResourceContainer}s.
+	 * 
+	 * @return a registry containing the resource allocations
+	 */
+	public AllocationRegistry getResourceAllocation() {
+		return this.resourceAllocation;
+	}
+
+	/**
+	 * Returns the component instance that is encapsulated by the specified
+	 * assembly context.
+	 * 
+	 * @param assemblyContext
+	 *            the assembly context
+	 * @return the queried component instance
+	 */
+	public ComponentInstance getComponent(final AssemblyContext assemblyContext) {
+		return this.componentRegistry.get(assemblyContext.getId());
 	}
 
 }

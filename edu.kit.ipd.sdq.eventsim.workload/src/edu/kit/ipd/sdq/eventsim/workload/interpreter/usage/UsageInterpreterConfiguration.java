@@ -11,9 +11,9 @@ import org.eclipse.emf.ecore.EClass;
 
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
-import edu.kit.ipd.sdq.eventsim.entities.User;
 import edu.kit.ipd.sdq.eventsim.interpreter.InterpreterConfiguration;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
+import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.listener.IUsageTraversalListener;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies.BranchTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies.DelayTraversalStrategy;

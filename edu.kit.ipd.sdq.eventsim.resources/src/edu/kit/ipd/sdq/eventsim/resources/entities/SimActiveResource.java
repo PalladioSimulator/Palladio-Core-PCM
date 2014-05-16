@@ -13,7 +13,6 @@ import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
 import de.uka.ipd.sdq.simucomframework.Context;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
 import edu.kit.ipd.sdq.eventsim.resources.SchedulingPolicy;
 import edu.kit.ipd.sdq.eventsim.resources.listener.IDemandListener;
 import edu.kit.ipd.sdq.eventsim.resources.listener.IOverallUtilizationListener;

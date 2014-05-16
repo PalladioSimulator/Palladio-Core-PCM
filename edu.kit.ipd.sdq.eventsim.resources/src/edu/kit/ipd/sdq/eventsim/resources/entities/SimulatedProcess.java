@@ -1,16 +1,19 @@
-package edu.kit.ipd.sdq.eventsim.entities.scheduler;
+package edu.kit.ipd.sdq.eventsim.resources.entities;
 
 import java.util.ArrayList;
 
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
+import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
+import edu.kit.ipd.sdq.simcomp.component.IRequest;
 
 /**
  * A simulated process is a process that can be scheduled on an active or passive resource. Whenever
  * the scheduler activates or passivates the process, the {@link IProcessListener}, which has been
- * passed to the constructor, gets notified.
+ * passed to the constructor, gets notified. 
+ * 
+ * TODO (SimComp) fix me
  * 
  * @author Philipp Merkle
  * 
@@ -19,9 +22,8 @@ import edu.kit.ipd.sdq.eventsim.entities.Request;
 public class SimulatedProcess extends EventSimEntity implements ISchedulableProcess {
 
     private final String id;
-    private final IProcessListener listener;
     private final ArrayList<IActiveResource> terminatedObservers;
-    private final Request request;
+    private final IRequest request;
     private boolean finished;
     private int priority;
     
@@ -36,11 +38,10 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      *            the listener that is to be notified when this simulated process is being activated
      *            or passivated
      */
-    public SimulatedProcess(final Request request, final String id, final IProcessListener listener) {
-        super(request.getEventSimModel(), SimulatedProcess.class.getName());
+    public SimulatedProcess(AbstractEventSimModel model, final IRequest request, final String id) {
+        super(model, SimulatedProcess.class.getName());
         this.request = request;
         this.id = id;
-        this.listener = listener;
         this.terminatedObservers = new ArrayList<IActiveResource>();
     }
 
@@ -49,8 +50,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      */
     @Override
     public void activate() {
-        // notify the listener
-        this.listener.activated();
+        request.activate();
     }
 
     /**
@@ -58,8 +58,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      */
     @Override
     public void passivate() {
-        // notify the listener
-        this.listener.passivated();
+    	request.passivate();
     }
 
     /**
@@ -82,7 +81,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
     /**
      * Returns the request that created this simulated process.
      */
-    public Request getRequest() {
+    public IRequest getRequest() {
         return request;
     }
 
@@ -150,5 +149,6 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
         // TODO Failures are not yet supported
         throw new RuntimeException("Encountered a timeout but simulation of failures is not yet supported.");
     }
+        
 
 }

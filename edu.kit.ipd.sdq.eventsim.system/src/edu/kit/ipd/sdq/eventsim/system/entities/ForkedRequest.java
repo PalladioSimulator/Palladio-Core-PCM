@@ -1,10 +1,11 @@
-package edu.kit.ipd.sdq.eventsim.entities;
+package edu.kit.ipd.sdq.eventsim.system.entities;
 
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.entities.IEntityListener;
 
 public class ForkedRequest extends Request {
 

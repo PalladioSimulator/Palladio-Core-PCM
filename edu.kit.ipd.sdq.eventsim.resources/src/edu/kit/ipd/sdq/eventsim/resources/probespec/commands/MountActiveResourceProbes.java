@@ -1,7 +1,5 @@
 package edu.kit.ipd.sdq.eventsim.resources.probespec.commands;
 
-import java.util.Set;
-
 import de.uka.ipd.sdq.probespec.framework.ISampleBlackboard;
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
@@ -17,7 +15,6 @@ import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.listener.IDemandListener;
 import edu.kit.ipd.sdq.eventsim.resources.listener.IOverallUtilizationListener;
 import edu.kit.ipd.sdq.eventsim.resources.listener.IStateListener;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
@@ -36,17 +33,20 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 public class MountActiveResourceProbes implements IPCMCommand<Void> {
 
     private AbstractEventSimModel model;
-    private SimulatedResourceEnvironment environment;
+    
 	private ISimulationMiddleware middleware;
+	
+	private SimActiveResource resource;
 
     /**
      * 
      * @param model
      * @param environment
      */
-    public MountActiveResourceProbes(AbstractEventSimModel model, SimulatedResourceEnvironment environment) {
+    public MountActiveResourceProbes(AbstractEventSimModel model, SimActiveResource resource) {
         this.model = model;
-        this.environment = environment;
+//        this.environment = environment;
+        this.resource = resource;
         this.middleware = model.getSimulationMiddleware();
     }
 
@@ -56,14 +56,14 @@ public class MountActiveResourceProbes implements IPCMCommand<Void> {
     @Override
     public Void execute(IPCMModel pcm, ICommandExecutor<IPCMModel> executor) {
         // collect all active resources
-        Set<SimActiveResource> resources = model.execute(new CollectActiveResources(environment));
+//        Set<SimActiveResource> resources = model.execute(new CollectActiveResources(environment));
 
         // mount probes for each resource
-        for (SimActiveResource r : resources) {
-            mountResourceStateProbes(r);
-            mountOverallUtilisationProbes(r);
-            mountDemandProbes(r);
-        }
+//        for (SimActiveResource r : resources) {
+            mountResourceStateProbes(resource);
+            mountOverallUtilisationProbes(resource);
+            mountDemandProbes(resource);
+//        }
 
         // TODO setup (overall) utilization calculators here?
 

@@ -1,8 +1,10 @@
-package edu.kit.ipd.sdq.eventsim.interpreter.state;
+package edu.kit.ipd.sdq.eventsim.system.interpreter.state;
 
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
-import edu.kit.ipd.sdq.eventsim.entities.Request;
-import edu.kit.ipd.sdq.eventsim.staticstructure.ComponentInstance;
+import edu.kit.ipd.sdq.eventsim.interpreter.state.AbstractInterpreterState;
+import edu.kit.ipd.sdq.eventsim.interpreter.state.AbstractStateStackFrame;
+import edu.kit.ipd.sdq.eventsim.system.entities.Request;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 
 /**
  * A stack frame which holds the state of a {@link Request} entity.

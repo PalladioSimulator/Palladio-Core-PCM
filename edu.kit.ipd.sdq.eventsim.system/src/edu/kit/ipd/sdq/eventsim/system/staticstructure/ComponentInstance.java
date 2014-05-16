@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.eventsim.staticstructure;
+package edu.kit.ipd.sdq.eventsim.system.staticstructure;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -52,7 +52,7 @@ public class ComponentInstance {
     private List<RoleInstance> requiredRoles;
     private final AssemblyContext assemblyCtx;
     private final SimulatedStackframe<Object> componentParameters;
-    private final IResourceContainer resourceContainer;
+    private final SimulatedResourceContainer resourceContainer;
 
     /**
      * Constructs a new component instance by specifying the three contexts as described in the
@@ -65,7 +65,7 @@ public class ComponentInstance {
      * @para assemblyCtx the AssemblyContext
      */
     public ComponentInstance(final AbstractEventSimModel model, final BasicComponent type, final AssemblyContext assemblyCtx,
-            final IResourceContainer deployedOn, final SimulatedStackframe<Object> parameters) {
+            final SimulatedResourceContainer deployedOn, final SimulatedStackframe<Object> parameters) {
         assert (model != null) : "The argument model may not be null.";
         assert (type != null) : "The argument type may not be null.";
         assert (assemblyCtx != null) : "The argument assemblyCtx may not be null.";
@@ -187,7 +187,7 @@ public class ComponentInstance {
     /**
      * @return the resource container in which the component instance is deployed
      */
-    public IResourceContainer getResourceContainer() {
+    public SimulatedResourceContainer getResourceContainer() {
         return this.resourceContainer;
     }
 

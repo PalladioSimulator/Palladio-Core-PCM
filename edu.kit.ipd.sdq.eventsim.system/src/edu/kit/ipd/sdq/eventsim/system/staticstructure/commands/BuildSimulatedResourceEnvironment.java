@@ -1,21 +1,17 @@
-package edu.kit.ipd.sdq.eventsim.resources.staticstructure.commands;
+package edu.kit.ipd.sdq.eventsim.system.staticstructure.commands;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
-import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;
-import edu.kit.ipd.sdq.eventsim.resources.ResourceFactory;
-import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.CommunicationLink;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceContainer;
-import edu.kit.ipd.sdq.eventsim.resources.staticstructure.SimulatedResourceEnvironment;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.CommunicationLink;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceContainer;
+import edu.kit.ipd.sdq.eventsim.system.staticstructure.SimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 
 /**
@@ -27,7 +23,6 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 public class BuildSimulatedResourceEnvironment implements IPCMCommand<SimulatedResourceEnvironment> {
 
     private final AbstractEventSimModel model;
-	private ISchedulingFactory schedulingFactory;
 
     /**
      * Constructs a command that builds the {@link SimulatedResourceEnvironment}.
@@ -35,9 +30,8 @@ public class BuildSimulatedResourceEnvironment implements IPCMCommand<SimulatedR
      * @param model
      *            the simulation model
      */
-    public BuildSimulatedResourceEnvironment(AbstractEventSimModel model, ISchedulingFactory schedulingFactory) {
+    public BuildSimulatedResourceEnvironment(AbstractEventSimModel model) {
         this.model = model;
-        this.schedulingFactory = schedulingFactory;
     }
 
     /**
@@ -89,7 +83,7 @@ public class BuildSimulatedResourceEnvironment implements IPCMCommand<SimulatedR
     /**
      * Creates a simulated resource container in accordance with the given specification. For each
      * resource type contained in the specification, a {@link SimActiveResource} is created and
-     * registered with the created resource container.
+     * registered with the created resource container. TODO (SimComp) adjust me
      * 
      * @param specification
      *            the resource container specification
@@ -101,16 +95,16 @@ public class BuildSimulatedResourceEnvironment implements IPCMCommand<SimulatedR
 
     private SimulatedResourceContainer createSimulatedResourceContainer(ResourceContainer specification, SimulatedResourceContainer parent) {
         SimulatedResourceContainer container = new SimulatedResourceContainer(specification, parent);
-        // create active resources
-        for (ProcessingResourceSpecification s : specification.getActiveResourceSpecifications_ResourceContainer()) {
-            // create resource
-            ResourceType resourceType = s.getActiveResourceType_ActiveResourceSpecification();
-            SimActiveResource resource = ResourceFactory.createActiveResource(this.model, schedulingFactory, s);
-            resource.setDescription(specification.getEntityName() + " [" + resourceType.getEntityName() + "] <" + specification.getId() + ">");
-
-            // register the created resource
-            container.registerResource(resource, resourceType);
-        }
+//        // create active resources
+//        for (ProcessingResourceSpecification s : specification.getActiveResourceSpecifications_ResourceContainer()) {
+//            // create resource
+//            ResourceType resourceType = s.getActiveResourceType_ActiveResourceSpecification();
+//            SimActiveResource resource = ResourceFactory.createActiveResource(this.model, schedulingFactory, s);
+//            resource.setDescription(specification.getEntityName() + " [" + resourceType.getEntityName() + "] <" + specification.getId() + ">");
+//
+//            // register the created resource
+//            container.registerResource(resource, resourceType);
+//        }
 
         // recursively create nested resource containers, if there are any
         for (ResourceContainer nestedSpecification : specification.getNestedResourceContainers__ResourceContainer()) {
