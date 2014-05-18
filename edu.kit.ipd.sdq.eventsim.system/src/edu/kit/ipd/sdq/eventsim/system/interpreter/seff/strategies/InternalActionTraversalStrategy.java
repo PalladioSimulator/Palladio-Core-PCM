@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.seff.strategies;
 
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Queue;
 
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
@@ -8,6 +9,8 @@ import de.uka.ipd.sdq.pcm.seff.InternalAction;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;
+import edu.kit.ipd.sdq.eventsim.system.Activator;
+import edu.kit.ipd.sdq.eventsim.system.EventSimSystem;
 import edu.kit.ipd.sdq.eventsim.system.EventSimSystemModel;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.ResumeSeffTraversalEvent;
@@ -41,19 +44,17 @@ public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<I
 		
 		final ParametricResourceDemand demand = internalState.dequeueDemand();
 
-		// fetch the resource simulation component
-		// TODO (SimComp): build list of key value pairs as context
-        ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
-        IActiveResource resourceSimComp = (IActiveResource) middleware.getSimulationComponent(IActiveResource.class, null);
+        // fetch active resource simulation component
+        EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
+		List<IActiveResource> activeResourceComponents = system.getActiveResourceComponents();
+		ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
+		// TODO (SimComp): provide active resource context
+		IActiveResource activeResource = middleware.getSimulationComponent(activeResourceComponents, null);
 
         // consume the resource demand
-        
-        // TODO!!!
         double evaluatedDemand = NumberConverter.toDouble(state.getStoExContext().evaluate(demand.getSpecification_ParametericResourceDemand().getSpecification()));
-        
 		ResourceType type = demand.getRequiredResource_ParametricResourceDemand();
-        
-        resourceSimComp.consume(request, state.getComponent().getResourceContainer().getSpecification(),  type, evaluatedDemand);
+		activeResource.consume(request, state.getComponent().getResourceContainer().getSpecification(),  type, evaluatedDemand);
 		
 		EventSimSystemModel systemModel = (EventSimSystemModel) request.getEventSimModel();
 		if (internalState.hasPendingDemands()) {

@@ -1,7 +1,11 @@
 package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.strategies;
 
+import java.util.List;
+
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
+import edu.kit.ipd.sdq.eventsim.workload.Activator;
+import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkload;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstruction;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalStrategy;
@@ -29,7 +33,10 @@ public class EntryLevelSystemCallTraversalStrategy implements IUsageTraversalStr
 
 		// fetch the system simulation component
 		ISimulationMiddleware middleware = user.getEventSimModel().getSimulationMiddleware();
-		ISystem system = (ISystem) middleware.getSimulationComponent(ISystem.class, null);
+
+		EventSimWorkload workload = (EventSimWorkload) Activator.getDefault().getWorkloadComponent();
+		List<ISystem> systemComponents = workload.getSystemComponents();
+		ISystem system = middleware.getSimulationComponent(systemComponents, null);
 
 		// perform a service call
 		system.callService(user, call);

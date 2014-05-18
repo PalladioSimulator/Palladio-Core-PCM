@@ -1,5 +1,7 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
+import java.util.List;
+
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
@@ -10,7 +12,6 @@ import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationStartEvent;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationStopEvent;
-import edu.kit.ipd.sdq.simcomp.exception.UnknownSimulationComponent;
 
 /**
  * Represents the central point of a simulation component based simulation.
@@ -56,20 +57,16 @@ public interface ISimulationMiddleware {
 	public void stopSimulation();
 
 	/**
-	 * Returns a simulation component of the specified type based on the given
-	 * simulation context.
+	 * Returns a simulation component out of a list of alternatives based on the
+	 * simulation configuration and a simulation context.
 	 * 
-	 * @param componentType
-	 *            Type of the simulation component to return
+	 * @param componentList
+	 *            A list of possible simulation components to choose from
 	 * @param context
-	 *            Simulation context
-	 * @return A simulation component
-	 * 
-	 * @throws UnknownSimulationComponent
-	 *             If no simulation component for the given type and context
-	 *             could be determined.
+	 *            A simulation context to base the decision on
+	 * @return The simulation component to be used
 	 */
-	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, ISimulationContext context);
+	public <T extends ISimulationComponent> T getSimulationComponent(List<? extends ISimulationComponent> componentList, ISimulationContext context);
 
 	/**
 	 * Gives access to the simulation configuration provided by the user on
@@ -122,15 +119,17 @@ public interface ISimulationMiddleware {
 	public void registerEventHandler(String eventId, IEventHandler<? extends SimulationEvent> handler);
 
 	/**
-	 * Gives access to the central probe specification context of the probe framework.
+	 * Gives access to the central probe specification context of the probe
+	 * framework.
 	 * 
 	 * @return The probe specification context
 	 */
 	ProbeSpecContext getProbeSpecContext();
 
 	/**
-	 * Gived access the the amount of measurement done in the current simulation.
-	 * One measurement means one user request was entirely processed.
+	 * Gives access the the amount of measurements done in the current
+	 * simulation. One measurement means one user request was entirely
+	 * processed.
 	 * 
 	 * @return The amount of measurement for the current simulation run.
 	 */

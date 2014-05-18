@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="edu.kit.ipd.sdq.eventsim.workload" immediate="true">
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="edu.kit.ipd.sdq.eventsim.workload" immediate="true" activate="activate" deactivate="deactivate">
    <service>
       <provide interface="edu.kit.ipd.sdq.simcomp.component.IWorkload"/>
    </service>
    <reference name="ISimulationMiddleware" interface="edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware" cardinality="0..1" policy="dynamic" bind="bindSimulationMiddleware" unbind="unbindSimulationMiddleware"/>
+   <reference name="ISystem" interface="edu.kit.ipd.sdq.simcomp.component.ISystem" cardinality="1..n" policy="dynamic" bind="bindSystemComponent" unbind="unbindSystemComponent"/>
    <implementation class="edu.kit.ipd.sdq.eventsim.workload.EventSimWorkload"/>
-   <property name="id" type="String" value="edu.kit.ipd.sdq.simcomp.workload.eventsim"/>
 </scr:component>

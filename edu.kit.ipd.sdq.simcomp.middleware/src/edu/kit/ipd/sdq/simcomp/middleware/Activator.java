@@ -30,8 +30,6 @@ public class Activator implements BundleActivator {
 	 * @see org.osgi.framework.BundleActivator#start(org.osgi.framework.BundleContext)
 	 */
 	public void start(BundleContext bundleContext) throws Exception {
-		System.out.println("SimulationMiddleware bundle start");
-
 		Activator.context = bundleContext;
 		Activator.plugin = this;
 	}
@@ -41,12 +39,13 @@ public class Activator implements BundleActivator {
 	 * @see org.osgi.framework.BundleActivator#stop(org.osgi.framework.BundleContext)
 	 */
 	public void stop(BundleContext bundleContext) throws Exception {
-		System.out.println("SimulationMiddleware bundle stop");
 		Activator.context = null;
+		Activator.plugin = null;
 	}
 
 	public void bindSimulationMiddleware(ISimulationMiddleware simulationMiddleware) {
-		System.out.println("SimulationMiddleware bound");
+		System.out.println("SimulationMiddleware bound to activator");
+
 		this.simulationMiddleware = simulationMiddleware;
 	}
 

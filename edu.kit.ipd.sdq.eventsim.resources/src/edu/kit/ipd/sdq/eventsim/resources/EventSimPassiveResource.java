@@ -1,5 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
+import org.osgi.service.component.ComponentContext;
+
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
@@ -12,6 +14,7 @@ import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
 public class EventSimPassiveResource implements IPassiveResource {
 
 	private ISimulationMiddleware middleware;
+	private Activator resourceActivator;
 	private EventSimPassiveResourceModel model;
 
 	/**
@@ -85,5 +88,29 @@ public class EventSimPassiveResource implements IPassiveResource {
 		if (this.middleware.equals(middleware)) {
 			this.middleware = null;
 		}
+	}
+
+	/**
+	 * Declarative service lifecycle method called when the passive resource
+	 * simulation component is activated.
+	 * 
+	 * @param context
+	 */
+	public void activate(ComponentContext context) {
+		System.out.println("PassiveResource activated");
+
+		this.resourceActivator = Activator.getDefault();
+		this.resourceActivator.bindPassiveResourceComponent(this);
+	}
+
+	/**
+	 * Declarative service lifecycle method called when the passive resource
+	 * simulation component is deactivated.
+	 * 
+	 * @param context
+	 */
+	public void deactivate(ComponentContext context) {
+		this.resourceActivator.unbindPassiveResourceComponent();
+		this.resourceActivator = null;
 	}
 }

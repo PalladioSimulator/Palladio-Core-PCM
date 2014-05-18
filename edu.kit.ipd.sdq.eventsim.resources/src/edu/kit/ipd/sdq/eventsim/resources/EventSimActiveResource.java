@@ -1,8 +1,9 @@
 package edu.kit.ipd.sdq.eventsim.resources;
 
+import org.osgi.service.component.ComponentContext;
+
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
-import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import edu.kit.ipd.sdq.simcomp.component.IActiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
@@ -13,6 +14,7 @@ import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
 public class EventSimActiveResource implements IActiveResource {
 
 	private ISimulationMiddleware middleware;
+	private Activator resourceActivator;
 	private EventSimActiveResourceModel model;
 
 	/**
@@ -81,5 +83,29 @@ public class EventSimActiveResource implements IActiveResource {
 		if (this.middleware.equals(middleware)) {
 			this.middleware = null;
 		}
+	}
+
+	/**
+	 * Declarative service lifecycle method called when the active resource
+	 * simulation component is activated.
+	 * 
+	 * @param context
+	 */
+	public void activate(ComponentContext context) {
+		System.out.println("ActiveResource activated");
+
+		this.resourceActivator = Activator.getDefault();
+		this.resourceActivator.bindActiveResourceComponent(this);
+	}
+
+	/**
+	 * Declarative service lifecycle method called when the active resource
+	 * simulation component is deactivated.
+	 * 
+	 * @param context
+	 */
+	public void deactivate(ComponentContext context) {
+		this.resourceActivator.unbindActiveResourceComponent();
+		this.resourceActivator = null;
 	}
 }

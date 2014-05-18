@@ -3,11 +3,11 @@ package edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions;
 import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.EndTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.InterruptTraversal;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseAfterLeavingScope;
 import edu.kit.ipd.sdq.eventsim.interpreter.instructions.TraverseNextAction;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstruction;
 
 public class UsageTraversalInstructionFactory {

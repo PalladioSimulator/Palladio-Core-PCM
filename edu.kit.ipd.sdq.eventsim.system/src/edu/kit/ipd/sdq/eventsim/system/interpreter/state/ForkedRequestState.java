@@ -1,7 +1,7 @@
 package edu.kit.ipd.sdq.eventsim.system.interpreter.state;
 
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 
 /**
  * 

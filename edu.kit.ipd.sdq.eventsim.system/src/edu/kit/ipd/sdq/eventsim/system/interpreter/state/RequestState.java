@@ -7,9 +7,9 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.pcm.seff.AbstractAction;
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingSEFF;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.AbstractInterpreterState;
 import edu.kit.ipd.sdq.eventsim.interpreter.state.ITraversalStrategyState;
-import edu.kit.ipd.sdq.eventsim.interpreter.state.UserState;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 

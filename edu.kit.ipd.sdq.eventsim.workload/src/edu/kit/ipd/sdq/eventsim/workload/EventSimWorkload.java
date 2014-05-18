@@ -1,8 +1,13 @@
 package edu.kit.ipd.sdq.eventsim.workload;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import org.apache.log4j.Logger;
+import org.osgi.service.component.ComponentContext;
 
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.component.ISystem;
 import edu.kit.ipd.sdq.simcomp.component.IWorkload;
 import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
@@ -18,11 +23,18 @@ public class EventSimWorkload implements IWorkload {
 	private static final Logger logger = Logger.getLogger(EventSimWorkload.class);
 
 	private ISimulationMiddleware middleware;
+	private List<ISystem> systemComponents;
 	private EventSimWorkloadModel model;
+
+	private Activator workloadActivator;
+
+	public EventSimWorkload() {
+		systemComponents = new ArrayList<ISystem>();
+	}
 
 	@Override
 	public void generate() {
-		
+
 		if (logger.isDebugEnabled()) {
 			logger.debug("Generating Workload");
 		}
@@ -65,6 +77,22 @@ public class EventSimWorkload implements IWorkload {
 		});
 	}
 
+	public void bindSystemComponent(ISystem system) {
+		System.out.println("System bound to Workload");
+
+		this.systemComponents.add(system);
+	}
+
+	public void unbindSystemComponent(ISystem system) {
+		if (this.systemComponents.contains(system)) {
+			this.systemComponents.remove(system);
+		}
+	}
+
+	public List<ISystem> getSystemComponents() {
+		return this.systemComponents;
+	}
+
 	/**
 	 * Binds a simulation middleware instance to the simulation component.
 	 * Called by the declarative service framework.
@@ -88,5 +116,29 @@ public class EventSimWorkload implements IWorkload {
 		if (this.middleware.equals(middleware)) {
 			this.middleware = null;
 		}
+	}
+
+	/**
+	 * Declarative service lifecycle method called when the workload simulation
+	 * component is activated.
+	 * 
+	 * @param context
+	 */
+	public void activate(ComponentContext context) {
+		System.out.println("Workload activated");
+
+		this.workloadActivator = Activator.getDefault();
+		this.workloadActivator.bindWorkloadComponent(this);
+	}
+
+	/**
+	 * Declarative service lifecycle method called when the workload simulation
+	 * component is deactivated.
+	 * 
+	 * @param context
+	 */
+	public void deactivate(ComponentContext context) {
+		this.workloadActivator.unbindWorkloadComponent();
+		this.workloadActivator = null;
 	}
 }

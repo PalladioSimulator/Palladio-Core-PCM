@@ -74,7 +74,7 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	public void finalise() {
 		super.finalise();
 
-		// TODO (SimComp) erzeugte Ressourcen merken und diese aufr‰umen/deaktivieren
+		// TODO (SimComp) erzeugte Ressourcen merken und diese aufr√§umen/deaktivieren
 		
 		// deactivate all resources
 //		for (SimulatedResourceContainer c : this.resourceEnvironment.getResourceContainers()) {

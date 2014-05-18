@@ -3,13 +3,15 @@ package edu.kit.ipd.sdq.eventsim.system;
 import java.util.Map;
 
 import org.apache.log4j.Logger;
-import org.osgi.service.useradmin.User;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.simulation.ISimulationListener;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.IUserState;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
 import edu.kit.ipd.sdq.eventsim.system.command.parameter.InstallExternalCallParameterHandling;
@@ -52,7 +54,7 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	private static final Logger logger = Logger.getLogger(EventSimSystemModel.class);
 
 	private SeffBehaviourInterpreter seffInterpreter;
-	
+
 	private SimulatedResourceEnvironment resourceEnvironment;
 	private AllocationRegistry resourceAllocation;
 	private Map<String, ComponentInstance> componentRegistry;
@@ -84,9 +86,9 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 
 		// initialise component instances
 		this.componentRegistry = this.execute(new BuildComponentInstances(this, this.resourceAllocation));
-		
+
 		// notify registered listeners that the simulation is about to start...
-		//this.notifyStartListeners();
+		// this.notifyStartListeners();
 	}
 
 	/**
@@ -101,7 +103,8 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 	}
 
 	/**
-	 * Initializes the Probe Specification by setting up the calculators and mounting the probes.
+	 * Initializes the Probe Specification by setting up the calculators and
+	 * mounting the probes.
 	 */
 	private void initProbeSpecification() {
 
@@ -129,11 +132,22 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		final OperationSignature signature = call.getOperationSignature__EntryLevelSystemCall();
 
 		// spawn a new EventSim request
-//		User eventSimUser = (User) user;
+		// User eventSimUser = (User) user;
 		final Request request = new Request(this, call, user);
 		this.getSimulationMiddleware().triggerEvent(new SystemRequestStart(request));
 
-		new BeginSeffTraversalEvent(this, component, signature, (User)eventSimUser.getUserState()).schedule(request, 0);
+		new BeginSeffTraversalEvent(this, component, signature, (UserState) getUserState(user)).schedule(request, 0);
+	}
+
+	/**
+	 * Fetches the user state created by the workload component from the state
+	 * exchange service.
+	 * 
+	 * @param user
+	 * @return A user state object
+	 */
+	private IUserState getUserState(IUser user) {
+		return StateExchange.getUserState(user.getId());
 	}
 
 	public SeffBehaviourInterpreter getSeffInterpreter() {
@@ -157,7 +171,7 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 			l.simulationStop();
 		}
 	}
-	
+
 	/**
 	 * Returns the resource environment comprising
 	 * {@link SimulatedResourceContainer}.

@@ -66,14 +66,12 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private ISimulationControl simControl;
 	private ISimulationConfiguration simConfig;
 	private IPCMModel pcmModel;
-	private List<ISimulationComponent> simComponentRegistry;
 	private EventAdmin eventAdmin;
 	private ProbeSpecContext probeSpecContext;
 	private int measurementCount;
 	private List<ServiceRegistration<?>> eventHandlerRegistry;
 
 	public SimulationMiddleware() {
-		this.simComponentRegistry = new ArrayList<ISimulationComponent>();
 		this.eventHandlerRegistry = new ArrayList<ServiceRegistration<?>>();
 	}
 
@@ -91,21 +89,21 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		// Create the simulation model (this model is control and not the subject of the simulation)
 		ISimEngineFactory factory = SimulationPreferencesHelper.getPreferredSimulationEngine();
-        if (factory == null) {
-            throw new RuntimeException("There is no simulation engine available. Install at least one engine.");
-        }
+		if (factory == null) {
+			throw new RuntimeException("There is no simulation engine available. Install at least one engine.");
+		}
 
 		this.simModel = new SimulationModel(factory, this);
 		factory.setModel(simModel);
 		this.simControl = simModel.getSimulationControl();
-		
+
 		// Prepare event admin service
 		BundleContext bundleContext = Activator.getContext();
 		ServiceReference<EventAdmin> eventAdminServiceReference = bundleContext.getServiceReference(EventAdmin.class);
 		this.eventAdmin = bundleContext.getService(eventAdminServiceReference);
 
 		this.initPropeFramework();
-		
+
 		this.registerEventHandler();
 
 		this.setupStopConditions(config);
@@ -151,9 +149,11 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	/**
-	 * Setup the simulation stop conditions based on the simulation configuration.
+	 * Setup the simulation stop conditions based on the simulation
+	 * configuration.
 	 * 
-	 * @param config A simulation configuration
+	 * @param config
+	 *            A simulation configuration
 	 */
 	private void setupStopConditions(ISimulationConfiguration simConfig) {
 
@@ -171,10 +171,10 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			if (logger.isDebugEnabled()) {
 				logger.debug("Enabling simulation stop condition at maximum simulation time of " + maxSimulationTime);
 			}
-				
+
 			if (maxSimulationTime > 0) {
 				this.getSimulationControl().setMaxSimTime(maxSimulationTime);
-			}	
+			}
 		}
 
 		this.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(this));
@@ -195,20 +195,28 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	/**
 	 * {@inheritDoc}
 	 */
+	@SuppressWarnings("unchecked")
 	@Override
-	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, ISimulationContext context) {
+	public <T extends ISimulationComponent> T getSimulationComponent(List<? extends ISimulationComponent> componentList, ISimulationContext context) {
 
 		// TODO (SimComp): Return simulation component by type and based on the
 		// user configuration and simulation context. For now we just return the
 		// first one matching by type.
 
-		for (ISimulationComponent simComponent : this.simComponentRegistry) {
-			if (componentType.isInstance(simComponent)) {
-				return simComponent;
+		T component = null;
+
+		for (ISimulationComponent simComponent : componentList) {
+			if (component.getClass().isInstance(simComponent)) {
+				component = (T) simComponent;
 			}
 		}
 
-		throw new UnknownSimulationComponent("No simulation component found for type " + componentType.getName());
+		if (component == null) {
+			throw new UnknownSimulationComponent("No simulation component could be determined for the given type" + component.getClass().getName());
+		}
+
+		return component;
+
 	}
 
 	/**
@@ -222,23 +230,23 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		// set up an observer for the simulation progress
 		final SimulationConfiguration config = (SimulationConfiguration) this.getSimulationConfiguration();
-        final long simStopTime = config.getSimuTime();
-        this.simControl.addTimeObserver(new Observer() {
+		final long simStopTime = config.getSimuTime();
+		this.simControl.addTimeObserver(new Observer() {
 
-            public void update(final Observable clock, final Object data) {
+			public void update(final Observable clock, final Object data) {
 
-                int timePercent = (int) (getSimulationControl().getCurrentSimulationTime() * 100 / simStopTime);
-                int measurementsPercent = (int) (getMeasurementCount() * 100 / config.getMaxMeasurementsCount());
+				int timePercent = (int) (getSimulationControl().getCurrentSimulationTime() * 100 / simStopTime);
+				int measurementsPercent = (int) (getMeasurementCount() * 100 / config.getMaxMeasurementsCount());
 
-                if (timePercent < measurementsPercent) {
-                	statusObserver.updateStatus(measurementsPercent, (int)getSimulationControl().getCurrentSimulationTime(), getMeasurementCount());
-                } else {
-                	statusObserver.updateStatus(timePercent, (int) getSimulationControl().getCurrentSimulationTime(), getMeasurementCount());
-                }
+				if (timePercent < measurementsPercent) {
+					statusObserver.updateStatus(measurementsPercent, (int) getSimulationControl().getCurrentSimulationTime(), getMeasurementCount());
+				} else {
+					statusObserver.updateStatus(timePercent, (int) getSimulationControl().getCurrentSimulationTime(), getMeasurementCount());
+				}
 
-            }
+			}
 
-        });
+		});
 
 		this.simControl.start();
 	}
@@ -267,79 +275,6 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		if (logger.isEnabledFor(Level.INFO)) {
 			logger.info("Simulation took " + this.getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
 		}
-	}
-
-	/**
-	 * Gives access to the simulation configuration of the current simulation
-	 * run.
-	 * 
-	 * @return A simulation configuration
-	 */
-	public ISimulationConfiguration getSimulationConfiguration() {
-		return this.simConfig;
-	}
-
-	/**
-	 * Returns the PCM model to be simulated. If it has not been loaded before,
-	 * this methods loads the PCM model from the bundle.
-	 * 
-	 * @return a PCM model instance
-	 */
-	@Override
-	public IPCMModel getPCMModel() {
-		return this.pcmModel;
-	}
-
-	/**
-	 * Declarative service lifecycle method called when the middleware component
-	 * is activated.
-	 * 
-	 * @param context
-	 */
-	protected void activate(ComponentContext context) {
-		System.out.println("Simulation middleware activated");
-
-		this.middlewareActivator = Activator.getDefault();
-		this.middlewareActivator.bindSimulationMiddleware(this);
-	}
-
-	/**
-	 * Declarative service lifecycle method called when the middleware component
-	 * is deactivated.
-	 * 
-	 * @param context
-	 */
-	protected void deactivate(ComponentContext context) {
-		System.out.println("Simulation middleware deactivated");
-
-		this.middlewareActivator.unbindSimulationMiddleware();
-		this.middlewareActivator = null;
-	}
-
-	/**
-	 * Binds a new simulation component to the middleware. Called by the
-	 * declarative service framework, when a component is registered.
-	 * 
-	 * @param simComponent
-	 *            Registered simulation component
-	 */
-	public void bindSimulationComponent(ISimulationComponent simComponent) {
-		System.out.println("Simulation component bound to middleware (" + simComponent.getClass().getName() + ")");
-
-		if (!this.simComponentRegistry.contains(simComponent)) {
-			this.simComponentRegistry.add(simComponent);
-		}
-	}
-
-	/**
-	 * Unbinds a simulation component from the middleware. Called by the
-	 * declarative service framework, when a component is unregistered.
-	 * 
-	 * @param simComponent
-	 *            Removed simulation component
-	 */
-	public void unbindSimulationComponent(ISimulationComponent simComponent) {
-		this.simComponentRegistry.remove(simComponent);
 	}
 
 	@Override
@@ -378,6 +313,32 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		this.eventHandlerRegistry.add(handlerService);
 	}
 
+	/**
+	 * Gives access to the simulation configuration of the current simulation
+	 * run.
+	 * 
+	 * @return A simulation configuration
+	 */
+	public ISimulationConfiguration getSimulationConfiguration() {
+		return this.simConfig;
+	}
+
+	/**
+	 * Returns the PCM model to be simulated. If it has not been loaded before,
+	 * this methods loads the PCM model from the bundle.
+	 * 
+	 * @return a PCM model instance
+	 */
+	@Override
+	public IPCMModel getPCMModel() {
+		return this.pcmModel;
+	}
+
+	@Override
+	public int getMeasurementCount() {
+		return measurementCount;
+	}
+
 	@Override
 	public ProbeSpecContext getProbeSpecContext() {
 		return probeSpecContext;
@@ -393,9 +354,30 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		return simControl;
 	}
 
-	@Override
-	public int getMeasurementCount() {
-		return measurementCount;
+	/**
+	 * Declarative service lifecycle method called when the middleware component
+	 * is activated.
+	 * 
+	 * @param context
+	 */
+	public void activate(ComponentContext context) {
+		System.out.println("SimulationMiddleware activated");
+
+		this.middlewareActivator = Activator.getDefault();
+		this.middlewareActivator.bindSimulationMiddleware(this);
 	}
-	
+
+	/**
+	 * Declarative service lifecycle method called when the middleware component
+	 * is deactivated.
+	 * 
+	 * @param context
+	 */
+	public void deactivate(ComponentContext context) {
+		System.out.println("SimulationMiddleware deactivated");
+
+		this.middlewareActivator.unbindSimulationMiddleware();
+		this.middlewareActivator = null;
+	}
+
 }

@@ -4,6 +4,4 @@
       <provide interface="edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware"/>
    </service>
    <implementation class="edu.kit.ipd.sdq.simcomp.middleware.SimulationMiddleware"/>
-   <property name="id" type="String" value="edu.kit.ipd.sdq.simcomp.middleware"/>
-   <reference name="ISimulationComponent" interface="edu.kit.ipd.sdq.simcomp.component.ISimulationComponent" cardinality="0..n" policy="dynamic" bind="bindSimulationComponent" unbind="unbindSimulationComponent"/>
 </scr:component>

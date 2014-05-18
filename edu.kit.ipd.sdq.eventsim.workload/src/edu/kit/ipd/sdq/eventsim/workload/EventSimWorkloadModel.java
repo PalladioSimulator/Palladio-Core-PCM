@@ -3,11 +3,14 @@ package edu.kit.ipd.sdq.eventsim.workload;
 import java.util.List;
 
 import org.apache.log4j.Logger;
+import org.osgi.framework.BundleContext;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
 import de.uka.ipd.sdq.probfunction.math.impl.ProbabilityFunctionFactoryImpl;
 import de.uka.ipd.sdq.simucomframework.variables.cache.StoExCache;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.IStateExchangeService;
+import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchangeService;
 import edu.kit.ipd.sdq.eventsim.entities.EventSimEntity;
 import edu.kit.ipd.sdq.eventsim.workload.debug.DebugUsageTraversalListener;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
@@ -70,11 +73,21 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 		this.registerEventHandler();
 
+		this.registerStateExchangeService();
+
 		// ...and start the simulation by generating the workload
 		final List<IWorkloadGenerator> workloadGenerators = this.execute(new BuildWorkloadGenerator(this));
 		for (final IWorkloadGenerator d : workloadGenerators) {
 			d.processWorkload();
 		}
+	}
+
+	/**
+	 * Registers the Palladio Specific EventSim state exchange service
+	 */
+	private void registerStateExchangeService() {
+		BundleContext bundleContext = Activator.getContext();
+		bundleContext.registerService(IStateExchangeService.class, new StateExchangeService(), null);
 	}
 
 	/**
