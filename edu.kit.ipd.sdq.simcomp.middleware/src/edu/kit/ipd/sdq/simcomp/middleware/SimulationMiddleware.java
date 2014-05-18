@@ -87,7 +87,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			logger.info("Initializing middleware");
 		}
 
-		// Create the simulation model (this model is control and not the subject of the simulation)
+		// Create the simulation model (this model is control and not the
+		// subject of the simulation)
 		ISimEngineFactory factory = SimulationPreferencesHelper.getPreferredSimulationEngine();
 		if (factory == null) {
 			throw new RuntimeException("There is no simulation engine available. Install at least one engine.");
@@ -123,7 +124,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		// initialize ProbeSpecification context
 		probeSpecContext.initialise(blackboard, new ProbeStrategyRegistry(), new CalculatorFactory(this));
 
-		// install garbage collector which removes samples when they become obsolete
+		// install garbage collector which removes samples when they become
+		// obsolete
 		IRegionBasedGarbageCollector<RequestContext> garbageCollector = new SimCompGarbageCollector(blackboard);
 		probeSpecContext.setBlackboardGarbageCollector(garbageCollector);
 
@@ -195,27 +197,20 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	/**
 	 * {@inheritDoc}
 	 */
-	@SuppressWarnings("unchecked")
 	@Override
-	public <T extends ISimulationComponent> T getSimulationComponent(List<? extends ISimulationComponent> componentList, ISimulationContext context) {
+	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, ISimulationContext context) {
 
 		// TODO (SimComp): Return simulation component by type and based on the
 		// user configuration and simulation context. For now we just return the
 		// first one matching by type.
 
-		T component = null;
-
-		for (ISimulationComponent simComponent : componentList) {
-			if (component.getClass().isInstance(simComponent)) {
-				component = (T) simComponent;
+		for (ISimulationComponent component : componentList) {
+			if (componentType.isInstance(component)) {
+				return component;
 			}
 		}
 
-		if (component == null) {
-			throw new UnknownSimulationComponent("No simulation component could be determined for the given type" + component.getClass().getName());
-		}
-
-		return component;
+		throw new UnknownSimulationComponent("No simulation component could be determined for the given type" + componentType.getName());
 
 	}
 

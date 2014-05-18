@@ -36,7 +36,7 @@ public class EntryLevelSystemCallTraversalStrategy implements IUsageTraversalStr
 
 		EventSimWorkload workload = (EventSimWorkload) Activator.getDefault().getWorkloadComponent();
 		List<ISystem> systemComponents = workload.getSystemComponents();
-		ISystem system = middleware.getSimulationComponent(systemComponents, null);
+		ISystem system = (ISystem) middleware.getSimulationComponent(ISystem.class, systemComponents, null);
 
 		// perform a service call
 		system.callService(user, call);

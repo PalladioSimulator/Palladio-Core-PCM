@@ -24,12 +24,7 @@ public interface ISimulationMiddleware {
 	 * List of simulation events triggered by this simulation component.
 	 */
 	@SuppressWarnings("rawtypes")
-	public static Class[] componentEvents = new Class[] { 
-		SimulationInitEvent.class, 
-		SimulationStartEvent.class, 
-		SimulationStopEvent.class, 
-		SimulationFinalizeEvent.class
-	};
+	public static Class[] componentEvents = new Class[] { SimulationInitEvent.class, SimulationStartEvent.class, SimulationStopEvent.class, SimulationFinalizeEvent.class };
 
 	/**
 	 * Initializes the middleware with a simulation configuration provided by
@@ -57,16 +52,19 @@ public interface ISimulationMiddleware {
 	public void stopSimulation();
 
 	/**
+	 * 
 	 * Returns a simulation component out of a list of alternatives based on the
 	 * simulation configuration and a simulation context.
 	 * 
+	 * @param componentType
+	 *            The type of the acquired simulation component
 	 * @param componentList
 	 *            A list of possible simulation components to choose from
 	 * @param context
-	 *            A simulation context to base the decision on
+	 *            A simulation context to precise the decision on
 	 * @return The simulation component to be used
 	 */
-	public <T extends ISimulationComponent> T getSimulationComponent(List<? extends ISimulationComponent> componentList, ISimulationContext context);
+	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, ISimulationContext context);
 
 	/**
 	 * Gives access to the simulation configuration provided by the user on

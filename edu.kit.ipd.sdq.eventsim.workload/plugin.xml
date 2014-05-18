@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponent">
+      <simulation_component
+            id="edu.kit.ipd.sdq.eventsim.workload"
+            name="Workload Simulation Component (EventSim)">
+      </simulation_component>
+   </extension>
+
+</plugin>

@@ -80,7 +80,7 @@ public abstract class SimulationMain implements ISimulationControl, BundleActiva
 
 		// initialize the middleware
 		this.simulationMiddleware.initialize(simConfig, pcmModel);
-		
+
 		this.getStatus().setCurrentSimulationTime(0);
 	}
 

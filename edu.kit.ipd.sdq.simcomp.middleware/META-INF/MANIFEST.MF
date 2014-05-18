@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: Simulation Middleware
-Bundle-SymbolicName: edu.kit.ipd.sdq.simcomp.middleware
+Bundle-SymbolicName: edu.kit.ipd.sdq.simcomp.middleware;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: edu.kit.ipd.sdq.simcomp.middleware.Activator
 Require-Bundle: org.eclipse.core.runtime,
