@@ -5,11 +5,15 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
+import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
+import de.uka.ipd.sdq.probespec.framework.ProbeType;
+import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategyRegistry;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimPassiveResource;
 import edu.kit.ipd.sdq.eventsim.resources.entities.SimulatedProcess;
 import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.BuildPassiveResourceCalculators;
 import edu.kit.ipd.sdq.eventsim.resources.probespec.commands.MountPassiveResourceProbes;
+import edu.kit.ipd.sdq.eventsim.resources.probespec.probes.TakePassiveResourceStateStrategy;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
@@ -34,19 +38,17 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 
 	@Override
 	public void init() {
-
-		// initialize passive resources
-//		this.execute(new BuildAndRegisterPassiveResources(this, this.passiveResourceRegistry));
-
 		// initialize the probe specification
 		this.initProbeSpecification();
 	}
 
-	/**
-	 * Initializes the Probe Specification by setting up the calculators and mounting the probes.
-	 */
 	private void initProbeSpecification() {
+		ProbeSpecContext probeContext = this.getSimulationMiddleware().getProbeSpecContext();
+		IProbeStrategyRegistry strategyRegistry = probeContext.getProbeStrategyRegistry();
 
+		/* RESOURCE_STATE */
+		// passive resources
+		strategyRegistry.registerProbeStrategy(new TakePassiveResourceStateStrategy(), ProbeType.RESOURCE_STATE, SimPassiveResource.class);
 
 	}
 
