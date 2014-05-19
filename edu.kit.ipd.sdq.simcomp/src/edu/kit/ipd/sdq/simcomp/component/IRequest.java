@@ -1,6 +1,7 @@
 package edu.kit.ipd.sdq.simcomp.component;
 
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
+import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 
 /**
  * Represents a request processed in a system simulation component.
@@ -20,7 +21,7 @@ public interface IRequest {
 	
 	public void activate();
 	
-	public void passivate();
+	public void passivate(AbstractSimEventDelegator<?> activationEvent);
 	
 	/**
 	 * The unique identifier for the probe framework

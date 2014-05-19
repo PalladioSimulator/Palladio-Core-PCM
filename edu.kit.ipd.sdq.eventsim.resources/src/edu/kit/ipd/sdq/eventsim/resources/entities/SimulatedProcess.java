@@ -58,7 +58,7 @@ public class SimulatedProcess extends EventSimEntity implements ISchedulableProc
      */
     @Override
     public void passivate() {
-    	request.passivate();
+    	// nothing to do
     }
 
     /**

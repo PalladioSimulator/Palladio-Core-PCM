@@ -135,9 +135,10 @@ public class Request extends EventSimEntity implements IRequest {
      * @param activationEvent
      *            the event that is to be scheduled when the simulated process has been activated
      */
-    public void passivate(AbstractSimEventDelegator<Request> activationEvent) {
+    @SuppressWarnings("unchecked")
+	public void passivate(AbstractSimEventDelegator<?> activationEvent) {
         assert (activationEvent != null) : "The argument activationEvent may not be null";
-        this.activationEvent = activationEvent;
+        this.activationEvent = (AbstractSimEventDelegator<Request>) activationEvent;
     }
 
     /**
@@ -171,11 +172,6 @@ public class Request extends EventSimEntity implements IRequest {
 	@Override
 	public long getId() {
 		return getEntityId();
-	}
-
-	@Override
-	public void passivate() {
-		throw new UnsupportedOperationException("Not sure what has to be done here");
 	}
 
 }
