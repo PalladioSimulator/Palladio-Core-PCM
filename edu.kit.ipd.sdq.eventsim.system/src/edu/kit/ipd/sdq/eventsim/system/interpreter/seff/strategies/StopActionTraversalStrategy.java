@@ -7,7 +7,7 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTraversalInstructionFactory;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
+import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
 
 /**
  * This traversal strategy is responsible for {@link StopAction}s.

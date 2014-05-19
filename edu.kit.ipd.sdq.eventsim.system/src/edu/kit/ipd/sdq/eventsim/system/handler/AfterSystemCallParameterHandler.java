@@ -11,8 +11,8 @@ import de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.util.ParameterHelper;
-import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
+import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
 
 public class AfterSystemCallParameterHandler implements  IEventHandler<SystemRequestProcessed> {
 

@@ -9,6 +9,15 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
  * @author Christoph Föhrdes
  */
 public interface IRequest {
+	
+	public long getId();
+	
+	/**
+	 * The unique identifier for the probe framework
+	 * 
+	 * @return A request context
+	 */
+	public RequestContext getRequestContext();
 
 	/**
 	 * Returns the user who initiated the request.
@@ -17,17 +26,8 @@ public interface IRequest {
 	 */
 	public IUser getUser();
 	
-	public long getId();
-	
 	public void activate();
 	
 	public void passivate(AbstractSimEventDelegator<?> activationEvent);
-	
-	/**
-	 * The unique identifier for the probe framework
-	 * 
-	 * @return A request context
-	 */
-	public RequestContext getRequestContext();
 
 }

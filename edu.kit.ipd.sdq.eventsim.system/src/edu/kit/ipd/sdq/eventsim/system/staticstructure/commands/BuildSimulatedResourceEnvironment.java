@@ -5,7 +5,6 @@ import java.util.List;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
-import de.uka.ipd.sdq.scheduler.ISchedulingFactory;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.command.ICommandExecutor;
 import edu.kit.ipd.sdq.eventsim.command.IPCMCommand;

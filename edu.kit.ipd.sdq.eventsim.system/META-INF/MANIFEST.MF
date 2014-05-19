@@ -11,7 +11,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.apache.log4j,
  de.uka.ipd.sdq.scheduler;bundle-version="1.0.0",
  de.uka.ipd.sdq.probfunction.math,
- edu.kit.ipd.sdq.simcomp,
  org.eclipse.osgi.services,
  edu.kit.ipd.sdq.simcomp.middleware,
  de.uka.ipd.sdq.probespec.framework,
@@ -19,7 +18,8 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.simucomframework,
  org.jscience,
  edu.kit.ipd.sdq.eventsim.resources;bundle-version="1.0.0",
- edu.kit.ipd.sdq.eventsim.core.palladio;bundle-version="1.0.0"
+ edu.kit.ipd.sdq.eventsim.core.palladio;bundle-version="1.0.0",
+ edu.kit.ipd.sdq.simcomp.system;bundle-version="1.0.0"
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: edu.kit.ipd.sdq.eventsim.system.command,

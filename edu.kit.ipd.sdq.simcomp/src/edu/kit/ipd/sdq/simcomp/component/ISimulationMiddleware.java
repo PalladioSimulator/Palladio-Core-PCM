@@ -6,12 +6,12 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
-import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationStartEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationStopEvent;
+import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationStartEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationStopEvent;
 
 /**
  * Represents the central point of a simulation component based simulation.
@@ -132,5 +132,11 @@ public interface ISimulationMiddleware {
 	 * @return The amount of measurement for the current simulation run.
 	 */
 	int getMeasurementCount();
+
+	/**
+	 * Increases the simulation measurement count. One measurement means one
+	 * user request was entirely processed.
+	 */
+	void increaseMeasurementCount();
 
 }

@@ -37,11 +37,10 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationContext;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationStopEvent;
-import edu.kit.ipd.sdq.simcomp.event.workload.WorkloadUserFinished;
+import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationStopEvent;
 import edu.kit.ipd.sdq.simcomp.exception.UnknownSimulationComponent;
 import edu.kit.ipd.sdq.simcomp.middleware.probespec.CalculatorFactory;
 import edu.kit.ipd.sdq.simcomp.middleware.probespec.SimCompGarbageCollector;
@@ -180,18 +179,6 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		}
 
 		this.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(this));
-
-		// configure measurement count listener
-		this.registerEventHandler(WorkloadUserFinished.EVENT_ID, new IEventHandler<WorkloadUserFinished>() {
-
-			@Override
-			public void handle(WorkloadUserFinished simulationEvent) {
-				// processed user request increases the measurement count
-				logger.info(measurementCount);
-				measurementCount++;
-			}
-
-		});
 	}
 
 	/**
@@ -327,6 +314,12 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	@Override
 	public IPCMModel getPCMModel() {
 		return this.pcmModel;
+	}
+
+	@Override
+	public void increaseMeasurementCount() {
+		logger.info(measurementCount);
+		measurementCount++;
 	}
 
 	@Override

@@ -1,6 +1,5 @@
-package edu.kit.ipd.sdq.simcomp.event;
+package edu.kit.ipd.sdq.simcomp.events;
 
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationEvent;
 
 /**
  * A handler callback for a simulation component event.

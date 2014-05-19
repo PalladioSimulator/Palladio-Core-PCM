@@ -3,7 +3,7 @@ package edu.kit.ipd.sdq.eventsim.system;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import edu.kit.ipd.sdq.simcomp.component.ISystem;
+import edu.kit.ipd.sdq.simcomp.system.component.ISystem;
 
 public class Activator implements BundleActivator {
 

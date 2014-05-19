@@ -6,7 +6,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
 import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.UsageBehaviourInterpreter;
-import edu.kit.ipd.sdq.simcomp.event.workload.WorkloadUserSpawn;
+import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserSpawn;
 
 /**
  * Schedule this event to begin the traversal of a {@link UsageScenario}.

@@ -31,8 +31,8 @@ import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildResourceAll
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.commands.BuildSimulatedResourceEnvironment;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
-import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
-import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestStart;
+import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
+import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
 
 /**
  * The simulation model. This is the central class of an EventSim simulation

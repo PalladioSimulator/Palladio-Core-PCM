@@ -6,9 +6,9 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationStartEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationStartEvent;
 
 /**
  * The simulation model is the core of an abstract simulation engine based

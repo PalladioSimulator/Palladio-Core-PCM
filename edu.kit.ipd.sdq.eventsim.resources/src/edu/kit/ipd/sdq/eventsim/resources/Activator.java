@@ -3,8 +3,8 @@ package edu.kit.ipd.sdq.eventsim.resources;
 import org.osgi.framework.BundleActivator;
 import org.osgi.framework.BundleContext;
 
-import edu.kit.ipd.sdq.simcomp.component.IActiveResource;
-import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
+import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
+import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
 
 public class Activator implements BundleActivator {
 

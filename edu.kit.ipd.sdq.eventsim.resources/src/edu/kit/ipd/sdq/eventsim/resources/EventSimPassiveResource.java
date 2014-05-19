@@ -4,12 +4,12 @@ import org.osgi.service.component.ComponentContext;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
-import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
 
 public class EventSimPassiveResource implements IPassiveResource {
 

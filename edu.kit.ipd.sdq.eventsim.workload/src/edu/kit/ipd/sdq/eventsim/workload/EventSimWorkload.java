@@ -7,11 +7,12 @@ import org.apache.log4j.Logger;
 import org.osgi.service.component.ComponentContext;
 
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.component.ISystem;
-import edu.kit.ipd.sdq.simcomp.component.IWorkload;
-import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.system.component.ISystem;
+import edu.kit.ipd.sdq.simcomp.workload.component.IWorkload;
+import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 
 /**
  * An EventSim based workload simulation component implementation.
@@ -58,6 +59,7 @@ public class EventSimWorkload implements IWorkload {
 	 * process.
 	 */
 	private void registerEventHandler() {
+		// initialization event handler
 		this.middleware.registerEventHandler(SimulationInitEvent.EVENT_ID, new IEventHandler<SimulationInitEvent>() {
 
 			@Override
@@ -67,11 +69,23 @@ public class EventSimWorkload implements IWorkload {
 
 		});
 
+		// clean up event handler
 		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
 
 			@Override
 			public void handle(SimulationFinalizeEvent event) {
 				EventSimWorkload.this.finalise();
+			}
+
+		});
+
+		// measurement count event handler
+		this.middleware.registerEventHandler(WorkloadUserFinished.EVENT_ID, new IEventHandler<WorkloadUserFinished>() {
+
+			@Override
+			public void handle(WorkloadUserFinished simulationEvent) {
+				// processed user request increases the measurement count
+				middleware.increaseMeasurementCount();
 			}
 
 		});

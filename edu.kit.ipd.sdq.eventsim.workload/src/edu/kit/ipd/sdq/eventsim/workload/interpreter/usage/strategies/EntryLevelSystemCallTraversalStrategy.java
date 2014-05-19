@@ -11,7 +11,7 @@ import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalInstru
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.IUsageTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.workload.interpreter.usage.instructions.UsageTraversalInstructionFactory;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.component.ISystem;
+import edu.kit.ipd.sdq.simcomp.system.component.ISystem;
 
 /**
  * This traversal strategy is responsible to create service calls on a system

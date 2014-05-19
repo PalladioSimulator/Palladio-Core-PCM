@@ -22,7 +22,7 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.state.ForkedRequestState;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
-import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestStart;
+import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
 
 /**
  * An interpreter for {@link ResourceDemandingSEFF}s.

@@ -11,7 +11,7 @@ import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.events.BeginUsageTraversalEvent;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.event.workload.WorkloadUserFinished;
+import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 
 /**
  * A closed workload is a workload sustaining a fixed amount of {@link User}s, which are called the

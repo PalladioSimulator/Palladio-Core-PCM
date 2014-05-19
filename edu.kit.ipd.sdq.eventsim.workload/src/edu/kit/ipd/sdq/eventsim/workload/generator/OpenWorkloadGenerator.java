@@ -11,7 +11,7 @@ import edu.kit.ipd.sdq.eventsim.workload.EventSimWorkloadModel;
 import edu.kit.ipd.sdq.eventsim.workload.entities.User;
 import edu.kit.ipd.sdq.eventsim.workload.events.BeginUsageTraversalEvent;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.event.workload.WorkloadUserFinished;
+import edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished;
 
 /**
  * An open workload generates a new {@link User} as soon as a specified time duration has passed

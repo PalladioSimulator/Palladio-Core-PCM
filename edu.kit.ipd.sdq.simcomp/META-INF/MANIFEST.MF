@@ -6,15 +6,12 @@ Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: edu.kit.ipd.sdq.simcomp.Activator
 Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.simulation,
- de.uka.ipd.sdq.pcm,
+ de.uka.ipd.sdq.pcm;visibility:=reexport,
  de.uka.ipd.sdq.simulation.abstractsimengine,
  de.uka.ipd.sdq.probespec.framework,
  de.uka.ipd.sdq.scheduler
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: edu.kit.ipd.sdq.simcomp.component,
- edu.kit.ipd.sdq.simcomp.event,
- edu.kit.ipd.sdq.simcomp.event.simulation,
- edu.kit.ipd.sdq.simcomp.event.system,
- edu.kit.ipd.sdq.simcomp.event.workload,
+ edu.kit.ipd.sdq.simcomp.events,
  edu.kit.ipd.sdq.simcomp.exception

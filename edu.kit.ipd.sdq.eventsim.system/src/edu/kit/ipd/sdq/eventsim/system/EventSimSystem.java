@@ -7,14 +7,14 @@ import org.apache.log4j.Logger;
 import org.osgi.service.component.ComponentContext;
 
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import edu.kit.ipd.sdq.simcomp.component.IActiveResource;
-import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.component.ISystem;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
-import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationFinalizeEvent;
-import edu.kit.ipd.sdq.simcomp.event.simulation.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
+import edu.kit.ipd.sdq.simcomp.events.SimulationInitEvent;
+import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
+import edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource;
+import edu.kit.ipd.sdq.simcomp.system.component.ISystem;
 
 public class EventSimSystem implements ISystem {
 

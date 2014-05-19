@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.simcomp.event.simulation;
+package edu.kit.ipd.sdq.simcomp.events;
 
 /**
  * This event refers to any simulation component event. The event is intended to

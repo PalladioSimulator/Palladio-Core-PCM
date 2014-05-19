@@ -3,10 +3,10 @@
 <schema targetNamespace="edu.kit.ipd.sdq.simcomp.middleware" xmlns="http://www.w3.org/2001/XMLSchema">
 <annotation>
       <appinfo>
-         <meta.schema plugin="edu.kit.ipd.sdq.simcomp.middleware" id="edu.kit.ipd.sdq.simcomp.middleware.simulationComponent" name="SimulationComponent"/>
+         <meta.schema plugin="edu.kit.ipd.sdq.simcomp.middleware" id="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType" name="Simulation Component Type"/>
       </appinfo>
       <documentation>
-         This extension point is used to register new simulation components to the simulator.
+         This extension point is used to register new simulation components type to the simulator.
       </documentation>
    </annotation>
 
@@ -18,7 +18,7 @@
       </annotation>
       <complexType>
          <sequence minOccurs="0" maxOccurs="unbounded">
-            <element ref="simulation_component"/>
+            <element ref="simulation_component_type"/>
          </sequence>
          <attribute name="point" type="string" use="required">
             <annotation>
@@ -47,31 +47,31 @@
       </complexType>
    </element>
 
-   <element name="simulation_component">
+   <element name="simulation_component_type">
       <annotation>
          <documentation>
-            Describes a new simulation component
+            Describes a new simulation component type
          </documentation>
       </annotation>
       <complexType>
          <attribute name="id" type="string" use="required">
             <annotation>
                <documentation>
-                  A unique identifier for the simulation component. Usually the name of the component plugin.
+                  A unique identifier for the simulation component type.
                </documentation>
             </annotation>
          </attribute>
          <attribute name="name" type="string" use="required">
             <annotation>
                <documentation>
-                  A human readable name of the simulation component. This name is used in the GUI for simulator configuration.
+                  A human readable name of the simulation component type. This name is used in the GUI for simulator configuration.
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="type" type="string" use="required">
+         <attribute name="type_interface" type="string" use="required">
             <annotation>
                <documentation>
-                  The simulation component type. Must be an identifier of the types registered at the extension point edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType
+                  The full qualified name of the java interface defining the simulation component type. The type interface should extend the edu.kit.ipd.sdq.simcomp.component.ISimulationComponent Interface.
                </documentation>
             </annotation>
          </attribute>

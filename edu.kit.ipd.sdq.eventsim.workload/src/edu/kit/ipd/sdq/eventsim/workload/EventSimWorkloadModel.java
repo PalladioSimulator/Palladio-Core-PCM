@@ -24,8 +24,8 @@ import edu.kit.ipd.sdq.eventsim.workload.probespec.commands.MountSystemCallProbe
 import edu.kit.ipd.sdq.eventsim.workload.probespec.commands.MountUsageScenarioProbes;
 import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.event.IEventHandler;
-import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestProcessed;
+import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
+import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
 
 /**
  * The EventSim workload simulation model. This is the central class of the workload simulation.

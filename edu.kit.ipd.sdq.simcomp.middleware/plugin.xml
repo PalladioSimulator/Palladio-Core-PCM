@@ -2,5 +2,6 @@
 <?eclipse version="3.4"?>
 <plugin>
    <extension-point id="edu.kit.ipd.sdq.simcomp.middleware.simulationComponent" name="SimulationComponent" schema="schema/edu.kit.ipd.sdq.simcomp.middleware.simulationComponent.exsd"/>
+   <extension-point id="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType" name="Simulation Component Type" schema="schema/edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType.exsd"/>
 
 </plugin>

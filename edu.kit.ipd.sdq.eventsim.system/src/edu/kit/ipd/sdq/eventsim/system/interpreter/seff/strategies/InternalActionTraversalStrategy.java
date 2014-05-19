@@ -18,8 +18,8 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.IRequestTraversalInstruc
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.ISeffTraversalStrategy;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTraversalInstructionFactory;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
-import edu.kit.ipd.sdq.simcomp.component.IActiveResource;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
 
 /**
  * This traversal strategy is responsible for {@link InternalAction}s.

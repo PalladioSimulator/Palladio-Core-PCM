@@ -5,11 +5,13 @@
          point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponent">
       <simulation_component
             id="edu.kit.ipd.sdq.eventsim.resources.active"
-            name="Active Resource Simulation Component (EventSim)">
+            name="Active Resource Simulation Component (EventSim)"
+            type="edu.kit.ipd.sdq.simcomp.resource.active">
       </simulation_component>
       <simulation_component
             id="edu.kit.ipd.sdq.eventsim.resources.passive"
-            name="Passive Resource Simulation Component (EventSim)">
+            name="Passive Resource Simulation Component (EventSim)"
+            type="edu.kit.ipd.sdq.simcomp.resource.passive">
       </simulation_component>
    </extension>
 
