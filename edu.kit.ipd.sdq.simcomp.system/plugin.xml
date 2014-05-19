@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.4"?>
+<plugin>
+   <extension
+         point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType">
+      <simulation_component_type
+            id="edu.kit.ipd.sdq.simcomp.system"
+            name="System Simulation Component"
+            type_interface="edu.kit.ipd.sdq.simcomp.system.component.ISystem">
+      </simulation_component_type>
+   </extension>
+
+</plugin>
