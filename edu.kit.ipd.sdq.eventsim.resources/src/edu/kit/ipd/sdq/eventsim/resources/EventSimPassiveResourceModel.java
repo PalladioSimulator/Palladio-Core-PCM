@@ -19,19 +19,14 @@ import edu.kit.ipd.sdq.simcomp.component.IRequest;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
 public class EventSimPassiveResourceModel extends AbstractEventSimModel {
-	
-//	private final PassiveResourceRegistry passiveResourceRegistry;
 
-	// TODO give me a better name
     // maps (AssemblyContext ID, PassiveResource ID) -> SimPassiveResource
-    private Map<String, SimPassiveResource> map;
-    
+    private Map<String, SimPassiveResource> contextToResourceMap;
     private Map<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
 	
 	public EventSimPassiveResourceModel(ISimulationMiddleware middleware) {
 		super(middleware);
-//		this.passiveResourceRegistry = new PassiveResourceRegistry();
-		map = new HashMap<String, SimPassiveResource>();
+		contextToResourceMap = new HashMap<String, SimPassiveResource>();
 		
 		requestToSimulatedProcessMap = new HashMap<IRequest, SimulatedProcess>();
 	}
@@ -53,8 +48,6 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 	}
 
 	public boolean acquire(IRequest request, AssemblyContext assCtx, PassiveResource specification, int i, boolean b, double timeoutValue) {
-//		Request eventSimRequest = (Request) request;
-//		ComponentInstance component = eventSimRequest.getRequestState().getComponent();
         SimPassiveResource res = this.getPassiveResource(specification, assCtx);
         boolean acquired = res.acquire(getOrCreateSimulatedProcess(request), i, b, timeoutValue);
 
@@ -62,20 +55,9 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
 	}
 
 	public void release(IRequest request, AssemblyContext assCtx, PassiveResource specification, int i) {
-//		Request eventSimRequest = (Request) request;
-//		ComponentInstance component = eventSimRequest.getRequestState().getComponent();
         final SimPassiveResource res = this.getPassiveResource(specification, assCtx);
         res.release(getOrCreateSimulatedProcess(request), 1);
 	}
-
-//	/**
-//	 * Returns the registry for passive resources.
-//	 * 
-//	 * @return
-//	 */
-//	public PassiveResourceRegistry getPassiveResourceRegistry() {
-//		return this.passiveResourceRegistry;
-//	}
 
     /**
      * @param specification
@@ -83,7 +65,7 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
      * @return the resource instance for the given resource specification
      */
     public SimPassiveResource getPassiveResource(final PassiveResource specification, AssemblyContext assCtx) {
-        final SimPassiveResource simResource = map.get(assCtx); //this.getPassiveResourceRegistry().getPassiveResourceForContext(specification, component.getAssemblyCtx());
+        final SimPassiveResource simResource = findOrCreateResource(specification, assCtx);
         if (simResource == null) {
             throw new RuntimeException("Passive resource " + PCMEntityHelper.toString(specification)
                     + " for assembly context " + PCMEntityHelper.toString(assCtx) + " could not be found.");
@@ -101,53 +83,21 @@ public class EventSimPassiveResourceModel extends AbstractEventSimModel {
      * @return the resource of the specified type, if there is one; null else
      */
     public SimPassiveResource findOrCreateResource(PassiveResource specification, AssemblyContext assCtx) {
-        if (!map.containsKey(compoundKey(assCtx, specification))) {
-//            if (parent != null) {
-//                return parent.findResource(type);
-//            } else {
-//                return null;
-//            }
-        	// TODO create resource
-            // create resource
-//            ResourceType resourceType = s.getActiveResourceType_ActiveResourceSpecification();
-        	
-        	
-        	
-        	
-        	
-//        	RepositoryComponent component = assCtx.getEncapsulatedComponent__AssemblyContext();
-//            BasicComponent basicComponent = null;
-//            if (RepositoryPackage.eINSTANCE.getBasicComponent().isInstance(component)) {
-//                basicComponent = (BasicComponent) component;
-//            } else {
-//                throw new EventSimException("Currently, only BasicComponents are supported, but found a "
-//                        + component.eClass().getName());
-//            }
-//
-//            // for each passive resource specification
-//            PassiveResource pr = null;
-//            for (PassiveResource s : basicComponent.getPassiveResource_BasicComponent()) {
-//
-//            }
-        	
-        	
+        if (!contextToResourceMap.containsKey(compoundKey(assCtx, specification))) {
+
             // create passive resource
             SimPassiveResource simResource = ResourceFactory.createPassiveResource(this, specification, assCtx);
 
             // register the created passive resource
-            map.put(compoundKey(assCtx, specification), simResource);
-            
-//            this.passiveResourceRegistry.registerPassiveResource(s, simResource, ctx.getAssemblyContext_AllocationContext());
+            contextToResourceMap.put(compoundKey(assCtx, specification), simResource);
             
     		// build calculators
     		this.execute(new BuildPassiveResourceCalculators(this, simResource));
     		
     		// mount probes
     		this.execute(new MountPassiveResourceProbes(this, simResource));
-            
-        	
         }
-        return map.get(compoundKey(assCtx, specification));
+        return contextToResourceMap.get(compoundKey(assCtx, specification));
     }
     
 
