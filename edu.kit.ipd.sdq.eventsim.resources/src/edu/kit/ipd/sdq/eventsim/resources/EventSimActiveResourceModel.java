@@ -35,14 +35,14 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	private ISchedulingFactory schedulingFactory;
 
 	// maps (ResourceContainer ID, ResourceType ID) -> SimActiveResource
-	private Map<String, SimActiveResource> typeToResourceMap;
+	private Map<String, SimActiveResource> containerToResourceMap;
 
 	private Map<IRequest, SimulatedProcess> requestToSimulatedProcessMap;
 
 	public EventSimActiveResourceModel(ISimulationMiddleware middleware) {
 		super(middleware);
 
-		typeToResourceMap = new HashMap<String, SimActiveResource>();
+		containerToResourceMap = new HashMap<String, SimActiveResource>();
 		requestToSimulatedProcessMap = new HashMap<IRequest, SimulatedProcess>();
 	}
 
@@ -132,12 +132,12 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		if (logger.isDebugEnabled()) {
 			logger.debug("Registering a " + type.getEntityName() + " resource at " + PCMEntityHelper.toString(specification));
 		}
-		if (this.typeToResourceMap.containsKey(type)) {
+		if (this.containerToResourceMap.containsKey(type)) {
 			if (logger.isEnabledFor(Level.WARN))
 				logger.warn("Registered a resource of type " + type.getEntityName() + ", but there was already a resource of this type. The existing resource has been overwritten.");
 		}
 
-		this.typeToResourceMap.put(compoundKey(specification, type), resource);
+		this.containerToResourceMap.put(compoundKey(specification, type), resource);
 
 		// initialise probe spec
 		this.execute(new BuildActiveResourceCalculators(this, resource));
@@ -154,7 +154,7 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 	 * @return the resource of the specified type, if there is one; null else
 	 */
 	public SimActiveResource findOrCreateResource(ResourceContainer specification, ResourceType resourceType) {
-		if (!typeToResourceMap.containsKey(compoundKey(specification, resourceType))) {
+		if (!containerToResourceMap.containsKey(compoundKey(specification, resourceType))) {
 			// if (parent != null) {
 			// return parent.findResource(type);
 			// } else {
@@ -185,7 +185,7 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 			// TODO (SimComp) map.put here?
 			registerResource(specification, resource, resourceType);
 		}
-		return typeToResourceMap.get(compoundKey(specification, resourceType));
+		return containerToResourceMap.get(compoundKey(specification, resourceType));
 	}
 
 	// protected SimulatedProcess createSimulatedProcess(IRequest request) {

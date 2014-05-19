@@ -22,6 +22,7 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.state.ForkedRequestState;
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.eventsim.system.staticstructure.ComponentInstance;
 import edu.kit.ipd.sdq.eventsim.util.PCMEntityHelper;
+import edu.kit.ipd.sdq.simcomp.event.system.SystemRequestStart;
 
 /**
  * An interpreter for {@link ResourceDemandingSEFF}s.
@@ -49,10 +50,14 @@ public class SeffBehaviourInterpreter extends BehaviourInterpreter<AbstractActio
     public void beginTraversal(Request request, final ComponentInstance component, final OperationSignature signature, final UserState usageState) {
         request.notifyEnteredSystem();
 
-        // initialise traversal state and StoEx context
+        // initialize traversal state and StoEx context
         RequestState state = new RequestState(usageState, usageState.getStoExContext());
         state.pushStackFrame();
         state.setComponent(component);
+        request.setRequestState(state);
+        
+        // fire request start event
+        this.model.getSimulationMiddleware().triggerEvent(new SystemRequestStart(request));
 
         // find start action
         final ResourceDemandingSEFF seff = component.getServiceEffectSpecification(signature);
@@ -77,6 +82,7 @@ public class SeffBehaviourInterpreter extends BehaviourInterpreter<AbstractActio
         ForkedRequestState state = new ForkedRequestState(parentState, stoExContext);
         state.pushStackFrame();
         state.setComponent(parentState.getComponent());
+        request.setRequestState(state);
 
         // find start action
         final StartAction startAction = this.model.execute(new FindActionInResourceDemandingBehaviour<StartAction>(behaviour, StartAction.class));

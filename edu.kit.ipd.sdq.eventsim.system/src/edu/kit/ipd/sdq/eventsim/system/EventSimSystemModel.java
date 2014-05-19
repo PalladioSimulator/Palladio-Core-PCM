@@ -14,7 +14,6 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
-import edu.kit.ipd.sdq.eventsim.system.command.parameter.InstallExternalCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.system.debug.DebugSeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.BeginSeffTraversalEvent;
@@ -73,9 +72,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 			DebugSeffTraversalListener.install(this.seffInterpreter.getConfiguration());
 		}
 
-		// setup handling for PCM parameter characterisations
-		this.execute(new InstallExternalCallParameterHandling(this.seffInterpreter.getConfiguration()));
-
 		this.initProbeSpecification();
 
 		this.registerEventHandler();
@@ -132,9 +128,7 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		final OperationSignature signature = call.getOperationSignature__EntryLevelSystemCall();
 
 		// spawn a new EventSim request
-		// User eventSimUser = (User) user;
 		final Request request = new Request(this, call, user);
-		this.getSimulationMiddleware().triggerEvent(new SystemRequestStart(request));
 
 		new BeginSeffTraversalEvent(this, component, signature, (UserState) getUserState(user)).schedule(request, 0);
 	}
