@@ -1,0 +1,12 @@
+Manifest-Version: 1.0
+Bundle-ManifestVersion: 2
+Bundle-Name: Dummy Active Resource Simulation Component
+Bundle-SymbolicName: edu.kit.ipd.sdq.simcomp.dummy.resource;singleton:=true
+Bundle-Version: 1.0.0.qualifier
+Bundle-Activator: edu.kit.ipd.sdq.simcomp.dummy.resource.Activator
+Require-Bundle: org.eclipse.core.runtime,
+ edu.kit.ipd.sdq.simcomp.middleware;bundle-version="1.0.0",
+ edu.kit.ipd.sdq.simcomp.resource.active;bundle-version="1.0.0"
+Bundle-RequiredExecutionEnvironment: JavaSE-1.7
+Bundle-ActivationPolicy: lazy
+Service-Component: OSGI-INF/*.xml
