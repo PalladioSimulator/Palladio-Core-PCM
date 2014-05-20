@@ -39,6 +39,7 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
  * </ul>
  * 
  * @author Philipp Merkle
+ * @author Christoph Föhrdes
  */
 public class PCMModel implements IPCMModel {
 
@@ -147,11 +148,24 @@ public class PCMModel implements IPCMModel {
      *            the location of the allocation model file
      * @return
      */
-    public static IPCMModel loadFromBundle(final Bundle bundle, final IPath usageModelLocation,
-            final IPath allocationModelLocation) {
+    public static IPCMModel loadFromBundle(final Bundle bundle, final IPath usageModelLocation, final IPath allocationModelLocation) {
         final URI usageUri = relativePathToBundleURI(bundle, usageModelLocation);
         final URI allocationUri = relativePathToBundleURI(bundle, allocationModelLocation);
 
+        return PCMModel.loadFromUri(usageUri, allocationUri);
+    }
+
+    /**
+     * Loads a PCM model that is contained in the specified bundle. The loading procedure requires
+     * the location of two model files: the usage model and the allocation model.
+     * 
+     * @param usageModelUri
+     *            the location of the usage model file in form of a URI
+     * @param allocationModelUri
+     *            the location of the allocation model file in form of a URI
+     * @return
+     */
+    public static IPCMModel loadFromUri(URI usageUri, URI allocationUri) {
         final ResourceSet resourceSet = new ResourceSetImpl();
         resourceSet.getResource(usageUri, true);
         resourceSet.getResource(allocationUri, true);
@@ -180,8 +194,7 @@ public class PCMModel implements IPCMModel {
             }
         }
 
-        return new PCMModel(allocationModel, repositoryModel, resourceModel, systemModel, usageModel,
-                resourceRepository);
+        return new PCMModel(allocationModel, repositoryModel, resourceModel, systemModel, usageModel, resourceRepository);
     }
 
     /**

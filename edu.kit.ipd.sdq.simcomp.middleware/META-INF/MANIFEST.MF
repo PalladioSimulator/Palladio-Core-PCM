@@ -22,5 +22,6 @@ Require-Bundle: org.eclipse.core.runtime,
  org.jscience
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
-Export-Package: edu.kit.ipd.sdq.simcomp.middleware.simulation
+Export-Package: edu.kit.ipd.sdq.simcomp.middleware.simulation,
+ edu.kit.ipd.sdq.simcomp.middleware.simulation.config
 Service-Component: OSGI-INF/*.xml

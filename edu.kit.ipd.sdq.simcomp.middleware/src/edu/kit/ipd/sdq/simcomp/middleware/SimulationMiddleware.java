@@ -47,8 +47,8 @@ import edu.kit.ipd.sdq.simcomp.middleware.probespec.CalculatorFactory;
 import edu.kit.ipd.sdq.simcomp.middleware.probespec.SimCompGarbageCollector;
 import edu.kit.ipd.sdq.simcomp.middleware.probespec.probes.TakeSimulatedTimeStrategy;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.MaxMeasurementsStopCondition;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationModel;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
 
 /**
  * The simulation middleware is the central point of the simulation component

@@ -2,6 +2,7 @@ package edu.kit.ipd.sdq.simcomp.middleware.simulation;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
 
 /**
  * 

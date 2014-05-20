@@ -27,7 +27,7 @@ import de.uka.ipd.sdq.probespec.framework.calculator.ResponseTimeCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.StateCalculator;
 import de.uka.ipd.sdq.probespec.framework.calculator.WaitingTimeCalculator;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationConfiguration;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
 
 /**
  * This factory provides methods to build several types of {@link Calculator}s and to set up the

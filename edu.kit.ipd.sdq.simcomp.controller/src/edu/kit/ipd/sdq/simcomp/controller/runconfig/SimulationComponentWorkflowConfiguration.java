@@ -4,7 +4,7 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.AbstractSimulationWorkflowConfiguration;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.SimulationConfiguration;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
 
 /**
  * A workflow configuration which contains a simulation configuration for the
