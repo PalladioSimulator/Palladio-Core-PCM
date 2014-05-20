@@ -1,6 +1,8 @@
 package edu.kit.ipd.sdq.simcomp.ui;
 
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.apache.log4j.Logger;
 import org.eclipse.core.runtime.CoreException;
@@ -13,18 +15,31 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
+import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulatiorCompositonRule;
 
+/**
+ * This launch configuration tab configures the advanced composition rules for a
+ * simulation component based simulation run.
+ * 
+ * @author Christoph Föhrdes
+ * 
+ */
 public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab {
 
 	private static final Logger logger = Logger.getLogger(SimulationComponentConfigTab.class);
 
 	private List<SimulationComponentType> simCompTypes;
 	private ISimulationMiddleware middleware;
+	private Map<SimulationComponentType, SimulationComponentRuleEditor> ruleEditors;
+
 	private URI loadedUsageUri = null;
 	private URI loadedAllocationUri = null;
 	private IPCMModel pcmModel = null;
@@ -32,12 +47,12 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 	public SimulationComponentConfigTab() {
 		middleware = Activator.getDefault().getSimCompUiComponent().getSimulationMiddleware();
 		simCompTypes = middleware.getSimulationComponentMetaData();
+
+		ruleEditors = new HashMap<SimulationComponentType, SimulationComponentRuleEditor>();
 	}
 
 	@Override
 	public void createControl(Composite parent) {
-		System.out.println("createControl");
-
 		Composite simCompConfig = new Composite(parent, SWT.NONE);
 		simCompConfig.setLayout(new GridLayout(1, false));
 
@@ -46,40 +61,94 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 		// create rule editor for each type
 		for (SimulationComponentType simCompType : this.simCompTypes) {
-			new SimulationComponentRuleEditor(simCompConfig, simCompType);
+			ruleEditors.put(simCompType, new SimulationComponentRuleEditor(simCompConfig, simCompType));
 		}
 
 		setControl(simCompConfig);
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
+		// try to load PCM model from user configuration
 		loadPcmModel(configuration);
 
-		if (pcmModel == null) {
-			this.setErrorMessage("No valid model files selected! Provide PCM model for advanced simulation config.");
+		// read current configuration
+		Map<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
+		Map<SimulationComponentType, List<SimulatiorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatiorCompositonRule>>();
+		try {
+			// grab the default component configuration (Map Component Type -> Default Component)
+			defaultComponentsConfig = configuration.getAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, defaultComponentsConfig);
+			// grab composition rules configuration (Map Component Type -> List of composition rules)
+			compositionRulesConfig = configuration.getAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, compositionRulesConfig);
+
+		} catch (CoreException e) {
+			e.printStackTrace();
 		}
 
-		System.out.println("initializeFrom");
-		// TODO (SimComp): Init GUI from the current config. Check if we can
-		// check here on ever tab change if the PCM files where selected
+		// update the rule editors
+		for (SimulationComponentType componentType : this.ruleEditors.keySet()) {
+			SimulationComponentRuleEditor ruleEditor = this.ruleEditors.get(componentType);
+
+			ruleEditor.updatePCMModel(this.pcmModel);
+			ruleEditor.updateDefaultComponent(defaultComponentsConfig.get(componentType));
+			ruleEditor.updateCompositionRules(compositionRulesConfig.get(componentType));
+		}
+
+		this.validate(configuration);
 	}
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		System.out.println("performApply");
-		// TODO (SimComp): Store GUI data to config data structure
+		Map<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
+		Map<SimulationComponentType, List<SimulatiorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatiorCompositonRule>>();
+
+		for (SimulationComponentType componentType : this.ruleEditors.keySet()) {
+			SimulationComponentRuleEditor ruleEditor = this.ruleEditors.get(componentType);
+
+			defaultComponentsConfig.put(componentType, ruleEditor.getDefaultComponent());
+			compositionRulesConfig.put(componentType, ruleEditor.getCompositionRules());
+		}
+
+		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, defaultComponentsConfig);
+		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, compositionRulesConfig);
 	}
 
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		System.out.println("setDefaults");
-		// TODO (SimComp): Store default values to config data structure
+		// specify some empty config maps as default values
+		Map<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
+		Map<SimulationComponentType, List<SimulatiorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatiorCompositonRule>>();
+
+		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, defaultComponentsConfig);
+		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, compositionRulesConfig);
 	}
 
-	@Override
-	public String getName() {
-		return "Simulation Components";
+	/**
+	 * Validates the state of the current launch configuration and displays some
+	 * some errors or warnings if necessary.
+	 */
+	private void validate(ILaunchConfiguration configuration) {
+		// check if we have a loaded PCM model
+		if (pcmModel == null) {
+			this.setErrorMessage("No valid PCM model selected! Provide a usage and allocation model to enable advanced simulation configuration.");
+		} else {
+			this.setErrorMessage(null);
+		}
+
+		// check if the simulation component simulator is selected
+		String selectedSimulatorId = "";
+		try {
+			selectedSimulatorId = configuration.getAttribute(AbstractSimulationConfig.SIMULATOR_ID, "");
+		} catch (CoreException e) {
+			e.printStackTrace();
+		}
+		if (!selectedSimulatorId.equals(SimulationConfiguration.SIMULATION_COMPONENT_SIMULATOR_ID)) {
+			this.setWarningMessage("You have to select the \"Simulation Components\" simulator implementation or the advanced configuration will be ignored in your simulation run.");
+		} else {
+			this.setWarningMessage(null);
+		}
+
 	}
 
 	/**
@@ -115,11 +184,11 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 			return;
 		}
-		
+
 		// use specified some files
 		URI usageUri = URI.createURI(usageModelFile);
 		URI allocationUri = URI.createURI(allocationModelFile);
-		
+
 		// skip if nothing has changed
 		if (this.pcmModel != null && usageUri.equals(this.loadedUsageUri) && allocationUri.equals(this.loadedAllocationUri)) {
 			return;
@@ -127,6 +196,13 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 		// something changed, load model from specified files
 		this.pcmModel = PCMModel.loadFromUri(usageUri, allocationUri);
+		this.loadedUsageUri = usageUri;
+		this.loadedAllocationUri = allocationUri;
+	}
+
+	@Override
+	public String getName() {
+		return "Simulation Components";
 	}
 
 }

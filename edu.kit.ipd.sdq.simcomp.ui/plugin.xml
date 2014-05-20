@@ -4,7 +4,7 @@
    <extension
          point="org.eclipse.debug.ui.launchConfigurationTabGroups">
       <launchConfigurationTabGroup
-            class="edu.kit.ipd.sdq.simcomp.ui.SimulationComponentLaunchConfigurationTabs"
+            class="edu.kit.ipd.sdq.simcomp.ui.SimulationComponentLaunchConfigurationTabGroup"
             id="edu.kit.ipd.sdq.simcomp.ui.launchConfigurationTabGroup"
             type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
       </launchConfigurationTabGroup>

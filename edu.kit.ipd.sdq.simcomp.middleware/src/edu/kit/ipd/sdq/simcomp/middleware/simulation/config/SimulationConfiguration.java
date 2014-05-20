@@ -18,6 +18,8 @@ import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
  */
 public class SimulationConfiguration extends AbstractSimulationConfig implements ISimulationConfiguration {
 
+	public static String SIMULATION_COMPONENT_SIMULATOR_ID = "de.uka.ipd.sdq.codegen.simucontroller.simcomp";
+	
 	public static String CONFIG_KEY_DEFAULT_COMPONENTS = "simCompdefaultComponens";
 	public static String CONFIG_KEY_COMPOSITION_RULES = "simCompConpositionRules";
 

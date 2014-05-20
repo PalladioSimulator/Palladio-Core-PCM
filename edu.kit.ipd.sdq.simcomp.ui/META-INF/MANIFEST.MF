@@ -11,7 +11,8 @@ Require-Bundle: org.eclipse.ui,
  de.uka.ipd.sdq.workflow.pcm,
  de.uka.ipd.sdq.codegen.simucontroller,
  org.eclipse.osgi.services,
- edu.kit.ipd.sdq.simcomp.middleware
+ edu.kit.ipd.sdq.simcomp.middleware,
+ de.uka.ipd.sdq.simulation
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Service-Component: OSGI-INF/*.xml

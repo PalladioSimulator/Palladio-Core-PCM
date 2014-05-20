@@ -12,20 +12,20 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComConfigurationTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuConfigurationTab;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
 
-public class SimulationComponentLaunchConfigurationTabs extends AbstractLaunchConfigurationTabGroup {
+public class SimulationComponentLaunchConfigurationTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	@Override
 	public void createTabs(ILaunchConfigurationDialog dialog, String mode) {
-	
-        List<ILaunchConfigurationTab> tabs = new ArrayList<ILaunchConfigurationTab>();
 
-        tabs.add(new FileNamesInputTab());
-        tabs.add(new SimuComConfigurationTab());
-        tabs.add(new SimulationComponentConfigTab());
-        tabs.add(new SimuConfigurationTab());
-        tabs.add(new FeatureOptionsTab());
-        
-        setTabs(tabs.toArray(new ILaunchConfigurationTab[] {}));
+		List<ILaunchConfigurationTab> tabs = new ArrayList<ILaunchConfigurationTab>();
+
+		tabs.add(new FileNamesInputTab());
+		tabs.add(new SimuComConfigurationTab());
+		tabs.add(new SimulationComponentConfigTab());
+		tabs.add(new SimuConfigurationTab());
+		tabs.add(new FeatureOptionsTab());
+
+		setTabs(tabs.toArray(new ILaunchConfigurationTab[] {}));
 	}
 
 }
