@@ -23,7 +23,6 @@ import edu.kit.ipd.sdq.simcomp.middleware.Activator;
  * The entry point for a simulation component based simulation. This class is
  * instantiated as bundle activator of the generated simulation code bundle.
  * 
- * TODO (SimComp): The middleware should NOT be an immediately loaded component.
  * Should be started on GUI access in launch configuration
  * 
  * @author Christoph Föhrdes

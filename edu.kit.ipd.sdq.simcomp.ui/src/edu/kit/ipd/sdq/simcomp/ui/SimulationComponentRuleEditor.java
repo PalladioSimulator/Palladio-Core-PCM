@@ -62,7 +62,7 @@ public class SimulationComponentRuleEditor {
 		// create the context field columns
 		for (SimulationContextField ctxType : this.simCompType.getContextFields()) {
 			TableColumn column = new TableColumn(table, SWT.NONE);
-			column.setText(ctxType.getTitle());
+			column.setText(ctxType.getName());
 			column.setWidth(200);
 		}
 		// add selected component column

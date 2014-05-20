@@ -8,7 +8,9 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 
 /**
  * This class reads the meta information about all simulation components
@@ -54,6 +56,7 @@ public class SimulationComponentMetaCollector {
 
 		IExtensionPoint point = registry.getExtensionPoint(SIMCOMP_TYPE_EXTENSION_POINT);
 		IConfigurationElement[] elements = point.getConfigurationElements();
+
 		for (IConfigurationElement configurationElement : elements) {
 			String id = configurationElement.getAttribute("id");
 			String name = configurationElement.getAttribute("name");
@@ -61,7 +64,7 @@ public class SimulationComponentMetaCollector {
 			SimulationComponentType componentType = new SimulationComponentType(id, name, typeInterface);
 
 			// add the context fields
-			this.addContextFields(componentType);
+			this.addContextFields(componentType, configurationElement);
 
 			// add the currently registered implementations
 			this.addAvailableComponents(componentType);
@@ -73,23 +76,41 @@ public class SimulationComponentMetaCollector {
 	}
 
 	/**
-	 * Fetches all registered implementations of a given simulation component type
-	 * and adds meta data about them to the type data.
+	 * Fetches all registered simulation context fields of a given simulation
+	 * component type and adds meta data about them to the type data.
+	 * 
+	 * @param componentType
+	 */
+	private void addContextFields(SimulationComponentType componentType, IConfigurationElement configurationElement) {
+		IConfigurationElement[] fieldElements = configurationElement.getChildren("simulation_context_field");
+		for (IConfigurationElement fieldElement : fieldElements) {
+			String id = fieldElement.getAttribute("id");
+			String name = fieldElement.getAttribute("name");
+			SimulationContextField field = new SimulationContextField(id, name);
+			componentType.addContextField(field);
+		}
+	}
+
+	/**
+	 * Fetches all registered implementations of a given simulation component
+	 * type and adds meta data about them to the type data.
 	 * 
 	 * @param componentType
 	 */
 	private void addAvailableComponents(SimulationComponentType componentType) {
-		// TODO (SimComp): Fetch and Build component data from extensions
-	}
+		IExtensionPoint point = registry.getExtensionPoint(SIMCOMP_EXTENSION_POINT);
+		IConfigurationElement[] elements = point.getConfigurationElements();
 
-	/**
-	 * Fetches all registered simulation context fields of a given simulation component type
-	 * and adds meta data about them to the type data.
-	 * 
-	 * @param componentType
-	 */
-	private void addContextFields(SimulationComponentType componentType) {
-		// TODO (SimComp): Fetch and Build context field data from extensions
+		for (IConfigurationElement configurationElement : elements) {
+			String typeId = configurationElement.getAttribute("type_id");
+
+			if (componentType.getId().equalsIgnoreCase(typeId)) {
+				String id = configurationElement.getAttribute("id");
+				String name = configurationElement.getAttribute("name");
+				SimulationComponentMetaData component = new SimulationComponentMetaData(id, name);
+				componentType.addAvailableComponent(component);
+			}
+		}
 	}
 
 }

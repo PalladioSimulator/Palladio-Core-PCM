@@ -7,6 +7,14 @@
             id="edu.kit.ipd.sdq.simcomp.resource.active"
             name="Active Resource Simulation Component"
             type_interface="edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource">
+         <simulation_context_field
+               id="edu.kit.ipd.sdq.simcomp.resource.active.ctx.container"
+               name="Container">
+         </simulation_context_field>
+         <simulation_context_field
+               id="edu.kit.ipd.sdq.simcomp.resource.active.ctx.resource_type"
+               name="Resource Type">
+         </simulation_context_field>
       </simulation_component_type>
    </extension>
 

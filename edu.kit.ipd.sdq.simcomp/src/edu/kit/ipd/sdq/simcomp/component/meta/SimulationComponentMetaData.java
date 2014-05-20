@@ -9,24 +9,24 @@ package edu.kit.ipd.sdq.simcomp.component.meta;
 public class SimulationComponentMetaData {
 
 	private String id;
-	private String title;
+	private String name;
 
-	public SimulationComponentMetaData(String id, String title) {
+	public SimulationComponentMetaData(String id, String name) {
 		this.id = id;
-		this.title = title;
+		this.name = name;
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
 	@Override
 	public String toString() {
-		return this.title;
+		return this.name;
 	}
 
 }

@@ -6,12 +6,12 @@
       <simulation_component
             id="edu.kit.ipd.sdq.eventsim.resources.active"
             name="Active Resource Simulation Component (EventSim)"
-            type="edu.kit.ipd.sdq.simcomp.resource.active">
+            type_id="edu.kit.ipd.sdq.simcomp.resource.active">
       </simulation_component>
       <simulation_component
             id="edu.kit.ipd.sdq.eventsim.resources.passive"
             name="Passive Resource Simulation Component (EventSim)"
-            type="edu.kit.ipd.sdq.simcomp.resource.passive">
+            type_id="edu.kit.ipd.sdq.simcomp.resource.passive">
       </simulation_component>
    </extension>
 

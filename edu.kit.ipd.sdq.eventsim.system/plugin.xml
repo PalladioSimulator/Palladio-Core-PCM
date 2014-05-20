@@ -6,7 +6,7 @@
       <simulation_component
             id="edu.kit.ipd.sdq.eventsim.system"
             name="System Simulation Component (EventSim)"
-            type="edu.kit.ipd.sdq.simcomp.system">
+            type_id="edu.kit.ipd.sdq.simcomp.system">
       </simulation_component>
    </extension>
 

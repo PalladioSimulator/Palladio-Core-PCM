@@ -182,7 +182,6 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 			resource.setDescription(specification.getEntityName() + " [" + resourceType.getEntityName() + "] <" + specification.getId() + ">");
 
 			// register the created resource
-			// TODO (SimComp) map.put here?
 			registerResource(specification, resource, resourceType);
 		}
 		return containerToResourceMap.get(compoundKey(specification, resourceType));

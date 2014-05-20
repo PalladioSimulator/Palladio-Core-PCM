@@ -68,7 +68,7 @@
                </documentation>
             </annotation>
          </attribute>
-         <attribute name="type" type="string" use="required">
+         <attribute name="type_id" type="string" use="required">
             <annotation>
                <documentation>
                   The simulation component type. Must be an identifier of the types registered at the extension point edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType

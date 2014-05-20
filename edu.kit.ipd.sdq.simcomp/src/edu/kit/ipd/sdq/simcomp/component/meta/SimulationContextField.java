@@ -6,12 +6,12 @@ import java.util.List;
 public class SimulationContextField {
 
 	private String id;
-	private String title;
+	private String name;
 	private List<String> possibleValues;
 
-	public SimulationContextField(String id, String title) {
+	public SimulationContextField(String id, String name) {
 		this.id = id;
-		this.title = title;
+		this.name = name;
 		
 		possibleValues = new ArrayList<String>();
 	}
@@ -20,8 +20,8 @@ public class SimulationContextField {
 		return id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
 	public List<String> getPossibleValues() {
