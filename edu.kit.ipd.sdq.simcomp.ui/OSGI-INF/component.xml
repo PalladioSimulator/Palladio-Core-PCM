@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<scr:component xmlns:scr="http://www.osgi.org/xmlns/scr/v1.1.0" name="edu.kit.ipd.sdq.simcomp.ui" activate="activate" deactivate="deactivate" immediate="true">
+   <reference name="ISimulationMiddleware" interface="edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware" cardinality="1..1" policy="dynamic" bind="bindSimulationMiddleware" unbind="unbindSimulationMiddleware"/>
+   <implementation class="edu.kit.ipd.sdq.simcomp.ui.SimulationComponentUi"/>
+</scr:component>

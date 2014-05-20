@@ -1,6 +1,5 @@
 package edu.kit.ipd.sdq.simcomp.ui;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.eclipse.debug.core.ILaunchConfiguration;
@@ -11,20 +10,20 @@ import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
 
-import edu.kit.ipd.sdq.simcomp.component.IActiveResource;
-import edu.kit.ipd.sdq.simcomp.component.IPassiveResource;
-import edu.kit.ipd.sdq.simcomp.ui.data.SimulationComponentMetaData;
-import edu.kit.ipd.sdq.simcomp.ui.data.SimulationComponentType;
-import edu.kit.ipd.sdq.simcomp.ui.data.SimulationContextField;
+import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 
 public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab {
 
 	private List<SimulationComponentType> simCompTypes;
+	private ISimulationMiddleware middleware;
 
 	public SimulationComponentConfigTab() {
-		simCompTypes = new ArrayList<SimulationComponentType>();
-		// TODO (SimComp): Fetch simulation component and context information from middleware (extension points)
+		middleware = Activator.getDefault().getSimCompUiComponent().getSimulationMiddleware();
+		simCompTypes = middleware.getSimulationComponentMetaData();
 
+		/*
+		 * TODO (SimComp): remove me
 		SimulationComponentType activeResType = new SimulationComponentType(IActiveResource.class, "Active Resource Simulation");
 		// specify the context fields
 		SimulationContextField resourceType = new SimulationContextField("resource.type", "Resource Type");
@@ -54,6 +53,7 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 		pasiveResType.addAvailableComponent(new SimulationComponentMetaData("resource.passive.eventsim", "EventSim Passive Resource"));
 		pasiveResType.addAvailableComponent(new SimulationComponentMetaData("resource.passive.alternative", "Alternative Passive Resource Sim"));
 		simCompTypes.add(pasiveResType);
+		*/
 	}
 
 	@Override
@@ -75,6 +75,7 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 	@Override
 	public void initializeFrom(ILaunchConfiguration configuration) {
+		System.out.println("initializeFrom");
 		// TODO (SimComp): Init GUI from the current config. Check if we can
 		// check here on ever tab change if the PCM files where selected
 	}

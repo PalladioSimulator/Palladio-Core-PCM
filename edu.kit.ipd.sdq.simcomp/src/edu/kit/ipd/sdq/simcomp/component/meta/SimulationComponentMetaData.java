@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.simcomp.ui.data;
+package edu.kit.ipd.sdq.simcomp.component.meta;
 
 /**
  * Stores the meta information about a simulation component.

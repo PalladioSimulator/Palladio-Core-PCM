@@ -6,6 +6,7 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
 import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
@@ -24,7 +25,12 @@ public interface ISimulationMiddleware {
 	 * List of simulation events triggered by this simulation component.
 	 */
 	@SuppressWarnings("rawtypes")
-	public static Class[] componentEvents = new Class[] { SimulationInitEvent.class, SimulationStartEvent.class, SimulationStopEvent.class, SimulationFinalizeEvent.class };
+	public static Class[] componentEvents = new Class[] {
+		SimulationInitEvent.class,
+		SimulationStartEvent.class,
+		SimulationStopEvent.class,
+		SimulationFinalizeEvent.class
+	};
 
 	/**
 	 * Initializes the middleware with a simulation configuration provided by
@@ -38,6 +44,17 @@ public interface ISimulationMiddleware {
 	public void initialize(ISimulationConfiguration configuration, IPCMModel pcmModel);
 
 	/**
+	 * Returns a collection of meta data about all simulation components
+	 * registered at this simulation middleware instance. The meta data consists
+	 * of a list of simulation component type descriptions which contain data
+	 * about their available implementations and contexts to configure the
+	 * dynamic simulator composition.
+	 * 
+	 * @return A List of simulation component type meta data
+	 */
+	public List<SimulationComponentType> getSimulationComponentMetaData();
+
+	/**
 	 * Starts a simulation component based simulation.
 	 * 
 	 * @param statusObserver
@@ -47,7 +64,7 @@ public interface ISimulationMiddleware {
 	public void startSimulation(final IStatusObserver statusObserver);
 
 	/**
-	 * Stops the simulation.
+	 * Stops a simulation run simulation.
 	 */
 	public void stopSimulation();
 

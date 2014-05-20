@@ -37,6 +37,7 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationContext;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
 import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
@@ -72,6 +73,11 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 	public SimulationMiddleware() {
 		this.eventHandlerRegistry = new ArrayList<ServiceRegistration<?>>();
+	}
+
+	@Override
+	public List<SimulationComponentType> getSimulationComponentMetaData() {
+		return SimulationComponentMetaCollector.buildComponentMetaData();
 	}
 
 	/**

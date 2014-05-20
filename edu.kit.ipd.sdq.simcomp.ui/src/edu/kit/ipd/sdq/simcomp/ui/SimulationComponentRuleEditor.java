@@ -20,9 +20,9 @@ import org.eclipse.swt.widgets.Table;
 import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
-import edu.kit.ipd.sdq.simcomp.ui.data.SimulationComponentMetaData;
-import edu.kit.ipd.sdq.simcomp.ui.data.SimulationComponentType;
-import edu.kit.ipd.sdq.simcomp.ui.data.SimulationContextField;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 
 public class SimulationComponentRuleEditor {
 
@@ -35,7 +35,7 @@ public class SimulationComponentRuleEditor {
 
 		final Group simCompTypeGroup = new Group(parent, SWT.NONE);
 		simCompTypeGroup.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
-		simCompTypeGroup.setText(simCompType.getTitle());
+		simCompTypeGroup.setText(simCompType.getName());
 		simCompTypeGroup.setLayout(new GridLayout(2, false));
 
 		this.createRuleTable(simCompTypeGroup);
@@ -97,8 +97,7 @@ public class SimulationComponentRuleEditor {
 
 							final Combo combo = new Combo(table, SWT.READ_ONLY);
 							combo.setItems(getPossibleValuesForColumn(column));
-							combo.select(0); // TODO (SimComp): If row has value
-												// select the value
+							combo.select(0); // TODO (SimComp): If row has value select the value
 
 							Listener comboListener = new Listener() {
 								@Override
@@ -157,10 +156,9 @@ public class SimulationComponentRuleEditor {
 		} else {
 			// simulation component field selected
 			List<SimulationComponentMetaData> components = simCompType.getAvailableComponents();
-			possibleValues = new String[components.size() + 1];
-			possibleValues[0] = "*";
+			possibleValues = new String[components.size()];
 			for (int j = 0; j < components.size(); j++) {
-				possibleValues[j + 1] = components.get(j).toString();
+				possibleValues[j] = components.get(j).toString();
 			}
 
 			return possibleValues;
@@ -182,7 +180,9 @@ public class SimulationComponentRuleEditor {
 				TableItem item = new TableItem(table, SWT.NONE);
 				item.setText(new String[] { "*", "*", "*" });
 
-				table.select(table.getItems().length);
+				table.deselectAll();
+				table.select(table.getItems().length - 1);
+				table.setFocus();
 			}
 		});
 

@@ -1,35 +1,35 @@
-package edu.kit.ipd.sdq.simcomp.ui.data;
+package edu.kit.ipd.sdq.simcomp.component.meta;
 
 import java.util.ArrayList;
 import java.util.List;
 
 public class SimulationComponentType {
 
-	private Class<?> typeClass;
 	private String id;
-	private String title;
+	private String name;
+	private String typeInterface;
 	private List<SimulationContextField> contextFields;
 	private List<SimulationComponentMetaData> availableComponents;
 
-	public SimulationComponentType(Class<?> typeClass, String title) {
-		this.typeClass = typeClass;
-		this.id = typeClass.getName();
-		this.title = title;
+	public SimulationComponentType(String id, String name, String typeInterface) {
+		this.id = id;
+		this.name = name;
+		this.typeInterface = typeInterface;
 
 		contextFields = new ArrayList<SimulationContextField>();
 		availableComponents = new ArrayList<SimulationComponentMetaData>();
 	}
 
-	public Class<?> getTypeClass() {
-		return typeClass;
+	public String getTypeInterface() {
+		return typeInterface;
 	}
 
 	public String getId() {
 		return id;
 	}
 
-	public String getTitle() {
-		return title;
+	public String getName() {
+		return name;
 	}
 
 	public List<SimulationContextField> getContextFields() {

@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.simcomp.ui.data;
+package edu.kit.ipd.sdq.simcomp.component.meta;
 
 import java.util.ArrayList;
 import java.util.List;
