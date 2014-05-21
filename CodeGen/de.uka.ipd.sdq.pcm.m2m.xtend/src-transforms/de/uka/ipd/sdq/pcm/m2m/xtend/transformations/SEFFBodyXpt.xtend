@@ -30,22 +30,22 @@ class SEFFBodyXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt
 	
-	def dispatch action(AbstractAction action) '''
+	def dispatch String action(AbstractAction action) '''
 		« /* ERROR */»
 	'''	
 	
-	def dispatch action(StartAction action) ''''''
-	def dispatch action(StopAction action) ''''''
+	def dispatch String action(StartAction action) ''''''
+	def dispatch String action(StopAction action) ''''''
 
-	def dispatch action(CollectionIteratorAction action) {
+	def dispatch String action(CollectionIteratorAction action) {
 		// error
 	}
 	
-	def dispatch action(LoopAction action) {
+	def dispatch String action(LoopAction action) {
 		// error
 	}
 	
-	def dispatch action(ExternalCallAction action) '''
+	def dispatch String action(ExternalCallAction action) '''
 	/* ExternalCallAction - START */
 		{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
 			«action.calledService_ExternalService.call(action,
@@ -56,13 +56,13 @@ class SEFFBodyXpt {
 	/* ExternalCallAction - END */
 	'''
 	
-	def dispatch action(RecoveryAction action) '''
+	def dispatch String action(RecoveryAction action) '''
 	{ /* RecoveryAction - START */
 		«action.primaryBehaviour__RecoveryAction.recoveryActionAlternative»
 	} /* RecoveryAction - END */
 	'''
 
-	def recoveryActionAlternative(RecoveryActionBehaviour behaviour) '''
+	def String recoveryActionAlternative(RecoveryActionBehaviour behaviour) '''
 	/* RecoveryActionBehaviour - START */
 	«val id = behaviour.id.javaVariableName»
 	«behaviour.initFailureHandling(id)»

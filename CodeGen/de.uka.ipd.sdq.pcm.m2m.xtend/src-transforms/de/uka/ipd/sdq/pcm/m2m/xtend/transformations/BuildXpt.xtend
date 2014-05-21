@@ -82,11 +82,11 @@ output=output
 		fsa.generateFile(fileName, fileContent)
 	}
 	
-	def dispatch includeClasses(Repository repository) '''
+	def dispatch String includeClasses(Repository repository) '''
 		<include name="«repository.javaName.toLowerCase.fqnToDirectoryPath»"/**/*.class" />
 	'''
 
-	def dispatch includeClasses(System system) '''
+	def dispatch String includeClasses(System system) '''
 		<include name="«system.javaName.toLowerCase.fqnToDirectoryPath»"/**/*.class" />
 		«FOR repository : system.collectRepositories»«repository.includeClasses»«ENDFOR»
 	'''

@@ -74,11 +74,11 @@ class SimAccuracyXpt {
 			);
 	'''
 
-def dispatch checkAccuracy(CharacterisedPCMParameterPartition partition, ResourceDemandingSEFF rdseff, AbstractAction action) '''
+def dispatch String checkAccuracy(CharacterisedPCMParameterPartition partition, ResourceDemandingSEFF rdseff, AbstractAction action) '''
 	«/* ERROR "Implementation of transformation for accuracy influence analysis does not support this partition type." */»
 '''
 
-def dispatch checkAccuracy(PCMParameterPartition partition, ResourceDemandingSEFF rdseff, AbstractAction action) '''
+def dispatch String checkAccuracy(PCMParameterPartition partition, ResourceDemandingSEFF rdseff, AbstractAction action) '''
 	«FOR part : partition.characerisedParameterPartitions»
 		«part.checkAccuracy(rdseff, action)»
 	«ENDFOR»

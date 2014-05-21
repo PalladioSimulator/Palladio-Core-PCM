@@ -109,7 +109,7 @@ class JavaCoreXpt {
 	def dispatch componentServiceTM(InfrastructureSignature signature, RepositoryComponent component) '''
 	'''
 
-	def actions(AbstractAction action) '''
+	def String actions(AbstractAction action) '''
 		«action.action»
 		«IF !(action instanceof StopAction)»
 			«action.successor_AbstractAction.actions»

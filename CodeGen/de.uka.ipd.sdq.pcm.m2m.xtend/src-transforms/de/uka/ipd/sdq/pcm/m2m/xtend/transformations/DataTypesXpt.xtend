@@ -7,11 +7,11 @@ import de.uka.ipd.sdq.pcm.repository.CollectionDataType
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType
 
 class DataTypesXpt {
-	def dispatch dataType(DataType type) {
+	def dispatch String dataType(DataType type) {
 		// «ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"»
 	}
 	
-	def dispatch dataType(PrimitiveDataType type) {
+	def dispatch String dataType(PrimitiveDataType type) {
 		switch (type.type) {
 			case PrimitiveTypeEnum::INT:    "int"
 			case PrimitiveTypeEnum::DOUBLE: "double"
@@ -21,11 +21,11 @@ class DataTypesXpt {
 		}
 	}
 	
-	def dispatch dataType(CollectionDataType type) '''
+	def dispatch String dataType(CollectionDataType type) '''
 		«dataType(type.innerType_CollectionDataType)»[]
 	'''
 	
-	def dispatch dataType(CompositeDataType type) '''
+	def dispatch String dataType(CompositeDataType type) '''
 		«type.entityName»
 	'''
 }

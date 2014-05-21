@@ -140,19 +140,19 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 «««		TODO: translate PROTECT
 «««	      	«PROTECT CSTART '/*' CEND '*/' ID this.javaSignature() + "_" + component.id + "_" + this.interface__OperationSignature.id DISABLE»
 			«IF os.hasSEFF(component)»
-			«val seff = (os.getSEFF(component) as ResourceDemandingSEFF)»
-			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame =
-				new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
-			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame =
-				ctx.getStack().currentStackFrame();
-			if (this.myDefaultComponentStackFrame.getContents().size() > 0) {
-				methodBodyStackFrame.addVariables(this.myDefaultComponentStackFrame);
-			}
-			if (this.myComponentStackFrame.getContents().size() > 0) {
-				methodBodyStackFrame.addVariables(this.myComponentStackFrame);
-			}
-			«seff.steps_Behaviour.findStart().actionsAsCalls»
-			return resultStackFrame;
+				«val seff = (os.getSEFF(component) as ResourceDemandingSEFF)»
+				de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame =
+					new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
+				de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> methodBodyStackFrame =
+					ctx.getStack().currentStackFrame();
+				if (this.myDefaultComponentStackFrame.getContents().size() > 0) {
+					methodBodyStackFrame.addVariables(this.myDefaultComponentStackFrame);
+				}
+				if (this.myComponentStackFrame.getContents().size() > 0) {
+					methodBodyStackFrame.addVariables(this.myComponentStackFrame);
+				}
+				«seff.steps_Behaviour.findStart().actionsAsCalls»
+				return resultStackFrame;
 			«ENDIF»
 «««	   	  «ENDPROTECT»
 	   }   
@@ -190,14 +190,14 @@ class SimJavaCoreXpt extends JavaCoreXpt {
 	  «ENDIF»
 	'''
 	
-	def actionsAsCalls(AbstractAction aa) '''
+	def String actionsAsCalls(AbstractAction aa) '''
 		action«javaVariableName(aa.id)»(ctx, resultStackFrame, methodBodyStackFrame);
 	   «IF !(aa instanceof StopAction)»
 	      «aa.successor_AbstractAction.actionsAsCalls»
 	   «ENDIF»
 	'''
 	
-	def actionsAsMethods(AbstractAction aa) '''
+	def String actionsAsMethods(AbstractAction aa) '''
 		private void action«javaVariableName(aa.id)»(
 				final «aa.contextTypeTM» ctx, 
 				final de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> resultStackFrame, 

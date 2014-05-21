@@ -19,7 +19,7 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 	@Inject extension PCMext
 	@Inject extension SensorsExt
 
-	def dispatch setupCalculators(UsageScenario us) '''
+	def dispatch String setupCalculators(UsageScenario us) '''
 		// Setup calculator for usage scenario «us.entityName»
 		«us.entityName.setupCalculatorResponseTime("start" + us.entityName, "end" + us.entityName)»
 		if(getModel().getConfiguration().getSimulateFailures()){
@@ -31,13 +31,13 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 		«ENDFOR»
 	'''
 
-	def dispatch setupCalculators(EntryLevelSystemCall call) '''
+	def dispatch String setupCalculators(EntryLevelSystemCall call) '''
 		«val callName = "Call_"+call.operationSignature__EntryLevelSystemCall.javaSignature()+" <EntryLevelSystemCall id: "+call.id+" >"»
 			// Setup calculator for system call «call.entityName» («call.id»)
 			«callName.setupCalculatorResponseTime("start"+callName, "end"+callName)»
 	'''
 
-	def dispatch setupCalculators(RepositoryComponent comp) '''
+	def dispatch String setupCalculators(RepositoryComponent comp) '''
 		«IF (comp instanceof BasicComponent) »
 			«FOR seff : (comp as BasicComponent).serviceEffectSpecifications__BasicComponent»
 				«seff.setupCalculators»
@@ -47,11 +47,11 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 «««		«REM»TODO: Should there be calculators for RepositoryComponents other than BasicComponent?«ENDREM» 
 	'''
 
-	def dispatch setupCalculators(ServiceEffectSpecification seff) '''
+	def dispatch String setupCalculators(ServiceEffectSpecification seff) '''
 		«/* ERROR "This should never be called!" */»
 	'''
 
-	def dispatch setupCalculators(ResourceDemandingSEFF seff) '''
+	def dispatch String setupCalculators(ResourceDemandingSEFF seff) '''
 		// Setup calculators for service call «seff.describedService__SEFF.entityName»,
 «««		// contained ExternalCallActions: «seff.steps_Behaviour.findStart().queryExternalCallActions(newArrayList).head.entityName» («seff.steps_Behaviour.findStart().queryExternalCallActions(newArrayList).head.id»)
 «««		// TODO: head?»
@@ -66,7 +66,7 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 		«ENDFOR»
 	'''
 
-	def dispatch setupCalculators(ExternalCallAction action) '''
+	def dispatch String setupCalculators(ExternalCallAction action) '''
 		// Old: "Call "+this.calledService_ExternalService.interface__OperationSignature.entityName+"."+this.calledService_ExternalService.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+ this.id +">"
 		«val callName = externalCallActionDescription(action.calledService_ExternalService, action)»
 			// ExternalCallAction «action.entityName» («action.id»)
@@ -76,7 +76,7 @@ class SimCalculatorsXpt extends CalculatorsXpt {
 			}
 	'''
 	
-	def dispatch setupCalculators(InternalAction action) '''
+	def dispatch String setupCalculators(InternalAction action) '''
 		«FOR infrastructureCall : action.infrastructureCall__Action»
 			«val callName = internalActionDescription(infrastructureCall.signature__InfrastructureCall, action)»
 				// InternalAction «action.entityName» («action.id»)

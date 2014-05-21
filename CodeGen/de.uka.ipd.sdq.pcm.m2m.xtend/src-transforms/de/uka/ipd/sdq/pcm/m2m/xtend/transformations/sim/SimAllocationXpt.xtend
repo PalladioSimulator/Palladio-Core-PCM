@@ -79,7 +79,7 @@ class SimAllocationXpt extends AllocationXpt {
 		«ENDIF»
 	'''
 
-	def compositeAllocation(AssemblyContext context, AllocationContext allocCxt, String parentid, System system) '''
+	def String compositeAllocation(AssemblyContext context, AllocationContext allocCxt, String parentid, System system) '''
 «««		Store this context id (1) alone and (2) together with parent id and then
 «««		recursively call this definition for the child components.  
 «««		Thus, all combinations of subsystems, composite components and basic components are 

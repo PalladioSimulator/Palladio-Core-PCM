@@ -155,15 +155,15 @@ class PCMext {
 	  querySystemCalls(us.scenarioBehaviour_UsageScenario)
 	}
 
-	def dispatch getID(VariableReference vr) {
+	def dispatch String getID(VariableReference vr) {
 	  vr.referenceName
 	}
 
-	def dispatch getID(AbstractNamedReference nsr){
+	def dispatch String getID(AbstractNamedReference nsr){
 	  'this is never called'
 	}
 
-	def dispatch getID(NamespaceReference nsr){
+	def dispatch String getID(NamespaceReference nsr){
 	  nsr.referenceName + '.' + nsr.innerReference_NamespaceReference.getID
 	}
 
@@ -171,16 +171,16 @@ class PCMext {
 	  vu.namedReference__VariableUsage.getID
 	}
 
-	def dispatch isInnerReference(VariableReference vr) {
+	def dispatch boolean isInnerReference(VariableReference vr) {
 	  vr.referenceName == "INNER"
 	}
 
-	def dispatch isInnerReference(AbstractNamedReference nsr) {
+	def dispatch boolean isInnerReference(AbstractNamedReference nsr) {
 	  false
 	}
 
-	def dispatch isInnerReference(NamespaceReference nsr) {
-	  nsr.referenceName == "INNER" || nsr.innerReference_NamespaceReference.isInnerReference()
+	def dispatch boolean isInnerReference(NamespaceReference nsr) {
+	  nsr.referenceName == "INNER" || nsr.innerReference_NamespaceReference.isInnerReference() == true
 	}
 
 	def dispatch Set<Entity> collectRepositories(System s) {
@@ -236,14 +236,14 @@ class PCMext {
 		(c as BasicComponent).serviceEffectSpecifications__BasicComponent.filter[e|e.describedService__SEFF==service].head
 	}
 
-	def getAllCompletions(ComposedStructure s) {
+	def Set<Completion> getAllCompletions(ComposedStructure s) {
 		val Set<Completion> result = new HashSet<Completion>		
 		
 		result.addAll(s.assemblyContexts__ComposedStructure.map[encapsulatedComponent__AssemblyContext].filter(typeof(Completion)))
 
-		result.addAll(s.assemblyContexts__ComposedStructure.map[encapsulatedComponent__AssemblyContext].filter(typeof(ComposedStructure)).filter[comp | 
-			comp != null && !(comp instanceof Completion)
-		].map[cs | cs.allCompletions].flatten)
+		result.addAll(s.assemblyContexts__ComposedStructure.map[encapsulatedComponent__AssemblyContext].filter(typeof(ComposedStructure))
+			.filter(comp | comp != null && !(comp instanceof Completion))
+			.map[allCompletions].flatten)
 
 		result
 	}
@@ -298,6 +298,7 @@ class PCMext {
 		s.forall [
 			if (!result.contains(it))
 				result.add(it)
+			else { }
 		]
 		
 		return result

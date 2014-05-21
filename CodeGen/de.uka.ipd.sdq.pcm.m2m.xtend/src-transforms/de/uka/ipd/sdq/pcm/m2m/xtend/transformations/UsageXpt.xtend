@@ -55,7 +55,7 @@ class UsageXpt {
 	   protected «ipr.providedInterface__InfrastructureProvidedRole.fqn()» «ipr.portMemberVar()» = null;
 	'''
 	
-	def userActions(AbstractUserAction aua) '''
+	def String userActions(AbstractUserAction aua) '''
 	   «aua.userAction»
 	   «IF !(aua instanceof Stop)»
 	      «aua.successor.userActions»

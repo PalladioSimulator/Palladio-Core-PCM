@@ -141,12 +141,12 @@ class SimResourcesXpt extends ResourcesXpt {
 	
 	'''
 	
-	def resourceContainerAdd(ResourceContainer rc) '''
+	def String resourceContainerAdd(ResourceContainer rc) '''
 		resourceContainerIds.add("«rc.id»");
 		«FOR nrc : rc.nestedResourceContainers__ResourceContainer»«nrc.resourceContainerAdd»«ENDFOR»
 	'''
 	
-	def resourceContainerCaseResources(ResourceContainer rc) '''
+	def String resourceContainerCaseResources(ResourceContainer rc) '''
 		if (rc.getResourceContainerID().equals("«rc.id»")) {
 			«FOR ars : rc.activeResourceSpecifications_ResourceContainer»«ars.activeResourceAdd»«ENDFOR»
 «««			«REM» Refactor!
@@ -156,7 +156,7 @@ class SimResourcesXpt extends ResourcesXpt {
 		«FOR nrc : rc.nestedResourceContainers__ResourceContainer»«nrc.resourceContainerCaseResources»«ENDFOR»
 	'''
 	
-	def resourceContainerCaseResourceContainers(ResourceContainer rc) '''
+	def String resourceContainerCaseResourceContainers(ResourceContainer rc) '''
 		if (rc.getResourceContainerID().equals("«rc.id»")) {
 			«FOR nrc : rc.nestedResourceContainers__ResourceContainer»«nrc.nestedResourceContainerAdd»«ENDFOR»
 			«IF rc.parentResourceContainer__ResourceContainer != null»

@@ -58,7 +58,7 @@ class SimUsageFactoryXpt {
 	de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 	'''
 	
-	def dispatch factoryConstructor(UsageScenario _this) '''
+	def dispatch String factoryConstructor(UsageScenario _this) '''
 		«val systemList = _this.querySystemCalls
 			.map[providedRole_EntryLevelSystemCall.providingEntity_ProvidedRole]
 			.map[it as System]
@@ -77,15 +77,15 @@ class SimUsageFactoryXpt {
 	'''
 	
 	// TODO: error
-	def dispatch factoryConstructor(Workload _this) '''
+	def dispatch String factoryConstructor(Workload _this) '''
 «««		«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is imposible!"»
 	'''
 	
-	def dispatch factoryConstructor(ClosedWorkload _this) '''
+	def dispatch String factoryConstructor(ClosedWorkload _this) '''
 		super(model,"«_this.thinkTime_ClosedWorkload.specification.specificationString()»");
 	'''
 	
-	def dispatch factoryConstructor(OpenWorkload _this) '''
+	def dispatch String factoryConstructor(OpenWorkload _this) '''
 		super(model);
 	'''
 }
