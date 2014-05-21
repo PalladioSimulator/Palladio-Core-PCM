@@ -44,7 +44,7 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 	private MDSDBlackboard blackboard = null;
 
 	/** The work flow configuration to get the required information from */
-	private AbstractPCMWorkflowRunConfiguration configuration;
+	private final AbstractPCMWorkflowRunConfiguration configuration;
 
 	/**
 	 * Constructor requiring the necessary configuration object.
@@ -58,7 +58,8 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 	/**
 	 * Execute this job and create the model copy.
 	 */
-	public void execute(IProgressMonitor monitor) throws JobFailedException,
+	@Override
+    public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 
 		assert (this.configuration != null);
@@ -69,13 +70,15 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 		// prepare the target path
 		IFolder modelFolder = project.getFolder("model");
 		if (project.isOpen() && !modelFolder.exists()) {
-			if(logger.isDebugEnabled())
-				logger.debug("Creating folder " + modelFolder.getName());
+			if(logger.isDebugEnabled()) {
+                logger.debug("Creating folder " + modelFolder.getName());
+            }
 			try {
 				modelFolder.create(false, true, null);
 			} catch (CoreException e) {
-				if(logger.isEnabledFor(Level.ERROR))
-					logger.error("unable to create model folder");
+				if(logger.isEnabledFor(Level.ERROR)) {
+                    logger.error("unable to create model folder");
+                }
 				throw new JobFailedException(e);
 			}
 		}
@@ -84,29 +87,31 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 		// access the resources
 		PCMResourceSetPartition partition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
 		ResourceSet resourceSet = partition.getResourceSet();
-		for (Resource ressource : resourceSet.getResources()) {
+		for (Resource resource : resourceSet.getResources()) {
 
 			// we only need to copy the file models
-			if (ressource.getURI().scheme() != "pathmap") {
-				URI uri = ressource.getURI();
+			if (resource.getURI().scheme() != "pathmap") {
+				URI uri = resource.getURI();
 				String relativePath = uri.lastSegment();
 				URI newURI = URI.createURI(modelBasePath +"/"+ relativePath);
-				ressource.setURI(newURI);
+				resource.setURI(newURI);
 
 				try {
-					ressource.save(null);
-					partition.setContents(ressource.getURI(), ressource.getContents());
+					resource.save(null);
+					partition.setContents(resource.getURI(), resource.getContents());
 				} catch (IOException e) {
-					if(logger.isEnabledFor(Level.ERROR))
-						logger.error("Unable to store resource "+ressource.getURI(),e);
+					if(logger.isEnabledFor(Level.ERROR)) {
+                        logger.error("Unable to store resource "+resource.getURI(),e);
+                    }
 				}
 			}
 		}
 		try {
 			partition.storeAllResources();
 		} catch (IOException e) {
-			if(logger.isEnabledFor(Level.ERROR))
-				logger.error("unable to store all resources",e);
+			if(logger.isEnabledFor(Level.ERROR)) {
+                logger.error("unable to store all resources",e);
+            }
 			throw new JobFailedException("Unable to store all Resources",e);
 		}
 //		partition.resolveAllProxies();
@@ -114,16 +119,19 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 //		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, partition);
 	}
 
-	public String getName() {
+	@Override
+    public String getName() {
 		return "Create working copy of models";
 	}
 
-	public void cleanup(IProgressMonitor monitor)
+	@Override
+    public void cleanup(IProgressMonitor monitor)
 			throws CleanupFailedException {
 		// nothing to clean up
 	}
 
-	public void setBlackboard(MDSDBlackboard blackboard) {
+	@Override
+    public void setBlackboard(MDSDBlackboard blackboard) {
 		this.blackboard = blackboard;
 	}
 

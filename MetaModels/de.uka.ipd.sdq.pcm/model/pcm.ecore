@@ -170,7 +170,7 @@
       </eClassifiers>
       <eClassifiers xsi:type="ecore:EClass" name="ResourceInterfaceProvidingRequiringEntity"
           eSuperTypes="#//core/entity/ResourceInterfaceRequiringEntity #//core/entity/ResourceInterfaceProvidingEntity"/>
-      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement">
+      <eClassifiers xsi:type="ecore:EClass" name="Entity" abstract="true" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//core/entity/NamedElement">
         <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
           <details key="documentation" value="Entity is a meta class high up the PCM meta class hierarchy and represents all entities of the PCM that have both an id (see meta class Identifier) and a name (see meta class NamedEntity)."/>
         </eAnnotations>
@@ -2089,7 +2089,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="resourceDemandingBehaviour_AbstractAction"
           ordered="false" eType="#//seff/ResourceDemandingBehaviour" eOpposite="#//seff/ResourceDemandingBehaviour/steps_Behaviour"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingBehaviour" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external&#xD;&#xA;calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.&#xD;&#xA;Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action."/>
       </eAnnotations>
@@ -2288,7 +2288,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="basicComponent_ServiceEffectSpecification"
           ordered="false" lowerBound="1" eType="#//repository/BasicComponent" eOpposite="#//repository/BasicComponent/serviceEffectSpecifications__BasicComponent"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour">
+    <eClassifiers xsi:type="ecore:EClass" name="ResourceDemandingSEFF" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier #//seff/ServiceEffectSpecification #//seff/ResourceDemandingBehaviour">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="A resource demanding service effect specification (RDSEFF) is a special type of SEFF designed for performance and reliability predictions. Besides dependencies between provided and required services of a component, it additionally includes notions of resource usage, data flow, and parametric dependencies for more accurate predictions. Its control flow is hierarchically structured and can be enhanced with transition probabilities on branches and numbers of iterations on loops.&#xD;&#xA;A ResourceDemandingSEFF is a ServiceEffectSpecification and a Resource-DemandingBehaviour at the same time inheriting from both classes. The reason for this construct lies in the fact, that ResourceDemandingBehaviours can be used recursively inside themselves to describe loop bodies or branched behaviours (explained later), and these inner behaviours should not be RDSEFFs themselves"/>
       </eAnnotations>
@@ -3106,7 +3106,7 @@
       <eStructuralFeatures xsi:type="ecore:EReference" name="parentResourceContainer__ResourceContainer"
           ordered="false" eType="#//resourceenvironment/ResourceContainer" eOpposite="#//resourceenvironment/ResourceContainer/nestedResourceContainers__ResourceContainer"/>
     </eClassifiers>
-    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+    <eClassifiers xsi:type="ecore:EClass" name="ProcessingResourceSpecification" eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Performance specification of processing resources (e.g. processing rate, scheduling policy)"/>
       </eAnnotations>
@@ -3149,7 +3149,7 @@
           eOpposite="#//resourceenvironment/ResourceContainer/activeResourceSpecifications_ResourceContainer"/>
     </eClassifiers>
     <eClassifiers xsi:type="ecore:EClass" name="CommunicationLinkResourceSpecification"
-        eSuperTypes="platform:/plugin/de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
+        eSuperTypes="../../de.uka.ipd.sdq.identifier/model/identifier.ecore#//Identifier">
       <eAnnotations source="http://www.eclipse.org/emf/2002/GenModel">
         <details key="documentation" value="Throughput and performance specification of linking resources"/>
       </eAnnotations>

@@ -71,7 +71,7 @@ PCM Core build.
          version="0.0.0"/>
 
    <includes
-         id="org.palladiosimulator.measurementspec.feature"
+         id="org.palladiosimulator.measurementframework.feature"
          version="0.0.0"/>
 
    <plugin
