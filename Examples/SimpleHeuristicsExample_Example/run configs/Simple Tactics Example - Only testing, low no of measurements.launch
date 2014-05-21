@@ -61,7 +61,7 @@
 <stringAttribute key="allocationFile" value="platform:/resource/Simple Tactics Example/default.allocation"/>
 <stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.cost" value="Cost Analysis"/>
 <stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.performance" value="SimuCom Analysis"/>
-<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.reliability" value="none"/>
+<stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.reliability" value="Reliability Solver Analysis"/>
 <stringAttribute key="analysisMethodde.uka.ipd.sdq.dsexplore.security" value="none"/>
 <stringAttribute key="archiveCandidates" value=""/>
 <stringAttribute key="blocks" value=""/>
@@ -79,7 +79,7 @@
 <stringAttribute key="crossover rate" value="0.5"/>
 <intAttribute key="datasourceID" value="0"/>
 <intAttribute key="de.uka.ipd.sdq.workflowengine.debuglevel" value="2"/>
-<stringAttribute key="designDecisionFile" value="New_configuration (1).designdecision"/>
+<stringAttribute key="designDecisionFile" value="platform:/resource/Simple Tactics Example/simpleexample.designdecision"/>
 <booleanAttribute key="designDecisionsOnly" value="false"/>
 <stringAttribute key="eventMiddlewareRepositoryFile" value="pathmap://PCM_MODELS/default_event_middleware.repository"/>
 <stringAttribute key="experimentRun" value="Simple Tactics Example"/>
@@ -93,10 +93,18 @@
 <stringAttribute key="indivPerGeneration" value="3"/>
 <booleanAttribute key="infiniteTaskMultiplicity" value="true"/>
 <stringAttribute key="itLimit" value="50"/>
+<booleanAttribute key="iterationOverPhysicalSystemStatesEnabled" value="true"/>
+<stringAttribute key="logFile" value=""/>
 <stringAttribute key="lqnPragmas" value=""/>
 <stringAttribute key="lqnsOutputDir" value="D:\Programme\eclipse\eclipse-kepler-dsl-sr1"/>
 <stringAttribute key="lqsimOutputDir" value="D:\Programme\eclipse\eclipse-kepler-dsl-sr1"/>
 <stringAttribute key="lqsimoutput" value="XML Output"/>
+<stringAttribute key="markovEvaluationMode" value="POINTSOFFAILURE"/>
+<stringAttribute key="markovModelFile" value=""/>
+<booleanAttribute key="markovModelReduction" value="true"/>
+<booleanAttribute key="markovModelStorageEnabled" value="false"/>
+<booleanAttribute key="markovModelTracesEnabled" value="false"/>
+<booleanAttribute key="markovStatistics" value="false"/>
 <intAttribute key="maxDomain" value="256"/>
 <stringAttribute key="maxIterations" value="2"/>
 <stringAttribute key="maximum" value=""/>
@@ -104,7 +112,11 @@
 <stringAttribute key="minimum" value=""/>
 <stringAttribute key="mwRepositoryFile" value="pathmap://PCM_MODELS/Glassfish.repository"/>
 <stringAttribute key="number of DSE iterations" value=""/>
-<booleanAttribute key="optimisationOnly" value="false"/>
+<intAttribute key="numberOfEvaluatedSystemStates" value="1"/>
+<booleanAttribute key="numberOfEvaluatedSystemStatesEnabled" value="false"/>
+<intAttribute key="numberOfExactDecimalPlaces" value="1"/>
+<booleanAttribute key="numberOfExactDecimalPlacesEnabled" value="false"/>
+<booleanAttribute key="optimisationOnly" value="true"/>
 <stringAttribute key="outpath" value="de.uka.ipd.sdq.temporary"/>
 <stringAttribute key="output" value="XML Output"/>
 <stringAttribute key="persistenceFramework" value="SensorFramework"/>
@@ -114,13 +126,18 @@
 <stringAttribute key="qmlDefinitionFile" value="platform:/resource/Simple Tactics Example/default.profile.qmldeclarations"/>
 <stringAttribute key="runTime" value=""/>
 <stringAttribute key="samplingDist" value="1.0"/>
+<stringAttribute key="saveFileDefault" value=""/>
+<booleanAttribute key="saveResultsToFileEnabled" value="false"/>
 <stringAttribute key="search method" value="Evolutionary search"/>
 <stringAttribute key="simTime" value="1500"/>
 <booleanAttribute key="simulateAccuracy" value="false"/>
 <booleanAttribute key="simulateFailures" value="false"/>
 <booleanAttribute key="simulateLinkingResources" value="false"/>
 <stringAttribute key="simulatorId" value="de.uka.ipd.sdq.codegen.simucontroller.simucom"/>
+<booleanAttribute key="singleResults" value="false"/>
 <stringAttribute key="solver" value="LQNS (Layered Queueing Network Solver)"/>
+<intAttribute key="solvingTimeLimit" value="1"/>
+<booleanAttribute key="solvingTimeLimitEnabled" value="false"/>
 <stringAttribute key="stepwidth" value=""/>
 <booleanAttribute key="store results as EMF" value="false"/>
 <stringAttribute key="tactics probability when mating" value="0.6"/>
