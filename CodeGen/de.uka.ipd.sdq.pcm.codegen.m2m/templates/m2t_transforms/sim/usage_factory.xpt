@@ -29,7 +29,7 @@
 «ENDDEFINE» 
 
 «DEFINE UsageFactoryBaseClass FOR Workload»
-	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is imposible!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"»
 «ENDDEFINE»
 
 «DEFINE UsageFactoryBaseClass FOR ClosedWorkload»
@@ -57,13 +57,13 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR Workload»
-	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is imposible!"»
+	«ERROR "OAW GENERATION ERROR [m2t_transforms/sim/usage_factory.xpt]: AbstractWorkload found! This is impossible!"»
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR ClosedWorkload»
-	super(model,"«this.thinkTime_ClosedWorkload.specification.specificationString()»",usageID);
+	super(model, "«this.thinkTime_ClosedWorkload.specification.specificationString()»", (de.uka.ipd.sdq.pcm.usagemodel.UsageScenario) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.usagemodel", "«this.usageScenario_Workload.id»"));
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR OpenWorkload»
-	super(model,usageID);
+	super(model, (de.uka.ipd.sdq.pcm.usagemodel.UsageScenario) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.usagemodel", "«this.usageScenario_Workload.id»"));
 «ENDDEFINE»

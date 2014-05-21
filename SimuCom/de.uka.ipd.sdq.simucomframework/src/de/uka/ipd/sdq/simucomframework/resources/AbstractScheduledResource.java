@@ -13,7 +13,6 @@ import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.resources.active.AbstractActiveResource;
 import de.uka.ipd.sdq.scheduler.sensors.IActiveResourceStateSensor;
-import de.uka.ipd.sdq.simucomframework.Context;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.entities.SimuComEntity;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
@@ -22,79 +21,61 @@ import de.uka.ipd.sdq.simucomframework.simucomstatus.ActiveResouce;
 import de.uka.ipd.sdq.simucomframework.simucomstatus.SimucomstatusFactory;
 
 /**
- * Base class of all resources which have their own scheduler, i.e., active
- * resources in the PCM. Contains generic code to instrument the resource to
- * report its results to the sensorframework
+ * Base class of all resources which have their own scheduler, i.e., active resources in the PCM.
+ * Contains generic code to instrument the resource to report its results to the sensorframework
  * 
- * @author Steffen Becker
- * 
+ * @author Steffen Becker, Sebastian Lehrig
  */
 public abstract class AbstractScheduledResource extends SimuComEntity implements IActiveResourceStateSensor {
-
-    public final static double EPSILON = Math.pow(10, -9);
-
-    protected static Logger logger = Logger
-            .getLogger(AbstractScheduledResource.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(AbstractScheduledResource.class.getName());
 
     // each instance maintains its own list of state listeners
     private final Map<Integer, List<IStateListener>> stateListener;
     private final List<IDemandListener> demandListener;
     private final List<IOverallUtilizationListener> overallUtilizationListener;
-
-    // For resources that can become unavailable (SimulatedActiveResources):
-    protected double mttf = 0.0;
-    protected double mttr = 0.0;
-    protected boolean canBeUnavailable = false;
-    protected boolean isAvailable = true;
-    protected boolean requiredByContainer = false;
-
-    protected ResourceFailedEvent failedEvent;
-    protected ResourceRepairedEvent repairedEvent;
-
-    // For resources that can fail (SimulatedLinkingResources):
-    protected boolean canFail = false;
-    protected double failureProbability = 0.0;
+    
+    private final boolean requiredByContainer;
 
     private final ActiveResouce myResourceStatus;
+    private final IActiveResource aResource;
 
-    protected IActiveResource aResource = null;
-
-    protected String resourceTypeID;
+    private final String resourceTypeID;
     private final String resourceContainerID;
 
+    private final String description;
+    private final int numberOfInstances;
+    private final String schedulingStrategyID;
+    private final AbstractSimulatedResourceContainer resourceContainer;
+
+    // non-final members
+    // //////////////////
     private boolean isStopped = false;
-
-    protected String description;
-
-    protected int numberOfInstances;
-
-    protected String schedulingStrategyID;
-    protected AbstractSimulatedResourceContainer resourceContainer = null;
-
-    public AbstractScheduledResource(final SimuComModel myModel, final String typeID,
-            final String resourceContainerID, final String resourceTypeID,
-            final String description, final String schedulingStrategyID,
-            final int numberOfInstances, final boolean requiredByContainer) {
+    private boolean isAvailable = true;
+  
+    public AbstractScheduledResource(final SimuComModel myModel, final String typeID, final String resourceContainerID,
+            final String resourceTypeID, final String description,
+            final String schedulingStrategyID, final int numberOfInstances, final boolean requiredByContainer) {
         super(myModel, typeID);
+
         this.description = description;
         this.numberOfInstances = numberOfInstances;
         this.schedulingStrategyID = schedulingStrategyID;
         this.resourceTypeID = resourceTypeID;
         this.resourceContainerID = resourceContainerID;
         this.requiredByContainer = requiredByContainer;
+        
 
-        if(logger.isEnabledFor(Level.INFO)) {
-            logger.info("Creating Simulated Active Resource: " + this.getName());
+        if (LOGGER.isEnabledFor(Level.INFO)) {
+            LOGGER.info("Creating Simulated Active Resource: " + this.getName());
         }
 
         myResourceStatus = SimucomstatusFactory.eINSTANCE.createActiveResouce();
         myResourceStatus.setId(this.getName());
-        myModel.getSimulationStatus().getResourceStatus().getActiveResources()
-        .add(myResourceStatus);
+        myModel.getSimulationStatus().getResourceStatus().getActiveResources().add(myResourceStatus);
         resourceContainer = myModel.getResourceRegistry().getResourceContainer(resourceContainerID);
         if (resourceContainer == null) {
-            if(logger.isEnabledFor(Level.WARN)) {
-                logger.warn("Resource container " +resourceContainerID + " is not available!");
+            if (LOGGER.isEnabledFor(Level.WARN)) {
+                LOGGER.warn("Resource container " + resourceContainerID + " is not available!");
             }
         }
 
@@ -111,6 +92,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 
     /**
      * Returns the underlying resource
+     * 
      * @return aResource
      */
     public IActiveResource getUnderlyingResource() {
@@ -118,14 +100,12 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
     }
 
     /**
-     * Subclasses are responsible for creating the {@link IActiveResource} to
-     * use internally. Is called in the constructor.
+     * Subclasses are responsible for creating the {@link IActiveResource} to use internally. Is
+     * called in the constructor.
      * 
-     * @return the {@link IActiveResource} resource to use as determined by the
-     *         subclasses.
+     * @return the {@link IActiveResource} resource to use as determined by the subclasses.
      */
-    protected abstract IActiveResource createActiveResource(
-            SimuComModel simuComModel);
+    protected abstract IActiveResource createActiveResource(SimuComModel simuComModel);
 
     /**
      * Called by client of this resource to make the resource simulate resource processing. This is
@@ -149,49 +129,38 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
     public abstract void updateDemand(SimuComSimProcess thread, double demand);
 
     /**
-     * Template method. Implementers have to use the given demand and return the
-     * time span needed to process the demand on this resource.
+     * Template method. Implementers have to use the given demand and return the time span needed to
+     * process the demand on this resource.
      * 
      * @param demand
-     *            The demand issued to this resource in units understood by the
-     *            resource
+     *            The demand issued to this resource in units understood by the resource
      * @return The service time, given in seconds
      */
     protected abstract double calculateDemand(double demand);
 
     /**
-     * Called by the framework to inform that the resource should start its
-     * lifecycle
+     * Called by the framework to inform that the resource should start its lifecycle
      */
     public void activateResource() {
-        if(logger.isDebugEnabled()) {
-            logger.debug("Starting resource " + this.getName());
-        }
-        if (canBeUnavailable) {
-            final double t = getFailureTime();
-            failedEvent.schedule(this, t);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Starting resource " + this.getName());
         }
     }
 
     /**
-     * Called by the framework to inform the resource that the simulation has
-     * been stopped. Fires a {@link IStateListener#stateChanged()} event.
+     * Called by the framework to inform the resource that the simulation has been stopped. Fires a
+     * {@link IStateListener#stateChanged()} event.
      */
     public void deactivateResource() {
         if (!this.isStopped) {
-            if(logger.isDebugEnabled()) {
-                logger.debug("Stopping resource " + this.getName());
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Stopping resource " + this.getName());
             }
             this.isStopped = true;
             for (int instance = 0; instance < numberOfInstances; instance++) {
                 fireStateEvent(0l, instance);
             }
-            this.getModel().getSimulationStatus().getResourceStatus()
-            .getActiveResources().remove(myResourceStatus);
-            if (this.canBeUnavailable) {
-                this.failedEvent.removeEvent();
-                this.repairedEvent.removeEvent();
-            }
+            this.getModel().getSimulationStatus().getResourceStatus().getActiveResources().remove(myResourceStatus);
         }
     }
 
@@ -205,12 +174,10 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
      */
     public void setAvailable(final boolean isAvailable) {
         this.isAvailable = isAvailable;
-        final double time = this.getModel().getSimulationControl()
-                .getCurrentSimulationTime();
+        final double time = this.getModel().getSimulationControl().getCurrentSimulationTime();
         final String status = (this.isAvailable) ? "available" : "unavailable";
-        if(logger.isDebugEnabled()) {
-            logger.debug("Resource " + this.getName() + " " + status
-                    + " at sim time " + time);
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Resource " + this.getName() + " " + status + " at sim time " + time);
         }
     }
 
@@ -225,6 +192,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
 
     /**
      * Asks if a processing resource is required by its surrounding container.
+     * 
      * @return TRUE if resource is required; FALSE otherwise
      */
     public boolean isRequiredByContainer() {
@@ -232,79 +200,13 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
     }
 
     /**
-     * Returns the failure time for this resource (or -1.0 if the resource
-     * cannot fail).
-     * 
-     * @return the failure time for the resource
-     */
-    public double getFailureTime() {
-        if (!canBeUnavailable) {
-            throw new RuntimeException(
-                    "getFailureTime() should not be invoked as resource cannot fail");
-        }
-        final double failureTimeSample = Context.evaluateStatic("Exp(1 / "
-                + "(" + this.mttf + ")" + ")", Double.class);
-        if(logger.isDebugEnabled()) {
-            logger.debug("Resource " + this.getDescription()
-                    + " will fail at sim time +" + failureTimeSample);
-        }
-        return failureTimeSample;
-    }
-
-    /**
-     * Returns the repair time for this resource (or -1.0 if the resource cannot
-     * fail).
-     * 
-     * @return the repair time for the resource
-     */
-    public double getRepairTime() {
-        if (!canBeUnavailable) {
-            throw new RuntimeException(
-                    "getRepairTime() should not be invoked as resource cannot fail");
-        }
-        final double repairTimeSample = Context.evaluateStatic("Exp(1/"
-                + this.mttr + ")", Double.class);
-        if(logger.isDebugEnabled()) {
-            logger.debug("Resource " + this.getDescription()
-                    + " will be repaired at sim time +" + repairTimeSample);
-        }
-        return repairTimeSample;
-    }
-
-    /**
-     * Retrieves the failure probability of the resource (if it can fail).
-     * 
-     * @return the failure probability
-     */
-    public double getFailureProbability() {
-        return (canFail) ? failureProbability : 0.0;
-    }
-
-    /**
-     * Creates the events that let the resource fail and be repaired.
-     * 
-     * @param model
-     *            the SimuComModel
-     */
-    protected void createAvailabilityEvents(final SimuComModel model) {
-        this.failedEvent = new ResourceFailedEvent(model, "ResourceFailed");
-        this.repairedEvent = new ResourceRepairedEvent(model,
-                "ResourceRepaired");
-        this.failedEvent.setResource(this);
-        this.failedEvent.setRepairedEvent(repairedEvent);
-        this.repairedEvent.setResource(this);
-        this.repairedEvent.setFailedEvent(failedEvent);
-    }
-
-    /**
-     * Asserts that the resource is currently available; if not, an
-     * EnvironmentFailureException is thrown.
+     * Asserts that the resource is currently available; if not, an EnvironmentFailureException is
+     * thrown.
      */
     protected void assertAvailability() {
         if (!isAvailable) {
-            FailureException.raise(this.getModel(),this.getModel().getFailureStatistics()
-                    .getInternalHardwareFailureType(resourceContainerID,
-                            resourceTypeID));
+            FailureException.raise(this.getModel(), this.getModel().getFailureStatistics()
+                    .getInternalHardwareFailureType(resourceContainerID, resourceTypeID));
         }
     }
 
@@ -320,8 +222,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
         stateListener.get(instance).add(listener);
     }
 
-    public void addOverallUtilizationListener(
-            final IOverallUtilizationListener listener) {
+    public void addOverallUtilizationListener(final IOverallUtilizationListener listener) {
         overallUtilizationListener.add(listener);
     }
 
@@ -334,8 +235,7 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
         }
     }
 
-    protected void fireOverallUtilization(final double resourceDemand,
-            final double totalTime) {
+    protected void fireOverallUtilization(final double resourceDemand, final double totalTime) {
         for (final IOverallUtilizationListener l : overallUtilizationListener) {
             l.utilizationChanged(resourceDemand, totalTime);
         }
@@ -382,6 +282,6 @@ public abstract class AbstractScheduledResource extends SimuComEntity implements
     }
 
     public long getQueueLength(final int coreID) {
-        return aResource.getQueueLengthFor((AbstractActiveResource)getScheduledResource(),coreID);
+        return aResource.getQueueLengthFor((AbstractActiveResource) getScheduledResource(), coreID);
     }
 }

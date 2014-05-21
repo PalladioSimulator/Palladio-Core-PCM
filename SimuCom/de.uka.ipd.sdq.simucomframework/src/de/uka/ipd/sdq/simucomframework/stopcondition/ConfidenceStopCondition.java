@@ -6,11 +6,9 @@ import javax.measure.unit.SI;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
-import org.palladiosimulator.measurementspec.Measurement;
-import org.palladiosimulator.measurementspec.listener.IMeasurementSourceListener;
+import org.palladiosimulator.measurementframework.Measurement;
+import org.palladiosimulator.measurementframework.listener.IMeasurementSourceListener;
 import org.palladiosimulator.metricspec.constants.MetricDescriptionConstants;
-import org.palladiosimulator.probeframework.calculator.Calculator;
-import org.palladiosimulator.probeframework.calculator.RegisterCalculatorFactoryDecorator;
 
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simulation.abstractsimengine.SimCondition;
@@ -73,14 +71,7 @@ public class ConfidenceStopCondition implements SimCondition, IMeasurementSource
         }
         this.usageScenarioName = model.getConfiguration()
                 .getConfidenceModelElementName();
-
-        initialize();
-    }
-
-    private void initialize() {
-        final Calculator c = obtainUsageScenarioResponseTimeCalculator(usageScenarioName);
-        c.addObserver(this);
-        minBatches = 0;
+        this.minBatches = 0;
     }
 
     @Override
@@ -137,19 +128,6 @@ public class ConfidenceStopCondition implements SimCondition, IMeasurementSource
 
     public ConfidenceInterval getConfidence() {
         return confidence;
-    }
-
-    /**
-     * Returns the calculator for the specified usage scenario's response time.
-     *
-     * @param usageScenarioName
-     *            the name of the usage scenario
-     * @return
-     */
-    private Calculator obtainUsageScenarioResponseTimeCalculator(
-            final String usageScenarioName) {
-        final String calculatorId = usageScenarioName;
-        return ((RegisterCalculatorFactoryDecorator) this.model.getProbeFrameworkContext().getCalculatorFactory()).getCalculatorByName(calculatorId);
     }
 
     @Override

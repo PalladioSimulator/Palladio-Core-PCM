@@ -8,7 +8,12 @@
 			java.util.Arrays.asList(
 				(org.palladiosimulator.probeframework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()),
 				(org.palladiosimulator.probeframework.probes.Probe)new de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe(getModel().getSimulationControl()));
-		getModel().getProbeFrameworkContext().getCalculatorFactory().buildResponseTimeCalculator("«this»",probes);
+		
+		// TODO get rid of StringMeasuringPoint and use a more concrete one.
+		org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint mp = measuringpointFactory.createStringMeasuringPoint();
+		mp.setMeasuringPoint("«this»");
+
+		getModel().getProbeFrameworkContext().getCalculatorFactory().buildResponseTimeCalculator(mp,probes);
 		this.startStopProbes.put("«this»",probes);
 	}
 «ENDDEFINE»

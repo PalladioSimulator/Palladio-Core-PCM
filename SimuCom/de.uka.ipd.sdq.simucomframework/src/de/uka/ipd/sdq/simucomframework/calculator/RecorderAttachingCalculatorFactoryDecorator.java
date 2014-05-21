@@ -5,8 +5,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
-import org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint;
 import org.palladiosimulator.probeframework.calculator.Calculator;
 import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
 import org.palladiosimulator.probeframework.probes.Probe;
@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.simucomframework.SimuComConfig;
 
 /**
  * Factory class to create @see {@link Calculator}s used in a SimuCom simulation run.
- *
+ * 
  * @author Steffen Becker, Philipp Merkle, Sebastian Lehrig
  */
 public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorFactory {
@@ -34,10 +34,12 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     private final String experimentRunName;
 
     private final ICalculatorFactory decoratedCalculatorFactory;
-    
+
+    /** Default EMF factory for measuring points. */
     private final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
 
-    public RecorderAttachingCalculatorFactoryDecorator(final ICalculatorFactory decoratedCalculatorFactory, final SimuComConfig configuration) {
+    public RecorderAttachingCalculatorFactoryDecorator(final ICalculatorFactory decoratedCalculatorFactory,
+            final SimuComConfig configuration) {
         super();
 
         this.decoratedCalculatorFactory = decoratedCalculatorFactory;
@@ -46,114 +48,92 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     }
 
     /**
-     * @param calculatorName
-     * @param probes
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildResponseTimeCalculator(java.lang.String, java.util.List)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildResponseTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder("Response time of "+calculatorName,decoratedCalculatorFactory.buildResponseTimeCalculator(calculatorName, probes));
+    public Calculator buildResponseTimeCalculator(final MeasuringPoint measuringPoint, final List<Probe> probes) {
+        return setupRecorder(decoratedCalculatorFactory.buildResponseTimeCalculator(measuringPoint, probes));
     }
 
     /**
-     * @param calculatorName
-     * @param probes
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildDemandBasedWaitingTimeCalculator(java.lang.String, java.util.List)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildDemandBasedWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder("Demand at "+calculatorName,decoratedCalculatorFactory.buildDemandBasedWaitingTimeCalculator(calculatorName, probes));
+    public Calculator buildDemandBasedWaitingTimeCalculator(final MeasuringPoint measuringPoint,
+            final List<Probe> probes) {
+        return setupRecorder(decoratedCalculatorFactory.buildDemandBasedWaitingTimeCalculator(measuringPoint, probes));
     }
 
     /**
-     * @param calculatorName
-     * @param probes
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildWaitingTimeCalculator(java.lang.String, java.util.List)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildWaitingTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder("Waiting time at "+calculatorName,decoratedCalculatorFactory.buildWaitingTimeCalculator(calculatorName, probes));
+    public Calculator buildWaitingTimeCalculator(final MeasuringPoint measuringPoint, final List<Probe> probes) {
+        return setupRecorder(decoratedCalculatorFactory.buildWaitingTimeCalculator(measuringPoint, probes));
     }
 
     /**
-     * @param calculatorName
-     * @param probes
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildHoldTimeCalculator(java.lang.String, java.util.List)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildHoldTimeCalculator(final String calculatorName, final List<Probe> probes) {
-        return setupRecorder("Hold time at "+calculatorName,decoratedCalculatorFactory.buildHoldTimeCalculator(calculatorName, probes));
+    public Calculator buildHoldingTimeCalculator(final MeasuringPoint measuringPoint, final List<Probe> probes) {
+        return setupRecorder(decoratedCalculatorFactory.buildHoldingTimeCalculator(measuringPoint, probes));
     }
 
     /**
-     * @param calculatorName
-     * @param probe
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildStateCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildStateCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder("State of "+calculatorName,decoratedCalculatorFactory.buildStateCalculator(calculatorName, probe));
+    public Calculator buildStateCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildStateCalculator(measuringPoint, probe));
     }
 
     /**
-     * @param calculatorName
-     * @param probe
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildOverallUtilizationCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildOverallUtilizationCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder("Utilisation of "+calculatorName,decoratedCalculatorFactory.buildOverallUtilizationCalculator(calculatorName, probe));
+    public Calculator buildOverallUtilizationCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildOverallUtilizationCalculator(measuringPoint, probe));
     }
 
     /**
-     * @param calculatorName
-     * @param probe
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildDemandCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildDemandCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder("Demand at "+calculatorName,decoratedCalculatorFactory.buildDemandCalculator(calculatorName, probe));
+    public Calculator buildDemandCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildDemandCalculator(measuringPoint, probe));
     }
 
     /**
-     * @param calculatorName
-     * @param probe
-     * @return
-     * @see org.palladiosimulator.probeframework.calculator.ICalculatorFactory#buildExecutionResultCalculator(java.lang.String, org.palladiosimulator.probeframework.probes.Probe)
+     * {@inheritDoc}
      */
     @Override
-    public Calculator buildExecutionResultCalculator(final String calculatorName, final Probe probe) {
-        return setupRecorder(calculatorName,decoratedCalculatorFactory.buildExecutionResultCalculator(calculatorName, probe));
-    }
-    
-    @Override
-    public Calculator buildIdentityCalculator(String calculatorName, Probe probe) {
-        return setupRecorder(calculatorName, decoratedCalculatorFactory.buildIdentityCalculator(calculatorName, probe));
+    public Calculator buildExecutionResultCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(measuringPoint, probe));
     }
 
     /**
-     * @param calculator
-     * @return
+     * {@inheritDoc}
      */
-    private Calculator setupRecorder(
-            final String calculatorName,
-            final Calculator calculator) {
-        StringMeasuringPoint measuringPoint = measuringpointFactory.createStringMeasuringPoint();
-        measuringPoint.setMeasuringPoint(calculatorName);
-        final Map<String, Object> recorderConfigurationMap = new HashMap<String,Object>();
-        recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC, calculator.getMetricDesciption());
-        recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURING_POINT, measuringPoint);
+    @Override
+    public Calculator buildIdentityCalculator(final MeasuringPoint measuringPoint, Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildIdentityCalculator(measuringPoint, probe));
+    }
 
-        final Recorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration.getRecorderName());
-        final IRecorderConfiguration recorderConfiguration = this.configuration.
-                getRecorderConfigurationFactory().createRecorderConfiguration(recorderConfigurationMap);
+    private Calculator setupRecorder(final Calculator calculator) {
+        // TODO remove the following 2 obsolete lines once measuring points are fully supported.
+        // [Lehrig]
+        // StringMeasuringPoint measuringPoint = measuringpointFactory.createStringMeasuringPoint();
+        // measuringPoint.setMeasuringPoint(calculatorName);
+        final Map<String, Object> recorderConfigurationMap = new HashMap<String, Object>();
+        recorderConfigurationMap.put(AbstractRecorderConfiguration.RECORDER_ACCEPTED_METRIC,
+                calculator.getMetricDesciption());
+        recorderConfigurationMap.put(AbstractRecorderConfiguration.MEASURING_POINT, calculator.getMeasuringPoint());
+
+        final Recorder recorder = RecorderExtensionHelper.instantiateWriteStrategyForRecorder(this.configuration
+                .getRecorderName());
+        final IRecorderConfiguration recorderConfiguration = this.configuration.getRecorderConfigurationFactory()
+                .createRecorderConfiguration(recorderConfigurationMap);
         recorder.initialize(recorderConfiguration);
         // register recorder at calculator
         calculator.addObserver(recorder);

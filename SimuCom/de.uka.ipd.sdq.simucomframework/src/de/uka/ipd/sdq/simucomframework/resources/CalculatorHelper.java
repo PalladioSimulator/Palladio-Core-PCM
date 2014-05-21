@@ -3,7 +3,12 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Arrays;
 import java.util.List;
 
-import org.palladiosimulator.measurementspec.BasicMeasurement;
+import org.palladiosimulator.edp2.models.measuringpoint.ActiveResourceMeasuringPoint;
+import org.palladiosimulator.edp2.models.measuringpoint.AssemblyPassiveResourceMeasuringPoint;
+import org.palladiosimulator.edp2.models.measuringpoint.LinkingResourceMeasuringPoint;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
+import org.palladiosimulator.measurementframework.BasicMeasurement;
 import org.palladiosimulator.metricspec.MetricDescription;
 import org.palladiosimulator.metricspec.constants.MetricDescriptionConstants;
 import org.palladiosimulator.probeframework.ProbeFrameworkContext;
@@ -27,10 +32,14 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
  * Offers static methods to setup different types of calculators for resources like
  * {@link AbstractScheduledResource} and {@link IPassiveResource}.
  * 
- * @author Philipp Merkle
+ * TODO Some calculators are created in AbstractMain. Why is that? [Lehrig]
  * 
+ * @author Philipp Merkle, Sebastian Lehrig
  */
 public final class CalculatorHelper {
+
+    /** Default EMF factory for measuring points. */
+    private static final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
 
     /**
      * Sets up a {@link WaitingTimeCalculator} for the specified resource. Also a
@@ -46,22 +55,19 @@ public final class CalculatorHelper {
      */
     public static void setupWaitingTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
-
-        // build waiting time calculator
         final List<Probe> startStopProbes = buildStartStopProbes(model);
-        ctx.getCalculatorFactory().buildWaitingTimeCalculator(
-                "Passive Resource " + resource.getName() + " " + resource.getId(), startStopProbes);
+        ctx.getCalculatorFactory().buildWaitingTimeCalculator(createMeasuringPoint(resource), startStopProbes);
 
         resource.addObserver(new IPassiveResourceSensor() {
 
             @Override
             public void request(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe)startStopProbes.get(0)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement();
             }
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe)startStopProbes.get(1)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(1)).takeMeasurement();
             }
 
             @Override
@@ -74,7 +80,7 @@ public final class CalculatorHelper {
     }
 
     /**
-     * Sets up a {@link HoldTimeCalculator} for the specified resource. Also a
+     * Sets up a {@link HoldingTimeCalculator} for the specified resource. Also a
      * {@link IPassiveResourceSensor} will be registered at the resource which gets notified of
      * events that are relevant for calculating the hold time. When such an event arrives, an
      * appropriate {@link BasicMeasurement} will be taken and published at the
@@ -85,10 +91,8 @@ public final class CalculatorHelper {
      */
     public static void setupHoldTimeCalculator(final IPassiveResource resource, final SimuComModel model) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
-
         final List<Probe> startStopProbes = buildStartStopProbes(model);
-        ctx.getCalculatorFactory().buildHoldTimeCalculator(
-                "Passive Resource " + resource.getName() + " " + resource.getId(), startStopProbes);
+        ctx.getCalculatorFactory().buildHoldingTimeCalculator(createMeasuringPoint(resource), startStopProbes);
 
         resource.addObserver(new IPassiveResourceSensor() {
 
@@ -99,12 +103,12 @@ public final class CalculatorHelper {
 
             @Override
             public void acquire(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe)startStopProbes.get(0)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement();
             }
 
             @Override
             public void release(final ISchedulableProcess process, final long num) {
-                ((TriggeredProbe)startStopProbes.get(0)).takeMeasurement();
+                ((TriggeredProbe) startStopProbes.get(0)).takeMeasurement();
             }
         });
     }
@@ -124,15 +128,15 @@ public final class CalculatorHelper {
      * calculating the demanded time. When such an event arrives, an appropriate
      * {@link BasicMeasurement} will be taken and published at the {@link ISampleBlackboard}.
      * 
-     * @param r
+     * @param scheduledResource
      *            the resource
      */
-    public static void setupDemandCalculator(final AbstractScheduledResource r, final SimuComModel model) {
+    public static void setupDemandCalculator(final AbstractScheduledResource scheduledResource, final SimuComModel model) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
-
         final Probe scheduledResourceProbe = getEventProbeSetWithCurrentTime(model.getSimulationControl(),
-                new TakeScheduledResourceDemandProbe(r), "Demand");
-        ctx.getCalculatorFactory().buildDemandCalculator(r.getDescription(), scheduledResourceProbe);
+                new TakeScheduledResourceDemandProbe(scheduledResource), "Demand");
+        ctx.getCalculatorFactory().buildDemandCalculator(createMeasuringPoint(scheduledResource),
+                scheduledResourceProbe);
     }
 
     /**
@@ -150,9 +154,11 @@ public final class CalculatorHelper {
         // setup a calculator for each instance
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
             final String instanceDescription = "Core " + (instance + 1) + " " + scheduledResource.getDescription();
-            final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
-                    new TakeScheduledResourceStateProbe(scheduledResource, instance),MetricDescriptionConstants.CPU_STATE_OVER_TIME_METRIC);
-            ctx.getCalculatorFactory().buildStateCalculator(instanceDescription, scheduledResourceProbe);
+            final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(
+                    model.getSimulationControl(), new TakeScheduledResourceStateProbe(scheduledResource, instance),
+                    MetricDescriptionConstants.CPU_STATE_OVER_TIME_METRIC);
+            ctx.getCalculatorFactory().buildStateCalculator(createMeasuringPoint(scheduledResource, instance),
+                    scheduledResourceProbe);
 
             scheduledResource.addStateListener(new IStateListener() {
                 @Override
@@ -172,25 +178,32 @@ public final class CalculatorHelper {
             public void utilizationChanged(final double resourceDemand, final double totalTime) {
 
                 // FIXME following line was commented-out. Make code working again.
-                //ctx.getCalculatorFactory().buildOverallUtilizationCalculator(r.getDescription(), null);
-                // FIXME: Define a new probe which results in the overall observed utilisation and hands it to the calculator
-                //                // FIXME This is a hack that allows to add samples to the blackboard even when
-                //                // the simulation has stopped.
-                //                if (!(ctx.getSampleBlackboard() instanceof DiscardInvalidMeasurementsBlackboardDecorator)) {
-                //                    return;
-                //                }
-                //                final DiscardInvalidMeasurementsBlackboardDecorator blackboard = (DiscardInvalidMeasurementsBlackboardDecorator) ctx
-                //                        .getSampleBlackboard();
+                // ctx.getCalculatorFactory().buildOverallUtilizationCalculator(r.getDescription(),
+                // null);
+                // FIXME: Define a new probe which results in the overall observed utilisation and
+                // hands it to the calculator
+                // // FIXME This is a hack that allows to add samples to the blackboard even when
+                // // the simulation has stopped.
+                // if (!(ctx.getSampleBlackboard() instanceof
+                // DiscardInvalidMeasurementsBlackboardDecorator)) {
+                // return;
+                // }
+                // final DiscardInvalidMeasurementsBlackboardDecorator blackboard =
+                // (DiscardInvalidMeasurementsBlackboardDecorator) ctx
+                // .getSampleBlackboard();
                 //
-                //                // build ProbeSetSamples and publish them on the blackboard
-                //                // TODO maybe null instead of empty string is better here
-                //                final RequestContext context = new RequestContext("");
-                //                blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(takeTimeSample(0.0, ctx),
-                //                        takeStateProbe(1l, ctx), context, "", stateProbeSetID));
-                //                blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
-                //                        takeTimeSample(resourceDemand, ctx), takeStateProbe(0l, ctx), context, "", stateProbeSetID));
-                //                blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
-                //                        takeTimeSample(totalTime, ctx), takeStateProbe(1l, ctx), context, "", stateProbeSetID));
+                // // build ProbeSetSamples and publish them on the blackboard
+                // // TODO maybe null instead of empty string is better here
+                // final RequestContext context = new RequestContext("");
+                // blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(takeTimeSample(0.0,
+                // ctx),
+                // takeStateProbe(1l, ctx), context, "", stateProbeSetID));
+                // blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
+                // takeTimeSample(resourceDemand, ctx), takeStateProbe(0l, ctx), context, "",
+                // stateProbeSetID));
+                // blackboard.addSampleAfterSimulationEnd(ProbeFrameworkUtils.buildProbeSetSample(
+                // takeTimeSample(totalTime, ctx), takeStateProbe(1l, ctx), context, "",
+                // stateProbeSetID));
             }
         });
     }
@@ -198,10 +211,10 @@ public final class CalculatorHelper {
     public static void setupStateCalculator(final IPassiveResource resource, final SimuComModel model) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
+        AssemblyPassiveResourceMeasuringPoint mp = createMeasuringPoint(resource);
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
-                new TakePassiveResourceStateProbe(resource),"State");
-        ctx.getCalculatorFactory().buildStateCalculator(
-                "Passive Resource " + resource.getName() + " " + resource.getId(), scheduledResourceProbe);
+                new TakePassiveResourceStateProbe(resource), "State");
+        ctx.getCalculatorFactory().buildStateCalculator(mp, scheduledResourceProbe);
 
         resource.addObserver(new IPassiveResourceSensor() {
 
@@ -222,18 +235,49 @@ public final class CalculatorHelper {
         });
     }
 
-    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
-            final MetricDescription metric) {
-        return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metric);
+    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
+            final Probe additionalProbe, final MetricDescription metric) {
+        return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
     }
 
-    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control, final Probe additionalProbe,
-            final String metricName) {
-        return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control),additionalProbe), metricName);
+    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
+            final Probe additionalProbe, final String metricName) {
+        return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
     }
 
-    protected static EventProbeList getEventProbeSetWithCurrentTime(final ISimulationControl control, final EventProbe<?> additionalProbe,
-            final String metricName) {
-        return new EventProbeList(additionalProbe,Arrays.asList((Probe)new TakeCurrentSimulationTimeProbe(control)), metricName);
+    protected static EventProbeList getEventProbeSetWithCurrentTime(final ISimulationControl control,
+            final EventProbe<?> additionalProbe, final String metricName) {
+        return new EventProbeList(additionalProbe, Arrays.asList((Probe) new TakeCurrentSimulationTimeProbe(control)));
+    }
+
+    private static AssemblyPassiveResourceMeasuringPoint createMeasuringPoint(final IPassiveResource resource) {
+        AssemblyPassiveResourceMeasuringPoint mp = measuringpointFactory.createAssemblyPassiveResourceMeasuringPoint();
+        mp.setAssembly(resource.getAssemblyContext());
+        mp.setPassiveResource(resource.getResource());
+        return mp;
+    }
+
+    private static MeasuringPoint createMeasuringPoint(final AbstractScheduledResource scheduledResource) {
+        return createMeasuringPoint(scheduledResource, 0);
+    }
+
+    private static MeasuringPoint createMeasuringPoint(final AbstractScheduledResource scheduledResource,
+            final int replicaID) {
+        MeasuringPoint measuringPoint = null;
+        if (scheduledResource instanceof ScheduledResource) {
+            ScheduledResource resource = (ScheduledResource) scheduledResource;
+            ActiveResourceMeasuringPoint mp = measuringpointFactory.createActiveResourceMeasuringPoint();
+            mp.setActiveResource(resource.getActiveResource());
+            mp.setReplicaID(replicaID);
+            measuringPoint = mp;
+        } else if (scheduledResource instanceof SimulatedLinkingResource) {
+            SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
+            LinkingResourceMeasuringPoint mp = measuringpointFactory.createLinkingResourceMeasuringPoint();
+            mp.setLinkingResource(resource.getLinkingResource());
+            measuringPoint = mp;
+        } else {
+            throw new IllegalArgumentException("Unknown variant of AbstractScheduledResource");
+        }
+        return measuringPoint;
     }
 }

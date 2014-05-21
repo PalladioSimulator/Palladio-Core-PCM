@@ -14,14 +14,14 @@
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
     {
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.entityName»",demand);
+      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.id»",demand);
     }
 «ENDDEFINE»
 
 «DEFINE ResourceDemand FOR NetworkDemandParametricResourceDemand»
     {
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredCommunicationLinkResource_ParametricResourceDemand.entityName»",demand);
+      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredCommunicationLinkResource_ParametricResourceDemand.id»",demand);
     }
 «ENDDEFINE»
 
@@ -72,9 +72,9 @@
    	 	
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.numberOfCalls__ResourceCall.specification.specificationString()»",Double.class));
       if(parameterMap.size()>=1){
-      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«this.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
+      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(), "«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.id»", «this.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
       }else{
-      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.entityName.javaString()»",«this.signature__ResourceCall.resourceServiceId»,demand);     	
+      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(), "«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.id»", «this.signature__ResourceCall.resourceServiceId», demand);     	
       }
      
    } 
@@ -203,14 +203,8 @@
 
 «DEFINE LinkingResourceAdd FOR CommunicationLinkResourceSpecification»
 	rc.addActiveResource(
-	    "«this.linkingResource_CommunicationLinkResourceSpecification.id»",
-		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»",
-		rc.getResourceContainerID(),
-		"«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.id»",
-		"«((LinkingResource)this.eContainer).entityName.specificationString()» [«this.communicationLinkResourceType_CommunicationLinkResourceSpecification.entityName»] <«((LinkingResource)this.eContainer).id»>",
-		"«this.throughput_CommunicationLinkResourceSpecification.specification.specificationString()»",
-		"«this.latency_CommunicationLinkResourceSpecification.specification.specificationString()»",
-		«this.failureProbability»);
+	    (de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.resourceenvironment", "«this.linkingResource_CommunicationLinkResourceSpecification.id»"),
+		rc.getResourceContainerID());
 «ENDDEFINE»
 
 «DEFINE NestedResourceContainerAdd FOR ResourceContainer»
@@ -231,18 +225,11 @@
 		«ENDFOREACH»
 	«ENDIF»
 	rc.addActiveResource(
-		"«this.activeResourceType_ActiveResourceSpecification.entityName»",
+	    (de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.resourceenvironment", "«this.id»"),
 		«this.activeResourceType_ActiveResourceSpecification.id.javaVariableName()»_provInterfaces,
 		rc.getResourceContainerID(),
-		"«this.activeResourceType_ActiveResourceSpecification.id»",
-		"«((ResourceContainer)this.eContainer).entityName.specificationString()» [«this.activeResourceType_ActiveResourceSpecification.entityName»] <«((ResourceContainer)this.eContainer).id»>",
-		"«this.processingRate_ProcessingResourceSpecification.specification.specificationString()»",
-		«this.MTTF»,
-		«this.MTTR»,
-		"TODO: unit!",
-		«EXPAND SchedulingStrategy(((ResourceContainer)this.eContainer)) FOR this»,
-		«this.numberOfReplicas»,
-		«this.requiredByContainer»);
+		«EXPAND SchedulingStrategy(((ResourceContainer)this.eContainer)) FOR this»
+		);
 «ENDDEFINE»
 
 «DEFINE SchedulingStrategy(ResourceContainer container) FOR ProcessingResourceSpecification»

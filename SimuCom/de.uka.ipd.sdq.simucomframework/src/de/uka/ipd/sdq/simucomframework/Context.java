@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.simucomframework;
 
 import java.util.HashMap;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -11,164 +13,146 @@ import de.uka.ipd.sdq.simucomframework.resources.SimulatedResourceContainer;
 import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 
 /**
- * Context of each simulation thread. This context inherits a stack context and
- * enriches it with information on the simulated execution environment.
+ * Context of each simulation thread. This context inherits a stack context and enriches it with
+ * information on the simulated execution environment.
  * 
- * @author Steffen Becker
- * 
+ * @author Steffen Becker, Sebastian Lehrig
  */
 public abstract class Context extends StackContext {
 
-	/**
+    /**
 	 * 
 	 */
-	private static final long serialVersionUID = -1869414754329617190L;
+    private static final long serialVersionUID = -1869414754329617190L;
 
-	/**
-	 * Central registry which contains all simulated resources
-	 */
-	private ResourceRegistry registry = null;
+    /**
+     * Central registry which contains all simulated resources
+     */
+    private ResourceRegistry registry = null;
 
-	/**
-	 * AssemblyContextID -> ResourceContainer Object (Deployment Link)
-	 */
-	private final HashMap<String, AbstractSimulatedResourceContainer> assemblyLinkHash = new HashMap<String, AbstractSimulatedResourceContainer>();
+    /**
+     * AssemblyContextID -> ResourceContainer Object (Deployment Link)
+     */
+    private final HashMap<String, AbstractSimulatedResourceContainer> assemblyLinkHash = new HashMap<String, AbstractSimulatedResourceContainer>();
 
-	/**
-	 * AssemblyContextID -> PassiveRessource
-	 */
-	private final HashMap<String, IPassiveResource> assemblyPassiveResourceHash = new HashMap<String, IPassiveResource>();
+    /**
+     * AssemblyContextID -> PassiveRessource
+     */
+    private final HashMap<String, IPassiveResource> assemblyPassiveResourceHash = new HashMap<String, IPassiveResource>();
 
-	/**
-	 * The thread to which this context belongs
-	 */
-	private SimuComSimProcess myThread = null;
+    /**
+     * The thread to which this context belongs
+     */
+    private SimuComSimProcess myThread = null;
 
-	/**
-	 * Simulation model
-	 */
-	private SimuComModel myModel = null;
+    /**
+     * Simulation model
+     */
+    private SimuComModel myModel = null;
 
-	/**
-	 * Initialise a new context for the given simulation model
-	 * 
-	 * @param myModel
-	 *            The simulation model used in this context
-	 */
-	public Context(SimuComModel myModel) {
-		if (myModel != null) { // This is for the prototype mapping, where we
-			// don't need resources
-			this.registry = myModel.getResourceRegistry();
-			this.myModel = myModel;
-			initialiseAssemblyContextLookup();
-		} else {
-			stack.createAndPushNewStackFrame();
-		}
-	}
+    /**
+     * Initialise a new context for the given simulation model
+     * 
+     * @param myModel
+     *            The simulation model used in this context
+     */
+    public Context(SimuComModel myModel) {
+        if (myModel != null) { // This is for the prototype mapping, where we
+            // don't need resources
+            this.registry = myModel.getResourceRegistry();
+            this.myModel = myModel;
+            initialiseAssemblyContextLookup();
+        } else {
+            stack.createAndPushNewStackFrame();
+        }
+    }
 
-	public long getSessionId() {
-		return myThread.getCurrentSessionId();
-	}
+    public long getSessionId() {
+        return myThread.getCurrentSessionId();
+    }
 
-	/**
-	 * Lookup method to find the resource container in which the given
-	 * components assembly context is deployed
-	 * 
-	 * @param assemblyContextID
-	 *            The ID of the assembly context for which its deployment is
-	 *            queried
-	 * @return The resource container in which the given assembly context is
-	 *         deployed
-	 */
-	public AbstractSimulatedResourceContainer findResource(
-			String assemblyContextID) {
-		AbstractSimulatedResourceContainer container = assemblyLinkHash
-				.get(assemblyContextID);
-		if (container == null)
-			throw new ResourceContainerNotFound(
-					"Resource container for assembly context "
-							+ assemblyContextID
-							+ " not found. Check your allocation model. "
-							+ "Note that a SubSystem must only be used once in one System, using one several times may cause this error. ");
-		return container;
-	}
+    /**
+     * Lookup method to find the resource container in which the given components assembly context
+     * is deployed
+     * 
+     * @param assemblyContextID
+     *            The ID of the assembly context for which its deployment is queried
+     * @return The resource container in which the given assembly context is deployed
+     */
+    public AbstractSimulatedResourceContainer findResource(String assemblyContextID) {
+        AbstractSimulatedResourceContainer container = assemblyLinkHash.get(assemblyContextID);
+        if (container == null) {
+            throw new ResourceContainerNotFound(
+                    "Resource container for assembly context "
+                            + assemblyContextID
+                            + " not found. Check your allocation model. "
+                            + "Note that a SubSystem must only be used once in one System, using one several times may cause this error. ");
+        }
+        return container;
+    }
 
-	/**
-	 * Lookup method to find the linking resource container that belongs to the
-	 * given container id.
-	 * 
-	 * @param linkingResourceContainerID
-	 *            the container id
-	 * @return the linking resource container
-	 */
-	public SimulatedLinkingResourceContainer findLinkingResource(
-			String linkingResourceContainerID) {
-		AbstractSimulatedResourceContainer container = registry
-				.getResourceContainer(linkingResourceContainerID);
-		if ((container == null)
-				|| !(container instanceof SimulatedLinkingResourceContainer)) {
-			throw new ResourceContainerNotFound(
-					"Linking resource container for container ID "
-							+ linkingResourceContainerID + " not found.");
-		}
-		return (SimulatedLinkingResourceContainer) container;
-	}
+    /**
+     * Lookup method to find the linking resource container that belongs to the given container id.
+     * 
+     * @param linkingResourceContainerID
+     *            the container id
+     * @return the linking resource container
+     */
+    public SimulatedLinkingResourceContainer findLinkingResource(String linkingResourceContainerID) {
+        AbstractSimulatedResourceContainer container = registry.getResourceContainer(linkingResourceContainerID);
+        if ((container == null) || !(container instanceof SimulatedLinkingResourceContainer)) {
+            throw new ResourceContainerNotFound("Linking resource container for container ID "
+                    + linkingResourceContainerID + " not found.");
+        }
+        return (SimulatedLinkingResourceContainer) container;
+    }
 
-	/**
-	 * Create a deployment relationship between the given assembly context and
-	 * the given resource container
-	 * 
-	 * @param assemblyContextID
-	 *            ID of the assembly context to allocate
-	 * @param resourceContainerID
-	 *            ID of the resource container on which the assembly context is
-	 *            allocated
-	 */
-	protected void linkAssemblyContextAndResourceContainer(
-			String assemblyContextID, String resourceContainerID) {
-		assert registry.containsResourceContainer(resourceContainerID);
-		AbstractSimulatedResourceContainer container = registry
-				.getResourceContainer(resourceContainerID);
-		assemblyLinkHash.put(assemblyContextID, container);
-	}
+    /**
+     * Create a deployment relationship between the given assembly context and the given resource
+     * container
+     * 
+     * @param assemblyContextID
+     *            ID of the assembly context to allocate
+     * @param resourceContainerID
+     *            ID of the resource container on which the assembly context is allocated
+     */
+    protected void linkAssemblyContextAndResourceContainer(String assemblyContextID, String resourceContainerID) {
+        assert registry.containsResourceContainer(resourceContainerID);
+        AbstractSimulatedResourceContainer container = registry.getResourceContainer(resourceContainerID);
+        assemblyLinkHash.put(assemblyContextID, container);
+    }
 
-	public IPassiveResource getPassiveRessourceInContext(
-			String assemblyContextID, String passiveResourceName,
-			String passiveResourceID,
-			AbstractSimulatedResourceContainer resourceContainer, long capacity) {
-		IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContextID
-				+ passiveResourceID);
+    public IPassiveResource getPassiveRessourceInContext(final PassiveResource resource,
+            final AssemblyContext assemblyContext, String assemblyContextID,
+            AbstractSimulatedResourceContainer resourceContainer, long capacity) {
+        IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContextID + resource.getId());
 
-		if (pr == null) {
-			pr = ((SimulatedResourceContainer) resourceContainer)
-					.createPassiveResource(passiveResourceName,
-							passiveResourceID, assemblyContextID,
-							passiveResourceID + ":" + assemblyContextID,
-							capacity);
-			assemblyPassiveResourceHash.put(assemblyContextID
-					+ passiveResourceID, pr);
-		}
+        if (pr == null) {
+            pr = ((SimulatedResourceContainer) resourceContainer).createPassiveResource(resource, assemblyContext,
+                    assemblyContextID, capacity);
+            assemblyPassiveResourceHash.put(assemblyContextID + resource.getId(), pr);
+        }
 
-		return pr;
-	}
+        return pr;
+    }
 
-	/**
-	 * Template method to be filled in by the generator. Calles
-	 * linkAssemblyContextAndResourceContainer to create the deployment
-	 * specified in the allocation model
-	 */
-	protected abstract void initialiseAssemblyContextLookup();
+    /**
+     * Template method to be filled in by the generator. Calles
+     * linkAssemblyContextAndResourceContainer to create the deployment specified in the allocation
+     * model
+     */
+    protected abstract void initialiseAssemblyContextLookup();
 
-	public SimuComSimProcess getThread() {
-		return myThread;
-	}
+    public SimuComSimProcess getThread() {
+        return myThread;
+    }
 
-	public void setSimProcess(SimuComSimProcess process) {
-		this.myThread = process;
-	}
+    public void setSimProcess(SimuComSimProcess process) {
+        this.myThread = process;
+    }
 
-	public SimuComModel getModel() {
-		return myModel;
-	}
+    public SimuComModel getModel() {
+        return myModel;
+    }
 
 }

@@ -16,8 +16,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  * A closed workload user is a user which performs the typical closed workload
  * cycle: execute, think, execute, ...
  * 
- * @author Steffen Becker
- * 
+ * @author Steffen Becker, Sebastian Lehrig
  */
 public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 
@@ -26,7 +25,6 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
 
     private final IScenarioRunner scenarioRunner;
     private final String thinkTime;
-    private final String usageScenarioId;
 
     // private static int USERCOUNT = 0;
     private int runCount = 0;
@@ -44,17 +42,14 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
      *            The scenario runner determining the users behaviour
      * @param thinkTimeSpec
      *            A stoex which determines the users think time
-     * @param usageScenarioId
-     *            the id of the corresponding UsageScenario PCM model element
      * @param usageStartStopProbes
      */
     public ClosedWorkloadUser(final SimuComModel owner, final String name,
             final IScenarioRunner scenarioRunner, final String thinkTimeSpec,
-            final String usageScenarioId, final List<Probe> usageStartStopProbes) {
+            final List<Probe> usageStartStopProbes) {
         super(owner, name);
         this.scenarioRunner = scenarioRunner;
         this.thinkTime = thinkTimeSpec;
-        this.usageScenarioId = usageScenarioId;
         this.usageStartStopProbes = usageStartStopProbes;
     }
 
@@ -111,7 +106,7 @@ public class ClosedWorkloadUser extends SimuComSimProcess implements IUser {
         // Print failure statistics after last user is finished:
         // if (USERCOUNT == 0) {
         // if (this.getModel().getConfig().getSimulateFailures()) {
-        // FailureStatistics.getInstance().printFailureStatistics(logger);
+        // FailureStatistics.getInstance().printFailureStatistics(LOGGER);
         // }
         // }
     }

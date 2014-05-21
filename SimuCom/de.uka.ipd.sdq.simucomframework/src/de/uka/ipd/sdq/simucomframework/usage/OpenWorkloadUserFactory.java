@@ -1,5 +1,6 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -10,8 +11,8 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
-    public OpenWorkloadUserFactory(final SimuComModel model, final String usageScenarioID) {
-        super(model,usageScenarioID);
+    public OpenWorkloadUserFactory(final SimuComModel model, final UsageScenario usageScenario) {
+        super(model, usageScenario);
     }
 
     /*
@@ -22,13 +23,12 @@ public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactor
     @Override
     public IUser createUser() {
         final IScenarioRunner scenarioRunner = this.createScenarioRunner();
-        return new OpenWorkloadUser(model, "OpenUser", scenarioRunner,
-                usageScenarioID, usageStartStopProbes);
+        return new OpenWorkloadUser(model, "OpenUser", scenarioRunner, usageStartStopProbes);
     }
 
     /**
-     * Template method filled in by the generator. Returns an object
-     * representing the user behaviour needed for the new users.
+     * Template method filled in by the generator. Returns an object representing the user behaviour
+     * needed for the new users.
      * 
      * @return The behaviour of the users created by this factory
      */

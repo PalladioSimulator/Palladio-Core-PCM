@@ -2,6 +2,8 @@ package de.uka.ipd.sdq.scheduler;
 
 import java.util.Queue;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.scheduler.processes.IWaitingProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
 
@@ -30,6 +32,20 @@ public interface IPassiveResource {
 	 */
 	public abstract void release(ISchedulableProcess process, long num);
 
+	/**
+     * Getter for the model element of the passive resource.
+     * 
+     * @return The passive resource model element.
+     */
+    public PassiveResource getResource();
+    
+    /**
+     * Getter for the model element of the assembly context.
+     * 
+     * @return The assembly context of the passive resource.
+     */
+    public AssemblyContext getAssemblyContext();
+    
 	/**
 	 * Name of the resource.
 	 * 

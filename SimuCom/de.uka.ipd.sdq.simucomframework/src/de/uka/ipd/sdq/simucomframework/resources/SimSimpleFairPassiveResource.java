@@ -3,6 +3,8 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.ArrayDeque;
 import java.util.Queue;
 
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
+import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.LoggingWrapper;
@@ -16,22 +18,22 @@ import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
- * @author Fabro
+ * Simulates a simple passive resource.
  * 
- *         Simulates a simple passive resource.
+ * Note: This class intentionally does not extend {@link SimAbstractPassiveResource}, because that
+ * abstract class is intended for passive resources that are accessed by EXACT schedulers (e.g.,
+ * specific Windows, Linux Scheduler).
  * 
- *         Note: This class intentionally does not extend
- *         {@link SimAbstractPassiveResource}, because that abstract class is
- *         intended for passive resources that are accessed by EXACT schedulers
- *         (e.g., specific Windows, Linux Scheduler).
+ * TODO: comment
  * 
- *         TODO: comment
+ * TODO Initialize based on given model elements [Lehrig]
+ * 
+ * @author Fabro, Sebastian Lehrig
  * 
  * @param <M>
  *            the type of the simulation model.
  */
-public class SimSimpleFairPassiveResource extends AbstractSimResource implements
-IPassiveResource {
+public class SimSimpleFairPassiveResource extends AbstractSimResource implements IPassiveResource {
 
     protected Queue<IWaitingProcess> waiting_queue;
     private final SchedulerModel myModel;
@@ -43,14 +45,20 @@ IPassiveResource {
 
     // provides observer functionality to this resource
     private final PassiveResourceObservee observee;
+    private final PassiveResource resource;
+    private final AssemblyContext assemblyContext;
 
-    public SimSimpleFairPassiveResource(final SimuComModel simuComModel, final SchedulerModel model, final Long capacity, final String name, final String passiveResourceID,
-            final String assemblyContextID, final String combinedID, final boolean simulateFailures) {
-        super(model, capacity, name, combinedID);
+    public SimSimpleFairPassiveResource(final PassiveResource resource, final AssemblyContext assemblyContext,
+            final SimuComModel simuComModel, final SchedulerModel model, final Long capacity,
+            final String assemblyContextID, final boolean simulateFailures) {
+        super(model, capacity, resource.getEntityName(), resource.getId() + ":" + assemblyContextID);
+        this.resource = resource;
+        this.assemblyContext = assemblyContext;
+
         this.simuComModel = simuComModel;
         this.waiting_queue = new ArrayDeque<IWaitingProcess>();
         this.myModel = model;
-        this.passiveResourceID = passiveResourceID;
+        this.passiveResourceID = resource.getId();
         this.assemblyContextID = assemblyContextID;
         this.observee = new PassiveResourceObservee();
         this.available = capacity;
@@ -58,9 +66,17 @@ IPassiveResource {
     }
 
     private boolean canProceed(final ISchedulableProcess process, final long num) {
-        return (waiting_queue.isEmpty() || waiting_queue.peek().getProcess()
-                .equals(process))
-                && num <= available;
+        return (waiting_queue.isEmpty() || waiting_queue.peek().getProcess().equals(process)) && num <= available;
+    }
+
+    @Override
+    public PassiveResource getResource() {
+        return this.resource;
+    }
+
+    @Override
+    public AssemblyContext getAssemblyContext() {
+        return this.assemblyContext;
     }
 
     @Override
@@ -69,16 +85,15 @@ IPassiveResource {
     }
 
     private void grantAccess(final ISchedulableProcess process, final long num) {
-        LoggingWrapper.log("Process " + process + " acquires " + num + " of "
-                + this);
+        LoggingWrapper.log("Process " + process + " acquires " + num + " of " + this);
         this.available -= num;
         observee.fireAquire(process, num);
         assert this.available >= 0 : "More resource than available have been acquired!";
     }
 
     @Override
-    public boolean acquire(final ISchedulableProcess sched_process, final long num,
-            final boolean timeout, final double timeoutValue) {
+    public boolean acquire(final ISchedulableProcess sched_process, final long num, final boolean timeout,
+            final double timeoutValue) {
 
         // AM: Copied from AbstractActiveResource: If simulation is stopped,
         // allow all processes to finish
@@ -95,10 +110,8 @@ IPassiveResource {
             grantAccess(sched_process, num);
             return true;
         } else {
-            LoggingWrapper.log("Process " + sched_process + " is waiting for "
-                    + num + " of " + this);
-            final SimpleWaitingProcess process = new SimpleWaitingProcess(
-                    myModel, sched_process, num);
+            LoggingWrapper.log("Process " + sched_process + " is waiting for " + num + " of " + this);
+            final SimpleWaitingProcess process = new SimpleWaitingProcess(myModel, sched_process, num);
             processTimeout(timeout, timeoutValue, process);
             waiting_queue.add(process);
             sched_process.passivate();
@@ -107,8 +120,7 @@ IPassiveResource {
     }
 
     /**
-     * Schedules a timeout event if a timeout is specified and failures are
-     * simulated.
+     * Schedules a timeout event if a timeout is specified and failures are simulated.
      * 
      * @param timeout
      *            indicates if the acquire request is associated with a timeout
@@ -117,18 +129,19 @@ IPassiveResource {
      * @param process
      *            the waiting process
      */
-    private void processTimeout(final boolean timeout,
-            final double timeoutValue, final SimpleWaitingProcess process) {
+    private void processTimeout(final boolean timeout, final double timeoutValue, final SimpleWaitingProcess process) {
         if (!simulateFailures || !timeout) {
             return;
         }
         if (timeoutValue == 0.0) {
-            FailureException.raise(simuComModel,simuComModel.getFailureStatistics()
-                    .getResourceTimeoutFailureType(this.assemblyContextID,
+            FailureException.raise(
+                    simuComModel,
+                    simuComModel.getFailureStatistics().getResourceTimeoutFailureType(this.assemblyContextID,
                             this.passiveResourceID));
         }
         if (timeoutValue > 0.0) {
-            final PassiveResourceTimeoutEvent event = new PassiveResourceTimeoutEvent(simuComModel, myModel, this, process);
+            final PassiveResourceTimeoutEvent event = new PassiveResourceTimeoutEvent(simuComModel, myModel, this,
+                    process);
             event.schedule(process, timeoutValue);
         }
     }
@@ -161,23 +174,19 @@ IPassiveResource {
             return;
         }
 
-        LoggingWrapper.log("Process " + sched_process + " releases " + num
-                + " of " + this);
+        LoggingWrapper.log("Process " + sched_process + " releases " + num + " of " + this);
         this.available += num;
         observee.fireRelease(sched_process, num);
         notifyWaitingProcesses();
     }
 
     private void notifyWaitingProcesses() {
-        SimpleWaitingProcess waitingProcess = (SimpleWaitingProcess)waiting_queue.peek();
-        while (waitingProcess != null
-                && canProceed(waitingProcess.getProcess(), waitingProcess
-                        .getNumRequested())) {
-            grantAccess(waitingProcess.getProcess(), waitingProcess
-                    .getNumRequested());
+        SimpleWaitingProcess waitingProcess = (SimpleWaitingProcess) waiting_queue.peek();
+        while (waitingProcess != null && canProceed(waitingProcess.getProcess(), waitingProcess.getNumRequested())) {
+            grantAccess(waitingProcess.getProcess(), waitingProcess.getNumRequested());
             waiting_queue.remove();
             waitingProcess.getProcess().activate();
-            waitingProcess = (SimpleWaitingProcess)waiting_queue.peek();
+            waitingProcess = (SimpleWaitingProcess) waiting_queue.peek();
         }
     }
 
@@ -197,13 +206,11 @@ IPassiveResource {
     }
 
     /**
-     * Determines if a given process is currently waiting to acquire this
-     * resource.
+     * Determines if a given process is currently waiting to acquire this resource.
      * 
      * @param process
      *            the process
-     * @return TRUE if the process is waiting to acquire the resource; FALSE
-     *         otherwise
+     * @return TRUE if the process is waiting to acquire the resource; FALSE otherwise
      */
     public boolean isWaiting(final SimpleWaitingProcess process) {
         return waiting_queue.contains(process);

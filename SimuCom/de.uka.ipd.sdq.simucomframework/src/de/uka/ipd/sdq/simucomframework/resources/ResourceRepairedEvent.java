@@ -9,15 +9,15 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.AbstractSimEventDelegator;
  * After the occurrence of the repair event, the resource is available again until the next failure
  * event occurs.
  * 
- * @author brosch
+ * @author brosch, Sebastian Lehrig
  * 
  */
-public class ResourceRepairedEvent extends AbstractSimEventDelegator<AbstractScheduledResource> {
+public class ResourceRepairedEvent extends AbstractSimEventDelegator<ScheduledResource> {
 
     /**
      * The resource that this event belongs to.
      */
-    private AbstractScheduledResource resource;
+    private ScheduledResource resource;
 
     /**
      * The corresponding failure event.
@@ -42,7 +42,8 @@ public class ResourceRepairedEvent extends AbstractSimEventDelegator<AbstractSch
      * @seede.uka.ipd.sdq.simucomframework.abstractSimEngine.SimEvent#eventRoutine(de.uka.ipd.sdq.
      * simucomframework.abstractSimEngine.IEntityDelegate)
      */
-    public void eventRoutine(AbstractScheduledResource who) {
+    @Override
+    public void eventRoutine(ScheduledResource who) {
         resource.setAvailable(true);
         if (this.getModel().getSimulationControl().isRunning()) {
             failedEvent.schedule(resource, resource.getFailureTime());
@@ -64,7 +65,7 @@ public class ResourceRepairedEvent extends AbstractSimEventDelegator<AbstractSch
      * @param resource
      *            the resource to set
      */
-    public void setResource(final AbstractScheduledResource resource) {
+    public void setResource(final ScheduledResource resource) {
         this.resource = resource;
     }
 

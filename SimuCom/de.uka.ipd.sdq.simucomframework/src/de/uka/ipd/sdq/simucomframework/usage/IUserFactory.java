@@ -1,5 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
+import org.palladiosimulator.probeframework.calculator.Calculator;
+
 
 /**
  * Interface for factories creating users, aka as Borg maturation chambers.
@@ -15,6 +17,6 @@ public interface IUserFactory {
      */
     public IUser createUser();
 
-    public void attachResponseTimeCalculator();
+    public Calculator attachResponseTimeCalculator();
 
 }

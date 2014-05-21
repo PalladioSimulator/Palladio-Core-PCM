@@ -6,7 +6,7 @@ import javax.measure.Measure;
 import javax.measure.quantity.Dimensionless;
 import javax.measure.unit.Unit;
 
-import org.palladiosimulator.measurementspec.IdentifierMeasure;
+import org.palladiosimulator.measurementframework.measure.IdentifierMeasure;
 import org.palladiosimulator.metricspec.BaseMetricDescription;
 import org.palladiosimulator.metricspec.DataType;
 import org.palladiosimulator.metricspec.Identifier;

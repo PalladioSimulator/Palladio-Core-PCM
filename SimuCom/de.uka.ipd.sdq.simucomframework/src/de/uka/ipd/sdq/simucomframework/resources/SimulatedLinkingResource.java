@@ -5,6 +5,7 @@ import java.util.Map;
 
 import org.apache.log4j.Logger;
 
+import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
 import de.uka.ipd.sdq.scheduler.IActiveResource;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.FailureException;
@@ -14,53 +15,66 @@ import de.uka.ipd.sdq.simucomframework.variables.StackContext;
 import de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter;
 
 /**
- * Realizes a LinkingResource. Adds the latency time to the
- * passed demand in {@link #consumeResource(SimuComSimProcess, double)},
- * and they is loaded by latency + demand / throughput.
+ * Realizes a LinkingResource. Adds the latency time to the passed demand in
+ * {@link #consumeResource(SimuComSimProcess, double)}, and they is loaded by latency + demand /
+ * throughput.
  * 
- * @author hauck, brosch, merkle
- * 
+ * @author hauck, brosch, merkle, Sebastian Lehrig
  */
 public class SimulatedLinkingResource extends AbstractScheduledResource {
 
-    protected static Logger logger = Logger
-            .getLogger(SimulatedLinkingResource.class.getName());
+    private static Logger LOGGER = Logger.getLogger(SimulatedLinkingResource.class.getName());
 
+    private static long resourceId = 1;
+
+    private final LinkingResource linkingResource;
     private final String throughput;
     private final String latencySpec;
-    private static long resourceId = 1;
-    private final String id;
+
+    // For resources that can fail (SimulatedLinkingResources):
+    private final boolean canFail;
+    private final double failureProbability;
 
     private boolean utilizationSet = false;
 
     // private SimpleTimeSpanSensor demandedTimeSensor;
     // private OverallUtilisationSensor utilisationSensor;
 
-    public SimulatedLinkingResource(final String id, final SimuComModel simuComModel,
-            final String typeID, final String resourceContainerID, final String resourceTypeID,
-            final String description, final String d, final String latencySpec,
-            final Double failureProbability) {
-        super(simuComModel, typeID, resourceContainerID, resourceTypeID,
-                description, SchedulingStrategy.FCFS, 1, false);
-        this.id = id;
-        this.latencySpec = latencySpec;
-        this.throughput = d;
-        this.failureProbability = failureProbability;
-        this.canFail = (simuComModel.getConfiguration().getSimulateFailures() && this.failureProbability > 0.0);
+    public SimulatedLinkingResource(final LinkingResource linkingResource, final SimuComModel simuComModel,
+            final String resourceContainerID) {
+        super(simuComModel, linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
+                .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification().getEntityName(), // typeID
+                resourceContainerID, // resourceContainerID
+                linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
+                        .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification().getId(), // resourceTypeID
+                linkingResource.getEntityName()
+                        + " ["
+                        + linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
+                                .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification()
+                                .getEntityName() + "] <" + linkingResource.getId() + ">", // description
+                SchedulingStrategy.FCFS, 1, false);
 
+        this.linkingResource = linkingResource;
+        this.latencySpec = this.linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
+                .getLatency_CommunicationLinkResourceSpecification().getSpecification();
+        this.throughput = this.linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
+                .getThroughput_CommunicationLinkResourceSpecification().getSpecification();
+
+        this.failureProbability = this.linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
+                .getFailureProbability();
+        this.canFail = simuComModel.getConfiguration().getSimulateFailures() && failureProbability > 0.0;
     }
 
     public String getId() {
-        return id;
+        return this.linkingResource.getId();
     }
 
     @Override
     protected IActiveResource createActiveResource(final SimuComModel simuComModel) {
         // this.demandedTimeSensor = new SimpleTimeSpanSensor(simuComModel,
         // "Demanded time at " + description);
-        final IActiveResource aResource = getModel().getSchedulingFactory()
-                .createSimFCFSResource(SchedulingStrategy.FCFS.toString(),
-                        getNextResourceId());
+        final IActiveResource aResource = getModel().getSchedulingFactory().createSimFCFSResource(
+                SchedulingStrategy.FCFS.toString(), getNextResourceId());
 
         // utilisationSensor = new OverallUtilisationSensor(simuComModel,
         // "Utilisation of " + typeID + " " + description);
@@ -69,27 +83,24 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
 
     @Override
     protected double calculateDemand(final double demand) {
-        final double calculatedThroughput = NumberConverter.toDouble(StackContext
-                .evaluateStatic(throughput));
+        final double calculatedThroughput = NumberConverter.toDouble(StackContext.evaluateStatic(throughput));
         if (calculatedThroughput <= 0) {
-            throw new ThroughputZeroOrNegativeException(
-                    "Throughput at resource " + getName()
+            throw new ThroughputZeroOrNegativeException("Throughput at resource " + getName()
                     + " was less or equal zero");
         }
 
-        final double result = NumberConverter.toDouble(StackContext
-                .evaluateStatic(latencySpec))
-                + demand / calculatedThroughput;
-        if(logger.isDebugEnabled()) {
-            logger.debug("A network load of " + result + " has been determined.");
+        final double result = NumberConverter.toDouble(StackContext.evaluateStatic(latencySpec)) + demand
+                / calculatedThroughput;
+        if (LOGGER.isDebugEnabled()) {
+            LOGGER.debug("A network load of " + result + " has been determined.");
         }
 
         return result;
     }
 
-
     /**
-     * @param abstractDemand: may be zero, in that case only the latency is considered.
+     * @param abstractDemand
+     *            : may be zero, in that case only the latency is considered.
      */
     @Override
     public void consumeResource(final SimuComSimProcess process, final int resourceServiceID,
@@ -100,51 +111,50 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
         // This works for communication link resources (LAN), but only if the
         // "simulate linking resources" option is activated. Otherwise, the
         // commlink failure is triggered out of the OAW generated code.
-        if (canFail) {
-            if (Math.random() < failureProbability) {
-                FailureException
-                .raise(this.getModel(),this.getModel().getFailureStatistics()
-                        .getInternalNetworkFailureType(id,
-                                this.resourceTypeID));
+
+        if (this.canFail) {
+            if (Math.random() < this.failureProbability) {
+                FailureException.raise(this.getModel(), this.getModel().getFailureStatistics()
+                        .getInternalNetworkFailureType(this.linkingResource.getId(), getResourceTypeId()));
             }
         }
 
         // registerProcessWindows(process, aResource);
-        // logger.info("Demanding " + abstractDemand);
+        // LOGGER.info("Demanding " + abstractDemand);
 
         // Consider throughput spec and add latency to the demand.
         final double concreteDemand = calculateDemand(abstractDemand);
 
-        if (concreteDemand <= 0){
+        if (concreteDemand <= 0) {
             // Do nothing.
             // TODO throw an exception or add a warning?
             return;
         }
 
-        // logger.info("Recording " + concreteDemand);
+        // LOGGER.info("Recording " + concreteDemand);
         fireDemand(concreteDemand);
-        aResource.process(process, resourceServiceID, parameterMap, concreteDemand);
+        getUnderlyingResource().process(process, resourceServiceID, parameterMap, concreteDemand);
     }
 
     @Override
     public double getRemainingDemandForProcess(final SimuComSimProcess thread) {
-        return aResource.getRemainingDemand(thread);
+        return getUnderlyingResource().getRemainingDemand(thread);
     }
 
     @Override
     public void updateDemand(final SimuComSimProcess thread, final double demand) {
-        aResource.updateDemand(thread, demand);
+        getUnderlyingResource().updateDemand(thread, demand);
     }
 
     @Override
     public IActiveResource getScheduledResource() {
-        return aResource;
+        return getUnderlyingResource();
         // return null;
     }
 
     @Override
     public void activateResource() {
-        aResource.start();
+        getUnderlyingResource().start();
     }
 
     @Override
@@ -154,10 +164,14 @@ public class SimulatedLinkingResource extends AbstractScheduledResource {
             // 1);
             utilizationSet = true;
         }
-        aResource.stop();
+        getUnderlyingResource().stop();
     }
 
     public static String getNextResourceId() {
         return "NETWORK_" + Long.toString(resourceId++);
+    }
+
+    public LinkingResource getLinkingResource() {
+        return this.linkingResource;
     }
 }
