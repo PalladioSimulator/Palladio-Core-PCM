@@ -14,7 +14,7 @@ import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.StringMeasuringPoint;
 import org.palladiosimulator.probeframework.calculator.Calculator;
 import org.palladiosimulator.probeframework.probes.EventProbeList;
-import org.palladiosimulator.probeframework.probes.Probe;
+import org.palladiosimulator.probeframework.probes.TriggeredProbe;
 
 import de.uka.ipd.sdq.errorhandling.dialogs.issues.DisplayIssuesDialog;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -63,7 +63,7 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
     private SimuComModel model;
 
     /** The simucom status EMF model instance which tracks simulation status for debugging */
-    private SimuComStatus simuComStatus;    
+    private SimuComStatus simuComStatus;
 
     /** Default EMF factory for measuring points. */
     private final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
@@ -212,7 +212,7 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
                     .buildExecutionResultCalculator(
                             mp,
                             new EventProbeList(model.getFailureStatistics().getExecutionResultProbe(), Arrays
-                                    .asList((Probe) new TakeCurrentSimulationTimeProbe(this.model
+                                    .asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(this.model
                                             .getSimulationControl()))));
         }
     }
@@ -221,8 +221,10 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
         for (final IWorkloadDriver driver : workloadDrivers) {
             final IUserFactory userFactory = driver.getUserFactory();
             Calculator calculator = userFactory.attachResponseTimeCalculator();
-            if(ExperimentRunner.confidenceStopCondition != null) {
-                calculator.addObserver(ExperimentRunner.confidenceStopCondition); // FIXME find right place for this
+            if (ExperimentRunner.confidenceStopCondition != null) {
+                calculator.addObserver(ExperimentRunner.confidenceStopCondition); // FIXME find
+                                                                                  // right place for
+                                                                                  // this
             }
         }
     }

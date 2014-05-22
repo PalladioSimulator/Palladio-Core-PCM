@@ -236,18 +236,19 @@ public final class CalculatorHelper {
     }
 
     protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
-            final Probe additionalProbe, final MetricDescription metric) {
+            final TriggeredProbe additionalProbe, final MetricDescription metric) {
         return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
     }
 
     protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
-            final Probe additionalProbe, final String metricName) {
+            final TriggeredProbe additionalProbe, final String metricName) {
         return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
     }
 
     protected static EventProbeList getEventProbeSetWithCurrentTime(final ISimulationControl control,
             final EventProbe<?> additionalProbe, final String metricName) {
-        return new EventProbeList(additionalProbe, Arrays.asList((Probe) new TakeCurrentSimulationTimeProbe(control)));
+        return new EventProbeList(additionalProbe, Arrays.asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(
+                control)));
     }
 
     private static AssemblyPassiveResourceMeasuringPoint createMeasuringPoint(final IPassiveResource resource) {
