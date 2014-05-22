@@ -110,8 +110,8 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 			compositionRulesConfig.put(componentType, ruleEditor.getCompositionRules());
 		}
 
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, defaultComponentsConfig);
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, compositionRulesConfig);
+		//configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, defaultComponentsConfig);
+		//configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, compositionRulesConfig);
 	}
 
 	@Override
@@ -120,8 +120,8 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 		Map<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
 		Map<SimulationComponentType, List<SimulatiorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatiorCompositonRule>>();
 
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, defaultComponentsConfig);
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, compositionRulesConfig);
+		//configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, defaultComponentsConfig);
+		//configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, compositionRulesConfig);
 	}
 
 	/**
