@@ -9,8 +9,6 @@ import org.palladiosimulator.edp2.models.measuringpoint.LinkingResourceMeasuring
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.measurementframework.BasicMeasurement;
-import org.palladiosimulator.metricspec.MetricDescription;
-import org.palladiosimulator.metricspec.constants.MetricDescriptionConstants;
 import org.palladiosimulator.probeframework.ProbeFrameworkContext;
 import org.palladiosimulator.probeframework.probes.EventProbe;
 import org.palladiosimulator.probeframework.probes.EventProbeList;
@@ -134,7 +132,7 @@ public final class CalculatorHelper {
     public static void setupDemandCalculator(final AbstractScheduledResource scheduledResource, final SimuComModel model) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
         final Probe scheduledResourceProbe = getEventProbeSetWithCurrentTime(model.getSimulationControl(),
-                new TakeScheduledResourceDemandProbe(scheduledResource), "Demand");
+                new TakeScheduledResourceDemandProbe(scheduledResource));
         ctx.getCalculatorFactory().buildDemandCalculator(createMeasuringPoint(scheduledResource),
                 scheduledResourceProbe);
     }
@@ -153,10 +151,8 @@ public final class CalculatorHelper {
 
         // setup a calculator for each instance
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
-            final String instanceDescription = "Core " + (instance + 1) + " " + scheduledResource.getDescription();
             final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(
-                    model.getSimulationControl(), new TakeScheduledResourceStateProbe(scheduledResource, instance),
-                    MetricDescriptionConstants.CPU_STATE_OVER_TIME_METRIC);
+                    model.getSimulationControl(), new TakeScheduledResourceStateProbe(scheduledResource, instance));
             ctx.getCalculatorFactory().buildStateCalculator(createMeasuringPoint(scheduledResource, instance),
                     scheduledResourceProbe);
 
@@ -213,7 +209,7 @@ public final class CalculatorHelper {
 
         AssemblyPassiveResourceMeasuringPoint mp = createMeasuringPoint(resource);
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
-                new TakePassiveResourceStateProbe(resource), "State");
+                new TakePassiveResourceStateProbe(resource));
         ctx.getCalculatorFactory().buildStateCalculator(mp, scheduledResourceProbe);
 
         resource.addObserver(new IPassiveResourceSensor() {
@@ -236,17 +232,12 @@ public final class CalculatorHelper {
     }
 
     protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
-            final TriggeredProbe additionalProbe, final MetricDescription metric) {
-        return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
-    }
-
-    protected static TriggeredProbeList getTriggeredProbeSetWithCurrentTime(final ISimulationControl control,
-            final TriggeredProbe additionalProbe, final String metricName) {
+            final TriggeredProbe additionalProbe) {
         return new TriggeredProbeList(Arrays.asList(new TakeCurrentSimulationTimeProbe(control), additionalProbe));
     }
 
     protected static EventProbeList getEventProbeSetWithCurrentTime(final ISimulationControl control,
-            final EventProbe<?> additionalProbe, final String metricName) {
+            final EventProbe<?> additionalProbe) {
         return new EventProbeList(additionalProbe, Arrays.asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(
                 control)));
     }
