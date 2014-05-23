@@ -121,7 +121,7 @@
 	if (pr_«this.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
 		// Initialize Resource First...
 		pr_«this.passiveResource_ReleaseAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(
-		    (de.uka.ipd.sdq.pcm.repository.PassiveResource) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.repository", "«this.passiveresource_ReleaseAction.id»"),
+		    (de.uka.ipd.sdq.pcm.repository.PassiveResource) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.repository", "«this.passiveResource_ReleaseAction.id»"),
 			this.assemblyContextID,
 			ctx.findResource(assemblyContextID),
 			(Integer)ctx.evaluate("«this.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()»",Integer.class)
