@@ -133,7 +133,7 @@ public final class CalculatorHelper {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
         final Probe scheduledResourceProbe = getEventProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakeScheduledResourceDemandProbe(scheduledResource));
-        ctx.getCalculatorFactory().buildDemandCalculator(createMeasuringPoint(scheduledResource),
+        ctx.getCalculatorFactory().buildResourceDemandCalculator(createMeasuringPoint(scheduledResource),
                 scheduledResourceProbe);
     }
 
@@ -153,7 +153,7 @@ public final class CalculatorHelper {
         for (int instance = 0; instance < scheduledResource.getNumberOfInstances(); instance++) {
             final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(
                     model.getSimulationControl(), new TakeScheduledResourceStateProbe(scheduledResource, instance));
-            ctx.getCalculatorFactory().buildStateCalculator(createMeasuringPoint(scheduledResource, instance),
+            ctx.getCalculatorFactory().buildStateOfActiveResourceCalculator(createMeasuringPoint(scheduledResource, instance),
                     scheduledResourceProbe);
 
             scheduledResource.addStateListener(new IStateListener() {
@@ -210,7 +210,7 @@ public final class CalculatorHelper {
         AssemblyPassiveResourceMeasuringPoint mp = createMeasuringPoint(resource);
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakePassiveResourceStateProbe(resource));
-        ctx.getCalculatorFactory().buildStateCalculator(mp, scheduledResourceProbe);
+        ctx.getCalculatorFactory().buildStateOfActiveResourceCalculator(mp, scheduledResourceProbe);
 
         resource.addObserver(new IPassiveResourceSensor() {
 

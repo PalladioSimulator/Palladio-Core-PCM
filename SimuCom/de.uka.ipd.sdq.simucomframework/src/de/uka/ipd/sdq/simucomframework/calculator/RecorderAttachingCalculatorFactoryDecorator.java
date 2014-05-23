@@ -84,24 +84,24 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      * {@inheritDoc}
      */
     @Override
-    public Calculator buildStateCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildStateCalculator(measuringPoint, probe));
+    public Calculator buildStateOfActiveResourceCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildStateOfActiveResourceCalculator(measuringPoint, probe));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Calculator buildOverallUtilizationCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildOverallUtilizationCalculator(measuringPoint, probe));
+    public Calculator buildOverallStateOfActiveResourceCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildOverallStateOfActiveResourceCalculator(measuringPoint, probe));
     }
 
     /**
      * {@inheritDoc}
      */
     @Override
-    public Calculator buildDemandCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildDemandCalculator(measuringPoint, probe));
+    public Calculator buildResourceDemandCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildResourceDemandCalculator(measuringPoint, probe));
     }
 
     /**
@@ -110,14 +110,6 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
     @Override
     public Calculator buildExecutionResultCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
         return setupRecorder(decoratedCalculatorFactory.buildExecutionResultCalculator(measuringPoint, probe));
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    @Override
-    public Calculator buildIdentityCalculator(final MeasuringPoint measuringPoint, Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildIdentityCalculator(measuringPoint, probe));
     }
 
     private Calculator setupRecorder(final Calculator calculator) {

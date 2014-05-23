@@ -36,7 +36,7 @@ public class TakeScheduledResourceStateProbe extends
 	public TakeScheduledResourceStateProbe(
 			final AbstractScheduledResource scheduledResource,
 			final int instance) {
-		super(scheduledResource, MetricDescriptionConstants.CPU_STATE_METRIC);
+		super(scheduledResource, MetricDescriptionConstants.STATE_OF_ACTIVE_RESOURCE_METRIC);
 		this.instance = instance;
 	}
 

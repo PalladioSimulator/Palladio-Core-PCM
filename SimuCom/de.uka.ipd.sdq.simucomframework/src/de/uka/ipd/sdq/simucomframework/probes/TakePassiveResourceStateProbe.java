@@ -28,7 +28,7 @@ public class TakePassiveResourceStateProbe extends
 	 */
 	public TakePassiveResourceStateProbe(final IPassiveResource passiveResource) {
 		super(passiveResource,
-				MetricDescriptionConstants.PASSIVE_RESOURCE_STATE_METRIC);
+				MetricDescriptionConstants.STATE_OF_PASSIVE_RESOURCE_METRIC);
 	}
 
 	/**
