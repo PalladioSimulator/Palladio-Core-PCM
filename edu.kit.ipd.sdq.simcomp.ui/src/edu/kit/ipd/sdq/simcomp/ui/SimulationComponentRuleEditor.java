@@ -31,11 +31,10 @@ import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
+import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulatiorCompositonRule;
 
 public class SimulationComponentRuleEditor {
-
-	private static String ANY_VALUE = "*";
 
 	private IPCMModel model;
 	private SimulationComponentType simCompType;
@@ -219,7 +218,7 @@ public class SimulationComponentRuleEditor {
 			List<String> possibleValueList = valueProvider.getPossibleValues(model);
 			possibleValues = possibleValueList.toArray(new String[possibleValueList.size() + 1]);
 			System.arraycopy(possibleValues, 0, possibleValues, 1, possibleValueList.size());
-			possibleValues[0] = ANY_VALUE;
+			possibleValues[0] = ISimulatorCompositonRule.ANY_VALUE;
 
 			return possibleValues;
 		} else {
@@ -304,7 +303,7 @@ public class SimulationComponentRuleEditor {
 		for (int i = 0; i < table.getColumnCount(); i++) {
 			if (i < (table.getColumnCount() - 1)) {
 				// field column
-				values[i] = ANY_VALUE;
+				values[i] = ISimulatorCompositonRule.ANY_VALUE;
 			} else {
 				// component column
 				values[i] = this.simCompType.getAvailableComponents().get(0).getName();
@@ -404,8 +403,7 @@ public class SimulationComponentRuleEditor {
 		if (this.model == null) {
 			return null;
 		}
-
-		if (cmbDefaultComponent.getSelectionIndex() > 0) {
+		if (cmbDefaultComponent.getSelectionIndex() >= 0) {
 			for (SimulationComponentMetaData component : this.simCompType.getAvailableComponents()) {
 				if (component.getName().equals(cmbDefaultComponent.getItems()[cmbDefaultComponent.getSelectionIndex()])) {
 					return component;

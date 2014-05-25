@@ -90,13 +90,7 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 	@Override
 	public SimulationComponentMetaData getDefaultComponentForComponentType(Class<? extends ISimulationComponent> type) {
 		for (SimulationComponentType typeKey : defaultComponentsConfig.keySet()) {
-			Class<?> typeClass = null;
-			try {
-				typeClass = Class.forName(typeKey.getTypeInterface());
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			if (typeClass.equals(type)) {
+			if (typeKey.getTypeInterface().equals(type.getName())) {
 				return defaultComponentsConfig.get(typeKey);
 			}
 		}
@@ -107,13 +101,7 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 	@Override
 	public List<ISimulatorCompositonRule> getCompositionRulesForComponentType(Class<? extends ISimulationComponent> type) {
 		for (SimulationComponentType typeKey : compositionRulesConfig.keySet()) {
-			Class<?> typeClass = null;
-			try {
-				typeClass = Class.forName(typeKey.getTypeInterface());
-			} catch (ClassNotFoundException e) {
-				e.printStackTrace();
-			}
-			if (typeClass.equals(type)) {
+			if (typeKey.getTypeInterface().equals(type.getName())) {
 				return compositionRulesConfig.get(typeKey);
 			}
 		}

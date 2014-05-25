@@ -13,6 +13,8 @@ import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
  *
  */
 public interface ISimulatorCompositonRule {
+	
+	public static String ANY_VALUE = "*";
 
 	public SimulationComponentType getComponentType();
 

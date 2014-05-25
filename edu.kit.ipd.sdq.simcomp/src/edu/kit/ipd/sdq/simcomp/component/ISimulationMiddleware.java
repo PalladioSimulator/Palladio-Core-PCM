@@ -89,7 +89,7 @@ public interface ISimulationMiddleware {
 	 *            A simulation context to precise the decision on
 	 * @return The simulation component to be used
 	 */
-	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, ISimulationContext context);
+	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context);
 
 	/**
 	 * Gives access to the simulation configuration provided by the user on

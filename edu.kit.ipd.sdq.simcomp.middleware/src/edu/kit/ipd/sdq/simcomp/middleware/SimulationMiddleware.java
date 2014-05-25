@@ -37,19 +37,20 @@ import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.preferences.SimulationPreferencesHelper;
+import edu.kit.ipd.sdq.simcomp.component.AbstractSimulationContext;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationContext;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
+import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
 import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;
 import edu.kit.ipd.sdq.simcomp.events.SimulationStopEvent;
-import edu.kit.ipd.sdq.simcomp.exception.UnknownSimulationComponent;
 import edu.kit.ipd.sdq.simcomp.middleware.probespec.CalculatorFactory;
 import edu.kit.ipd.sdq.simcomp.middleware.probespec.SimCompGarbageCollector;
 import edu.kit.ipd.sdq.simcomp.middleware.probespec.probes.TakeSimulatedTimeStrategy;
@@ -198,20 +199,59 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	 * {@inheritDoc}
 	 */
 	@Override
-	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, ISimulationContext context) {
+	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context) {
 
-		// TODO (SimComp): Return simulation component by type and based on the
-		// user configuration and simulation context. For now we just return the
-		// first one matching by type.
+		// lookup by context has highest priority
+		if (context != null) {
 
+			// TODO (SimComp): cache matches in map context -> component
+
+			List<ISimulatorCompositonRule> compositionRules = this.simConfig.getCompositionRulesForComponentType(componentType);
+			// iterate in reverse order
+			for (int i = 0; i < compositionRules.size(); i++) {
+				ISimulatorCompositonRule compositonRule = compositionRules.get(compositionRules.size() - 1 - i);
+				boolean match = true;
+				// iterate fields and check for match
+				Map<SimulationContextField, String> fieldValues = compositonRule.getFieldValues();
+				for (SimulationContextField ruleContextField : fieldValues.keySet()) {
+					String ruleValue = fieldValues.get(ruleContextField);
+					String ctxValue = context.getValue(ruleContextField.getId());
+					if (!ruleValue.equals(ISimulatorCompositonRule.ANY_VALUE) && !ruleValue.equals(ctxValue)) {
+						match = false;
+					}
+				}
+
+				// all fields matched the provided context values
+				if (match) {
+					return getComponentForComponentMeta(compositonRule.getComponent(), componentList);
+				}
+			}
+		}
+
+		// context-based lookup was not successful return default component
+		SimulationComponentMetaData defaultComponentMeta = this.simConfig.getDefaultComponentForComponentType(componentType);
+
+		return getComponentForComponentMeta(defaultComponentMeta, componentList);
+	}
+
+	/**
+	 * Searches for a simulation component matching the provided meta data in
+	 * the given list of components.
+	 * 
+	 * @param componentMeta
+	 *            Meta data of a simulation component
+	 * @param componentList
+	 *            List of components to search in
+	 * @return A simulation component instance or null if could not be found
+	 */
+	private ISimulationComponent getComponentForComponentMeta(SimulationComponentMetaData componentMeta, List<? extends ISimulationComponent> componentList) {
 		for (ISimulationComponent component : componentList) {
-			if (componentType.isInstance(component)) {
+			if (componentMeta.getComponentClass().equals(component.getClass().getName())) {
 				return component;
 			}
 		}
 
-		throw new UnknownSimulationComponent("No simulation component could be determined for the given type" + componentType.getName());
-
+		return null;
 	}
 
 	/**

@@ -20,6 +20,7 @@ import edu.kit.ipd.sdq.eventsim.system.interpreter.seff.instructions.RequestTrav
 import edu.kit.ipd.sdq.eventsim.system.interpreter.state.RequestState;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource;
+import edu.kit.ipd.sdq.simcomp.resource.active.context.ActiveResourceSimulationContext;
 
 /**
  * This traversal strategy is responsible for {@link InternalAction}s.
@@ -45,15 +46,18 @@ public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<I
 		final ParametricResourceDemand demand = internalState.dequeueDemand();
 
         // fetch active resource simulation component
-        EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
-		List<IActiveResource> activeResourceComponents = system.getActiveResourceComponents();
 		ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
-		// TODO (SimComp): provide active resource context
-		IActiveResource activeResource = (IActiveResource) middleware.getSimulationComponent(IActiveResource.class, activeResourceComponents, null);
 
-        // consume the resource demand
         double evaluatedDemand = NumberConverter.toDouble(state.getStoExContext().evaluate(demand.getSpecification_ParametericResourceDemand().getSpecification()));
 		ResourceType type = demand.getRequiredResource_ParametricResourceDemand();
+
+		// fetch simulation component based on context TODO (SimComp): Fetch container information
+        EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
+		List<IActiveResource> activeResourceComponents = system.getActiveResourceComponents();
+		ActiveResourceSimulationContext context = new ActiveResourceSimulationContext(null, type.getEntityName());
+		IActiveResource activeResource = (IActiveResource) middleware.getSimulationComponent(IActiveResource.class, activeResourceComponents, context);
+
+        // consume the resource demand
 		activeResource.consume(request, state.getComponent().getResourceContainer().getSpecification(),  type, evaluatedDemand);
 		
 		EventSimSystemModel systemModel = (EventSimSystemModel) request.getEventSimModel();

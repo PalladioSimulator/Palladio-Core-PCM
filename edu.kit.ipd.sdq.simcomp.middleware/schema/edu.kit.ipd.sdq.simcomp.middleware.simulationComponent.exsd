@@ -68,6 +68,13 @@
                </documentation>
             </annotation>
          </attribute>
+         <attribute name="component_class" type="string" use="required">
+            <annotation>
+               <documentation>
+                  The fully qualified name of the class implementing the registered simulation component.
+               </documentation>
+            </annotation>
+         </attribute>
          <attribute name="type" type="string" use="required">
             <annotation>
                <documentation>

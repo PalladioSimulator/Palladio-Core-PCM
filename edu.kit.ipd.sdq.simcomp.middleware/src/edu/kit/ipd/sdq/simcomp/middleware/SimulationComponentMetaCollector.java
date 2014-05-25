@@ -110,7 +110,8 @@ public class SimulationComponentMetaCollector {
 			if (componentType.getId().equalsIgnoreCase(typeId)) {
 				String id = configurationElement.getAttribute("id");
 				String name = configurationElement.getAttribute("name");
-				SimulationComponentMetaData component = new SimulationComponentMetaData(id, name);
+				String componentClass = configurationElement.getAttribute("component_class");
+				SimulationComponentMetaData component = new SimulationComponentMetaData(id, name, componentClass);
 				componentType.addAvailableComponent(component);
 			}
 		}

@@ -4,6 +4,7 @@
    <extension
          point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponent">
       <simulation_component
+            component_class="edu.kit.ipd.sdq.eventsim.workload.EventSimWorkload"
             id="edu.kit.ipd.sdq.eventsim.workload"
             name="Workload Simulation Component (EventSim)"
             type="edu.kit.ipd.sdq.simcomp.workload">
