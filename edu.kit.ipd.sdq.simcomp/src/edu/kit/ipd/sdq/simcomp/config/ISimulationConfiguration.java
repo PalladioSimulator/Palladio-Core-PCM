@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.simcomp.component;
+package edu.kit.ipd.sdq.simcomp.config;
 
 import java.util.Map;
 

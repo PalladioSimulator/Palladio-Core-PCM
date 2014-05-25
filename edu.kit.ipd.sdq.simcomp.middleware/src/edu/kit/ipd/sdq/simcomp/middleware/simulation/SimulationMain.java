@@ -15,8 +15,8 @@ import de.uka.ipd.sdq.simulation.ISimulationControl;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.SimulationResult;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.middleware.Activator;
 
 /**

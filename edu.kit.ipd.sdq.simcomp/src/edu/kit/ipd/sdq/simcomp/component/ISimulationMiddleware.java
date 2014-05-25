@@ -7,6 +7,7 @@ import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
 import edu.kit.ipd.sdq.simcomp.events.SimulationFinalizeEvent;

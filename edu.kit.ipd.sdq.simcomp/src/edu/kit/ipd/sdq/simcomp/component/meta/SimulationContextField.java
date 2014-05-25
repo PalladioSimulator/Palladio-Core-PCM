@@ -1,19 +1,19 @@
 package edu.kit.ipd.sdq.simcomp.component.meta;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.io.Serializable;
 
-public class SimulationContextField {
+public class SimulationContextField implements Serializable {
+
+	private static final long serialVersionUID = 8608625145516507996L;
 
 	private String id;
 	private String name;
-	private List<String> possibleValues;
+	private IContextFieldValueProvider valueProvider;
 
-	public SimulationContextField(String id, String name) {
+	public SimulationContextField(String id, String name, IContextFieldValueProvider valueProvider) {
 		this.id = id;
 		this.name = name;
-		
-		possibleValues = new ArrayList<String>();
+		this.valueProvider = valueProvider;
 	}
 
 	public String getId() {
@@ -24,12 +24,38 @@ public class SimulationContextField {
 		return name;
 	}
 
-	public List<String> getPossibleValues() {
-		return possibleValues;
+	public IContextFieldValueProvider getValueProvider() {
+		return valueProvider;
 	}
 
-	public void addPossibleValue(String possibleValue) {
-		this.possibleValues.add(possibleValue);
+	@Override
+	public String toString() {
+		return "SimulationContextField [id=" + id + ", name=" + name + "]";
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		SimulationContextField other = (SimulationContextField) obj;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		return true;
 	}
 
 }

@@ -10,6 +10,7 @@ import org.eclipse.debug.ui.ILaunchConfigurationTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.FeatureOptionsTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuComConfigurationTab;
 import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuConfigurationTab;
+import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
 
 public class SimulationComponentLaunchConfigurationTabGroup extends AbstractLaunchConfigurationTabGroup {
@@ -24,6 +25,7 @@ public class SimulationComponentLaunchConfigurationTabGroup extends AbstractLaun
 		tabs.add(new SimulationComponentConfigTab());
 		tabs.add(new SimuConfigurationTab());
 		tabs.add(new FeatureOptionsTab());
+		tabs.add(new DebugEnabledCommonTab());
 
 		setTabs(tabs.toArray(new ILaunchConfigurationTab[] {}));
 	}

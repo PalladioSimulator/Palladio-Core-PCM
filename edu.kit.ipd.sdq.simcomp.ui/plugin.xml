@@ -6,8 +6,18 @@
       <launchConfigurationTabGroup
             class="edu.kit.ipd.sdq.simcomp.ui.SimulationComponentLaunchConfigurationTabGroup"
             id="edu.kit.ipd.sdq.simcomp.ui.launchConfigurationTabGroup"
-            type="de.uka.ipd.sdq.simucontroller.SimuLaunching">
+            type="edu.kit.ipd.sdq.simcomp.launchConfigurationType">
       </launchConfigurationTabGroup>
+   </extension>
+   <extension
+         point="org.eclipse.debug.core.launchConfigurationTypes">
+      <launchConfigurationType
+            delegate="de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimulationWorkflowLauncher"
+            id="edu.kit.ipd.sdq.simcomp.launchConfigurationType"
+            modes="run, debug"
+            name="SimuBench (Simulation Components)"
+            public="true">
+      </launchConfigurationType>
    </extension>
 
 </plugin>

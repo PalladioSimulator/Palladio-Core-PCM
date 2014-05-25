@@ -1,6 +1,6 @@
 package edu.kit.ipd.sdq.simcomp.events;
 
-import edu.kit.ipd.sdq.simcomp.component.ISimulationConfiguration;
+import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 
 public class SimulationInitEvent extends SimulationEvent {
 

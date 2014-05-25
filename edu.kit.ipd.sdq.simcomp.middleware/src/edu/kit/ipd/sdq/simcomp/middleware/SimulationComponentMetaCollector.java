@@ -1,13 +1,16 @@
 package edu.kit.ipd.sdq.simcomp.middleware;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
+import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
@@ -42,8 +45,10 @@ public class SimulationComponentMetaCollector {
 	 */
 	public static List<SimulationComponentType> buildComponentMetaData() {
 		SimulationComponentMetaCollector collector = new SimulationComponentMetaCollector();
+		List<SimulationComponentType> componentTypes = collector.getSimulationComponentTypes();
+		Collections.sort(componentTypes);
 
-		return collector.getSimulationComponentTypes();
+		return componentTypes;
 	}
 
 	/**
@@ -86,7 +91,16 @@ public class SimulationComponentMetaCollector {
 		for (IConfigurationElement fieldElement : fieldElements) {
 			String id = fieldElement.getAttribute("id");
 			String name = fieldElement.getAttribute("name");
-			SimulationContextField field = new SimulationContextField(id, name);
+			Object valueProvider = null;
+			try {
+				valueProvider = fieldElement.createExecutableExtension("value_provider");
+			} catch (CoreException e) {
+				e.printStackTrace();
+			}
+			if (!(valueProvider instanceof IContextFieldValueProvider)) {
+				throw new IllegalArgumentException("No valid context field value provider for field " + id);
+			}
+			SimulationContextField field = new SimulationContextField(id, name, (IContextFieldValueProvider) valueProvider);
 			componentType.addContextField(field);
 		}
 	}
@@ -102,7 +116,7 @@ public class SimulationComponentMetaCollector {
 		IConfigurationElement[] elements = point.getConfigurationElements();
 
 		for (IConfigurationElement configurationElement : elements) {
-			String typeId = configurationElement.getAttribute("type_id");
+			String typeId = configurationElement.getAttribute("type");
 
 			if (componentType.getId().equalsIgnoreCase(typeId)) {
 				String id = configurationElement.getAttribute("id");

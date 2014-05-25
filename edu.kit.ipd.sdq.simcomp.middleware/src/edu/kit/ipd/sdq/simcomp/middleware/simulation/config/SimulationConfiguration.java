@@ -6,8 +6,8 @@ import java.util.Map;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 
 /**
  * TODO (SimComp): implement it to contain everything we need and check we
