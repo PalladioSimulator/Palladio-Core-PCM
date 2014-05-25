@@ -6,7 +6,9 @@ import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
+import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
@@ -26,12 +28,7 @@ public interface ISimulationMiddleware {
 	 * List of simulation events triggered by this simulation component.
 	 */
 	@SuppressWarnings("rawtypes")
-	public static Class[] componentEvents = new Class[] {
-		SimulationInitEvent.class,
-		SimulationStartEvent.class,
-		SimulationStopEvent.class,
-		SimulationFinalizeEvent.class
-	};
+	public static Class[] componentEvents = new Class[] { SimulationInitEvent.class, SimulationStartEvent.class, SimulationStopEvent.class, SimulationFinalizeEvent.class };
 
 	/**
 	 * Initializes the middleware with a simulation configuration provided by
@@ -54,6 +51,16 @@ public interface ISimulationMiddleware {
 	 * @return A List of simulation component type meta data
 	 */
 	public List<SimulationComponentType> getSimulationComponentMetaData();
+
+	/**
+	 * Returns the value provider for a given simulation context field. Used to
+	 * create simulation configurations.
+	 * 
+	 * @param field
+	 *            The field to fetch the value provider for
+	 * @return A value provider instance
+	 */
+	public IContextFieldValueProvider getValueProviderForContextField(SimulationContextField field);
 
 	/**
 	 * Starts a simulation component based simulation.

@@ -10,9 +10,11 @@ import org.eclipse.debug.core.ILaunchConfiguration;
 import org.eclipse.debug.core.ILaunchConfigurationWorkingCopy;
 import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.emf.common.util.URI;
+import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
+import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
 import org.eclipse.swt.widgets.Label;
@@ -72,7 +74,7 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 		// create rule editor for each type
 		for (SimulationComponentType simCompType : this.simCompTypes) {
-			ruleEditors.put(simCompType, new SimulationComponentRuleEditor(simCompConfig, simCompType, modificationListener));
+			ruleEditors.put(simCompType, new SimulationComponentRuleEditor(simCompConfig, simCompType, modificationListener, middleware));
 		}
 
 		setControl(simCompConfig);
@@ -233,6 +235,13 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 	@Override
 	public String getName() {
 		return "Simulation Components";
+	}
+
+	@Override
+	public Image getImage() {
+		ImageDescriptor imageDesc = Activator.imageDescriptorFromPlugin(Activator.PLUGIN_ID, "icons/app_simcomp.gif");
+
+		return imageDesc.createImage();
 	}
 
 }

@@ -4,13 +4,11 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-import org.eclipse.core.runtime.CoreException;
 import org.eclipse.core.runtime.IConfigurationElement;
 import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
-import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
@@ -27,8 +25,8 @@ import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
  */
 public class SimulationComponentMetaCollector {
 
-	private static String SIMCOMP_TYPE_EXTENSION_POINT = "edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType";
-	private static String SIMCOMP_EXTENSION_POINT = "edu.kit.ipd.sdq.simcomp.middleware.simulationComponent";
+	public static String SIMCOMP_TYPE_EXTENSION_POINT = "edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType";
+	public static String SIMCOMP_EXTENSION_POINT = "edu.kit.ipd.sdq.simcomp.middleware.simulationComponent";
 
 	private IExtensionRegistry registry;
 
@@ -91,16 +89,7 @@ public class SimulationComponentMetaCollector {
 		for (IConfigurationElement fieldElement : fieldElements) {
 			String id = fieldElement.getAttribute("id");
 			String name = fieldElement.getAttribute("name");
-			Object valueProvider = null;
-			try {
-				valueProvider = fieldElement.createExecutableExtension("value_provider");
-			} catch (CoreException e) {
-				e.printStackTrace();
-			}
-			if (!(valueProvider instanceof IContextFieldValueProvider)) {
-				throw new IllegalArgumentException("No valid context field value provider for field " + id);
-			}
-			SimulationContextField field = new SimulationContextField(id, name, (IContextFieldValueProvider) valueProvider);
+			SimulationContextField field = new SimulationContextField(id, componentType, name);
 			componentType.addContextField(field);
 		}
 	}

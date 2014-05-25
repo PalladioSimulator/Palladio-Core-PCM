@@ -6,8 +6,9 @@ import java.util.Map;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
+import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
 
-public class SimulatiorCompositonRule implements Serializable {
+public class SimulatiorCompositonRule implements ISimulatorCompositonRule, Serializable {
 
 	private static final long serialVersionUID = 3742251491988062560L;
 
@@ -21,14 +22,17 @@ public class SimulatiorCompositonRule implements Serializable {
 		this.component = component;
 	}
 
+	@Override
 	public SimulationComponentType getComponentType() {
 		return componentType;
 	}
 
+	@Override
 	public Map<SimulationContextField, String> getFieldValues() {
 		return fieldValues;
 	}
 
+	@Override
 	public SimulationComponentMetaData getComponent() {
 		return component;
 	}

@@ -26,6 +26,8 @@ import org.eclipse.swt.widgets.TableColumn;
 import org.eclipse.swt.widgets.TableItem;
 
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
+import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
@@ -38,6 +40,7 @@ public class SimulationComponentRuleEditor {
 	private IPCMModel model;
 	private SimulationComponentType simCompType;
 	private ModifyListener modificationListener;
+	private ISimulationMiddleware middleware;
 
 	private Table tblCompositionRules;
 	private Combo cmbDefaultComponent;
@@ -46,8 +49,10 @@ public class SimulationComponentRuleEditor {
 	private Button btnMoveUp;
 	private Button btnMoveDown;
 
-	public SimulationComponentRuleEditor(Composite parent, SimulationComponentType simCompType, ModifyListener modificationListener) {
+
+	public SimulationComponentRuleEditor(Composite parent, SimulationComponentType simCompType, ModifyListener modificationListener, ISimulationMiddleware middleware) {
 		this.modificationListener = modificationListener;
+		this.middleware = middleware;
 
 		this.simCompType = simCompType;
 
@@ -209,7 +214,9 @@ public class SimulationComponentRuleEditor {
 
 		if (column < simCompType.getContextFields().size()) {
 			// context field column selected
-			List<String> possibleValueList = simCompType.getContextFields().get(column).getValueProvider().getPossibleValues(model);
+			SimulationContextField field = simCompType.getContextFields().get(column);
+			IContextFieldValueProvider valueProvider = middleware.getValueProviderForContextField(field);
+			List<String> possibleValueList = valueProvider.getPossibleValues(model);
 			possibleValues = possibleValueList.toArray(new String[possibleValueList.size() + 1]);
 			System.arraycopy(possibleValues, 0, possibleValues, 1, possibleValueList.size());
 			possibleValues[0] = ANY_VALUE;

@@ -11,6 +11,11 @@ import java.util.Observer;
 
 import org.apache.log4j.Level;
 import org.apache.log4j.Logger;
+import org.eclipse.core.runtime.CoreException;
+import org.eclipse.core.runtime.IConfigurationElement;
+import org.eclipse.core.runtime.IExtensionPoint;
+import org.eclipse.core.runtime.IExtensionRegistry;
+import org.eclipse.core.runtime.Platform;
 import org.osgi.framework.BundleContext;
 import org.osgi.framework.ServiceReference;
 import org.osgi.framework.ServiceRegistration;
@@ -36,7 +41,9 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationContext;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
+import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
 import edu.kit.ipd.sdq.simcomp.events.SimulationEvent;
@@ -372,6 +379,40 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		this.middlewareActivator.unbindSimulationMiddleware();
 		this.middlewareActivator = null;
+	}
+
+	@Override
+	public IContextFieldValueProvider getValueProviderForContextField(SimulationContextField field) {
+		IExtensionRegistry registry = Platform.getExtensionRegistry();
+		IExtensionPoint point = registry.getExtensionPoint(SimulationComponentMetaCollector.SIMCOMP_TYPE_EXTENSION_POINT);
+		IConfigurationElement[] elements = point.getConfigurationElements();
+
+		for (IConfigurationElement configurationElement : elements) {
+			String id = configurationElement.getAttribute("id");
+			if (field.getComponentType().getId().equals(id)) {
+
+				IConfigurationElement[] fieldElements = configurationElement.getChildren("simulation_context_field");
+				for (IConfigurationElement fieldElement : fieldElements) {
+
+					String fieldId = fieldElement.getAttribute("id");
+					if (field.getId().equals(fieldId)) {
+						Object valueProvider = null;
+						try {
+							valueProvider = fieldElement.createExecutableExtension("value_provider");
+						} catch (CoreException e) {
+							e.printStackTrace();
+						}
+						if (!(valueProvider instanceof IContextFieldValueProvider)) {
+							throw new IllegalArgumentException("No valid context field value provider for field " + id);
+						}
+
+						return (IContextFieldValueProvider) valueProvider;
+					}
+				}
+			}
+		}
+
+		return null;
 	}
 
 }

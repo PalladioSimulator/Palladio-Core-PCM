@@ -19,5 +19,13 @@
             public="true">
       </launchConfigurationType>
    </extension>
+   <extension
+         point="org.eclipse.debug.ui.launchConfigurationTypeImages">
+      <launchConfigurationTypeImage
+            configTypeID="edu.kit.ipd.sdq.simcomp.launchConfigurationType"
+            icon="icons/app_simcomp.gif"
+            id="edu.kit.ipd.sdq.simcomp.launchConfigurationType.image">
+      </launchConfigurationTypeImage>
+   </extension>
 
 </plugin>
