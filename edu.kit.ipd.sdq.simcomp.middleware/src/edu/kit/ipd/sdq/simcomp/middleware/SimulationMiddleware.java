@@ -42,7 +42,7 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
@@ -229,7 +229,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		}
 
 		// context-based lookup was not successful return default component
-		SimulationComponentMetaData defaultComponentMeta = this.simConfig.getDefaultComponentForComponentType(componentType);
+		SimulationComponentMeta defaultComponentMeta = this.simConfig.getDefaultComponentForComponentType(componentType);
 
 		return getComponentForComponentMeta(defaultComponentMeta, componentList);
 	}
@@ -244,7 +244,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	 *            List of components to search in
 	 * @return A simulation component instance or null if could not be found
 	 */
-	private ISimulationComponent getComponentForComponentMeta(SimulationComponentMetaData componentMeta, List<? extends ISimulationComponent> componentList) {
+	private ISimulationComponent getComponentForComponentMeta(SimulationComponentMeta componentMeta, List<? extends ISimulationComponent> componentList) {
 		for (ISimulationComponent component : componentList) {
 			if (componentMeta.getComponentClass().equals(component.getClass().getName())) {
 				return component;

@@ -3,7 +3,7 @@ package edu.kit.ipd.sdq.simcomp.middleware.simulation.config;
 import java.io.Serializable;
 import java.util.Map;
 
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
@@ -14,9 +14,9 @@ public class SimulatiorCompositonRule implements ISimulatorCompositonRule, Seria
 
 	SimulationComponentType componentType;
 	Map<SimulationContextField, String> fieldValues;
-	SimulationComponentMetaData component;
+	SimulationComponentMeta component;
 
-	public SimulatiorCompositonRule(SimulationComponentType componentType, Map<SimulationContextField, String> fieldValues, SimulationComponentMetaData component) {
+	public SimulatiorCompositonRule(SimulationComponentType componentType, Map<SimulationContextField, String> fieldValues, SimulationComponentMeta component) {
 		this.componentType = componentType;
 		this.fieldValues = fieldValues;
 		this.component = component;
@@ -33,7 +33,7 @@ public class SimulatiorCompositonRule implements ISimulatorCompositonRule, Seria
 	}
 
 	@Override
-	public SimulationComponentMetaData getComponent() {
+	public SimulationComponentMeta getComponent() {
 		return component;
 	}
 

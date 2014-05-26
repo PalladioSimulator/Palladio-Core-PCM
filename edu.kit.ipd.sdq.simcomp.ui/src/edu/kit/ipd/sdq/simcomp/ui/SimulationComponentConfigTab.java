@@ -23,7 +23,7 @@ import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
@@ -87,14 +87,14 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 		loadPcmModel(configuration);
 
 		// read current configuration
-		Map<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig = null;
+		Map<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig = null;
 		Map<SimulationComponentType, List<SimulatiorCompositonRule>> compositionRulesConfig = null;
 		try {
 			// grab the default component configuration (Map Component Type ->
 			// Default Component)
 			String serializedMap = configuration.getAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, "");
 			if (!serializedMap.isEmpty()) {
-				defaultComponentsConfig = (Map<SimulationComponentType, SimulationComponentMetaData>) ConfigHelper.deserializeObject(serializedMap);
+				defaultComponentsConfig = (Map<SimulationComponentType, SimulationComponentMeta>) ConfigHelper.deserializeObject(serializedMap);
 			}
 			// grab composition rules configuration (Map Component Type -> List
 			// of composition rules)
@@ -109,7 +109,7 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 		// add default empty map if empty
 		if (defaultComponentsConfig == null) {
-			defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
+			defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
 		}
 		if (compositionRulesConfig == null) {
 			compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatiorCompositonRule>>();
@@ -129,13 +129,13 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		HashMap<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
+		HashMap<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
 		HashMap<SimulationComponentType, List<SimulatiorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatiorCompositonRule>>();
 
 		for (SimulationComponentType componentType : this.ruleEditors.keySet()) {
 			SimulationComponentRuleEditor ruleEditor = this.ruleEditors.get(componentType);
 
-			SimulationComponentMetaData defaultcomponent = ruleEditor.getDefaultComponent();
+			SimulationComponentMeta defaultcomponent = ruleEditor.getDefaultComponent();
 			defaultComponentsConfig.put(componentType, defaultcomponent);
 			List<SimulatiorCompositonRule> compositionRules = ruleEditor.getCompositionRules();
 			compositionRulesConfig.put(componentType, compositionRules);
@@ -149,7 +149,7 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
 		// specify some empty config maps as default values
-		HashMap<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
+		HashMap<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
 		HashMap<SimulationComponentType, List<SimulatiorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatiorCompositonRule>>();
 
 		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, ConfigHelper.serializeObject(defaultComponentsConfig));

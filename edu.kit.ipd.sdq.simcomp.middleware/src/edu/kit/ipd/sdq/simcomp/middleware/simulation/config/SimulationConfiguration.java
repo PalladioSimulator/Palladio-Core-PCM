@@ -7,13 +7,12 @@ import java.util.Map;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
 
 /**
- * TODO (SimComp): implement it to contain everything we need and check we
  * provide all properties necessary to be able to build a {@link EventSimConfig}
  * base on it
  * 
@@ -32,7 +31,7 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 
 	private final String usageModelFile;
 	private final String allocationModelFile;
-	Map<SimulationComponentType, SimulationComponentMetaData> defaultComponentsConfig;
+	Map<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig;
 	Map<SimulationComponentType, List<ISimulatorCompositonRule>> compositionRulesConfig;
 
 	public SimulationConfiguration(Map<String, Object> configuration, boolean debug) {
@@ -44,8 +43,8 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 		} catch (final Exception e) {
 			throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
 		}
-		
-		defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMetaData>();
+
+		defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
 		compositionRulesConfig = new HashMap<SimulationComponentType, List<ISimulatorCompositonRule>>();
 
 		this.buildSimulatorCompositionRulesFromConfig(configuration);
@@ -56,7 +55,7 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 		// read default component config
 		String serializedMap = (String) configuration.get(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS);
 		if (!serializedMap.isEmpty()) {
-			Map<SimulationComponentType, SimulationComponentMetaData> defaultcompCfg = (Map<SimulationComponentType, SimulationComponentMetaData>) ConfigHelper.deserializeObject(serializedMap);
+			Map<SimulationComponentType, SimulationComponentMeta> defaultcompCfg = (Map<SimulationComponentType, SimulationComponentMeta>) ConfigHelper.deserializeObject(serializedMap);
 			if (defaultcompCfg != null) {
 				this.defaultComponentsConfig = defaultcompCfg;
 			}
@@ -88,7 +87,7 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 	}
 
 	@Override
-	public SimulationComponentMetaData getDefaultComponentForComponentType(Class<? extends ISimulationComponent> type) {
+	public SimulationComponentMeta getDefaultComponentForComponentType(Class<? extends ISimulationComponent> type) {
 		for (SimulationComponentType typeKey : defaultComponentsConfig.keySet()) {
 			if (typeKey.getTypeInterface().equals(type.getName())) {
 				return defaultComponentsConfig.get(typeKey);

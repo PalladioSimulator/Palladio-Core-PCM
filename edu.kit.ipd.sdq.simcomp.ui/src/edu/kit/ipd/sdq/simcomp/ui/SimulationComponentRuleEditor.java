@@ -28,7 +28,7 @@ import org.eclipse.swt.widgets.TableItem;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
@@ -141,8 +141,7 @@ public class SimulationComponentRuleEditor {
 
 							final Combo combo = new Combo(tblCompositionRules, SWT.READ_ONLY);
 							combo.setItems(getPossibleValuesForColumn(column));
-							combo.select(0); // TODO (SimComp): If row has value
-												// select the value
+							combo.select(0);
 
 							Listener comboListener = new Listener() {
 								@Override
@@ -223,7 +222,7 @@ public class SimulationComponentRuleEditor {
 			return possibleValues;
 		} else {
 			// simulation component field selected
-			List<SimulationComponentMetaData> components = simCompType.getAvailableComponents();
+			List<SimulationComponentMeta> components = simCompType.getComponents();
 			possibleValues = new String[components.size()];
 			for (int j = 0; j < components.size(); j++) {
 				possibleValues[j] = components.get(j).toString();
@@ -306,7 +305,7 @@ public class SimulationComponentRuleEditor {
 				values[i] = ISimulatorCompositonRule.ANY_VALUE;
 			} else {
 				// component column
-				values[i] = this.simCompType.getAvailableComponents().get(0).getName();
+				values[i] = this.simCompType.getComponents().get(0).getName();
 			}
 		}
 
@@ -378,7 +377,7 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @param simulationComponentMetaData
 	 */
-	public void updateDefaultComponent(SimulationComponentMetaData component) {
+	public void updateDefaultComponent(SimulationComponentMeta component) {
 		if (component != null) {
 			// TODO switch to something ID based
 			String[] items = cmbDefaultComponent.getItems();
@@ -399,12 +398,12 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @return
 	 */
-	public SimulationComponentMetaData getDefaultComponent() {
+	public SimulationComponentMeta getDefaultComponent() {
 		if (this.model == null) {
 			return null;
 		}
 		if (cmbDefaultComponent.getSelectionIndex() >= 0) {
-			for (SimulationComponentMetaData component : this.simCompType.getAvailableComponents()) {
+			for (SimulationComponentMeta component : this.simCompType.getComponents()) {
 				if (component.getName().equals(cmbDefaultComponent.getItems()[cmbDefaultComponent.getSelectionIndex()])) {
 					return component;
 				}
@@ -453,7 +452,7 @@ public class SimulationComponentRuleEditor {
 		for (TableItem tableItem : ruleTableItems) {
 			Map<SimulationContextField, String> fieldValues = new HashMap<SimulationContextField, String>();
 
-			SimulationComponentMetaData selectedComponent = null;
+			SimulationComponentMeta selectedComponent = null;
 
 			// iterate context field columns
 			for (int i = 0; i < tblCompositionRules.getColumnCount(); i++) {
@@ -463,7 +462,7 @@ public class SimulationComponentRuleEditor {
 					fieldValues.put(field, tableItem.getText(i));
 				} else {
 					// component column
-					for (SimulationComponentMetaData component : this.simCompType.getAvailableComponents()) {
+					for (SimulationComponentMeta component : this.simCompType.getComponents()) {
 						if (component.getName().equals(tableItem.getText(i))) {
 							selectedComponent = component;
 							break;
@@ -499,7 +498,7 @@ public class SimulationComponentRuleEditor {
 			this.btnCreate.setEnabled(true);
 
 			List<String> componentNames = new ArrayList<String>();
-			for (SimulationComponentMetaData component : this.simCompType.getAvailableComponents()) {
+			for (SimulationComponentMeta component : this.simCompType.getComponents()) {
 				componentNames.add(component.getName());
 			}
 			this.cmbDefaultComponent.setItems(componentNames.toArray(new String[0]));

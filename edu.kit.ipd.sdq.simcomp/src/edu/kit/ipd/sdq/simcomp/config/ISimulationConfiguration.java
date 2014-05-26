@@ -5,7 +5,7 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 
 /**
  * Represents a configuration for a simulation component based simulation.
@@ -36,7 +36,7 @@ public interface ISimulationConfiguration extends ISimulationConfig {
 	 *            The type to fetch the default component for
 	 * @return Meta data about the default simulation component
 	 */
-	public SimulationComponentMetaData getDefaultComponentForComponentType(Class<? extends ISimulationComponent> type);
+	public SimulationComponentMeta getDefaultComponentForComponentType(Class<? extends ISimulationComponent> type);
 
 	/**
 	 * Returns the simulator composition rules for a given simulation component

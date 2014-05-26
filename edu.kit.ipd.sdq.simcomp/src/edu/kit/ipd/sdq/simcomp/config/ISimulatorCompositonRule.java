@@ -2,7 +2,7 @@ package edu.kit.ipd.sdq.simcomp.config;
 
 import java.util.Map;
 
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 
@@ -20,5 +20,5 @@ public interface ISimulatorCompositonRule {
 
 	public Map<SimulationContextField, String> getFieldValues();
 
-	public SimulationComponentMetaData getComponent();
+	public SimulationComponentMeta getComponent();
 }

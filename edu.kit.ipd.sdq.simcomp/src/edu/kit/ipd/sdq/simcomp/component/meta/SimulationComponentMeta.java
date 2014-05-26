@@ -8,7 +8,7 @@ import java.io.Serializable;
  * @author Christoph Föhrdes
  * 
  */
-public class SimulationComponentMetaData implements Serializable {
+public class SimulationComponentMeta implements Serializable {
 
 	private static final long serialVersionUID = -2096157018157833990L;
 
@@ -16,7 +16,7 @@ public class SimulationComponentMetaData implements Serializable {
 	private String name;
 	private String componentClass;
 
-	public SimulationComponentMetaData(String id, String name, String componentClass) {
+	public SimulationComponentMeta(String id, String name, String componentClass) {
 		this.id = id;
 		this.name = name;
 		this.componentClass = componentClass;
@@ -57,7 +57,7 @@ public class SimulationComponentMetaData implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SimulationComponentMetaData other = (SimulationComponentMetaData) obj;
+		SimulationComponentMeta other = (SimulationComponentMeta) obj;
 		if (componentClass == null) {
 			if (other.componentClass != null)
 				return false;

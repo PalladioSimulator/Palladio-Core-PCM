@@ -9,7 +9,7 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMetaData;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 
@@ -111,8 +111,8 @@ public class SimulationComponentMetaCollector {
 				String id = configurationElement.getAttribute("id");
 				String name = configurationElement.getAttribute("name");
 				String componentClass = configurationElement.getAttribute("component_class");
-				SimulationComponentMetaData component = new SimulationComponentMetaData(id, name, componentClass);
-				componentType.addAvailableComponent(component);
+				SimulationComponentMeta component = new SimulationComponentMeta(id, name, componentClass);
+				componentType.addComponent(component);
 			}
 		}
 	}

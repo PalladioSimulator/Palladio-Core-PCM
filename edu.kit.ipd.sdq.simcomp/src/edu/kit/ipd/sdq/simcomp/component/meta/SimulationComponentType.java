@@ -12,7 +12,7 @@ public class SimulationComponentType implements Serializable, Comparable<Simulat
 	private String name;
 	private String typeInterface;
 	private List<SimulationContextField> contextFields;
-	private List<SimulationComponentMetaData> availableComponents;
+	private List<SimulationComponentMeta> components;
 
 	public SimulationComponentType(String id, String name, String typeInterface) {
 		this.id = id;
@@ -20,7 +20,7 @@ public class SimulationComponentType implements Serializable, Comparable<Simulat
 		this.typeInterface = typeInterface;
 
 		contextFields = new ArrayList<SimulationContextField>();
-		availableComponents = new ArrayList<SimulationComponentMetaData>();
+		components = new ArrayList<SimulationComponentMeta>();
 	}
 
 	public String getTypeInterface() {
@@ -43,17 +43,17 @@ public class SimulationComponentType implements Serializable, Comparable<Simulat
 		this.contextFields.add(contextType);
 	}
 
-	public List<SimulationComponentMetaData> getAvailableComponents() {
-		return availableComponents;
+	public List<SimulationComponentMeta> getComponents() {
+		return components;
 	}
 
-	public void addAvailableComponent(SimulationComponentMetaData contextType) {
-		this.availableComponents.add(contextType);
+	public void addComponent(SimulationComponentMeta component) {
+		this.components.add(component);
 	}
 
 	@Override
 	public String toString() {
-		return "SimulationComponentType [id=" + id + ", name=" + name + ", contextFields=" + contextFields.size() + ", availableComponents=" + availableComponents.size() + "]";
+		return "SimulationComponentType [id=" + id + ", name=" + name + ", contextFields=" + contextFields.size() + ", components=" + components.size() + "]";
 	}
 
 	@Override
