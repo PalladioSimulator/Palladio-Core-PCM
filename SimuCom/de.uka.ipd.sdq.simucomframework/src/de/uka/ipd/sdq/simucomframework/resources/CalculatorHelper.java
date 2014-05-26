@@ -3,12 +3,12 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Arrays;
 import java.util.List;
 
-import org.palladiosimulator.edp2.models.measuringpoint.ActiveResourceMeasuringPoint;
-import org.palladiosimulator.edp2.models.measuringpoint.AssemblyPassiveResourceMeasuringPoint;
-import org.palladiosimulator.edp2.models.measuringpoint.LinkingResourceMeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.measurementframework.BasicMeasurement;
+import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.LinkingResourceMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.probeframework.ProbeFrameworkContext;
 import org.palladiosimulator.probeframework.probes.EventProbe;
 import org.palladiosimulator.probeframework.probes.EventProbeList;
@@ -37,7 +37,7 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 public final class CalculatorHelper {
 
     /** Default EMF factory for measuring points. */
-    private static final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
+    private static final PcmmeasuringpointFactory measuringpointFactory = PcmmeasuringpointFactory.eINSTANCE;
 
     /**
      * Sets up a {@link WaitingTimeCalculator} for the specified resource. Also a
@@ -207,7 +207,7 @@ public final class CalculatorHelper {
     public static void setupStateCalculator(final IPassiveResource resource, final SimuComModel model) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
-        AssemblyPassiveResourceMeasuringPoint mp = createMeasuringPoint(resource);
+        final AssemblyPassiveResourceMeasuringPoint mp = createMeasuringPoint(resource);
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakePassiveResourceStateProbe(resource));
         ctx.getCalculatorFactory().buildStateOfActiveResourceCalculator(mp, scheduledResourceProbe);
@@ -243,7 +243,7 @@ public final class CalculatorHelper {
     }
 
     private static AssemblyPassiveResourceMeasuringPoint createMeasuringPoint(final IPassiveResource resource) {
-        AssemblyPassiveResourceMeasuringPoint mp = measuringpointFactory.createAssemblyPassiveResourceMeasuringPoint();
+        final AssemblyPassiveResourceMeasuringPoint mp = measuringpointFactory.createAssemblyPassiveResourceMeasuringPoint();
         mp.setAssembly(resource.getAssemblyContext());
         mp.setPassiveResource(resource.getResource());
         return mp;
@@ -257,14 +257,14 @@ public final class CalculatorHelper {
             final int replicaID) {
         MeasuringPoint measuringPoint = null;
         if (scheduledResource instanceof ScheduledResource) {
-            ScheduledResource resource = (ScheduledResource) scheduledResource;
-            ActiveResourceMeasuringPoint mp = measuringpointFactory.createActiveResourceMeasuringPoint();
+            final ScheduledResource resource = (ScheduledResource) scheduledResource;
+            final ActiveResourceMeasuringPoint mp = measuringpointFactory.createActiveResourceMeasuringPoint();
             mp.setActiveResource(resource.getActiveResource());
             mp.setReplicaID(replicaID);
             measuringPoint = mp;
         } else if (scheduledResource instanceof SimulatedLinkingResource) {
-            SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
-            LinkingResourceMeasuringPoint mp = measuringpointFactory.createLinkingResourceMeasuringPoint();
+            final SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
+            final LinkingResourceMeasuringPoint mp = measuringpointFactory.createLinkingResourceMeasuringPoint();
             mp.setLinkingResource(resource.getLinkingResource());
             measuringPoint = mp;
         } else {

@@ -6,7 +6,6 @@ import java.util.concurrent.LinkedBlockingQueue;
 import org.apache.log4j.Logger;
 
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
-
 import de.uka.ipd.sdq.probfunction.math.apache.impl.MT19937RandomGenerator;
 import de.uka.ipd.sdq.probfunction.math.random.IRandomStream;
 import de.uka.ipd.sdq.simucomframework.variables.functions.LogNormDistFunction;

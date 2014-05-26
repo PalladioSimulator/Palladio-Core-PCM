@@ -4,8 +4,8 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
-import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
-import org.palladiosimulator.edp2.models.measuringpoint.UsageScenarioMeasuringPoint;
+import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
+import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
 import org.palladiosimulator.probeframework.calculator.Calculator;
 import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
 import org.palladiosimulator.probeframework.probes.Probe;
@@ -22,7 +22,7 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
     private final ICalculatorFactory calculatorFactory;
 
     /** Default EMF factory for measuring points. */
-    private final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
+    private final PcmmeasuringpointFactory measuringpointFactory = PcmmeasuringpointFactory.eINSTANCE;
 
     public AbstractWorkloadUserFactory(final SimuComModel model, final UsageScenario usageScenario) {
         super();
@@ -41,7 +41,7 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
      */
     @Override
     public Calculator attachResponseTimeCalculator() {
-        UsageScenarioMeasuringPoint mp = this.measuringpointFactory.createUsageScenarioMeasuringPoint();
+        final UsageScenarioMeasuringPoint mp = this.measuringpointFactory.createUsageScenarioMeasuringPoint();
         mp.setUsageScenario(usageScenario);
         return this.calculatorFactory.buildResponseTimeCalculator(mp, this.usageStartStopProbes);
     }
