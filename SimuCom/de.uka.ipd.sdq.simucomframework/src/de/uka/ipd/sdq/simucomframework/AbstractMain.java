@@ -115,6 +115,7 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
             @Override
             public void simulationStop() {
                 model.getProbeFrameworkContext().finish();
+                model.getConfiguration().getRecorderConfigurationFactory().finalizeRecorderConfigurationFactory();
             }
 
             @Override
@@ -204,27 +205,27 @@ public abstract class AbstractMain implements ISimulationControl, BundleActivato
 
         // Add execution results calculator
         if (model.getConfiguration().getSimulateFailures()) {
-            StringMeasuringPoint mp = this.measuringpointFactory.createStringMeasuringPoint();
+            final StringMeasuringPoint mp = this.measuringpointFactory.createStringMeasuringPoint();
             mp.setMeasuringPoint("System execution results");
 
             model.getProbeFrameworkContext()
-                    .getCalculatorFactory()
-                    .buildExecutionResultCalculator(
-                            mp,
-                            new EventProbeList(model.getFailureStatistics().getExecutionResultProbe(), Arrays
-                                    .asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(this.model
-                                            .getSimulationControl()))));
+            .getCalculatorFactory()
+            .buildExecutionResultCalculator(
+                    mp,
+                    new EventProbeList(model.getFailureStatistics().getExecutionResultProbe(), Arrays
+                            .asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(this.model
+                                    .getSimulationControl()))));
         }
     }
 
     private void attachUsageResponseTimeCalculators(final IWorkloadDriver[] workloadDrivers) {
         for (final IWorkloadDriver driver : workloadDrivers) {
             final IUserFactory userFactory = driver.getUserFactory();
-            Calculator calculator = userFactory.attachResponseTimeCalculator();
+            final Calculator calculator = userFactory.attachResponseTimeCalculator();
             if (ExperimentRunner.confidenceStopCondition != null) {
                 calculator.addObserver(ExperimentRunner.confidenceStopCondition); // FIXME find
-                                                                                  // right place for
-                                                                                  // this
+                // right place for
+                // this
             }
         }
     }
