@@ -20,5 +20,11 @@
             type="pcmmeasuringpoint"
             class="org.palladiosimulator.pcmmeasuringpoint.util.PcmmeasuringpointResourceFactoryImpl"/>
    </extension>
+   <extension
+         point="org.palladiosimulator.edp2.util.formater">
+      <measuringpointformater
+            class="org.palladiosimulator.pcm.edp2.measuringpoint.util.PcmMeasuringPointStringFormaterSwitch">
+      </measuringpointformater>
+   </extension>
 
 </plugin>
