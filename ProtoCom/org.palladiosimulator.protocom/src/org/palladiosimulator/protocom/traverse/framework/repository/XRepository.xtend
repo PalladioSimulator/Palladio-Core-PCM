@@ -111,7 +111,7 @@ class XRepository extends PcmRepresentative<Repository> {
 	/**
 	 * Traverse through Collection Data Types.
 	 */
-	def dispatch createDataType(CollectionDataType typeEntity) {
+	def dispatch void createDataType(CollectionDataType typeEntity) {
 		injector.getInstance(typeof(XCollectionDataType)).setEntity(typeEntity).transform
 	}
 }
