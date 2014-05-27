@@ -4,15 +4,11 @@ import org.palladiosimulator.protocom.lang.java.impl.JeeClass
 import org.palladiosimulator.protocom.lang.java.impl.JeeInterface
 import org.palladiosimulator.protocom.lang.manifest.impl.JeeManifest
 import org.palladiosimulator.protocom.lang.prefs.impl.JeePreferences
-import org.palladiosimulator.protocom.lang.xml.impl.Classpath
 import org.palladiosimulator.protocom.lang.xml.impl.JeeComponentFile
 import org.palladiosimulator.protocom.lang.xml.impl.JeeEjbDescriptor
 import org.palladiosimulator.protocom.lang.xml.impl.JeeFacetCore
 import org.palladiosimulator.protocom.lang.xml.impl.JeeGlassfishEjbDescriptor
-import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPBasicComponentClass
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPBasicComponentPortClass
-import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClasspath
-import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientClasspath
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientFacetCore
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientManifest
 import org.palladiosimulator.protocom.tech.iiop.repository.JavaEEIIOPClientPreferences
@@ -34,7 +30,7 @@ class JeeBasicComponent  extends XBasicComponent {
 		generatedFiles.add(injector.getInstance(typeof(JeeInterface)).createFor(new JavaEEIIOPComponentClassInterface(entity))) 
 
 		// Class for this component.
-		generatedFiles.add(injector.getInstance(typeof(JeeClass)).createFor(new JavaEEIIOPBasicComponentClass(entity)))
+	//	generatedFiles.add(injector.getInstance(typeof(JeeClass)).createFor(new JavaEEIIOPBasicComponentClass(entity)))
 		
 		// Ports. TODO? This iterator could be replaced by traversing in the XBasicComponent class.
 		entity.providedRoles_InterfaceProvidingEntity.forEach[
@@ -70,17 +66,8 @@ class JeeBasicComponent  extends XBasicComponent {
 		//Facet Core Files
 		generatedFiles.add(injector.getInstance(typeof(JeeFacetCore)).createFor(new JavaEEIIOPFacetCore(entity)))
 		
-		generatedFiles.add(injector.getInstance(typeof(JeeFacetCore)).createFor(new JavaEEIIOPClientFacetCore(entity)))
-		
-		//Classpath Files
-		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new JavaEEIIOPClasspath(entity)))
-	
-		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new JavaEEIIOPClientClasspath(entity)))
-		
-		//Project Files
-		//generatedFiles.add(injector.getInstance(typeof(ProjectFile)).createFor(new JavaEEIIOPProject(entity)))
-		
-		//generatedFiles.add(injector.getInstance(typeof(ProjectFile)).createFor(new JavaEEIIOPClientProject(entity)))
+		generatedFiles.add(injector.getInstance(typeof(JeeFacetCore)).createFor(new JavaEEIIOPClientFacetCore(entity)))		
+
 		
 	}
 }

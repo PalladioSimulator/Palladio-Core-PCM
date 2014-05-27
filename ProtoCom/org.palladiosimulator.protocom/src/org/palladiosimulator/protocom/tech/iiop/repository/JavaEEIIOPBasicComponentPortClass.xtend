@@ -32,12 +32,14 @@ class JavaEEIIOPBasicComponentPortClass extends JavaEEIIOPClass<ProvidedRole> {
 	}
 	
 	override constructors() {
-		#[ 	new JMethod(),
+		#[ 	new JMethod()
+			.withThrows("java.rmi.RemoteException"),
 			new JMethod()
 				.withParameters("String assemblyContext")
 				.withImplementation('''
 					addVisitor(org.palladiosimulator.protocom.framework.visitor.SensorFrameworkVisitor.getInstance());
 					''')
+				.withThrows("java.rmi.RemoteException")
 		]
 	}
 	
