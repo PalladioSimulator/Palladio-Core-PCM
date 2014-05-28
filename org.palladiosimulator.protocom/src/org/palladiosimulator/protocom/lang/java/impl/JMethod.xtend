@@ -22,6 +22,7 @@ class JMethod implements IJMethod {
 	private String implementation
 	private String throwsType
 	private String visibility
+	private String methodAnnotation
 	private boolean isStatic
 	
 	new() {
@@ -53,6 +54,10 @@ class JMethod implements IJMethod {
 	
 	override body() {
 		'''«IF implementation != null»«implementation»«ELSE»«ENDIF»'''
+	}
+	
+	override methodAnnotation() {
+		methodAnnotation
 	}
 	
 	def withReturnType(String returnType) {
@@ -89,4 +94,10 @@ class JMethod implements IJMethod {
 		this.throwsType = throwsType
 		this
 	}
+	
+	def withMethodAnnotation(String methodAnnotation){
+		this.methodAnnotation = methodAnnotation
+		this
+	}
+
 }

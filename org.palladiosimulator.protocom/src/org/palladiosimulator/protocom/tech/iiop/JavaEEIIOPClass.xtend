@@ -20,7 +20,6 @@ class JavaEEIIOPClass <E extends Entity> extends ConceptMapping<E> implements IJ
 	}
 	
 	override packageName() {
-	//	JavaNames::implementationPackage(pcmEntity)
 	}
 	
 	override compilationUnitName() {

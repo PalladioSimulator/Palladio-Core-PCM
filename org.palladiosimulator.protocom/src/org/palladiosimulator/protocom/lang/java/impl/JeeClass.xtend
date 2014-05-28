@@ -73,6 +73,7 @@ class JeeClass extends JCompilationUnit<IJeeClass> implements IJeeClass {
 	
 	def method(IJMethod method) {
 		'''
+		«method.methodAnnotation»
 		«method.visibilityModifier» «method.staticModifier» «method.returnType» «method.name» («method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»
 		«IF method.body != null»
 		{

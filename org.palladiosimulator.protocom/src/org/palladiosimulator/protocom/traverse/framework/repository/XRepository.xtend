@@ -90,28 +90,28 @@ class XRepository extends PcmRepresentative<Repository> {
 	/**
 	 * Traverse through Data Types.
 	 */
-	def dispatch createDataType(DataType typeEntity) {
+	def dispatch void createDataType(DataType typeEntity) {
 		throw new UnsupportedOperationException("Unsupported data type.")
 	}
 	
 	/**
 	 * Traverse through Primitive Data Types.
 	 */
-	def dispatch createDataType(PrimitiveDataType typeEntity) {
+	def dispatch void createDataType(PrimitiveDataType typeEntity) {
 		return;
 	}
 	
 	/**
 	 * Traverse through Composite Data Types.
 	 */
-	def dispatch createDataType(CompositeDataType typeEntity) {
+	def dispatch void createDataType(CompositeDataType typeEntity) {
 		injector.getInstance(typeof(XCompositeDataType)).setEntity(typeEntity).transform
 	}
 	
 	/**
 	 * Traverse through Collection Data Types.
 	 */
-	def dispatch createDataType(CollectionDataType typeEntity) {
+	def dispatch void createDataType(CollectionDataType typeEntity) {
 		injector.getInstance(typeof(XCollectionDataType)).setEntity(typeEntity).transform
 	}
 }

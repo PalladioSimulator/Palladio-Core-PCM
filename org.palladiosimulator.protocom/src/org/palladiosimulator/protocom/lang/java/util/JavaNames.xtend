@@ -444,6 +444,9 @@ class JavaNames {
 		"." + e.basePackageName() + ".ejb"
 	}
 	
+	static def fqnJavaEEBasicComponentClassName(Entity e){
+		e.javaName()
+	}
 	
 	/**
 	 * TODO Implement EventTypes?
