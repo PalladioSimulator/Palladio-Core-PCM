@@ -393,6 +393,11 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	@Override
+	public void resetMeasurementCount() {
+		measurementCount = 0;
+	}
+
+	@Override
 	public ProbeSpecContext getProbeSpecContext() {
 		return probeSpecContext;
 	}
@@ -469,6 +474,9 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 	@Override
 	public void reset() {
+		// reset measurement count
+		this.resetMeasurementCount();
+		
 		// remove the event handler marked to be unregistered
 		for (Iterator<ServiceRegistration<?>> it = this.eventHandlerToRemove.iterator(); it.hasNext();) {
 			ServiceRegistration<?> handler = it.next();

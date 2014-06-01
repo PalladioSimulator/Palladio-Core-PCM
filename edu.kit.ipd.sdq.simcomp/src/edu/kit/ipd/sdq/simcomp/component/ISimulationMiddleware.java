@@ -179,6 +179,11 @@ public interface ISimulationMiddleware {
 	void increaseMeasurementCount();
 
 	/**
+	 * Resets the measurement counter.
+	 */
+	void resetMeasurementCount();
+
+	/**
 	 * Called before every simulation run to reset the middleware.
 	 */
 	void reset();
