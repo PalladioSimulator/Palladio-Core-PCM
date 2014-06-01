@@ -111,7 +111,7 @@ public class SimulationComponentMetaCollector {
 				String id = configurationElement.getAttribute("id");
 				String name = configurationElement.getAttribute("name");
 				String componentClass = configurationElement.getAttribute("component_class");
-				SimulationComponentMeta component = new SimulationComponentMeta(id, name, componentClass);
+				SimulationComponentMeta component = new SimulationComponentMeta(id, name, componentClass, componentType);
 				componentType.addComponent(component);
 			}
 		}

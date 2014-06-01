@@ -132,7 +132,8 @@ public interface ISimulationMiddleware {
 	public void triggerEvent(SimulationEvent event);
 
 	/**
-	 * Registers a new event handler for a specific event.
+	 * Registers a new event handler for a specific event. This event handler is
+	 * not unregistered on cleanup of the simulation middleware.
 	 * 
 	 * @param eventId
 	 *            The event type to listen for
@@ -140,6 +141,19 @@ public interface ISimulationMiddleware {
 	 *            The event handler callback.
 	 */
 	public void registerEventHandler(String eventId, IEventHandler<? extends SimulationEvent> handler);
+
+	/**
+	 * Registers a new event handler for a specific event.
+	 * 
+	 * @param eventId
+	 *            The event type to listen for
+	 * @param handler
+	 *            The event handler callback.
+	 * @param unregisterOnReset
+	 *            Specifies if the event handler should be unregistered on
+	 *            middleware cleanup or not
+	 */
+	public void registerEventHandler(String eventId, IEventHandler<? extends SimulationEvent> handler, boolean unregisterOnReset);
 
 	/**
 	 * Gives access to the central probe specification context of the probe
@@ -163,5 +177,10 @@ public interface ISimulationMiddleware {
 	 * user request was entirely processed.
 	 */
 	void increaseMeasurementCount();
+
+	/**
+	 * Called before every simulation run to reset the middleware.
+	 */
+	void reset();
 
 }

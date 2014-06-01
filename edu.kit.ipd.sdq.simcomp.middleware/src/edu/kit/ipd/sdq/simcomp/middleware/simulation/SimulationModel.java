@@ -58,6 +58,8 @@ public class SimulationModel extends SchedulerModel implements ISimulationModel 
 
 	@Override
 	public void init() {
+		this.middleware.reset();
+		
 		// before the simulation start we trigger the init event
 		ISimulationConfiguration simulationConfiguration = this.middleware.getSimulationConfiguration();
 		this.middleware.triggerEvent(new SimulationInitEvent(simulationConfiguration));

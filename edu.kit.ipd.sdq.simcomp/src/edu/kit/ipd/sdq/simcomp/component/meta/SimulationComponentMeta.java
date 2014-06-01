@@ -15,11 +15,13 @@ public class SimulationComponentMeta implements Serializable {
 	private String id;
 	private String name;
 	private String componentClass;
+	private SimulationComponentType type;
 
-	public SimulationComponentMeta(String id, String name, String componentClass) {
+	public SimulationComponentMeta(String id, String name, String componentClass, SimulationComponentType type) {
 		this.id = id;
 		this.name = name;
 		this.componentClass = componentClass;
+		this.type = type;
 	}
 
 	public String getId() {
@@ -32,6 +34,10 @@ public class SimulationComponentMeta implements Serializable {
 
 	public String getComponentClass() {
 		return this.componentClass;
+	}
+
+	public SimulationComponentType getSimulationComponentType() {
+		return type;
 	}
 
 	@Override

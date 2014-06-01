@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.Dictionary;
 import java.util.HashMap;
 import java.util.Hashtable;
+import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Observable;
@@ -78,9 +79,14 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private ProbeSpecContext probeSpecContext;
 	private int measurementCount;
 	private List<ServiceRegistration<?>> eventHandlerRegistry;
+	private List<ServiceRegistration<?>> eventHandlerToRemove;
 
 	public SimulationMiddleware() {
 		this.eventHandlerRegistry = new ArrayList<ServiceRegistration<?>>();
+		this.eventHandlerToRemove = new ArrayList<ServiceRegistration<?>>();
+
+		// register the middleware event handlers
+		this.registerEventHandler();
 	}
 
 	@Override
@@ -118,8 +124,6 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		this.initPropeFramework();
 
-		this.registerEventHandler();
-
 		this.setupStopConditions(config);
 	}
 
@@ -144,23 +148,6 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		// register simulation time strategy
 		probeSpecContext.getProbeStrategyRegistry().registerProbeStrategy(new TakeSimulatedTimeStrategy(), ProbeType.CURRENT_TIME, null);
-	}
-
-	/**
-	 * Register event handler to react on specific simulation events.
-	 */
-	private void registerEventHandler() {
-
-		// setup system processed request event listener
-		this.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
-
-			@Override
-			public void handle(SimulationFinalizeEvent event) {
-				finalise();
-			}
-
-		});
-
 	}
 
 	/**
@@ -193,6 +180,23 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		}
 
 		this.getSimulationControl().addStopCondition(new MaxMeasurementsStopCondition(this));
+	}
+
+	/**
+	 * Register event handler to react on specific simulation events.
+	 */
+	private void registerEventHandler() {
+
+		// setup system processed request event listener
+		this.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
+
+			@Override
+			public void handle(SimulationFinalizeEvent event) {
+				finalise();
+			}
+
+		}, false);
+
 	}
 
 	/**
@@ -327,7 +331,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 	@Override
 	@SuppressWarnings("rawtypes")
-	public void registerEventHandler(String eventId, final IEventHandler handler) {
+	public void registerEventHandler(String eventId, final IEventHandler handler, boolean unregisterOnReset) {
 
 		// we delegate the event handling to the OSGi event admin service
 		BundleContext bundleContext = Activator.getContext();
@@ -344,8 +348,16 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		}, properties);
 
-		// store service reference for later cleanup
 		this.eventHandlerRegistry.add(handlerService);
+		// store service reference for later cleanup
+		if (unregisterOnReset) {
+			this.eventHandlerToRemove.add(handlerService);
+		}
+	}
+
+	@Override
+	public void registerEventHandler(String eventId, IEventHandler<? extends SimulationEvent> handler) {
+		this.registerEventHandler(eventId, handler, true);
 	}
 
 	/**
@@ -453,6 +465,17 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 		}
 
 		return null;
+	}
+
+	@Override
+	public void reset() {
+		// remove the event handler marked to be unregistered
+		for (Iterator<ServiceRegistration<?>> it = this.eventHandlerToRemove.iterator(); it.hasNext();) {
+			ServiceRegistration<?> handler = it.next();
+			handler.unregister();
+			it.remove();
+			this.eventHandlerRegistry.remove(handler);
+		}
 	}
 
 }

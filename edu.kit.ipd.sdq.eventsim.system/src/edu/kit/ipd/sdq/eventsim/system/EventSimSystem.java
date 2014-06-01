@@ -73,7 +73,7 @@ public class EventSimSystem implements ISystem {
 				EventSimSystem.this.init();
 			}
 
-		});
+		}, false);
 
 		this.middleware.registerEventHandler(SimulationFinalizeEvent.EVENT_ID, new IEventHandler<SimulationFinalizeEvent>() {
 
@@ -82,7 +82,7 @@ public class EventSimSystem implements ISystem {
 				EventSimSystem.this.finalise();
 			}
 
-		});
+		}, false);
 	}
 
 	/**
