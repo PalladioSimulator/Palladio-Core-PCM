@@ -3,5 +3,6 @@
    <service>
       <provide interface="edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource"/>
    </service>
+   <reference name="ISimulationMiddleware" interface="edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware" cardinality="1..1" policy="dynamic" bind="bindSimulationMiddleware" unbind="unbindSimulationMiddleware"/>
    <implementation class="edu.kit.ipd.sdq.simcomp.dummy.resource.component.DummyActiveResourceSimulator"/>
 </scr:component>
