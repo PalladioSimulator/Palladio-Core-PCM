@@ -11,6 +11,8 @@ import org.eclipse.core.runtime.IProgressMonitor;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.emf.ecore.resource.ResourceSet;
+import org.eclipse.emf.ecore.resource.impl.ResourceSetImpl;
+import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.workflow.jobs.CleanupFailedException;
 import de.uka.ipd.sdq.workflow.jobs.IBlackboardInteractingJob;
@@ -37,8 +39,8 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
 public class CreateWorkingCopyOfModelsJob implements IJob,
 	IBlackboardInteractingJob<MDSDBlackboard> {
 
-	/** The logger for this class */
-	private static final Logger logger = Logger.getLogger(CreateWorkingCopyOfModelsJob.class);
+	/** The LOGGER for this class */
+	private static final Logger LOGGER = Logger.getLogger(CreateWorkingCopyOfModelsJob.class);
 
 	/** The blackboard to interact with */
 	private MDSDBlackboard blackboard = null;
@@ -70,19 +72,19 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 		// prepare the target path
 		IFolder modelFolder = project.getFolder("model");
 		if (project.isOpen() && !modelFolder.exists()) {
-			if(logger.isDebugEnabled()) {
-                logger.debug("Creating folder " + modelFolder.getName());
+			if(LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Creating folder " + modelFolder.getName());
             }
 			try {
 				modelFolder.create(false, true, null);
 			} catch (CoreException e) {
-				if(logger.isEnabledFor(Level.ERROR)) {
-                    logger.error("unable to create model folder");
+				if(LOGGER.isEnabledFor(Level.ERROR)) {
+                    LOGGER.error("unable to create model folder");
                 }
 				throw new JobFailedException(e);
 			}
 		}
-		String modelBasePath = "file:/"+modelFolder.getLocation().toOSString();
+		final String modelBasePath = "file:/"+modelFolder.getLocation().toOSString();
 
 		// access the resources
 		PCMResourceSetPartition partition = (PCMResourceSetPartition) this.blackboard.getPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
@@ -91,32 +93,23 @@ public class CreateWorkingCopyOfModelsJob implements IJob,
 
 			// we only need to copy the file models
 			if (resource.getURI().scheme() != "pathmap") {
-				URI uri = resource.getURI();
-				String relativePath = uri.lastSegment();
-				URI newURI = URI.createURI(modelBasePath +"/"+ relativePath);
-				resource.setURI(newURI);
-
+				final URI uri = resource.getURI();
+				final String relativePath = uri.lastSegment();
+				final URI newURI = URI.createURI(modelBasePath +"/"+ relativePath);
+				
+				final ResourceSet newResSet = new ResourceSetImpl();
+                final Resource newResource = newResSet.createResource(newURI);
+                // deep copy
+                newResource.getContents().addAll(EcoreUtil.copyAll(resource.getContents())); // FIXME Enable inter-model references 
 				try {
-					resource.save(null);
-					partition.setContents(resource.getURI(), resource.getContents());
+				    newResource.save(null);
 				} catch (IOException e) {
-					if(logger.isEnabledFor(Level.ERROR)) {
-                        logger.error("Unable to store resource "+resource.getURI(),e);
+					if(LOGGER.isEnabledFor(Level.ERROR)) {
+                        LOGGER.error("Unable to store resource "+resource.getURI(),e);
                     }
 				}
 			}
 		}
-		try {
-			partition.storeAllResources();
-		} catch (IOException e) {
-			if(logger.isEnabledFor(Level.ERROR)) {
-                logger.error("unable to store all resources",e);
-            }
-			throw new JobFailedException("Unable to store all Resources",e);
-		}
-//		partition.resolveAllProxies();
-//		this.blackboard.removePartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID);
-//		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, partition);
 	}
 
 	@Override
