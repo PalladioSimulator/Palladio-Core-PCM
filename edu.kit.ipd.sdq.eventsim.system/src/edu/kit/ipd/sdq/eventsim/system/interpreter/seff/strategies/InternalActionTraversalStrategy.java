@@ -51,10 +51,13 @@ public class InternalActionTraversalStrategy implements ISeffTraversalStrategy<I
         double evaluatedDemand = NumberConverter.toDouble(state.getStoExContext().evaluate(demand.getSpecification_ParametericResourceDemand().getSpecification()));
 		ResourceType type = demand.getRequiredResource_ParametricResourceDemand();
 
-		// fetch simulation component based on context TODO (SimComp): Fetch container information
+		// fetch simulation component based on context 
         EventSimSystem system = (EventSimSystem) Activator.getDefault().getSystemComponent();
 		List<IActiveResource> activeResourceComponents = system.getActiveResourceComponents();
-		ActiveResourceSimulationContext context = new ActiveResourceSimulationContext(null, type.getEntityName());
+		// TODO (SimComp): Fetch container information
+		String containerDescriptor = ""; //resourceContainer.getEntityName() + "#" + resourceContainer.getId();
+		String resourceTypeDescriptor = type.getEntityName() + "#" + type.getId();
+		ActiveResourceSimulationContext context = new ActiveResourceSimulationContext(containerDescriptor, resourceTypeDescriptor);
 		IActiveResource activeResource = (IActiveResource) middleware.getSimulationComponent(IActiveResource.class, activeResourceComponents, context);
 
         // consume the resource demand

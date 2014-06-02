@@ -3,6 +3,9 @@ package edu.kit.ipd.sdq.simcomp.resource.active.context;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 
@@ -22,8 +25,13 @@ public class ContainerContextValueProvider implements IContextFieldValueProvider
 	@Override
 	public List<String> getPossibleValues(IPCMModel model) {
 		List<String> values = new ArrayList<String>();
-		values.add("Container XY");
-		values.add("Container YZ");
+
+		// read list of resource containers
+		EList<ResourceContainer> resourceContainverEnv = model.getResourceEnvironmentModel().getResourceContainer_ResourceEnvironment();
+		for (ResourceContainer resourceContainer : resourceContainverEnv) {
+			values.add(resourceContainer.getEntityName() + "#" + resourceContainer.getId());
+		}
+
 		return values;
 	}
 

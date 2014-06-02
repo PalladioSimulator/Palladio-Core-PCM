@@ -3,12 +3,15 @@ package edu.kit.ipd.sdq.simcomp.resource.active.context;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.eclipse.emf.common.util.EList;
+
+import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 
 /**
- * Reads all possible values for the resource type simulation context field for an
- * active resource simulation component.
+ * Reads all possible values for the resource type simulation context field for
+ * an active resource simulation component.
  * 
  * TODO (SimComp): Read values from PCM model
  * 
@@ -22,8 +25,12 @@ public class ResourceTypeContextValueProvider implements IContextFieldValueProvi
 	@Override
 	public List<String> getPossibleValues(IPCMModel model) {
 		List<String> values = new ArrayList<String>();
-		values.add("Resource Type XY");
-		values.add("Resource Type YZ");
+
+		EList<ResourceType> resourceTypesRepo = model.getResourceRepository().getAvailableResourceTypes_ResourceRepository();
+		for (ResourceType resourceType : resourceTypesRepo) {
+			values.add(resourceType.getEntityName() + "#" + resourceType.getId());
+		}
+
 		return values;
 	}
 
