@@ -6,6 +6,7 @@ import java.util.Iterator;
 import java.util.Map.Entry;
 
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource;
+import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -21,7 +22,8 @@ public class SimulatedLinkingResourceContainer extends AbstractSimulatedResource
         super(myModel, id);
     }
 
-    public void addActiveResource(final LinkingResource linkingResource, final String resourceContainerID) {
+    public void addActiveResource(final String linkingResourceURI, final String resourceContainerID) {
+        final LinkingResource linkingResource = (LinkingResource) ModelsAtRuntime.loadModel(linkingResourceURI);
         final SimulatedLinkingResource r = new SimulatedLinkingResource(linkingResource, myModel, resourceContainerID);
         activeResources.put(linkingResource.getCommunicationLinkResourceSpecifications_LinkingResource()
                 .getCommunicationLinkResourceType_CommunicationLinkResourceSpecification().getEntityName(), r);

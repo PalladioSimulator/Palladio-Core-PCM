@@ -1,5 +1,6 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sim::measuringPoint»
 «IMPORT system»
 «IMPORT core::composition»
 «IMPORT usagemodel»
@@ -61,9 +62,9 @@ de.uka.ipd.sdq.simucomframework.usage.OpenWorkloadUserFactory
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR ClosedWorkload»
-	super(model, "«this.thinkTime_ClosedWorkload.specification.specificationString()»", (de.uka.ipd.sdq.pcm.usagemodel.UsageScenario) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.usagemodel", "«this.usageScenario_Workload.id»"));
+	super(model, "«this.thinkTime_ClosedWorkload.specification.specificationString()»", "«this.usageScenario_Workload.getResourceURI()»");
 «ENDDEFINE»
 
 «DEFINE FactoryConstructor FOR OpenWorkload»
-	super(model, (de.uka.ipd.sdq.pcm.usagemodel.UsageScenario) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.usagemodel", "«this.usageScenario_Workload.id»"));
+	super(model, "«this.usageScenario_Workload.getResourceURI()»");
 «ENDDEFINE»

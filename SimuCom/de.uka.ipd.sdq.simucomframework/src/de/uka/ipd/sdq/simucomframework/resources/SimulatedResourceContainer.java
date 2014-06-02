@@ -11,6 +11,7 @@ import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.PassiveResource;
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
+import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.SimuComSimProcess;
 import de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerIsMissingRequiredResourceType;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
@@ -26,7 +27,7 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 public class SimulatedResourceContainer extends AbstractSimulatedResourceContainer {
 
     private final List<SimulatedResourceContainer> nestedResourceContainers;
-    
+
     private SimulatedResourceContainer parentResourceContainer = null;
 
     public SimulatedResourceContainer(final SimuComModel myModel, final String containerID) {
@@ -35,11 +36,10 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
     }
 
     public IPassiveResource createPassiveResource(final PassiveResource resource,
-            final AssemblyContext assemblyContext,
-            final String assemblyContextID, final long capacity) {
+            final AssemblyContext assemblyContext, final String assemblyContextID, final long capacity) {
         final IPassiveResource newPassiveResource = getSimplePassiveResource(resource, assemblyContext, this.myModel,
                 assemblyContextID, capacity);
-        
+
         // setup calculators
         CalculatorHelper.setupStateCalculator(newPassiveResource, this.myModel);
         CalculatorHelper.setupWaitingTimeCalculator(newPassiveResource, this.myModel);
@@ -76,9 +76,10 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
         parentResourceContainer = (SimulatedResourceContainer) resourceContainer;
     }
 
-    public void addActiveResource(final ProcessingResourceSpecification activeResource,
-            final String[] providedInterfaceIds, final String resourceContainerID,
-            final String schedulingStrategyID) {
+    public void addActiveResource(final String activeResourceURI, final String[] providedInterfaceIds,
+            final String resourceContainerID, final String schedulingStrategyID) {
+        final ProcessingResourceSpecification activeResource = (ProcessingResourceSpecification) ModelsAtRuntime
+                .loadModel(activeResourceURI);
         final ScheduledResource r = new ScheduledResource(activeResource, myModel, resourceContainerID,
                 schedulingStrategyID);
         String resourceType = activeResource.getActiveResourceType_ActiveResourceSpecification().getId();
@@ -116,9 +117,11 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
     }
 
     private IPassiveResource getSimplePassiveResource(final PassiveResource resource,
-            final AssemblyContext assemblyContext, final SimuComModel simuComModel, final String assemblyContextID, final long capacity) {
+            final AssemblyContext assemblyContext, final SimuComModel simuComModel, final String assemblyContextID,
+            final long capacity) {
         // return new SimFairPassiveResource(capacity, name, name, null,null);
-        return new SimSimpleFairPassiveResource(resource, assemblyContext, simuComModel, myModel, capacity, assemblyContextID, myModel.getConfiguration().getSimulateFailures());
+        return new SimSimpleFairPassiveResource(resource, assemblyContext, simuComModel, myModel, capacity,
+                assemblyContextID, myModel.getConfiguration().getSimulateFailures());
     }
 
     /**

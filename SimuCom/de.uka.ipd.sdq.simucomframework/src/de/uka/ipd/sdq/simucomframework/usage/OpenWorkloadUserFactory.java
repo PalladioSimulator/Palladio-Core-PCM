@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -11,8 +12,8 @@ import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
  */
 public abstract class OpenWorkloadUserFactory extends AbstractWorkloadUserFactory implements IUserFactory {
 
-    public OpenWorkloadUserFactory(final SimuComModel model, final UsageScenario usageScenario) {
-        super(model, usageScenario);
+    public OpenWorkloadUserFactory(final SimuComModel model, final String usageScenarioURI) {
+        super(model, (UsageScenario) ModelsAtRuntime.loadModel(usageScenarioURI));
     }
 
     /*

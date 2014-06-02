@@ -1,5 +1,6 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
+«EXTENSION m2t_transforms::sim::measuringPoint»
 «IMPORT repository»
 «IMPORT seff::seff_performance»
 «IMPORT resourcetype»
@@ -203,7 +204,7 @@
 
 «DEFINE LinkingResourceAdd FOR CommunicationLinkResourceSpecification»
 	rc.addActiveResource(
-	    (de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.resourceenvironment", "«this.linkingResource_CommunicationLinkResourceSpecification.id»"),
+		"«this.linkingResource_CommunicationLinkResourceSpecification.getResourceURI()»",
 		rc.getResourceContainerID());
 «ENDDEFINE»
 
@@ -225,7 +226,7 @@
 		«ENDFOREACH»
 	«ENDIF»
 	rc.addActiveResource(
-	    (de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.resourceenvironment", "«this.id»"),
+		"«this.getResourceURI()»",
 		«this.activeResourceType_ActiveResourceSpecification.id.javaVariableName()»_provInterfaces,
 		rc.getResourceContainerID(),
 		«EXPAND SchedulingStrategy(((ResourceContainer)this.eContainer)) FOR this»

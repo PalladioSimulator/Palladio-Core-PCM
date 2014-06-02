@@ -1,6 +1,7 @@
 package de.uka.ipd.sdq.simucomframework.usage;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 
 /**
@@ -13,8 +14,8 @@ public abstract class ClosedWorkloadUserFactory extends AbstractWorkloadUserFact
     private final String thinkTime;
 
     public ClosedWorkloadUserFactory(final SimuComModel model, final String thinkTimeSpec,
-            final UsageScenario usageScenario) {
-        super(model, usageScenario);
+            final String usageScenarioURI) {
+        super(model, (UsageScenario) ModelsAtRuntime.loadModel(usageScenarioURI));
 
         this.thinkTime = thinkTimeSpec;
     }

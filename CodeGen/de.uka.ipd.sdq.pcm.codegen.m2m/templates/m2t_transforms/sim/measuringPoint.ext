@@ -1,0 +1,10 @@
+import emf;
+
+String getResourceURI(EObject eObject) : JAVA
+	de.uka.sdq.pcm.transformations.Helper.getResourceURI(org.eclipse.emf.ecore.EObject)
+	;
+
+String getResourceDescription(EObject eObject) : JAVA
+	de.uka.sdq.pcm.transformations.Helper.getResourceDescription(org.eclipse.emf.ecore.EObject)
+	;
+

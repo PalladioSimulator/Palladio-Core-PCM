@@ -40,8 +40,9 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
     public AbstractSimulationJob(C configuration, IDebugListener listener, boolean loadModels) throws CoreException {
         super(false);
 
-        if (listener == null && configuration.isDebug())
+        if (listener == null && configuration.isDebug()) {
             throw new IllegalArgumentException("Debug listener has to be non-null for debug runs");
+        }
         this.debugListener = listener;
 
         // Stage Preparation

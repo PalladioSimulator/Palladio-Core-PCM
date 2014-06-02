@@ -1,6 +1,7 @@
 «EXTENSION m2t_transforms::java_names»
 «EXTENSION m2t_transforms::pcm»
 «EXTENSION m2t_transforms::sim::accuracyInfluence»
+«EXTENSION m2t_transforms::sim::measuringPoint»
 «IMPORT seff»
 «IMPORT repository»
 «IMPORT completions»
@@ -107,7 +108,7 @@
 	if (pr_«this.passiveresource_AcquireAction.id.javaVariableName()» == null) {
 		// Initialize Resource First...
 		pr_«this.passiveresource_AcquireAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(
-			(de.uka.ipd.sdq.pcm.repository.PassiveResource) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.repository", "«this.passiveresource_AcquireAction.id»"),
+			"«this.passiveresource_AcquireAction.getResourceURI()»",
 			this.assemblyContextID,
 			ctx.findResource(assemblyContextID),
 			(Integer)ctx.evaluate("«this.passiveresource_AcquireAction.capacity_PassiveResource.specification.specificationString()»", Integer.class)
@@ -121,7 +122,7 @@
 	if (pr_«this.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
 		// Initialize Resource First...
 		pr_«this.passiveResource_ReleaseAction.id.javaVariableName()» = ctx.getPassiveRessourceInContext(
-		    (de.uka.ipd.sdq.pcm.repository.PassiveResource) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel("de.uka.ipd.sdq.temporary", "default.repository", "«this.passiveResource_ReleaseAction.id»"),
+			"«this.passiveResource_ReleaseAction.getResourceURI()»",
 			this.assemblyContextID,
 			ctx.findResource(assemblyContextID),
 			(Integer)ctx.evaluate("«this.passiveResource_ReleaseAction.capacity_PassiveResource.specification.specificationString()»",Integer.class)
