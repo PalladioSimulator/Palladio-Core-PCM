@@ -3,10 +3,11 @@ package edu.kit.ipd.sdq.simcomp.resource.active.context;
 import edu.kit.ipd.sdq.simcomp.component.AbstractSimulationContext;
 
 /**
- * Simulation context for the dynamic binding of active resource simulation components.  
+ * Simulation context for the dynamic binding of active resource simulation
+ * components.
  * 
  * @author Christoph Föhrdes
- *
+ * 
  */
 public class ActiveResourceSimulationContext extends AbstractSimulationContext {
 

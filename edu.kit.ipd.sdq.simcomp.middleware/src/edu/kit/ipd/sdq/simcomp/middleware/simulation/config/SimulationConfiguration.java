@@ -13,8 +13,11 @@ import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
 
 /**
- * provide all properties necessary to be able to build a {@link EventSimConfig}
- * base on it
+ * A configuration object for a simulation component based advanced simulator
+ * configuration.
+ * 
+ * This objects provides all properties necessary to be able to build a
+ * {@link EventSimConfig} base on it.
  * 
  * @author Christoph Föhrdes
  */

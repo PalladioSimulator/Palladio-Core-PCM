@@ -4,6 +4,14 @@ import org.osgi.service.component.ComponentContext;
 
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 
+/**
+ * An OSGi declarative service component representing the user interaface of the
+ * simulation component based simulator. This component is necessary to gives
+ * the GUI the possibility to require and access the simulation middleware.
+ * 
+ * @author Christoph Föhrdes
+ * 
+ */
 public class SimulationComponentUi {
 
 	private ISimulationMiddleware middleware;

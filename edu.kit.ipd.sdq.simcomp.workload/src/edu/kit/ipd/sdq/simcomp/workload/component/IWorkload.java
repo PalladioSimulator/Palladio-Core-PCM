@@ -17,7 +17,7 @@ public interface IWorkload extends ISimulationComponent {
 	 */
 	@SuppressWarnings("rawtypes")
 	public static Class[] componentEvents = new Class[] { 
-		WorkloadUserSpawn.class,
+		WorkloadUserSpawn.class, 
 		WorkloadUserFinished.class
 	};
 

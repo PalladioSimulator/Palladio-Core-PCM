@@ -10,10 +10,8 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 
 /**
- * Reads all possible values for the resource type simulation context field for
- * an active resource simulation component.
- * 
- * TODO (SimComp): Read values from PCM model
+ * Context field value provider for the resource type parameter of the active
+ * resource simulation context.
  * 
  * @author Christoph Föhrdes
  * 

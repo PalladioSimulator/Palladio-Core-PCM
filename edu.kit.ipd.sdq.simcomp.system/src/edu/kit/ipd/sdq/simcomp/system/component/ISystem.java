@@ -18,11 +18,19 @@ public interface ISystem extends ISimulationComponent {
 	 * List of simulation events triggered by this simulation component.
 	 */
 	@SuppressWarnings("rawtypes")
-	public static Class[] componentEvents = new Class[] { 
+	public static Class[] componentEvents = new Class[] {
 		SystemRequestStart.class,
 		SystemRequestProcessed.class
 	};
 
+	/**
+	 * Processed a request from a given user to a specific system service.
+	 * 
+	 * @param user
+	 *            The user issuing the request
+	 * @param call
+	 *            The specification of the system service which is called
+	 */
 	public void callService(IUser user, EntryLevelSystemCall call);
 
 }

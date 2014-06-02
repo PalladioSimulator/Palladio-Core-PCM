@@ -9,6 +9,13 @@ import java.io.Serializable;
 
 import javax.xml.bind.DatatypeConverter;
 
+/**
+ * A helper class containing some common tasks used in the handling of the
+ * launch configuration.
+ * 
+ * @author Christoph Föhrdes
+ * 
+ */
 public class ConfigHelper {
 
 	/**

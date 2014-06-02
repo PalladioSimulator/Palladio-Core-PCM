@@ -9,12 +9,12 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
  * Represents an active resource simulation component which can be consumed.
  * 
  * @author Christoph Föhrdes
- *
+ * 
  */
 public interface IActiveResource extends ISimulationComponent {
 
 	/**
-	 * Consumes a specific demand of the active resource.
+	 * Consumes a specific demand of this active resource.
 	 * 
 	 * @param request
 	 * @param resourceContainer

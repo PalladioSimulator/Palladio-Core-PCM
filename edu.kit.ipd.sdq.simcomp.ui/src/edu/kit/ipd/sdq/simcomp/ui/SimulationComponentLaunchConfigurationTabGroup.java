@@ -13,6 +13,13 @@ import de.uka.ipd.sdq.codegen.simucontroller.runconfig.SimuConfigurationTab;
 import de.uka.ipd.sdq.workflow.launchconfig.tabs.DebugEnabledCommonTab;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.FileNamesInputTab;
 
+/**
+ * A launch configuration tab group which creates the tabs for the SimuBench (simulation
+ * component) launch configuration type.
+ * 
+ * @author Christoph Föhrdes
+ * 
+ */
 public class SimulationComponentLaunchConfigurationTabGroup extends AbstractLaunchConfigurationTabGroup {
 
 	@Override

@@ -32,8 +32,17 @@ import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulatiorCompositonRule;
+import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulatorCompositonRule;
 
+/**
+ * The simulation component rule editor is an SWT based editor to create a set
+ * of simulator composition rules for a given simulation component type. The
+ * rule editor is intended to be used to build the simulator configuration in
+ * the launch configuration editor.
+ * 
+ * @author Christoph Föhrdes
+ * 
+ */
 public class SimulationComponentRuleEditor {
 
 	private IPCMModel model;
@@ -47,7 +56,6 @@ public class SimulationComponentRuleEditor {
 	private Button btnDelete;
 	private Button btnMoveUp;
 	private Button btnMoveDown;
-
 
 	public SimulationComponentRuleEditor(Composite parent, SimulationComponentType simCompType, ModifyListener modificationListener, ISimulationMiddleware middleware) {
 		this.modificationListener = modificationListener;
@@ -347,14 +355,14 @@ public class SimulationComponentRuleEditor {
 	 */
 	private void updateButtonsForSelection(int selectedIndex) {
 		btnDelete.setEnabled(true);
-		
+
 		if (tblCompositionRules.getItemCount() == 1) {
 			btnMoveUp.setEnabled(false);
 			btnMoveDown.setEnabled(false);
-			
+
 			return;
 		}
-		
+
 		if (selectedIndex == 0) {
 			btnMoveUp.setEnabled(false);
 			btnMoveDown.setEnabled(true);
@@ -418,7 +426,7 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @param compositionRules
 	 */
-	public void updateCompositionRules(List<SimulatiorCompositonRule> compositionRules) {
+	public void updateCompositionRules(List<SimulatorCompositonRule> compositionRules) {
 		tblCompositionRules.clearAll();
 		tblCompositionRules.setItemCount(0);
 
@@ -426,7 +434,7 @@ public class SimulationComponentRuleEditor {
 			return;
 		}
 
-		for (SimulatiorCompositonRule rule : compositionRules) {
+		for (SimulatorCompositonRule rule : compositionRules) {
 			TableItem ruleItem = new TableItem(tblCompositionRules, SWT.NONE);
 
 			for (int i = 0; i < this.simCompType.getContextFields().size(); i++) {
@@ -444,8 +452,8 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @return
 	 */
-	public List<SimulatiorCompositonRule> getCompositionRules() {
-		List<SimulatiorCompositonRule> rules = new ArrayList<SimulatiorCompositonRule>();
+	public List<SimulatorCompositonRule> getCompositionRules() {
+		List<SimulatorCompositonRule> rules = new ArrayList<SimulatorCompositonRule>();
 
 		TableItem[] ruleTableItems = tblCompositionRules.getItems();
 		// iterate over rule rows
@@ -471,7 +479,7 @@ public class SimulationComponentRuleEditor {
 				}
 			}
 
-			rules.add(new SimulatiorCompositonRule(this.simCompType, fieldValues, selectedComponent));
+			rules.add(new SimulatorCompositonRule(this.simCompType, fieldValues, selectedComponent));
 		}
 
 		return rules;
