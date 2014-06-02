@@ -6,6 +6,7 @@ import java.util.List
 import org.palladiosimulator.protocom.lang.GeneratedFile
 import org.palladiosimulator.protocom.lang.ICompilationUnit
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement
+import org.palladiosimulator.protocom.lang.CopiedFile
 
 /**
  * Abstract class representing a generic PCM model entity. Includes methods to
@@ -26,6 +27,8 @@ abstract class PcmRepresentative<E extends NamedElement> {
 	 * List of all files to be generated.
 	 */
 	protected List<GeneratedFile<? extends ICompilationUnit>> generatedFiles = newLinkedList
+	
+	protected List<CopiedFile> copiedFiles = newLinkedList
 
 	/**
 	 * The represented element of the loaded PCM model.
@@ -74,6 +77,7 @@ abstract class PcmRepresentative<E extends NamedElement> {
 	 */
 	private def void store() {
 		generatedFiles.forEach[it.store]
+		copiedFiles.forEach[it.store]
 	}
 
 }

@@ -1,11 +1,26 @@
 package org.palladiosimulator.protocom.tech.servlet.system
 
 import org.palladiosimulator.protocom.tech.servlet.ServletClass
-import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario
+import de.uka.ipd.sdq.pcm.system.System;
 
-// TODO: Why is this class in the system package, not in usage?
-class ServletSystemMain extends ServletClass<UsageScenario> {
-	new(UsageScenario pcmEntity) {
+class ServletSystemMain extends ServletClass<System> {
+	new(System pcmEntity) {
 		super(pcmEntity)
 	}	
+	
+	override superClass() {
+		"org.palladiosimulator.protocom.framework.jee.servlet.AbstractMain"
+	}
+	
+	override compilationUnitName() {
+		"Main"
+	}
+	
+	override packageName() {
+		"main"
+	}
+	
+	override filePath() {
+		"/src/main/Main.java"
+	}
 }

@@ -20,8 +20,8 @@ class JeeServletBasicComponent extends XBasicComponent {
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentContextClass(entity)))
 		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletBasicComponentContextInterface(entity)))
 		
-		entity.providedRoles_InterfaceProvidingEntity.forEach[
-			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentPortClass(it)))
-		]
+//		entity.providedRoles_InterfaceProvidingEntity.forEach[
+//			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentPortClass(it)))
+//		]
 	}	
 }
