@@ -34,9 +34,11 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 «ENDDEFINE»
 
 «DEFINE ComponentConstructor FOR RepositoryComponent»
-	private static org.apache.log4j.Logger logger = 
+	private static final org.apache.log4j.Logger logger = 
 			org.apache.log4j.Logger.getLogger(de.uka.ipd.sdq.simucomframework.model.SimuComModel.class.getName());
-			
+	
+	/** Default EMF factory for measuring points. */
+    private static final org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory measuringpointFactory = org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory.eINSTANCE;
 	
 	private String assemblyContextID = null;
 	private final java.util.Map<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>> startStopProbes = new java.util.HashMap<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>>();
