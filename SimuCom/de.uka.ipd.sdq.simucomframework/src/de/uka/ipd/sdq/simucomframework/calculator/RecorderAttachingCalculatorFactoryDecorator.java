@@ -93,7 +93,19 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
      */
     @Override
     public Calculator buildOverallStateOfActiveResourceCalculator(final MeasuringPoint measuringPoint, final Probe probe) {
-        return setupRecorder(decoratedCalculatorFactory.buildOverallStateOfActiveResourceCalculator(measuringPoint, probe));
+        return setupRecorder(decoratedCalculatorFactory.buildOverallStateOfActiveResourceCalculator(measuringPoint,
+                probe));
+    }
+
+    @Override
+    public Calculator buildStateOfPassiveResourceCalculator(MeasuringPoint measuringPoint, Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildStateOfPassiveResourceCalculator(measuringPoint, probe));
+    }
+
+    @Override
+    public Calculator buildOverallStateOfPassiveResourceCalculator(MeasuringPoint measuringPoint, Probe probe) {
+        return setupRecorder(decoratedCalculatorFactory.buildOverallStateOfPassiveResourceCalculator(measuringPoint,
+                probe));
     }
 
     /**
@@ -132,5 +144,4 @@ public class RecorderAttachingCalculatorFactoryDecorator implements ICalculatorF
 
         return calculator;
     }
-
 }

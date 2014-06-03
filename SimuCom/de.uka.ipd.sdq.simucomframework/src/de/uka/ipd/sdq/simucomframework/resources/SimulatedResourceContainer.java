@@ -41,7 +41,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
                 capacity);
 
         // setup calculators
-        CalculatorHelper.setupStateCalculator(newPassiveResource, this.myModel);
+        CalculatorHelper.setupPassiveResourceStateCalculator(newPassiveResource, this.myModel);
         CalculatorHelper.setupWaitingTimeCalculator(newPassiveResource, this.myModel);
         CalculatorHelper.setupHoldTimeCalculator(newPassiveResource, this.myModel);
 
@@ -101,7 +101,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
         // and number of cores
         if (schedulingStrategyID.equals(SchedulingStrategy.PROCESSOR_SHARING)) {
             if (r.getNumberOfInstances() == 1) {
-                CalculatorHelper.setupStateCalculator(r, this.myModel);
+                CalculatorHelper.setupActiveResourceStateCalculator(r, this.myModel);
             } else {
                 CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
             }
@@ -109,7 +109,7 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
                 || schedulingStrategyID.equals(SchedulingStrategy.FCFS)) {
             assert (r.getNumberOfInstances() == 1) : "DELAY and FCFS resources are expected to "
                     + "have exactly one core";
-            CalculatorHelper.setupStateCalculator(r, this.myModel);
+            CalculatorHelper.setupActiveResourceStateCalculator(r, this.myModel);
         } else {
             // Use an OverallUtilizationCalculator by default.
             CalculatorHelper.setupOverallUtilizationCalculator(r, this.myModel);
