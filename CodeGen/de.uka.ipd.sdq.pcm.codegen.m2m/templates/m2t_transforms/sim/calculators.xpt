@@ -43,7 +43,7 @@
 «ENDDEFINE»
 
 «DEFINE SetupCalculators FOR ExternalCallAction»
-	// Old: "Call "+this.calledService_ExternalService.interface__OperationSignature.entityName+"."+this.calledService_ExternalService.javaSignature()+" <AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+ this.id +">"
+	// Old: "Call "+this.calledService_ExternalService.interface__OperationSignature.entityName+"."+this.calledService_ExternalService.javaSignature()+" <AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+ this.id +">"
 	«LET externalCallActionDescription(this.calledService_ExternalService, this) AS callName»
 		// ExternalCallAction «this.entityName» («this.id»)
 		«EXPAND m2t_transforms::calculators::SetupCalculatorResponseTime("start" + callName, "end" + callName) FOR callName»

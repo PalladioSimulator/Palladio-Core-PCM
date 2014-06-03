@@ -39,7 +39,6 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
     private final SchedulerModel myModel;
     private long available;
     private final String passiveResourceID;
-    private final String assemblyContextID;
     private final boolean simulateFailures;
     private final SimuComModel simuComModel;
 
@@ -50,8 +49,8 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
 
     public SimSimpleFairPassiveResource(final PassiveResource resource, final AssemblyContext assemblyContext,
             final SimuComModel simuComModel, final SchedulerModel model, final Long capacity,
-            final String assemblyContextID, final boolean simulateFailures) {
-        super(model, capacity, resource.getEntityName(), resource.getId() + ":" + assemblyContextID);
+            final boolean simulateFailures) {
+        super(model, capacity, resource.getEntityName(), resource.getId() + ":" + assemblyContext.getId());
         this.resource = resource;
         this.assemblyContext = assemblyContext;
 
@@ -59,7 +58,6 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
         this.waiting_queue = new ArrayDeque<IWaitingProcess>();
         this.myModel = model;
         this.passiveResourceID = resource.getId();
-        this.assemblyContextID = assemblyContextID;
         this.observee = new PassiveResourceObservee();
         this.available = capacity;
         this.simulateFailures = simulateFailures;
@@ -136,7 +134,7 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
         if (timeoutValue == 0.0) {
             FailureException.raise(
                     simuComModel,
-                    simuComModel.getFailureStatistics().getResourceTimeoutFailureType(this.assemblyContextID,
+                    simuComModel.getFailureStatistics().getResourceTimeoutFailureType(this.assemblyContext.getId(),
                             this.passiveResourceID));
         }
         if (timeoutValue > 0.0) {
@@ -153,15 +151,6 @@ public class SimSimpleFairPassiveResource extends AbstractSimResource implements
      */
     protected String getPassiveResourceID() {
         return passiveResourceID;
-    }
-
-    /**
-     * Retrieves the assembly context ID.
-     * 
-     * @return the assembly context ID
-     */
-    protected String getAssemblyContextID() {
-        return assemblyContextID;
     }
 
     @Override

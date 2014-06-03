@@ -164,7 +164,7 @@
     		«LET externalCall.id.javaVariableName() AS id»
     			«LET javaVariableName("tries_"+ externalCall.calledService_ExternalService.javaSignature()) AS triesVar»
     				«EXPAND m2t_transforms::seff_body::CatchFailureExceptions(id) FOR externalCall-»
-    	«LET "Call "+this.interface__OperationSignature.entityName+"."+this.javaSignature()+" <Component: "+((ExternalCallAction)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContextID+\", CallID: "+((ExternalCallAction)call).id+">" AS callName»
+    	«LET "Call "+this.interface__OperationSignature.entityName+"."+this.javaSignature()+" <Component: "+((ExternalCallAction)call).findContainerComponent().entityName+", AssemblyCtx: \"+this.assemblyContext.getId()+\", CallID: "+((ExternalCallAction)call).id+">" AS callName»
     	de.uka.ipd.sdq.simucomframework.ReliabilitySensorHelper.recordExternalCallResult(
     		"«callName»",
     		"«externalCall.id»",
@@ -227,8 +227,8 @@
 				de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer fromContainer = null;
 				de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer toContainer = null;
 				try {
-					fromContainer = ctx.findResource(this.assemblyContextID);
-					toContainer = ctx.findResource(«prefix»getComponentAssemblyContextID());
+					fromContainer = ctx.findResource(this.assemblyContext.getId());
+					toContainer = ctx.findResource(«prefix»getComponentAssemblyContext().getId());
 		   		} catch (de.uka.ipd.sdq.simucomframework.exceptions.ResourceContainerNotFound exception) {
 					// If the call is system external, no target resource container will be found.
 		   		}

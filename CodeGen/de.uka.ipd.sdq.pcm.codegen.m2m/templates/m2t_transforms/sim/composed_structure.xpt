@@ -9,7 +9,7 @@
   context.setUserData(this.myContext.getUserData());
     
   «IF BasicComponent.isInstance(this.encapsulatedComponent__AssemblyContext)»
-	//Initialise Component Parameters
+	// Initialize Component Parameters
 	de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> componentStackFrame = 
 		new de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object>();
 	«FOREACH this.configParameterUsages__AssemblyContext AS pu»
@@ -21,17 +21,17 @@
 	«ENDFOREACH»
 	
 	// possibly overwrite some with user data if this AssemblyContext is meant
-	this.myContext.getUserData().overwriteParametersForAssemblyContext(my«this.javaName()».getAssemblyContextID(), componentStackFrame);
+	this.myContext.getUserData().overwriteParametersForAssemblyContext(my«this.javaName()».getAssemblyContext().getId(), componentStackFrame);
 	
 	my«this.javaName()».setComponentFrame(componentStackFrame);
   «ENDIF»
 «ENDDEFINE»
 
 «DEFINE ComposedPREConstructorStart FOR ComposedProvidingRequiringEntity»
-	private String assemblyContextID = "";
+	private de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext = null;
 	
-	public String getAssemblyContextID() {
-		return assemblyContextID;
+	public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getAssemblyContext() {
+		return this.assemblyContext;
 	}
 	
 	private de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
@@ -45,13 +45,13 @@
 	public «this.className()»(de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 	this.model = model; 
 	«ELSE»
-	public «this.className()» (String assemblyContextID, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+	public «this.className()» (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
 	    /* The assembly context contains this Assembly Context's id plus potentially Assembly Context's ids of its parents in the system. */
-		this.assemblyContextID = assemblyContextID;
+		this.assemblyContext = assemblyContext;
 		
 		this.model = model;
 				
-		logger.info("Creating composed structure «this.entityName» with AssembylContextID " + assemblyContextID);
+		logger.info("Creating composed structure «this.entityName» with AssembylContextID " + assemblyContext.getId());
 	«ENDIF»
 	«REM»Do not close curly brace here.«ENDREM»
 «ENDDEFINE»

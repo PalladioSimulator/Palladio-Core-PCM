@@ -123,15 +123,14 @@ public abstract class Context extends StackContext {
     }
 
     public IPassiveResource getPassiveRessourceInContext(final String resourceURI,
-            final AssemblyContext assemblyContext, String assemblyContextID,
+            final AssemblyContext assemblyContext,
             AbstractSimulatedResourceContainer resourceContainer, long capacity) {
         final PassiveResource resource = (PassiveResource) ModelsAtRuntime.loadModel(resourceURI);
-        IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContextID + resource.getId());
+        IPassiveResource pr = assemblyPassiveResourceHash.get(assemblyContext.getId() + resource.getId());
 
         if (pr == null) {
-            pr = ((SimulatedResourceContainer) resourceContainer).createPassiveResource(resource, assemblyContext,
-                    assemblyContextID, capacity);
-            assemblyPassiveResourceHash.put(assemblyContextID + resource.getId(), pr);
+            pr = ((SimulatedResourceContainer) resourceContainer).createPassiveResource(resource, assemblyContext, capacity);
+            assemblyPassiveResourceHash.put(assemblyContext.getId() + resource.getId(), pr);
         }
 
         return pr;

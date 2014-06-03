@@ -65,7 +65,7 @@ public class PassiveResourceTimeoutEvent extends AbstractSimEventDelegator<Simpl
         resource.remove(process);
         process.getProcess().timeout(
                 this.simuComModel.getFailureStatistics().getResourceTimeoutFailureType(
-                        resource.getAssemblyContextID(),
+                        resource.getAssemblyContext().getId(),
                         resource.getPassiveResourceID()).getId());
     }
 

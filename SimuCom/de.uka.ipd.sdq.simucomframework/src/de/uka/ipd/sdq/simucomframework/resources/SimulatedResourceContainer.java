@@ -36,9 +36,9 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
     }
 
     public IPassiveResource createPassiveResource(final PassiveResource resource,
-            final AssemblyContext assemblyContext, final String assemblyContextID, final long capacity) {
+            final AssemblyContext assemblyContext, final long capacity) {
         final IPassiveResource newPassiveResource = getSimplePassiveResource(resource, assemblyContext, this.myModel,
-                assemblyContextID, capacity);
+                capacity);
 
         // setup calculators
         CalculatorHelper.setupStateCalculator(newPassiveResource, this.myModel);
@@ -117,11 +117,11 @@ public class SimulatedResourceContainer extends AbstractSimulatedResourceContain
     }
 
     private IPassiveResource getSimplePassiveResource(final PassiveResource resource,
-            final AssemblyContext assemblyContext, final SimuComModel simuComModel, final String assemblyContextID,
+            final AssemblyContext assemblyContext, final SimuComModel simuComModel,
             final long capacity) {
         // return new SimFairPassiveResource(capacity, name, name, null,null);
         return new SimSimpleFairPassiveResource(resource, assemblyContext, simuComModel, myModel, capacity,
-                assemblyContextID, myModel.getConfiguration().getSimulateFailures());
+                myModel.getConfiguration().getSimulateFailures());
     }
 
     /**

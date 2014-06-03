@@ -1,5 +1,6 @@
 «EXTENSION m2t_transforms::pcm»
 «EXTENSION m2t_transforms::java_names»
+«EXTENSION m2t_transforms::sim::measuringPoint»
 «IMPORT system»
 «IMPORT pcm::subsystem»
 «IMPORT core::composition»
@@ -29,9 +30,9 @@
     «IF CompositeComponent.isInstance(this.parentStructure__AssemblyContext)
         || SubSystem.isInstance(this.parentStructure__AssemblyContext)
         || Completion.isInstance(this.parentStructure__AssemblyContext) »
-    	"«this.id»" + this.assemblyContextID
+    	"«this.getResourceURI()»" + this.assemblyContext.getId()
     «ELSE»
-    	"«this.id»"
+    	"«this.getResourceURI()»"
 	«ENDIF»
 
 «ENDAROUND»

@@ -40,11 +40,11 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 	/** Default EMF factory for measuring points. */
     private static final org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory measuringpointFactory = org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory.eINSTANCE;
 	
-	private String assemblyContextID = null;
+	private de.uka.ipd.sdq.pcm.core.composition.AssemblyContext assemblyContext = null;
 	private final java.util.Map<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>> startStopProbes = new java.util.HashMap<String,java.util.List<org.palladiosimulator.probeframework.probes.Probe>>();
 	
-	public String getAssemblyContextID() {
-		return assemblyContextID;
+	public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getAssemblyContext() {
+		return this.assemblyContext;
 	}
 	
 	private de.uka.ipd.sdq.simucomframework.model.SimuComModel model;
@@ -55,8 +55,8 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 	
 	«EXPAND PassiveResourceDecls FOR this»
 	
-	public «this.javaName()» (String assemblyContextID, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
-		this.assemblyContextID = assemblyContextID;
+	public «this.javaName()» (String assemblyContextURI, de.uka.ipd.sdq.simucomframework.model.SimuComModel model) {
+		this.assemblyContext = (de.uka.ipd.sdq.pcm.core.composition.AssemblyContext) de.uka.ipd.sdq.simucomframework.ModelsAtRuntime.loadModel(assemblyContextURI);
 		this.model = model;
 		
 		«EXPAND InitCalculatorsTM FOR this»
@@ -67,22 +67,22 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 «ENDDEFINE»
 
 «DEFINE PassiveResourceDecls FOR BasicComponent»
-	// Initialise this component's passive resources
+	// Initialize this component's passive resources
 	«FOREACH this.passiveResource_BasicComponent AS pr»
 		de.uka.ipd.sdq.scheduler.IPassiveResource pr_«pr.id.javaVariableName()» = null;
 	«ENDFOREACH»
 «ENDDEFINE»
 
 «DEFINE ComponentHelperMethodsDeclaration FOR InterfaceProvidingEntity»
- public String getAssemblyContextID();
+ public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getAssemblyContext();
 «ENDDEFINE»
 
 «DEFINE InterfaceHelperMethodsDeclaration FOR OperationInterface»
- public String getComponentAssemblyContextID();
+ public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext();
 «ENDDEFINE»
 
 «DEFINE InterfaceHelperMethodsDeclaration FOR InfrastructureInterface»
- public String getComponentAssemblyContextID();
+ public de.uka.ipd.sdq.pcm.core.composition.AssemblyContext getComponentAssemblyContext();
 «ENDDEFINE»
 
 «REM»Template Method for the calculator initialization«ENDREM»
@@ -92,7 +92,7 @@ public void setComponentFrame(de.uka.ipd.sdq.simucomframework.variables.stackfra
 «DEFINE ContainerAvailabilityCheck FOR OperationSignature»
 	// Simulate a failure if one or multiple of the processing resources
 	// required by the executing resource container are currently unavailable:
-	de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer container = ctx.findResource(assemblyContextID);
+	de.uka.ipd.sdq.simucomframework.resources.AbstractSimulatedResourceContainer container = ctx.findResource(this.assemblyContext.getId());
 	java.util.List<de.uka.ipd.sdq.simucomframework.resources.AbstractScheduledResource> failedResources = container.getFailedResources();
 	if(failedResources.size() > 0){
 		double randValue = ctx.getModel().getConfiguration().getRandomGenerator().random();

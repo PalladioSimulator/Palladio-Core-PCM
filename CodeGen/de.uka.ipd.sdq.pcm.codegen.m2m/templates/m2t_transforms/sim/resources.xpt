@@ -15,14 +15,14 @@
 «DEFINE ResourceDemand FOR ParametricResourceDemand»
     {
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.id»",demand);
+      ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(),"«this.requiredResource_ParametricResourceDemand.id»",demand);
     }
 «ENDDEFINE»
 
 «DEFINE ResourceDemand FOR NetworkDemandParametricResourceDemand»
     {
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.specification_ParametericResourceDemand.specification.specificationString()»",Double.class));
-      ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(),"«this.requiredCommunicationLinkResource_ParametricResourceDemand.id»",demand);
+      ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(),"«this.requiredCommunicationLinkResource_ParametricResourceDemand.id»",demand);
     }
 «ENDDEFINE»
 
@@ -73,9 +73,9 @@
    	 	
       double demand = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«this.numberOfCalls__ResourceCall.specification.specificationString()»",Double.class));
       if(parameterMap.size()>=1){
-      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(), "«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.id»", «this.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
+      	ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(), "«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.id»", «this.signature__ResourceCall.resourceServiceId», parameterMap, demand);     	
       }else{
-      	ctx.findResource(this.assemblyContextID).loadActiveResource(ctx.getThread(), "«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.id»", «this.signature__ResourceCall.resourceServiceId», demand);     	
+      	ctx.findResource(this.assemblyContext.getId()).loadActiveResource(ctx.getThread(), "«this.resourceRequiredRole__ResourceCall.requiredResourceInterface__ResourceRequiredRole.id»", «this.signature__ResourceCall.resourceServiceId», demand);     	
       }
      
    } 
