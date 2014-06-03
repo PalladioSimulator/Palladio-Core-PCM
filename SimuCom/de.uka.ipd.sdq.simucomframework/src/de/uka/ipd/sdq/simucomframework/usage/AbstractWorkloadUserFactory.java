@@ -7,6 +7,7 @@ import java.util.List;
 import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
+import org.palladiosimulator.edp2.util.MeasuringPointUtility;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
 import org.palladiosimulator.probeframework.calculator.Calculator;
@@ -53,7 +54,7 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
         
         final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
         measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) usageScenario));
-        measuringPoint.setMeasuringPoint(mp.toString());
+        measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
 
         return this.calculatorFactory.buildResponseTimeCalculator(measuringPoint, this.usageStartStopProbes);
     }

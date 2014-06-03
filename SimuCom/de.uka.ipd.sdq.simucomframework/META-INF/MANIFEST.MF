@@ -36,6 +36,7 @@ Require-Bundle: de.uka.ipd.sdq.simucomframework.variables,
  org.palladiosimulator.recorderframework;bundle-version="2.0.1",
  org.palladiosimulator.metricspec;bundle-version="1.0.0",
  org.palladiosimulator.measurementframework;bundle-version="1.0.0",
- org.palladiosimulator.pcm.edp2.measuringpoint;bundle-version="1.0.0"
+ org.palladiosimulator.pcm.edp2.measuringpoint;bundle-version="1.0.0",
+ org.palladiosimulator.edp2.util
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-ActivationPolicy: lazy

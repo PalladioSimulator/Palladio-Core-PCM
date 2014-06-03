@@ -7,6 +7,7 @@ import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
 import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
+import org.palladiosimulator.edp2.util.MeasuringPointUtility;
 import org.palladiosimulator.measurementframework.BasicMeasurement;
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
@@ -256,7 +257,7 @@ public final class CalculatorHelper {
         
         final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
         measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getResource()));
-        measuringPoint.setMeasuringPoint(mp.toString());
+        measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         return measuringPoint;
     }
 
@@ -276,7 +277,7 @@ public final class CalculatorHelper {
             mp.setReplicaID(replicaID);
             
             measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getActiveResource()));
-            measuringPoint.setMeasuringPoint(mp.toString());
+            measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         } else if (scheduledResource instanceof SimulatedLinkingResource) {
             final SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
             
@@ -284,7 +285,7 @@ public final class CalculatorHelper {
             mp.setLinkingResource(resource.getLinkingResource());
             
             measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getLinkingResource()));
-            measuringPoint.setMeasuringPoint(mp.toString());
+            measuringPoint.setMeasuringPoint(MeasuringPointUtility.measuringPointToString(mp));
         } else {
             throw new IllegalArgumentException("Unknown variant of AbstractScheduledResource");
         }
