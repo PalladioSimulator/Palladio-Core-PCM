@@ -28,4 +28,17 @@ public class ModelsAtRuntime {
         assert(modelUri.fragment() != null);
         return resource.getEObject(modelUri.fragment());
     }
+    
+    /**
+     * @param eObject
+     *            The object.
+     * @return The URI String of the given object.
+     */
+    public static String getResourceURI(EObject eObject) {
+        URI uri = eObject.eResource().getURI();
+        String fragment = eObject.eResource().getURIFragment(eObject);
+        URI fullUri = uri.appendFragment(fragment);
+        
+        return fullUri.toString();
+    }
 }

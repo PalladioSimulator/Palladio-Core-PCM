@@ -3,7 +3,10 @@ package de.uka.ipd.sdq.simucomframework.resources;
 import java.util.Arrays;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
 import org.palladiosimulator.edp2.models.measuringpoint.MeasuringPoint;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
+import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
 import org.palladiosimulator.measurementframework.BasicMeasurement;
 import org.palladiosimulator.pcmmeasuringpoint.ActiveResourceMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.AssemblyPassiveResourceMeasuringPoint;
@@ -19,6 +22,7 @@ import org.palladiosimulator.probeframework.probes.TriggeredProbeList;
 import de.uka.ipd.sdq.scheduler.IPassiveResource;
 import de.uka.ipd.sdq.scheduler.ISchedulableProcess;
 import de.uka.ipd.sdq.scheduler.sensors.IPassiveResourceSensor;
+import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 import de.uka.ipd.sdq.simucomframework.probes.TakePassiveResourceStateProbe;
@@ -37,7 +41,10 @@ import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 public final class CalculatorHelper {
 
     /** Default EMF factory for measuring points. */
-    private static final PcmmeasuringpointFactory measuringpointFactory = PcmmeasuringpointFactory.eINSTANCE;
+    private static final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
+    
+    /** Default EMF factory for pcm measuring points. */
+    private static final PcmmeasuringpointFactory pcmMeasuringpointFactory = PcmmeasuringpointFactory.eINSTANCE;
 
     /**
      * Sets up a {@link WaitingTimeCalculator} for the specified resource. Also a
@@ -207,7 +214,7 @@ public final class CalculatorHelper {
     public static void setupStateCalculator(final IPassiveResource resource, final SimuComModel model) {
         final ProbeFrameworkContext ctx = model.getProbeFrameworkContext();
 
-        final AssemblyPassiveResourceMeasuringPoint mp = createMeasuringPoint(resource);
+        final MeasuringPoint mp = createMeasuringPoint(resource);
         final TriggeredProbe scheduledResourceProbe = getTriggeredProbeSetWithCurrentTime(model.getSimulationControl(),
                 new TakePassiveResourceStateProbe(resource));
         ctx.getCalculatorFactory().buildStateOfActiveResourceCalculator(mp, scheduledResourceProbe);
@@ -241,12 +248,16 @@ public final class CalculatorHelper {
         return new EventProbeList(additionalProbe, Arrays.asList((TriggeredProbe) new TakeCurrentSimulationTimeProbe(
                 control)));
     }
-
-    private static AssemblyPassiveResourceMeasuringPoint createMeasuringPoint(final IPassiveResource resource) {
-        final AssemblyPassiveResourceMeasuringPoint mp = measuringpointFactory.createAssemblyPassiveResourceMeasuringPoint();
+    
+    private static MeasuringPoint createMeasuringPoint(final IPassiveResource resource) {
+        final AssemblyPassiveResourceMeasuringPoint mp = pcmMeasuringpointFactory.createAssemblyPassiveResourceMeasuringPoint();
         mp.setAssembly(resource.getAssemblyContext());
         mp.setPassiveResource(resource.getResource());
-        return mp;
+        
+        final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
+        measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getResource()));
+        measuringPoint.setMeasuringPoint(mp.toString());
+        return measuringPoint;
     }
 
     private static MeasuringPoint createMeasuringPoint(final AbstractScheduledResource scheduledResource) {
@@ -255,21 +266,29 @@ public final class CalculatorHelper {
 
     private static MeasuringPoint createMeasuringPoint(final AbstractScheduledResource scheduledResource,
             final int replicaID) {
-        MeasuringPoint measuringPoint = null;
+        final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
+        
         if (scheduledResource instanceof ScheduledResource) {
             final ScheduledResource resource = (ScheduledResource) scheduledResource;
-            final ActiveResourceMeasuringPoint mp = measuringpointFactory.createActiveResourceMeasuringPoint();
+            
+            final ActiveResourceMeasuringPoint mp = pcmMeasuringpointFactory.createActiveResourceMeasuringPoint();
             mp.setActiveResource(resource.getActiveResource());
             mp.setReplicaID(replicaID);
-            measuringPoint = mp;
+            
+            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getActiveResource()));
+            measuringPoint.setMeasuringPoint(mp.toString());
         } else if (scheduledResource instanceof SimulatedLinkingResource) {
             final SimulatedLinkingResource resource = (SimulatedLinkingResource) scheduledResource;
-            final LinkingResourceMeasuringPoint mp = measuringpointFactory.createLinkingResourceMeasuringPoint();
+            
+            final LinkingResourceMeasuringPoint mp = pcmMeasuringpointFactory.createLinkingResourceMeasuringPoint();
             mp.setLinkingResource(resource.getLinkingResource());
-            measuringPoint = mp;
+            
+            measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) resource.getLinkingResource()));
+            measuringPoint.setMeasuringPoint(mp.toString());
         } else {
             throw new IllegalArgumentException("Unknown variant of AbstractScheduledResource");
         }
+        
         return measuringPoint;
     }
 }

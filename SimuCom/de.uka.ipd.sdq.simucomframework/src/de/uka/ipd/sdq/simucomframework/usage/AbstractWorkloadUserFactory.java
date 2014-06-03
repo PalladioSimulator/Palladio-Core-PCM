@@ -4,6 +4,9 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import org.eclipse.emf.ecore.EObject;
+import org.palladiosimulator.edp2.models.measuringpoint.MeasuringpointFactory;
+import org.palladiosimulator.edp2.models.measuringpoint.ResourceURIMeasuringPoint;
 import org.palladiosimulator.pcmmeasuringpoint.PcmmeasuringpointFactory;
 import org.palladiosimulator.pcmmeasuringpoint.UsageScenarioMeasuringPoint;
 import org.palladiosimulator.probeframework.calculator.Calculator;
@@ -11,6 +14,7 @@ import org.palladiosimulator.probeframework.calculator.ICalculatorFactory;
 import org.palladiosimulator.probeframework.probes.Probe;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
+import de.uka.ipd.sdq.simucomframework.ModelsAtRuntime;
 import de.uka.ipd.sdq.simucomframework.model.SimuComModel;
 import de.uka.ipd.sdq.simucomframework.probes.TakeCurrentSimulationTimeProbe;
 
@@ -22,7 +26,10 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
     private final ICalculatorFactory calculatorFactory;
 
     /** Default EMF factory for measuring points. */
-    private final PcmmeasuringpointFactory measuringpointFactory = PcmmeasuringpointFactory.eINSTANCE;
+    private static final MeasuringpointFactory measuringpointFactory = MeasuringpointFactory.eINSTANCE;
+    
+    /** Default EMF factory for pcm measuring points. */
+    private static final PcmmeasuringpointFactory pcmMeasuringpointFactory = PcmmeasuringpointFactory.eINSTANCE;
 
     public AbstractWorkloadUserFactory(final SimuComModel model, final UsageScenario usageScenario) {
         super();
@@ -33,16 +40,21 @@ public abstract class AbstractWorkloadUserFactory implements IUserFactory {
                 (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl()),
                 (Probe) new TakeCurrentSimulationTimeProbe(model.getSimulationControl())));
     }
-
+    
     /*
      * (non-Javadoc)
      * 
      * @see de.uka.ipd.sdq.simucomframework.usage.IUserFactory#attachResponseTimeCalculator()
      */
     @Override
-    public Calculator attachResponseTimeCalculator() {
-        final UsageScenarioMeasuringPoint mp = this.measuringpointFactory.createUsageScenarioMeasuringPoint();
+    public Calculator attachResponseTimeCalculator() {  
+        final UsageScenarioMeasuringPoint mp = pcmMeasuringpointFactory.createUsageScenarioMeasuringPoint();
         mp.setUsageScenario(usageScenario);
-        return this.calculatorFactory.buildResponseTimeCalculator(mp, this.usageStartStopProbes);
+        
+        final ResourceURIMeasuringPoint measuringPoint = measuringpointFactory.createResourceURIMeasuringPoint();
+        measuringPoint.setResourceURI(ModelsAtRuntime.getResourceURI((EObject) usageScenario));
+        measuringPoint.setMeasuringPoint(mp.toString());
+
+        return this.calculatorFactory.buildResponseTimeCalculator(measuringPoint, this.usageStartStopProbes);
     }
 }
