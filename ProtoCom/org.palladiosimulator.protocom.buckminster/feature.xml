@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feature
+      id="org.palladiosimulator.protocom.buckminster"
+      label="ProtoCom"
+      version="1.0.0.qualifier"
+      provider-name="palladiosimulator.org">
+
+   <includes
+         id="org.palladiosimulator.protocom.feature"
+         version="0.0.0"/>
+
+   <plugin
+         id="org.palladiosimulator.protocom.framework.tests"
+         download-size="0"
+         install-size="0"
+         version="0.0.0"
+         fragment="true"
+         unpack="false"/>
+
+</feature>
