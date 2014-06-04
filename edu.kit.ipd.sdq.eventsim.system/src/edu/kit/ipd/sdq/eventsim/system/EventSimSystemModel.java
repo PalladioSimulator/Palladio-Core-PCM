@@ -14,6 +14,7 @@ import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.UserState;
 import edu.kit.ipd.sdq.eventsim.system.command.BuildComponentInstances;
 import edu.kit.ipd.sdq.eventsim.system.command.FindAssemblyContextForSystemCall;
+import edu.kit.ipd.sdq.eventsim.system.command.InstallExternalCallParameterHandling;
 import edu.kit.ipd.sdq.eventsim.system.debug.DebugSeffTraversalListener;
 import edu.kit.ipd.sdq.eventsim.system.entities.Request;
 import edu.kit.ipd.sdq.eventsim.system.events.BeginSeffTraversalEvent;
@@ -82,6 +83,9 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 
 		// initialise component instances
 		this.componentRegistry = this.execute(new BuildComponentInstances(this, this.resourceAllocation));
+		
+		// install extern call parameter handling
+		this.execute(new InstallExternalCallParameterHandling(this.seffInterpreter.getConfiguration()));
 
 		// notify registered listeners that the simulation is about to start...
 		// this.notifyStartListeners();
