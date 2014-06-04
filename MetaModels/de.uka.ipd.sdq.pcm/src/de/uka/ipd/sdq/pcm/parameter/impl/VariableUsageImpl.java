@@ -11,9 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -34,6 +34,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 import de.uka.ipd.sdq.stoex.AbstractNamedReference;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Variable Usage</b></em>'.
@@ -57,7 +58,7 @@ import de.uka.ipd.sdq.stoex.AbstractNamedReference;
  *
  * @generated
  */
-public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
+public class VariableUsageImpl extends EStereotypableObjectImpl implements VariableUsage {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -137,7 +138,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
      */
     public void setUserData_VariableUsage(UserData newUserData_VariableUsage) {
         if (newUserData_VariableUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__USER_DATA_VARIABLE_USAGE && newUserData_VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newUserData_VariableUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newUserData_VariableUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -176,7 +177,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
      */
     public void setSynchronisationPoint_VariableUsage(SynchronisationPoint newSynchronisationPoint_VariableUsage) {
         if (newSynchronisationPoint_VariableUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SYNCHRONISATION_POINT_VARIABLE_USAGE && newSynchronisationPoint_VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newSynchronisationPoint_VariableUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newSynchronisationPoint_VariableUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -215,7 +216,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
      */
     public void setCallAction__VariableUsage(CallAction newCallAction__VariableUsage) {
         if (newCallAction__VariableUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_ACTION_VARIABLE_USAGE && newCallAction__VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newCallAction__VariableUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newCallAction__VariableUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -254,7 +255,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
      */
     public void setCallReturnAction__VariableUsage(CallReturnAction newCallReturnAction__VariableUsage) {
         if (newCallReturnAction__VariableUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__CALL_RETURN_ACTION_VARIABLE_USAGE && newCallReturnAction__VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newCallReturnAction__VariableUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newCallReturnAction__VariableUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -293,7 +294,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
      */
     public void setSetVariableAction_VariableUsage(SetVariableAction newSetVariableAction_VariableUsage) {
         if (newSetVariableAction_VariableUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE && newSetVariableAction_VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newSetVariableAction_VariableUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newSetVariableAction_VariableUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -332,7 +333,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
      */
     public void setAssemblyContext__VariableUsage(AssemblyContext newAssemblyContext__VariableUsage) {
         if (newAssemblyContext__VariableUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ASSEMBLY_CONTEXT_VARIABLE_USAGE && newAssemblyContext__VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newAssemblyContext__VariableUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newAssemblyContext__VariableUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -372,7 +373,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
     public void setEntryLevelSystemCall_InputParameterUsage(
             EntryLevelSystemCall newEntryLevelSystemCall_InputParameterUsage) {
         if (newEntryLevelSystemCall_InputParameterUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_INPUT_PARAMETER_USAGE && newEntryLevelSystemCall_InputParameterUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newEntryLevelSystemCall_InputParameterUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newEntryLevelSystemCall_InputParameterUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -412,7 +413,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
     public void setEntryLevelSystemCall_OutputParameterUsage(
             EntryLevelSystemCall newEntryLevelSystemCall_OutputParameterUsage) {
         if (newEntryLevelSystemCall_OutputParameterUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__ENTRY_LEVEL_SYSTEM_CALL_OUTPUT_PARAMETER_USAGE && newEntryLevelSystemCall_OutputParameterUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newEntryLevelSystemCall_OutputParameterUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newEntryLevelSystemCall_OutputParameterUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -453,7 +454,7 @@ public class VariableUsageImpl extends EObjectImpl implements VariableUsage {
     public void setSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage(
             SpecifiedOutputParameterAbstraction newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage) {
         if (newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_USAGE__SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION_EXPECTED_EXTERNAL_OUTPUTS_VARIABLE_USAGE && newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage != null)) {
-            if (EcoreUtil.isAncestor(this, newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage))
+            if (EcoreUtil.isAncestor(this, (EObject)newSpecifiedOutputParameterAbstraction_expectedExternalOutputs_VariableUsage))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

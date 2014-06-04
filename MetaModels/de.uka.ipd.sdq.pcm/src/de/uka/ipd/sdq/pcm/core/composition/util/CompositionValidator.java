@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -221,7 +222,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateDelegationConnector(DelegationConnector delegationConnector, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(delegationConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)delegationConnector, diagnostics, context);
     }
 
     /**
@@ -229,7 +230,7 @@ public class CompositionValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateConnector(Connector connector, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(connector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)connector, diagnostics, context);
     }
 
     /**
@@ -238,14 +239,14 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateProvidedDelegationConnector(ProvidedDelegationConnector providedDelegationConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(providedDelegationConnector, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(providedDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(providedDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(providedDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(providedDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(providedDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(providedDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(providedDelegationConnector, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)providedDelegationConnector, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)providedDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)providedDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)providedDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)providedDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)providedDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)providedDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)providedDelegationConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateProvidedDelegationConnector_ProvidedDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(providedDelegationConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateProvidedDelegationConnector_ComponentOfAssemblyContextAndInnerRoleProvidingComponentNeedToBeTheSame(providedDelegationConnector, diagnostics, context);
         return result;
@@ -281,7 +282,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateAssemblyContext(AssemblyContext assemblyContext, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(assemblyContext, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)assemblyContext, diagnostics, context);
     }
 
     /**
@@ -303,14 +304,14 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateRequiredDelegationConnector(RequiredDelegationConnector requiredDelegationConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(requiredDelegationConnector, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(requiredDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(requiredDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(requiredDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(requiredDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(requiredDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(requiredDelegationConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(requiredDelegationConnector, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)requiredDelegationConnector, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)requiredDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)requiredDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)requiredDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)requiredDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)requiredDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)requiredDelegationConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)requiredDelegationConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateRequiredDelegationConnector_RequiredDelegationConnectorandtheconnectedComponentmustbepartofthesamecompositestructure(requiredDelegationConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateRequiredDelegationConnector_ComponentOfAssemblyContextAndInnerRoleRequiringComponentNeedToBeTheSame(requiredDelegationConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateRequiredDelegationConnector_RequiringEntityOfOuterRequiredRoleMustBeTheSameAsTheParentOfTheRequiredDelegationConnector(requiredDelegationConnector, diagnostics, context);
@@ -359,14 +360,14 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateAssemblyConnector(AssemblyConnector assemblyConnector, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(assemblyConnector, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(assemblyConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(assemblyConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(assemblyConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(assemblyConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(assemblyConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(assemblyConnector, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(assemblyConnector, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)assemblyConnector, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)assemblyConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)assemblyConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)assemblyConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)assemblyConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)assemblyConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)assemblyConnector, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)assemblyConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateAssemblyConnector_AssemblyConnectorsReferencedProvidedRolesAndChildContextMustMatch(assemblyConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateAssemblyConnector_AssemblyConnectorsReferencedRequiredRoleAndChildContextMustMatch(assemblyConnector, diagnostics, context);
         if (result || diagnostics != null) result &= validateAssemblyConnector_AssemblyConnectorsReferencedInterfacesMustMatch(assemblyConnector, diagnostics, context);
@@ -410,7 +411,7 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateResourceRequiredDelegationConnector(
             ResourceRequiredDelegationConnector resourceRequiredDelegationConnector, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(resourceRequiredDelegationConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)resourceRequiredDelegationConnector, diagnostics, context);
     }
 
     /**
@@ -419,7 +420,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateEventChannel(EventChannel eventChannel, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(eventChannel, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)eventChannel, diagnostics, context);
     }
 
     /**
@@ -428,7 +429,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateAssemblyEventConnector(AssemblyEventConnector assemblyEventConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(assemblyEventConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)assemblyEventConnector, diagnostics, context);
     }
 
     /**
@@ -437,7 +438,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateSourceDelegationConnector(SourceDelegationConnector sourceDelegationConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(sourceDelegationConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)sourceDelegationConnector, diagnostics, context);
     }
 
     /**
@@ -446,7 +447,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateSinkDelegationConnector(SinkDelegationConnector sinkDelegationConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(sinkDelegationConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)sinkDelegationConnector, diagnostics, context);
     }
 
     /**
@@ -456,7 +457,7 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateAssemblyInfrastructureConnector(
             AssemblyInfrastructureConnector assemblyInfrastructureConnector, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(assemblyInfrastructureConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)assemblyInfrastructureConnector, diagnostics, context);
     }
 
     /**
@@ -466,7 +467,7 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateRequiredInfrastructureDelegationConnector(
             RequiredInfrastructureDelegationConnector requiredInfrastructureDelegationConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(requiredInfrastructureDelegationConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)requiredInfrastructureDelegationConnector, diagnostics, context);
     }
 
     /**
@@ -476,7 +477,7 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateProvidedInfrastructureDelegationConnector(
             ProvidedInfrastructureDelegationConnector providedInfrastructureDelegationConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(providedInfrastructureDelegationConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)providedInfrastructureDelegationConnector, diagnostics, context);
     }
 
     /**
@@ -486,7 +487,7 @@ public class CompositionValidator extends EObjectValidator {
     public boolean validateRequiredResourceDelegationConnector(
             RequiredResourceDelegationConnector requiredResourceDelegationConnector, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(requiredResourceDelegationConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)requiredResourceDelegationConnector, diagnostics, context);
     }
 
     /**
@@ -495,7 +496,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateEventChannelSinkConnector(EventChannelSinkConnector eventChannelSinkConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(eventChannelSinkConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)eventChannelSinkConnector, diagnostics, context);
     }
 
     /**
@@ -504,7 +505,7 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateEventChannelSourceConnector(EventChannelSourceConnector eventChannelSourceConnector,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(eventChannelSourceConnector, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)eventChannelSourceConnector, diagnostics, context);
     }
 
     /**
@@ -513,14 +514,14 @@ public class CompositionValidator extends EObjectValidator {
      */
     public boolean validateComposedStructure(ComposedStructure composedStructure, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(composedStructure, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(composedStructure, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(composedStructure, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(composedStructure, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(composedStructure, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(composedStructure, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(composedStructure, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(composedStructure, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)composedStructure, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)composedStructure, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)composedStructure, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)composedStructure, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)composedStructure, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)composedStructure, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)composedStructure, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)composedStructure, diagnostics, context);
         if (result || diagnostics != null) result &= validateComposedStructure_MultipleConnectorsConstraint(composedStructure, diagnostics, context);
         if (result || diagnostics != null) result &= validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(composedStructure, diagnostics, context);
         return result;

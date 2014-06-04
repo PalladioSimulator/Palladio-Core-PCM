@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -80,7 +81,7 @@ public class NetworkInducedFailureTypeImpl extends FailureTypeImpl implements Ne
      * @generated
      */
     public CommunicationLinkResourceType getCommunicationLinkResourceType__NetworkInducedFailureType() {
-        if (communicationLinkResourceType__NetworkInducedFailureType != null && communicationLinkResourceType__NetworkInducedFailureType.eIsProxy()) {
+        if (communicationLinkResourceType__NetworkInducedFailureType != null && ((EObject)communicationLinkResourceType__NetworkInducedFailureType).eIsProxy()) {
             InternalEObject oldCommunicationLinkResourceType__NetworkInducedFailureType = (InternalEObject)communicationLinkResourceType__NetworkInducedFailureType;
             communicationLinkResourceType__NetworkInducedFailureType = (CommunicationLinkResourceType)eResolveProxy(oldCommunicationLinkResourceType__NetworkInducedFailureType);
             if (communicationLinkResourceType__NetworkInducedFailureType != oldCommunicationLinkResourceType__NetworkInducedFailureType) {

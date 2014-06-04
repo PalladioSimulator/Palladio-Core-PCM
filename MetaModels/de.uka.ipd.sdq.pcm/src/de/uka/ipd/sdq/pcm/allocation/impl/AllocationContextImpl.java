@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -105,7 +106,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     public ResourceContainer getResourceContainer_AllocationContext() {
-        if (resourceContainer_AllocationContext != null && resourceContainer_AllocationContext.eIsProxy()) {
+        if (resourceContainer_AllocationContext != null && ((EObject)resourceContainer_AllocationContext).eIsProxy()) {
             InternalEObject oldResourceContainer_AllocationContext = (InternalEObject)resourceContainer_AllocationContext;
             resourceContainer_AllocationContext = (ResourceContainer)eResolveProxy(oldResourceContainer_AllocationContext);
             if (resourceContainer_AllocationContext != oldResourceContainer_AllocationContext) {
@@ -140,7 +141,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     public AssemblyContext getAssemblyContext_AllocationContext() {
-        if (assemblyContext_AllocationContext != null && assemblyContext_AllocationContext.eIsProxy()) {
+        if (assemblyContext_AllocationContext != null && ((EObject)assemblyContext_AllocationContext).eIsProxy()) {
             InternalEObject oldAssemblyContext_AllocationContext = (InternalEObject)assemblyContext_AllocationContext;
             assemblyContext_AllocationContext = (AssemblyContext)eResolveProxy(oldAssemblyContext_AllocationContext);
             if (assemblyContext_AllocationContext != oldAssemblyContext_AllocationContext) {
@@ -195,7 +196,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      */
     public void setAllocation_AllocationContext(Allocation newAllocation_AllocationContext) {
         if (newAllocation_AllocationContext != eInternalContainer() || (eContainerFeatureID() != AllocationPackage.ALLOCATION_CONTEXT__ALLOCATION_ALLOCATION_CONTEXT && newAllocation_AllocationContext != null)) {
-            if (EcoreUtil.isAncestor(this, newAllocation_AllocationContext))
+            if (EcoreUtil.isAncestor(this, (EObject)newAllocation_AllocationContext))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -214,7 +215,7 @@ public class AllocationContextImpl extends EntityImpl implements AllocationConte
      * @generated
      */
     public EventChannel getEventChannel__AllocationContext() {
-        if (eventChannel__AllocationContext != null && eventChannel__AllocationContext.eIsProxy()) {
+        if (eventChannel__AllocationContext != null && ((EObject)eventChannel__AllocationContext).eIsProxy()) {
             InternalEObject oldEventChannel__AllocationContext = (InternalEObject)eventChannel__AllocationContext;
             eventChannel__AllocationContext = (EventChannel)eResolveProxy(oldEventChannel__AllocationContext);
             if (eventChannel__AllocationContext != oldEventChannel__AllocationContext) {

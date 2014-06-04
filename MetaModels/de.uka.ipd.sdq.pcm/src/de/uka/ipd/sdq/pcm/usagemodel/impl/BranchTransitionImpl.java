@@ -8,15 +8,16 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.usagemodel.Branch;
 import de.uka.ipd.sdq.pcm.usagemodel.BranchTransition;
 import de.uka.ipd.sdq.pcm.usagemodel.ScenarioBehaviour;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Branch Transition</b></em>
@@ -32,7 +33,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
  *
  * @generated
  */
-public class BranchTransitionImpl extends EObjectImpl implements BranchTransition {
+public class BranchTransitionImpl extends EStereotypableObjectImpl implements BranchTransition {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -127,7 +128,7 @@ public class BranchTransitionImpl extends EObjectImpl implements BranchTransitio
      */
     public void setBranch_BranchTransition(Branch newBranch_BranchTransition) {
         if (newBranch_BranchTransition != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.BRANCH_TRANSITION__BRANCH_BRANCH_TRANSITION && newBranch_BranchTransition != null)) {
-            if (EcoreUtil.isAncestor(this, newBranch_BranchTransition))
+            if (EcoreUtil.isAncestor(this, (EObject)newBranch_BranchTransition))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

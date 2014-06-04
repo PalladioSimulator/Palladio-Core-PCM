@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -81,7 +82,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
      * @generated
      */
     public SoftwareInducedFailureType getSoftwareInducedFailureType__InternalFailureOccurrenceDescription() {
-        if (softwareInducedFailureType__InternalFailureOccurrenceDescription != null && softwareInducedFailureType__InternalFailureOccurrenceDescription.eIsProxy()) {
+        if (softwareInducedFailureType__InternalFailureOccurrenceDescription != null && ((EObject)softwareInducedFailureType__InternalFailureOccurrenceDescription).eIsProxy()) {
             InternalEObject oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription = (InternalEObject)softwareInducedFailureType__InternalFailureOccurrenceDescription;
             softwareInducedFailureType__InternalFailureOccurrenceDescription = (SoftwareInducedFailureType)eResolveProxy(oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription);
             if (softwareInducedFailureType__InternalFailureOccurrenceDescription != oldSoftwareInducedFailureType__InternalFailureOccurrenceDescription) {
@@ -210,7 +211,7 @@ public class InternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
     public void setInternalAction__InternalFailureOccurrenceDescription(
             InternalAction newInternalAction__InternalFailureOccurrenceDescription) {
         if (newInternalAction__InternalFailureOccurrenceDescription != eInternalContainer() || (eContainerFeatureID() != ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__INTERNAL_ACTION_INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION && newInternalAction__InternalFailureOccurrenceDescription != null)) {
-            if (EcoreUtil.isAncestor(this, newInternalAction__InternalFailureOccurrenceDescription))
+            if (EcoreUtil.isAncestor(this, (EObject)newInternalAction__InternalFailureOccurrenceDescription))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

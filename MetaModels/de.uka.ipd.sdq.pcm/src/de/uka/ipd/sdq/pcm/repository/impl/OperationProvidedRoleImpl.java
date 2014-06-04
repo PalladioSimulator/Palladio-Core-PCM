@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -65,7 +66,7 @@ public class OperationProvidedRoleImpl extends ProvidedRoleImpl implements Opera
      * @generated
      */
     public OperationInterface getProvidedInterface__OperationProvidedRole() {
-        if (providedInterface__OperationProvidedRole != null && providedInterface__OperationProvidedRole.eIsProxy()) {
+        if (providedInterface__OperationProvidedRole != null && ((EObject)providedInterface__OperationProvidedRole).eIsProxy()) {
             InternalEObject oldProvidedInterface__OperationProvidedRole = (InternalEObject)providedInterface__OperationProvidedRole;
             providedInterface__OperationProvidedRole = (OperationInterface)eResolveProxy(oldProvidedInterface__OperationProvidedRole);
             if (providedInterface__OperationProvidedRole != oldProvidedInterface__OperationProvidedRole) {

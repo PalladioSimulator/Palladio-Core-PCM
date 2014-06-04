@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -78,7 +79,7 @@ public abstract class ConnectorImpl extends EntityImpl implements Connector {
      */
     public void setParentStructure__Connector(ComposedStructure newParentStructure__Connector) {
         if (newParentStructure__Connector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.CONNECTOR__PARENT_STRUCTURE_CONNECTOR && newParentStructure__Connector != null)) {
-            if (EcoreUtil.isAncestor(this, newParentStructure__Connector))
+            if (EcoreUtil.isAncestor(this, (EObject)newParentStructure__Connector))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

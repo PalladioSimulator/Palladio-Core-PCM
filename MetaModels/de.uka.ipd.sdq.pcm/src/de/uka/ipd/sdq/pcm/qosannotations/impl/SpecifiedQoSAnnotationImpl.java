@@ -8,9 +8,9 @@ package de.uka.ipd.sdq.pcm.qosannotations.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.qosannotations.QoSAnnotations;
@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -33,7 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @generated
  */
-public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements SpecifiedQoSAnnotation {
+public abstract class SpecifiedQoSAnnotationImpl extends EStereotypableObjectImpl implements SpecifiedQoSAnnotation {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -83,7 +84,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
      * @generated
      */
     public Signature getSignature_SpecifiedQoSAnnation() {
-        if (signature_SpecifiedQoSAnnation != null && signature_SpecifiedQoSAnnation.eIsProxy()) {
+        if (signature_SpecifiedQoSAnnation != null && ((EObject)signature_SpecifiedQoSAnnation).eIsProxy()) {
             InternalEObject oldSignature_SpecifiedQoSAnnation = (InternalEObject)signature_SpecifiedQoSAnnation;
             signature_SpecifiedQoSAnnation = (Signature)eResolveProxy(oldSignature_SpecifiedQoSAnnation);
             if (signature_SpecifiedQoSAnnation != oldSignature_SpecifiedQoSAnnation) {
@@ -118,7 +119,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
      * @generated
      */
     public Role getRole_SpecifiedQoSAnnotation() {
-        if (role_SpecifiedQoSAnnotation != null && role_SpecifiedQoSAnnotation.eIsProxy()) {
+        if (role_SpecifiedQoSAnnotation != null && ((EObject)role_SpecifiedQoSAnnotation).eIsProxy()) {
             InternalEObject oldRole_SpecifiedQoSAnnotation = (InternalEObject)role_SpecifiedQoSAnnotation;
             role_SpecifiedQoSAnnotation = (Role)eResolveProxy(oldRole_SpecifiedQoSAnnotation);
             if (role_SpecifiedQoSAnnotation != oldRole_SpecifiedQoSAnnotation) {
@@ -173,7 +174,7 @@ public abstract class SpecifiedQoSAnnotationImpl extends EObjectImpl implements 
      */
     public void setQosAnnotations_SpecifiedQoSAnnotation(QoSAnnotations newQosAnnotations_SpecifiedQoSAnnotation) {
         if (newQosAnnotations_SpecifiedQoSAnnotation != eInternalContainer() || (eContainerFeatureID() != QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION && newQosAnnotations_SpecifiedQoSAnnotation != null)) {
-            if (EcoreUtil.isAncestor(this, newQosAnnotations_SpecifiedQoSAnnotation))
+            if (EcoreUtil.isAncestor(this, (EObject)newQosAnnotations_SpecifiedQoSAnnotation))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

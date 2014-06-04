@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -115,7 +116,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * @generated
      */
     public SinkRole getSinkRole__AssemblyEventConnector() {
-        if (sinkRole__AssemblyEventConnector != null && sinkRole__AssemblyEventConnector.eIsProxy()) {
+        if (sinkRole__AssemblyEventConnector != null && ((EObject)sinkRole__AssemblyEventConnector).eIsProxy()) {
             InternalEObject oldSinkRole__AssemblyEventConnector = (InternalEObject)sinkRole__AssemblyEventConnector;
             sinkRole__AssemblyEventConnector = (SinkRole)eResolveProxy(oldSinkRole__AssemblyEventConnector);
             if (sinkRole__AssemblyEventConnector != oldSinkRole__AssemblyEventConnector) {
@@ -150,7 +151,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * @generated
      */
     public SourceRole getSourceRole__AssemblyEventConnector() {
-        if (sourceRole__AssemblyEventConnector != null && sourceRole__AssemblyEventConnector.eIsProxy()) {
+        if (sourceRole__AssemblyEventConnector != null && ((EObject)sourceRole__AssemblyEventConnector).eIsProxy()) {
             InternalEObject oldSourceRole__AssemblyEventConnector = (InternalEObject)sourceRole__AssemblyEventConnector;
             sourceRole__AssemblyEventConnector = (SourceRole)eResolveProxy(oldSourceRole__AssemblyEventConnector);
             if (sourceRole__AssemblyEventConnector != oldSourceRole__AssemblyEventConnector) {
@@ -185,7 +186,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * @generated
      */
     public AssemblyContext getSinkAssemblyContext__AssemblyEventConnector() {
-        if (sinkAssemblyContext__AssemblyEventConnector != null && sinkAssemblyContext__AssemblyEventConnector.eIsProxy()) {
+        if (sinkAssemblyContext__AssemblyEventConnector != null && ((EObject)sinkAssemblyContext__AssemblyEventConnector).eIsProxy()) {
             InternalEObject oldSinkAssemblyContext__AssemblyEventConnector = (InternalEObject)sinkAssemblyContext__AssemblyEventConnector;
             sinkAssemblyContext__AssemblyEventConnector = (AssemblyContext)eResolveProxy(oldSinkAssemblyContext__AssemblyEventConnector);
             if (sinkAssemblyContext__AssemblyEventConnector != oldSinkAssemblyContext__AssemblyEventConnector) {
@@ -221,7 +222,7 @@ public class AssemblyEventConnectorImpl extends ConnectorImpl implements Assembl
      * @generated
      */
     public AssemblyContext getSourceAssemblyContext__AssemblyEventConnector() {
-        if (sourceAssemblyContext__AssemblyEventConnector != null && sourceAssemblyContext__AssemblyEventConnector.eIsProxy()) {
+        if (sourceAssemblyContext__AssemblyEventConnector != null && ((EObject)sourceAssemblyContext__AssemblyEventConnector).eIsProxy()) {
             InternalEObject oldSourceAssemblyContext__AssemblyEventConnector = (InternalEObject)sourceAssemblyContext__AssemblyEventConnector;
             sourceAssemblyContext__AssemblyEventConnector = (AssemblyContext)eResolveProxy(oldSourceAssemblyContext__AssemblyEventConnector);
             if (sourceAssemblyContext__AssemblyEventConnector != oldSourceAssemblyContext__AssemblyEventConnector) {

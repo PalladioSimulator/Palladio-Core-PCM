@@ -11,9 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.seff.ForkAction;
 import de.uka.ipd.sdq.pcm.seff.ForkedBehaviour;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -39,7 +40,7 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
  *
  * @generated
  */
-public class SynchronisationPointImpl extends EObjectImpl implements SynchronisationPoint {
+public class SynchronisationPointImpl extends EStereotypableObjectImpl implements SynchronisationPoint {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -119,7 +120,7 @@ public class SynchronisationPointImpl extends EObjectImpl implements Synchronisa
      */
     public void setForkAction_SynchronisationPoint(ForkAction newForkAction_SynchronisationPoint) {
         if (newForkAction_SynchronisationPoint != eInternalContainer() || (eContainerFeatureID() != SeffPackage.SYNCHRONISATION_POINT__FORK_ACTION_SYNCHRONISATION_POINT && newForkAction_SynchronisationPoint != null)) {
-            if (EcoreUtil.isAncestor(this, newForkAction_SynchronisationPoint))
+            if (EcoreUtil.isAncestor(this, (EObject)newForkAction_SynchronisationPoint))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

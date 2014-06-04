@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -87,7 +88,7 @@ public class EventTypeImpl extends SignatureImpl implements EventType {
      */
     public void setEventGroup__EventType(EventGroup newEventGroup__EventType) {
         if (newEventGroup__EventType != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.EVENT_TYPE__EVENT_GROUP_EVENT_TYPE && newEventGroup__EventType != null)) {
-            if (EcoreUtil.isAncestor(this, newEventGroup__EventType))
+            if (EcoreUtil.isAncestor(this, (EObject)newEventGroup__EventType))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

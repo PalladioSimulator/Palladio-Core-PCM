@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -29,7 +30,7 @@ import de.uka.ipd.sdq.pcm.repository.SourceRole;
  *
  * @generated
  */
-public class SourceDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl implements SourceDelegationConnector {
+public class SourceDelegationConnectorImpl extends DelegationConnectorImpl implements SourceDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -90,7 +91,7 @@ public class SourceDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.compo
      * @generated
      */
     public SourceRole getInnerSourceRole__SourceRole() {
-        if (innerSourceRole__SourceRole != null && innerSourceRole__SourceRole.eIsProxy()) {
+        if (innerSourceRole__SourceRole != null && ((EObject)innerSourceRole__SourceRole).eIsProxy()) {
             InternalEObject oldInnerSourceRole__SourceRole = (InternalEObject)innerSourceRole__SourceRole;
             innerSourceRole__SourceRole = (SourceRole)eResolveProxy(oldInnerSourceRole__SourceRole);
             if (innerSourceRole__SourceRole != oldInnerSourceRole__SourceRole) {
@@ -125,7 +126,7 @@ public class SourceDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.compo
      * @generated
      */
     public SourceRole getOuterSourceRole__SourceRole() {
-        if (outerSourceRole__SourceRole != null && outerSourceRole__SourceRole.eIsProxy()) {
+        if (outerSourceRole__SourceRole != null && ((EObject)outerSourceRole__SourceRole).eIsProxy()) {
             InternalEObject oldOuterSourceRole__SourceRole = (InternalEObject)outerSourceRole__SourceRole;
             outerSourceRole__SourceRole = (SourceRole)eResolveProxy(oldOuterSourceRole__SourceRole);
             if (outerSourceRole__SourceRole != oldOuterSourceRole__SourceRole) {
@@ -160,7 +161,7 @@ public class SourceDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.compo
      * @generated
      */
     public AssemblyContext getAssemblyContext__SourceDelegationConnector() {
-        if (assemblyContext__SourceDelegationConnector != null && assemblyContext__SourceDelegationConnector.eIsProxy()) {
+        if (assemblyContext__SourceDelegationConnector != null && ((EObject)assemblyContext__SourceDelegationConnector).eIsProxy()) {
             InternalEObject oldAssemblyContext__SourceDelegationConnector = (InternalEObject)assemblyContext__SourceDelegationConnector;
             assemblyContext__SourceDelegationConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext__SourceDelegationConnector);
             if (assemblyContext__SourceDelegationConnector != oldAssemblyContext__SourceDelegationConnector) {

@@ -60,7 +60,7 @@ public class SubsystemFactoryImpl extends EFactoryImpl implements SubsystemFacto
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SubsystemPackage.SUB_SYSTEM: return createSubSystem();
+            case SubsystemPackage.SUB_SYSTEM: return (EObject)createSubSystem();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

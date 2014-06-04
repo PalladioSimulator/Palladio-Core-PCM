@@ -64,11 +64,11 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: return createResourceEnvironment();
-            case ResourceenvironmentPackage.LINKING_RESOURCE: return createLinkingResource();
-            case ResourceenvironmentPackage.RESOURCE_CONTAINER: return createResourceContainer();
-            case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return createProcessingResourceSpecification();
-            case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return createCommunicationLinkResourceSpecification();
+            case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: return (EObject)createResourceEnvironment();
+            case ResourceenvironmentPackage.LINKING_RESOURCE: return (EObject)createLinkingResource();
+            case ResourceenvironmentPackage.RESOURCE_CONTAINER: return (EObject)createResourceContainer();
+            case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return (EObject)createProcessingResourceSpecification();
+            case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return (EObject)createCommunicationLinkResourceSpecification();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

@@ -8,9 +8,9 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
@@ -22,6 +22,7 @@ import de.uka.ipd.sdq.pcm.repository.ParameterModifier;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Parameter</b></em>'. <!--
@@ -41,7 +42,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  *
  * @generated
  */
-public class ParameterImpl extends EObjectImpl implements Parameter {
+public class ParameterImpl extends EStereotypableObjectImpl implements Parameter {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -174,7 +175,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      */
     public void setOperationSignature__Parameter(OperationSignature newOperationSignature__Parameter) {
         if (newOperationSignature__Parameter != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PARAMETER__OPERATION_SIGNATURE_PARAMETER && newOperationSignature__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newOperationSignature__Parameter))
+            if (EcoreUtil.isAncestor(this, (EObject)newOperationSignature__Parameter))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -193,7 +194,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      * @generated
      */
     public DataType getDataType__Parameter() {
-        if (dataType__Parameter != null && dataType__Parameter.eIsProxy()) {
+        if (dataType__Parameter != null && ((EObject)dataType__Parameter).eIsProxy()) {
             InternalEObject oldDataType__Parameter = (InternalEObject)dataType__Parameter;
             dataType__Parameter = (DataType)eResolveProxy(oldDataType__Parameter);
             if (dataType__Parameter != oldDataType__Parameter) {
@@ -248,7 +249,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      */
     public void setResourceSignature__Parameter(ResourceSignature newResourceSignature__Parameter) {
         if (newResourceSignature__Parameter != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PARAMETER__RESOURCE_SIGNATURE_PARAMETER && newResourceSignature__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceSignature__Parameter))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceSignature__Parameter))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -287,7 +288,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      */
     public void setInfrastructureSignature__Parameter(InfrastructureSignature newInfrastructureSignature__Parameter) {
         if (newInfrastructureSignature__Parameter != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PARAMETER__INFRASTRUCTURE_SIGNATURE_PARAMETER && newInfrastructureSignature__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newInfrastructureSignature__Parameter))
+            if (EcoreUtil.isAncestor(this, (EObject)newInfrastructureSignature__Parameter))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -325,7 +326,7 @@ public class ParameterImpl extends EObjectImpl implements Parameter {
      */
     public void setEventType__Parameter(EventType newEventType__Parameter) {
         if (newEventType__Parameter != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PARAMETER__EVENT_TYPE_PARAMETER && newEventType__Parameter != null)) {
-            if (EcoreUtil.isAncestor(this, newEventType__Parameter))
+            if (EcoreUtil.isAncestor(this, (EObject)newEventType__Parameter))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

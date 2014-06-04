@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -276,7 +277,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      * @generated
      */
     public OperationProvidedRole getProvidedRole_EntryLevelSystemCall() {
-        if (providedRole_EntryLevelSystemCall != null && providedRole_EntryLevelSystemCall.eIsProxy()) {
+        if (providedRole_EntryLevelSystemCall != null && ((EObject)providedRole_EntryLevelSystemCall).eIsProxy()) {
             InternalEObject oldProvidedRole_EntryLevelSystemCall = (InternalEObject)providedRole_EntryLevelSystemCall;
             providedRole_EntryLevelSystemCall = (OperationProvidedRole)eResolveProxy(oldProvidedRole_EntryLevelSystemCall);
             if (providedRole_EntryLevelSystemCall != oldProvidedRole_EntryLevelSystemCall) {
@@ -311,7 +312,7 @@ public class EntryLevelSystemCallImpl extends AbstractUserActionImpl implements 
      * @generated
      */
     public OperationSignature getOperationSignature__EntryLevelSystemCall() {
-        if (operationSignature__EntryLevelSystemCall != null && operationSignature__EntryLevelSystemCall.eIsProxy()) {
+        if (operationSignature__EntryLevelSystemCall != null && ((EObject)operationSignature__EntryLevelSystemCall).eIsProxy()) {
             InternalEObject oldOperationSignature__EntryLevelSystemCall = (InternalEObject)operationSignature__EntryLevelSystemCall;
             operationSignature__EntryLevelSystemCall = (OperationSignature)eResolveProxy(oldOperationSignature__EntryLevelSystemCall);
             if (operationSignature__EntryLevelSystemCall != oldOperationSignature__EntryLevelSystemCall) {

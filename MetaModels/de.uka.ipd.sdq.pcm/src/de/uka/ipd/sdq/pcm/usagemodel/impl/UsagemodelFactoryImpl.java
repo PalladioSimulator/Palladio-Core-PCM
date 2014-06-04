@@ -72,19 +72,19 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case UsagemodelPackage.USAGE_SCENARIO: return createUsageScenario();
-            case UsagemodelPackage.USER_DATA: return createUserData();
-            case UsagemodelPackage.USAGE_MODEL: return createUsageModel();
-            case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: return createEntryLevelSystemCall();
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR: return createScenarioBehaviour();
-            case UsagemodelPackage.BRANCH_TRANSITION: return createBranchTransition();
-            case UsagemodelPackage.BRANCH: return createBranch();
-            case UsagemodelPackage.LOOP: return createLoop();
-            case UsagemodelPackage.STOP: return createStop();
-            case UsagemodelPackage.START: return createStart();
-            case UsagemodelPackage.OPEN_WORKLOAD: return createOpenWorkload();
-            case UsagemodelPackage.DELAY: return createDelay();
-            case UsagemodelPackage.CLOSED_WORKLOAD: return createClosedWorkload();
+            case UsagemodelPackage.USAGE_SCENARIO: return (EObject)createUsageScenario();
+            case UsagemodelPackage.USER_DATA: return (EObject)createUserData();
+            case UsagemodelPackage.USAGE_MODEL: return (EObject)createUsageModel();
+            case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: return (EObject)createEntryLevelSystemCall();
+            case UsagemodelPackage.SCENARIO_BEHAVIOUR: return (EObject)createScenarioBehaviour();
+            case UsagemodelPackage.BRANCH_TRANSITION: return (EObject)createBranchTransition();
+            case UsagemodelPackage.BRANCH: return (EObject)createBranch();
+            case UsagemodelPackage.LOOP: return (EObject)createLoop();
+            case UsagemodelPackage.STOP: return (EObject)createStop();
+            case UsagemodelPackage.START: return (EObject)createStart();
+            case UsagemodelPackage.OPEN_WORKLOAD: return (EObject)createOpenWorkload();
+            case UsagemodelPackage.DELAY: return (EObject)createDelay();
+            case UsagemodelPackage.CLOSED_WORKLOAD: return (EObject)createClosedWorkload();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

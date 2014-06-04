@@ -5,10 +5,9 @@
  */
 package de.uka.ipd.sdq.pcm.qosannotations;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -31,9 +30,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage#getSpecifiedQoSAnnotation()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface SpecifiedQoSAnnotation extends EObject {
+public interface SpecifiedQoSAnnotation extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

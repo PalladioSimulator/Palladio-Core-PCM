@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.core.entity;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Named Element</b></em>'.
@@ -24,9 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.core.entity.EntityPackage#getNamedElement()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface NamedElement extends EObject {
+public interface NamedElement extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

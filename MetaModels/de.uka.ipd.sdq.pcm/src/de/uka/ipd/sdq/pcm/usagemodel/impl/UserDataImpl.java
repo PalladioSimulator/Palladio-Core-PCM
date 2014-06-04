@@ -11,9 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.UserData;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>User Data</b></em>'. <!--
@@ -39,7 +40,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
  *
  * @generated
  */
-public class UserDataImpl extends EObjectImpl implements UserData {
+public class UserDataImpl extends EStereotypableObjectImpl implements UserData {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -109,7 +110,7 @@ public class UserDataImpl extends EObjectImpl implements UserData {
      */
     public void setUsageModel_UserData(UsageModel newUsageModel_UserData) {
         if (newUsageModel_UserData != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.USER_DATA__USAGE_MODEL_USER_DATA && newUsageModel_UserData != null)) {
-            if (EcoreUtil.isAncestor(this, newUsageModel_UserData))
+            if (EcoreUtil.isAncestor(this, (EObject)newUsageModel_UserData))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -128,7 +129,7 @@ public class UserDataImpl extends EObjectImpl implements UserData {
      * @generated
      */
     public AssemblyContext getAssemblyContext_userData() {
-        if (assemblyContext_userData != null && assemblyContext_userData.eIsProxy()) {
+        if (assemblyContext_userData != null && ((EObject)assemblyContext_userData).eIsProxy()) {
             InternalEObject oldAssemblyContext_userData = (InternalEObject)assemblyContext_userData;
             assemblyContext_userData = (AssemblyContext)eResolveProxy(oldAssemblyContext_userData);
             if (assemblyContext_userData != oldAssemblyContext_userData) {

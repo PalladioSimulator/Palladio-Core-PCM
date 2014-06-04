@@ -8,7 +8,8 @@ package de.uka.ipd.sdq.pcm.reliability;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EObject;
+
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -31,9 +32,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getFailureOccurrenceDescription()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface FailureOccurrenceDescription extends EObject {
+public interface FailureOccurrenceDescription extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

@@ -13,9 +13,9 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -31,6 +31,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -46,7 +47,7 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.util.SeffPerformanceValidator;
  *
  * @generated
  */
-public class ParametricResourceDemandImpl extends EObjectImpl implements ParametricResourceDemand {
+public class ParametricResourceDemandImpl extends EStereotypableObjectImpl implements ParametricResourceDemand {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -137,7 +138,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
      * @generated
      */
     public ProcessingResourceType getRequiredResource_ParametricResourceDemand() {
-        if (requiredResource_ParametricResourceDemand != null && requiredResource_ParametricResourceDemand.eIsProxy()) {
+        if (requiredResource_ParametricResourceDemand != null && ((EObject)requiredResource_ParametricResourceDemand).eIsProxy()) {
             InternalEObject oldRequiredResource_ParametricResourceDemand = (InternalEObject)requiredResource_ParametricResourceDemand;
             requiredResource_ParametricResourceDemand = (ProcessingResourceType)eResolveProxy(oldRequiredResource_ParametricResourceDemand);
             if (requiredResource_ParametricResourceDemand != oldRequiredResource_ParametricResourceDemand) {
@@ -193,7 +194,7 @@ public class ParametricResourceDemandImpl extends EObjectImpl implements Paramet
      */
     public void setAction_ParametricResourceDemand(AbstractInternalControlFlowAction newAction_ParametricResourceDemand) {
         if (newAction_ParametricResourceDemand != eInternalContainer() || (eContainerFeatureID() != SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND__ACTION_PARAMETRIC_RESOURCE_DEMAND && newAction_ParametricResourceDemand != null)) {
-            if (EcoreUtil.isAncestor(this, newAction_ParametricResourceDemand))
+            if (EcoreUtil.isAncestor(this, (EObject)newAction_ParametricResourceDemand))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

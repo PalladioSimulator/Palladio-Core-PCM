@@ -6,9 +6,9 @@
 package de.uka.ipd.sdq.pcm.seff;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -29,9 +29,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getSynchronisationPoint()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface SynchronisationPoint extends EObject {
+public interface SynchronisationPoint extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

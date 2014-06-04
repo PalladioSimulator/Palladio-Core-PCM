@@ -8,10 +8,10 @@ package de.uka.ipd.sdq.pcm.seff;
 import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.repository.BasicComponent;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -33,9 +33,10 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getServiceEffectSpecification()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface ServiceEffectSpecification extends EObject {
+public interface ServiceEffectSpecification extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

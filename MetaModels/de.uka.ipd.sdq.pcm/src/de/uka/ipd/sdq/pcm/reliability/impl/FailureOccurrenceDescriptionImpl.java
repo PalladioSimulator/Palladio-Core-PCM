@@ -13,7 +13,6 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.ocl.ParserException;
@@ -23,6 +22,7 @@ import org.eclipse.ocl.ecore.OCL;
 import de.uka.ipd.sdq.pcm.reliability.FailureOccurrenceDescription;
 import de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage;
 import de.uka.ipd.sdq.pcm.reliability.util.ReliabilityValidator;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -36,7 +36,7 @@ import de.uka.ipd.sdq.pcm.reliability.util.ReliabilityValidator;
  *
  * @generated
  */
-public abstract class FailureOccurrenceDescriptionImpl extends EObjectImpl implements FailureOccurrenceDescription {
+public abstract class FailureOccurrenceDescriptionImpl extends EStereotypableObjectImpl implements FailureOccurrenceDescription {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

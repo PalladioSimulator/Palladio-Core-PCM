@@ -61,8 +61,8 @@ public class AllocationFactoryImpl extends EFactoryImpl implements AllocationFac
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case AllocationPackage.ALLOCATION_CONTEXT: return createAllocationContext();
-            case AllocationPackage.ALLOCATION: return createAllocation();
+            case AllocationPackage.ALLOCATION_CONTEXT: return (EObject)createAllocationContext();
+            case AllocationPackage.ALLOCATION: return (EObject)createAllocation();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

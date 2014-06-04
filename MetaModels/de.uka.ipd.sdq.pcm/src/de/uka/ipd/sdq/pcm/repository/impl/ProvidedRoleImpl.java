@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -78,7 +79,7 @@ public abstract class ProvidedRoleImpl extends RoleImpl implements ProvidedRole 
      */
     public void setProvidingEntity_ProvidedRole(InterfaceProvidingEntity newProvidingEntity_ProvidedRole) {
         if (newProvidingEntity_ProvidedRole != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PROVIDED_ROLE__PROVIDING_ENTITY_PROVIDED_ROLE && newProvidingEntity_ProvidedRole != null)) {
-            if (EcoreUtil.isAncestor(this, newProvidingEntity_ProvidedRole))
+            if (EcoreUtil.isAncestor(this, (EObject)newProvidingEntity_ProvidedRole))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

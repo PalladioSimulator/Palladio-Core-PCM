@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.resourceenvironment.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -232,7 +233,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      * @generated
      */
     public SchedulingPolicy getSchedulingPolicy() {
-        if (schedulingPolicy != null && schedulingPolicy.eIsProxy()) {
+        if (schedulingPolicy != null && ((EObject)schedulingPolicy).eIsProxy()) {
             InternalEObject oldSchedulingPolicy = (InternalEObject)schedulingPolicy;
             schedulingPolicy = (SchedulingPolicy)eResolveProxy(oldSchedulingPolicy);
             if (schedulingPolicy != oldSchedulingPolicy) {
@@ -267,7 +268,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
      * @generated
      */
     public ProcessingResourceType getActiveResourceType_ActiveResourceSpecification() {
-        if (activeResourceType_ActiveResourceSpecification != null && activeResourceType_ActiveResourceSpecification.eIsProxy()) {
+        if (activeResourceType_ActiveResourceSpecification != null && ((EObject)activeResourceType_ActiveResourceSpecification).eIsProxy()) {
             InternalEObject oldActiveResourceType_ActiveResourceSpecification = (InternalEObject)activeResourceType_ActiveResourceSpecification;
             activeResourceType_ActiveResourceSpecification = (ProcessingResourceType)eResolveProxy(oldActiveResourceType_ActiveResourceSpecification);
             if (activeResourceType_ActiveResourceSpecification != oldActiveResourceType_ActiveResourceSpecification) {
@@ -385,7 +386,7 @@ public class ProcessingResourceSpecificationImpl extends IdentifierImpl implemen
     public void setResourceContainer_ProcessingResourceSpecification(
             ResourceContainer newResourceContainer_ProcessingResourceSpecification) {
         if (newResourceContainer_ProcessingResourceSpecification != eInternalContainer() || (eContainerFeatureID() != ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION__RESOURCE_CONTAINER_PROCESSING_RESOURCE_SPECIFICATION && newResourceContainer_ProcessingResourceSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceContainer_ProcessingResourceSpecification))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceContainer_ProcessingResourceSpecification))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

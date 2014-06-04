@@ -8,15 +8,16 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure;
 import de.uka.ipd.sdq.pcm.core.composition.CompositionPackage;
 import de.uka.ipd.sdq.pcm.core.composition.ResourceRequiredDelegationConnector;
 import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -32,7 +33,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  *
  * @generated
  */
-public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl implements ResourceRequiredDelegationConnector {
+public class ResourceRequiredDelegationConnectorImpl extends EStereotypableObjectImpl implements ResourceRequiredDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -100,7 +101,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
     public void setParentStructure_ResourceRequiredDelegationConnector(
             ComposedStructure newParentStructure_ResourceRequiredDelegationConnector) {
         if (newParentStructure_ResourceRequiredDelegationConnector != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR__PARENT_STRUCTURE_RESOURCE_REQUIRED_DELEGATION_CONNECTOR && newParentStructure_ResourceRequiredDelegationConnector != null)) {
-            if (EcoreUtil.isAncestor(this, newParentStructure_ResourceRequiredDelegationConnector))
+            if (EcoreUtil.isAncestor(this, (EObject)newParentStructure_ResourceRequiredDelegationConnector))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -119,7 +120,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
      * @generated
      */
     public ResourceRequiredRole getInnerResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        if (innerResourceRequiredRole_ResourceRequiredDelegationConnector != null && innerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
+        if (innerResourceRequiredRole_ResourceRequiredDelegationConnector != null && ((EObject)innerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
             InternalEObject oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject)innerResourceRequiredRole_ResourceRequiredDelegationConnector;
             innerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole)eResolveProxy(oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector);
             if (innerResourceRequiredRole_ResourceRequiredDelegationConnector != oldInnerResourceRequiredRole_ResourceRequiredDelegationConnector) {
@@ -155,7 +156,7 @@ public class ResourceRequiredDelegationConnectorImpl extends EObjectImpl impleme
      * @generated
      */
     public ResourceRequiredRole getOuterResourceRequiredRole_ResourceRequiredDelegationConnector() {
-        if (outerResourceRequiredRole_ResourceRequiredDelegationConnector != null && outerResourceRequiredRole_ResourceRequiredDelegationConnector.eIsProxy()) {
+        if (outerResourceRequiredRole_ResourceRequiredDelegationConnector != null && ((EObject)outerResourceRequiredRole_ResourceRequiredDelegationConnector).eIsProxy()) {
             InternalEObject oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector = (InternalEObject)outerResourceRequiredRole_ResourceRequiredDelegationConnector;
             outerResourceRequiredRole_ResourceRequiredDelegationConnector = (ResourceRequiredRole)eResolveProxy(oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector);
             if (outerResourceRequiredRole_ResourceRequiredDelegationConnector != oldOuterResourceRequiredRole_ResourceRequiredDelegationConnector) {

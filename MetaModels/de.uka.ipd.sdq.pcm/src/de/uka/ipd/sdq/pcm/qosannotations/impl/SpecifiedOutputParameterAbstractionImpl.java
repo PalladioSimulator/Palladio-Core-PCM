@@ -11,9 +11,9 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 import org.eclipse.emf.ecore.util.InternalEList;
@@ -25,6 +25,7 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedOutputParameterAbstraction;
 import de.uka.ipd.sdq.pcm.repository.Role;
 import de.uka.ipd.sdq.pcm.repository.Signature;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -41,7 +42,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
  *
  * @generated
  */
-public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImpl implements
+public abstract class SpecifiedOutputParameterAbstractionImpl extends EStereotypableObjectImpl implements
         SpecifiedOutputParameterAbstraction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
@@ -121,7 +122,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImp
     public void setQosAnnotations_SpecifiedOutputParameterAbstraction(
             QoSAnnotations newQosAnnotations_SpecifiedOutputParameterAbstraction) {
         if (newQosAnnotations_SpecifiedOutputParameterAbstraction != eInternalContainer() || (eContainerFeatureID() != QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION__QOS_ANNOTATIONS_SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION && newQosAnnotations_SpecifiedOutputParameterAbstraction != null)) {
-            if (EcoreUtil.isAncestor(this, newQosAnnotations_SpecifiedOutputParameterAbstraction))
+            if (EcoreUtil.isAncestor(this, (EObject)newQosAnnotations_SpecifiedOutputParameterAbstraction))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -140,7 +141,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImp
      * @generated
      */
     public Signature getSignature_SpecifiedOutputParameterAbstraction() {
-        if (signature_SpecifiedOutputParameterAbstraction != null && signature_SpecifiedOutputParameterAbstraction.eIsProxy()) {
+        if (signature_SpecifiedOutputParameterAbstraction != null && ((EObject)signature_SpecifiedOutputParameterAbstraction).eIsProxy()) {
             InternalEObject oldSignature_SpecifiedOutputParameterAbstraction = (InternalEObject)signature_SpecifiedOutputParameterAbstraction;
             signature_SpecifiedOutputParameterAbstraction = (Signature)eResolveProxy(oldSignature_SpecifiedOutputParameterAbstraction);
             if (signature_SpecifiedOutputParameterAbstraction != oldSignature_SpecifiedOutputParameterAbstraction) {
@@ -176,7 +177,7 @@ public abstract class SpecifiedOutputParameterAbstractionImpl extends EObjectImp
      * @generated
      */
     public Role getRole_SpecifiedOutputParameterAbstraction() {
-        if (role_SpecifiedOutputParameterAbstraction != null && role_SpecifiedOutputParameterAbstraction.eIsProxy()) {
+        if (role_SpecifiedOutputParameterAbstraction != null && ((EObject)role_SpecifiedOutputParameterAbstraction).eIsProxy()) {
             InternalEObject oldRole_SpecifiedOutputParameterAbstraction = (InternalEObject)role_SpecifiedOutputParameterAbstraction;
             role_SpecifiedOutputParameterAbstraction = (Role)eResolveProxy(oldRole_SpecifiedOutputParameterAbstraction);
             if (role_SpecifiedOutputParameterAbstraction != oldRole_SpecifiedOutputParameterAbstraction) {

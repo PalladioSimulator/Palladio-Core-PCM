@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -111,7 +112,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * @generated
      */
     public AssemblyContext getRequiringAssemblyContext_AssemblyConnector() {
-        if (requiringAssemblyContext_AssemblyConnector != null && requiringAssemblyContext_AssemblyConnector.eIsProxy()) {
+        if (requiringAssemblyContext_AssemblyConnector != null && ((EObject)requiringAssemblyContext_AssemblyConnector).eIsProxy()) {
             InternalEObject oldRequiringAssemblyContext_AssemblyConnector = (InternalEObject)requiringAssemblyContext_AssemblyConnector;
             requiringAssemblyContext_AssemblyConnector = (AssemblyContext)eResolveProxy(oldRequiringAssemblyContext_AssemblyConnector);
             if (requiringAssemblyContext_AssemblyConnector != oldRequiringAssemblyContext_AssemblyConnector) {
@@ -147,7 +148,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * @generated
      */
     public AssemblyContext getProvidingAssemblyContext_AssemblyConnector() {
-        if (providingAssemblyContext_AssemblyConnector != null && providingAssemblyContext_AssemblyConnector.eIsProxy()) {
+        if (providingAssemblyContext_AssemblyConnector != null && ((EObject)providingAssemblyContext_AssemblyConnector).eIsProxy()) {
             InternalEObject oldProvidingAssemblyContext_AssemblyConnector = (InternalEObject)providingAssemblyContext_AssemblyConnector;
             providingAssemblyContext_AssemblyConnector = (AssemblyContext)eResolveProxy(oldProvidingAssemblyContext_AssemblyConnector);
             if (providingAssemblyContext_AssemblyConnector != oldProvidingAssemblyContext_AssemblyConnector) {
@@ -183,7 +184,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * @generated
      */
     public OperationProvidedRole getProvidedRole_AssemblyConnector() {
-        if (providedRole_AssemblyConnector != null && providedRole_AssemblyConnector.eIsProxy()) {
+        if (providedRole_AssemblyConnector != null && ((EObject)providedRole_AssemblyConnector).eIsProxy()) {
             InternalEObject oldProvidedRole_AssemblyConnector = (InternalEObject)providedRole_AssemblyConnector;
             providedRole_AssemblyConnector = (OperationProvidedRole)eResolveProxy(oldProvidedRole_AssemblyConnector);
             if (providedRole_AssemblyConnector != oldProvidedRole_AssemblyConnector) {
@@ -218,7 +219,7 @@ public class AssemblyConnectorImpl extends ConnectorImpl implements AssemblyConn
      * @generated
      */
     public OperationRequiredRole getRequiredRole_AssemblyConnector() {
-        if (requiredRole_AssemblyConnector != null && requiredRole_AssemblyConnector.eIsProxy()) {
+        if (requiredRole_AssemblyConnector != null && ((EObject)requiredRole_AssemblyConnector).eIsProxy()) {
             InternalEObject oldRequiredRole_AssemblyConnector = (InternalEObject)requiredRole_AssemblyConnector;
             requiredRole_AssemblyConnector = (OperationRequiredRole)eResolveProxy(oldRequiredRole_AssemblyConnector);
             if (requiredRole_AssemblyConnector != oldRequiredRole_AssemblyConnector) {

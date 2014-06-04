@@ -259,8 +259,10 @@ litigation.
       <import plugin="org.eclipse.wst.common.modulecore" version="1.2.302" match="greaterOrEqual"/>
       <import plugin="org.eclipse.wst.common.project.facet.core" version="1.4.300" match="greaterOrEqual"/>
       <import plugin="org.eclipse.wst.validation" version="1.2.501" match="greaterOrEqual"/>
-      <import feature="org.eclipse.xtend.sdk" version="2.4.3.v201309030823" match="greaterOrEqual"/>
       <import plugin="org.objectweb.asm" version="3.3.1" match="greaterOrEqual"/>
+      <import feature="org.eclipse.xtend.sdk" version="2.4.3.v201309030823" match="greaterOrEqual"/>
+      <import plugin="edu.kit.ipd.sdq.mdsd.profiles" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.jst.j2ee" version="1.1.710" match="greaterOrEqual"/>
    </requires>
 
    <plugin

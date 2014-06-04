@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -155,7 +156,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      * @generated
      */
     public Signature getDescribedService__SEFF() {
-        if (describedService__SEFF != null && describedService__SEFF.eIsProxy()) {
+        if (describedService__SEFF != null && ((EObject)describedService__SEFF).eIsProxy()) {
             InternalEObject oldDescribedService__SEFF = (InternalEObject)describedService__SEFF;
             describedService__SEFF = (Signature)eResolveProxy(oldDescribedService__SEFF);
             if (describedService__SEFF != oldDescribedService__SEFF) {
@@ -210,7 +211,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
      */
     public void setBasicComponent_ServiceEffectSpecification(BasicComponent newBasicComponent_ServiceEffectSpecification) {
         if (newBasicComponent_ServiceEffectSpecification != eInternalContainer() || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION && newBasicComponent_ServiceEffectSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newBasicComponent_ServiceEffectSpecification))
+            if (EcoreUtil.isAncestor(this, (EObject)newBasicComponent_ServiceEffectSpecification))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -250,7 +251,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     public void setAbstractLoopAction_ResourceDemandingBehaviour(
             AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
         if (newAbstractLoopAction_ResourceDemandingBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractLoopAction_ResourceDemandingBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newAbstractLoopAction_ResourceDemandingBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -290,7 +291,7 @@ public class ResourceDemandingSEFFImpl extends IdentifierImpl implements Resourc
     public void setAbstractBranchTransition_ResourceDemandingBehaviour(
             AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
         if (newAbstractBranchTransition_ResourceDemandingBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_SEFF__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractBranchTransition_ResourceDemandingBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newAbstractBranchTransition_ResourceDemandingBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Branch Transition</b></em>'.
@@ -28,9 +28,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getBranchTransition()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface BranchTransition extends EObject {
+public interface BranchTransition extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -161,7 +162,7 @@ public abstract class InterfaceImpl extends EntityImpl implements Interface {
      */
     public void setRepository__Interface(Repository newRepository__Interface) {
         if (newRepository__Interface != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.INTERFACE__REPOSITORY_INTERFACE && newRepository__Interface != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__Interface))
+            if (EcoreUtil.isAncestor(this, (EObject)newRepository__Interface))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

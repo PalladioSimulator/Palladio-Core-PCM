@@ -74,21 +74,21 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: return createResourceRequiredDelegationConnector();
-            case CompositionPackage.EVENT_CHANNEL: return createEventChannel();
-            case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR: return createEventChannelSourceConnector();
-            case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR: return createEventChannelSinkConnector();
-            case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR: return createProvidedDelegationConnector();
-            case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR: return createRequiredDelegationConnector();
-            case CompositionPackage.ASSEMBLY_CONNECTOR: return createAssemblyConnector();
-            case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR: return createAssemblyEventConnector();
-            case CompositionPackage.SOURCE_DELEGATION_CONNECTOR: return createSourceDelegationConnector();
-            case CompositionPackage.SINK_DELEGATION_CONNECTOR: return createSinkDelegationConnector();
-            case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR: return createAssemblyInfrastructureConnector();
-            case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return createProvidedInfrastructureDelegationConnector();
-            case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return createRequiredInfrastructureDelegationConnector();
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR: return createRequiredResourceDelegationConnector();
-            case CompositionPackage.ASSEMBLY_CONTEXT: return createAssemblyContext();
+            case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: return (EObject)createResourceRequiredDelegationConnector();
+            case CompositionPackage.EVENT_CHANNEL: return (EObject)createEventChannel();
+            case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR: return (EObject)createEventChannelSourceConnector();
+            case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR: return (EObject)createEventChannelSinkConnector();
+            case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR: return (EObject)createProvidedDelegationConnector();
+            case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR: return (EObject)createRequiredDelegationConnector();
+            case CompositionPackage.ASSEMBLY_CONNECTOR: return (EObject)createAssemblyConnector();
+            case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR: return (EObject)createAssemblyEventConnector();
+            case CompositionPackage.SOURCE_DELEGATION_CONNECTOR: return (EObject)createSourceDelegationConnector();
+            case CompositionPackage.SINK_DELEGATION_CONNECTOR: return (EObject)createSinkDelegationConnector();
+            case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR: return (EObject)createAssemblyInfrastructureConnector();
+            case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return (EObject)createProvidedInfrastructureDelegationConnector();
+            case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return (EObject)createRequiredInfrastructureDelegationConnector();
+            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR: return (EObject)createRequiredResourceDelegationConnector();
+            case CompositionPackage.ASSEMBLY_CONTEXT: return (EObject)createAssemblyContext();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

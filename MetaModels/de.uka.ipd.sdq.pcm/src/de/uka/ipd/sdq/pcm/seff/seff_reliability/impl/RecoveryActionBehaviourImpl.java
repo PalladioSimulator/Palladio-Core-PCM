@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -124,7 +125,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     public void setAbstractLoopAction_ResourceDemandingBehaviour(
             AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
         if (newAbstractLoopAction_ResourceDemandingBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractLoopAction_ResourceDemandingBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newAbstractLoopAction_ResourceDemandingBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -164,7 +165,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
     public void setAbstractBranchTransition_ResourceDemandingBehaviour(
             AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
         if (newAbstractBranchTransition_ResourceDemandingBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractBranchTransition_ResourceDemandingBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newAbstractBranchTransition_ResourceDemandingBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -225,7 +226,7 @@ public class RecoveryActionBehaviourImpl extends FailureHandlingEntityImpl imple
      */
     public void setRecoveryAction__RecoveryActionBehaviour(RecoveryAction newRecoveryAction__RecoveryActionBehaviour) {
         if (newRecoveryAction__RecoveryActionBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR__RECOVERY_ACTION_RECOVERY_ACTION_BEHAVIOUR && newRecoveryAction__RecoveryActionBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newRecoveryAction__RecoveryActionBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newRecoveryAction__RecoveryActionBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

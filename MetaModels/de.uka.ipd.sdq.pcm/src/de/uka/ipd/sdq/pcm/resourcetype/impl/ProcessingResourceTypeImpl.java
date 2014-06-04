@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -68,7 +69,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
      * @generated
      */
     public HardwareInducedFailureType getHardwareInducedFailureType__ProcessingResourceType() {
-        if (hardwareInducedFailureType__ProcessingResourceType != null && hardwareInducedFailureType__ProcessingResourceType.eIsProxy()) {
+        if (hardwareInducedFailureType__ProcessingResourceType != null && ((EObject)hardwareInducedFailureType__ProcessingResourceType).eIsProxy()) {
             InternalEObject oldHardwareInducedFailureType__ProcessingResourceType = (InternalEObject)hardwareInducedFailureType__ProcessingResourceType;
             hardwareInducedFailureType__ProcessingResourceType = (HardwareInducedFailureType)eResolveProxy(oldHardwareInducedFailureType__ProcessingResourceType);
             if (hardwareInducedFailureType__ProcessingResourceType != oldHardwareInducedFailureType__ProcessingResourceType) {

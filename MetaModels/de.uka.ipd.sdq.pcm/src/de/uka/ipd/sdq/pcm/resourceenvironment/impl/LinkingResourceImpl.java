@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectResolvingEList;
@@ -159,7 +160,7 @@ public class LinkingResourceImpl extends EntityImpl implements LinkingResource {
      */
     public void setResourceEnvironment_LinkingResource(ResourceEnvironment newResourceEnvironment_LinkingResource) {
         if (newResourceEnvironment_LinkingResource != eInternalContainer() || (eContainerFeatureID() != ResourceenvironmentPackage.LINKING_RESOURCE__RESOURCE_ENVIRONMENT_LINKING_RESOURCE && newResourceEnvironment_LinkingResource != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceEnvironment_LinkingResource))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceEnvironment_LinkingResource))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

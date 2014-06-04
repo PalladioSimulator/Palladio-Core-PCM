@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -145,7 +146,7 @@ public class EntityValidator extends EObjectValidator {
      */
     public boolean validateResourceProvidedRole(ResourceProvidedRole resourceProvidedRole, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(resourceProvidedRole, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)resourceProvidedRole, diagnostics, context);
     }
 
     /**
@@ -154,7 +155,7 @@ public class EntityValidator extends EObjectValidator {
      */
     public boolean validateNamedElement(NamedElement namedElement, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(namedElement, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)namedElement, diagnostics, context);
     }
 
     /**
@@ -164,7 +165,7 @@ public class EntityValidator extends EObjectValidator {
     public boolean validateResourceInterfaceProvidingRequiringEntity(
             ResourceInterfaceProvidingRequiringEntity resourceInterfaceProvidingRequiringEntity,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(resourceInterfaceProvidingRequiringEntity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)resourceInterfaceProvidingRequiringEntity, diagnostics, context);
     }
 
     /**
@@ -173,7 +174,7 @@ public class EntityValidator extends EObjectValidator {
      */
     public boolean validateInterfaceProvidingEntity(InterfaceProvidingEntity interfaceProvidingEntity,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(interfaceProvidingEntity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)interfaceProvidingEntity, diagnostics, context);
     }
 
     /**
@@ -183,7 +184,7 @@ public class EntityValidator extends EObjectValidator {
     public boolean validateInterfaceProvidingRequiringEntity(
             InterfaceProvidingRequiringEntity interfaceProvidingRequiringEntity, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(interfaceProvidingRequiringEntity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)interfaceProvidingRequiringEntity, diagnostics, context);
     }
 
     /**
@@ -192,7 +193,7 @@ public class EntityValidator extends EObjectValidator {
      */
     public boolean validateInterfaceRequiringEntity(InterfaceRequiringEntity interfaceRequiringEntity,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(interfaceRequiringEntity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)interfaceRequiringEntity, diagnostics, context);
     }
 
     /**
@@ -202,7 +203,7 @@ public class EntityValidator extends EObjectValidator {
     public boolean validateResourceInterfaceRequiringEntity(
             ResourceInterfaceRequiringEntity resourceInterfaceRequiringEntity, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(resourceInterfaceRequiringEntity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)resourceInterfaceRequiringEntity, diagnostics, context);
     }
 
     /**
@@ -211,7 +212,7 @@ public class EntityValidator extends EObjectValidator {
      */
     public boolean validateResourceRequiredRole(ResourceRequiredRole resourceRequiredRole, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(resourceRequiredRole, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)resourceRequiredRole, diagnostics, context);
     }
 
     /**
@@ -221,14 +222,14 @@ public class EntityValidator extends EObjectValidator {
     public boolean validateComposedProvidingRequiringEntity(
             ComposedProvidingRequiringEntity composedProvidingRequiringEntity, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(composedProvidingRequiringEntity, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(composedProvidingRequiringEntity, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(composedProvidingRequiringEntity, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)composedProvidingRequiringEntity, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)composedProvidingRequiringEntity, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)composedProvidingRequiringEntity, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)composedProvidingRequiringEntity, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)composedProvidingRequiringEntity, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)composedProvidingRequiringEntity, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)composedProvidingRequiringEntity, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)composedProvidingRequiringEntity, diagnostics, context);
         if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(composedProvidingRequiringEntity, diagnostics, context);
         if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(composedProvidingRequiringEntity, diagnostics, context);
         if (result || diagnostics != null) result &= validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(composedProvidingRequiringEntity, diagnostics, context);
@@ -253,7 +254,7 @@ public class EntityValidator extends EObjectValidator {
     public boolean validateResourceInterfaceProvidingEntity(
             ResourceInterfaceProvidingEntity resourceInterfaceProvidingEntity, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(resourceInterfaceProvidingEntity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)resourceInterfaceProvidingEntity, diagnostics, context);
     }
 
     /**
@@ -261,7 +262,7 @@ public class EntityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateEntity(Entity entity, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(entity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)entity, diagnostics, context);
     }
 
     /**

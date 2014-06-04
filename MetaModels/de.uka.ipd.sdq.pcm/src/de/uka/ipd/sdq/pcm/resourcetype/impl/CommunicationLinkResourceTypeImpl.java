@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -69,7 +70,7 @@ public class CommunicationLinkResourceTypeImpl extends ResourceTypeImpl implemen
      * @generated
      */
     public NetworkInducedFailureType getNetworkInducedFailureType__CommunicationLinkResourceType() {
-        if (networkInducedFailureType__CommunicationLinkResourceType != null && networkInducedFailureType__CommunicationLinkResourceType.eIsProxy()) {
+        if (networkInducedFailureType__CommunicationLinkResourceType != null && ((EObject)networkInducedFailureType__CommunicationLinkResourceType).eIsProxy()) {
             InternalEObject oldNetworkInducedFailureType__CommunicationLinkResourceType = (InternalEObject)networkInducedFailureType__CommunicationLinkResourceType;
             networkInducedFailureType__CommunicationLinkResourceType = (NetworkInducedFailureType)eResolveProxy(oldNetworkInducedFailureType__CommunicationLinkResourceType);
             if (networkInducedFailureType__CommunicationLinkResourceType != oldNetworkInducedFailureType__CommunicationLinkResourceType) {

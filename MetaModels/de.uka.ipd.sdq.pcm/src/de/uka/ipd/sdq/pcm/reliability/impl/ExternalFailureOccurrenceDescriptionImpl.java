@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -105,7 +106,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
     public void setSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription(
             SpecifiedReliabilityAnnotation newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription) {
         if (newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != eInternalContainer() || (eContainerFeatureID() != ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION__SPECIFIED_RELIABILITY_ANNOTATION_EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION && newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription != null)) {
-            if (EcoreUtil.isAncestor(this, newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription))
+            if (EcoreUtil.isAncestor(this, (EObject)newSpecifiedReliabilityAnnotation__ExternalFailureOccurrenceDescription))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -124,7 +125,7 @@ public class ExternalFailureOccurrenceDescriptionImpl extends FailureOccurrenceD
      * @generated
      */
     public FailureType getFailureType__ExternalFailureOccurrenceDescription() {
-        if (failureType__ExternalFailureOccurrenceDescription != null && failureType__ExternalFailureOccurrenceDescription.eIsProxy()) {
+        if (failureType__ExternalFailureOccurrenceDescription != null && ((EObject)failureType__ExternalFailureOccurrenceDescription).eIsProxy()) {
             InternalEObject oldFailureType__ExternalFailureOccurrenceDescription = (InternalEObject)failureType__ExternalFailureOccurrenceDescription;
             failureType__ExternalFailureOccurrenceDescription = (FailureType)eResolveProxy(oldFailureType__ExternalFailureOccurrenceDescription);
             if (failureType__ExternalFailureOccurrenceDescription != oldFailureType__ExternalFailureOccurrenceDescription) {

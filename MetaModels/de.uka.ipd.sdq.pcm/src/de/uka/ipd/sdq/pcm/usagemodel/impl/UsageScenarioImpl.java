@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -143,7 +144,7 @@ public class UsageScenarioImpl extends EntityImpl implements UsageScenario {
      */
     public void setUsageModel_UsageScenario(UsageModel newUsageModel_UsageScenario) {
         if (newUsageModel_UsageScenario != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.USAGE_SCENARIO__USAGE_MODEL_USAGE_SCENARIO && newUsageModel_UsageScenario != null)) {
-            if (EcoreUtil.isAncestor(this, newUsageModel_UsageScenario))
+            if (EcoreUtil.isAncestor(this, (EObject)newUsageModel_UsageScenario))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

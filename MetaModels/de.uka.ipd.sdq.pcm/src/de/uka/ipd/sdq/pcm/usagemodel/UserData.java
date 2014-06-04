@@ -6,10 +6,10 @@
 package de.uka.ipd.sdq.pcm.usagemodel;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>User Data</b></em>'. <!--
@@ -37,9 +37,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface UserData extends EObject {
+public interface UserData extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -65,7 +66,7 @@ public class InfrastructureProvidedRoleImpl extends ProvidedRoleImpl implements 
      * @generated
      */
     public InfrastructureInterface getProvidedInterface__InfrastructureProvidedRole() {
-        if (providedInterface__InfrastructureProvidedRole != null && providedInterface__InfrastructureProvidedRole.eIsProxy()) {
+        if (providedInterface__InfrastructureProvidedRole != null && ((EObject)providedInterface__InfrastructureProvidedRole).eIsProxy()) {
             InternalEObject oldProvidedInterface__InfrastructureProvidedRole = (InternalEObject)providedInterface__InfrastructureProvidedRole;
             providedInterface__InfrastructureProvidedRole = (InfrastructureInterface)eResolveProxy(oldProvidedInterface__InfrastructureProvidedRole);
             if (providedInterface__InfrastructureProvidedRole != oldProvidedInterface__InfrastructureProvidedRole) {

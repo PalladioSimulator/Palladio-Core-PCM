@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -144,14 +145,14 @@ public class SeffReliabilityValidator extends EObjectValidator {
      */
     public boolean validateRecoveryActionBehaviour(RecoveryActionBehaviour recoveryActionBehaviour,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(recoveryActionBehaviour, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(recoveryActionBehaviour, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(recoveryActionBehaviour, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)recoveryActionBehaviour, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)recoveryActionBehaviour, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)recoveryActionBehaviour, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)recoveryActionBehaviour, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)recoveryActionBehaviour, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)recoveryActionBehaviour, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)recoveryActionBehaviour, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)recoveryActionBehaviour, diagnostics, context);
         if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStopAction(recoveryActionBehaviour, diagnostics, context);
         if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_ExactlyOneStartAction(recoveryActionBehaviour, diagnostics, context);
         if (result || diagnostics != null) result &= seffValidator.validateResourceDemandingBehaviour_EachActionExceptStartActionandStopActionMustHhaveAPredecessorAndSuccessor(recoveryActionBehaviour, diagnostics, context);
@@ -197,14 +198,14 @@ public class SeffReliabilityValidator extends EObjectValidator {
      */
     public boolean validateRecoveryAction(RecoveryAction recoveryAction, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(recoveryAction, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(recoveryAction, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(recoveryAction, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(recoveryAction, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(recoveryAction, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(recoveryAction, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(recoveryAction, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(recoveryAction, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)recoveryAction, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)recoveryAction, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)recoveryAction, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)recoveryAction, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)recoveryAction, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)recoveryAction, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)recoveryAction, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)recoveryAction, diagnostics, context);
         if (result || diagnostics != null) result &= validateRecoveryAction_PrimaryBehaviourOfRecoveryActionMustBeSet(recoveryAction, diagnostics, context);
         return result;
     }
@@ -225,7 +226,7 @@ public class SeffReliabilityValidator extends EObjectValidator {
      */
     public boolean validateFailureHandlingEntity(FailureHandlingEntity failureHandlingEntity,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(failureHandlingEntity, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)failureHandlingEntity, diagnostics, context);
     }
 
     /**

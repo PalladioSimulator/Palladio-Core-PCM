@@ -64,11 +64,11 @@ public class EntityFactoryImpl extends EFactoryImpl implements EntityFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case EntityPackage.RESOURCE_PROVIDED_ROLE: return createResourceProvidedRole();
-            case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY: return createResourceInterfaceRequiringEntity();
-            case EntityPackage.RESOURCE_REQUIRED_ROLE: return createResourceRequiredRole();
-            case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY: return createResourceInterfaceProvidingEntity();
-            case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY: return createResourceInterfaceProvidingRequiringEntity();
+            case EntityPackage.RESOURCE_PROVIDED_ROLE: return (EObject)createResourceProvidedRole();
+            case EntityPackage.RESOURCE_INTERFACE_REQUIRING_ENTITY: return (EObject)createResourceInterfaceRequiringEntity();
+            case EntityPackage.RESOURCE_REQUIRED_ROLE: return (EObject)createResourceRequiredRole();
+            case EntityPackage.RESOURCE_INTERFACE_PROVIDING_ENTITY: return (EObject)createResourceInterfaceProvidingEntity();
+            case EntityPackage.RESOURCE_INTERFACE_PROVIDING_REQUIRING_ENTITY: return (EObject)createResourceInterfaceProvidingRequiringEntity();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

@@ -6,7 +6,8 @@
 package de.uka.ipd.sdq.pcm.resourcetype;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
+
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Resource Repository</b></em>
@@ -28,9 +29,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage#getResourceRepository()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface ResourceRepository extends EObject {
+public interface ResourceRepository extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

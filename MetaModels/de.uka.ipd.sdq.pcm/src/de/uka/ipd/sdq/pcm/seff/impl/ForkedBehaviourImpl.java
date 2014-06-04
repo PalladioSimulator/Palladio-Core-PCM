@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -79,7 +80,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     public void setSynchronisationPoint_ForkedBehaviour(SynchronisationPoint newSynchronisationPoint_ForkedBehaviour) {
         if (newSynchronisationPoint_ForkedBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__SYNCHRONISATION_POINT_FORKED_BEHAVIOUR && newSynchronisationPoint_ForkedBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newSynchronisationPoint_ForkedBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newSynchronisationPoint_ForkedBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -118,7 +119,7 @@ public class ForkedBehaviourImpl extends ResourceDemandingBehaviourImpl implemen
      */
     public void setForkAction_ForkedBehaivour(ForkAction newForkAction_ForkedBehaivour) {
         if (newForkAction_ForkedBehaivour != eInternalContainer() || (eContainerFeatureID() != SeffPackage.FORKED_BEHAVIOUR__FORK_ACTION_FORKED_BEHAIVOUR && newForkAction_ForkedBehaivour != null)) {
-            if (EcoreUtil.isAncestor(this, newForkAction_ForkedBehaivour))
+            if (EcoreUtil.isAncestor(this, (EObject)newForkAction_ForkedBehaivour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

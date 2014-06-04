@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -104,7 +105,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      * @generated
      */
     public SinkRole getSinkRole__EventChannelSinkConnector() {
-        if (sinkRole__EventChannelSinkConnector != null && sinkRole__EventChannelSinkConnector.eIsProxy()) {
+        if (sinkRole__EventChannelSinkConnector != null && ((EObject)sinkRole__EventChannelSinkConnector).eIsProxy()) {
             InternalEObject oldSinkRole__EventChannelSinkConnector = (InternalEObject)sinkRole__EventChannelSinkConnector;
             sinkRole__EventChannelSinkConnector = (SinkRole)eResolveProxy(oldSinkRole__EventChannelSinkConnector);
             if (sinkRole__EventChannelSinkConnector != oldSinkRole__EventChannelSinkConnector) {
@@ -181,7 +182,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      * @generated
      */
     public AssemblyContext getAssemblyContext__EventChannelSinkConnector() {
-        if (assemblyContext__EventChannelSinkConnector != null && assemblyContext__EventChannelSinkConnector.eIsProxy()) {
+        if (assemblyContext__EventChannelSinkConnector != null && ((EObject)assemblyContext__EventChannelSinkConnector).eIsProxy()) {
             InternalEObject oldAssemblyContext__EventChannelSinkConnector = (InternalEObject)assemblyContext__EventChannelSinkConnector;
             assemblyContext__EventChannelSinkConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext__EventChannelSinkConnector);
             if (assemblyContext__EventChannelSinkConnector != oldAssemblyContext__EventChannelSinkConnector) {
@@ -217,7 +218,7 @@ public class EventChannelSinkConnectorImpl extends ConnectorImpl implements Even
      * @generated
      */
     public EventChannel getEventChannel__EventChannelSinkConnector() {
-        if (eventChannel__EventChannelSinkConnector != null && eventChannel__EventChannelSinkConnector.eIsProxy()) {
+        if (eventChannel__EventChannelSinkConnector != null && ((EObject)eventChannel__EventChannelSinkConnector).eIsProxy()) {
             InternalEObject oldEventChannel__EventChannelSinkConnector = (InternalEObject)eventChannel__EventChannelSinkConnector;
             eventChannel__EventChannelSinkConnector = (EventChannel)eResolveProxy(oldEventChannel__EventChannelSinkConnector);
             if (eventChannel__EventChannelSinkConnector != oldEventChannel__EventChannelSinkConnector) {

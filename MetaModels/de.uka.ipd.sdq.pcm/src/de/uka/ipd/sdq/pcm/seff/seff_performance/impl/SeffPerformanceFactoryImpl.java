@@ -60,9 +60,9 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SeffPerformancePackage.INFRASTRUCTURE_CALL: return createInfrastructureCall();
-            case SeffPerformancePackage.RESOURCE_CALL: return createResourceCall();
-            case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND: return createParametricResourceDemand();
+            case SeffPerformancePackage.INFRASTRUCTURE_CALL: return (EObject)createInfrastructureCall();
+            case SeffPerformancePackage.RESOURCE_CALL: return (EObject)createResourceCall();
+            case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND: return (EObject)createParametricResourceDemand();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

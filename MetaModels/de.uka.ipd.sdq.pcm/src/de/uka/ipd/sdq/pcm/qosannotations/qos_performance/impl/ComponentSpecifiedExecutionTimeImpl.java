@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -66,7 +67,7 @@ public class ComponentSpecifiedExecutionTimeImpl extends SpecifiedExecutionTimeI
      * @generated
      */
     public AssemblyContext getAssemblyContext_ComponentSpecifiedExecutionTime() {
-        if (assemblyContext_ComponentSpecifiedExecutionTime != null && assemblyContext_ComponentSpecifiedExecutionTime.eIsProxy()) {
+        if (assemblyContext_ComponentSpecifiedExecutionTime != null && ((EObject)assemblyContext_ComponentSpecifiedExecutionTime).eIsProxy()) {
             InternalEObject oldAssemblyContext_ComponentSpecifiedExecutionTime = (InternalEObject)assemblyContext_ComponentSpecifiedExecutionTime;
             assemblyContext_ComponentSpecifiedExecutionTime = (AssemblyContext)eResolveProxy(oldAssemblyContext_ComponentSpecifiedExecutionTime);
             if (assemblyContext_ComponentSpecifiedExecutionTime != oldAssemblyContext_ComponentSpecifiedExecutionTime) {

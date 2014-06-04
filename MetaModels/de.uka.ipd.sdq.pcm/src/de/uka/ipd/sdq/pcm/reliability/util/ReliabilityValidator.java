@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -157,14 +158,14 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateFailureOccurrenceDescription(FailureOccurrenceDescription failureOccurrenceDescription,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(failureOccurrenceDescription, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(failureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(failureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(failureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(failureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(failureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(failureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(failureOccurrenceDescription, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)failureOccurrenceDescription, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)failureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)failureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)failureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)failureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)failureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)failureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)failureOccurrenceDescription, diagnostics, context);
         if (result || diagnostics != null) result &= validateFailureOccurrenceDescription_EnsureValidFailureProbabilityRange(failureOccurrenceDescription, diagnostics, context);
         return result;
     }
@@ -186,14 +187,14 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateHardwareInducedFailureType(HardwareInducedFailureType hardwareInducedFailureType,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(hardwareInducedFailureType, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(hardwareInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(hardwareInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(hardwareInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(hardwareInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(hardwareInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(hardwareInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(hardwareInducedFailureType, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)hardwareInducedFailureType, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)hardwareInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)hardwareInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)hardwareInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)hardwareInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)hardwareInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)hardwareInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)hardwareInducedFailureType, diagnostics, context);
         if (result || diagnostics != null) result &= validateHardwareInducedFailureType_HardwareInducedFailureTypeHasProcessingResourceType(hardwareInducedFailureType, diagnostics, context);
         return result;
     }
@@ -216,14 +217,14 @@ public class ReliabilityValidator extends EObjectValidator {
     public boolean validateExternalFailureOccurrenceDescription(
             ExternalFailureOccurrenceDescription externalFailureOccurrenceDescription, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(externalFailureOccurrenceDescription, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(externalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(externalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(externalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(externalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(externalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(externalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(externalFailureOccurrenceDescription, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)externalFailureOccurrenceDescription, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)externalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)externalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)externalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)externalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)externalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)externalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)externalFailureOccurrenceDescription, diagnostics, context);
         if (result || diagnostics != null) result &= validateFailureOccurrenceDescription_EnsureValidFailureProbabilityRange(externalFailureOccurrenceDescription, diagnostics, context);
         if (result || diagnostics != null) result &= validateExternalFailureOccurrenceDescription_NoResourceTimeoutFailureAllowedForExternalFailureOccurrenceDescription(externalFailureOccurrenceDescription, diagnostics, context);
         return result;
@@ -247,7 +248,7 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateResourceTimeoutFailureType(ResourceTimeoutFailureType resourceTimeoutFailureType,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(resourceTimeoutFailureType, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)resourceTimeoutFailureType, diagnostics, context);
     }
 
     /**
@@ -256,14 +257,14 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateNetworkInducedFailureType(NetworkInducedFailureType networkInducedFailureType,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(networkInducedFailureType, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(networkInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(networkInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(networkInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(networkInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(networkInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(networkInducedFailureType, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(networkInducedFailureType, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)networkInducedFailureType, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)networkInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)networkInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)networkInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)networkInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)networkInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)networkInducedFailureType, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)networkInducedFailureType, diagnostics, context);
         if (result || diagnostics != null) result &= validateNetworkInducedFailureType_NetworkInducedFailureTypeHasCommunicationLinkResourceType(networkInducedFailureType, diagnostics, context);
         return result;
     }
@@ -286,14 +287,14 @@ public class ReliabilityValidator extends EObjectValidator {
     public boolean validateInternalFailureOccurrenceDescription(
             InternalFailureOccurrenceDescription internalFailureOccurrenceDescription, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(internalFailureOccurrenceDescription, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(internalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(internalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(internalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(internalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(internalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(internalFailureOccurrenceDescription, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(internalFailureOccurrenceDescription, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)internalFailureOccurrenceDescription, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)internalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)internalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)internalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)internalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)internalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)internalFailureOccurrenceDescription, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)internalFailureOccurrenceDescription, diagnostics, context);
         if (result || diagnostics != null) result &= validateFailureOccurrenceDescription_EnsureValidFailureProbabilityRange(internalFailureOccurrenceDescription, diagnostics, context);
         if (result || diagnostics != null) result &= validateInternalFailureOccurrenceDescription_NoResourceTimeoutFailureAllowedForInternalFailureOccurrenceDescription(internalFailureOccurrenceDescription, diagnostics, context);
         return result;
@@ -317,7 +318,7 @@ public class ReliabilityValidator extends EObjectValidator {
      */
     public boolean validateSoftwareInducedFailureType(SoftwareInducedFailureType softwareInducedFailureType,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(softwareInducedFailureType, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)softwareInducedFailureType, diagnostics, context);
     }
 
     /**
@@ -325,7 +326,7 @@ public class ReliabilityValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateFailureType(FailureType failureType, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(failureType, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)failureType, diagnostics, context);
     }
 
     /**

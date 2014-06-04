@@ -78,8 +78,10 @@ public class PcmMeasuringPointStringFormaterSwitch extends PcmmeasuringpointSwit
      */
     @Override
     public String caseLinkingResourceMeasuringPoint(final LinkingResourceMeasuringPoint object) {
-        // TODO Auto-generated method stub
-        return super.caseLinkingResourceMeasuringPoint(object);
+        result.append("Linking Resource: ");
+        result.append(object.getLinkingResource().getEntityName());
+
+        return result.toString();
     }
 
     /* (non-Javadoc)

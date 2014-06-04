@@ -60,7 +60,7 @@ public class PcmFactoryImpl extends EFactoryImpl implements PcmFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case PcmPackage.DUMMY_CLASS: return createDummyClass();
+            case PcmPackage.DUMMY_CLASS: return (EObject)createDummyClass();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

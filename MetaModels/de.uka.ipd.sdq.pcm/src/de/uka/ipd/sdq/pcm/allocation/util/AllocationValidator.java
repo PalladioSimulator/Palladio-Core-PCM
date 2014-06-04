@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -127,14 +128,14 @@ public class AllocationValidator extends EObjectValidator {
      */
     public boolean validateAllocationContext(AllocationContext allocationContext, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(allocationContext, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(allocationContext, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(allocationContext, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(allocationContext, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(allocationContext, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(allocationContext, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(allocationContext, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(allocationContext, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)allocationContext, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)allocationContext, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)allocationContext, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)allocationContext, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)allocationContext, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)allocationContext, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)allocationContext, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)allocationContext, diagnostics, context);
         if (result || diagnostics != null) result &= validateAllocationContext_OneAssemblyContextOrOneEventChannelShouldBeReferred(allocationContext, diagnostics, context);
         return result;
     }
@@ -154,14 +155,14 @@ public class AllocationValidator extends EObjectValidator {
      * @generated
      */
     public boolean validateAllocation(Allocation allocation, DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(allocation, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(allocation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(allocation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(allocation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(allocation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(allocation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(allocation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(allocation, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)allocation, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)allocation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)allocation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)allocation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)allocation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)allocation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)allocation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)allocation, diagnostics, context);
         if (result || diagnostics != null) result &= validateAllocation_EachAssemblyContextWithinSystemHasToBeAllocatedExactlyOnce(allocation, diagnostics, context);
         if (result || diagnostics != null) result &= validateAllocation_CommunicatingServersHaveToBeConnectedByLinkingResource(allocation, diagnostics, context);
         return result;

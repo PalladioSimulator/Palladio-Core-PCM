@@ -88,31 +88,31 @@ public class RepositoryFactoryImpl extends EFactoryImpl implements RepositoryFac
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case RepositoryPackage.PASSIVE_RESOURCE: return createPassiveResource();
-            case RepositoryPackage.BASIC_COMPONENT: return createBasicComponent();
-            case RepositoryPackage.PARAMETER: return createParameter();
-            case RepositoryPackage.REPOSITORY: return createRepository();
-            case RepositoryPackage.REQUIRED_CHARACTERISATION: return createRequiredCharacterisation();
-            case RepositoryPackage.EVENT_GROUP: return createEventGroup();
-            case RepositoryPackage.EVENT_TYPE: return createEventType();
-            case RepositoryPackage.EXCEPTION_TYPE: return createExceptionType();
-            case RepositoryPackage.INFRASTRUCTURE_SIGNATURE: return createInfrastructureSignature();
-            case RepositoryPackage.INFRASTRUCTURE_INTERFACE: return createInfrastructureInterface();
-            case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE: return createInfrastructureRequiredRole();
-            case RepositoryPackage.OPERATION_SIGNATURE: return createOperationSignature();
-            case RepositoryPackage.OPERATION_INTERFACE: return createOperationInterface();
-            case RepositoryPackage.OPERATION_REQUIRED_ROLE: return createOperationRequiredRole();
-            case RepositoryPackage.SOURCE_ROLE: return createSourceRole();
-            case RepositoryPackage.SINK_ROLE: return createSinkRole();
-            case RepositoryPackage.OPERATION_PROVIDED_ROLE: return createOperationProvidedRole();
-            case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE: return createInfrastructureProvidedRole();
-            case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return createCompleteComponentType();
-            case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return createProvidesComponentType();
-            case RepositoryPackage.COMPOSITE_COMPONENT: return createCompositeComponent();
-            case RepositoryPackage.PRIMITIVE_DATA_TYPE: return createPrimitiveDataType();
-            case RepositoryPackage.COLLECTION_DATA_TYPE: return createCollectionDataType();
-            case RepositoryPackage.COMPOSITE_DATA_TYPE: return createCompositeDataType();
-            case RepositoryPackage.INNER_DECLARATION: return createInnerDeclaration();
+            case RepositoryPackage.PASSIVE_RESOURCE: return (EObject)createPassiveResource();
+            case RepositoryPackage.BASIC_COMPONENT: return (EObject)createBasicComponent();
+            case RepositoryPackage.PARAMETER: return (EObject)createParameter();
+            case RepositoryPackage.REPOSITORY: return (EObject)createRepository();
+            case RepositoryPackage.REQUIRED_CHARACTERISATION: return (EObject)createRequiredCharacterisation();
+            case RepositoryPackage.EVENT_GROUP: return (EObject)createEventGroup();
+            case RepositoryPackage.EVENT_TYPE: return (EObject)createEventType();
+            case RepositoryPackage.EXCEPTION_TYPE: return (EObject)createExceptionType();
+            case RepositoryPackage.INFRASTRUCTURE_SIGNATURE: return (EObject)createInfrastructureSignature();
+            case RepositoryPackage.INFRASTRUCTURE_INTERFACE: return (EObject)createInfrastructureInterface();
+            case RepositoryPackage.INFRASTRUCTURE_REQUIRED_ROLE: return (EObject)createInfrastructureRequiredRole();
+            case RepositoryPackage.OPERATION_SIGNATURE: return (EObject)createOperationSignature();
+            case RepositoryPackage.OPERATION_INTERFACE: return (EObject)createOperationInterface();
+            case RepositoryPackage.OPERATION_REQUIRED_ROLE: return (EObject)createOperationRequiredRole();
+            case RepositoryPackage.SOURCE_ROLE: return (EObject)createSourceRole();
+            case RepositoryPackage.SINK_ROLE: return (EObject)createSinkRole();
+            case RepositoryPackage.OPERATION_PROVIDED_ROLE: return (EObject)createOperationProvidedRole();
+            case RepositoryPackage.INFRASTRUCTURE_PROVIDED_ROLE: return (EObject)createInfrastructureProvidedRole();
+            case RepositoryPackage.COMPLETE_COMPONENT_TYPE: return (EObject)createCompleteComponentType();
+            case RepositoryPackage.PROVIDES_COMPONENT_TYPE: return (EObject)createProvidesComponentType();
+            case RepositoryPackage.COMPOSITE_COMPONENT: return (EObject)createCompositeComponent();
+            case RepositoryPackage.PRIMITIVE_DATA_TYPE: return (EObject)createPrimitiveDataType();
+            case RepositoryPackage.COLLECTION_DATA_TYPE: return (EObject)createCollectionDataType();
+            case RepositoryPackage.COMPOSITE_DATA_TYPE: return (EObject)createCompositeDataType();
+            case RepositoryPackage.INNER_DECLARATION: return (EObject)createInnerDeclaration();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

@@ -60,7 +60,7 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case QosannotationsPackage.QO_SANNOTATIONS: return createQoSAnnotations();
+            case QosannotationsPackage.QO_SANNOTATIONS: return (EObject)createQoSAnnotations();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

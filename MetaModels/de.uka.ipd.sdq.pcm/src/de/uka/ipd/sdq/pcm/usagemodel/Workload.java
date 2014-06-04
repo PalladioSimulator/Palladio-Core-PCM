@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.usagemodel;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Workload</b></em>'. <!--
@@ -36,9 +36,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getWorkload()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface Workload extends EObject {
+public interface Workload extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

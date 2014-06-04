@@ -14,7 +14,8 @@ Require-Bundle: org.eclipse.core.runtime,
  org.jscience;bundle-version="4.1.3",
  org.palladiosimulator.measurementframework;bundle-version="1.0.0",
  org.palladiosimulator.probeframework;bundle-version="2.0.0",
- org.palladiosimulator.metricspec;bundle-version="1.0.0"
+ org.palladiosimulator.metricspec;bundle-version="1.0.0",
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Bundle-Vendor: sdq.ipd.uka.de

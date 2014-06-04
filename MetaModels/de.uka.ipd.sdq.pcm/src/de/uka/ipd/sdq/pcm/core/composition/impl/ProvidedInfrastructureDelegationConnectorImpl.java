@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -95,7 +96,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      * @generated
      */
     public InfrastructureProvidedRole getInnerProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        if (innerProvidedRole__ProvidedInfrastructureDelegationConnector != null && innerProvidedRole__ProvidedInfrastructureDelegationConnector.eIsProxy()) {
+        if (innerProvidedRole__ProvidedInfrastructureDelegationConnector != null && ((EObject)innerProvidedRole__ProvidedInfrastructureDelegationConnector).eIsProxy()) {
             InternalEObject oldInnerProvidedRole__ProvidedInfrastructureDelegationConnector = (InternalEObject)innerProvidedRole__ProvidedInfrastructureDelegationConnector;
             innerProvidedRole__ProvidedInfrastructureDelegationConnector = (InfrastructureProvidedRole)eResolveProxy(oldInnerProvidedRole__ProvidedInfrastructureDelegationConnector);
             if (innerProvidedRole__ProvidedInfrastructureDelegationConnector != oldInnerProvidedRole__ProvidedInfrastructureDelegationConnector) {
@@ -131,7 +132,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      * @generated
      */
     public InfrastructureProvidedRole getOuterProvidedRole__ProvidedInfrastructureDelegationConnector() {
-        if (outerProvidedRole__ProvidedInfrastructureDelegationConnector != null && outerProvidedRole__ProvidedInfrastructureDelegationConnector.eIsProxy()) {
+        if (outerProvidedRole__ProvidedInfrastructureDelegationConnector != null && ((EObject)outerProvidedRole__ProvidedInfrastructureDelegationConnector).eIsProxy()) {
             InternalEObject oldOuterProvidedRole__ProvidedInfrastructureDelegationConnector = (InternalEObject)outerProvidedRole__ProvidedInfrastructureDelegationConnector;
             outerProvidedRole__ProvidedInfrastructureDelegationConnector = (InfrastructureProvidedRole)eResolveProxy(oldOuterProvidedRole__ProvidedInfrastructureDelegationConnector);
             if (outerProvidedRole__ProvidedInfrastructureDelegationConnector != oldOuterProvidedRole__ProvidedInfrastructureDelegationConnector) {
@@ -167,7 +168,7 @@ public class ProvidedInfrastructureDelegationConnectorImpl extends DelegationCon
      * @generated
      */
     public AssemblyContext getAssemblyContext__ProvidedInfrastructureDelegationConnector() {
-        if (assemblyContext__ProvidedInfrastructureDelegationConnector != null && assemblyContext__ProvidedInfrastructureDelegationConnector.eIsProxy()) {
+        if (assemblyContext__ProvidedInfrastructureDelegationConnector != null && ((EObject)assemblyContext__ProvidedInfrastructureDelegationConnector).eIsProxy()) {
             InternalEObject oldAssemblyContext__ProvidedInfrastructureDelegationConnector = (InternalEObject)assemblyContext__ProvidedInfrastructureDelegationConnector;
             assemblyContext__ProvidedInfrastructureDelegationConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext__ProvidedInfrastructureDelegationConnector);
             if (assemblyContext__ProvidedInfrastructureDelegationConnector != oldAssemblyContext__ProvidedInfrastructureDelegationConnector) {

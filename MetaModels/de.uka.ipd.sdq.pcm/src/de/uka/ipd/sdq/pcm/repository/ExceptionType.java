@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Exception Type</b></em>'.
@@ -25,9 +25,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getExceptionType()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface ExceptionType extends EObject {
+public interface ExceptionType extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

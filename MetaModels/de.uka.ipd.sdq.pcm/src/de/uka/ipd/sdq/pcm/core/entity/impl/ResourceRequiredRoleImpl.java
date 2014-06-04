@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -70,7 +71,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
      * @generated
      */
     public ResourceInterface getRequiredResourceInterface__ResourceRequiredRole() {
-        if (requiredResourceInterface__ResourceRequiredRole != null && requiredResourceInterface__ResourceRequiredRole.eIsProxy()) {
+        if (requiredResourceInterface__ResourceRequiredRole != null && ((EObject)requiredResourceInterface__ResourceRequiredRole).eIsProxy()) {
             InternalEObject oldRequiredResourceInterface__ResourceRequiredRole = (InternalEObject)requiredResourceInterface__ResourceRequiredRole;
             requiredResourceInterface__ResourceRequiredRole = (ResourceInterface)eResolveProxy(oldRequiredResourceInterface__ResourceRequiredRole);
             if (requiredResourceInterface__ResourceRequiredRole != oldRequiredResourceInterface__ResourceRequiredRole) {
@@ -128,7 +129,7 @@ public class ResourceRequiredRoleImpl extends RoleImpl implements ResourceRequir
     public void setResourceInterfaceRequiringEntity__ResourceRequiredRole(
             ResourceInterfaceRequiringEntity newResourceInterfaceRequiringEntity__ResourceRequiredRole) {
         if (newResourceInterfaceRequiringEntity__ResourceRequiredRole != eInternalContainer() || (eContainerFeatureID() != EntityPackage.RESOURCE_REQUIRED_ROLE__RESOURCE_INTERFACE_REQUIRING_ENTITY_RESOURCE_REQUIRED_ROLE && newResourceInterfaceRequiringEntity__ResourceRequiredRole != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceInterfaceRequiringEntity__ResourceRequiredRole))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceInterfaceRequiringEntity__ResourceRequiredRole))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

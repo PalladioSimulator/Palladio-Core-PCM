@@ -16,6 +16,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -135,7 +136,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setVariableCharacterisation_Specification(
             VariableCharacterisation newVariableCharacterisation_Specification) {
         if (newVariableCharacterisation_Specification != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__VARIABLE_CHARACTERISATION_SPECIFICATION && newVariableCharacterisation_Specification != null)) {
-            if (EcoreUtil.isAncestor(this, newVariableCharacterisation_Specification))
+            if (EcoreUtil.isAncestor(this, (EObject)newVariableCharacterisation_Specification))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -175,7 +176,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setPassiveResource_capacity_PCMRandomVariable(
             PassiveResource newPassiveResource_capacity_PCMRandomVariable) {
         if (newPassiveResource_capacity_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PASSIVE_RESOURCE_CAPACITY_PCM_RANDOM_VARIABLE && newPassiveResource_capacity_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newPassiveResource_capacity_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newPassiveResource_capacity_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -215,7 +216,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setParametricResourceDemand_PCMRandomVariable(
             ParametricResourceDemand newParametricResourceDemand_PCMRandomVariable) {
         if (newParametricResourceDemand_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PARAMETRIC_RESOURCE_DEMAND_PCM_RANDOM_VARIABLE && newParametricResourceDemand_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newParametricResourceDemand_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newParametricResourceDemand_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -254,7 +255,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     public void setLoopAction_PCMRandomVariable(LoopAction newLoopAction_PCMRandomVariable) {
         if (newLoopAction_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_ACTION_PCM_RANDOM_VARIABLE && newLoopAction_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newLoopAction_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newLoopAction_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -294,7 +295,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setGuardedBranchTransition_PCMRandomVariable(
             GuardedBranchTransition newGuardedBranchTransition_PCMRandomVariable) {
         if (newGuardedBranchTransition_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__GUARDED_BRANCH_TRANSITION_PCM_RANDOM_VARIABLE && newGuardedBranchTransition_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newGuardedBranchTransition_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newGuardedBranchTransition_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -332,7 +333,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     public void setLoop_LoopIteration(Loop newLoop_LoopIteration) {
         if (newLoop_LoopIteration != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__LOOP_LOOP_ITERATION && newLoop_LoopIteration != null)) {
-            if (EcoreUtil.isAncestor(this, newLoop_LoopIteration))
+            if (EcoreUtil.isAncestor(this, (EObject)newLoop_LoopIteration))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -372,7 +373,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setSpecifiedExecutionTime_PCMRandomVariable(
             SpecifiedExecutionTime newSpecifiedExecutionTime_PCMRandomVariable) {
         if (newSpecifiedExecutionTime_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__SPECIFIED_EXECUTION_TIME_PCM_RANDOM_VARIABLE && newSpecifiedExecutionTime_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newSpecifiedExecutionTime_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newSpecifiedExecutionTime_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -412,7 +413,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setAssemblyEventConnector__FilterCondition(
             AssemblyEventConnector newAssemblyEventConnector__FilterCondition) {
         if (newAssemblyEventConnector__FilterCondition != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__ASSEMBLY_EVENT_CONNECTOR_FILTER_CONDITION && newAssemblyEventConnector__FilterCondition != null)) {
-            if (EcoreUtil.isAncestor(this, newAssemblyEventConnector__FilterCondition))
+            if (EcoreUtil.isAncestor(this, (EObject)newAssemblyEventConnector__FilterCondition))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -452,7 +453,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setEventChannelSinkConnector__FilterCondition(
             EventChannelSinkConnector newEventChannelSinkConnector__FilterCondition) {
         if (newEventChannelSinkConnector__FilterCondition != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__EVENT_CHANNEL_SINK_CONNECTOR_FILTER_CONDITION && newEventChannelSinkConnector__FilterCondition != null)) {
-            if (EcoreUtil.isAncestor(this, newEventChannelSinkConnector__FilterCondition))
+            if (EcoreUtil.isAncestor(this, (EObject)newEventChannelSinkConnector__FilterCondition))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -491,7 +492,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     public void setInfrastructureCall__PCMRandomVariable(InfrastructureCall newInfrastructureCall__PCMRandomVariable) {
         if (newInfrastructureCall__PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__INFRASTRUCTURE_CALL_PCM_RANDOM_VARIABLE && newInfrastructureCall__PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newInfrastructureCall__PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newInfrastructureCall__PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -530,7 +531,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     public void setResourceCall__PCMRandomVariable(ResourceCall newResourceCall__PCMRandomVariable) {
         if (newResourceCall__PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__RESOURCE_CALL_PCM_RANDOM_VARIABLE && newResourceCall__PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceCall__PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceCall__PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -569,7 +570,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     public void setOpenWorkload_PCMRandomVariable(OpenWorkload newOpenWorkload_PCMRandomVariable) {
         if (newOpenWorkload_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__OPEN_WORKLOAD_PCM_RANDOM_VARIABLE && newOpenWorkload_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newOpenWorkload_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newOpenWorkload_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -608,7 +609,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     public void setClosedWorkload_PCMRandomVariable(ClosedWorkload newClosedWorkload_PCMRandomVariable) {
         if (newClosedWorkload_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__CLOSED_WORKLOAD_PCM_RANDOM_VARIABLE && newClosedWorkload_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newClosedWorkload_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newClosedWorkload_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -646,7 +647,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
      */
     public void setDelay_TimeSpecification(Delay newDelay_TimeSpecification) {
         if (newDelay_TimeSpecification != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__DELAY_TIME_SPECIFICATION && newDelay_TimeSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newDelay_TimeSpecification))
+            if (EcoreUtil.isAncestor(this, (EObject)newDelay_TimeSpecification))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -687,7 +688,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable(
             CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable) {
         if (newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFCATION_THROUGHPUT_PCM_RANDOM_VARIABLE && newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newCommunicationLinkResourceSpecifcation_throughput_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -728,7 +729,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setProcessingResourceSpecification_processingRate_PCMRandomVariable(
             ProcessingResourceSpecification newProcessingResourceSpecification_processingRate_PCMRandomVariable) {
         if (newProcessingResourceSpecification_processingRate_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__PROCESSING_RESOURCE_SPECIFICATION_PROCESSING_RATE_PCM_RANDOM_VARIABLE && newProcessingResourceSpecification_processingRate_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newProcessingResourceSpecification_processingRate_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newProcessingResourceSpecification_processingRate_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -769,7 +770,7 @@ public class PCMRandomVariableImpl extends RandomVariableImpl implements PCMRand
     public void setCommunicationLinkResourceSpecification_latency_PCMRandomVariable(
             CommunicationLinkResourceSpecification newCommunicationLinkResourceSpecification_latency_PCMRandomVariable) {
         if (newCommunicationLinkResourceSpecification_latency_PCMRandomVariable != eInternalContainer() || (eContainerFeatureID() != CorePackage.PCM_RANDOM_VARIABLE__COMMUNICATION_LINK_RESOURCE_SPECIFICATION_LATENCY_PCM_RANDOM_VARIABLE && newCommunicationLinkResourceSpecification_latency_PCMRandomVariable != null)) {
-            if (EcoreUtil.isAncestor(this, newCommunicationLinkResourceSpecification_latency_PCMRandomVariable))
+            if (EcoreUtil.isAncestor(this, (EObject)newCommunicationLinkResourceSpecification_latency_PCMRandomVariable))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

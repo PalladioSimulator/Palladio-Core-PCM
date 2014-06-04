@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -19,6 +18,7 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 import de.uka.ipd.sdq.pcm.seff.CallAction;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Call Action</b></em>'. <!--
@@ -32,7 +32,7 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  *
  * @generated
  */
-public abstract class CallActionImpl extends EObjectImpl implements CallAction {
+public abstract class CallActionImpl extends EStereotypableObjectImpl implements CallAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

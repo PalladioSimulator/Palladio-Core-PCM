@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -107,7 +108,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
     public void setAbstractLoopAction_ResourceDemandingBehaviour(
             AbstractLoopAction newAbstractLoopAction_ResourceDemandingBehaviour) {
         if (newAbstractLoopAction_ResourceDemandingBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_LOOP_ACTION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractLoopAction_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractLoopAction_ResourceDemandingBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newAbstractLoopAction_ResourceDemandingBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -147,7 +148,7 @@ public class ResourceDemandingBehaviourImpl extends IdentifierImpl implements Re
     public void setAbstractBranchTransition_ResourceDemandingBehaviour(
             AbstractBranchTransition newAbstractBranchTransition_ResourceDemandingBehaviour) {
         if (newAbstractBranchTransition_ResourceDemandingBehaviour != eInternalContainer() || (eContainerFeatureID() != SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR__ABSTRACT_BRANCH_TRANSITION_RESOURCE_DEMANDING_BEHAVIOUR && newAbstractBranchTransition_ResourceDemandingBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newAbstractBranchTransition_ResourceDemandingBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newAbstractBranchTransition_ResourceDemandingBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

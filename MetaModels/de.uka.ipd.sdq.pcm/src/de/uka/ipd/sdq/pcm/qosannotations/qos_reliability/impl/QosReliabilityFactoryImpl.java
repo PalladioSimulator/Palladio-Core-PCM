@@ -58,7 +58,7 @@ public class QosReliabilityFactoryImpl extends EFactoryImpl implements QosReliab
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION: return createSpecifiedReliabilityAnnotation();
+            case QosReliabilityPackage.SPECIFIED_RELIABILITY_ANNOTATION: return (EObject)createSpecifiedReliabilityAnnotation();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

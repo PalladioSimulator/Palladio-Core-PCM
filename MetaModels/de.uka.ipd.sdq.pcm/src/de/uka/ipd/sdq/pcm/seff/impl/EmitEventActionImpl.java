@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -110,7 +111,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     public EventType getEventType__EmitEventAction() {
-        if (eventType__EmitEventAction != null && eventType__EmitEventAction.eIsProxy()) {
+        if (eventType__EmitEventAction != null && ((EObject)eventType__EmitEventAction).eIsProxy()) {
             InternalEObject oldEventType__EmitEventAction = (InternalEObject)eventType__EmitEventAction;
             eventType__EmitEventAction = (EventType)eResolveProxy(oldEventType__EmitEventAction);
             if (eventType__EmitEventAction != oldEventType__EmitEventAction) {
@@ -145,7 +146,7 @@ public class EmitEventActionImpl extends AbstractActionImpl implements EmitEvent
      * @generated
      */
     public SourceRole getSourceRole__EmitEventAction() {
-        if (sourceRole__EmitEventAction != null && sourceRole__EmitEventAction.eIsProxy()) {
+        if (sourceRole__EmitEventAction != null && ((EObject)sourceRole__EmitEventAction).eIsProxy()) {
             InternalEObject oldSourceRole__EmitEventAction = (InternalEObject)sourceRole__EmitEventAction;
             sourceRole__EmitEventAction = (SourceRole)eResolveProxy(oldSourceRole__EmitEventAction);
             if (sourceRole__EmitEventAction != oldSourceRole__EmitEventAction) {

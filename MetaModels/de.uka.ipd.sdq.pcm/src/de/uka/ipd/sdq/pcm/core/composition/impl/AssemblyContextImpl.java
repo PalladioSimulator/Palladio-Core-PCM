@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -109,7 +110,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
      */
     public void setParentStructure__AssemblyContext(ComposedStructure newParentStructure__AssemblyContext) {
         if (newParentStructure__AssemblyContext != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.ASSEMBLY_CONTEXT__PARENT_STRUCTURE_ASSEMBLY_CONTEXT && newParentStructure__AssemblyContext != null)) {
-            if (EcoreUtil.isAncestor(this, newParentStructure__AssemblyContext))
+            if (EcoreUtil.isAncestor(this, (EObject)newParentStructure__AssemblyContext))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -128,7 +129,7 @@ public class AssemblyContextImpl extends EntityImpl implements AssemblyContext {
      * @generated
      */
     public RepositoryComponent getEncapsulatedComponent__AssemblyContext() {
-        if (encapsulatedComponent__AssemblyContext != null && encapsulatedComponent__AssemblyContext.eIsProxy()) {
+        if (encapsulatedComponent__AssemblyContext != null && ((EObject)encapsulatedComponent__AssemblyContext).eIsProxy()) {
             InternalEObject oldEncapsulatedComponent__AssemblyContext = (InternalEObject)encapsulatedComponent__AssemblyContext;
             encapsulatedComponent__AssemblyContext = (RepositoryComponent)eResolveProxy(oldEncapsulatedComponent__AssemblyContext);
             if (encapsulatedComponent__AssemblyContext != oldEncapsulatedComponent__AssemblyContext) {

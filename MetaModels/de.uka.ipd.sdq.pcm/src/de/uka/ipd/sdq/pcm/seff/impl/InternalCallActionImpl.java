@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -218,7 +219,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     public AbstractAction getPredecessor_AbstractAction() {
-        if (predecessor_AbstractAction != null && predecessor_AbstractAction.eIsProxy()) {
+        if (predecessor_AbstractAction != null && ((EObject)predecessor_AbstractAction).eIsProxy()) {
             InternalEObject oldPredecessor_AbstractAction = (InternalEObject)predecessor_AbstractAction;
             predecessor_AbstractAction = (AbstractAction)eResolveProxy(oldPredecessor_AbstractAction);
             if (predecessor_AbstractAction != oldPredecessor_AbstractAction) {
@@ -275,7 +276,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     public AbstractAction getSuccessor_AbstractAction() {
-        if (successor_AbstractAction != null && successor_AbstractAction.eIsProxy()) {
+        if (successor_AbstractAction != null && ((EObject)successor_AbstractAction).eIsProxy()) {
             InternalEObject oldSuccessor_AbstractAction = (InternalEObject)successor_AbstractAction;
             successor_AbstractAction = (AbstractAction)eResolveProxy(oldSuccessor_AbstractAction);
             if (successor_AbstractAction != oldSuccessor_AbstractAction) {
@@ -353,7 +354,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
     public void setResourceDemandingBehaviour_AbstractAction(
             ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction) {
         if (newResourceDemandingBehaviour_AbstractAction != eInternalContainer() || (eContainerFeatureID() != SeffPackage.INTERNAL_CALL_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION && newResourceDemandingBehaviour_AbstractAction != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceDemandingBehaviour_AbstractAction))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceDemandingBehaviour_AbstractAction))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -405,7 +406,7 @@ public class InternalCallActionImpl extends CallActionImpl implements InternalCa
      * @generated
      */
     public ResourceDemandingInternalBehaviour getCalledResourceDemandingInternalBehaviour() {
-        if (calledResourceDemandingInternalBehaviour != null && calledResourceDemandingInternalBehaviour.eIsProxy()) {
+        if (calledResourceDemandingInternalBehaviour != null && ((EObject)calledResourceDemandingInternalBehaviour).eIsProxy()) {
             InternalEObject oldCalledResourceDemandingInternalBehaviour = (InternalEObject)calledResourceDemandingInternalBehaviour;
             calledResourceDemandingInternalBehaviour = (ResourceDemandingInternalBehaviour)eResolveProxy(oldCalledResourceDemandingInternalBehaviour);
             if (calledResourceDemandingInternalBehaviour != oldCalledResourceDemandingInternalBehaviour) {

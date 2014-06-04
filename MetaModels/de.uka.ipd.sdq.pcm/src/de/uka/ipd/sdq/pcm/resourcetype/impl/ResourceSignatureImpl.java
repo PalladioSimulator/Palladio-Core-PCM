@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -145,7 +146,7 @@ public class ResourceSignatureImpl extends EntityImpl implements ResourceSignatu
      */
     public void setResourceInterface__ResourceSignature(ResourceInterface newResourceInterface__ResourceSignature) {
         if (newResourceInterface__ResourceSignature != eInternalContainer() || (eContainerFeatureID() != ResourcetypePackage.RESOURCE_SIGNATURE__RESOURCE_INTERFACE_RESOURCE_SIGNATURE && newResourceInterface__ResourceSignature != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceInterface__ResourceSignature))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceInterface__ResourceSignature))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

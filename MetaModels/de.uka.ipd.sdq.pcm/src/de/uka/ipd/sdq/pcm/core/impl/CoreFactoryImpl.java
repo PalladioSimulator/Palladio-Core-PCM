@@ -60,7 +60,7 @@ public class CoreFactoryImpl extends EFactoryImpl implements CoreFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case CorePackage.PCM_RANDOM_VARIABLE: return createPCMRandomVariable();
+            case CorePackage.PCM_RANDOM_VARIABLE: return (EObject)createPCMRandomVariable();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

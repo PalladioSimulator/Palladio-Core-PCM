@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -108,7 +109,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     public InfrastructureSignature getSignature__InfrastructureCall() {
-        if (signature__InfrastructureCall != null && signature__InfrastructureCall.eIsProxy()) {
+        if (signature__InfrastructureCall != null && ((EObject)signature__InfrastructureCall).eIsProxy()) {
             InternalEObject oldSignature__InfrastructureCall = (InternalEObject)signature__InfrastructureCall;
             signature__InfrastructureCall = (InfrastructureSignature)eResolveProxy(oldSignature__InfrastructureCall);
             if (signature__InfrastructureCall != oldSignature__InfrastructureCall) {
@@ -204,7 +205,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      */
     public void setAction__InfrastructureCall(AbstractInternalControlFlowAction newAction__InfrastructureCall) {
         if (newAction__InfrastructureCall != eInternalContainer() || (eContainerFeatureID() != SeffPerformancePackage.INFRASTRUCTURE_CALL__ACTION_INFRASTRUCTURE_CALL && newAction__InfrastructureCall != null)) {
-            if (EcoreUtil.isAncestor(this, newAction__InfrastructureCall))
+            if (EcoreUtil.isAncestor(this, (EObject)newAction__InfrastructureCall))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -223,7 +224,7 @@ public class InfrastructureCallImpl extends CallActionImpl implements Infrastruc
      * @generated
      */
     public InfrastructureRequiredRole getRequiredRole__InfrastructureCall() {
-        if (requiredRole__InfrastructureCall != null && requiredRole__InfrastructureCall.eIsProxy()) {
+        if (requiredRole__InfrastructureCall != null && ((EObject)requiredRole__InfrastructureCall).eIsProxy()) {
             InternalEObject oldRequiredRole__InfrastructureCall = (InternalEObject)requiredRole__InfrastructureCall;
             requiredRole__InfrastructureCall = (InfrastructureRequiredRole)eResolveProxy(oldRequiredRole__InfrastructureCall);
             if (requiredRole__InfrastructureCall != oldRequiredRole__InfrastructureCall) {

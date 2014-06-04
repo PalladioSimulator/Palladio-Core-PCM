@@ -59,8 +59,8 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME: return createSystemSpecifiedExecutionTime();
-            case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME: return createComponentSpecifiedExecutionTime();
+            case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME: return (EObject)createSystemSpecifiedExecutionTime();
+            case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME: return (EObject)createComponentSpecifiedExecutionTime();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

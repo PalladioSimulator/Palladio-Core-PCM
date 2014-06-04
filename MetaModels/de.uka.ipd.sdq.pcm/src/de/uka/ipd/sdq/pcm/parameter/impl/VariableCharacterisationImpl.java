@@ -8,9 +8,9 @@ package de.uka.ipd.sdq.pcm.parameter.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.core.CorePackage;
@@ -19,6 +19,7 @@ import de.uka.ipd.sdq.pcm.parameter.ParameterPackage;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisation;
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -34,7 +35,7 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  *
  * @generated
  */
-public class VariableCharacterisationImpl extends EObjectImpl implements VariableCharacterisation {
+public class VariableCharacterisationImpl extends EStereotypableObjectImpl implements VariableCharacterisation {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -173,7 +174,7 @@ public class VariableCharacterisationImpl extends EObjectImpl implements Variabl
      */
     public void setVariableUsage_VariableCharacterisation(VariableUsage newVariableUsage_VariableCharacterisation) {
         if (newVariableUsage_VariableCharacterisation != eInternalContainer() || (eContainerFeatureID() != ParameterPackage.VARIABLE_CHARACTERISATION__VARIABLE_USAGE_VARIABLE_CHARACTERISATION && newVariableUsage_VariableCharacterisation != null)) {
-            if (EcoreUtil.isAncestor(this, newVariableUsage_VariableCharacterisation))
+            if (EcoreUtil.isAncestor(this, (EObject)newVariableUsage_VariableCharacterisation))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

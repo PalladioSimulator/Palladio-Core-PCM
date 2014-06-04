@@ -5,9 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Parameter</b></em>'. <!--
@@ -32,9 +31,10 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface Parameter extends EObject {
+public interface Parameter extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectWithInverseResolvingEList;
@@ -98,7 +99,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      * @generated
      */
     public EventGroup getEventGroup__EventChannel() {
-        if (eventGroup__EventChannel != null && eventGroup__EventChannel.eIsProxy()) {
+        if (eventGroup__EventChannel != null && ((EObject)eventGroup__EventChannel).eIsProxy()) {
             InternalEObject oldEventGroup__EventChannel = (InternalEObject)eventGroup__EventChannel;
             eventGroup__EventChannel = (EventGroup)eResolveProxy(oldEventGroup__EventChannel);
             if (eventGroup__EventChannel != oldEventGroup__EventChannel) {
@@ -175,7 +176,7 @@ public class EventChannelImpl extends EntityImpl implements EventChannel {
      */
     public void setParentStructure__EventChannel(ComposedStructure newParentStructure__EventChannel) {
         if (newParentStructure__EventChannel != eInternalContainer() || (eContainerFeatureID() != CompositionPackage.EVENT_CHANNEL__PARENT_STRUCTURE_EVENT_CHANNEL && newParentStructure__EventChannel != null)) {
-            if (EcoreUtil.isAncestor(this, newParentStructure__EventChannel))
+            if (EcoreUtil.isAncestor(this, (EObject)newParentStructure__EventChannel))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

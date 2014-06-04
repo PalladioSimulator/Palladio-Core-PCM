@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -100,7 +101,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     public Unit getUnit() {
         Unit unit = basicGetUnit();
-        return unit != null && unit.eIsProxy() ? (Unit)eResolveProxy((InternalEObject)unit) : unit;
+        return unit != null && ((EObject)unit).eIsProxy() ? (Unit)eResolveProxy((InternalEObject)unit) : unit;
     }
 
     /**
@@ -182,7 +183,7 @@ public abstract class ResourceTypeImpl extends EntityImpl implements ResourceTyp
      */
     public void setResourceRepository_ResourceType(ResourceRepository newResourceRepository_ResourceType) {
         if (newResourceRepository_ResourceType != eInternalContainer() || (eContainerFeatureID() != ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE && newResourceRepository_ResourceType != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceRepository_ResourceType))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceRepository_ResourceType))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

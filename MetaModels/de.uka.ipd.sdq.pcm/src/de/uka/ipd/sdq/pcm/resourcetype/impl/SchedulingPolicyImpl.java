@@ -6,6 +6,7 @@ package de.uka.ipd.sdq.pcm.resourcetype.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -76,7 +77,7 @@ public class SchedulingPolicyImpl extends EntityImpl implements SchedulingPolicy
      */
     public void setResourceRepository__SchedulingPolicy(ResourceRepository newResourceRepository__SchedulingPolicy) {
         if (newResourceRepository__SchedulingPolicy != eInternalContainer() || (eContainerFeatureID() != ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY && newResourceRepository__SchedulingPolicy != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceRepository__SchedulingPolicy))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceRepository__SchedulingPolicy))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

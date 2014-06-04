@@ -8,10 +8,10 @@ package de.uka.ipd.sdq.pcm.core.entity.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
 import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Named Element</b></em>'.
@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.core.entity.NamedElement;
  *
  * @generated
  */
-public abstract class NamedElementImpl extends EObjectImpl implements NamedElement {
+public abstract class NamedElementImpl extends EStereotypableObjectImpl implements NamedElement {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

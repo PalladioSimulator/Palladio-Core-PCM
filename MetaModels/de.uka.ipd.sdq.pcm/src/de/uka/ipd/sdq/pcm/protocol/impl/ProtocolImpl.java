@@ -8,10 +8,10 @@ package de.uka.ipd.sdq.pcm.protocol.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import de.uka.ipd.sdq.pcm.protocol.Protocol;
 import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Protocol</b></em>'. <!--
@@ -25,7 +25,7 @@ import de.uka.ipd.sdq.pcm.protocol.ProtocolPackage;
  *
  * @generated
  */
-public abstract class ProtocolImpl extends EObjectImpl implements Protocol {
+public abstract class ProtocolImpl extends EStereotypableObjectImpl implements Protocol {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

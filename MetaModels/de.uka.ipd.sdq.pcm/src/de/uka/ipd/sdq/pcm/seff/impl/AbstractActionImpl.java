@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -80,7 +81,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      * @generated
      */
     public AbstractAction getPredecessor_AbstractAction() {
-        if (predecessor_AbstractAction != null && predecessor_AbstractAction.eIsProxy()) {
+        if (predecessor_AbstractAction != null && ((EObject)predecessor_AbstractAction).eIsProxy()) {
             InternalEObject oldPredecessor_AbstractAction = (InternalEObject)predecessor_AbstractAction;
             predecessor_AbstractAction = (AbstractAction)eResolveProxy(oldPredecessor_AbstractAction);
             if (predecessor_AbstractAction != oldPredecessor_AbstractAction) {
@@ -137,7 +138,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
      * @generated
      */
     public AbstractAction getSuccessor_AbstractAction() {
-        if (successor_AbstractAction != null && successor_AbstractAction.eIsProxy()) {
+        if (successor_AbstractAction != null && ((EObject)successor_AbstractAction).eIsProxy()) {
             InternalEObject oldSuccessor_AbstractAction = (InternalEObject)successor_AbstractAction;
             successor_AbstractAction = (AbstractAction)eResolveProxy(oldSuccessor_AbstractAction);
             if (successor_AbstractAction != oldSuccessor_AbstractAction) {
@@ -215,7 +216,7 @@ public abstract class AbstractActionImpl extends EntityImpl implements AbstractA
     public void setResourceDemandingBehaviour_AbstractAction(
             ResourceDemandingBehaviour newResourceDemandingBehaviour_AbstractAction) {
         if (newResourceDemandingBehaviour_AbstractAction != eInternalContainer() || (eContainerFeatureID() != SeffPackage.ABSTRACT_ACTION__RESOURCE_DEMANDING_BEHAVIOUR_ABSTRACT_ACTION && newResourceDemandingBehaviour_AbstractAction != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceDemandingBehaviour_AbstractAction))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceDemandingBehaviour_AbstractAction))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

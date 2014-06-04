@@ -23,7 +23,8 @@ Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.2.0",
  org.eclipse.wst.common.project.facet.core;bundle-version="1.4.300",
  org.eclipse.wst.validation;bundle-version="1.2.501",
  org.objectweb.asm;bundle-version="3.3.1",
- org.eclipse.jst.j2ee;bundle-version="1.1.710"
+ org.eclipse.jst.j2ee;bundle-version="1.1.710",
+ edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
 Export-Package: org.palladiosimulator.protocom,

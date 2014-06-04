@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -113,7 +114,7 @@ public class QosannotationsValidator extends EObjectValidator {
      */
     public boolean validateSpecifiedQoSAnnotation(SpecifiedQoSAnnotation specifiedQoSAnnotation,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(specifiedQoSAnnotation, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)specifiedQoSAnnotation, diagnostics, context);
     }
 
     /**
@@ -122,14 +123,14 @@ public class QosannotationsValidator extends EObjectValidator {
      */
     public boolean validateQoSAnnotations(QoSAnnotations qoSAnnotations, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(qoSAnnotations, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(qoSAnnotations, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)qoSAnnotations, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)qoSAnnotations, diagnostics, context);
         if (result || diagnostics != null) result &= validateQoSAnnotations_MultipleReliabilityAnnotationsPerExternalCallNotAllowed(qoSAnnotations, diagnostics, context);
         return result;
     }
@@ -151,7 +152,7 @@ public class QosannotationsValidator extends EObjectValidator {
     public boolean validateSpecifiedOutputParameterAbstraction(
             SpecifiedOutputParameterAbstraction specifiedOutputParameterAbstraction, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(specifiedOutputParameterAbstraction, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)specifiedOutputParameterAbstraction, diagnostics, context);
     }
 
     /**

@@ -8,9 +8,9 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableCharacterisationType;
@@ -18,6 +18,7 @@ import de.uka.ipd.sdq.pcm.repository.Interface;
 import de.uka.ipd.sdq.pcm.repository.Parameter;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
 import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -33,7 +34,7 @@ import de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation;
  *
  * @generated
  */
-public class RequiredCharacterisationImpl extends EObjectImpl implements RequiredCharacterisation {
+public class RequiredCharacterisationImpl extends EStereotypableObjectImpl implements RequiredCharacterisation {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -111,7 +112,7 @@ public class RequiredCharacterisationImpl extends EObjectImpl implements Require
      * @generated
      */
     public Parameter getParameter() {
-        if (parameter != null && parameter.eIsProxy()) {
+        if (parameter != null && ((EObject)parameter).eIsProxy()) {
             InternalEObject oldParameter = (InternalEObject)parameter;
             parameter = (Parameter)eResolveProxy(oldParameter);
             if (parameter != oldParameter) {
@@ -166,7 +167,7 @@ public class RequiredCharacterisationImpl extends EObjectImpl implements Require
      */
     public void setInterface_RequiredCharacterisation(Interface newInterface_RequiredCharacterisation) {
         if (newInterface_RequiredCharacterisation != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.REQUIRED_CHARACTERISATION__INTERFACE_REQUIRED_CHARACTERISATION && newInterface_RequiredCharacterisation != null)) {
-            if (EcoreUtil.isAncestor(this, newInterface_RequiredCharacterisation))
+            if (EcoreUtil.isAncestor(this, (EObject)newInterface_RequiredCharacterisation))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

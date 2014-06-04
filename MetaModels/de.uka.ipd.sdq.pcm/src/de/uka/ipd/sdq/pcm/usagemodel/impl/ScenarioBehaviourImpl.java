@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -269,7 +270,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     public void setBranchTransition_ScenarioBehaviour(BranchTransition newBranchTransition_ScenarioBehaviour) {
         if (newBranchTransition_ScenarioBehaviour != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR && newBranchTransition_ScenarioBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newBranchTransition_ScenarioBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newBranchTransition_ScenarioBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -307,7 +308,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     public void setLoop_ScenarioBehaviour(Loop newLoop_ScenarioBehaviour) {
         if (newLoop_ScenarioBehaviour != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR && newLoop_ScenarioBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newLoop_ScenarioBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newLoop_ScenarioBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -346,7 +347,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
      */
     public void setUsageScenario_SenarioBehaviour(UsageScenario newUsageScenario_SenarioBehaviour) {
         if (newUsageScenario_SenarioBehaviour != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR && newUsageScenario_SenarioBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, newUsageScenario_SenarioBehaviour))
+            if (EcoreUtil.isAncestor(this, (EObject)newUsageScenario_SenarioBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -94,7 +95,7 @@ public class RecoveryActionImpl extends AbstractInternalControlFlowActionImpl im
      * @generated
      */
     public RecoveryActionBehaviour getPrimaryBehaviour__RecoveryAction() {
-        if (primaryBehaviour__RecoveryAction != null && primaryBehaviour__RecoveryAction.eIsProxy()) {
+        if (primaryBehaviour__RecoveryAction != null && ((EObject)primaryBehaviour__RecoveryAction).eIsProxy()) {
             InternalEObject oldPrimaryBehaviour__RecoveryAction = (InternalEObject)primaryBehaviour__RecoveryAction;
             primaryBehaviour__RecoveryAction = (RecoveryActionBehaviour)eResolveProxy(oldPrimaryBehaviour__RecoveryAction);
             if (primaryBehaviour__RecoveryAction != oldPrimaryBehaviour__RecoveryAction) {

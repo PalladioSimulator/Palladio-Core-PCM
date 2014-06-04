@@ -6,9 +6,9 @@
 package de.uka.ipd.sdq.pcm.seff;
 
 import org.eclipse.emf.common.util.EList;
-import org.eclipse.emf.ecore.EObject;
 
 import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Call Action</b></em>'. <!--
@@ -27,9 +27,10 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
  *
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getCallAction()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface CallAction extends EObject {
+public interface CallAction extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

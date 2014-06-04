@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -90,7 +91,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      * @generated
      */
     public SourceRole getSourceRole__EventChannelSourceRole() {
-        if (sourceRole__EventChannelSourceRole != null && sourceRole__EventChannelSourceRole.eIsProxy()) {
+        if (sourceRole__EventChannelSourceRole != null && ((EObject)sourceRole__EventChannelSourceRole).eIsProxy()) {
             InternalEObject oldSourceRole__EventChannelSourceRole = (InternalEObject)sourceRole__EventChannelSourceRole;
             sourceRole__EventChannelSourceRole = (SourceRole)eResolveProxy(oldSourceRole__EventChannelSourceRole);
             if (sourceRole__EventChannelSourceRole != oldSourceRole__EventChannelSourceRole) {
@@ -125,7 +126,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      * @generated
      */
     public AssemblyContext getAssemblyContext__EventChannelSourceConnector() {
-        if (assemblyContext__EventChannelSourceConnector != null && assemblyContext__EventChannelSourceConnector.eIsProxy()) {
+        if (assemblyContext__EventChannelSourceConnector != null && ((EObject)assemblyContext__EventChannelSourceConnector).eIsProxy()) {
             InternalEObject oldAssemblyContext__EventChannelSourceConnector = (InternalEObject)assemblyContext__EventChannelSourceConnector;
             assemblyContext__EventChannelSourceConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext__EventChannelSourceConnector);
             if (assemblyContext__EventChannelSourceConnector != oldAssemblyContext__EventChannelSourceConnector) {
@@ -161,7 +162,7 @@ public class EventChannelSourceConnectorImpl extends ConnectorImpl implements Ev
      * @generated
      */
     public EventChannel getEventChannel__EventChannelSourceConnector() {
-        if (eventChannel__EventChannelSourceConnector != null && eventChannel__EventChannelSourceConnector.eIsProxy()) {
+        if (eventChannel__EventChannelSourceConnector != null && ((EObject)eventChannel__EventChannelSourceConnector).eIsProxy()) {
             InternalEObject oldEventChannel__EventChannelSourceConnector = (InternalEObject)eventChannel__EventChannelSourceConnector;
             eventChannel__EventChannelSourceConnector = (EventChannel)eResolveProxy(oldEventChannel__EventChannelSourceConnector);
             if (eventChannel__EventChannelSourceConnector != oldEventChannel__EventChannelSourceConnector) {

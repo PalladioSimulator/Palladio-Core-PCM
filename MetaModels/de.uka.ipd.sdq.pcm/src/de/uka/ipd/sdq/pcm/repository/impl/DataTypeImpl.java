@@ -8,14 +8,15 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.repository.DataType;
 import de.uka.ipd.sdq.pcm.repository.Repository;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Data Type</b></em>'. <!--
@@ -29,7 +30,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  *
  * @generated
  */
-public abstract class DataTypeImpl extends EObjectImpl implements DataType {
+public abstract class DataTypeImpl extends EStereotypableObjectImpl implements DataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -77,7 +78,7 @@ public abstract class DataTypeImpl extends EObjectImpl implements DataType {
      */
     public void setRepository__DataType(Repository newRepository__DataType) {
         if (newRepository__DataType != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.DATA_TYPE__REPOSITORY_DATA_TYPE && newRepository__DataType != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__DataType))
+            if (EcoreUtil.isAncestor(this, (EObject)newRepository__DataType))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

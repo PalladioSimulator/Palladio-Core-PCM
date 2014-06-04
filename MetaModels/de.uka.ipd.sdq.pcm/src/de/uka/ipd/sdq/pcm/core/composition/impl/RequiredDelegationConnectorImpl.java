@@ -12,6 +12,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -40,7 +41,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole;
  *
  * @generated
  */
-public class RequiredDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl implements RequiredDelegationConnector {
+public class RequiredDelegationConnectorImpl extends DelegationConnectorImpl implements RequiredDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -99,7 +100,7 @@ public class RequiredDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.com
      * @generated
      */
     public OperationRequiredRole getInnerRequiredRole_RequiredDelegationConnector() {
-        if (innerRequiredRole_RequiredDelegationConnector != null && innerRequiredRole_RequiredDelegationConnector.eIsProxy()) {
+        if (innerRequiredRole_RequiredDelegationConnector != null && ((EObject)innerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
             InternalEObject oldInnerRequiredRole_RequiredDelegationConnector = (InternalEObject)innerRequiredRole_RequiredDelegationConnector;
             innerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole)eResolveProxy(oldInnerRequiredRole_RequiredDelegationConnector);
             if (innerRequiredRole_RequiredDelegationConnector != oldInnerRequiredRole_RequiredDelegationConnector) {
@@ -135,7 +136,7 @@ public class RequiredDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.com
      * @generated
      */
     public OperationRequiredRole getOuterRequiredRole_RequiredDelegationConnector() {
-        if (outerRequiredRole_RequiredDelegationConnector != null && outerRequiredRole_RequiredDelegationConnector.eIsProxy()) {
+        if (outerRequiredRole_RequiredDelegationConnector != null && ((EObject)outerRequiredRole_RequiredDelegationConnector).eIsProxy()) {
             InternalEObject oldOuterRequiredRole_RequiredDelegationConnector = (InternalEObject)outerRequiredRole_RequiredDelegationConnector;
             outerRequiredRole_RequiredDelegationConnector = (OperationRequiredRole)eResolveProxy(oldOuterRequiredRole_RequiredDelegationConnector);
             if (outerRequiredRole_RequiredDelegationConnector != oldOuterRequiredRole_RequiredDelegationConnector) {
@@ -171,7 +172,7 @@ public class RequiredDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.com
      * @generated
      */
     public AssemblyContext getAssemblyContext_RequiredDelegationConnector() {
-        if (assemblyContext_RequiredDelegationConnector != null && assemblyContext_RequiredDelegationConnector.eIsProxy()) {
+        if (assemblyContext_RequiredDelegationConnector != null && ((EObject)assemblyContext_RequiredDelegationConnector).eIsProxy()) {
             InternalEObject oldAssemblyContext_RequiredDelegationConnector = (InternalEObject)assemblyContext_RequiredDelegationConnector;
             assemblyContext_RequiredDelegationConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext_RequiredDelegationConnector);
             if (assemblyContext_RequiredDelegationConnector != oldAssemblyContext_RequiredDelegationConnector) {

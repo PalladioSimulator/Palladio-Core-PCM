@@ -11,7 +11,6 @@ import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.InternalEObject;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
@@ -20,6 +19,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourceRepository;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourceType;
 import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
 import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -35,7 +35,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
  *
  * @generated
  */
-public class ResourceRepositoryImpl extends EObjectImpl implements ResourceRepository {
+public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements ResourceRepository {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

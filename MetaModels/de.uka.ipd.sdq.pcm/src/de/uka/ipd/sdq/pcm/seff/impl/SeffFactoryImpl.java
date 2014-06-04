@@ -80,27 +80,27 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SeffPackage.STOP_ACTION: return createStopAction();
-            case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: return createResourceDemandingBehaviour();
-            case SeffPackage.BRANCH_ACTION: return createBranchAction();
-            case SeffPackage.START_ACTION: return createStartAction();
-            case SeffPackage.RESOURCE_DEMANDING_SEFF: return createResourceDemandingSEFF();
-            case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR: return createResourceDemandingInternalBehaviour();
-            case SeffPackage.RELEASE_ACTION: return createReleaseAction();
-            case SeffPackage.LOOP_ACTION: return createLoopAction();
-            case SeffPackage.FORK_ACTION: return createForkAction();
-            case SeffPackage.FORKED_BEHAVIOUR: return createForkedBehaviour();
-            case SeffPackage.SYNCHRONISATION_POINT: return createSynchronisationPoint();
-            case SeffPackage.EXTERNAL_CALL_ACTION: return createExternalCallAction();
-            case SeffPackage.CALL_RETURN_ACTION: return createCallReturnAction();
-            case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: return createProbabilisticBranchTransition();
-            case SeffPackage.ACQUIRE_ACTION: return createAcquireAction();
-            case SeffPackage.COLLECTION_ITERATOR_ACTION: return createCollectionIteratorAction();
-            case SeffPackage.GUARDED_BRANCH_TRANSITION: return createGuardedBranchTransition();
-            case SeffPackage.SET_VARIABLE_ACTION: return createSetVariableAction();
-            case SeffPackage.INTERNAL_CALL_ACTION: return createInternalCallAction();
-            case SeffPackage.EMIT_EVENT_ACTION: return createEmitEventAction();
-            case SeffPackage.INTERNAL_ACTION: return createInternalAction();
+            case SeffPackage.STOP_ACTION: return (EObject)createStopAction();
+            case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: return (EObject)createResourceDemandingBehaviour();
+            case SeffPackage.BRANCH_ACTION: return (EObject)createBranchAction();
+            case SeffPackage.START_ACTION: return (EObject)createStartAction();
+            case SeffPackage.RESOURCE_DEMANDING_SEFF: return (EObject)createResourceDemandingSEFF();
+            case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR: return (EObject)createResourceDemandingInternalBehaviour();
+            case SeffPackage.RELEASE_ACTION: return (EObject)createReleaseAction();
+            case SeffPackage.LOOP_ACTION: return (EObject)createLoopAction();
+            case SeffPackage.FORK_ACTION: return (EObject)createForkAction();
+            case SeffPackage.FORKED_BEHAVIOUR: return (EObject)createForkedBehaviour();
+            case SeffPackage.SYNCHRONISATION_POINT: return (EObject)createSynchronisationPoint();
+            case SeffPackage.EXTERNAL_CALL_ACTION: return (EObject)createExternalCallAction();
+            case SeffPackage.CALL_RETURN_ACTION: return (EObject)createCallReturnAction();
+            case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: return (EObject)createProbabilisticBranchTransition();
+            case SeffPackage.ACQUIRE_ACTION: return (EObject)createAcquireAction();
+            case SeffPackage.COLLECTION_ITERATOR_ACTION: return (EObject)createCollectionIteratorAction();
+            case SeffPackage.GUARDED_BRANCH_TRANSITION: return (EObject)createGuardedBranchTransition();
+            case SeffPackage.SET_VARIABLE_ACTION: return (EObject)createSetVariableAction();
+            case SeffPackage.INTERNAL_CALL_ACTION: return (EObject)createInternalCallAction();
+            case SeffPackage.EMIT_EVENT_ACTION: return (EObject)createEmitEventAction();
+            case SeffPackage.INTERNAL_ACTION: return (EObject)createInternalAction();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

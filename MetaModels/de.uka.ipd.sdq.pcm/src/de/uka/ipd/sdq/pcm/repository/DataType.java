@@ -5,7 +5,7 @@
  */
 package de.uka.ipd.sdq.pcm.repository;
 
-import org.eclipse.emf.ecore.EObject;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Data Type</b></em>'. <!--
@@ -24,9 +24,10 @@ import org.eclipse.emf.ecore.EObject;
  *
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getDataType()
  * @model abstract="true"
+ * @extends EStereotypableObject
  * @generated
  */
-public interface DataType extends EObject {
+public interface DataType extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

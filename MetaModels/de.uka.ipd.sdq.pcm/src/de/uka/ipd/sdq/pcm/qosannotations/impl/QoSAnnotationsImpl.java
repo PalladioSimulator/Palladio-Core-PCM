@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -128,7 +129,7 @@ public class QoSAnnotationsImpl extends EntityImpl implements QoSAnnotations {
      */
     public void setSystem_QoSAnnotations(de.uka.ipd.sdq.pcm.system.System newSystem_QoSAnnotations) {
         if (newSystem_QoSAnnotations != eInternalContainer() || (eContainerFeatureID() != QosannotationsPackage.QO_SANNOTATIONS__SYSTEM_QO_SANNOTATIONS && newSystem_QoSAnnotations != null)) {
-            if (EcoreUtil.isAncestor(this, newSystem_QoSAnnotations))
+            if (EcoreUtil.isAncestor(this, (EObject)newSystem_QoSAnnotations))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

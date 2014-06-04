@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -29,7 +30,7 @@ import de.uka.ipd.sdq.pcm.repository.SinkRole;
  *
  * @generated
  */
-public class SinkDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composition.impl.DelegationConnectorImpl implements SinkDelegationConnector {
+public class SinkDelegationConnectorImpl extends DelegationConnectorImpl implements SinkDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -86,7 +87,7 @@ public class SinkDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composi
      * @generated
      */
     public AssemblyContext getAssemblyContext__SinkDelegationConnector() {
-        if (assemblyContext__SinkDelegationConnector != null && assemblyContext__SinkDelegationConnector.eIsProxy()) {
+        if (assemblyContext__SinkDelegationConnector != null && ((EObject)assemblyContext__SinkDelegationConnector).eIsProxy()) {
             InternalEObject oldAssemblyContext__SinkDelegationConnector = (InternalEObject)assemblyContext__SinkDelegationConnector;
             assemblyContext__SinkDelegationConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext__SinkDelegationConnector);
             if (assemblyContext__SinkDelegationConnector != oldAssemblyContext__SinkDelegationConnector) {
@@ -121,7 +122,7 @@ public class SinkDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composi
      * @generated
      */
     public SinkRole getInnerSinkRole__SinkRole() {
-        if (innerSinkRole__SinkRole != null && innerSinkRole__SinkRole.eIsProxy()) {
+        if (innerSinkRole__SinkRole != null && ((EObject)innerSinkRole__SinkRole).eIsProxy()) {
             InternalEObject oldInnerSinkRole__SinkRole = (InternalEObject)innerSinkRole__SinkRole;
             innerSinkRole__SinkRole = (SinkRole)eResolveProxy(oldInnerSinkRole__SinkRole);
             if (innerSinkRole__SinkRole != oldInnerSinkRole__SinkRole) {
@@ -156,7 +157,7 @@ public class SinkDelegationConnectorImpl extends de.uka.ipd.sdq.pcm.core.composi
      * @generated
      */
     public SinkRole getOuterSinkRole__SinkRole() {
-        if (outerSinkRole__SinkRole != null && outerSinkRole__SinkRole.eIsProxy()) {
+        if (outerSinkRole__SinkRole != null && ((EObject)outerSinkRole__SinkRole).eIsProxy()) {
             InternalEObject oldOuterSinkRole__SinkRole = (InternalEObject)outerSinkRole__SinkRole;
             outerSinkRole__SinkRole = (SinkRole)eResolveProxy(oldOuterSinkRole__SinkRole);
             if (outerSinkRole__SinkRole != oldOuterSinkRole__SinkRole) {

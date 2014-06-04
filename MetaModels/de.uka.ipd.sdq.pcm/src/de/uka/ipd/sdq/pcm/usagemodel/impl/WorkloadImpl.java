@@ -8,14 +8,15 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
 
 import de.uka.ipd.sdq.pcm.usagemodel.UsageScenario;
 import de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage;
 import de.uka.ipd.sdq.pcm.usagemodel.Workload;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Workload</b></em>'. <!--
@@ -29,7 +30,7 @@ import de.uka.ipd.sdq.pcm.usagemodel.Workload;
  *
  * @generated
  */
-public abstract class WorkloadImpl extends EObjectImpl implements Workload {
+public abstract class WorkloadImpl extends EStereotypableObjectImpl implements Workload {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -78,7 +79,7 @@ public abstract class WorkloadImpl extends EObjectImpl implements Workload {
      */
     public void setUsageScenario_Workload(UsageScenario newUsageScenario_Workload) {
         if (newUsageScenario_Workload != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.WORKLOAD__USAGE_SCENARIO_WORKLOAD && newUsageScenario_Workload != null)) {
-            if (EcoreUtil.isAncestor(this, newUsageScenario_Workload))
+            if (EcoreUtil.isAncestor(this, (EObject)newUsageScenario_Workload))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

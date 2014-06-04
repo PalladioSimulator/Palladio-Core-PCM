@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -96,7 +97,7 @@ public class ResourceInterfaceImpl extends EntityImpl implements ResourceInterfa
      */
     public void setResourceRepository__ResourceInterface(ResourceRepository newResourceRepository__ResourceInterface) {
         if (newResourceRepository__ResourceInterface != eInternalContainer() || (eContainerFeatureID() != ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE && newResourceRepository__ResourceInterface != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceRepository__ResourceInterface))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceRepository__ResourceInterface))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

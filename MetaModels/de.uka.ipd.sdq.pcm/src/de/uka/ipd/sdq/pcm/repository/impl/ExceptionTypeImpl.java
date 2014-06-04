@@ -8,10 +8,10 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 
 import de.uka.ipd.sdq.pcm.repository.ExceptionType;
 import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '<em><b>Exception Type</b></em>'.
@@ -26,7 +26,7 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  *
  * @generated
  */
-public class ExceptionTypeImpl extends EObjectImpl implements ExceptionType {
+public class ExceptionTypeImpl extends EStereotypableObjectImpl implements ExceptionType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

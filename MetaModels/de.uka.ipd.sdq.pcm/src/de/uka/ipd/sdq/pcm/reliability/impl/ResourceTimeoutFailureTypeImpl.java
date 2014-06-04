@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.reliability.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -68,7 +69,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
      * @generated
      */
     public PassiveResource getPassiveResource__ResourceTimeoutFailureType() {
-        if (passiveResource__ResourceTimeoutFailureType != null && passiveResource__ResourceTimeoutFailureType.eIsProxy()) {
+        if (passiveResource__ResourceTimeoutFailureType != null && ((EObject)passiveResource__ResourceTimeoutFailureType).eIsProxy()) {
             InternalEObject oldPassiveResource__ResourceTimeoutFailureType = (InternalEObject)passiveResource__ResourceTimeoutFailureType;
             passiveResource__ResourceTimeoutFailureType = (PassiveResource)eResolveProxy(oldPassiveResource__ResourceTimeoutFailureType);
             if (passiveResource__ResourceTimeoutFailureType != oldPassiveResource__ResourceTimeoutFailureType) {

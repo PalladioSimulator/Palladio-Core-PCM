@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -109,14 +110,14 @@ public class QosPerformanceValidator extends EObjectValidator {
      */
     public boolean validateSystemSpecifiedExecutionTime(SystemSpecifiedExecutionTime systemSpecifiedExecutionTime,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(systemSpecifiedExecutionTime, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(systemSpecifiedExecutionTime, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(systemSpecifiedExecutionTime, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)systemSpecifiedExecutionTime, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)systemSpecifiedExecutionTime, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)systemSpecifiedExecutionTime, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)systemSpecifiedExecutionTime, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)systemSpecifiedExecutionTime, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)systemSpecifiedExecutionTime, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)systemSpecifiedExecutionTime, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)systemSpecifiedExecutionTime, diagnostics, context);
         if (result || diagnostics != null) result &= validateSystemSpecifiedExecutionTime_SystemSpecifiedExecutionTimeMustReferenceRequiredRoleOfASystem(systemSpecifiedExecutionTime, diagnostics, context);
         return result;
     }
@@ -138,7 +139,7 @@ public class QosPerformanceValidator extends EObjectValidator {
      */
     public boolean validateSpecifiedExecutionTime(SpecifiedExecutionTime specifiedExecutionTime,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(specifiedExecutionTime, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)specifiedExecutionTime, diagnostics, context);
     }
 
     /**
@@ -148,7 +149,7 @@ public class QosPerformanceValidator extends EObjectValidator {
     public boolean validateComponentSpecifiedExecutionTime(
             ComponentSpecifiedExecutionTime componentSpecifiedExecutionTime, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint(componentSpecifiedExecutionTime, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject)componentSpecifiedExecutionTime, diagnostics, context);
     }
 
     /**

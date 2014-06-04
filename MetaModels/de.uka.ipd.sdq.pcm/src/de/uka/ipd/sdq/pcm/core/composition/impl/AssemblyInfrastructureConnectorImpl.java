@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.core.composition.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -104,7 +105,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public InfrastructureProvidedRole getProvidedRole__AssemblyInfrastructureConnector() {
-        if (providedRole__AssemblyInfrastructureConnector != null && providedRole__AssemblyInfrastructureConnector.eIsProxy()) {
+        if (providedRole__AssemblyInfrastructureConnector != null && ((EObject)providedRole__AssemblyInfrastructureConnector).eIsProxy()) {
             InternalEObject oldProvidedRole__AssemblyInfrastructureConnector = (InternalEObject)providedRole__AssemblyInfrastructureConnector;
             providedRole__AssemblyInfrastructureConnector = (InfrastructureProvidedRole)eResolveProxy(oldProvidedRole__AssemblyInfrastructureConnector);
             if (providedRole__AssemblyInfrastructureConnector != oldProvidedRole__AssemblyInfrastructureConnector) {
@@ -140,7 +141,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public InfrastructureRequiredRole getRequiredRole__AssemblyInfrastructureConnector() {
-        if (requiredRole__AssemblyInfrastructureConnector != null && requiredRole__AssemblyInfrastructureConnector.eIsProxy()) {
+        if (requiredRole__AssemblyInfrastructureConnector != null && ((EObject)requiredRole__AssemblyInfrastructureConnector).eIsProxy()) {
             InternalEObject oldRequiredRole__AssemblyInfrastructureConnector = (InternalEObject)requiredRole__AssemblyInfrastructureConnector;
             requiredRole__AssemblyInfrastructureConnector = (InfrastructureRequiredRole)eResolveProxy(oldRequiredRole__AssemblyInfrastructureConnector);
             if (requiredRole__AssemblyInfrastructureConnector != oldRequiredRole__AssemblyInfrastructureConnector) {
@@ -176,7 +177,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public AssemblyContext getProvidingAssemblyContext__AssemblyInfrastructureConnector() {
-        if (providingAssemblyContext__AssemblyInfrastructureConnector != null && providingAssemblyContext__AssemblyInfrastructureConnector.eIsProxy()) {
+        if (providingAssemblyContext__AssemblyInfrastructureConnector != null && ((EObject)providingAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
             InternalEObject oldProvidingAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject)providingAssemblyContext__AssemblyInfrastructureConnector;
             providingAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext)eResolveProxy(oldProvidingAssemblyContext__AssemblyInfrastructureConnector);
             if (providingAssemblyContext__AssemblyInfrastructureConnector != oldProvidingAssemblyContext__AssemblyInfrastructureConnector) {
@@ -212,7 +213,7 @@ public class AssemblyInfrastructureConnectorImpl extends ConnectorImpl implement
      * @generated
      */
     public AssemblyContext getRequiringAssemblyContext__AssemblyInfrastructureConnector() {
-        if (requiringAssemblyContext__AssemblyInfrastructureConnector != null && requiringAssemblyContext__AssemblyInfrastructureConnector.eIsProxy()) {
+        if (requiringAssemblyContext__AssemblyInfrastructureConnector != null && ((EObject)requiringAssemblyContext__AssemblyInfrastructureConnector).eIsProxy()) {
             InternalEObject oldRequiringAssemblyContext__AssemblyInfrastructureConnector = (InternalEObject)requiringAssemblyContext__AssemblyInfrastructureConnector;
             requiringAssemblyContext__AssemblyInfrastructureConnector = (AssemblyContext)eResolveProxy(oldRequiringAssemblyContext__AssemblyInfrastructureConnector);
             if (requiringAssemblyContext__AssemblyInfrastructureConnector != oldRequiringAssemblyContext__AssemblyInfrastructureConnector) {

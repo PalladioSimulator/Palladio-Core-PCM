@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -122,14 +123,14 @@ public class SystemValidator extends EObjectValidator {
      */
     public boolean validateSystem(de.uka.ipd.sdq.pcm.system.System system, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(system, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(system, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(system, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(system, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(system, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(system, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(system, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(system, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)system, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)system, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)system, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)system, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)system, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)system, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)system, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)system, diagnostics, context);
         if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraint(system, diagnostics, context);
         if (result || diagnostics != null) result &= compositionValidator.validateComposedStructure_MultipleConnectorsConstraintForAssemblyConnectors(system, diagnostics, context);
         if (result || diagnostics != null) result &= entityValidator.validateComposedProvidingRequiringEntity_ProvidedRolesMustBeBound(system, diagnostics, context);

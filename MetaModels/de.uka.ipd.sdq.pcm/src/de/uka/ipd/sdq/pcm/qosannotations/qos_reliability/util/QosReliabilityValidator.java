@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -118,14 +119,14 @@ public class QosReliabilityValidator extends EObjectValidator {
     public boolean validateSpecifiedReliabilityAnnotation(
             SpecifiedReliabilityAnnotation specifiedReliabilityAnnotation, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(specifiedReliabilityAnnotation, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(specifiedReliabilityAnnotation, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(specifiedReliabilityAnnotation, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)specifiedReliabilityAnnotation, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)specifiedReliabilityAnnotation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)specifiedReliabilityAnnotation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)specifiedReliabilityAnnotation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)specifiedReliabilityAnnotation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)specifiedReliabilityAnnotation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)specifiedReliabilityAnnotation, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)specifiedReliabilityAnnotation, diagnostics, context);
         if (result || diagnostics != null) result &= validateSpecifiedReliabilityAnnotation_SpecifiedReliabilityAnnotationMustReferenceRequiredRoleOfASystem(specifiedReliabilityAnnotation, diagnostics, context);
         if (result || diagnostics != null) result &= validateSpecifiedReliabilityAnnotation_SumOfReliabilityAnnotationFailureProbabilitiesMustNotExceed1(specifiedReliabilityAnnotation, diagnostics, context);
         if (result || diagnostics != null) result &= validateSpecifiedReliabilityAnnotation_MultipleExternalOccurrenceDescriptionsPerFailureTypeNotAllowed(specifiedReliabilityAnnotation, diagnostics, context);

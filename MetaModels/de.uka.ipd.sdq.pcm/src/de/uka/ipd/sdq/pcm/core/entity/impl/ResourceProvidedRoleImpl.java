@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.core.entity.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -92,7 +93,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
     public void setResourceInterfaceProvidingEntity__ResourceProvidedRole(
             ResourceInterfaceProvidingEntity newResourceInterfaceProvidingEntity__ResourceProvidedRole) {
         if (newResourceInterfaceProvidingEntity__ResourceProvidedRole != eInternalContainer() || (eContainerFeatureID() != EntityPackage.RESOURCE_PROVIDED_ROLE__RESOURCE_INTERFACE_PROVIDING_ENTITY_RESOURCE_PROVIDED_ROLE && newResourceInterfaceProvidingEntity__ResourceProvidedRole != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceInterfaceProvidingEntity__ResourceProvidedRole))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceInterfaceProvidingEntity__ResourceProvidedRole))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -111,7 +112,7 @@ public class ResourceProvidedRoleImpl extends RoleImpl implements ResourceProvid
      * @generated
      */
     public ResourceInterface getProvidedResourceInterface__ResourceProvidedRole() {
-        if (providedResourceInterface__ResourceProvidedRole != null && providedResourceInterface__ResourceProvidedRole.eIsProxy()) {
+        if (providedResourceInterface__ResourceProvidedRole != null && ((EObject)providedResourceInterface__ResourceProvidedRole).eIsProxy()) {
             InternalEObject oldProvidedResourceInterface__ResourceProvidedRole = (InternalEObject)providedResourceInterface__ResourceProvidedRole;
             providedResourceInterface__ResourceProvidedRole = (ResourceInterface)eResolveProxy(oldProvidedResourceInterface__ResourceProvidedRole);
             if (providedResourceInterface__ResourceProvidedRole != oldProvidedResourceInterface__ResourceProvidedRole) {

@@ -59,7 +59,7 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SystemPackage.SYSTEM: return createSystem();
+            case SystemPackage.SYSTEM: return (EObject)createSystem();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

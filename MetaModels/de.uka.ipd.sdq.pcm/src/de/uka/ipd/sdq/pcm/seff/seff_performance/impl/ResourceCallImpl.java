@@ -13,6 +13,7 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -126,7 +127,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      */
     public void setAction__ResourceCall(AbstractInternalControlFlowAction newAction__ResourceCall) {
         if (newAction__ResourceCall != eInternalContainer() || (eContainerFeatureID() != SeffPerformancePackage.RESOURCE_CALL__ACTION_RESOURCE_CALL && newAction__ResourceCall != null)) {
-            if (EcoreUtil.isAncestor(this, newAction__ResourceCall))
+            if (EcoreUtil.isAncestor(this, (EObject)newAction__ResourceCall))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -145,7 +146,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * @generated
      */
     public ResourceRequiredRole getResourceRequiredRole__ResourceCall() {
-        if (resourceRequiredRole__ResourceCall != null && resourceRequiredRole__ResourceCall.eIsProxy()) {
+        if (resourceRequiredRole__ResourceCall != null && ((EObject)resourceRequiredRole__ResourceCall).eIsProxy()) {
             InternalEObject oldResourceRequiredRole__ResourceCall = (InternalEObject)resourceRequiredRole__ResourceCall;
             resourceRequiredRole__ResourceCall = (ResourceRequiredRole)eResolveProxy(oldResourceRequiredRole__ResourceCall);
             if (resourceRequiredRole__ResourceCall != oldResourceRequiredRole__ResourceCall) {
@@ -180,7 +181,7 @@ public class ResourceCallImpl extends CallActionImpl implements ResourceCall {
      * @generated
      */
     public ResourceSignature getSignature__ResourceCall() {
-        if (signature__ResourceCall != null && signature__ResourceCall.eIsProxy()) {
+        if (signature__ResourceCall != null && ((EObject)signature__ResourceCall).eIsProxy()) {
             InternalEObject oldSignature__ResourceCall = (InternalEObject)signature__ResourceCall;
             signature__ResourceCall = (ResourceSignature)eResolveProxy(oldSignature__ResourceCall);
             if (signature__ResourceCall != oldSignature__ResourceCall) {

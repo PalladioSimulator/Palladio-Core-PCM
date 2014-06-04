@@ -7,6 +7,7 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
@@ -65,7 +66,7 @@ public class ReleaseActionImpl extends AbstractInternalControlFlowActionImpl imp
      * @generated
      */
     public PassiveResource getPassiveResource_ReleaseAction() {
-        if (passiveResource_ReleaseAction != null && passiveResource_ReleaseAction.eIsProxy()) {
+        if (passiveResource_ReleaseAction != null && ((EObject)passiveResource_ReleaseAction).eIsProxy()) {
             InternalEObject oldPassiveResource_ReleaseAction = (InternalEObject)passiveResource_ReleaseAction;
             passiveResource_ReleaseAction = (PassiveResource)eResolveProxy(oldPassiveResource_ReleaseAction);
             if (passiveResource_ReleaseAction != oldPassiveResource_ReleaseAction) {

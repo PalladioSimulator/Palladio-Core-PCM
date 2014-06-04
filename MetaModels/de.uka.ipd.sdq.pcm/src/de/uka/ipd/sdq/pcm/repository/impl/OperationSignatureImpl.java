@@ -15,6 +15,7 @@ import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
@@ -116,7 +117,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      */
     public void setInterface__OperationSignature(OperationInterface newInterface__OperationSignature) {
         if (newInterface__OperationSignature != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.OPERATION_SIGNATURE__INTERFACE_OPERATION_SIGNATURE && newInterface__OperationSignature != null)) {
-            if (EcoreUtil.isAncestor(this, newInterface__OperationSignature))
+            if (EcoreUtil.isAncestor(this, (EObject)newInterface__OperationSignature))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -188,7 +189,7 @@ public class OperationSignatureImpl extends SignatureImpl implements OperationSi
      * @generated
      */
     public DataType getReturnType__OperationSignature() {
-        if (returnType__OperationSignature != null && returnType__OperationSignature.eIsProxy()) {
+        if (returnType__OperationSignature != null && ((EObject)returnType__OperationSignature).eIsProxy()) {
             InternalEObject oldReturnType__OperationSignature = (InternalEObject)returnType__OperationSignature;
             returnType__OperationSignature = (DataType)eResolveProxy(oldReturnType__OperationSignature);
             if (returnType__OperationSignature != oldReturnType__OperationSignature) {

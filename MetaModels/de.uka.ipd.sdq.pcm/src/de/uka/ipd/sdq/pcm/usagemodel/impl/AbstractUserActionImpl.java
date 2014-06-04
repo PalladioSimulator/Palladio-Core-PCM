@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.usagemodel.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -80,7 +81,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     public AbstractUserAction getSuccessor() {
-        if (successor != null && successor.eIsProxy()) {
+        if (successor != null && ((EObject)successor).eIsProxy()) {
             InternalEObject oldSuccessor = (InternalEObject)successor;
             successor = (AbstractUserAction)eResolveProxy(oldSuccessor);
             if (successor != oldSuccessor) {
@@ -136,7 +137,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      * @generated
      */
     public AbstractUserAction getPredecessor() {
-        if (predecessor != null && predecessor.eIsProxy()) {
+        if (predecessor != null && ((EObject)predecessor).eIsProxy()) {
             InternalEObject oldPredecessor = (InternalEObject)predecessor;
             predecessor = (AbstractUserAction)eResolveProxy(oldPredecessor);
             if (predecessor != oldPredecessor) {
@@ -212,7 +213,7 @@ public abstract class AbstractUserActionImpl extends EntityImpl implements Abstr
      */
     public void setScenarioBehaviour_AbstractUserAction(ScenarioBehaviour newScenarioBehaviour_AbstractUserAction) {
         if (newScenarioBehaviour_AbstractUserAction != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION && newScenarioBehaviour_AbstractUserAction != null)) {
-            if (EcoreUtil.isAncestor(this, newScenarioBehaviour_AbstractUserAction))
+            if (EcoreUtil.isAncestor(this, (EObject)newScenarioBehaviour_AbstractUserAction))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

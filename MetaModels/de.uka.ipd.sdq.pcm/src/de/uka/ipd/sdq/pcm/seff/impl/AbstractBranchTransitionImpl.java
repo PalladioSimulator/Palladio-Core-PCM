@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.seff.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -90,7 +91,7 @@ public abstract class AbstractBranchTransitionImpl extends EntityImpl implements
      */
     public void setBranchAction_AbstractBranchTransition(BranchAction newBranchAction_AbstractBranchTransition) {
         if (newBranchAction_AbstractBranchTransition != eInternalContainer() || (eContainerFeatureID() != SeffPackage.ABSTRACT_BRANCH_TRANSITION__BRANCH_ACTION_ABSTRACT_BRANCH_TRANSITION && newBranchAction_AbstractBranchTransition != null)) {
-            if (EcoreUtil.isAncestor(this, newBranchAction_AbstractBranchTransition))
+            if (EcoreUtil.isAncestor(this, (EObject)newBranchAction_AbstractBranchTransition))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

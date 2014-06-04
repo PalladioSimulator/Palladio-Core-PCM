@@ -65,12 +65,12 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ResourcetypePackage.RESOURCE_SIGNATURE: return createResourceSignature();
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return createProcessingResourceType();
-            case ResourcetypePackage.RESOURCE_REPOSITORY: return createResourceRepository();
-            case ResourcetypePackage.SCHEDULING_POLICY: return createSchedulingPolicy();
-            case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return createCommunicationLinkResourceType();
-            case ResourcetypePackage.RESOURCE_INTERFACE: return createResourceInterface();
+            case ResourcetypePackage.RESOURCE_SIGNATURE: return (EObject)createResourceSignature();
+            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return (EObject)createProcessingResourceType();
+            case ResourcetypePackage.RESOURCE_REPOSITORY: return (EObject)createResourceRepository();
+            case ResourcetypePackage.SCHEDULING_POLICY: return (EObject)createSchedulingPolicy();
+            case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return (EObject)createCommunicationLinkResourceType();
+            case ResourcetypePackage.RESOURCE_INTERFACE: return (EObject)createResourceInterface();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

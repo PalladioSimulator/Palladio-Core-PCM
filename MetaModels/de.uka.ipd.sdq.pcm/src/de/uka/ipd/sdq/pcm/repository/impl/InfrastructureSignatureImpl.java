@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -107,7 +108,7 @@ public class InfrastructureSignatureImpl extends SignatureImpl implements Infras
     public void setInfrastructureInterface__InfrastructureSignature(
             InfrastructureInterface newInfrastructureInterface__InfrastructureSignature) {
         if (newInfrastructureInterface__InfrastructureSignature != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.INFRASTRUCTURE_SIGNATURE__INFRASTRUCTURE_INTERFACE_INFRASTRUCTURE_SIGNATURE && newInfrastructureInterface__InfrastructureSignature != null)) {
-            if (EcoreUtil.isAncestor(this, newInfrastructureInterface__InfrastructureSignature))
+            if (EcoreUtil.isAncestor(this, (EObject)newInfrastructureInterface__InfrastructureSignature))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

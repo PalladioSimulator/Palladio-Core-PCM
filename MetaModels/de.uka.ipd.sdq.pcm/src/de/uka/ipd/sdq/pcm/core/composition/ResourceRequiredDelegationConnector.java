@@ -5,9 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.core.composition;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -28,9 +27,10 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  *
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getResourceRequiredDelegationConnector()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface ResourceRequiredDelegationConnector extends EObject {
+public interface ResourceRequiredDelegationConnector extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

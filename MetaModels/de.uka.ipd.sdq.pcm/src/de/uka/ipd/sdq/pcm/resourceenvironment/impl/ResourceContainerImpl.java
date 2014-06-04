@@ -11,6 +11,7 @@ import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentWithInverseEList;
@@ -120,7 +121,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
      */
     public void setResourceEnvironment_ResourceContainer(ResourceEnvironment newResourceEnvironment_ResourceContainer) {
         if (newResourceEnvironment_ResourceContainer != eInternalContainer() || (eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__RESOURCE_ENVIRONMENT_RESOURCE_CONTAINER && newResourceEnvironment_ResourceContainer != null)) {
-            if (EcoreUtil.isAncestor(this, newResourceEnvironment_ResourceContainer))
+            if (EcoreUtil.isAncestor(this, (EObject)newResourceEnvironment_ResourceContainer))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -171,7 +172,7 @@ public class ResourceContainerImpl extends EntityImpl implements ResourceContain
     public void setParentResourceContainer__ResourceContainer(
             ResourceContainer newParentResourceContainer__ResourceContainer) {
         if (newParentResourceContainer__ResourceContainer != eInternalContainer() || (eContainerFeatureID() != ResourceenvironmentPackage.RESOURCE_CONTAINER__PARENT_RESOURCE_CONTAINER_RESOURCE_CONTAINER && newParentResourceContainer__ResourceContainer != null)) {
-            if (EcoreUtil.isAncestor(this, newParentResourceContainer__ResourceContainer))
+            if (EcoreUtil.isAncestor(this, (EObject)newParentResourceContainer__ResourceContainer))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -155,14 +156,14 @@ public class SeffPerformanceValidator extends EObjectValidator {
      */
     public boolean validateInfrastructureCall(InfrastructureCall infrastructureCall, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(infrastructureCall, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(infrastructureCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(infrastructureCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(infrastructureCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(infrastructureCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(infrastructureCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(infrastructureCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(infrastructureCall, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)infrastructureCall, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)infrastructureCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)infrastructureCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)infrastructureCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)infrastructureCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)infrastructureCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)infrastructureCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)infrastructureCall, diagnostics, context);
         if (result || diagnostics != null) result &= validateInfrastructureCall_SignatureMustBelongToUsedRequiredRole(infrastructureCall, diagnostics, context);
         if (result || diagnostics != null) result &= validateInfrastructureCall_ReferencedRequiredRoleMustBeRequiredByComponent(infrastructureCall, diagnostics, context);
         if (result || diagnostics != null) result &= validateInfrastructureCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(infrastructureCall, diagnostics, context);
@@ -205,14 +206,14 @@ public class SeffPerformanceValidator extends EObjectValidator {
      */
     public boolean validateResourceCall(ResourceCall resourceCall, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(resourceCall, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(resourceCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(resourceCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(resourceCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(resourceCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(resourceCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(resourceCall, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(resourceCall, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)resourceCall, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)resourceCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)resourceCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)resourceCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)resourceCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)resourceCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)resourceCall, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)resourceCall, diagnostics, context);
         if (result || diagnostics != null) result &= validateResourceCall_ResourceSignatureBelongsToResourceRequiredRole(resourceCall, diagnostics, context);
         if (result || diagnostics != null) result &= validateResourceCall_ResourceRequiredRoleMustBeReferencedByComponent(resourceCall, diagnostics, context);
         if (result || diagnostics != null) result &= validateResourceCall_SignatureRoleCombinationMustBeUniqueWithinAbstractInternalControlFlowAction(resourceCall, diagnostics, context);
@@ -255,14 +256,14 @@ public class SeffPerformanceValidator extends EObjectValidator {
      */
     public boolean validateParametricResourceDemand(ParametricResourceDemand parametricResourceDemand,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(parametricResourceDemand, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(parametricResourceDemand, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(parametricResourceDemand, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(parametricResourceDemand, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(parametricResourceDemand, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(parametricResourceDemand, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(parametricResourceDemand, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(parametricResourceDemand, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)parametricResourceDemand, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)parametricResourceDemand, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)parametricResourceDemand, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)parametricResourceDemand, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)parametricResourceDemand, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)parametricResourceDemand, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)parametricResourceDemand, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)parametricResourceDemand, diagnostics, context);
         if (result || diagnostics != null) result &= validateParametricResourceDemand_DemandedProcessingResourceMustBeUniqueWithinAbstractInternalControlFlowAction(parametricResourceDemand, diagnostics, context);
         return result;
     }

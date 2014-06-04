@@ -5,9 +5,8 @@
  */
 package de.uka.ipd.sdq.pcm.parameter;
 
-import org.eclipse.emf.ecore.EObject;
-
 import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 
 /**
  * <!-- begin-user-doc --> A representation of the model object '
@@ -30,9 +29,10 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  *
  * @see de.uka.ipd.sdq.pcm.parameter.ParameterPackage#getVariableCharacterisation()
  * @model
+ * @extends EStereotypableObject
  * @generated
  */
-public interface VariableCharacterisation extends EObject {
+public interface VariableCharacterisation extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated

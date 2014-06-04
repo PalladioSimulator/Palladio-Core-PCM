@@ -13,9 +13,9 @@ import org.eclipse.emf.common.util.BasicDiagnostic;
 import org.eclipse.emf.common.util.Diagnostic;
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
-import org.eclipse.emf.ecore.impl.EObjectImpl;
 import org.eclipse.emf.ecore.plugin.EcorePlugin;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.pcm.repository.Signature;
 import de.uka.ipd.sdq.pcm.seff.SeffPackage;
 import de.uka.ipd.sdq.pcm.seff.ServiceEffectSpecification;
 import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
+import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjectImpl;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model object '
@@ -44,7 +45,7 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  *
  * @generated
  */
-public abstract class ServiceEffectSpecificationImpl extends EObjectImpl implements ServiceEffectSpecification {
+public abstract class ServiceEffectSpecificationImpl extends EStereotypableObjectImpl implements ServiceEffectSpecification {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
      * @generated
@@ -121,7 +122,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
      * @generated
      */
     public Signature getDescribedService__SEFF() {
-        if (describedService__SEFF != null && describedService__SEFF.eIsProxy()) {
+        if (describedService__SEFF != null && ((EObject)describedService__SEFF).eIsProxy()) {
             InternalEObject oldDescribedService__SEFF = (InternalEObject)describedService__SEFF;
             describedService__SEFF = (Signature)eResolveProxy(oldDescribedService__SEFF);
             if (describedService__SEFF != oldDescribedService__SEFF) {
@@ -176,7 +177,7 @@ public abstract class ServiceEffectSpecificationImpl extends EObjectImpl impleme
      */
     public void setBasicComponent_ServiceEffectSpecification(BasicComponent newBasicComponent_ServiceEffectSpecification) {
         if (newBasicComponent_ServiceEffectSpecification != eInternalContainer() || (eContainerFeatureID() != SeffPackage.SERVICE_EFFECT_SPECIFICATION__BASIC_COMPONENT_SERVICE_EFFECT_SPECIFICATION && newBasicComponent_ServiceEffectSpecification != null)) {
-            if (EcoreUtil.isAncestor(this, newBasicComponent_ServiceEffectSpecification))
+            if (EcoreUtil.isAncestor(this, (EObject)newBasicComponent_ServiceEffectSpecification))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

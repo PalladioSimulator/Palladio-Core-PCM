@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.subsystem.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -80,7 +81,7 @@ public class SubSystemImpl extends ComposedProvidingRequiringEntityImpl implemen
      */
     public void setRepository__RepositoryComponent(Repository newRepository__RepositoryComponent) {
         if (newRepository__RepositoryComponent != eInternalContainer() || (eContainerFeatureID() != SubsystemPackage.SUB_SYSTEM__REPOSITORY_REPOSITORY_COMPONENT && newRepository__RepositoryComponent != null)) {
-            if (EcoreUtil.isAncestor(this, newRepository__RepositoryComponent))
+            if (EcoreUtil.isAncestor(this, (EObject)newRepository__RepositoryComponent))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)

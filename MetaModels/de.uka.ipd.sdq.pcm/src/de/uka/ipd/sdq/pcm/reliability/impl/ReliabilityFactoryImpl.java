@@ -65,12 +65,12 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE: return createHardwareInducedFailureType();
-            case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE: return createSoftwareInducedFailureType();
-            case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION: return createInternalFailureOccurrenceDescription();
-            case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE: return createNetworkInducedFailureType();
-            case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION: return createExternalFailureOccurrenceDescription();
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE: return createResourceTimeoutFailureType();
+            case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE: return (EObject)createHardwareInducedFailureType();
+            case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE: return (EObject)createSoftwareInducedFailureType();
+            case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION: return (EObject)createInternalFailureOccurrenceDescription();
+            case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE: return (EObject)createNetworkInducedFailureType();
+            case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION: return (EObject)createExternalFailureOccurrenceDescription();
+            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE: return (EObject)createResourceTimeoutFailureType();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }

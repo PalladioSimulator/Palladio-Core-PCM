@@ -8,6 +8,7 @@ package de.uka.ipd.sdq.pcm.repository.impl;
 import org.eclipse.emf.common.notify.Notification;
 import org.eclipse.emf.common.notify.NotificationChain;
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.InternalEObject;
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 import org.eclipse.emf.ecore.util.EcoreUtil;
@@ -145,7 +146,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      */
     public void setBasicComponent_PassiveResource(BasicComponent newBasicComponent_PassiveResource) {
         if (newBasicComponent_PassiveResource != eInternalContainer() || (eContainerFeatureID() != RepositoryPackage.PASSIVE_RESOURCE__BASIC_COMPONENT_PASSIVE_RESOURCE && newBasicComponent_PassiveResource != null)) {
-            if (EcoreUtil.isAncestor(this, newBasicComponent_PassiveResource))
+            if (EcoreUtil.isAncestor(this, (EObject)newBasicComponent_PassiveResource))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
@@ -164,7 +165,7 @@ public class PassiveResourceImpl extends EntityImpl implements PassiveResource {
      * @generated
      */
     public ResourceTimeoutFailureType getResourceTimeoutFailureType__PassiveResource() {
-        if (resourceTimeoutFailureType__PassiveResource != null && resourceTimeoutFailureType__PassiveResource.eIsProxy()) {
+        if (resourceTimeoutFailureType__PassiveResource != null && ((EObject)resourceTimeoutFailureType__PassiveResource).eIsProxy()) {
             InternalEObject oldResourceTimeoutFailureType__PassiveResource = (InternalEObject)resourceTimeoutFailureType__PassiveResource;
             resourceTimeoutFailureType__PassiveResource = (ResourceTimeoutFailureType)eResolveProxy(oldResourceTimeoutFailureType__PassiveResource);
             if (resourceTimeoutFailureType__PassiveResource != oldResourceTimeoutFailureType__PassiveResource) {

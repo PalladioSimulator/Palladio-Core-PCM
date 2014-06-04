@@ -9,6 +9,7 @@ import java.util.Map;
 
 import org.eclipse.emf.common.util.DiagnosticChain;
 import org.eclipse.emf.common.util.ResourceLocator;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.EPackage;
 import org.eclipse.emf.ecore.util.EObjectValidator;
 
@@ -106,14 +107,14 @@ public class CoreValidator extends EObjectValidator {
      */
     public boolean validatePCMRandomVariable(PCMRandomVariable pcmRandomVariable, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment(pcmRandomVariable, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms(pcmRandomVariable, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms(pcmRandomVariable, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained(pcmRandomVariable, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves(pcmRandomVariable, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID(pcmRandomVariable, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique(pcmRandomVariable, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique(pcmRandomVariable, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject)pcmRandomVariable, diagnostics, context)) return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject)pcmRandomVariable, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)pcmRandomVariable, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)pcmRandomVariable, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)pcmRandomVariable, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_UniqueID((EObject)pcmRandomVariable, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)pcmRandomVariable, diagnostics, context);
+        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)pcmRandomVariable, diagnostics, context);
         if (result || diagnostics != null) result &= validatePCMRandomVariable_SpecificationMustNotBeNULL(pcmRandomVariable, diagnostics, context);
         return result;
     }

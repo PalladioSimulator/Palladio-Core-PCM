@@ -59,8 +59,8 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR: return createRecoveryActionBehaviour();
-            case SeffReliabilityPackage.RECOVERY_ACTION: return createRecoveryAction();
+            case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR: return (EObject)createRecoveryActionBehaviour();
+            case SeffReliabilityPackage.RECOVERY_ACTION: return (EObject)createRecoveryAction();
             default:
                 throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
