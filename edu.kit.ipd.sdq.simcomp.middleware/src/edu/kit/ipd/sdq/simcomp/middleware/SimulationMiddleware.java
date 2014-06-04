@@ -383,7 +383,6 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 	@Override
 	public void increaseMeasurementCount() {
-		logger.info(measurementCount);
 		measurementCount++;
 	}
 
