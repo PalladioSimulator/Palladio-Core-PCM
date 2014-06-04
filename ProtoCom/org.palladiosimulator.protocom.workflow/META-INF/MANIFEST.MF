@@ -5,7 +5,7 @@ Bundle-SymbolicName: org.palladiosimulator.protocom.workflow;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Require-Bundle: org.eclipse.ui,
  org.eclipse.core.runtime,
- de.uka.ipd.sdq.workflow.pcm,
+ de.uka.ipd.sdq.workflow.pcm;bundle-version="1.0.0",
  de.uka.ipd.sdq.workflow;bundle-version="1.1.0",
  de.uka.ipd.sdq.codegen.simucontroller;bundle-version="1.0.0",
  de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
