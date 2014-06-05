@@ -16,20 +16,25 @@ import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Specified Reliability Annotation</b></em>'. <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * A SpecifiedFailureProbability of a service resembles its "Probability of Failure on Demand" (POFOD). Whenever the service is called, this values states the probability that it returns successfully. For reliability prediction, the PCMRandomVariable specified in its superclass SpecifiedQoSAnnotation must evaluate to a real number between 0 and 1.
+ * 
+ * <!-- begin-model-doc --> A SpecifiedFailureProbability of a service resembles its
+ * "Probability of Failure on Demand" (POFOD). Whenever the service is called, this values states
+ * the probability that it returns successfully. For reliability prediction, the PCMRandomVariable
+ * specified in its superclass SpecifiedQoSAnnotation must evaluate to a real number between 0 and
+ * 1.
  * 
  * 
  * <!-- end-model-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation#getExternalFailureOccurrenceDescriptions__SpecifiedReliabilityAnnotation
+ * <em>External Failure Occurrence Descriptions Specified Reliability Annotation</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.QosReliabilityPackage#getSpecifiedReliabilityAnnotation()
  * @model
  * @generated
@@ -37,6 +42,7 @@ import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription;
 public interface SpecifiedReliabilityAnnotation extends SpecifiedQoSAnnotation {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

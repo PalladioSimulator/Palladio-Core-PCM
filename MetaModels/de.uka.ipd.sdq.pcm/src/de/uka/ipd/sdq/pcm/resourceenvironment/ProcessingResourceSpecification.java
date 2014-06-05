@@ -13,25 +13,38 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Processing Resource Specification</b></em>'. <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * Performance specification of processing resources (e.g. processing rate, scheduling policy)
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> Performance specification of processing resources (e.g. processing rate,
+ * scheduling policy) <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer <em>Required By Container</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification <em>Processing Rate Processing Resource Specification</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas <em>Number Of Replicas</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getResourceContainer_ProcessingResourceSpecification <em>Resource Container Processing Resource Specification</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>
+ * MTTR</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>
+ * MTTF</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer
+ * <em>Required By Container</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy
+ * <em>Scheduling Policy</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification
+ * <em>Active Resource Type Active Resource Specification</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getProcessingRate_ProcessingResourceSpecification
+ * <em>Processing Rate Processing Resource Specification</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas
+ * <em>Number Of Replicas</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getResourceContainer_ProcessingResourceSpecification
+ * <em>Resource Container Processing Resource Specification</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification()
  * @model
  * @generated
@@ -39,6 +52,7 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 public interface ProcessingResourceSpecification extends Identifier {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -58,9 +72,12 @@ public interface ProcessingResourceSpecification extends Identifier {
     double getMTTR();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR <em>MTTR</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>MTTR</em>' attribute.
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTR
+     * <em>MTTR</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>MTTR</em>' attribute.
      * @see #getMTTR()
      * @generated
      */
@@ -81,9 +98,12 @@ public interface ProcessingResourceSpecification extends Identifier {
     double getMTTF();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF <em>MTTF</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>MTTF</em>' attribute.
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getMTTF
+     * <em>MTTF</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>MTTF</em>' attribute.
      * @see #getMTTF()
      * @generated
      */
@@ -116,23 +136,26 @@ public interface ProcessingResourceSpecification extends Identifier {
     boolean isRequiredByContainer();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer <em>Required By Container</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Required By Container</em>' attribute.
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#isRequiredByContainer
+     * <em>Required By Container</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Required By Container</em>' attribute.
      * @see #isRequiredByContainer()
      * @generated
      */
     void setRequiredByContainer(boolean value);
 
     /**
-     * Returns the value of the '<em><b>Scheduling Policy</b></em>' reference.
-     * <!-- begin-user-doc
+     * Returns the value of the '<em><b>Scheduling Policy</b></em>' reference. <!-- begin-user-doc
      * -->
      * <p>
      * If the meaning of the '<em>Scheduling Policy</em>' attribute isn't clear, there really should
      * be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Scheduling Policy</em>' reference.
      * @see #setSchedulingPolicy(SchedulingPolicy)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_SchedulingPolicy()
@@ -142,23 +165,28 @@ public interface ProcessingResourceSpecification extends Identifier {
     SchedulingPolicy getSchedulingPolicy();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy <em>Scheduling Policy</em>}' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Scheduling Policy</em>' reference.
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getSchedulingPolicy
+     * <em>Scheduling Policy</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Scheduling Policy</em>' reference.
      * @see #getSchedulingPolicy()
      * @generated
      */
     void setSchedulingPolicy(SchedulingPolicy value);
 
     /**
-     * Returns the value of the '<em><b>Active Resource Type Active Resource Specification</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Active Resource Type Active Resource Specification</b></em>'
+     * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Active Resource Type Active Resource Specification</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Active Resource Type Active Resource Specification</em>' reference.
+     * 
+     * @return the value of the '<em>Active Resource Type Active Resource Specification</em>'
+     *         reference.
      * @see #setActiveResourceType_ActiveResourceSpecification(ProcessingResourceType)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ActiveResourceType_ActiveResourceSpecification()
      * @model required="true" ordered="false"
@@ -167,10 +195,14 @@ public interface ProcessingResourceSpecification extends Identifier {
     ProcessingResourceType getActiveResourceType_ActiveResourceSpecification();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification <em>Active Resource Type Active Resource Specification</em>}' reference.
-     * <!-- begin-user-doc
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getActiveResourceType_ActiveResourceSpecification
+     * <em>Active Resource Type Active Resource Specification</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Active Resource Type Active Resource Specification</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Active Resource Type Active Resource Specification</em>'
+     *            reference.
      * @see #getActiveResourceType_ActiveResourceSpecification()
      * @generated
      */
@@ -235,28 +267,36 @@ public interface ProcessingResourceSpecification extends Identifier {
     int getNumberOfReplicas();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas <em>Number Of Replicas</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Number Of Replicas</em>' attribute.
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification#getNumberOfReplicas
+     * <em>Number Of Replicas</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Number Of Replicas</em>' attribute.
      * @see #getNumberOfReplicas()
      * @generated
      */
     void setNumberOfReplicas(int value);
 
     /**
-     * Returns the value of the '<em><b>Resource Container Processing Resource Specification</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer <em>Active Resource Specifications Resource Container</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '
+     * <em><b>Resource Container Processing Resource Specification</b></em>' container reference. It
+     * is bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer
+     * <em>Active Resource Specifications Resource Container</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Container Processing Resource Specification</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Resource Container Processing Resource Specification</em>' container reference.
+     * 
+     * @return the value of the '<em>Resource Container Processing Resource Specification</em>'
+     *         container reference.
      * @see #setResourceContainer_ProcessingResourceSpecification(ResourceContainer)
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage#getProcessingResourceSpecification_ResourceContainer_ProcessingResourceSpecification()
      * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer#getActiveResourceSpecifications_ResourceContainer
-     * @model opposite="activeResourceSpecifications_ResourceContainer" required="true" transient="false" ordered="false"
+     * @model opposite="activeResourceSpecifications_ResourceContainer" required="true"
+     *        transient="false" ordered="false"
      * @generated
      */
     ResourceContainer getResourceContainer_ProcessingResourceSpecification();

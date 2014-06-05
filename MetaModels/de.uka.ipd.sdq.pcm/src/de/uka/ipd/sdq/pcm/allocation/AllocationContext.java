@@ -17,21 +17,25 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Context</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * Mapping between AssemblyContext and Resource. Sometimes referred to as "Deployment".
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> Mapping between AssemblyContext and Resource. Sometimes referred to as
+ * "Deployment". <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext <em>Resource Container Allocation Context</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext <em>Assembly Context Allocation Context</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext <em>Allocation Allocation Context</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext <em>Event Channel Allocation Context</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
+ * <em>Resource Container Allocation Context</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
+ * <em>Assembly Context Allocation Context</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext <em>
+ * Allocation Allocation Context</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
+ * <em>Event Channel Allocation Context</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext()
  * @model
  * @generated
@@ -39,6 +43,7 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer;
 public interface AllocationContext extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,6 +56,7 @@ public interface AllocationContext extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Resource Container Allocation Context</em>' reference.
      * @see #setResourceContainer_AllocationContext(ResourceContainer)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext_ResourceContainer_AllocationContext()
@@ -60,10 +66,13 @@ public interface AllocationContext extends Entity {
     ResourceContainer getResourceContainer_AllocationContext();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext <em>Resource Container Allocation Context</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getResourceContainer_AllocationContext
+     * <em>Resource Container Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Resource Container Allocation Context</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Resource Container Allocation Context</em>' reference.
      * @see #getResourceContainer_AllocationContext()
      * @generated
      */
@@ -77,6 +86,7 @@ public interface AllocationContext extends Entity {
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Assembly Context Allocation Context</em>' reference.
      * @see #setAssemblyContext_AllocationContext(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext_AssemblyContext_AllocationContext()
@@ -86,10 +96,13 @@ public interface AllocationContext extends Entity {
     AssemblyContext getAssemblyContext_AllocationContext();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext <em>Assembly Context Allocation Context</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAssemblyContext_AllocationContext
+     * <em>Assembly Context Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Assembly Context Allocation Context</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Assembly Context Allocation Context</em>' reference.
      * @see #getAssemblyContext_AllocationContext()
      * @generated
      */
@@ -97,27 +110,33 @@ public interface AllocationContext extends Entity {
 
     /**
      * Returns the value of the '<em><b>Allocation Allocation Context</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation <em>Allocation Contexts Allocation</em>}'.
-     * <!-- begin-user-doc -->
+     * It is bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation
+     * <em>Allocation Contexts Allocation</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Allocation Allocation Context</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Allocation Allocation Context</em>' container reference.
      * @see #setAllocation_AllocationContext(Allocation)
      * @see de.uka.ipd.sdq.pcm.allocation.AllocationPackage#getAllocationContext_Allocation_AllocationContext()
      * @see de.uka.ipd.sdq.pcm.allocation.Allocation#getAllocationContexts_Allocation
-     * @model opposite="allocationContexts_Allocation" required="true" transient="false" ordered="false"
+     * @model opposite="allocationContexts_Allocation" required="true" transient="false"
+     *        ordered="false"
      * @generated
      */
     Allocation getAllocation_AllocationContext();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext <em>Allocation Allocation Context</em>}' container reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getAllocation_AllocationContext
+     * <em>Allocation Allocation Context</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Allocation Allocation Context</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Allocation Allocation Context</em>' container reference.
      * @see #getAllocation_AllocationContext()
      * @generated
      */
@@ -141,10 +160,13 @@ public interface AllocationContext extends Entity {
     EventChannel getEventChannel__AllocationContext();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext <em>Event Channel Allocation Context</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.allocation.AllocationContext#getEventChannel__AllocationContext
+     * <em>Event Channel Allocation Context</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Event Channel Allocation Context</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Event Channel Allocation Context</em>' reference.
      * @see #getEventChannel__AllocationContext()
      * @generated
      */

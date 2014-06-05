@@ -21,36 +21,38 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements ResourceenvironmentFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static ResourceenvironmentFactory init() {
         try {
-            ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory)EPackage.Registry.INSTANCE.getEFactory(ResourceenvironmentPackage.eNS_URI);
+            ResourceenvironmentFactory theResourceenvironmentFactory = (ResourceenvironmentFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(ResourceenvironmentPackage.eNS_URI);
             if (theResourceenvironmentFactory != null) {
                 return theResourceenvironmentFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ResourceenvironmentFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceenvironmentFactoryImpl() {
@@ -59,23 +61,30 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: return (EObject)createResourceEnvironment();
-            case ResourceenvironmentPackage.LINKING_RESOURCE: return (EObject)createLinkingResource();
-            case ResourceenvironmentPackage.RESOURCE_CONTAINER: return (EObject)createResourceContainer();
-            case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: return (EObject)createProcessingResourceSpecification();
-            case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: return (EObject)createCommunicationLinkResourceSpecification();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT:
+            return (EObject) createResourceEnvironment();
+        case ResourceenvironmentPackage.LINKING_RESOURCE:
+            return (EObject) createLinkingResource();
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER:
+            return (EObject) createResourceContainer();
+        case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION:
+            return (EObject) createProcessingResourceSpecification();
+        case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION:
+            return (EObject) createCommunicationLinkResourceSpecification();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceEnvironment createResourceEnvironment() {
@@ -85,6 +94,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public LinkingResource createLinkingResource() {
@@ -94,6 +104,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceContainer createResourceContainer() {
@@ -103,6 +114,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ProcessingResourceSpecification createProcessingResourceSpecification() {
@@ -112,6 +124,7 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CommunicationLinkResourceSpecification createCommunicationLinkResourceSpecification() {
@@ -121,14 +134,16 @@ public class ResourceenvironmentFactoryImpl extends EFactoryImpl implements Reso
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceenvironmentPackage getResourceenvironmentPackage() {
-        return (ResourceenvironmentPackage)getEPackage();
+        return (ResourceenvironmentPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

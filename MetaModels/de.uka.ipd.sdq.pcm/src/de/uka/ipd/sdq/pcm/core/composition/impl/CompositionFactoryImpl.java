@@ -31,36 +31,38 @@ import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class CompositionFactoryImpl extends EFactoryImpl implements CompositionFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static CompositionFactory init() {
         try {
-            CompositionFactory theCompositionFactory = (CompositionFactory)EPackage.Registry.INSTANCE.getEFactory(CompositionPackage.eNS_URI);
+            CompositionFactory theCompositionFactory = (CompositionFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(CompositionPackage.eNS_URI);
             if (theCompositionFactory != null) {
                 return theCompositionFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new CompositionFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CompositionFactoryImpl() {
@@ -69,33 +71,50 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR: return (EObject)createResourceRequiredDelegationConnector();
-            case CompositionPackage.EVENT_CHANNEL: return (EObject)createEventChannel();
-            case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR: return (EObject)createEventChannelSourceConnector();
-            case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR: return (EObject)createEventChannelSinkConnector();
-            case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR: return (EObject)createProvidedDelegationConnector();
-            case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR: return (EObject)createRequiredDelegationConnector();
-            case CompositionPackage.ASSEMBLY_CONNECTOR: return (EObject)createAssemblyConnector();
-            case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR: return (EObject)createAssemblyEventConnector();
-            case CompositionPackage.SOURCE_DELEGATION_CONNECTOR: return (EObject)createSourceDelegationConnector();
-            case CompositionPackage.SINK_DELEGATION_CONNECTOR: return (EObject)createSinkDelegationConnector();
-            case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR: return (EObject)createAssemblyInfrastructureConnector();
-            case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return (EObject)createProvidedInfrastructureDelegationConnector();
-            case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR: return (EObject)createRequiredInfrastructureDelegationConnector();
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR: return (EObject)createRequiredResourceDelegationConnector();
-            case CompositionPackage.ASSEMBLY_CONTEXT: return (EObject)createAssemblyContext();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case CompositionPackage.RESOURCE_REQUIRED_DELEGATION_CONNECTOR:
+            return (EObject) createResourceRequiredDelegationConnector();
+        case CompositionPackage.EVENT_CHANNEL:
+            return (EObject) createEventChannel();
+        case CompositionPackage.EVENT_CHANNEL_SOURCE_CONNECTOR:
+            return (EObject) createEventChannelSourceConnector();
+        case CompositionPackage.EVENT_CHANNEL_SINK_CONNECTOR:
+            return (EObject) createEventChannelSinkConnector();
+        case CompositionPackage.PROVIDED_DELEGATION_CONNECTOR:
+            return (EObject) createProvidedDelegationConnector();
+        case CompositionPackage.REQUIRED_DELEGATION_CONNECTOR:
+            return (EObject) createRequiredDelegationConnector();
+        case CompositionPackage.ASSEMBLY_CONNECTOR:
+            return (EObject) createAssemblyConnector();
+        case CompositionPackage.ASSEMBLY_EVENT_CONNECTOR:
+            return (EObject) createAssemblyEventConnector();
+        case CompositionPackage.SOURCE_DELEGATION_CONNECTOR:
+            return (EObject) createSourceDelegationConnector();
+        case CompositionPackage.SINK_DELEGATION_CONNECTOR:
+            return (EObject) createSinkDelegationConnector();
+        case CompositionPackage.ASSEMBLY_INFRASTRUCTURE_CONNECTOR:
+            return (EObject) createAssemblyInfrastructureConnector();
+        case CompositionPackage.PROVIDED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
+            return (EObject) createProvidedInfrastructureDelegationConnector();
+        case CompositionPackage.REQUIRED_INFRASTRUCTURE_DELEGATION_CONNECTOR:
+            return (EObject) createRequiredInfrastructureDelegationConnector();
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            return (EObject) createRequiredResourceDelegationConnector();
+        case CompositionPackage.ASSEMBLY_CONTEXT:
+            return (EObject) createAssemblyContext();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ProvidedDelegationConnector createProvidedDelegationConnector() {
@@ -105,6 +124,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public AssemblyContext createAssemblyContext() {
@@ -114,6 +134,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public RequiredDelegationConnector createRequiredDelegationConnector() {
@@ -123,6 +144,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public AssemblyConnector createAssemblyConnector() {
@@ -132,6 +154,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceRequiredDelegationConnector createResourceRequiredDelegationConnector() {
@@ -141,6 +164,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EventChannel createEventChannel() {
@@ -150,6 +174,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public AssemblyEventConnector createAssemblyEventConnector() {
@@ -159,6 +184,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SourceDelegationConnector createSourceDelegationConnector() {
@@ -168,6 +194,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SinkDelegationConnector createSinkDelegationConnector() {
@@ -177,6 +204,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public AssemblyInfrastructureConnector createAssemblyInfrastructureConnector() {
@@ -186,6 +214,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public RequiredInfrastructureDelegationConnector createRequiredInfrastructureDelegationConnector() {
@@ -195,6 +224,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ProvidedInfrastructureDelegationConnector createProvidedInfrastructureDelegationConnector() {
@@ -204,6 +234,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public RequiredResourceDelegationConnector createRequiredResourceDelegationConnector() {
@@ -213,6 +244,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EventChannelSinkConnector createEventChannelSinkConnector() {
@@ -222,6 +254,7 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EventChannelSourceConnector createEventChannelSourceConnector() {
@@ -231,14 +264,16 @@ public class CompositionFactoryImpl extends EFactoryImpl implements CompositionF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CompositionPackage getCompositionPackage() {
-        return (CompositionPackage)getEPackage();
+        return (CompositionPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

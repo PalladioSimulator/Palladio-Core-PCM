@@ -22,18 +22,25 @@ import de.uka.ipd.sdq.pcm.core.entity.ResourceRequiredRole;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getAssemblyContext__RequiredResourceDelegationConnector <em>Assembly Context Required Resource Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getInnerRequiredRole__RequiredResourceDelegationConnector <em>Inner Required Role Required Resource Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getOuterRequiredRole__RequiredResourceDelegationConnector <em>Outer Required Role Required Resource Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getAssemblyContext__RequiredResourceDelegationConnector
+ * <em>Assembly Context Required Resource Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getInnerRequiredRole__RequiredResourceDelegationConnector
+ * <em>Inner Required Role Required Resource Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.impl.RequiredResourceDelegationConnectorImpl#getOuterRequiredRole__RequiredResourceDelegationConnector
+ * <em>Outer Required Role Required Resource Delegation Connector</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class RequiredResourceDelegationConnectorImpl extends DelegationConnectorImpl implements
         RequiredResourceDelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -73,6 +80,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected RequiredResourceDelegationConnectorImpl() {
@@ -81,6 +89,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -90,15 +99,22 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public AssemblyContext getAssemblyContext__RequiredResourceDelegationConnector() {
-        if (assemblyContext__RequiredResourceDelegationConnector != null && ((EObject)assemblyContext__RequiredResourceDelegationConnector).eIsProxy()) {
-            InternalEObject oldAssemblyContext__RequiredResourceDelegationConnector = (InternalEObject)assemblyContext__RequiredResourceDelegationConnector;
-            assemblyContext__RequiredResourceDelegationConnector = (AssemblyContext)eResolveProxy(oldAssemblyContext__RequiredResourceDelegationConnector);
+        if (assemblyContext__RequiredResourceDelegationConnector != null
+                && ((EObject) assemblyContext__RequiredResourceDelegationConnector).eIsProxy()) {
+            InternalEObject oldAssemblyContext__RequiredResourceDelegationConnector = (InternalEObject) assemblyContext__RequiredResourceDelegationConnector;
+            assemblyContext__RequiredResourceDelegationConnector = (AssemblyContext) eResolveProxy(oldAssemblyContext__RequiredResourceDelegationConnector);
             if (assemblyContext__RequiredResourceDelegationConnector != oldAssemblyContext__RequiredResourceDelegationConnector) {
                 if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR, oldAssemblyContext__RequiredResourceDelegationConnector, assemblyContext__RequiredResourceDelegationConnector));
+                    eNotify(new ENotificationImpl(
+                            this,
+                            Notification.RESOLVE,
+                            CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                            oldAssemblyContext__RequiredResourceDelegationConnector,
+                            assemblyContext__RequiredResourceDelegationConnector));
             }
         }
         return assemblyContext__RequiredResourceDelegationConnector;
@@ -106,6 +122,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public AssemblyContext basicGetAssemblyContext__RequiredResourceDelegationConnector() {
@@ -114,6 +131,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setAssemblyContext__RequiredResourceDelegationConnector(
@@ -121,20 +139,32 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
         AssemblyContext oldAssemblyContext__RequiredResourceDelegationConnector = assemblyContext__RequiredResourceDelegationConnector;
         assemblyContext__RequiredResourceDelegationConnector = newAssemblyContext__RequiredResourceDelegationConnector;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR, oldAssemblyContext__RequiredResourceDelegationConnector, assemblyContext__RequiredResourceDelegationConnector));
+            eNotify(new ENotificationImpl(
+                    this,
+                    Notification.SET,
+                    CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                    oldAssemblyContext__RequiredResourceDelegationConnector,
+                    assemblyContext__RequiredResourceDelegationConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceRequiredRole getInnerRequiredRole__RequiredResourceDelegationConnector() {
-        if (innerRequiredRole__RequiredResourceDelegationConnector != null && ((EObject)innerRequiredRole__RequiredResourceDelegationConnector).eIsProxy()) {
-            InternalEObject oldInnerRequiredRole__RequiredResourceDelegationConnector = (InternalEObject)innerRequiredRole__RequiredResourceDelegationConnector;
-            innerRequiredRole__RequiredResourceDelegationConnector = (ResourceRequiredRole)eResolveProxy(oldInnerRequiredRole__RequiredResourceDelegationConnector);
+        if (innerRequiredRole__RequiredResourceDelegationConnector != null
+                && ((EObject) innerRequiredRole__RequiredResourceDelegationConnector).eIsProxy()) {
+            InternalEObject oldInnerRequiredRole__RequiredResourceDelegationConnector = (InternalEObject) innerRequiredRole__RequiredResourceDelegationConnector;
+            innerRequiredRole__RequiredResourceDelegationConnector = (ResourceRequiredRole) eResolveProxy(oldInnerRequiredRole__RequiredResourceDelegationConnector);
             if (innerRequiredRole__RequiredResourceDelegationConnector != oldInnerRequiredRole__RequiredResourceDelegationConnector) {
                 if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR, oldInnerRequiredRole__RequiredResourceDelegationConnector, innerRequiredRole__RequiredResourceDelegationConnector));
+                    eNotify(new ENotificationImpl(
+                            this,
+                            Notification.RESOLVE,
+                            CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                            oldInnerRequiredRole__RequiredResourceDelegationConnector,
+                            innerRequiredRole__RequiredResourceDelegationConnector));
             }
         }
         return innerRequiredRole__RequiredResourceDelegationConnector;
@@ -142,6 +172,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetInnerRequiredRole__RequiredResourceDelegationConnector() {
@@ -150,6 +181,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setInnerRequiredRole__RequiredResourceDelegationConnector(
@@ -157,20 +189,32 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
         ResourceRequiredRole oldInnerRequiredRole__RequiredResourceDelegationConnector = innerRequiredRole__RequiredResourceDelegationConnector;
         innerRequiredRole__RequiredResourceDelegationConnector = newInnerRequiredRole__RequiredResourceDelegationConnector;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR, oldInnerRequiredRole__RequiredResourceDelegationConnector, innerRequiredRole__RequiredResourceDelegationConnector));
+            eNotify(new ENotificationImpl(
+                    this,
+                    Notification.SET,
+                    CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                    oldInnerRequiredRole__RequiredResourceDelegationConnector,
+                    innerRequiredRole__RequiredResourceDelegationConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceRequiredRole getOuterRequiredRole__RequiredResourceDelegationConnector() {
-        if (outerRequiredRole__RequiredResourceDelegationConnector != null && ((EObject)outerRequiredRole__RequiredResourceDelegationConnector).eIsProxy()) {
-            InternalEObject oldOuterRequiredRole__RequiredResourceDelegationConnector = (InternalEObject)outerRequiredRole__RequiredResourceDelegationConnector;
-            outerRequiredRole__RequiredResourceDelegationConnector = (ResourceRequiredRole)eResolveProxy(oldOuterRequiredRole__RequiredResourceDelegationConnector);
+        if (outerRequiredRole__RequiredResourceDelegationConnector != null
+                && ((EObject) outerRequiredRole__RequiredResourceDelegationConnector).eIsProxy()) {
+            InternalEObject oldOuterRequiredRole__RequiredResourceDelegationConnector = (InternalEObject) outerRequiredRole__RequiredResourceDelegationConnector;
+            outerRequiredRole__RequiredResourceDelegationConnector = (ResourceRequiredRole) eResolveProxy(oldOuterRequiredRole__RequiredResourceDelegationConnector);
             if (outerRequiredRole__RequiredResourceDelegationConnector != oldOuterRequiredRole__RequiredResourceDelegationConnector) {
                 if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR, oldOuterRequiredRole__RequiredResourceDelegationConnector, outerRequiredRole__RequiredResourceDelegationConnector));
+                    eNotify(new ENotificationImpl(
+                            this,
+                            Notification.RESOLVE,
+                            CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                            oldOuterRequiredRole__RequiredResourceDelegationConnector,
+                            outerRequiredRole__RequiredResourceDelegationConnector));
             }
         }
         return outerRequiredRole__RequiredResourceDelegationConnector;
@@ -178,6 +222,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceRequiredRole basicGetOuterRequiredRole__RequiredResourceDelegationConnector() {
@@ -186,6 +231,7 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setOuterRequiredRole__RequiredResourceDelegationConnector(
@@ -193,82 +239,94 @@ public class RequiredResourceDelegationConnectorImpl extends DelegationConnector
         ResourceRequiredRole oldOuterRequiredRole__RequiredResourceDelegationConnector = outerRequiredRole__RequiredResourceDelegationConnector;
         outerRequiredRole__RequiredResourceDelegationConnector = newOuterRequiredRole__RequiredResourceDelegationConnector;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR, oldOuterRequiredRole__RequiredResourceDelegationConnector, outerRequiredRole__RequiredResourceDelegationConnector));
+            eNotify(new ENotificationImpl(
+                    this,
+                    Notification.SET,
+                    CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR,
+                    oldOuterRequiredRole__RequiredResourceDelegationConnector,
+                    outerRequiredRole__RequiredResourceDelegationConnector));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                if (resolve) return getAssemblyContext__RequiredResourceDelegationConnector();
-                return basicGetAssemblyContext__RequiredResourceDelegationConnector();
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                if (resolve) return getInnerRequiredRole__RequiredResourceDelegationConnector();
-                return basicGetInnerRequiredRole__RequiredResourceDelegationConnector();
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                if (resolve) return getOuterRequiredRole__RequiredResourceDelegationConnector();
-                return basicGetOuterRequiredRole__RequiredResourceDelegationConnector();
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            if (resolve)
+                return getAssemblyContext__RequiredResourceDelegationConnector();
+            return basicGetAssemblyContext__RequiredResourceDelegationConnector();
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            if (resolve)
+                return getInnerRequiredRole__RequiredResourceDelegationConnector();
+            return basicGetInnerRequiredRole__RequiredResourceDelegationConnector();
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            if (resolve)
+                return getOuterRequiredRole__RequiredResourceDelegationConnector();
+            return basicGetOuterRequiredRole__RequiredResourceDelegationConnector();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                setAssemblyContext__RequiredResourceDelegationConnector((AssemblyContext)newValue);
-                return;
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                setInnerRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole)newValue);
-                return;
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                setOuterRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole)newValue);
-                return;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            setAssemblyContext__RequiredResourceDelegationConnector((AssemblyContext) newValue);
+            return;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            setInnerRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole) newValue);
+            return;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            setOuterRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                setAssemblyContext__RequiredResourceDelegationConnector((AssemblyContext)null);
-                return;
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                setInnerRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole)null);
-                return;
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                setOuterRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole)null);
-                return;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            setAssemblyContext__RequiredResourceDelegationConnector((AssemblyContext) null);
+            return;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            setInnerRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole) null);
+            return;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            setOuterRequiredRole__RequiredResourceDelegationConnector((ResourceRequiredRole) null);
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                return assemblyContext__RequiredResourceDelegationConnector != null;
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                return innerRequiredRole__RequiredResourceDelegationConnector != null;
-            case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
-                return outerRequiredRole__RequiredResourceDelegationConnector != null;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__ASSEMBLY_CONTEXT_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            return assemblyContext__RequiredResourceDelegationConnector != null;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__INNER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            return innerRequiredRole__RequiredResourceDelegationConnector != null;
+        case CompositionPackage.REQUIRED_RESOURCE_DELEGATION_CONNECTOR__OUTER_REQUIRED_ROLE_REQUIRED_RESOURCE_DELEGATION_CONNECTOR:
+            return outerRequiredRole__RequiredResourceDelegationConnector != null;
         }
         return super.eIsSet(featureID);
     }

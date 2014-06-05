@@ -15,21 +15,25 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Recovery Action</b></em>'.
  * <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * Recover block actions are a generic failure handling technique. A recovery block consists of a a primary algorithm and one
- * or more alternatives that can be used in case of failure. If the primary algorithm fails, the next alternative is chosen.
- * Here the alternatives also support failure types. Alternatives may specify which kind of failures they can handle.
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> Recover block actions are a generic failure handling technique. A
+ * recovery block consists of a a primary algorithm and one or more alternatives that can be used in
+ * case of failure. If the primary algorithm fails, the next alternative is chosen. Here the
+ * alternatives also support failure types. Alternatives may specify which kind of failures they can
+ * handle. <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction <em>Primary Behaviour Recovery Action</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction <em>Recovery Action Behaviours Recovery Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
+ * <em>Primary Behaviour Recovery Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getRecoveryActionBehaviours__RecoveryAction
+ * <em>Recovery Action Behaviours Recovery Action</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction()
  * @model
  * @generated
@@ -37,6 +41,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction;
 public interface RecoveryAction extends AbstractInternalControlFlowAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -59,29 +64,37 @@ public interface RecoveryAction extends AbstractInternalControlFlowAction {
     RecoveryActionBehaviour getPrimaryBehaviour__RecoveryAction();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction <em>Primary Behaviour Recovery Action</em>}' reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryAction#getPrimaryBehaviour__RecoveryAction
+     * <em>Primary Behaviour Recovery Action</em>}' reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Primary Behaviour Recovery Action</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Primary Behaviour Recovery Action</em>' reference.
      * @see #getPrimaryBehaviour__RecoveryAction()
      * @generated
      */
     void setPrimaryBehaviour__RecoveryAction(RecoveryActionBehaviour value);
 
     /**
-     * Returns the value of the '<em><b>Recovery Action Behaviours Recovery Action</b></em>' containment reference list.
-     * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour}.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour <em>Recovery Action Recovery Action Behaviour</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Recovery Action Behaviours Recovery Action</b></em>'
+     * containment reference list. The list contents are of type
+     * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour}. It is bidirectional
+     * and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
+     * <em>Recovery Action Recovery Action Behaviour</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Recovery Action Behaviours Recovery Action</em>' containment
      * reference list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Recovery Action Behaviours Recovery Action</em>' containment reference list.
+     * 
+     * @return the value of the '<em>Recovery Action Behaviours Recovery Action</em>' containment
+     *         reference list.
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage#getRecoveryAction_RecoveryActionBehaviours__RecoveryAction()
      * @see de.uka.ipd.sdq.pcm.seff.seff_reliability.RecoveryActionBehaviour#getRecoveryAction__RecoveryActionBehaviour
-     * @model opposite="recoveryAction__RecoveryActionBehaviour" containment="true" lower="2" ordered="false"
+     * @model opposite="recoveryAction__RecoveryActionBehaviour" containment="true" lower="2"
+     *        ordered="false"
      * @generated
      */
     EList<RecoveryActionBehaviour> getRecoveryActionBehaviours__RecoveryAction();

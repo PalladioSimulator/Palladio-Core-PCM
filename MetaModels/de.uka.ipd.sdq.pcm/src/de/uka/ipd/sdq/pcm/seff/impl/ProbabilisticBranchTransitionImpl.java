@@ -18,23 +18,26 @@ import de.uka.ipd.sdq.pcm.seff.SeffPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl#getBranchProbability <em>Branch Probability</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.impl.ProbabilisticBranchTransitionImpl#getBranchProbability
+ * <em>Branch Probability</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionImpl implements
         ProbabilisticBranchTransition {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The default value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -42,8 +45,9 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
     protected static final double BRANCH_PROBABILITY_EDEFAULT = 0.0;
 
     /**
-     * The cached value of the '{@link #getBranchProbability() <em>Branch Probability</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached value of the '{@link #getBranchProbability() <em>Branch Probability</em>}'
+     * attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #getBranchProbability()
      * @generated
      * @ordered
@@ -52,6 +56,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ProbabilisticBranchTransitionImpl() {
@@ -60,6 +65,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -69,6 +75,7 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public double getBranchProbability() {
@@ -77,76 +84,85 @@ public class ProbabilisticBranchTransitionImpl extends AbstractBranchTransitionI
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setBranchProbability(double newBranchProbability) {
         double oldBranchProbability = branchProbability;
         branchProbability = newBranchProbability;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY, oldBranchProbability, branchProbability));
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY, oldBranchProbability,
+                    branchProbability));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-                return getBranchProbability();
+        case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
+            return getBranchProbability();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-                setBranchProbability((Double)newValue);
-                return;
+        case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
+            setBranchProbability((Double) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-                setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
-                return;
+        case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
+            setBranchProbability(BRANCH_PROBABILITY_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
-                return branchProbability != BRANCH_PROBABILITY_EDEFAULT;
+        case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION__BRANCH_PROBABILITY:
+            return branchProbability != BRANCH_PROBABILITY_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+        if (eIsProxy())
+            return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (branchProbability: ");

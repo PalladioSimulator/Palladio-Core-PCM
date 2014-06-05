@@ -27,17 +27,24 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.impl.EStereotypableObjec
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getResourceInterfaces__ResourceRepository <em>Resource Interfaces Resource Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getSchedulingPolicies__ResourceRepository <em>Scheduling Policies Resource Repository</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getAvailableResourceTypes_ResourceRepository <em>Available Resource Types Resource Repository</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getResourceInterfaces__ResourceRepository
+ * <em>Resource Interfaces Resource Repository</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getSchedulingPolicies__ResourceRepository
+ * <em>Scheduling Policies Resource Repository</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ResourceRepositoryImpl#getAvailableResourceTypes_ResourceRepository
+ * <em>Available Resource Types Resource Repository</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements ResourceRepository {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -77,6 +84,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ResourceRepositoryImpl() {
@@ -85,6 +93,7 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -94,146 +103,168 @@ public class ResourceRepositoryImpl extends EStereotypableObjectImpl implements 
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EList<ResourceInterface> getResourceInterfaces__ResourceRepository() {
         if (resourceInterfaces__ResourceRepository == null) {
-            resourceInterfaces__ResourceRepository = new EObjectContainmentWithInverseEList<ResourceInterface>(ResourceInterface.class, this, ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY, ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE);
+            resourceInterfaces__ResourceRepository = new EObjectContainmentWithInverseEList<ResourceInterface>(
+                    ResourceInterface.class, this,
+                    ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY,
+                    ResourcetypePackage.RESOURCE_INTERFACE__RESOURCE_REPOSITORY_RESOURCE_INTERFACE);
         }
         return resourceInterfaces__ResourceRepository;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EList<SchedulingPolicy> getSchedulingPolicies__ResourceRepository() {
         if (schedulingPolicies__ResourceRepository == null) {
-            schedulingPolicies__ResourceRepository = new EObjectContainmentWithInverseEList<SchedulingPolicy>(SchedulingPolicy.class, this, ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY, ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
+            schedulingPolicies__ResourceRepository = new EObjectContainmentWithInverseEList<SchedulingPolicy>(
+                    SchedulingPolicy.class, this,
+                    ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY,
+                    ResourcetypePackage.SCHEDULING_POLICY__RESOURCE_REPOSITORY_SCHEDULING_POLICY);
         }
         return schedulingPolicies__ResourceRepository;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EList<ResourceType> getAvailableResourceTypes_ResourceRepository() {
         if (availableResourceTypes_ResourceRepository == null) {
-            availableResourceTypes_ResourceRepository = new EObjectContainmentWithInverseEList<ResourceType>(ResourceType.class, this, ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY, ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE);
+            availableResourceTypes_ResourceRepository = new EObjectContainmentWithInverseEList<ResourceType>(
+                    ResourceType.class, this,
+                    ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY,
+                    ResourcetypePackage.RESOURCE_TYPE__RESOURCE_REPOSITORY_RESOURCE_TYPE);
         }
         return availableResourceTypes_ResourceRepository;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getResourceInterfaces__ResourceRepository()).basicAdd(otherEnd, msgs);
-            case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getSchedulingPolicies__ResourceRepository()).basicAdd(otherEnd, msgs);
-            case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getAvailableResourceTypes_ResourceRepository()).basicAdd(otherEnd, msgs);
+        case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getResourceInterfaces__ResourceRepository())
+                    .basicAdd(otherEnd, msgs);
+        case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getSchedulingPolicies__ResourceRepository())
+                    .basicAdd(otherEnd, msgs);
+        case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getAvailableResourceTypes_ResourceRepository())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-                return ((InternalEList<?>)getResourceInterfaces__ResourceRepository()).basicRemove(otherEnd, msgs);
-            case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-                return ((InternalEList<?>)getSchedulingPolicies__ResourceRepository()).basicRemove(otherEnd, msgs);
-            case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-                return ((InternalEList<?>)getAvailableResourceTypes_ResourceRepository()).basicRemove(otherEnd, msgs);
+        case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
+            return ((InternalEList<?>) getResourceInterfaces__ResourceRepository()).basicRemove(otherEnd, msgs);
+        case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+            return ((InternalEList<?>) getSchedulingPolicies__ResourceRepository()).basicRemove(otherEnd, msgs);
+        case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
+            return ((InternalEList<?>) getAvailableResourceTypes_ResourceRepository()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-                return getResourceInterfaces__ResourceRepository();
-            case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-                return getSchedulingPolicies__ResourceRepository();
-            case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-                return getAvailableResourceTypes_ResourceRepository();
+        case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
+            return getResourceInterfaces__ResourceRepository();
+        case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+            return getSchedulingPolicies__ResourceRepository();
+        case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
+            return getAvailableResourceTypes_ResourceRepository();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-                getResourceInterfaces__ResourceRepository().clear();
-                getResourceInterfaces__ResourceRepository().addAll((Collection<? extends ResourceInterface>)newValue);
-                return;
-            case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-                getSchedulingPolicies__ResourceRepository().clear();
-                getSchedulingPolicies__ResourceRepository().addAll((Collection<? extends SchedulingPolicy>)newValue);
-                return;
-            case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-                getAvailableResourceTypes_ResourceRepository().clear();
-                getAvailableResourceTypes_ResourceRepository().addAll((Collection<? extends ResourceType>)newValue);
-                return;
+        case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
+            getResourceInterfaces__ResourceRepository().clear();
+            getResourceInterfaces__ResourceRepository().addAll((Collection<? extends ResourceInterface>) newValue);
+            return;
+        case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+            getSchedulingPolicies__ResourceRepository().clear();
+            getSchedulingPolicies__ResourceRepository().addAll((Collection<? extends SchedulingPolicy>) newValue);
+            return;
+        case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
+            getAvailableResourceTypes_ResourceRepository().clear();
+            getAvailableResourceTypes_ResourceRepository().addAll((Collection<? extends ResourceType>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-                getResourceInterfaces__ResourceRepository().clear();
-                return;
-            case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-                getSchedulingPolicies__ResourceRepository().clear();
-                return;
-            case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-                getAvailableResourceTypes_ResourceRepository().clear();
-                return;
+        case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
+            getResourceInterfaces__ResourceRepository().clear();
+            return;
+        case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+            getSchedulingPolicies__ResourceRepository().clear();
+            return;
+        case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
+            getAvailableResourceTypes_ResourceRepository().clear();
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
-                return resourceInterfaces__ResourceRepository != null && !resourceInterfaces__ResourceRepository.isEmpty();
-            case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
-                return schedulingPolicies__ResourceRepository != null && !schedulingPolicies__ResourceRepository.isEmpty();
-            case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
-                return availableResourceTypes_ResourceRepository != null && !availableResourceTypes_ResourceRepository.isEmpty();
+        case ResourcetypePackage.RESOURCE_REPOSITORY__RESOURCE_INTERFACES_RESOURCE_REPOSITORY:
+            return resourceInterfaces__ResourceRepository != null && !resourceInterfaces__ResourceRepository.isEmpty();
+        case ResourcetypePackage.RESOURCE_REPOSITORY__SCHEDULING_POLICIES_RESOURCE_REPOSITORY:
+            return schedulingPolicies__ResourceRepository != null && !schedulingPolicies__ResourceRepository.isEmpty();
+        case ResourcetypePackage.RESOURCE_REPOSITORY__AVAILABLE_RESOURCE_TYPES_RESOURCE_REPOSITORY:
+            return availableResourceTypes_ResourceRepository != null
+                    && !availableResourceTypes_ResourceRepository.isEmpty();
         }
         return super.eIsSet(featureID);
     }

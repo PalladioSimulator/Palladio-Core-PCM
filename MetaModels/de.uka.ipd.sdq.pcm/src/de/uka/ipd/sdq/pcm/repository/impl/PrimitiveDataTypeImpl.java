@@ -19,23 +19,24 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl#getType <em>Type</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.impl.PrimitiveDataTypeImpl#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveDataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The default value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc
+     * The default value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -43,9 +44,9 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
     protected static final PrimitiveTypeEnum TYPE_EDEFAULT = PrimitiveTypeEnum.INT;
 
     /**
-     * The cached value of the '{@link #getType() <em>Type</em>}' attribute.
-     * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getType() <em>Type</em>}' attribute. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getType()
      * @generated
      * @ordered
@@ -54,6 +55,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected PrimitiveDataTypeImpl() {
@@ -62,6 +64,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -71,6 +74,7 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public PrimitiveTypeEnum getType() {
@@ -79,76 +83,84 @@ public class PrimitiveDataTypeImpl extends DataTypeImpl implements PrimitiveData
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setType(PrimitiveTypeEnum newType) {
         PrimitiveTypeEnum oldType = type;
         type = newType == null ? TYPE_EDEFAULT : newType;
         if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE, oldType, type));
+            eNotify(new ENotificationImpl(this, Notification.SET, RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE, oldType,
+                    type));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-                return getType();
+        case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
+            return getType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-                setType((PrimitiveTypeEnum)newValue);
-                return;
+        case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
+            setType((PrimitiveTypeEnum) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-                setType(TYPE_EDEFAULT);
-                return;
+        case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
+            setType(TYPE_EDEFAULT);
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
-                return type != TYPE_EDEFAULT;
+        case RepositoryPackage.PRIMITIVE_DATA_TYPE__TYPE:
+            return type != TYPE_EDEFAULT;
         }
         return super.eIsSet(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String toString() {
-        if (eIsProxy()) return super.toString();
+        if (eIsProxy())
+            return super.toString();
 
         StringBuffer result = new StringBuffer(super.toString());
         result.append(" (type: ");

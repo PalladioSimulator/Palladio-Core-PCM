@@ -22,36 +22,38 @@ import de.uka.ipd.sdq.pcm.resourcetype.SchedulingPolicy;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ResourcetypeFactoryImpl extends EFactoryImpl implements ResourcetypeFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static ResourcetypeFactory init() {
         try {
-            ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory)EPackage.Registry.INSTANCE.getEFactory(ResourcetypePackage.eNS_URI);
+            ResourcetypeFactory theResourcetypeFactory = (ResourcetypeFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(ResourcetypePackage.eNS_URI);
             if (theResourcetypeFactory != null) {
                 return theResourcetypeFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ResourcetypeFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourcetypeFactoryImpl() {
@@ -60,24 +62,32 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ResourcetypePackage.RESOURCE_SIGNATURE: return (EObject)createResourceSignature();
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE: return (EObject)createProcessingResourceType();
-            case ResourcetypePackage.RESOURCE_REPOSITORY: return (EObject)createResourceRepository();
-            case ResourcetypePackage.SCHEDULING_POLICY: return (EObject)createSchedulingPolicy();
-            case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE: return (EObject)createCommunicationLinkResourceType();
-            case ResourcetypePackage.RESOURCE_INTERFACE: return (EObject)createResourceInterface();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case ResourcetypePackage.RESOURCE_SIGNATURE:
+            return (EObject) createResourceSignature();
+        case ResourcetypePackage.PROCESSING_RESOURCE_TYPE:
+            return (EObject) createProcessingResourceType();
+        case ResourcetypePackage.RESOURCE_REPOSITORY:
+            return (EObject) createResourceRepository();
+        case ResourcetypePackage.SCHEDULING_POLICY:
+            return (EObject) createSchedulingPolicy();
+        case ResourcetypePackage.COMMUNICATION_LINK_RESOURCE_TYPE:
+            return (EObject) createCommunicationLinkResourceType();
+        case ResourcetypePackage.RESOURCE_INTERFACE:
+            return (EObject) createResourceInterface();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceSignature createResourceSignature() {
@@ -87,6 +97,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceRepository createResourceRepository() {
@@ -96,6 +107,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SchedulingPolicy createSchedulingPolicy() {
@@ -105,6 +117,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CommunicationLinkResourceType createCommunicationLinkResourceType() {
@@ -114,6 +127,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceInterface createResourceInterface() {
@@ -123,6 +137,7 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ProcessingResourceType createProcessingResourceType() {
@@ -132,14 +147,16 @@ public class ResourcetypeFactoryImpl extends EFactoryImpl implements Resourcetyp
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourcetypePackage getResourcetypePackage() {
-        return (ResourcetypePackage)getEPackage();
+        return (ResourcetypePackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

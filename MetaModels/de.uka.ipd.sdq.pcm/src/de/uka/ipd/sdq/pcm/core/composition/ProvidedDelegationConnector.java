@@ -9,21 +9,25 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Provided Delegation Connector</b></em>'. <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * A ProvidedDelegationConnector delegates incoming calls of provided roles to inner provided roles of encapsulated assembly
- * contexts.
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> A ProvidedDelegationConnector delegates incoming calls of provided roles
+ * to inner provided roles of encapsulated assembly contexts. <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector <em>Assembly Context Provided Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
+ * <em>Inner Provided Role Provided Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
+ * <em>Outer Provided Role Provided Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
+ * <em>Assembly Context Provided Delegation Connector</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector()
  * @model
  * @generated
@@ -31,19 +35,22 @@ import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole;
 public interface ProvidedDelegationConnector extends DelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Inner Provided Role Provided Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Inner Provided Role Provided Delegation Connector</b></em>'
+     * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Inner Provided Role Provided Delegation Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Inner Provided Role Provided Delegation Connector</em>' reference.
+     * 
+     * @return the value of the '<em>Inner Provided Role Provided Delegation Connector</em>'
+     *         reference.
      * @see #setInnerProvidedRole_ProvidedDelegationConnector(OperationProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_InnerProvidedRole_ProvidedDelegationConnector()
      * @model required="true" ordered="false"
@@ -52,24 +59,30 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
     OperationProvidedRole getInnerProvidedRole_ProvidedDelegationConnector();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector <em>Inner Provided Role Provided Delegation Connector</em>}' reference.
-     * <!-- begin-user-doc
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getInnerProvidedRole_ProvidedDelegationConnector
+     * <em>Inner Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Inner Provided Role Provided Delegation Connector</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Inner Provided Role Provided Delegation Connector</em>'
+     *            reference.
      * @see #getInnerProvidedRole_ProvidedDelegationConnector()
      * @generated
      */
     void setInnerProvidedRole_ProvidedDelegationConnector(OperationProvidedRole value);
 
     /**
-     * Returns the value of the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Outer Provided Role Provided Delegation Connector</b></em>'
+     * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Outer Provided Role Provided Delegation Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Outer Provided Role Provided Delegation Connector</em>' reference.
+     * 
+     * @return the value of the '<em>Outer Provided Role Provided Delegation Connector</em>'
+     *         reference.
      * @see #setOuterProvidedRole_ProvidedDelegationConnector(OperationProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_OuterProvidedRole_ProvidedDelegationConnector()
      * @model required="true" ordered="false"
@@ -78,23 +91,28 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
     OperationProvidedRole getOuterProvidedRole_ProvidedDelegationConnector();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector <em>Outer Provided Role Provided Delegation Connector</em>}' reference.
-     * <!-- begin-user-doc
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getOuterProvidedRole_ProvidedDelegationConnector
+     * <em>Outer Provided Role Provided Delegation Connector</em>}' reference. <!-- begin-user-doc
      * --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Outer Provided Role Provided Delegation Connector</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Outer Provided Role Provided Delegation Connector</em>'
+     *            reference.
      * @see #getOuterProvidedRole_ProvidedDelegationConnector()
      * @generated
      */
     void setOuterProvidedRole_ProvidedDelegationConnector(OperationProvidedRole value);
 
     /**
-     * Returns the value of the '<em><b>Assembly Context Provided Delegation Connector</b></em>' reference.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Assembly Context Provided Delegation Connector</b></em>'
+     * reference. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Context Provided Delegation Connector</em>' reference
      * isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Assembly Context Provided Delegation Connector</em>' reference.
      * @see #setAssemblyContext_ProvidedDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedDelegationConnector_AssemblyContext_ProvidedDelegationConnector()
@@ -104,10 +122,14 @@ public interface ProvidedDelegationConnector extends DelegationConnector {
     AssemblyContext getAssemblyContext_ProvidedDelegationConnector();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector <em>Assembly Context Provided Delegation Connector</em>}' reference.
-     * <!-- begin-user-doc -->
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedDelegationConnector#getAssemblyContext_ProvidedDelegationConnector
+     * <em>Assembly Context Provided Delegation Connector</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Assembly Context Provided Delegation Connector</em>' reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Assembly Context Provided Delegation Connector</em>'
+     *            reference.
      * @see #getAssemblyContext_ProvidedDelegationConnector()
      * @generated
      */

@@ -10,16 +10,22 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Provided Infrastructure Delegation Connector</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector <em>Assembly Context Provided Infrastructure Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getInnerProvidedRole__ProvidedInfrastructureDelegationConnector
+ * <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getOuterProvidedRole__ProvidedInfrastructureDelegationConnector
+ * <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.core.composition.ProvidedInfrastructureDelegationConnector#getAssemblyContext__ProvidedInfrastructureDelegationConnector
+ * <em>Assembly Context Provided Infrastructure Delegation Connector</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector()
  * @model
  * @generated
@@ -27,12 +33,14 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole;
 public interface ProvidedInfrastructureDelegationConnector extends DelegationConnector {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
+     * Returns the value of the '
+     * <em><b>Inner Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
@@ -40,7 +48,9 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Inner Provided Role Provided Infrastructure Delegation Connector</em>' reference.
+     * 
+     * @return the value of the '
+     *         <em>Inner Provided Role Provided Infrastructure Delegation Connector</em>' reference.
      * @see #setInnerProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_InnerProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -64,7 +74,8 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
     void setInnerProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole value);
 
     /**
-     * Returns the value of the '<em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
+     * Returns the value of the '
+     * <em><b>Outer Provided Role Provided Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '
@@ -72,7 +83,9 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Outer Provided Role Provided Infrastructure Delegation Connector</em>' reference.
+     * 
+     * @return the value of the '
+     *         <em>Outer Provided Role Provided Infrastructure Delegation Connector</em>' reference.
      * @see #setOuterProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_OuterProvidedRole__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"
@@ -96,14 +109,17 @@ public interface ProvidedInfrastructureDelegationConnector extends DelegationCon
     void setOuterProvidedRole__ProvidedInfrastructureDelegationConnector(InfrastructureProvidedRole value);
 
     /**
-     * Returns the value of the '<em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference.
+     * Returns the value of the '
+     * <em><b>Assembly Context Provided Infrastructure Delegation Connector</b></em>' reference.
      * <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Assembly Context Provided Infrastructure Delegation Connector</em>
      * ' reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Assembly Context Provided Infrastructure Delegation Connector</em>' reference.
+     * 
+     * @return the value of the '
+     *         <em>Assembly Context Provided Infrastructure Delegation Connector</em>' reference.
      * @see #setAssemblyContext__ProvidedInfrastructureDelegationConnector(AssemblyContext)
      * @see de.uka.ipd.sdq.pcm.core.composition.CompositionPackage#getProvidedInfrastructureDelegationConnector_AssemblyContext__ProvidedInfrastructureDelegationConnector()
      * @model required="true" ordered="false"

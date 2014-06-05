@@ -16,36 +16,38 @@ import de.uka.ipd.sdq.pcm.system.SystemPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static SystemFactory init() {
         try {
-            SystemFactory theSystemFactory = (SystemFactory)EPackage.Registry.INSTANCE.getEFactory(SystemPackage.eNS_URI);
+            SystemFactory theSystemFactory = (SystemFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(SystemPackage.eNS_URI);
             if (theSystemFactory != null) {
                 return theSystemFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SystemFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SystemFactoryImpl() {
@@ -54,19 +56,22 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SystemPackage.SYSTEM: return (EObject)createSystem();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case SystemPackage.SYSTEM:
+            return (EObject) createSystem();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public de.uka.ipd.sdq.pcm.system.System createSystem() {
@@ -76,14 +81,16 @@ public class SystemFactoryImpl extends EFactoryImpl implements SystemFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SystemPackage getSystemPackage() {
-        return (SystemPackage)getEPackage();
+        return (SystemPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

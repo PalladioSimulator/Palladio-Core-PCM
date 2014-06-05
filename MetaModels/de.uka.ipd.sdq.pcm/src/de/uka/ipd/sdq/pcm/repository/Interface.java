@@ -16,23 +16,38 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Interface</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * This entity models the interface as a set of signatures representing services provided or required by a component. An interface is an abstraction of piece of software (a software entity) which should contain a sufficient amount of information for a caller to understand and finally request the realised functionality from any entity claiming to offer the specified functionality. Note that this implies, that the specification of the interface also has to contain a sufficient amount of information for the implementer to actually implement the interface. Due to the inherent need of an interface to abstract the behaviour of the software entity not in all cases there is sufficient information provided to use or implement an interface in an unambiquious way.
  * 
- * Interfaces can exist on their own, i.e., without any entity requesting or implementing the specified functionality. Two roles can be identified a software entity can take relative to an interface. Any entity can either claim to implement the functionality specified in an interface or to request that functionality. This is reflected in the Palladio Component Model by a set of abstract meta-classes giving a conceptual view on interfaces, entities, and their relationships.
+ * <!-- begin-model-doc --> This entity models the interface as a set of signatures representing
+ * services provided or required by a component. An interface is an abstraction of piece of software
+ * (a software entity) which should contain a sufficient amount of information for a caller to
+ * understand and finally request the realised functionality from any entity claiming to offer the
+ * specified functionality. Note that this implies, that the specification of the interface also has
+ * to contain a sufficient amount of information for the implementer to actually implement the
+ * interface. Due to the inherent need of an interface to abstract the behaviour of the software
+ * entity not in all cases there is sufficient information provided to use or implement an interface
+ * in an unambiquious way.
+ * 
+ * Interfaces can exist on their own, i.e., without any entity requesting or implementing the
+ * specified functionality. Two roles can be identified a software entity can take relative to an
+ * interface. Any entity can either claim to implement the functionality specified in an interface
+ * or to request that functionality. This is reflected in the Palladio Component Model by a set of
+ * abstract meta-classes giving a conceptual view on interfaces, entities, and their relationships.
  * <!-- end-model-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface <em>Parent Interfaces Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols Interface</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required Characterisations</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface <em>Repository Interface</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getParentInterfaces__Interface <em>Parent
+ * Interfaces Interface</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getProtocols__Interface <em>Protocols
+ * Interface</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRequiredCharacterisations <em>Required
+ * Characterisations</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface <em>Repository
+ * Interface</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface()
  * @model abstract="true"
  * @generated
@@ -40,6 +55,7 @@ import de.uka.ipd.sdq.pcm.protocol.Protocol;
 public interface Interface extends Entity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -72,13 +88,15 @@ public interface Interface extends Entity {
     EList<Protocol> getProtocols__Interface();
 
     /**
-     * Returns the value of the '<em><b>Required Characterisations</b></em>' containment reference list.
-     * The list contents are of type {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation <em>Interface Required Characterisation</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * documentation of required variable characterisations
-     * <!-- end-model-doc -->
+     * Returns the value of the '<em><b>Required Characterisations</b></em>' containment reference
+     * list. The list contents are of type
+     * {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation}. It is bidirectional and its
+     * opposite is '
+     * {@link de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
+     * <em>Interface Required Characterisation</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-model-doc --> documentation of required variable characterisations <!--
+     * end-model-doc -->
+     * 
      * @return the value of the '<em>Required Characterisations</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getInterface_RequiredCharacterisations()
      * @see de.uka.ipd.sdq.pcm.repository.RequiredCharacterisation#getInterface_RequiredCharacterisation
@@ -105,10 +123,13 @@ public interface Interface extends Entity {
     Repository getRepository__Interface();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface <em>Repository Interface</em>}' container reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.repository.Interface#getRepository__Interface
+     * <em>Repository Interface</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Repository Interface</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Repository Interface</em>' container reference.
      * @see #getRepository__Interface()
      * @generated
      */

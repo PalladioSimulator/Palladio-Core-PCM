@@ -26,26 +26,28 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage;
  * each class of the model, starting with the actual class of the object and proceeding up the
  * inheritance hierarchy until a non-null result is returned, which is the result of the switch.
  * <!-- end-user-doc -->
+ * 
  * @see de.uka.ipd.sdq.pcm.resourceenvironment.ResourceenvironmentPackage
  * @generated
  */
 public class ResourceenvironmentSwitch<T> {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached model package
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected static ResourceenvironmentPackage modelPackage;
 
     /**
-     * Creates an instance of the switch.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceenvironmentSwitch() {
@@ -55,8 +57,9 @@ public class ResourceenvironmentSwitch<T> {
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
+     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
@@ -65,81 +68,97 @@ public class ResourceenvironmentSwitch<T> {
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
+     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
     protected T doSwitch(EClass theEClass, EObject theEObject) {
         if (theEClass.eContainer() == modelPackage) {
             return doSwitch(theEClass.getClassifierID(), theEObject);
-        }
-        else {
+        } else {
             List<EClass> eSuperTypes = theEClass.getESuperTypes();
-            return
-                eSuperTypes.isEmpty() ?
-                    defaultCase(theEObject) :
-                    doSwitch(eSuperTypes.get(0), theEObject);
+            return eSuperTypes.isEmpty() ? defaultCase(theEObject) : doSwitch(eSuperTypes.get(0), theEObject);
         }
     }
 
     /**
-     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result; it yields that result.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Calls <code>caseXXX</code> for each class of the model until one returns a non null result;
+     * it yields that result. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @return the first non-null result returned by a <code>caseXXX</code> call.
      * @generated
      */
     protected T doSwitch(int classifierID, EObject theEObject) {
         switch (classifierID) {
-            case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: {
-                ResourceEnvironment resourceEnvironment = (ResourceEnvironment)theEObject;
-                T result = caseResourceEnvironment(resourceEnvironment);
-                if (result == null) result = caseNamedElement(resourceEnvironment);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ResourceenvironmentPackage.LINKING_RESOURCE: {
-                LinkingResource linkingResource = (LinkingResource)theEObject;
-                T result = caseLinkingResource(linkingResource);
-                if (result == null) result = caseEntity(linkingResource);
-                if (result == null) result = caseIdentifier(linkingResource);
-                if (result == null) result = caseNamedElement(linkingResource);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ResourceenvironmentPackage.RESOURCE_CONTAINER: {
-                ResourceContainer resourceContainer = (ResourceContainer)theEObject;
-                T result = caseResourceContainer(resourceContainer);
-                if (result == null) result = caseEntity(resourceContainer);
-                if (result == null) result = caseIdentifier(resourceContainer);
-                if (result == null) result = caseNamedElement(resourceContainer);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: {
-                ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification)theEObject;
-                T result = caseProcessingResourceSpecification(processingResourceSpecification);
-                if (result == null) result = caseIdentifier(processingResourceSpecification);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: {
-                CommunicationLinkResourceSpecification communicationLinkResourceSpecification = (CommunicationLinkResourceSpecification)theEObject;
-                T result = caseCommunicationLinkResourceSpecification(communicationLinkResourceSpecification);
-                if (result == null) result = caseIdentifier(communicationLinkResourceSpecification);
-                if (result == null) result = defaultCase(theEObject);
-                return result;
-            }
-            default: return defaultCase(theEObject);
+        case ResourceenvironmentPackage.RESOURCE_ENVIRONMENT: {
+            ResourceEnvironment resourceEnvironment = (ResourceEnvironment) theEObject;
+            T result = caseResourceEnvironment(resourceEnvironment);
+            if (result == null)
+                result = caseNamedElement(resourceEnvironment);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ResourceenvironmentPackage.LINKING_RESOURCE: {
+            LinkingResource linkingResource = (LinkingResource) theEObject;
+            T result = caseLinkingResource(linkingResource);
+            if (result == null)
+                result = caseEntity(linkingResource);
+            if (result == null)
+                result = caseIdentifier(linkingResource);
+            if (result == null)
+                result = caseNamedElement(linkingResource);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ResourceenvironmentPackage.RESOURCE_CONTAINER: {
+            ResourceContainer resourceContainer = (ResourceContainer) theEObject;
+            T result = caseResourceContainer(resourceContainer);
+            if (result == null)
+                result = caseEntity(resourceContainer);
+            if (result == null)
+                result = caseIdentifier(resourceContainer);
+            if (result == null)
+                result = caseNamedElement(resourceContainer);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ResourceenvironmentPackage.PROCESSING_RESOURCE_SPECIFICATION: {
+            ProcessingResourceSpecification processingResourceSpecification = (ProcessingResourceSpecification) theEObject;
+            T result = caseProcessingResourceSpecification(processingResourceSpecification);
+            if (result == null)
+                result = caseIdentifier(processingResourceSpecification);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        case ResourceenvironmentPackage.COMMUNICATION_LINK_RESOURCE_SPECIFICATION: {
+            CommunicationLinkResourceSpecification communicationLinkResourceSpecification = (CommunicationLinkResourceSpecification) theEObject;
+            T result = caseCommunicationLinkResourceSpecification(communicationLinkResourceSpecification);
+            if (result == null)
+                result = caseIdentifier(communicationLinkResourceSpecification);
+            if (result == null)
+                result = defaultCase(theEObject);
+            return result;
+        }
+        default:
+            return defaultCase(theEObject);
         }
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Environment</em>'.
-     * <!-- begin-user-doc --> This implementation returns null;
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Resource Environment</em>'. <!-- begin-user-doc --> This implementation returns null;
      * returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Environment</em>'.
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Resource Environment</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -151,7 +170,9 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Linking Resource</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * 
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Linking Resource</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
@@ -161,11 +182,14 @@ public class ResourceenvironmentSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Resource Container</em>'.
-     * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
+     * Returns the result of interpreting the object as an instance of '<em>Resource Container</em>
+     * '. <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Resource Container</em>'.
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '<em>Resource Container</em>
+     *         '.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -174,11 +198,14 @@ public class ResourceenvironmentSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Processing Resource Specification</em>'.
-     * <!-- begin-user-doc --> This implementation
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Processing Resource Specification</em>'. <!-- begin-user-doc --> This implementation
      * returns null; returning a non-null result will terminate the switch. <!-- end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Processing Resource Specification</em>'.
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Processing Resource Specification</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -187,12 +214,15 @@ public class ResourceenvironmentSwitch<T> {
     }
 
     /**
-     * Returns the result of interpreting the object as an instance of '<em>Communication Link Resource Specification</em>'.
-     * <!-- begin-user-doc --> This
+     * Returns the result of interpreting the object as an instance of '
+     * <em>Communication Link Resource Specification</em>'. <!-- begin-user-doc --> This
      * implementation returns null; returning a non-null result will terminate the switch. <!--
      * end-user-doc -->
-     * @param object the target of the switch.
-     * @return the result of interpreting the object as an instance of '<em>Communication Link Resource Specification</em>'.
+     * 
+     * @param object
+     *            the target of the switch.
+     * @return the result of interpreting the object as an instance of '
+     *         <em>Communication Link Resource Specification</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated
      */
@@ -204,7 +234,9 @@ public class ResourceenvironmentSwitch<T> {
      * Returns the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * <!-- begin-user-doc --> This implementation returns null; returning a non-null result will
      * terminate the switch. <!-- end-user-doc -->
-     * @param object the target of the switch.
+     * 
+     * @param object
+     *            the target of the switch.
      * @return the result of interpreting the object as an instance of '<em>Named Element</em>'.
      * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
      * @generated

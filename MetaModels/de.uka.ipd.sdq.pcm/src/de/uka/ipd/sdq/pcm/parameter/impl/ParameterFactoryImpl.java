@@ -21,36 +21,38 @@ import de.uka.ipd.sdq.pcm.parameter.VariableUsage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static ParameterFactory init() {
         try {
-            ParameterFactory theParameterFactory = (ParameterFactory)EPackage.Registry.INSTANCE.getEFactory(ParameterPackage.eNS_URI);
+            ParameterFactory theParameterFactory = (ParameterFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(ParameterPackage.eNS_URI);
             if (theParameterFactory != null) {
                 return theParameterFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ParameterFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ParameterFactoryImpl() {
@@ -59,49 +61,56 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ParameterPackage.VARIABLE_USAGE: return (EObject)createVariableUsage();
-            case ParameterPackage.VARIABLE_CHARACTERISATION: return (EObject)createVariableCharacterisation();
-            case ParameterPackage.CHARACTERISED_VARIABLE: return (EObject)createCharacterisedVariable();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case ParameterPackage.VARIABLE_USAGE:
+            return (EObject) createVariableUsage();
+        case ParameterPackage.VARIABLE_CHARACTERISATION:
+            return (EObject) createVariableCharacterisation();
+        case ParameterPackage.CHARACTERISED_VARIABLE:
+            return (EObject) createCharacterisedVariable();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object createFromString(EDataType eDataType, String initialValue) {
         switch (eDataType.getClassifierID()) {
-            case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
-                return createVariableCharacterisationTypeFromString(eDataType, initialValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
+            return createVariableCharacterisationTypeFromString(eDataType, initialValue);
+        default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public String convertToString(EDataType eDataType, Object instanceValue) {
         switch (eDataType.getClassifierID()) {
-            case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
-                return convertVariableCharacterisationTypeToString(eDataType, instanceValue);
-            default:
-                throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
+        case ParameterPackage.VARIABLE_CHARACTERISATION_TYPE:
+            return convertVariableCharacterisationTypeToString(eDataType, instanceValue);
+        default:
+            throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public VariableCharacterisation createVariableCharacterisation() {
@@ -111,6 +120,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CharacterisedVariable createCharacterisedVariable() {
@@ -120,6 +130,7 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public VariableUsage createVariableUsage() {
@@ -129,17 +140,21 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public VariableCharacterisationType createVariableCharacterisationTypeFromString(EDataType eDataType,
             String initialValue) {
         VariableCharacterisationType result = VariableCharacterisationType.get(initialValue);
-        if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+        if (result == null)
+            throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '"
+                    + eDataType.getName() + "'");
         return result;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public String convertVariableCharacterisationTypeToString(EDataType eDataType, Object instanceValue) {
@@ -148,14 +163,16 @@ public class ParameterFactoryImpl extends EFactoryImpl implements ParameterFacto
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ParameterPackage getParameterPackage() {
-        return (ParameterPackage)getEPackage();
+        return (ParameterPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

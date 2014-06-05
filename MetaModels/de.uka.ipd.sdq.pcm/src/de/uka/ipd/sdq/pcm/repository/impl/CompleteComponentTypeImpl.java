@@ -31,23 +31,27 @@ import de.uka.ipd.sdq.pcm.repository.util.RepositoryValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl#getParentProvidesComponentTypes <em>Parent Provides Component Types</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.repository.impl.CompleteComponentTypeImpl#getParentProvidesComponentTypes
+ * <em>Parent Provides Component Types</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class CompleteComponentTypeImpl extends RepositoryComponentImpl implements CompleteComponentType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getParentProvidesComponentTypes() <em>Parent Provides Component Types</em>}' reference list.
-     * <!-- begin-user-doc --> <!--
+     * The cached value of the '{@link #getParentProvidesComponentTypes()
+     * <em>Parent Provides Component Types</em>}' reference list. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @see #getParentProvidesComponentTypes()
      * @generated
      * @ordered
@@ -56,6 +60,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected CompleteComponentTypeImpl() {
@@ -64,6 +69,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -73,28 +79,52 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EList<ProvidesComponentType> getParentProvidesComponentTypes() {
         if (parentProvidesComponentTypes == null) {
-            parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(ProvidesComponentType.class, this, RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
+            parentProvidesComponentTypes = new EObjectResolvingEList<ProvidesComponentType>(
+                    ProvidesComponentType.class, this,
+                    RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES);
         }
         return parentProvidesComponentTypes;
     }
 
     /**
-     * The cached OCL expression body for the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL expression body for the '
+     * {@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}
+     * ' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
      * @generated
      * @ordered
      */
-    protected static final String AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(\n"+"	self.oclIsTypeOf(CompleteComponentType)\n"+"	or\n"+"	self.oclIsTypeOf(ImplementationComponentType)\n"+"	or\n"+"	self.oclIsTypeOf(CompositeComponent)\n"+"	or\n"+"	self.oclIsTypeOf(BasicComponent)\n"+")\n"+"implies\n"+"(\n"+"	self.providedRoles_InterfaceProvidingEntity->size() >= 1\n"+"	or\n"+"	self.requiredRoles_InterfaceRequiringEntity->size() >= 1\n"+")";
+    protected static final String AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "(\n"
+            + "	self.oclIsTypeOf(CompleteComponentType)\n"
+            + "	or\n"
+            + "	self.oclIsTypeOf(ImplementationComponentType)\n"
+            + "	or\n"
+            + "	self.oclIsTypeOf(CompositeComponent)\n"
+            + "	or\n"
+            + "	self.oclIsTypeOf(BasicComponent)\n"
+            + ")\n"
+            + "implies\n"
+            + "(\n"
+            + "	self.providedRoles_InterfaceProvidingEntity->size() >= 1\n"
+            + "	or\n"
+            + "	self.requiredRoles_InterfaceRequiringEntity->size() >= 1\n" + ")";
 
     /**
-     * The cached OCL invariant for the '{@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}' invariant operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the '
+     * {@link #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>At Least One Interface Has To Be Provided Or Required By AUsefull Complete Component Type</em>}
+     * ' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
      * @generated
      * @ordered
      */
@@ -102,6 +132,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType(
@@ -110,21 +141,25 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
             OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
             try {
-                AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+        if (!EOCL_ENV
+                .createQuery(
+                        AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         RepositoryValidator.DIAGNOSTIC_SOURCE,
-                         RepositoryValidator.COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.COMPLETE_COMPONENT_TYPE__AT_LEAST_ONE_INTERFACE_HAS_TO_BE_PROVIDED_OR_REQUIRED_BY_AUSEFULL_COMPLETE_COMPONENT_TYPE,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "AtLeastOneInterfaceHasToBeProvidedOrRequiredByAUsefullCompleteComponentType",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -142,7 +177,31 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
      * @generated
      * @ordered
      */
-    protected static final String PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- CompleteTypes provided Interfaces have to be a superset\n"+"-- of ProvidesComponentType provided Interfaces #\n"+"--\n"+"-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n"+"--\n"+"-- Recursive Query for parent Interface IDs\n"+"-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n"+"--let parentInterfaces : Bag(Interface) =\n"+"--	self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\n"+"--		acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"+"--	) in\n"+"--let anchestorInterfaces : Bag(Interface) =\n"+"--	self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\n"+"--		acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"+"--	)->union( -- union with anchestors found in former recursion #\n"+"--		self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\n"+"--			acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n"+"--		)\n"+"--	) in\n"+"--	-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\n"+"--	anchestorInterfaces.identifier.id->includesAll(\n"+"--		self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\n"+"--			pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |\n"+"--				acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #\n"+"--			)\n"+"--		)\n"+"--	)\n"+"true";
+    protected static final String PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "-- CompleteTypes provided Interfaces have to be a superset\n"
+            + "-- of ProvidesComponentType provided Interfaces #\n"
+            + "--\n"
+            + "-- ACCx are used to accumulate Sets/Bags; usually only the very inner ACCx is used at all.\n"
+            + "--\n"
+            + "-- Recursive Query for parent Interface IDs\n"
+            + "-- see 'lpar2005.pdf' (Second-order principles in specification languages for Object-Oriented Programs; Beckert, Tretelman) pp. 11 #\n"
+            + "--let parentInterfaces : Bag(Interface) =\n"
+            + "--	self.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(Interface) = Bag{} |\n"
+            + "--		acc2->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"
+            + "--	) in\n"
+            + "--let anchestorInterfaces : Bag(Interface) =\n"
+            + "--	self.providedRoles->iterate(r : ProvidedRole; acc4 : Bag(Interface) = Bag{} |\n"
+            + "--		acc4->union(r.providedInterface.parentInterface->asBag()) -- asBag required to allow Set operations #\n"
+            + "--	)->union( -- union with anchestors found in former recursion #\n"
+            + "--		self.providedRoles->iterate(r : ProvidedRole; acc6 : Bag(Interface) = Bag{} |\n"
+            + "--			acc6->union(r.providedInterface.parentInterface.anchestorInterfaces) --already Set/Bag\n"
+            + "--		)\n"
+            + "--	) in\n"
+            + "--	-- Directly provided anchestorInterfaces need to be a superset of provided interfaces of Supertype #\n"
+            + "--	anchestorInterfaces.identifier.id->includesAll(\n"
+            + "--		self.parentProvidesComponentTypes->iterate(pt : ProvidesComponentType; acc1 : Bag(String) = Bag{} |\n"
+            + "--			pt.providedRoles->iterate(r : ProvidedRole; acc2 : Bag(String) = Bag{} |\n"
+            + "--				acc2->union(r.providedInterface.identifier.id->asBag()) -- asBag required to allow Set operations #\n"
+            + "--			)\n" + "--		)\n" + "--	)\n" + "true";
 
     /**
      * The cached OCL invariant for the '
@@ -159,6 +218,7 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean providedInterfacesHaveToConformToProvidedType2(DiagnosticChain diagnostics,
@@ -167,21 +227,25 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
             OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(RepositoryPackage.Literals.COMPLETE_COMPONENT_TYPE);
             try {
-                PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+        if (!EOCL_ENV
+                .createQuery(PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         RepositoryValidator.DIAGNOSTIC_SOURCE,
-                         RepositoryValidator.COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "providedInterfacesHaveToConformToProvidedType2", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                RepositoryValidator.DIAGNOSTIC_SOURCE,
+                                RepositoryValidator.COMPLETE_COMPONENT_TYPE__PROVIDED_INTERFACES_HAVE_TO_CONFORM_TO_PROVIDED_TYPE2,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "providedInterfacesHaveToConformToProvidedType2",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                                new Object[] { this }));
             }
             return false;
         }
@@ -190,64 +254,68 @@ public class CompleteComponentTypeImpl extends RepositoryComponentImpl implement
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-                return getParentProvidesComponentTypes();
+        case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+            return getParentProvidesComponentTypes();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-                getParentProvidesComponentTypes().clear();
-                getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>)newValue);
-                return;
+        case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+            getParentProvidesComponentTypes().clear();
+            getParentProvidesComponentTypes().addAll((Collection<? extends ProvidesComponentType>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-                getParentProvidesComponentTypes().clear();
-                return;
+        case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+            getParentProvidesComponentTypes().clear();
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
-                return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
+        case RepositoryPackage.COMPLETE_COMPONENT_TYPE__PARENT_PROVIDES_COMPONENT_TYPES:
+            return parentProvidesComponentTypes != null && !parentProvidesComponentTypes.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
     /**
-     * The cached environment for evaluating OCL expressions.
-     * <!-- begin-user-doc --> <!--
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @generated
      * @ordered
      */

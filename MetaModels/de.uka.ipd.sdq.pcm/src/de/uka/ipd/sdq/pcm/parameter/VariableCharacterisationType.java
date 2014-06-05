@@ -24,8 +24,8 @@ import org.eclipse.emf.common.util.Enumerator;
  */
 public enum VariableCharacterisationType implements Enumerator {
     /**
-     * The '<em><b>STRUCTURE</b></em>' literal object.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The '<em><b>STRUCTURE</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #STRUCTURE_VALUE
      * @generated
      * @ordered
@@ -33,9 +33,9 @@ public enum VariableCharacterisationType implements Enumerator {
     STRUCTURE(0, "STRUCTURE", "STRUCTURE"),
 
     /**
-     * The '<em><b>NUMBER OF ELEMENTS</b></em>' literal object.
-     * <!-- begin-user-doc --> <!--
+     * The '<em><b>NUMBER OF ELEMENTS</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @see #NUMBER_OF_ELEMENTS_VALUE
      * @generated
      * @ordered
@@ -43,8 +43,8 @@ public enum VariableCharacterisationType implements Enumerator {
     NUMBER_OF_ELEMENTS(1, "NUMBER_OF_ELEMENTS", "NUMBER_OF_ELEMENTS"),
 
     /**
-     * The '<em><b>VALUE</b></em>' literal object.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The '<em><b>VALUE</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #VALUE_VALUE
      * @generated
      * @ordered
@@ -52,8 +52,8 @@ public enum VariableCharacterisationType implements Enumerator {
     VALUE(2, "VALUE", "VALUE"),
 
     /**
-     * The '<em><b>BYTESIZE</b></em>' literal object.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The '<em><b>BYTESIZE</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #BYTESIZE_VALUE
      * @generated
      * @ordered
@@ -61,8 +61,8 @@ public enum VariableCharacterisationType implements Enumerator {
     BYTESIZE(3, "BYTESIZE", "BYTESIZE"),
 
     /**
-     * The '<em><b>TYPE</b></em>' literal object.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The '<em><b>TYPE</b></em>' literal object. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #TYPE_VALUE
      * @generated
      * @ordered
@@ -71,16 +71,19 @@ public enum VariableCharacterisationType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The '<em><b>STRUCTURE</b></em>' literal value.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The structure characterisation type is used to describe the structure of the data. With structure we refer to performance relevant properties of data like for example whether an array is sorted, a tree is balanced, a collection is indexed, and so on.... The allowed set of value of the structure characterisation has to be specified by the component developer for a particular component.
-     * <!-- end-model-doc -->
+     * The '<em><b>STRUCTURE</b></em>' literal value. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-model-doc --> The structure characterisation type is used to describe the
+     * structure of the data. With structure we refer to performance relevant properties of data
+     * like for example whether an array is sorted, a tree is balanced, a collection is indexed, and
+     * so on.... The allowed set of value of the structure characterisation has to be specified by
+     * the component developer for a particular component. <!-- end-model-doc -->
+     * 
      * @see #STRUCTURE
      * @model
      * @generated
@@ -116,11 +119,10 @@ public enum VariableCharacterisationType implements Enumerator {
     public static final int VALUE_VALUE = 2;
 
     /**
-     * The '<em><b>BYTESIZE</b></em>' literal value.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * <!-- begin-model-doc -->
-     * The bytesize characterisation specifies the memory footprint of a data object.
-     * <!-- end-model-doc -->
+     * The '<em><b>BYTESIZE</b></em>' literal value. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * <!-- begin-model-doc --> The bytesize characterisation specifies the memory footprint of a
+     * data object. <!-- end-model-doc -->
+     * 
      * @see #BYTESIZE
      * @model
      * @generated
@@ -149,24 +151,22 @@ public enum VariableCharacterisationType implements Enumerator {
      * 
      * @generated
      */
-    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[] {
-            STRUCTURE,
-            NUMBER_OF_ELEMENTS,
-            VALUE,
-            BYTESIZE,
-            TYPE,
-        };
+    private static final VariableCharacterisationType[] VALUES_ARRAY = new VariableCharacterisationType[] { STRUCTURE,
+            NUMBER_OF_ELEMENTS, VALUE, BYTESIZE, TYPE, };
 
     /**
-     * A public read-only list of all the '<em><b>Variable Characterisation Type</b></em>' enumerators.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * A public read-only list of all the '<em><b>Variable Characterisation Type</b></em>'
+     * enumerators. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-    public static final List<VariableCharacterisationType> VALUES = Collections.unmodifiableList(Arrays.asList(VALUES_ARRAY));
+    public static final List<VariableCharacterisationType> VALUES = Collections.unmodifiableList(Arrays
+            .asList(VALUES_ARRAY));
 
     /**
-     * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified literal value.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified
+     * literal value. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static VariableCharacterisationType get(String literal) {
@@ -182,6 +182,7 @@ public enum VariableCharacterisationType implements Enumerator {
     /**
      * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified name.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static VariableCharacterisationType getByName(String name) {
@@ -195,42 +196,51 @@ public enum VariableCharacterisationType implements Enumerator {
     }
 
     /**
-     * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified integer value.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the '<em><b>Variable Characterisation Type</b></em>' literal with the specified
+     * integer value. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static VariableCharacterisationType get(int value) {
         switch (value) {
-            case STRUCTURE_VALUE: return STRUCTURE;
-            case NUMBER_OF_ELEMENTS_VALUE: return NUMBER_OF_ELEMENTS;
-            case VALUE_VALUE: return VALUE;
-            case BYTESIZE_VALUE: return BYTESIZE;
-            case TYPE_VALUE: return TYPE;
+        case STRUCTURE_VALUE:
+            return STRUCTURE;
+        case NUMBER_OF_ELEMENTS_VALUE:
+            return NUMBER_OF_ELEMENTS;
+        case VALUE_VALUE:
+            return VALUE;
+        case BYTESIZE_VALUE:
+            return BYTESIZE;
+        case TYPE_VALUE:
+            return TYPE;
         }
         return null;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private final int value;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private final String name;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private final String literal;
 
     /**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private VariableCharacterisationType(int value, String name, String literal) {
@@ -241,26 +251,29 @@ public enum VariableCharacterisationType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public int getValue() {
-      return value;
+        return value;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public String getName() {
-      return name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public String getLiteral() {
-      return literal;
+        return literal;
     }
 
     /**

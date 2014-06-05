@@ -26,18 +26,20 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
  * end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class StopImpl extends AbstractUserActionImpl implements Stop {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected StopImpl() {
@@ -46,6 +48,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -54,17 +57,21 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
     }
 
     /**
-     * The cached OCL expression body for the '{@link #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Stop Has No Successor</em>}' operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Stop Has No Successor</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
      */
     protected static final String STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.successor.oclIsUndefined()";
     /**
-     * The cached OCL invariant for the '{@link #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Stop Has No Successor</em>}' invariant operation.
-     * <!-- begin-user-doc --> <!--
+     * The cached OCL invariant for the '
+     * {@link #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Stop Has No Successor</em>}' invariant operation. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @see #StopHasNoSuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -73,6 +80,7 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean StopHasNoSuccessor(DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -80,21 +88,18 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
             OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.STOP);
             try {
-                STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(STOP_HAS_NO_SUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         UsagemodelValidator.DIAGNOSTIC_SOURCE,
-                         UsagemodelValidator.STOP__STOP_HAS_NO_SUCCESSOR,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "StopHasNoSuccessor", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        UsagemodelValidator.STOP__STOP_HAS_NO_SUCCESSOR, EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic", new Object[] { "StopHasNoSuccessor",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -102,9 +107,9 @@ public class StopImpl extends AbstractUserActionImpl implements Stop {
     }
 
     /**
-     * The cached environment for evaluating OCL expressions.
-     * <!-- begin-user-doc --> <!--
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @generated
      * @ordered
      */

@@ -37,36 +37,37 @@ import de.uka.ipd.sdq.pcm.seff.SynchronisationPoint;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static SeffFactory init() {
         try {
-            SeffFactory theSeffFactory = (SeffFactory)EPackage.Registry.INSTANCE.getEFactory(SeffPackage.eNS_URI);
+            SeffFactory theSeffFactory = (SeffFactory) EPackage.Registry.INSTANCE.getEFactory(SeffPackage.eNS_URI);
             if (theSeffFactory != null) {
                 return theSeffFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SeffFactoryImpl() {
@@ -75,39 +76,62 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SeffPackage.STOP_ACTION: return (EObject)createStopAction();
-            case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR: return (EObject)createResourceDemandingBehaviour();
-            case SeffPackage.BRANCH_ACTION: return (EObject)createBranchAction();
-            case SeffPackage.START_ACTION: return (EObject)createStartAction();
-            case SeffPackage.RESOURCE_DEMANDING_SEFF: return (EObject)createResourceDemandingSEFF();
-            case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR: return (EObject)createResourceDemandingInternalBehaviour();
-            case SeffPackage.RELEASE_ACTION: return (EObject)createReleaseAction();
-            case SeffPackage.LOOP_ACTION: return (EObject)createLoopAction();
-            case SeffPackage.FORK_ACTION: return (EObject)createForkAction();
-            case SeffPackage.FORKED_BEHAVIOUR: return (EObject)createForkedBehaviour();
-            case SeffPackage.SYNCHRONISATION_POINT: return (EObject)createSynchronisationPoint();
-            case SeffPackage.EXTERNAL_CALL_ACTION: return (EObject)createExternalCallAction();
-            case SeffPackage.CALL_RETURN_ACTION: return (EObject)createCallReturnAction();
-            case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION: return (EObject)createProbabilisticBranchTransition();
-            case SeffPackage.ACQUIRE_ACTION: return (EObject)createAcquireAction();
-            case SeffPackage.COLLECTION_ITERATOR_ACTION: return (EObject)createCollectionIteratorAction();
-            case SeffPackage.GUARDED_BRANCH_TRANSITION: return (EObject)createGuardedBranchTransition();
-            case SeffPackage.SET_VARIABLE_ACTION: return (EObject)createSetVariableAction();
-            case SeffPackage.INTERNAL_CALL_ACTION: return (EObject)createInternalCallAction();
-            case SeffPackage.EMIT_EVENT_ACTION: return (EObject)createEmitEventAction();
-            case SeffPackage.INTERNAL_ACTION: return (EObject)createInternalAction();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case SeffPackage.STOP_ACTION:
+            return (EObject) createStopAction();
+        case SeffPackage.RESOURCE_DEMANDING_BEHAVIOUR:
+            return (EObject) createResourceDemandingBehaviour();
+        case SeffPackage.BRANCH_ACTION:
+            return (EObject) createBranchAction();
+        case SeffPackage.START_ACTION:
+            return (EObject) createStartAction();
+        case SeffPackage.RESOURCE_DEMANDING_SEFF:
+            return (EObject) createResourceDemandingSEFF();
+        case SeffPackage.RESOURCE_DEMANDING_INTERNAL_BEHAVIOUR:
+            return (EObject) createResourceDemandingInternalBehaviour();
+        case SeffPackage.RELEASE_ACTION:
+            return (EObject) createReleaseAction();
+        case SeffPackage.LOOP_ACTION:
+            return (EObject) createLoopAction();
+        case SeffPackage.FORK_ACTION:
+            return (EObject) createForkAction();
+        case SeffPackage.FORKED_BEHAVIOUR:
+            return (EObject) createForkedBehaviour();
+        case SeffPackage.SYNCHRONISATION_POINT:
+            return (EObject) createSynchronisationPoint();
+        case SeffPackage.EXTERNAL_CALL_ACTION:
+            return (EObject) createExternalCallAction();
+        case SeffPackage.CALL_RETURN_ACTION:
+            return (EObject) createCallReturnAction();
+        case SeffPackage.PROBABILISTIC_BRANCH_TRANSITION:
+            return (EObject) createProbabilisticBranchTransition();
+        case SeffPackage.ACQUIRE_ACTION:
+            return (EObject) createAcquireAction();
+        case SeffPackage.COLLECTION_ITERATOR_ACTION:
+            return (EObject) createCollectionIteratorAction();
+        case SeffPackage.GUARDED_BRANCH_TRANSITION:
+            return (EObject) createGuardedBranchTransition();
+        case SeffPackage.SET_VARIABLE_ACTION:
+            return (EObject) createSetVariableAction();
+        case SeffPackage.INTERNAL_CALL_ACTION:
+            return (EObject) createInternalCallAction();
+        case SeffPackage.EMIT_EVENT_ACTION:
+            return (EObject) createEmitEventAction();
+        case SeffPackage.INTERNAL_ACTION:
+            return (EObject) createInternalAction();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public StopAction createStopAction() {
@@ -117,6 +141,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceDemandingBehaviour createResourceDemandingBehaviour() {
@@ -126,6 +151,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public BranchAction createBranchAction() {
@@ -135,6 +161,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public StartAction createStartAction() {
@@ -144,6 +171,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceDemandingSEFF createResourceDemandingSEFF() {
@@ -153,6 +181,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceDemandingInternalBehaviour createResourceDemandingInternalBehaviour() {
@@ -162,6 +191,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ReleaseAction createReleaseAction() {
@@ -171,6 +201,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public LoopAction createLoopAction() {
@@ -180,6 +211,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public InternalAction createInternalAction() {
@@ -189,6 +221,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ForkAction createForkAction() {
@@ -198,6 +231,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ForkedBehaviour createForkedBehaviour() {
@@ -207,6 +241,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SynchronisationPoint createSynchronisationPoint() {
@@ -216,6 +251,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ExternalCallAction createExternalCallAction() {
@@ -225,6 +261,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CallReturnAction createCallReturnAction() {
@@ -234,6 +271,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ProbabilisticBranchTransition createProbabilisticBranchTransition() {
@@ -243,6 +281,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public AcquireAction createAcquireAction() {
@@ -252,6 +291,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public CollectionIteratorAction createCollectionIteratorAction() {
@@ -261,6 +301,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public GuardedBranchTransition createGuardedBranchTransition() {
@@ -270,6 +311,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SetVariableAction createSetVariableAction() {
@@ -279,6 +321,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public InternalCallAction createInternalCallAction() {
@@ -288,6 +331,7 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EmitEventAction createEmitEventAction() {
@@ -297,14 +341,16 @@ public class SeffFactoryImpl extends EFactoryImpl implements SeffFactory {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SeffPackage getSeffPackage() {
-        return (SeffPackage)getEPackage();
+        return (SeffPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

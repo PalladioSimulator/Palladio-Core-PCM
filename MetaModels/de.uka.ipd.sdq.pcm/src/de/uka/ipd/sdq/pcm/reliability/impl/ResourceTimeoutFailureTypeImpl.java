@@ -23,24 +23,28 @@ import de.uka.ipd.sdq.pcm.repository.RepositoryPackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl#getPassiveResource__ResourceTimeoutFailureType <em>Passive Resource Resource Timeout Failure Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.reliability.impl.ResourceTimeoutFailureTypeImpl#getPassiveResource__ResourceTimeoutFailureType
+ * <em>Passive Resource Resource Timeout Failure Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeImpl implements
         ResourceTimeoutFailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getPassiveResource__ResourceTimeoutFailureType() <em>Passive Resource Resource Timeout Failure Type</em>}' reference.
-     * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getPassiveResource__ResourceTimeoutFailureType()
+     * <em>Passive Resource Resource Timeout Failure Type</em>}' reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getPassiveResource__ResourceTimeoutFailureType()
      * @generated
      * @ordered
@@ -49,6 +53,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ResourceTimeoutFailureTypeImpl() {
@@ -57,6 +62,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -66,15 +72,21 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public PassiveResource getPassiveResource__ResourceTimeoutFailureType() {
-        if (passiveResource__ResourceTimeoutFailureType != null && ((EObject)passiveResource__ResourceTimeoutFailureType).eIsProxy()) {
-            InternalEObject oldPassiveResource__ResourceTimeoutFailureType = (InternalEObject)passiveResource__ResourceTimeoutFailureType;
-            passiveResource__ResourceTimeoutFailureType = (PassiveResource)eResolveProxy(oldPassiveResource__ResourceTimeoutFailureType);
+        if (passiveResource__ResourceTimeoutFailureType != null
+                && ((EObject) passiveResource__ResourceTimeoutFailureType).eIsProxy()) {
+            InternalEObject oldPassiveResource__ResourceTimeoutFailureType = (InternalEObject) passiveResource__ResourceTimeoutFailureType;
+            passiveResource__ResourceTimeoutFailureType = (PassiveResource) eResolveProxy(oldPassiveResource__ResourceTimeoutFailureType);
             if (passiveResource__ResourceTimeoutFailureType != oldPassiveResource__ResourceTimeoutFailureType) {
                 if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE, oldPassiveResource__ResourceTimeoutFailureType, passiveResource__ResourceTimeoutFailureType));
+                    eNotify(new ENotificationImpl(
+                            this,
+                            Notification.RESOLVE,
+                            ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
+                            oldPassiveResource__ResourceTimeoutFailureType, passiveResource__ResourceTimeoutFailureType));
             }
         }
         return passiveResource__ResourceTimeoutFailureType;
@@ -82,6 +94,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public PassiveResource basicGetPassiveResource__ResourceTimeoutFailureType() {
@@ -90,6 +103,7 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetPassiveResource__ResourceTimeoutFailureType(
@@ -97,14 +111,20 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
         PassiveResource oldPassiveResource__ResourceTimeoutFailureType = passiveResource__ResourceTimeoutFailureType;
         passiveResource__ResourceTimeoutFailureType = newPassiveResource__ResourceTimeoutFailureType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE, oldPassiveResource__ResourceTimeoutFailureType, newPassiveResource__ResourceTimeoutFailureType);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET,
+                    ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
+                    oldPassiveResource__ResourceTimeoutFailureType, newPassiveResource__ResourceTimeoutFailureType);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
         }
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setPassiveResource__ResourceTimeoutFailureType(
@@ -112,95 +132,111 @@ public class ResourceTimeoutFailureTypeImpl extends SoftwareInducedFailureTypeIm
         if (newPassiveResource__ResourceTimeoutFailureType != passiveResource__ResourceTimeoutFailureType) {
             NotificationChain msgs = null;
             if (passiveResource__ResourceTimeoutFailureType != null)
-                msgs = ((InternalEObject)passiveResource__ResourceTimeoutFailureType).eInverseRemove(this, RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE, PassiveResource.class, msgs);
+                msgs = ((InternalEObject) passiveResource__ResourceTimeoutFailureType).eInverseRemove(this,
+                        RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
+                        PassiveResource.class, msgs);
             if (newPassiveResource__ResourceTimeoutFailureType != null)
-                msgs = ((InternalEObject)newPassiveResource__ResourceTimeoutFailureType).eInverseAdd(this, RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE, PassiveResource.class, msgs);
-            msgs = basicSetPassiveResource__ResourceTimeoutFailureType(newPassiveResource__ResourceTimeoutFailureType, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE, newPassiveResource__ResourceTimeoutFailureType, newPassiveResource__ResourceTimeoutFailureType));
+                msgs = ((InternalEObject) newPassiveResource__ResourceTimeoutFailureType).eInverseAdd(this,
+                        RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
+                        PassiveResource.class, msgs);
+            msgs = basicSetPassiveResource__ResourceTimeoutFailureType(newPassiveResource__ResourceTimeoutFailureType,
+                    msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE,
+                    newPassiveResource__ResourceTimeoutFailureType, newPassiveResource__ResourceTimeoutFailureType));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
-                if (passiveResource__ResourceTimeoutFailureType != null)
-                    msgs = ((InternalEObject)passiveResource__ResourceTimeoutFailureType).eInverseRemove(this, RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE, PassiveResource.class, msgs);
-                return basicSetPassiveResource__ResourceTimeoutFailureType((PassiveResource)otherEnd, msgs);
+        case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
+            if (passiveResource__ResourceTimeoutFailureType != null)
+                msgs = ((InternalEObject) passiveResource__ResourceTimeoutFailureType).eInverseRemove(this,
+                        RepositoryPackage.PASSIVE_RESOURCE__RESOURCE_TIMEOUT_FAILURE_TYPE_PASSIVE_RESOURCE,
+                        PassiveResource.class, msgs);
+            return basicSetPassiveResource__ResourceTimeoutFailureType((PassiveResource) otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
-                return basicSetPassiveResource__ResourceTimeoutFailureType(null, msgs);
+        case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
+            return basicSetPassiveResource__ResourceTimeoutFailureType(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
-                if (resolve) return getPassiveResource__ResourceTimeoutFailureType();
-                return basicGetPassiveResource__ResourceTimeoutFailureType();
+        case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
+            if (resolve)
+                return getPassiveResource__ResourceTimeoutFailureType();
+            return basicGetPassiveResource__ResourceTimeoutFailureType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
-                setPassiveResource__ResourceTimeoutFailureType((PassiveResource)newValue);
-                return;
+        case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
+            setPassiveResource__ResourceTimeoutFailureType((PassiveResource) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
-                setPassiveResource__ResourceTimeoutFailureType((PassiveResource)null);
-                return;
+        case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
+            setPassiveResource__ResourceTimeoutFailureType((PassiveResource) null);
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
-                return passiveResource__ResourceTimeoutFailureType != null;
+        case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE__PASSIVE_RESOURCE_RESOURCE_TIMEOUT_FAILURE_TYPE:
+            return passiveResource__ResourceTimeoutFailureType != null;
         }
         return super.eIsSet(featureID);
     }

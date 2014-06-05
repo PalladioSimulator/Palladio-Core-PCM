@@ -14,15 +14,16 @@ import org.eclipse.emf.common.util.Enumerator;
 /**
  * <!-- begin-user-doc --> A representation of the literals of the enumeration '
  * <em><b>Component Type</b></em>', and utility methods for working with them. <!-- end-user-doc -->
+ * 
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getComponentType()
  * @model
  * @generated
  */
 public enum ComponentType implements Enumerator {
     /**
-     * The '<em><b>BUSINESS COMPONENT</b></em>' literal object.
-     * <!-- begin-user-doc --> <!--
+     * The '<em><b>BUSINESS COMPONENT</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @see #BUSINESS_COMPONENT_VALUE
      * @generated
      * @ordered
@@ -30,9 +31,9 @@ public enum ComponentType implements Enumerator {
     BUSINESS_COMPONENT(0, "BUSINESS_COMPONENT", "BUSINESS_COMPONENT"),
 
     /**
-     * The '<em><b>INFRASTRUCTURE COMPONENT</b></em>' literal object.
-     * <!-- begin-user-doc --> <!--
+     * The '<em><b>INFRASTRUCTURE COMPONENT</b></em>' literal object. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @see #INFRASTRUCTURE_COMPONENT_VALUE
      * @generated
      * @ordered
@@ -41,18 +42,19 @@ public enum ComponentType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The '<em><b>BUSINESS COMPONENT</b></em>' literal value.
-     * <!-- begin-user-doc -->
+     * The '<em><b>BUSINESS COMPONENT</b></em>' literal value. <!-- begin-user-doc -->
      * <p>
      * If the meaning of '<em><b>BUSINESS COMPONENT</b></em>' literal object isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @see #BUSINESS_COMPONENT
      * @model
      * @generated
@@ -61,13 +63,13 @@ public enum ComponentType implements Enumerator {
     public static final int BUSINESS_COMPONENT_VALUE = 0;
 
     /**
-     * The '<em><b>INFRASTRUCTURE COMPONENT</b></em>' literal value.
-     * <!-- begin-user-doc -->
+     * The '<em><b>INFRASTRUCTURE COMPONENT</b></em>' literal value. <!-- begin-user-doc -->
      * <p>
      * If the meaning of '<em><b>INFRASTRUCTURE COMPONENT</b></em>' literal object isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @see #INFRASTRUCTURE_COMPONENT
      * @model
      * @generated
@@ -76,15 +78,13 @@ public enum ComponentType implements Enumerator {
     public static final int INFRASTRUCTURE_COMPONENT_VALUE = 1;
 
     /**
-     * An array of all the '<em><b>Component Type</b></em>' enumerators.
-     * <!-- begin-user-doc -->
+     * An array of all the '<em><b>Component Type</b></em>' enumerators. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
-    private static final ComponentType[] VALUES_ARRAY = new ComponentType[] {
-            BUSINESS_COMPONENT,
-            INFRASTRUCTURE_COMPONENT,
-        };
+    private static final ComponentType[] VALUES_ARRAY = new ComponentType[] { BUSINESS_COMPONENT,
+            INFRASTRUCTURE_COMPONENT, };
 
     /**
      * A public read-only list of all the '<em><b>Component Type</b></em>' enumerators. <!--
@@ -134,33 +134,38 @@ public enum ComponentType implements Enumerator {
      */
     public static ComponentType get(int value) {
         switch (value) {
-            case BUSINESS_COMPONENT_VALUE: return BUSINESS_COMPONENT;
-            case INFRASTRUCTURE_COMPONENT_VALUE: return INFRASTRUCTURE_COMPONENT;
+        case BUSINESS_COMPONENT_VALUE:
+            return BUSINESS_COMPONENT;
+        case INFRASTRUCTURE_COMPONENT_VALUE:
+            return INFRASTRUCTURE_COMPONENT;
         }
         return null;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private final int value;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private final String name;
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private final String literal;
 
     /**
-     * Only this class can construct instances.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Only this class can construct instances. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private ComponentType(int value, String name, String literal) {
@@ -171,26 +176,29 @@ public enum ComponentType implements Enumerator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public int getValue() {
-      return value;
+        return value;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public String getName() {
-      return name;
+        return name;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public String getLiteral() {
-      return literal;
+        return literal;
     }
 
     /**

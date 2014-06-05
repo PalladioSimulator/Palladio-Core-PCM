@@ -10,22 +10,25 @@ import org.eclipse.emf.common.util.EList;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Software Induced Failure Type</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <!-- begin-model-doc -->
  * <p>
- *     Type definition for a software-induced failure, i.e. a failure-on-demand occurrence&nbsp;due to a software fault. Type
- *     definitions are created by modellers for a certain PCM instance to distinguish&nbsp;different types of software
- *     failure-on-demand occurrences. Possible examples are: "EncryptionFailure", "ProtocolFailure", "WebServerFailure".
+ * Type definition for a software-induced failure, i.e. a failure-on-demand occurrence&nbsp;due to a
+ * software fault. Type definitions are created by modellers for a certain PCM instance to
+ * distinguish&nbsp;different types of software failure-on-demand occurrences. Possible examples
+ * are: "EncryptionFailure", "ProtocolFailure", "WebServerFailure".
  * </p>
  * <!-- end-model-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType#getInternalFailureOccurrenceDescriptions__SoftwareInducedFailureType
+ * <em>Internal Failure Occurrence Descriptions Software Induced Failure Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getSoftwareInducedFailureType()
  * @model
  * @generated
@@ -33,6 +36,7 @@ import org.eclipse.emf.common.util.EList;
 public interface SoftwareInducedFailureType extends FailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

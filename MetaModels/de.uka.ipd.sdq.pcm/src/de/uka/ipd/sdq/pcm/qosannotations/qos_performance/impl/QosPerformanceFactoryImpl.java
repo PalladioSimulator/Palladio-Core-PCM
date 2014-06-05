@@ -16,36 +16,38 @@ import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutio
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerformanceFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static QosPerformanceFactory init() {
         try {
-            QosPerformanceFactory theQosPerformanceFactory = (QosPerformanceFactory)EPackage.Registry.INSTANCE.getEFactory(QosPerformancePackage.eNS_URI);
+            QosPerformanceFactory theQosPerformanceFactory = (QosPerformanceFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(QosPerformancePackage.eNS_URI);
             if (theQosPerformanceFactory != null) {
                 return theQosPerformanceFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosPerformanceFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public QosPerformanceFactoryImpl() {
@@ -54,20 +56,24 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME: return (EObject)createSystemSpecifiedExecutionTime();
-            case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME: return (EObject)createComponentSpecifiedExecutionTime();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case QosPerformancePackage.SYSTEM_SPECIFIED_EXECUTION_TIME:
+            return (EObject) createSystemSpecifiedExecutionTime();
+        case QosPerformancePackage.COMPONENT_SPECIFIED_EXECUTION_TIME:
+            return (EObject) createComponentSpecifiedExecutionTime();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SystemSpecifiedExecutionTime createSystemSpecifiedExecutionTime() {
@@ -77,6 +83,7 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ComponentSpecifiedExecutionTime createComponentSpecifiedExecutionTime() {
@@ -86,14 +93,16 @@ public class QosPerformanceFactoryImpl extends EFactoryImpl implements QosPerfor
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public QosPerformancePackage getQosPerformancePackage() {
-        return (QosPerformancePackage)getEPackage();
+        return (QosPerformancePackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

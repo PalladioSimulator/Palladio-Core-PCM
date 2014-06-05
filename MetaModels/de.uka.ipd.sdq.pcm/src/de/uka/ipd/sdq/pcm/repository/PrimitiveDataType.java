@@ -8,18 +8,17 @@ package de.uka.ipd.sdq.pcm.repository;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Primitive Data Type</b></em>
  * '. <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * This entity represents a primitive data type such as integer, string, and double.
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> This entity represents a primitive data type such as integer, string,
+ * and double. <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType#getType <em>Type</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType#getType <em>Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getPrimitiveDataType()
  * @model
  * @generated
@@ -27,6 +26,7 @@ package de.uka.ipd.sdq.pcm.repository;
 public interface PrimitiveDataType extends DataType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -48,9 +48,11 @@ public interface PrimitiveDataType extends DataType {
     PrimitiveTypeEnum getType();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType#getType <em>Type</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Type</em>' attribute.
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.PrimitiveDataType#getType
+     * <em>Type</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Type</em>' attribute.
      * @see de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
      * @see #getType()
      * @generated

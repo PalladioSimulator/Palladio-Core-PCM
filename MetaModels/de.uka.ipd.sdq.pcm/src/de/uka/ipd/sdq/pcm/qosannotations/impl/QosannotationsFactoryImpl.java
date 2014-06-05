@@ -17,36 +17,38 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class QosannotationsFactoryImpl extends EFactoryImpl implements QosannotationsFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static QosannotationsFactory init() {
         try {
-            QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory)EPackage.Registry.INSTANCE.getEFactory(QosannotationsPackage.eNS_URI);
+            QosannotationsFactory theQosannotationsFactory = (QosannotationsFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(QosannotationsPackage.eNS_URI);
             if (theQosannotationsFactory != null) {
                 return theQosannotationsFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new QosannotationsFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public QosannotationsFactoryImpl() {
@@ -55,19 +57,22 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case QosannotationsPackage.QO_SANNOTATIONS: return (EObject)createQoSAnnotations();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case QosannotationsPackage.QO_SANNOTATIONS:
+            return (EObject) createQoSAnnotations();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public QoSAnnotations createQoSAnnotations() {
@@ -77,14 +82,16 @@ public class QosannotationsFactoryImpl extends EFactoryImpl implements Qosannota
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public QosannotationsPackage getQosannotationsPackage() {
-        return (QosannotationsPackage)getEPackage();
+        return (QosannotationsPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

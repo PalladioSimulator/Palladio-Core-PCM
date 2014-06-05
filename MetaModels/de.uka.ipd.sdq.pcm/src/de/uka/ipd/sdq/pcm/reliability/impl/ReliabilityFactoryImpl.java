@@ -22,36 +22,38 @@ import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static ReliabilityFactory init() {
         try {
-            ReliabilityFactory theReliabilityFactory = (ReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory(ReliabilityPackage.eNS_URI);
+            ReliabilityFactory theReliabilityFactory = (ReliabilityFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(ReliabilityPackage.eNS_URI);
             if (theReliabilityFactory != null) {
                 return theReliabilityFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new ReliabilityFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ReliabilityFactoryImpl() {
@@ -60,24 +62,32 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE: return (EObject)createHardwareInducedFailureType();
-            case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE: return (EObject)createSoftwareInducedFailureType();
-            case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION: return (EObject)createInternalFailureOccurrenceDescription();
-            case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE: return (EObject)createNetworkInducedFailureType();
-            case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION: return (EObject)createExternalFailureOccurrenceDescription();
-            case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE: return (EObject)createResourceTimeoutFailureType();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE:
+            return (EObject) createHardwareInducedFailureType();
+        case ReliabilityPackage.SOFTWARE_INDUCED_FAILURE_TYPE:
+            return (EObject) createSoftwareInducedFailureType();
+        case ReliabilityPackage.INTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
+            return (EObject) createInternalFailureOccurrenceDescription();
+        case ReliabilityPackage.NETWORK_INDUCED_FAILURE_TYPE:
+            return (EObject) createNetworkInducedFailureType();
+        case ReliabilityPackage.EXTERNAL_FAILURE_OCCURRENCE_DESCRIPTION:
+            return (EObject) createExternalFailureOccurrenceDescription();
+        case ReliabilityPackage.RESOURCE_TIMEOUT_FAILURE_TYPE:
+            return (EObject) createResourceTimeoutFailureType();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public HardwareInducedFailureType createHardwareInducedFailureType() {
@@ -87,6 +97,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ExternalFailureOccurrenceDescription createExternalFailureOccurrenceDescription() {
@@ -96,6 +107,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceTimeoutFailureType createResourceTimeoutFailureType() {
@@ -105,6 +117,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NetworkInducedFailureType createNetworkInducedFailureType() {
@@ -114,6 +127,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public InternalFailureOccurrenceDescription createInternalFailureOccurrenceDescription() {
@@ -123,6 +137,7 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SoftwareInducedFailureType createSoftwareInducedFailureType() {
@@ -132,14 +147,16 @@ public class ReliabilityFactoryImpl extends EFactoryImpl implements ReliabilityF
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ReliabilityPackage getReliabilityPackage() {
-        return (ReliabilityPackage)getEPackage();
+        return (ReliabilityPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

@@ -12,12 +12,11 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Stop</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * Each ScenarioBehaviour has exactly one Stop action which marks the action where the control flows ends. Stop actions have no successor.
- * <!-- end-model-doc -->
- *
- *
+ * 
+ * <!-- begin-model-doc --> Each ScenarioBehaviour has exactly one Stop action which marks the
+ * action where the control flows ends. Stop actions have no successor. <!-- end-model-doc -->
+ * 
+ * 
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getStop()
  * @model
  * @generated
@@ -25,6 +24,7 @@ import org.eclipse.emf.common.util.DiagnosticChain;
 public interface Stop extends AbstractUserAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";

@@ -20,26 +20,30 @@ import de.uka.ipd.sdq.pcm.qosannotations.SpecifiedQoSAnnotation;
 
 /**
  * <!-- begin-user-doc --> The <b>Validator</b> for the model. <!-- end-user-doc -->
+ * 
  * @see de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage
  * @generated
  */
 public class QosannotationsValidator extends EObjectValidator {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached model package
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached model package <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final QosannotationsValidator INSTANCE = new QosannotationsValidator();
 
     /**
-     * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
+     * A constant for the {@link org.eclipse.emf.common.util.Diagnostic#getSource() source} of
+     * diagnostic {@link org.eclipse.emf.common.util.Diagnostic#getCode() codes} from this package.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see org.eclipse.emf.common.util.Diagnostic#getSource()
      * @see org.eclipse.emf.common.util.Diagnostic#getCode()
      * @generated
@@ -56,22 +60,24 @@ public class QosannotationsValidator extends EObjectValidator {
     public static final int QO_SANNOTATIONS__MULTIPLE_RELIABILITY_ANNOTATIONS_PER_EXTERNAL_CALL_NOT_ALLOWED = 1;
 
     /**
-     * A constant with a fixed name that can be used as the base value for additional hand written constants.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * A constant with a fixed name that can be used as the base value for additional hand written
+     * constants. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     private static final int GENERATED_DIAGNOSTIC_CODE_COUNT = 1;
 
     /**
-     * A constant with a fixed name that can be used as the base value for additional hand written constants in a derived class.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * A constant with a fixed name that can be used as the base value for additional hand written
+     * constants in a derived class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected static final int DIAGNOSTIC_CODE_COUNT = GENERATED_DIAGNOSTIC_CODE_COUNT;
 
     /**
-     * Creates an instance of the switch.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public QosannotationsValidator() {
@@ -79,13 +85,13 @@ public class QosannotationsValidator extends EObjectValidator {
     }
 
     /**
-     * Returns the package of this validator switch.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the package of this validator switch. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     protected EPackage getEPackage() {
-      return QosannotationsPackage.eINSTANCE;
+        return QosannotationsPackage.eINSTANCE;
     }
 
     /**
@@ -97,47 +103,60 @@ public class QosannotationsValidator extends EObjectValidator {
     @Override
     protected boolean validate(int classifierID, Object value, DiagnosticChain diagnostics, Map<Object, Object> context) {
         switch (classifierID) {
-            case QosannotationsPackage.SPECIFIED_QO_SANNOTATION:
-                return validateSpecifiedQoSAnnotation((SpecifiedQoSAnnotation)value, diagnostics, context);
-            case QosannotationsPackage.QO_SANNOTATIONS:
-                return validateQoSAnnotations((QoSAnnotations)value, diagnostics, context);
-            case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
-                return validateSpecifiedOutputParameterAbstraction((SpecifiedOutputParameterAbstraction)value, diagnostics, context);
-            default:
-                return true;
+        case QosannotationsPackage.SPECIFIED_QO_SANNOTATION:
+            return validateSpecifiedQoSAnnotation((SpecifiedQoSAnnotation) value, diagnostics, context);
+        case QosannotationsPackage.QO_SANNOTATIONS:
+            return validateQoSAnnotations((QoSAnnotations) value, diagnostics, context);
+        case QosannotationsPackage.SPECIFIED_OUTPUT_PARAMETER_ABSTRACTION:
+            return validateSpecifiedOutputParameterAbstraction((SpecifiedOutputParameterAbstraction) value,
+                    diagnostics, context);
+        default:
+            return true;
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean validateSpecifiedQoSAnnotation(SpecifiedQoSAnnotation specifiedQoSAnnotation,
             DiagnosticChain diagnostics, Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject)specifiedQoSAnnotation, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject) specifiedQoSAnnotation, diagnostics, context);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean validateQoSAnnotations(QoSAnnotations qoSAnnotations, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        if (!validate_NoCircularContainment((EObject)qoSAnnotations, diagnostics, context)) return false;
-        boolean result = validate_EveryMultiplicityConforms((EObject)qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryDataValueConforms((EObject)qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryReferenceIsContained((EObject)qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryProxyResolves((EObject)qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_UniqueID((EObject)qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryKeyUnique((EObject)qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validate_EveryMapEntryUnique((EObject)qoSAnnotations, diagnostics, context);
-        if (result || diagnostics != null) result &= validateQoSAnnotations_MultipleReliabilityAnnotationsPerExternalCallNotAllowed(qoSAnnotations, diagnostics, context);
+        if (!validate_NoCircularContainment((EObject) qoSAnnotations, diagnostics, context))
+            return false;
+        boolean result = validate_EveryMultiplicityConforms((EObject) qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryDataValueConforms((EObject) qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryReferenceIsContained((EObject) qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryProxyResolves((EObject) qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_UniqueID((EObject) qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryKeyUnique((EObject) qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validate_EveryMapEntryUnique((EObject) qoSAnnotations, diagnostics, context);
+        if (result || diagnostics != null)
+            result &= validateQoSAnnotations_MultipleReliabilityAnnotationsPerExternalCallNotAllowed(qoSAnnotations,
+                    diagnostics, context);
         return result;
     }
 
     /**
-     * Validates the MultipleReliabilityAnnotationsPerExternalCallNotAllowed constraint of '<em>Qo SAnnotations</em>'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Validates the MultipleReliabilityAnnotationsPerExternalCallNotAllowed constraint of '
+     * <em>Qo SAnnotations</em>'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean validateQoSAnnotations_MultipleReliabilityAnnotationsPerExternalCallNotAllowed(
@@ -147,17 +166,19 @@ public class QosannotationsValidator extends EObjectValidator {
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean validateSpecifiedOutputParameterAbstraction(
             SpecifiedOutputParameterAbstraction specifiedOutputParameterAbstraction, DiagnosticChain diagnostics,
             Map<Object, Object> context) {
-        return validate_EveryDefaultConstraint((EObject)specifiedOutputParameterAbstraction, diagnostics, context);
+        return validate_EveryDefaultConstraint((EObject) specifiedOutputParameterAbstraction, diagnostics, context);
     }
 
     /**
-     * Returns the resource locator that will be used to fetch messages for this validator's diagnostics.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the resource locator that will be used to fetch messages for this validator's
+     * diagnostics. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override

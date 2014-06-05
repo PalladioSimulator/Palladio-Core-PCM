@@ -42,26 +42,34 @@ import de.uka.ipd.sdq.pcm.usagemodel.util.UsagemodelValidator;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getUsageScenario_SenarioBehaviour <em>Usage Scenario Senario Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getBranchTransition_ScenarioBehaviour <em>Branch Transition Scenario Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getLoop_ScenarioBehaviour <em>Loop Scenario Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getActions_ScenarioBehaviour <em>Actions Scenario Behaviour</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getUsageScenario_SenarioBehaviour
+ * <em>Usage Scenario Senario Behaviour</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getBranchTransition_ScenarioBehaviour
+ * <em>Branch Transition Scenario Behaviour</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getLoop_ScenarioBehaviour
+ * <em>Loop Scenario Behaviour</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.impl.ScenarioBehaviourImpl#getActions_ScenarioBehaviour
+ * <em>Actions Scenario Behaviour</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehaviour {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The cached value of the '{@link #getActions_ScenarioBehaviour() <em>Actions Scenario Behaviour</em>}' containment reference list.
-     * <!-- begin-user-doc -->
+     * The cached value of the '{@link #getActions_ScenarioBehaviour()
+     * <em>Actions Scenario Behaviour</em>}' containment reference list. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
+     * 
      * @see #getActions_ScenarioBehaviour()
      * @generated
      * @ordered
@@ -70,6 +78,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ScenarioBehaviourImpl() {
@@ -78,6 +87,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -87,18 +97,23 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EList<AbstractUserAction> getActions_ScenarioBehaviour() {
         if (actions_ScenarioBehaviour == null) {
-            actions_ScenarioBehaviour = new EObjectContainmentWithInverseEList<AbstractUserAction>(AbstractUserAction.class, this, UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR, UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION);
+            actions_ScenarioBehaviour = new EObjectContainmentWithInverseEList<AbstractUserAction>(
+                    AbstractUserAction.class, this, UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR,
+                    UsagemodelPackage.ABSTRACT_USER_ACTION__SCENARIO_BEHAVIOUR_ABSTRACT_USER_ACTION);
         }
         return actions_ScenarioBehaviour;
     }
 
     /**
-     * The cached OCL expression body for the '{@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Exactlyonestart</em>}' operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestart</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -106,8 +121,10 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     protected static final String EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Start))->size() = 1";
 
     /**
-     * The cached OCL invariant for the '{@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Exactlyonestart</em>}' invariant operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL invariant for the '
+     * {@link #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestart</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #Exactlyonestart(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -116,6 +133,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean Exactlyonestart(DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -123,21 +141,19 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
             OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
             try {
-                EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(EXACTLYONESTART__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         UsagemodelValidator.DIAGNOSTIC_SOURCE,
-                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTART,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Exactlyonestart", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTART, EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "Exactlyonestart", EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -145,8 +161,10 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     }
 
     /**
-     * The cached OCL expression body for the '{@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Exactlyonestop</em>}' operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestop</em>}' operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -154,8 +172,10 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     protected static final String EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "self.actions_ScenarioBehaviour->select(s|s.oclIsTypeOf(Stop))->size() = 1";
 
     /**
-     * The cached OCL invariant for the '{@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Exactlyonestop</em>}' invariant operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The cached OCL invariant for the '
+     * {@link #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Exactlyonestop</em>}' invariant operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see #Exactlyonestop(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
      * @generated
      * @ordered
@@ -164,6 +184,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean Exactlyonestop(DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -171,21 +192,19 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
             OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
             try {
-                EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
         if (!EOCL_ENV.createQuery(EXACTLYONESTOP__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         UsagemodelValidator.DIAGNOSTIC_SOURCE,
-                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTOP,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "Exactlyonestop", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                        UsagemodelValidator.SCENARIO_BEHAVIOUR__EXACTLYONESTOP, EcorePlugin.INSTANCE.getString(
+                                "_UI_GenericInvariant_diagnostic",
+                                new Object[] { "Exactlyonestop", EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -206,9 +225,13 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
     protected static final String EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP = "not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).predecessor.oclIsUndefined()) and not self.actions_ScenarioBehaviour->select(s|not s.oclIsTypeOf(Start) and not s.oclIsTypeOf(Stop))->exists(a|a.oclAsType(AbstractUserAction).successor.oclIsUndefined())";
 
     /**
-     * The cached OCL invariant for the '{@link #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor</em>}' invariant operation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @see #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * The cached OCL invariant for the '
+     * {@link #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Eachuseractionexcept Startand Stopmusthaveapredecessorandsuccessor</em>}' invariant
+     * operation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @see #EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
      * @generated
      * @ordered
      */
@@ -216,6 +239,7 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor(DiagnosticChain diagnostics,
@@ -224,21 +248,24 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
             OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(UsagemodelPackage.Literals.SCENARIO_BEHAVIOUR);
             try {
-                EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+        if (!EOCL_ENV.createQuery(
+                EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR__DIAGNOSTIC_CHAIN_MAP__EOCL_INV)
+                .check(this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         UsagemodelValidator.DIAGNOSTIC_SOURCE,
-                         UsagemodelValidator.SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics
+                        .add(new BasicDiagnostic(
+                                Diagnostic.ERROR,
+                                UsagemodelValidator.DIAGNOSTIC_SOURCE,
+                                UsagemodelValidator.SCENARIO_BEHAVIOUR__EACHUSERACTIONEXCEPT_STARTAND_STOPMUSTHAVEAPREDECESSORANDSUCCESSOR,
+                                EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] {
+                                        "EachuseractionexceptStartandStopmusthaveapredecessorandsuccessor",
+                                        EObjectValidator.getObjectLabel(this, context) }), new Object[] { this }));
             }
             return false;
         }
@@ -247,272 +274,312 @@ public class ScenarioBehaviourImpl extends EntityImpl implements ScenarioBehavio
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public BranchTransition getBranchTransition_ScenarioBehaviour() {
-        if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR) return null;
-        return (BranchTransition)eInternalContainer();
+        if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR)
+            return null;
+        return (BranchTransition) eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetBranchTransition_ScenarioBehaviour(
             BranchTransition newBranchTransition_ScenarioBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newBranchTransition_ScenarioBehaviour, UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR, msgs);
+        msgs = eBasicSetContainer((InternalEObject) newBranchTransition_ScenarioBehaviour,
+                UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setBranchTransition_ScenarioBehaviour(BranchTransition newBranchTransition_ScenarioBehaviour) {
-        if (newBranchTransition_ScenarioBehaviour != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR && newBranchTransition_ScenarioBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject)newBranchTransition_ScenarioBehaviour))
+        if (newBranchTransition_ScenarioBehaviour != eInternalContainer()
+                || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR && newBranchTransition_ScenarioBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newBranchTransition_ScenarioBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newBranchTransition_ScenarioBehaviour != null)
-                msgs = ((InternalEObject)newBranchTransition_ScenarioBehaviour).eInverseAdd(this, UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION, BranchTransition.class, msgs);
+                msgs = ((InternalEObject) newBranchTransition_ScenarioBehaviour).eInverseAdd(this,
+                        UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION,
+                        BranchTransition.class, msgs);
             msgs = basicSetBranchTransition_ScenarioBehaviour(newBranchTransition_ScenarioBehaviour, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR, newBranchTransition_ScenarioBehaviour, newBranchTransition_ScenarioBehaviour));
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR,
+                    newBranchTransition_ScenarioBehaviour, newBranchTransition_ScenarioBehaviour));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Loop getLoop_ScenarioBehaviour() {
-        if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR) return null;
-        return (Loop)eInternalContainer();
+        if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR)
+            return null;
+        return (Loop) eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetLoop_ScenarioBehaviour(Loop newLoop_ScenarioBehaviour, NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newLoop_ScenarioBehaviour, UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR, msgs);
+        msgs = eBasicSetContainer((InternalEObject) newLoop_ScenarioBehaviour,
+                UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setLoop_ScenarioBehaviour(Loop newLoop_ScenarioBehaviour) {
-        if (newLoop_ScenarioBehaviour != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR && newLoop_ScenarioBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject)newLoop_ScenarioBehaviour))
+        if (newLoop_ScenarioBehaviour != eInternalContainer()
+                || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR && newLoop_ScenarioBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newLoop_ScenarioBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newLoop_ScenarioBehaviour != null)
-                msgs = ((InternalEObject)newLoop_ScenarioBehaviour).eInverseAdd(this, UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, Loop.class, msgs);
+                msgs = ((InternalEObject) newLoop_ScenarioBehaviour).eInverseAdd(this,
+                        UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, Loop.class, msgs);
             msgs = basicSetLoop_ScenarioBehaviour(newLoop_ScenarioBehaviour, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR, newLoop_ScenarioBehaviour, newLoop_ScenarioBehaviour));
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR, newLoop_ScenarioBehaviour,
+                    newLoop_ScenarioBehaviour));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public UsageScenario getUsageScenario_SenarioBehaviour() {
-        if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR) return null;
-        return (UsageScenario)eInternalContainer();
+        if (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR)
+            return null;
+        return (UsageScenario) eInternalContainer();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetUsageScenario_SenarioBehaviour(UsageScenario newUsageScenario_SenarioBehaviour,
             NotificationChain msgs) {
-        msgs = eBasicSetContainer((InternalEObject)newUsageScenario_SenarioBehaviour, UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR, msgs);
+        msgs = eBasicSetContainer((InternalEObject) newUsageScenario_SenarioBehaviour,
+                UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR, msgs);
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setUsageScenario_SenarioBehaviour(UsageScenario newUsageScenario_SenarioBehaviour) {
-        if (newUsageScenario_SenarioBehaviour != eInternalContainer() || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR && newUsageScenario_SenarioBehaviour != null)) {
-            if (EcoreUtil.isAncestor(this, (EObject)newUsageScenario_SenarioBehaviour))
+        if (newUsageScenario_SenarioBehaviour != eInternalContainer()
+                || (eContainerFeatureID() != UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR && newUsageScenario_SenarioBehaviour != null)) {
+            if (EcoreUtil.isAncestor(this, (EObject) newUsageScenario_SenarioBehaviour))
                 throw new IllegalArgumentException("Recursive containment not allowed for " + toString());
             NotificationChain msgs = null;
             if (eInternalContainer() != null)
                 msgs = eBasicRemoveFromContainer(msgs);
             if (newUsageScenario_SenarioBehaviour != null)
-                msgs = ((InternalEObject)newUsageScenario_SenarioBehaviour).eInverseAdd(this, UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, UsageScenario.class, msgs);
+                msgs = ((InternalEObject) newUsageScenario_SenarioBehaviour).eInverseAdd(this,
+                        UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, UsageScenario.class, msgs);
             msgs = basicSetUsageScenario_SenarioBehaviour(newUsageScenario_SenarioBehaviour, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR, newUsageScenario_SenarioBehaviour, newUsageScenario_SenarioBehaviour));
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(this, Notification.SET,
+                    UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR,
+                    newUsageScenario_SenarioBehaviour, newUsageScenario_SenarioBehaviour));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetUsageScenario_SenarioBehaviour((UsageScenario)otherEnd, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetBranchTransition_ScenarioBehaviour((BranchTransition)otherEnd, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
-                if (eInternalContainer() != null)
-                    msgs = eBasicRemoveFromContainer(msgs);
-                return basicSetLoop_ScenarioBehaviour((Loop)otherEnd, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getActions_ScenarioBehaviour()).basicAdd(otherEnd, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetUsageScenario_SenarioBehaviour((UsageScenario) otherEnd, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetBranchTransition_ScenarioBehaviour((BranchTransition) otherEnd, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
+            if (eInternalContainer() != null)
+                msgs = eBasicRemoveFromContainer(msgs);
+            return basicSetLoop_ScenarioBehaviour((Loop) otherEnd, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getActions_ScenarioBehaviour()).basicAdd(
+                    otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
-                return basicSetUsageScenario_SenarioBehaviour(null, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
-                return basicSetBranchTransition_ScenarioBehaviour(null, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
-                return basicSetLoop_ScenarioBehaviour(null, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
-                return ((InternalEList<?>)getActions_ScenarioBehaviour()).basicRemove(otherEnd, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
+            return basicSetUsageScenario_SenarioBehaviour(null, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
+            return basicSetBranchTransition_ScenarioBehaviour(null, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
+            return basicSetLoop_ScenarioBehaviour(null, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
+            return ((InternalEList<?>) getActions_ScenarioBehaviour()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eBasicRemoveFromContainerFeature(NotificationChain msgs) {
         switch (eContainerFeatureID()) {
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
-                return eInternalContainer().eInverseRemove(this, UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, UsageScenario.class, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
-                return eInternalContainer().eInverseRemove(this, UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION, BranchTransition.class, msgs);
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
-                return eInternalContainer().eInverseRemove(this, UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, Loop.class, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
+            return eInternalContainer().eInverseRemove(this,
+                    UsagemodelPackage.USAGE_SCENARIO__SCENARIO_BEHAVIOUR_USAGE_SCENARIO, UsageScenario.class, msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
+            return eInternalContainer().eInverseRemove(this,
+                    UsagemodelPackage.BRANCH_TRANSITION__BRANCHED_BEHAVIOUR_BRANCH_TRANSITION, BranchTransition.class,
+                    msgs);
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
+            return eInternalContainer().eInverseRemove(this, UsagemodelPackage.LOOP__BODY_BEHAVIOUR_LOOP, Loop.class,
+                    msgs);
         }
         return super.eBasicRemoveFromContainerFeature(msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
-                return getUsageScenario_SenarioBehaviour();
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
-                return getBranchTransition_ScenarioBehaviour();
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
-                return getLoop_ScenarioBehaviour();
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
-                return getActions_ScenarioBehaviour();
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
+            return getUsageScenario_SenarioBehaviour();
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
+            return getBranchTransition_ScenarioBehaviour();
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
+            return getLoop_ScenarioBehaviour();
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
+            return getActions_ScenarioBehaviour();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
-                setUsageScenario_SenarioBehaviour((UsageScenario)newValue);
-                return;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
-                setBranchTransition_ScenarioBehaviour((BranchTransition)newValue);
-                return;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
-                setLoop_ScenarioBehaviour((Loop)newValue);
-                return;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
-                getActions_ScenarioBehaviour().clear();
-                getActions_ScenarioBehaviour().addAll((Collection<? extends AbstractUserAction>)newValue);
-                return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
+            setUsageScenario_SenarioBehaviour((UsageScenario) newValue);
+            return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
+            setBranchTransition_ScenarioBehaviour((BranchTransition) newValue);
+            return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
+            setLoop_ScenarioBehaviour((Loop) newValue);
+            return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
+            getActions_ScenarioBehaviour().clear();
+            getActions_ScenarioBehaviour().addAll((Collection<? extends AbstractUserAction>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
-                setUsageScenario_SenarioBehaviour((UsageScenario)null);
-                return;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
-                setBranchTransition_ScenarioBehaviour((BranchTransition)null);
-                return;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
-                setLoop_ScenarioBehaviour((Loop)null);
-                return;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
-                getActions_ScenarioBehaviour().clear();
-                return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
+            setUsageScenario_SenarioBehaviour((UsageScenario) null);
+            return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
+            setBranchTransition_ScenarioBehaviour((BranchTransition) null);
+            return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
+            setLoop_ScenarioBehaviour((Loop) null);
+            return;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
+            getActions_ScenarioBehaviour().clear();
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
-                return getUsageScenario_SenarioBehaviour() != null;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
-                return getBranchTransition_ScenarioBehaviour() != null;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
-                return getLoop_ScenarioBehaviour() != null;
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
-                return actions_ScenarioBehaviour != null && !actions_ScenarioBehaviour.isEmpty();
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__USAGE_SCENARIO_SENARIO_BEHAVIOUR:
+            return getUsageScenario_SenarioBehaviour() != null;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__BRANCH_TRANSITION_SCENARIO_BEHAVIOUR:
+            return getBranchTransition_ScenarioBehaviour() != null;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__LOOP_SCENARIO_BEHAVIOUR:
+            return getLoop_ScenarioBehaviour() != null;
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR__ACTIONS_SCENARIO_BEHAVIOUR:
+            return actions_ScenarioBehaviour != null && !actions_ScenarioBehaviour.isEmpty();
         }
         return super.eIsSet(featureID);
     }
 
     /**
-     * The cached environment for evaluating OCL expressions.
-     * <!-- begin-user-doc --> <!--
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @generated
      * @ordered
      */

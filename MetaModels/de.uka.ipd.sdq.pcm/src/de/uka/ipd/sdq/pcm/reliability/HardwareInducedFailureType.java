@@ -14,22 +14,25 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Hardware Induced Failure Type</b></em>'. <!-- end-user-doc -->
- *
+ * 
  * <!-- begin-model-doc -->
  * <p>
- *     Type definition for a hardware-induced failure, i.e. a failure-on-demand occurrence&nbsp;due to an unavailable
- *     resource. Standard types&nbsp;are pre-defined according to the pre-defined ProcessingResourceTypes: CPU, HDD, DELAY.
- *     Further types may be defined by the modeller for a certain PCM instance, together with a custom ProcessingResourceType.
+ * Type definition for a hardware-induced failure, i.e. a failure-on-demand occurrence&nbsp;due to
+ * an unavailable resource. Standard types&nbsp;are pre-defined according to the pre-defined
+ * ProcessingResourceTypes: CPU, HDD, DELAY. Further types may be defined by the modeller for a
+ * certain PCM instance, together with a custom ProcessingResourceType.
  * </p>
  * <!-- end-model-doc -->
- *
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType <em>Processing Resource Type Hardware Induced Failure Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType#getProcessingResourceType__HardwareInducedFailureType
+ * <em>Processing Resource Type Hardware Induced Failure Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getHardwareInducedFailureType()
  * @model
  * @generated
@@ -37,24 +40,30 @@ import de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType;
 public interface HardwareInducedFailureType extends FailureType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Processing Resource Type Hardware Induced Failure Type</b></em>' reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType <em>Hardware Induced Failure Type Processing Resource Type</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '
+     * <em><b>Processing Resource Type Hardware Induced Failure Type</b></em>' reference. It is
+     * bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
+     * <em>Hardware Induced Failure Type Processing Resource Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Processing Resource Type Hardware Induced Failure Type</em>'
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Processing Resource Type Hardware Induced Failure Type</em>' reference.
+     * 
+     * @return the value of the '<em>Processing Resource Type Hardware Induced Failure Type</em>'
+     *         reference.
      * @see #setProcessingResourceType__HardwareInducedFailureType(ProcessingResourceType)
      * @see de.uka.ipd.sdq.pcm.reliability.ReliabilityPackage#getHardwareInducedFailureType_ProcessingResourceType__HardwareInducedFailureType()
      * @see de.uka.ipd.sdq.pcm.resourcetype.ProcessingResourceType#getHardwareInducedFailureType__ProcessingResourceType
-     * @model opposite="hardwareInducedFailureType__ProcessingResourceType" required="true" ordered="false"
+     * @model opposite="hardwareInducedFailureType__ProcessingResourceType" required="true"
+     *        ordered="false"
      * @generated
      */
     ProcessingResourceType getProcessingResourceType__HardwareInducedFailureType();

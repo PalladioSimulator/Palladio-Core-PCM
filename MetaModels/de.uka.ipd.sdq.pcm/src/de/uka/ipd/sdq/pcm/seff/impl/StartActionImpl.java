@@ -26,18 +26,20 @@ import de.uka.ipd.sdq.pcm.seff.util.SeffValidator;
  * <!-- end-user-doc -->
  * <p>
  * </p>
- *
+ * 
  * @generated
  */
 public class StartActionImpl extends AbstractInternalControlFlowActionImpl implements StartAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected StartActionImpl() {
@@ -46,6 +48,7 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -54,10 +57,13 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
     }
 
     /**
-     * The cached OCL expression body for the '{@link #StartActionPredecessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map) <em>Start Action Predecessor Must Not Be Defined</em>}' operation.
-     * <!-- begin-user-doc -->
+     * The cached OCL expression body for the '
+     * {@link #StartActionPredecessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * <em>Start Action Predecessor Must Not Be Defined</em>}' operation. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @see #StartActionPredecessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain, java.util.Map)
+     * 
+     * @see #StartActionPredecessorMustNotBeDefined(org.eclipse.emf.common.util.DiagnosticChain,
+     *      java.util.Map)
      * @generated
      * @ordered
      */
@@ -77,6 +83,7 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public boolean StartActionPredecessorMustNotBeDefined(DiagnosticChain diagnostics, Map<Object, Object> context) {
@@ -84,21 +91,22 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
             OCL.Helper helper = EOCL_ENV.createOCLHelper();
             helper.setContext(SeffPackage.Literals.START_ACTION);
             try {
-                START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper.createInvariant(START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
-            }
-            catch (ParserException pe) {
+                START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV = helper
+                        .createInvariant(START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_EXP);
+            } catch (ParserException pe) {
                 throw new UnsupportedOperationException(pe.getLocalizedMessage());
             }
         }
-        if (!EOCL_ENV.createQuery(START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(this)) {
+        if (!EOCL_ENV.createQuery(START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED__DIAGNOSTIC_CHAIN_MAP__EOCL_INV).check(
+                this)) {
             if (diagnostics != null) {
-                diagnostics.add
-                    (new BasicDiagnostic
-                        (Diagnostic.ERROR,
-                         SeffValidator.DIAGNOSTIC_SOURCE,
-                         SeffValidator.START_ACTION__START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED,
-                         EcorePlugin.INSTANCE.getString("_UI_GenericInvariant_diagnostic", new Object[] { "StartActionPredecessorMustNotBeDefined", EObjectValidator.getObjectLabel(this, context) }),
-                         new Object [] { this }));
+                diagnostics.add(new BasicDiagnostic(Diagnostic.ERROR, SeffValidator.DIAGNOSTIC_SOURCE,
+                        SeffValidator.START_ACTION__START_ACTION_PREDECESSOR_MUST_NOT_BE_DEFINED, EcorePlugin.INSTANCE
+                                .getString(
+                                        "_UI_GenericInvariant_diagnostic",
+                                        new Object[] { "StartActionPredecessorMustNotBeDefined",
+                                                EObjectValidator.getObjectLabel(this, context) }),
+                        new Object[] { this }));
             }
             return false;
         }
@@ -106,9 +114,9 @@ public class StartActionImpl extends AbstractInternalControlFlowActionImpl imple
     }
 
     /**
-     * The cached environment for evaluating OCL expressions.
-     * <!-- begin-user-doc --> <!--
+     * The cached environment for evaluating OCL expressions. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @generated
      * @ordered
      */

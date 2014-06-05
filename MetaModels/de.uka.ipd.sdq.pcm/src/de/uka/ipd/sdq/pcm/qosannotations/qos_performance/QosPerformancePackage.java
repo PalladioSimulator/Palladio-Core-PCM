@@ -28,41 +28,45 @@ import de.uka.ipd.sdq.pcm.qosannotations.QosannotationsPackage;
 public interface QosPerformancePackage extends EPackage {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * The package name.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The package name. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String eNAME = "qos_performance";
 
     /**
-     * The package namespace URI.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The package namespace URI. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String eNS_URI = "http://sdq.ipd.uka.de/PalladioComponentModel/QoSAnnotations/QoS_Performance/5.0";
 
     /**
-     * The package namespace name.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The package namespace name. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String eNS_PREFIX = "";
 
     /**
-     * The singleton instance of the package.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The singleton instance of the package. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
-    QosPerformancePackage eINSTANCE = de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl.init();
+    QosPerformancePackage eINSTANCE = de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl
+            .init();
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl <em>Specified Execution Time</em>}' class.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The meta object id for the '
+     * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl
+     * <em>Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getSpecifiedExecutionTime()
      * @generated
@@ -88,16 +92,18 @@ public interface QosPerformancePackage extends EPackage {
     int SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__ROLE_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = QosannotationsPackage.SPECIFIED_QO_SANNOTATION__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -143,16 +149,18 @@ public interface QosPerformancePackage extends EPackage {
     int SYSTEM_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int SYSTEM_SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -161,15 +169,18 @@ public interface QosPerformancePackage extends EPackage {
     /**
      * The number of structural features of the '<em>System Specified Execution Time</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int SYSTEM_SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = SPECIFIED_EXECUTION_TIME_FEATURE_COUNT + 0;
 
     /**
-     * The meta object id for the '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl <em>Component Specified Execution Time</em>}' class.
-     * <!-- begin-user-doc --> <!--
+     * The meta object id for the '
+     * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl
+     * <em>Component Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getComponentSpecifiedExecutionTime()
      * @generated
@@ -195,24 +206,27 @@ public interface QosPerformancePackage extends EPackage {
     int COMPONENT_SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__ROLE_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Qos Annotations Specified Qo SAnnotation</b></em>' container
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int COMPONENT_SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION = SPECIFIED_EXECUTION_TIME__QOS_ANNOTATIONS_SPECIFIED_QO_SANNOTATION;
 
     /**
-     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Specification Specified Execution Time</b></em>' containment
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int COMPONENT_SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME;
 
     /**
-     * The feature id for the '<em><b>Assembly Context Component Specified Execution Time</b></em>' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * The feature id for the '<em><b>Assembly Context Component Specified Execution Time</b></em>'
+     * reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
@@ -221,14 +235,17 @@ public interface QosPerformancePackage extends EPackage {
     /**
      * The number of structural features of the '<em>Component Specified Execution Time</em>' class.
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      * @ordered
      */
     int COMPONENT_SPECIFIED_EXECUTION_TIME_FEATURE_COUNT = SPECIFIED_EXECUTION_TIME_FEATURE_COUNT + 1;
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime <em>System Specified Execution Time</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
+     * <em>System Specified Execution Time</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>System Specified Execution Time</em>'.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
      * @generated
@@ -236,8 +253,10 @@ public interface QosPerformancePackage extends EPackage {
     EClass getSystemSpecifiedExecutionTime();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime <em>Specified Execution Time</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
+     * <em>Specified Execution Time</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Specified Execution Time</em>'.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
      * @generated
@@ -259,8 +278,10 @@ public interface QosPerformancePackage extends EPackage {
     EReference getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime();
 
     /**
-     * Returns the meta object for class '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime <em>Component Specified Execution Time</em>}'.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Returns the meta object for class '
+     * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
+     * <em>Component Specified Execution Time</em>}'. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @return the meta object for class '<em>Component Specified Execution Time</em>'.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime
      * @generated
@@ -268,10 +289,13 @@ public interface QosPerformancePackage extends EPackage {
     EClass getComponentSpecifiedExecutionTime();
 
     /**
-     * Returns the meta object for the reference '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime#getAssemblyContext_ComponentSpecifiedExecutionTime <em>Assembly Context Component Specified Execution Time</em>}'.
-     * <!-- begin-user-doc --> <!--
+     * Returns the meta object for the reference '
+     * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime#getAssemblyContext_ComponentSpecifiedExecutionTime
+     * <em>Assembly Context Component Specified Execution Time</em>}'. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @return the meta object for the reference '<em>Assembly Context Component Specified Execution Time</em>'.
+     * 
+     * @return the meta object for the reference '
+     *         <em>Assembly Context Component Specified Execution Time</em>'.
      * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.ComponentSpecifiedExecutionTime#getAssemblyContext_ComponentSpecifiedExecutionTime()
      * @see #getComponentSpecifiedExecutionTime()
      * @generated
@@ -279,9 +303,9 @@ public interface QosPerformancePackage extends EPackage {
     EReference getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime();
 
     /**
-     * Returns the factory that creates the instances of the model.
-     * <!-- begin-user-doc --> <!--
+     * Returns the factory that creates the instances of the model. <!-- begin-user-doc --> <!--
      * end-user-doc -->
+     * 
      * @return the factory that creates the instances of the model.
      * @generated
      */
@@ -296,13 +320,16 @@ public interface QosPerformancePackage extends EPackage {
      * <li>and each data type</li>
      * </ul>
      * <!-- end-user-doc -->
+     * 
      * @generated
      */
     interface Literals {
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SystemSpecifiedExecutionTimeImpl <em>System Specified Execution Time</em>}' class.
-         * <!-- begin-user-doc --> <!--
+         * The meta object literal for the '
+         * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SystemSpecifiedExecutionTimeImpl
+         * <em>System Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
+         * 
          * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SystemSpecifiedExecutionTimeImpl
          * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getSystemSpecifiedExecutionTime()
          * @generated
@@ -310,8 +337,10 @@ public interface QosPerformancePackage extends EPackage {
         EClass SYSTEM_SPECIFIED_EXECUTION_TIME = eINSTANCE.getSystemSpecifiedExecutionTime();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl <em>Specified Execution Time</em>}' class.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '
+         * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl
+         * <em>Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
          * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.SpecifiedExecutionTimeImpl
          * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getSpecifiedExecutionTime()
          * @generated
@@ -319,16 +348,20 @@ public interface QosPerformancePackage extends EPackage {
         EClass SPECIFIED_EXECUTION_TIME = eINSTANCE.getSpecifiedExecutionTime();
 
         /**
-         * The meta object literal for the '<em><b>Specification Specified Execution Time</b></em>' containment reference feature.
-         * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * The meta object literal for the '<em><b>Specification Specified Execution Time</b></em>'
+         * containment reference feature. <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
          * @generated
          */
-        EReference SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = eINSTANCE.getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime();
+        EReference SPECIFIED_EXECUTION_TIME__SPECIFICATION_SPECIFIED_EXECUTION_TIME = eINSTANCE
+                .getSpecifiedExecutionTime_Specification_SpecifiedExecutionTime();
 
         /**
-         * The meta object literal for the '{@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl <em>Component Specified Execution Time</em>}' class.
-         * <!-- begin-user-doc --> <!--
+         * The meta object literal for the '
+         * {@link de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl
+         * <em>Component Specified Execution Time</em>}' class. <!-- begin-user-doc --> <!--
          * end-user-doc -->
+         * 
          * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.ComponentSpecifiedExecutionTimeImpl
          * @see de.uka.ipd.sdq.pcm.qosannotations.qos_performance.impl.QosPerformancePackageImpl#getComponentSpecifiedExecutionTime()
          * @generated
@@ -336,11 +369,14 @@ public interface QosPerformancePackage extends EPackage {
         EClass COMPONENT_SPECIFIED_EXECUTION_TIME = eINSTANCE.getComponentSpecifiedExecutionTime();
 
         /**
-         * The meta object literal for the '<em><b>Assembly Context Component Specified Execution Time</b></em>' reference feature.
+         * The meta object literal for the '
+         * <em><b>Assembly Context Component Specified Execution Time</b></em>' reference feature.
          * <!-- begin-user-doc --> <!-- end-user-doc -->
+         * 
          * @generated
          */
-        EReference COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME = eINSTANCE.getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime();
+        EReference COMPONENT_SPECIFIED_EXECUTION_TIME__ASSEMBLY_CONTEXT_COMPONENT_SPECIFIED_EXECUTION_TIME = eINSTANCE
+                .getComponentSpecifiedExecutionTime_AssemblyContext_ComponentSpecifiedExecutionTime();
 
     }
 

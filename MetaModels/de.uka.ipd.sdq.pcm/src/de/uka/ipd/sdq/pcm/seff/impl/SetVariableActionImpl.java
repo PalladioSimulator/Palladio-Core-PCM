@@ -25,15 +25,18 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl#getLocalVariableUsages_SetVariableAction <em>Local Variable Usages Set Variable Action</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.impl.SetVariableActionImpl#getLocalVariableUsages_SetVariableAction
+ * <em>Local Variable Usages Set Variable Action</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl implements SetVariableAction {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,6 +54,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected SetVariableActionImpl() {
@@ -59,6 +63,7 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -68,94 +73,105 @@ public class SetVariableActionImpl extends AbstractInternalControlFlowActionImpl
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EList<VariableUsage> getLocalVariableUsages_SetVariableAction() {
         if (localVariableUsages_SetVariableAction == null) {
-            localVariableUsages_SetVariableAction = new EObjectContainmentWithInverseEList<VariableUsage>(VariableUsage.class, this, SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION, ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE);
+            localVariableUsages_SetVariableAction = new EObjectContainmentWithInverseEList<VariableUsage>(
+                    VariableUsage.class, this,
+                    SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION,
+                    ParameterPackage.VARIABLE_USAGE__SET_VARIABLE_ACTION_VARIABLE_USAGE);
         }
         return localVariableUsages_SetVariableAction;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-                return ((InternalEList<InternalEObject>)(InternalEList<?>)getLocalVariableUsages_SetVariableAction()).basicAdd(otherEnd, msgs);
+        case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+            return ((InternalEList<InternalEObject>) (InternalEList<?>) getLocalVariableUsages_SetVariableAction())
+                    .basicAdd(otherEnd, msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-                return ((InternalEList<?>)getLocalVariableUsages_SetVariableAction()).basicRemove(otherEnd, msgs);
+        case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+            return ((InternalEList<?>) getLocalVariableUsages_SetVariableAction()).basicRemove(otherEnd, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-                return getLocalVariableUsages_SetVariableAction();
+        case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+            return getLocalVariableUsages_SetVariableAction();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @SuppressWarnings("unchecked")
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-                getLocalVariableUsages_SetVariableAction().clear();
-                getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableUsage>)newValue);
-                return;
+        case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+            getLocalVariableUsages_SetVariableAction().clear();
+            getLocalVariableUsages_SetVariableAction().addAll((Collection<? extends VariableUsage>) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-                getLocalVariableUsages_SetVariableAction().clear();
-                return;
+        case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+            getLocalVariableUsages_SetVariableAction().clear();
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
-                return localVariableUsages_SetVariableAction != null && !localVariableUsages_SetVariableAction.isEmpty();
+        case SeffPackage.SET_VARIABLE_ACTION__LOCAL_VARIABLE_USAGES_SET_VARIABLE_ACTION:
+            return localVariableUsages_SetVariableAction != null && !localVariableUsages_SetVariableAction.isEmpty();
         }
         return super.eIsSet(featureID);
     }

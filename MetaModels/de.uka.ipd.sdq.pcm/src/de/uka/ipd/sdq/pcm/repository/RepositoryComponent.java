@@ -10,18 +10,18 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Component</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * Abstract superclass of all component types which can be part of a component repository
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> Abstract superclass of all component types which can be part of a
+ * component repository <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent <em>Repository Repository Component</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
+ * <em>Repository Repository Component</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getRepositoryComponent()
  * @model abstract="true"
  * @generated
@@ -29,6 +29,7 @@ import de.uka.ipd.sdq.pcm.core.entity.InterfaceProvidingRequiringEntity;
 public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -51,10 +52,14 @@ public interface RepositoryComponent extends InterfaceProvidingRequiringEntity {
     Repository getRepository__RepositoryComponent();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent <em>Repository Repository Component</em>}' container reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.repository.RepositoryComponent#getRepository__RepositoryComponent
+     * <em>Repository Repository Component</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Repository Repository Component</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Repository Repository Component</em>' container
+     *            reference.
      * @see #getRepository__RepositoryComponent()
      * @generated
      */

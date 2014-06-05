@@ -15,22 +15,34 @@ import de.uka.ipd.sdq.identifier.Identifier;
 /**
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Resource Demanding Behaviour</b></em>'. <!-- end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * Models the behaviour of a component service as a sequence of internal actions with resource demands, control flow constructs, and external
- * calls. Therefore, the class contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource demands attached to internal actions, which mainly influence performance analysis.
- * Each action in a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the first and last action, which do not reference a predecessor and a successor respectively. A behaviour is valid, if there is a continuous path from the first to last action, which includes all actions. The chain must not include cycles. To specify control flow branches, loops, or forks, component developers need to use special types of actions, which contain nested inner ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any ResourceDemandingBehaviour can have at most one starting and one finishing action.
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> Models the behaviour of a component service as a sequence of internal
+ * actions with resource demands, control flow constructs, and external calls. Therefore, the class
+ * contains a chain of AbstractActions. The emphasis in this type of behaviour is on the resource
+ * demands attached to internal actions, which mainly influence performance analysis. Each action in
+ * a ResourceDemandingBehaviour references a predecessor and a successor action. Exceptions are the
+ * first and last action, which do not reference a predecessor and a successor respectively. A
+ * behaviour is valid, if there is a continuous path from the first to last action, which includes
+ * all actions. The chain must not include cycles. To specify control flow branches, loops, or
+ * forks, component developers need to use special types of actions, which contain nested inner
+ * ResourceDemandingBehaviours to specify the behaviour inside branches or loop bodies. Any
+ * ResourceDemandingBehaviour can have at most one starting and one finishing action. <!--
+ * end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour <em>Abstract Loop Action Resource Demanding Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps Behaviour</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getAbstractLoopAction_ResourceDemandingBehaviour
+ * <em>Abstract Loop Action Resource Demanding Behaviour</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getAbstractBranchTransition_ResourceDemandingBehaviour
+ * <em>Abstract Branch Transition Resource Demanding Behaviour</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour#getSteps_Behaviour <em>Steps
+ * Behaviour</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour()
  * @model
  * @generated
@@ -38,20 +50,24 @@ import de.uka.ipd.sdq.identifier.Identifier;
 public interface ResourceDemandingBehaviour extends Identifier {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop <em>Body Behaviour Loop</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Abstract Loop Action Resource Demanding Behaviour</b></em>'
+     * container reference. It is bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
+     * <em>Body Behaviour Loop</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>' container
      * reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>' container reference.
+     * 
+     * @return the value of the '<em>Abstract Loop Action Resource Demanding Behaviour</em>'
+     *         container reference.
      * @see #setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractLoopAction_ResourceDemandingBehaviour()
      * @see de.uka.ipd.sdq.pcm.seff.AbstractLoopAction#getBodyBehaviour_Loop
@@ -75,15 +91,19 @@ public interface ResourceDemandingBehaviour extends Identifier {
     void setAbstractLoopAction_ResourceDemandingBehaviour(AbstractLoopAction value);
 
     /**
-     * Returns the value of the '<em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition <em>Branch Behaviour Branch Transition</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '
+     * <em><b>Abstract Branch Transition Resource Demanding Behaviour</b></em>' container reference.
+     * It is bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
+     * <em>Branch Behaviour Branch Transition</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
      * container reference isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>' container reference.
+     * 
+     * @return the value of the '<em>Abstract Branch Transition Resource Demanding Behaviour</em>'
+     *         container reference.
      * @see #setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition)
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_AbstractBranchTransition_ResourceDemandingBehaviour()
      * @see de.uka.ipd.sdq.pcm.seff.AbstractBranchTransition#getBranchBehaviour_BranchTransition
@@ -108,19 +128,22 @@ public interface ResourceDemandingBehaviour extends Identifier {
     void setAbstractBranchTransition_ResourceDemandingBehaviour(AbstractBranchTransition value);
 
     /**
-     * Returns the value of the '<em><b>Steps Behaviour</b></em>' containment reference list.
-     * The list contents are of type {@link de.uka.ipd.sdq.pcm.seff.AbstractAction}.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction <em>Resource Demanding Behaviour Abstract Action</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Steps Behaviour</b></em>' containment reference list. The
+     * list contents are of type {@link de.uka.ipd.sdq.pcm.seff.AbstractAction}. It is bidirectional
+     * and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
+     * <em>Resource Demanding Behaviour Abstract Action</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Steps Behaviour</em>' containment reference list isn't clear,
      * there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Steps Behaviour</em>' containment reference list.
      * @see de.uka.ipd.sdq.pcm.seff.SeffPackage#getResourceDemandingBehaviour_Steps_Behaviour()
      * @see de.uka.ipd.sdq.pcm.seff.AbstractAction#getResourceDemandingBehaviour_AbstractAction
-     * @model opposite="resourceDemandingBehaviour_AbstractAction" containment="true" ordered="false"
+     * @model opposite="resourceDemandingBehaviour_AbstractAction" containment="true"
+     *        ordered="false"
      * @generated
      */
     EList<AbstractAction> getSteps_Behaviour();

@@ -17,36 +17,38 @@ import de.uka.ipd.sdq.pcm.seff.seff_performance.SeffPerformancePackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerformanceFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static SeffPerformanceFactory init() {
         try {
-            SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory)EPackage.Registry.INSTANCE.getEFactory(SeffPerformancePackage.eNS_URI);
+            SeffPerformanceFactory theSeffPerformanceFactory = (SeffPerformanceFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(SeffPerformancePackage.eNS_URI);
             if (theSeffPerformanceFactory != null) {
                 return theSeffPerformanceFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffPerformanceFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SeffPerformanceFactoryImpl() {
@@ -55,21 +57,26 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SeffPerformancePackage.INFRASTRUCTURE_CALL: return (EObject)createInfrastructureCall();
-            case SeffPerformancePackage.RESOURCE_CALL: return (EObject)createResourceCall();
-            case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND: return (EObject)createParametricResourceDemand();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case SeffPerformancePackage.INFRASTRUCTURE_CALL:
+            return (EObject) createInfrastructureCall();
+        case SeffPerformancePackage.RESOURCE_CALL:
+            return (EObject) createResourceCall();
+        case SeffPerformancePackage.PARAMETRIC_RESOURCE_DEMAND:
+            return (EObject) createParametricResourceDemand();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public InfrastructureCall createInfrastructureCall() {
@@ -79,6 +86,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ResourceCall createResourceCall() {
@@ -88,6 +96,7 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ParametricResourceDemand createParametricResourceDemand() {
@@ -97,14 +106,16 @@ public class SeffPerformanceFactoryImpl extends EFactoryImpl implements SeffPerf
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SeffPerformancePackage getSeffPerformancePackage() {
-        return (SeffPerformancePackage)getEPackage();
+        return (SeffPerformancePackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

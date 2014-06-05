@@ -23,15 +23,18 @@ import de.uka.ipd.sdq.pcm.resourcetype.ResourcetypePackage;
  * <p>
  * The following features are implemented:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl#getHardwareInducedFailureType__ProcessingResourceType <em>Hardware Induced Failure Type Processing Resource Type</em>}</li>
+ * <li>
+ * {@link de.uka.ipd.sdq.pcm.resourcetype.impl.ProcessingResourceTypeImpl#getHardwareInducedFailureType__ProcessingResourceType
+ * <em>Hardware Induced Failure Type Processing Resource Type</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @generated
  */
 public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements ProcessingResourceType {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -49,6 +52,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     protected ProcessingResourceTypeImpl() {
@@ -57,6 +61,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
@@ -66,15 +71,22 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public HardwareInducedFailureType getHardwareInducedFailureType__ProcessingResourceType() {
-        if (hardwareInducedFailureType__ProcessingResourceType != null && ((EObject)hardwareInducedFailureType__ProcessingResourceType).eIsProxy()) {
-            InternalEObject oldHardwareInducedFailureType__ProcessingResourceType = (InternalEObject)hardwareInducedFailureType__ProcessingResourceType;
-            hardwareInducedFailureType__ProcessingResourceType = (HardwareInducedFailureType)eResolveProxy(oldHardwareInducedFailureType__ProcessingResourceType);
+        if (hardwareInducedFailureType__ProcessingResourceType != null
+                && ((EObject) hardwareInducedFailureType__ProcessingResourceType).eIsProxy()) {
+            InternalEObject oldHardwareInducedFailureType__ProcessingResourceType = (InternalEObject) hardwareInducedFailureType__ProcessingResourceType;
+            hardwareInducedFailureType__ProcessingResourceType = (HardwareInducedFailureType) eResolveProxy(oldHardwareInducedFailureType__ProcessingResourceType);
             if (hardwareInducedFailureType__ProcessingResourceType != oldHardwareInducedFailureType__ProcessingResourceType) {
                 if (eNotificationRequired())
-                    eNotify(new ENotificationImpl(this, Notification.RESOLVE, ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE, oldHardwareInducedFailureType__ProcessingResourceType, hardwareInducedFailureType__ProcessingResourceType));
+                    eNotify(new ENotificationImpl(
+                            this,
+                            Notification.RESOLVE,
+                            ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                            oldHardwareInducedFailureType__ProcessingResourceType,
+                            hardwareInducedFailureType__ProcessingResourceType));
             }
         }
         return hardwareInducedFailureType__ProcessingResourceType;
@@ -82,6 +94,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public HardwareInducedFailureType basicGetHardwareInducedFailureType__ProcessingResourceType() {
@@ -90,6 +103,7 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public NotificationChain basicSetHardwareInducedFailureType__ProcessingResourceType(
@@ -97,14 +111,23 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
         HardwareInducedFailureType oldHardwareInducedFailureType__ProcessingResourceType = hardwareInducedFailureType__ProcessingResourceType;
         hardwareInducedFailureType__ProcessingResourceType = newHardwareInducedFailureType__ProcessingResourceType;
         if (eNotificationRequired()) {
-            ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE, oldHardwareInducedFailureType__ProcessingResourceType, newHardwareInducedFailureType__ProcessingResourceType);
-            if (msgs == null) msgs = notification; else msgs.add(notification);
+            ENotificationImpl notification = new ENotificationImpl(
+                    this,
+                    Notification.SET,
+                    ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                    oldHardwareInducedFailureType__ProcessingResourceType,
+                    newHardwareInducedFailureType__ProcessingResourceType);
+            if (msgs == null)
+                msgs = notification;
+            else
+                msgs.add(notification);
         }
         return msgs;
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public void setHardwareInducedFailureType__ProcessingResourceType(
@@ -112,95 +135,121 @@ public class ProcessingResourceTypeImpl extends ResourceTypeImpl implements Proc
         if (newHardwareInducedFailureType__ProcessingResourceType != hardwareInducedFailureType__ProcessingResourceType) {
             NotificationChain msgs = null;
             if (hardwareInducedFailureType__ProcessingResourceType != null)
-                msgs = ((InternalEObject)hardwareInducedFailureType__ProcessingResourceType).eInverseRemove(this, ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE, HardwareInducedFailureType.class, msgs);
+                msgs = ((InternalEObject) hardwareInducedFailureType__ProcessingResourceType)
+                        .eInverseRemove(
+                                this,
+                                ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                                HardwareInducedFailureType.class, msgs);
             if (newHardwareInducedFailureType__ProcessingResourceType != null)
-                msgs = ((InternalEObject)newHardwareInducedFailureType__ProcessingResourceType).eInverseAdd(this, ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE, HardwareInducedFailureType.class, msgs);
-            msgs = basicSetHardwareInducedFailureType__ProcessingResourceType(newHardwareInducedFailureType__ProcessingResourceType, msgs);
-            if (msgs != null) msgs.dispatch();
-        }
-        else if (eNotificationRequired())
-            eNotify(new ENotificationImpl(this, Notification.SET, ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE, newHardwareInducedFailureType__ProcessingResourceType, newHardwareInducedFailureType__ProcessingResourceType));
+                msgs = ((InternalEObject) newHardwareInducedFailureType__ProcessingResourceType)
+                        .eInverseAdd(
+                                this,
+                                ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                                HardwareInducedFailureType.class, msgs);
+            msgs = basicSetHardwareInducedFailureType__ProcessingResourceType(
+                    newHardwareInducedFailureType__ProcessingResourceType, msgs);
+            if (msgs != null)
+                msgs.dispatch();
+        } else if (eNotificationRequired())
+            eNotify(new ENotificationImpl(
+                    this,
+                    Notification.SET,
+                    ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE,
+                    newHardwareInducedFailureType__ProcessingResourceType,
+                    newHardwareInducedFailureType__ProcessingResourceType));
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseAdd(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
-                if (hardwareInducedFailureType__ProcessingResourceType != null)
-                    msgs = ((InternalEObject)hardwareInducedFailureType__ProcessingResourceType).eInverseRemove(this, ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE, HardwareInducedFailureType.class, msgs);
-                return basicSetHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType)otherEnd, msgs);
+        case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
+            if (hardwareInducedFailureType__ProcessingResourceType != null)
+                msgs = ((InternalEObject) hardwareInducedFailureType__ProcessingResourceType)
+                        .eInverseRemove(
+                                this,
+                                ReliabilityPackage.HARDWARE_INDUCED_FAILURE_TYPE__PROCESSING_RESOURCE_TYPE_HARDWARE_INDUCED_FAILURE_TYPE,
+                                HardwareInducedFailureType.class, msgs);
+            return basicSetHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType) otherEnd,
+                    msgs);
         }
         return super.eInverseAdd(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs) {
         switch (featureID) {
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
-                return basicSetHardwareInducedFailureType__ProcessingResourceType(null, msgs);
+        case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
+            return basicSetHardwareInducedFailureType__ProcessingResourceType(null, msgs);
         }
         return super.eInverseRemove(otherEnd, featureID, msgs);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public Object eGet(int featureID, boolean resolve, boolean coreType) {
         switch (featureID) {
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
-                if (resolve) return getHardwareInducedFailureType__ProcessingResourceType();
-                return basicGetHardwareInducedFailureType__ProcessingResourceType();
+        case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
+            if (resolve)
+                return getHardwareInducedFailureType__ProcessingResourceType();
+            return basicGetHardwareInducedFailureType__ProcessingResourceType();
         }
         return super.eGet(featureID, resolve, coreType);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eSet(int featureID, Object newValue) {
         switch (featureID) {
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
-                setHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType)newValue);
-                return;
+        case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
+            setHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType) newValue);
+            return;
         }
         super.eSet(featureID, newValue);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public void eUnset(int featureID) {
         switch (featureID) {
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
-                setHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType)null);
-                return;
+        case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
+            setHardwareInducedFailureType__ProcessingResourceType((HardwareInducedFailureType) null);
+            return;
         }
         super.eUnset(featureID);
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public boolean eIsSet(int featureID) {
         switch (featureID) {
-            case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
-                return hardwareInducedFailureType__ProcessingResourceType != null;
+        case ResourcetypePackage.PROCESSING_RESOURCE_TYPE__HARDWARE_INDUCED_FAILURE_TYPE_PROCESSING_RESOURCE_TYPE:
+            return hardwareInducedFailureType__ProcessingResourceType != null;
         }
         return super.eIsSet(featureID);
     }

@@ -14,27 +14,29 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>User Data</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * UserData characterises data
- * used in specific assembly contexts in the system. This data is the same for all UsageScenarios, i.e.,
- * multiple users accessing the same components access the same data. This UserData refers to component
- * parameters of the system publicized by the software architect (see pcm::parameters package). The domain expert
- * characterises the values of component parameters related to business concepts (e.g., user specific data,
- * data specific for a business domain), whereas the software architect characterises the values of component
- * parameters related to technical concepts (e.g., size of caches, size of a thread pool, configuration data,
- * etc.). One UserData instance includes all parameter characterisation for the annotated entity. 
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> UserData characterises data used in specific assembly contexts in the
+ * system. This data is the same for all UsageScenarios, i.e., multiple users accessing the same
+ * components access the same data. This UserData refers to component parameters of the system
+ * publicized by the software architect (see pcm::parameters package). The domain expert
+ * characterises the values of component parameters related to business concepts (e.g., user
+ * specific data, data specific for a business domain), whereas the software architect characterises
+ * the values of component parameters related to technical concepts (e.g., size of caches, size of a
+ * thread pool, configuration data, etc.). One UserData instance includes all parameter
+ * characterisation for the annotated entity. <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly Context user Data</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model User Data</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>User Data Parameter Usages User Data</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getAssemblyContext_userData <em>Assembly
+ * Context user Data</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model User
+ * Data</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUserDataParameterUsages_UserData <em>User
+ * Data Parameter Usages User Data</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData()
  * @model
  * @extends EStereotypableObject
@@ -43,19 +45,22 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface UserData extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Returns the value of the '<em><b>Usage Model User Data</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel <em>User Data Usage Model</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Usage Model User Data</b></em>' container reference. It is
+     * bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.usagemodel.UsageModel#getUserData_UsageModel
+     * <em>User Data Usage Model</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Usage Model User Data</em>' container reference isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Usage Model User Data</em>' container reference.
      * @see #setUsageModel_UserData(UsageModel)
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData_UsageModel_UserData()
@@ -66,10 +71,12 @@ public interface UserData extends EStereotypableObject {
     UsageModel getUsageModel_UserData();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData <em>Usage Model User Data</em>}' container reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.usagemodel.UserData#getUsageModel_UserData
+     * <em>Usage Model User Data</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Usage Model User Data</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Usage Model User Data</em>' container reference.
      * @see #getUsageModel_UserData()
      * @generated
      */
@@ -106,16 +113,19 @@ public interface UserData extends EStereotypableObject {
     void setAssemblyContext_userData(AssemblyContext value);
 
     /**
-     * Returns the value of the '<em><b>User Data Parameter Usages User Data</b></em>' containment reference list.
-     * The list contents are of type {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage <em>User Data Variable Usage</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>User Data Parameter Usages User Data</b></em>' containment
+     * reference list. The list contents are of type
+     * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage}. It is bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage
+     * <em>User Data Variable Usage</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>User Data Parameter Usages User Data</em>' containment reference
      * list isn't clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
-     * @return the value of the '<em>User Data Parameter Usages User Data</em>' containment reference list.
+     * 
+     * @return the value of the '<em>User Data Parameter Usages User Data</em>' containment
+     *         reference list.
      * @see de.uka.ipd.sdq.pcm.usagemodel.UsagemodelPackage#getUserData_UserDataParameterUsages_UserData()
      * @see de.uka.ipd.sdq.pcm.parameter.VariableUsage#getUserData_VariableUsage
      * @model opposite="userData_VariableUsage" containment="true" ordered="false"

@@ -29,36 +29,38 @@ import de.uka.ipd.sdq.pcm.usagemodel.UserData;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static UsagemodelFactory init() {
         try {
-            UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory)EPackage.Registry.INSTANCE.getEFactory(UsagemodelPackage.eNS_URI);
+            UsagemodelFactory theUsagemodelFactory = (UsagemodelFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(UsagemodelPackage.eNS_URI);
             if (theUsagemodelFactory != null) {
                 return theUsagemodelFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new UsagemodelFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public UsagemodelFactoryImpl() {
@@ -67,31 +69,46 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case UsagemodelPackage.USAGE_SCENARIO: return (EObject)createUsageScenario();
-            case UsagemodelPackage.USER_DATA: return (EObject)createUserData();
-            case UsagemodelPackage.USAGE_MODEL: return (EObject)createUsageModel();
-            case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL: return (EObject)createEntryLevelSystemCall();
-            case UsagemodelPackage.SCENARIO_BEHAVIOUR: return (EObject)createScenarioBehaviour();
-            case UsagemodelPackage.BRANCH_TRANSITION: return (EObject)createBranchTransition();
-            case UsagemodelPackage.BRANCH: return (EObject)createBranch();
-            case UsagemodelPackage.LOOP: return (EObject)createLoop();
-            case UsagemodelPackage.STOP: return (EObject)createStop();
-            case UsagemodelPackage.START: return (EObject)createStart();
-            case UsagemodelPackage.OPEN_WORKLOAD: return (EObject)createOpenWorkload();
-            case UsagemodelPackage.DELAY: return (EObject)createDelay();
-            case UsagemodelPackage.CLOSED_WORKLOAD: return (EObject)createClosedWorkload();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case UsagemodelPackage.USAGE_SCENARIO:
+            return (EObject) createUsageScenario();
+        case UsagemodelPackage.USER_DATA:
+            return (EObject) createUserData();
+        case UsagemodelPackage.USAGE_MODEL:
+            return (EObject) createUsageModel();
+        case UsagemodelPackage.ENTRY_LEVEL_SYSTEM_CALL:
+            return (EObject) createEntryLevelSystemCall();
+        case UsagemodelPackage.SCENARIO_BEHAVIOUR:
+            return (EObject) createScenarioBehaviour();
+        case UsagemodelPackage.BRANCH_TRANSITION:
+            return (EObject) createBranchTransition();
+        case UsagemodelPackage.BRANCH:
+            return (EObject) createBranch();
+        case UsagemodelPackage.LOOP:
+            return (EObject) createLoop();
+        case UsagemodelPackage.STOP:
+            return (EObject) createStop();
+        case UsagemodelPackage.START:
+            return (EObject) createStart();
+        case UsagemodelPackage.OPEN_WORKLOAD:
+            return (EObject) createOpenWorkload();
+        case UsagemodelPackage.DELAY:
+            return (EObject) createDelay();
+        case UsagemodelPackage.CLOSED_WORKLOAD:
+            return (EObject) createClosedWorkload();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public UsageScenario createUsageScenario() {
@@ -101,6 +118,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ScenarioBehaviour createScenarioBehaviour() {
@@ -110,6 +128,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public BranchTransition createBranchTransition() {
@@ -119,6 +138,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Branch createBranch() {
@@ -128,6 +148,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Loop createLoop() {
@@ -137,6 +158,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public UsageModel createUsageModel() {
@@ -146,6 +168,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Stop createStop() {
@@ -155,6 +178,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Start createStart() {
@@ -164,6 +188,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public OpenWorkload createOpenWorkload() {
@@ -173,6 +198,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public EntryLevelSystemCall createEntryLevelSystemCall() {
@@ -182,6 +208,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public ClosedWorkload createClosedWorkload() {
@@ -191,6 +218,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public Delay createDelay() {
@@ -200,6 +228,7 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public UserData createUserData() {
@@ -209,14 +238,16 @@ public class UsagemodelFactoryImpl extends EFactoryImpl implements UsagemodelFac
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public UsagemodelPackage getUsagemodelPackage() {
-        return (UsagemodelPackage)getEPackage();
+        return (UsagemodelPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */

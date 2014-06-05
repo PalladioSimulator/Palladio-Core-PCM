@@ -11,24 +11,29 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 /**
  * <!-- begin-user-doc --> A representation of the model object '<em><b>Parameter</b></em>'. <!--
  * end-user-doc -->
- *
- * <!-- begin-model-doc -->
- * This entity represents a parameter within a signature. The parameter has a name and it is of a data type.
- * <!-- end-model-doc -->
- *
+ * 
+ * <!-- begin-model-doc --> This entity represents a parameter within a signature. The parameter has
+ * a name and it is of a data type. <!-- end-model-doc -->
+ * 
  * <p>
  * The following features are supported:
  * <ul>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDataType__Parameter <em>Data Type Parameter</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getInfrastructureSignature__Parameter <em>Infrastructure Signature Parameter</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getOperationSignature__Parameter <em>Operation Signature Parameter</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getEventType__Parameter <em>Event Type Parameter</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getParameterName <em>Parameter Name</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getModifier__Parameter <em>Modifier Parameter</em>}</li>
- *   <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter <em>Resource Signature Parameter</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDataType__Parameter <em>Data Type Parameter
+ * </em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getInfrastructureSignature__Parameter <em>
+ * Infrastructure Signature Parameter</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getOperationSignature__Parameter <em>Operation
+ * Signature Parameter</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getEventType__Parameter <em>Event Type
+ * Parameter</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getParameterName <em>Parameter Name</em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getModifier__Parameter <em>Modifier Parameter
+ * </em>}</li>
+ * <li>{@link de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter <em>Resource
+ * Signature Parameter</em>}</li>
  * </ul>
  * </p>
- *
+ * 
  * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter()
  * @model
  * @extends EStereotypableObject
@@ -37,6 +42,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
 public interface Parameter extends EStereotypableObject {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
@@ -55,9 +61,11 @@ public interface Parameter extends EStereotypableObject {
     String getParameterName();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getParameterName <em>Parameter Name</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Parameter Name</em>' attribute.
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getParameterName
+     * <em>Parameter Name</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Parameter Name</em>' attribute.
      * @see #getParameterName()
      * @generated
      */
@@ -79,9 +87,11 @@ public interface Parameter extends EStereotypableObject {
     ParameterModifier getModifier__Parameter();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getModifier__Parameter <em>Modifier Parameter</em>}' attribute.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Modifier Parameter</em>' attribute.
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getModifier__Parameter
+     * <em>Modifier Parameter</em>}' attribute. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Modifier Parameter</em>' attribute.
      * @see de.uka.ipd.sdq.pcm.repository.ParameterModifier
      * @see #getModifier__Parameter()
      * @generated
@@ -106,10 +116,13 @@ public interface Parameter extends EStereotypableObject {
     OperationSignature getOperationSignature__Parameter();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getOperationSignature__Parameter <em>Operation Signature Parameter</em>}' container reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getOperationSignature__Parameter
+     * <em>Operation Signature Parameter</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Operation Signature Parameter</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Operation Signature Parameter</em>' container reference.
      * @see #getOperationSignature__Parameter()
      * @generated
      */
@@ -129,9 +142,11 @@ public interface Parameter extends EStereotypableObject {
     DataType getDataType__Parameter();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDataType__Parameter <em>Data Type Parameter</em>}' reference.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
-     * @param value the new value of the '<em>Data Type Parameter</em>' reference.
+     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getDataType__Parameter
+     * <em>Data Type Parameter</em>}' reference. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
+     * @param value
+     *            the new value of the '<em>Data Type Parameter</em>' reference.
      * @see #getDataType__Parameter()
      * @generated
      */
@@ -139,13 +154,15 @@ public interface Parameter extends EStereotypableObject {
 
     /**
      * Returns the value of the '<em><b>Resource Signature Parameter</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature <em>Parameter Resource Signature</em>}'.
-     * <!-- begin-user-doc -->
+     * It is bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.resourcetype.ResourceSignature#getParameter__ResourceSignature
+     * <em>Parameter Resource Signature</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Resource Signature Parameter</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Resource Signature Parameter</em>' container reference.
      * @see #setResourceSignature__Parameter(ResourceSignature)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_ResourceSignature__Parameter()
@@ -156,24 +173,29 @@ public interface Parameter extends EStereotypableObject {
     ResourceSignature getResourceSignature__Parameter();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter <em>Resource Signature Parameter</em>}' container reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getResourceSignature__Parameter
+     * <em>Resource Signature Parameter</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Resource Signature Parameter</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Resource Signature Parameter</em>' container reference.
      * @see #getResourceSignature__Parameter()
      * @generated
      */
     void setResourceSignature__Parameter(ResourceSignature value);
 
     /**
-     * Returns the value of the '<em><b>Infrastructure Signature Parameter</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature <em>Parameters Infrastructure Signature</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Infrastructure Signature Parameter</b></em>' container
+     * reference. It is bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.repository.InfrastructureSignature#getParameters__InfrastructureSignature
+     * <em>Parameters Infrastructure Signature</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Infrastructure Signature Parameter</em>' container reference isn't
      * clear, there really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Infrastructure Signature Parameter</em>' container reference.
      * @see #setInfrastructureSignature__Parameter(InfrastructureSignature)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_InfrastructureSignature__Parameter()
@@ -184,24 +206,30 @@ public interface Parameter extends EStereotypableObject {
     InfrastructureSignature getInfrastructureSignature__Parameter();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getInfrastructureSignature__Parameter <em>Infrastructure Signature Parameter</em>}' container reference.
-     * <!-- begin-user-doc -->
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getInfrastructureSignature__Parameter
+     * <em>Infrastructure Signature Parameter</em>}' container reference. <!-- begin-user-doc -->
      * <!-- end-user-doc -->
-     * @param value the new value of the '<em>Infrastructure Signature Parameter</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Infrastructure Signature Parameter</em>' container
+     *            reference.
      * @see #getInfrastructureSignature__Parameter()
      * @generated
      */
     void setInfrastructureSignature__Parameter(InfrastructureSignature value);
 
     /**
-     * Returns the value of the '<em><b>Event Type Parameter</b></em>' container reference.
-     * It is bidirectional and its opposite is '{@link de.uka.ipd.sdq.pcm.repository.EventType#getParameter__EventType <em>Parameter Event Type</em>}'.
-     * <!-- begin-user-doc -->
+     * Returns the value of the '<em><b>Event Type Parameter</b></em>' container reference. It is
+     * bidirectional and its opposite is '
+     * {@link de.uka.ipd.sdq.pcm.repository.EventType#getParameter__EventType
+     * <em>Parameter Event Type</em>}'. <!-- begin-user-doc -->
      * <p>
      * If the meaning of the '<em>Event Type Parameter</em>' container reference isn't clear, there
      * really should be more of a description here...
      * </p>
      * <!-- end-user-doc -->
+     * 
      * @return the value of the '<em>Event Type Parameter</em>' container reference.
      * @see #setEventType__Parameter(EventType)
      * @see de.uka.ipd.sdq.pcm.repository.RepositoryPackage#getParameter_EventType__Parameter()
@@ -212,10 +240,13 @@ public interface Parameter extends EStereotypableObject {
     EventType getEventType__Parameter();
 
     /**
-     * Sets the value of the '{@link de.uka.ipd.sdq.pcm.repository.Parameter#getEventType__Parameter <em>Event Type Parameter</em>}' container reference.
-     * <!-- begin-user-doc --> <!--
+     * Sets the value of the '
+     * {@link de.uka.ipd.sdq.pcm.repository.Parameter#getEventType__Parameter
+     * <em>Event Type Parameter</em>}' container reference. <!-- begin-user-doc --> <!--
      * end-user-doc -->
-     * @param value the new value of the '<em>Event Type Parameter</em>' container reference.
+     * 
+     * @param value
+     *            the new value of the '<em>Event Type Parameter</em>' container reference.
      * @see #getEventType__Parameter()
      * @generated
      */

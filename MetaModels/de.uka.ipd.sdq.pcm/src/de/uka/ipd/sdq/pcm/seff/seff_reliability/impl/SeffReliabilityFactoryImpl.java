@@ -16,36 +16,38 @@ import de.uka.ipd.sdq.pcm.seff.seff_reliability.SeffReliabilityPackage;
 
 /**
  * <!-- begin-user-doc --> An implementation of the model <b>Factory</b>. <!-- end-user-doc -->
+ * 
  * @generated
  */
 public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReliabilityFactory {
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static final String copyright = "Copyright 2005-2009 by SDQ, IPD, University of Karlsruhe, Germany";
 
     /**
-     * Creates the default factory implementation.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates the default factory implementation. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public static SeffReliabilityFactory init() {
         try {
-            SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory)EPackage.Registry.INSTANCE.getEFactory(SeffReliabilityPackage.eNS_URI);
+            SeffReliabilityFactory theSeffReliabilityFactory = (SeffReliabilityFactory) EPackage.Registry.INSTANCE
+                    .getEFactory(SeffReliabilityPackage.eNS_URI);
             if (theSeffReliabilityFactory != null) {
                 return theSeffReliabilityFactory;
             }
-        }
-        catch (Exception exception) {
+        } catch (Exception exception) {
             EcorePlugin.INSTANCE.log(exception);
         }
         return new SeffReliabilityFactoryImpl();
     }
 
     /**
-     * Creates an instance of the factory.
-     * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * Creates an instance of the factory. <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SeffReliabilityFactoryImpl() {
@@ -54,20 +56,24 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     @Override
     public EObject create(EClass eClass) {
         switch (eClass.getClassifierID()) {
-            case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR: return (EObject)createRecoveryActionBehaviour();
-            case SeffReliabilityPackage.RECOVERY_ACTION: return (EObject)createRecoveryAction();
-            default:
-                throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
+        case SeffReliabilityPackage.RECOVERY_ACTION_BEHAVIOUR:
+            return (EObject) createRecoveryActionBehaviour();
+        case SeffReliabilityPackage.RECOVERY_ACTION:
+            return (EObject) createRecoveryAction();
+        default:
+            throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
         }
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public RecoveryActionBehaviour createRecoveryActionBehaviour() {
@@ -77,6 +83,7 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public RecoveryAction createRecoveryAction() {
@@ -86,14 +93,16 @@ public class SeffReliabilityFactoryImpl extends EFactoryImpl implements SeffReli
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @generated
      */
     public SeffReliabilityPackage getSeffReliabilityPackage() {
-        return (SeffReliabilityPackage)getEPackage();
+        return (SeffReliabilityPackage) getEPackage();
     }
 
     /**
      * <!-- begin-user-doc --> <!-- end-user-doc -->
+     * 
      * @deprecated
      * @generated
      */
