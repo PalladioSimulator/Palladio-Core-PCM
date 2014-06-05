@@ -78,32 +78,32 @@ public class InstallSystemCallParameterHandling implements IPCMCommand<Void> {
 
         @Override
         public void before(final AbstractUserAction action, final User who, UserState state) {
-            if (logger.isDebugEnabled()) {
-                logger.debug("Begin handling system call input parameters");
-            }
-
-            final EventSimModel model = who.getModel();
-            final EntryLevelSystemCall call = (EntryLevelSystemCall) action;
-            final StackContext ctx = state.getStoExContext();
-
-            // get a reference on the current stack frame which is being covered soon
-            final SimulatedStackframe<Object> outerFrame = ctx.getStack().currentStackFrame();
-
-            // enter a new scope in which the call is being executed
-            final SimulatedStackframe<Object> serviceBodyFrame = ctx.getStack().createAndPushNewStackFrame();
-
-            // add component parameters
-            final AssemblyContext assemblyCtx = model.execute(new FindAssemblyContextForSystemCall(call));
-            final ComponentInstance component = model.getComponent(assemblyCtx);
-            serviceBodyFrame.addVariables(component.getComponentParameters());
-
-            // evaluate the input parameters and add them to the call's scope
-            final List<VariableUsage> parameters = call.getInputParameterUsages_EntryLevelSystemCall();
-            ParameterHelper.evaluateParametersAndCopyToFrame(parameters, outerFrame, serviceBodyFrame);
-
-            if (logger.isDebugEnabled()) {
-                logger.debug("Finished handling system call input parameters");
-            }
+//            if (logger.isDebugEnabled()) {
+//                logger.debug("Begin handling system call input parameters");
+//            }
+//
+//            final EventSimModel model = who.getModel();
+//            final EntryLevelSystemCall call = (EntryLevelSystemCall) action;
+//            final StackContext ctx = state.getStoExContext();
+//
+//            // get a reference on the current stack frame which is being covered soon
+//            final SimulatedStackframe<Object> outerFrame = ctx.getStack().currentStackFrame();
+//
+//            // enter a new scope in which the call is being executed
+//            final SimulatedStackframe<Object> serviceBodyFrame = ctx.getStack().createAndPushNewStackFrame();
+//
+//            // add component parameters
+//            final AssemblyContext assemblyCtx = model.execute(new FindAssemblyContextForSystemCall(call));
+//            final ComponentInstance component = model.getComponent(assemblyCtx);
+//            serviceBodyFrame.addVariables(component.getComponentParameters());
+//
+//            // evaluate the input parameters and add them to the call's scope
+//            final List<VariableUsage> parameters = call.getInputParameterUsages_EntryLevelSystemCall();
+//            ParameterHelper.evaluateParametersAndCopyToFrame(parameters, outerFrame, serviceBodyFrame);
+//
+//            if (logger.isDebugEnabled()) {
+//                logger.debug("Finished handling system call input parameters");
+//            }
         }
 
         @Override
