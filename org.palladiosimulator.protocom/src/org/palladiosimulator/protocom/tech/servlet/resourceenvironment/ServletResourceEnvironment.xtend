@@ -17,6 +17,10 @@ class ServletResourceEnvironment extends ConceptMapping<ResourceEnvironment> imp
 		newLinkedList
 	}
 	
+	override annotations() {
+		newLinkedList
+	}
+	
 	override packageName() {
 		"Bootstrap"
 	}

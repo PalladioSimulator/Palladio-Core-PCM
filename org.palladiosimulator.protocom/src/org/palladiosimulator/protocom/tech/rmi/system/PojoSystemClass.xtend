@@ -46,7 +46,10 @@ class PojoSystemClass extends PojoComposedStructureClass<System> {
 		]
 	}
 	
-
+	override annotations() {
+		newLinkedList
+	}
+	
 	override fields() {
 		val results = newLinkedList
 		results += super.fields

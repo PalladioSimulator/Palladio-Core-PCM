@@ -19,6 +19,9 @@ class JavaEEIIOPClass <E extends Entity> extends ConceptMapping<E> implements IJ
 		newLinkedList
 	}
 	
+	override annotations() {
+	}
+	
 	override packageName() {
 	}
 	

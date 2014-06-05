@@ -18,17 +18,24 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 	override constructors() {
 		provider.constructors
 	}
+	
+	override annotations() {
+		provider.annotations
+	}
 
 	override def String header() {
 		'''
 			package «packageName»;
 			
+			«IF annotations != null && !annotations.empty»
+				«FOR a : annotations SEPARATOR '\n'»«a.generate»«ENDFOR»
+			«ENDIF»
 			public class «compilationUnitName» «IF superClass != null»extends «superClass»«ENDIF» «implementedClasses»
 		'''
 	}
 
 	override body() {
-		'''		
+		'''
 			«FOR field : fields»
 				«field(field)»
 			«ENDFOR»

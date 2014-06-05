@@ -24,6 +24,10 @@ abstract class PojoClass<E extends Entity> extends ConceptMapping<E> implements 
 		newLinkedList
 	}
 	
+	override annotations() {
+		newLinkedList
+	}
+	
 	override packageName() {
 		JavaNames::implementationPackage(pcmEntity)
 	}

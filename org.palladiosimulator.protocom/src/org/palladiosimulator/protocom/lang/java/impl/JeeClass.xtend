@@ -16,6 +16,10 @@ class JeeClass extends JCompilationUnit<IJeeClass> implements IJeeClass {
 		provider.constructors
 	}
 	
+	override annotations() {
+		provider.annotations
+	}
+	
 	override Collection<String> interfaces() {
 		provider.interfaces
 	}

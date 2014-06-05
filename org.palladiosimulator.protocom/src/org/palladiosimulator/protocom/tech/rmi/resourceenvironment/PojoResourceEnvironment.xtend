@@ -63,6 +63,10 @@ class PojoResourceEnvironment extends ConceptMapping<ResourceEnvironment> implem
 		newLinkedList
 	}
 	
+	override annotations() {
+		newLinkedList
+	}
+	
 	override interfaces() {
 		newLinkedList
 	}
