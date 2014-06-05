@@ -16,8 +16,7 @@ Require-Bundle: de.uka.ipd.sdq.pcm,
  de.uka.ipd.sdq.pcm.stochasticexpressions,
  de.uka.ipd.sdq.probfunction.math,
  de.uka.ipd.sdq.stoex.analyser,
- org.apache.log4j,
- edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
+ org.apache.log4j
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-ActivationPolicy: lazy
 Bundle-ClassPath: .

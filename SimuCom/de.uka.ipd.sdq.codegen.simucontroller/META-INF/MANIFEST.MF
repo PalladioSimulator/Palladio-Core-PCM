@@ -43,8 +43,7 @@ Require-Bundle: org.eclipse.core.runtime,
  de.uka.ipd.sdq.completions;bundle-version="1.0.0",
  org.junit;bundle-version="4.11.0",
  de.uka.ipd.sdq.featureinstance.editor;bundle-version="1.0.0",
- org.palladiosimulator.commons;bundle-version="1.0.0",
- edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
+ org.palladiosimulator.commons;bundle-version="1.0.0"
 Bundle-ActivationPolicy: lazy
 Export-Package: de.uka.ipd.sdq.codegen.simucontroller.debug,
  de.uka.ipd.sdq.codegen.simucontroller.runconfig,

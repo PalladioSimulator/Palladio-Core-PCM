@@ -24,8 +24,7 @@ Require-Bundle: de.uka.ipd.sdq.pcmsolver,
  de.uka.ipd.sdq.reliability.core;bundle-version="3.1.0",
  de.fzi.se.accuracy;bundle-version="1.0.0",
  org.eclipse.ui.ide,
- de.uka.ipd.sdq.reliability.sensitivity;bundle-version="1.0.0",
- edu.kit.ipd.sdq.mdsd.profiles;bundle-version="1.0.0"
+ de.uka.ipd.sdq.reliability.sensitivity;bundle-version="1.0.0"
 Export-Package: de.uka.ipd.sdq.reliability.solver,
  de.uka.ipd.sdq.reliability.solver.pcm2markov,
  de.uka.ipd.sdq.reliability.solver.runconfig
