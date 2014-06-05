@@ -1364,7 +1364,7 @@ public class PCMStoExParser extends Parser {
 
         Sample<Double> rsample = null;
 
-        Sample<Comparable> ssample = null;
+        Sample<Comparable<?>> ssample = null;
 
         ContinuousSample pdf_sample = null;
 
@@ -1837,8 +1837,8 @@ public class PCMStoExParser extends Parser {
     // $ANTLR start "stringsample"
     // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:307:1:
     // stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
-    public final Sample<Comparable> stringsample() throws RecognitionException {
-        Sample<Comparable> s = null;
+    public final Sample<Comparable<?>> stringsample() throws RecognitionException {
+        Sample<Comparable<?>> s = null;
 
         Token str = null;
         Token n = null;
@@ -1873,8 +1873,8 @@ public class PCMStoExParser extends Parser {
     // $ANTLR start "boolsample"
     // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:318:1:
     // boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
-    public final Sample<Comparable> boolsample() throws RecognitionException {
-        Sample<Comparable> s = null;
+    public final Sample<Comparable<?>> boolsample() throws RecognitionException {
+        Sample<Comparable<?>> s = null;
 
         Token n = null;
         String str = null;
