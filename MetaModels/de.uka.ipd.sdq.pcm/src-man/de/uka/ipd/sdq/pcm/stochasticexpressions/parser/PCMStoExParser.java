@@ -133,10 +133,12 @@ public class PCMStoExParser extends Parser {
 
     }
 
+    @Override
     public String[] getTokenNames() {
         return PCMStoExParser.tokenNames;
     }
 
+    @Override
     public String getGrammarFileName() {
         return "/Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g";
     }
@@ -1358,11 +1360,11 @@ public class PCMStoExParser extends Parser {
     public final ProbabilityFunctionLiteral definition() throws RecognitionException {
         ProbabilityFunctionLiteral pfl = null;
 
-        Sample isample = null;
+        Sample<Integer> isample = null;
 
-        Sample rsample = null;
+        Sample<Double> rsample = null;
 
-        Sample ssample = null;
+        Sample<Comparable> ssample = null;
 
         ContinuousSample pdf_sample = null;
 
@@ -1711,8 +1713,8 @@ public class PCMStoExParser extends Parser {
     // $ANTLR start "numeric_int_sample"
     // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:274:1:
     // numeric_int_sample returns [Sample s] : LPAREN n= signed_number SEMI n2= NUMBER RPAREN ;
-    public final Sample numeric_int_sample() throws RecognitionException {
-        Sample s = null;
+    public final Sample<Integer> numeric_int_sample() throws RecognitionException {
+        Sample<Integer> s = null;
 
         Token n2 = null;
         String n = null;
@@ -1752,8 +1754,8 @@ public class PCMStoExParser extends Parser {
     // $ANTLR start "numeric_real_sample"
     // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:285:1:
     // numeric_real_sample returns [Sample s] : LPAREN n= signed_number SEMI n2= NUMBER RPAREN ;
-    public final Sample numeric_real_sample() throws RecognitionException {
-        Sample s = null;
+    public final Sample<Double> numeric_real_sample() throws RecognitionException {
+        Sample<Double> s = null;
 
         Token n2 = null;
         String n = null;
@@ -1835,8 +1837,8 @@ public class PCMStoExParser extends Parser {
     // $ANTLR start "stringsample"
     // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:307:1:
     // stringsample returns [Sample s] : LPAREN str= STRING_LITERAL SEMI n= NUMBER RPAREN ;
-    public final Sample stringsample() throws RecognitionException {
-        Sample s = null;
+    public final Sample<Comparable> stringsample() throws RecognitionException {
+        Sample<Comparable> s = null;
 
         Token str = null;
         Token n = null;
@@ -1871,8 +1873,8 @@ public class PCMStoExParser extends Parser {
     // $ANTLR start "boolsample"
     // /Users/joerg/Documents/work/palladio-dev/de.uka.ipd.sdq.pcm/src-man/de/uka/ipd/sdq/pcm/stochasticexpressions/parser/PCMStoEx.g:318:1:
     // boolsample returns [Sample s] : LPAREN str= boolean_keywords SEMI n= NUMBER RPAREN ;
-    public final Sample boolsample() throws RecognitionException {
-        Sample s = null;
+    public final Sample<Comparable> boolsample() throws RecognitionException {
+        Sample<Comparable> s = null;
 
         Token n = null;
         String str = null;
