@@ -26,7 +26,7 @@ public class BranchTraversalStrategy implements IUsageTraversalStrategy<Branch> 
     	AbstractEventSimModel model = user.getEventSimModel();
         ScenarioBehaviour behaviour = null;
         double sum = 0;
-        final double rand = model.getEventSimConfig().getRandomGenerator().random();
+        final double rand = model.getSimulationMiddleware().getRandomGenerator().random();
         boolean enteredTransition = false;
         for (final BranchTransition t : branch.getBranchTransitions_Branch()) {
             assert (sum >= 0 && sum <= 1) : "Expected sum to be in the interval [0, 1], but was " + sum;

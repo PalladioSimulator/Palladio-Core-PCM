@@ -62,5 +62,7 @@ public interface ISimulationConfiguration extends ISimulationConfig {
 	 * @return true if in debug or false if not.
 	 */
 	public boolean isDebug();
+	
+	public long[] getRandomSeed();
 
 }

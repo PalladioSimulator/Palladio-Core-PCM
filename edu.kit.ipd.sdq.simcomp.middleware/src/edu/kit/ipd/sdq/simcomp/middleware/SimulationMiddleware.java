@@ -33,6 +33,8 @@ import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.RequestContext;
 import de.uka.ipd.sdq.probespec.framework.garbagecollection.IRegionBasedGarbageCollector;
 import de.uka.ipd.sdq.probespec.framework.probes.ProbeStrategyRegistry;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
+import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
@@ -80,6 +82,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private int measurementCount;
 	private List<ServiceRegistration<?>> eventHandlerRegistry;
 	private List<ServiceRegistration<?>> eventHandlerToRemove;
+	private IRandomGenerator randomNumberGenerator;
 
 	public SimulationMiddleware() {
 		this.eventHandlerRegistry = new ArrayList<ServiceRegistration<?>>();
@@ -473,6 +476,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 	@Override
 	public void reset() {
+		this.randomNumberGenerator = null;
+		
 		// reset measurement count
 		this.resetMeasurementCount();
 		
@@ -484,5 +489,18 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			this.eventHandlerRegistry.remove(handler);
 		}
 	}
+	
+	/**
+	 * TODO (simcomp) relocate?
+	 * @return
+	 */
+	@Override
+    public IRandomGenerator getRandomGenerator() {
+        if (randomNumberGenerator == null) {
+            // TODO get rid of SimuCom dependency
+            randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(simConfig.getRandomSeed());
+        }
+        return randomNumberGenerator;
+    }
 
 }

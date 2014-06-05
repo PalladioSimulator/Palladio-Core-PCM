@@ -1,6 +1,8 @@
 package edu.kit.ipd.sdq.simcomp.middleware.simulation;
 
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.scheduler.SchedulerModel;
+import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;

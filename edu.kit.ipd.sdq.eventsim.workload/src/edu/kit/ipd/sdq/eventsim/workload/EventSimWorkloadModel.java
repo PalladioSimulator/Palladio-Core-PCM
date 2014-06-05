@@ -61,7 +61,7 @@ public class EventSimWorkloadModel extends AbstractEventSimModel {
 
 		// initialise probfunction factory and random generator
 		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
-		probFunctionFactory.setRandomGenerator(this.getEventSimConfig().getRandomGenerator());
+		probFunctionFactory.setRandomGenerator(this.getSimulationMiddleware().getRandomGenerator());
 		StoExCache.initialiseStoExCache(probFunctionFactory);
 
 		// install debug traversal listeners, if debugging is enabled

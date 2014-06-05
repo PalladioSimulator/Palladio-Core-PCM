@@ -8,7 +8,6 @@ import java.util.Map;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.IRecorderConfiguration;
 import de.uka.ipd.sdq.pipesandfilters.framework.recorder.launch.RecorderExtensionHelper;
 import de.uka.ipd.sdq.probespec.framework.BlackboardType;
-import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.runconfig.ExperimentRunDescriptor;
 
@@ -61,8 +60,7 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     private String additionalExperimentRunDescription;
     protected long simuTime;
     protected Long maxMeasurementsCount;
-    protected long[] randomSeed = null;
-    protected IRandomGenerator randomNumberGenerator = null;
+    private long[] randomSeed = null;
     protected String recorderName;
     protected IRecorderConfiguration recorderConfig;
     protected ExperimentRunDescriptor descriptor = null;
@@ -191,16 +189,16 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
         return "de.uka.ipd.sdq.simulation.abstractsimengine.ssj.SSJSimEngineFactory";
     }
 
-    /**
-     * Dispose random generator and delete reference to it so that this {@link SimuComConfig} can be
-     * started again and will create a new RandomGenerator.
-     * 
-     * @author martens
-     */
-    public void disposeRandomGenerator() {
-        this.randomNumberGenerator.dispose();
-        this.randomNumberGenerator = null;
-    }
+//    /**
+//     * Dispose random generator and delete reference to it so that this {@link SimuComConfig} can be
+//     * started again and will create a new RandomGenerator.
+//     * 
+//     * @author martens
+//     */
+//    public void disposeRandomGenerator() {
+//        this.randomNumberGenerator.dispose();
+//        this.randomNumberGenerator = null;
+//    }
 
     public void setExperimentRunDescriptor(ExperimentRunDescriptor descriptor) {
         this.descriptor = descriptor;
@@ -217,5 +215,9 @@ public abstract class AbstractSimulationConfig implements Serializable, ISimulat
     public String getSimulatorId() {
         return simulatorId;
     }
+
+	public long[] getRandomSeed() {
+		return randomSeed;
+	}
     
 }

@@ -173,6 +173,7 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 			}
 			if (s == null) {
 				// remove
+				// TODO (simcomp) is also thrown if HDD is missing!
 				throw new RuntimeException("refactoring went wrong :(");
 			}
 

@@ -43,7 +43,7 @@ public class BranchActionTraversalStrategy implements ISeffTraversalStrategy<Bra
         if (firstTransition instanceof ProbabilisticBranchTransition) {
             // handle probabilistic branch transition
             double sum = 0;
-            final double rand = model.getEventSimConfig().getRandomGenerator().random();
+            final double rand = model.getSimulationMiddleware().getRandomGenerator().random();
 
             for (final AbstractBranchTransition t : action.getBranches_Branch()) {
                 final ProbabilisticBranchTransition transition = (ProbabilisticBranchTransition) t;

@@ -3,6 +3,7 @@ package edu.kit.ipd.sdq.simcomp.component;
 import java.util.List;
 
 import de.uka.ipd.sdq.probespec.framework.ProbeSpecContext;
+import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
@@ -187,5 +188,7 @@ public interface ISimulationMiddleware {
 	 * Called before every simulation run to reset the middleware.
 	 */
 	void reset();
+
+	IRandomGenerator getRandomGenerator();
 
 }

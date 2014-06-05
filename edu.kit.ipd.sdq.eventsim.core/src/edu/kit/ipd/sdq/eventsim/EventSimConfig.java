@@ -4,8 +4,6 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.pcm.allocation.Allocation;
 import de.uka.ipd.sdq.pcm.usagemodel.UsageModel;
-import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
-import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 
@@ -69,14 +67,6 @@ public class EventSimConfig extends AbstractSimulationConfig {
         super(null, false);
         this.usageModelFile = null;
         this.allocationModelFile = null;
-    }
-
-    public IRandomGenerator getRandomGenerator() {
-        if (randomNumberGenerator == null) {
-            // TODO get rid of SimuCom dependency
-            randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(this.randomSeed);
-        }
-        return randomNumberGenerator;
     }
 
 }
