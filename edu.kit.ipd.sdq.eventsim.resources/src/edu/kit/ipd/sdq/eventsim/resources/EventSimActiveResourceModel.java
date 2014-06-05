@@ -86,13 +86,11 @@ public class EventSimActiveResourceModel extends AbstractEventSimModel {
 		// (SimulatedResourceContainer)
 		// state.getComponent().getResourceContainer();
 
-		System.out.println("fetch resource (type: " + resourceType.getEntityName() + ")");
 		final SimActiveResource resource = findOrCreateResource(resourceContainer, resourceType);
 		if (resource == null) {
 			throw new RuntimeException("Could not find a resource of type " + resourceType.getEntityName());
 		}
 
-		System.out.println("consume resource " + resourceType.getEntityName() + " (demand: " + absoluteDemand + ")");
 		resource.consumeResource(getOrCreateSimulatedProcess(request), absoluteDemand);
 	}
 
