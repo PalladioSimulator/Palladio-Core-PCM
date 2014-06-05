@@ -17,6 +17,7 @@ PCM Core build.
       <discovery label="Palladio Recorder Framework" url="http://sdqweb.ipd.kit.edu/eclipse/recorderframework/nightly"/>
       <discovery label="Palladio EDP2" url="http://sdqweb.ipd.kit.edu/eclipse/edp2/nightly"/>
       <discovery label="Palladio Sensor Framework" url="http://sdqweb.ipd.kit.edu/eclipse/sensorframework/releases/3.5.0"/>
+      <discovery label="MDSD Profiles" url="https://sdqweb.ipd.kit.edu/eclipse/mdsdprofiles/nightly"/>
       <discovery label="Medini QVT" url="http://www.ikv.de/qvt/update-site-indigo"/>
       <discovery label="Guava" url="http://guava-osgi.googlecode.com/svn/trunk/repository"/>
       <discovery label="Eclipse TMF Xtext" url="http://download.eclipse.org/modeling/tmf/xtext/updates/composite/releases"/>
