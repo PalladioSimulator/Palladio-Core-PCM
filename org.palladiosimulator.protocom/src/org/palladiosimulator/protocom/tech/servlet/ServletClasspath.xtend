@@ -15,14 +15,6 @@ class ServletClasspath<E extends Entity> extends ConceptMapping<E> implements IC
 	}
 	
 	override classPathEntries() {
-		
-		// TODO: Add server entry?
-		/*<classpathentry kind="con" path="org.eclipse.jst.server.core.container/org.eclipse.jst.server.tomcat.runtimeTarget/Apache Tomcat v7.0">
-			<attributes>
-				<attribute name="owner.project.facets" value="jst.web"/>
-			</attributes>
-		</classpathentry>*/
-		
 		'''
 		<classpathentry kind="src" path="src"/>
 		<classpathentry kind="output" path="build/classes"/>

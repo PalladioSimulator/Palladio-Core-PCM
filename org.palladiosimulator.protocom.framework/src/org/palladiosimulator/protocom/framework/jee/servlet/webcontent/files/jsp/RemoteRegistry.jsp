@@ -1,5 +1,5 @@
 <%@page import="java.io.ObjectOutputStream"%>
-<%@page import="registry.RegistryEntry"%>
+<%@page import="org.palladiosimulator.protocom.framework.jee.servlet.registry.RegistryEntry"%>
 <%@page import="java.util.HashMap"%>
 <%@page language="java" pageEncoding="UTF-8"%>
 

@@ -37,7 +37,8 @@ public class FileProvider {
 		"jackson-annotations-2.2.3.jar", 
 		"jackson-core-2.2.3.jar", 
 		"jackson-databind-2.2.3.jar", 
-		"jstl-1.2.jar"
+		"jstl-1.2.jar", 
+		"org.palladiosimulator.protocom.framework.jar"
 	};
 	
 	private final String[][] files = {

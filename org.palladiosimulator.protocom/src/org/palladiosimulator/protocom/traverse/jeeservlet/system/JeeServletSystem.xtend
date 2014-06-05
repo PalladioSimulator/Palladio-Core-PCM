@@ -5,15 +5,13 @@ import org.palladiosimulator.protocom.framework.jee.servlet.webcontent.FileProvi
 import org.palladiosimulator.protocom.lang.CopiedFile
 import org.palladiosimulator.protocom.lang.java.impl.JClass
 import org.palladiosimulator.protocom.lang.xml.impl.Classpath
+import org.palladiosimulator.protocom.lang.xml.impl.JeeSettings
 import org.palladiosimulator.protocom.tech.servlet.ServletClasspath
+import org.palladiosimulator.protocom.tech.servlet.ServletDeploymentDescriptor
+import org.palladiosimulator.protocom.tech.servlet.ServletSettings
 import org.palladiosimulator.protocom.tech.servlet.system.ServletSystemClass
 import org.palladiosimulator.protocom.tech.servlet.system.ServletSystemMain
 import org.palladiosimulator.protocom.traverse.framework.system.XSystem
-import org.palladiosimulator.protocom.tech.servlet.ServletDeploymentDescriptor
-import org.palladiosimulator.protocom.lang.manifest.impl.JeeManifest
-import org.palladiosimulator.protocom.tech.servlet.ServletManifest
-import org.palladiosimulator.protocom.lang.xml.impl.PluginXml
-import org.palladiosimulator.protocom.tech.servlet.ServletPlugin
 
 class JeeServletSystem extends XSystem {
 	val fileProvider = new FileProvider
@@ -31,15 +29,22 @@ class JeeServletSystem extends XSystem {
 		}
 	}
 	
+	private def generateSettingsFile(String contentId) {
+		generatedFiles.add(injector.getInstance(typeof(JeeSettings)).createFor(new ServletSettings(entity, contentId)))
+	}
+	
 	override protected generate() {
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemClass(entity)))
 		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new ServletClasspath(entity)))
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemMain(entity)))
 		
-		// Generate plug-in manifest (MANIFEST.MF).
-		generatedFiles.add(injector.getInstance(typeof(JeeManifest)).createFor(new ServletManifest(entity)))
-		
-		generatedFiles.add(injector.getInstance(typeof(PluginXml)).createFor(new ServletPlugin(entity)))
+		// Generate settings files (.settings folder).
+		generateSettingsFile(".jsdtscope");
+		generateSettingsFile("org.eclipse.jdt.core.prefs");
+		generateSettingsFile("org.eclipse.wst.common.component");
+		generateSettingsFile("org.eclipse.wst.common.project.facet.core.xml");
+		generateSettingsFile("org.eclipse.wst.jsdt.ui.superType.container");
+		generateSettingsFile("org.eclipse.wst.jsdt.ui.superType.name");
 		
 		// Generate deployment descriptor (web.xml).
 		generatedFiles.add(injector.getInstance(typeof(ServletDeploymentDescriptor)))
