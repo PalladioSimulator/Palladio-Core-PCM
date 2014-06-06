@@ -19,4 +19,9 @@ interface IJField {
 	 */
 	def String visibility()
 	
+	def boolean staticModifier()
+	
+	def boolean finalModifier()
+	
+	def String initialization()
 }

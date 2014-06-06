@@ -52,6 +52,10 @@ class JMethod implements IJMethod {
 		'''«IF isStatic»static«ENDIF»'''		
 	}
 	
+	override isStatic() {
+		isStatic
+	}
+	
 	override body() {
 		'''«IF implementation != null»«implementation»«ELSE»«ENDIF»'''
 	}

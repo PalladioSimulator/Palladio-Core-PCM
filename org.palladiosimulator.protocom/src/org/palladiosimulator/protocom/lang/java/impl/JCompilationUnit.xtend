@@ -30,8 +30,7 @@ abstract class JCompilationUnit<E extends IJCompilationUnit> extends GeneratedFi
 	
 	override generate() {
 		'''
-		«header»
-		{	
+		«header» {
 			«body»
 		}
 		'''

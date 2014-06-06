@@ -50,5 +50,7 @@ interface IJMethod {
 	 */
 	def String staticModifier()
 	
+	def boolean isStatic()
+	
 	def String methodAnnotation()
 }

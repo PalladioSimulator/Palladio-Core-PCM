@@ -1,9 +1,5 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.main;
 
-import org.palladiosimulator.protocom.framework.jee.servlet.http.JsonResponse;
-import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
-import org.palladiosimulator.protocom.framework.jee.servlet.http.StringResponse;
-
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -13,32 +9,36 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import org.palladiosimulator.protocom.framework.jee.servlet.modules.ComponentModule;
+import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
+import org.palladiosimulator.protocom.framework.jee.servlet.http.JsonResponse;
+import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
+import org.palladiosimulator.protocom.framework.jee.servlet.http.StringResponse;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.Module;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.ModuleList;
-import org.palladiosimulator.protocom.framework.jee.servlet.modules.UsageScenarioModule;
 import org.palladiosimulator.protocom.framework.jee.servlet.registry.Registry;
-
-import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
 
 /**
  * The Main Servlet class is the entry point for the application and handles requests.
  * @author Christian Klaussner
  */
 @WebServlet(urlPatterns = "", loadOnStartup = 0)
-public class Main extends HttpServlet {
+public abstract class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private String location, registryLocation;
 	private ModuleList moduleList;
-
-	@Override
-	public void init() throws ServletException {
+	
+	/**
+	 * Constructs a new Main Servlet.
+	 */
+	public Main() {
 		moduleList = new ModuleList();
-		
-		moduleList.add(new ComponentModule("1", "Bob Component", "/IBobPort"));
-		moduleList.add(new ComponentModule("2", "Alice Component", "/IAlicePort"));
-		// moduleList.add(new UsageScenarioModule("3", "Usage Scenario", new UsageScenario()));
+	}
+	
+	protected abstract void initModules();
+	
+	protected void addModule(Module module) {
+		moduleList.add(module);
 	}
 	
 	/**
@@ -99,42 +99,6 @@ public class Main extends HttpServlet {
 	private Response startModule(int id) {
 		Module module = moduleList.get(Integer.toString(id));
 		return module.startModule(location);
-		
-		
-		/*ArrayList<Parameter> parameters = new ArrayList<Parameter>(2);
-		parameters.add(new Parameter("action", "start"));
-		parameters.add(new Parameter("location", location));
-		
-		String responseString = "";
-		
-		switch (id) {
-		case 1:
-			responseString = Request.get(location, "/IAlicePort", parameters);
-			response = StringResponse.fromJson(responseString);
-			break;
-
-		case 2:
-			responseString = Request.get(location, "/IBobPort", parameters);
-			response = StringResponse.fromJson(responseString);
-			break;
-			
-		case 3:
-			response = new StringResponse();
-			
-			try {
-				IAlice alice = (IAlice)Registry.lookup("IAlice");
-				alice.callBob();
-				
-				response.setError(Response.OK);
-			} catch (RegistryException e) {
-				Log.error(e.getMessage());
-				response.setError(Response.FAILED);
-			}
-			
-			break;
-		}
-		
-		return response;*/
 	}
 	
 	/**
@@ -145,6 +109,15 @@ public class Main extends HttpServlet {
 		JsonResponse response = new JsonResponse(moduleList.toJson());
 		return response;
 	}
+	
+	/*@Override
+	public void init() throws ServletException {
+		// moduleList = new ModuleList();
+		
+		// moduleList.add(new ComponentModule("1", "Bob Component", "/IBobPort"));
+		// moduleList.add(new ComponentModule("2", "Alice Component", "/IAlicePort"));
+		// moduleList.add(new UsageScenarioModule("3", "Usage Scenario", new UsageScenario()));
+	}*/
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)

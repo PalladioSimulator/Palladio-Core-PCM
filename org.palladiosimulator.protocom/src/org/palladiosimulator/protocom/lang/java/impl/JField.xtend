@@ -17,6 +17,9 @@ class JField implements IJField {
 	private String name
 	private String type
 	private String visibility
+	var boolean staticModifier
+	var boolean finalModifier
+	var String initialization
 	
 	override name() {
 		name	
@@ -29,8 +32,19 @@ class JField implements IJField {
 	override visibility() {
 		'''«IF visibility != null»«visibility»«ELSE»protected«ENDIF»'''
 	}
-
-
+	
+	override staticModifier() {
+		staticModifier
+	}
+	
+	override finalModifier() {
+		finalModifier
+	}
+	
+	override initialization() {
+		initialization
+	}
+	
 	def withName(String name) {
 		this.name = name
 		this
@@ -46,4 +60,28 @@ class JField implements IJField {
 		this
 	}
 	
+	def withStaticModifier() {
+		this.staticModifier = true
+		this
+	}
+	
+	def withFinalModifier() {
+		this.finalModifier = true
+		this
+	}
+	
+	def withInitialization(String initialization) {
+		this.initialization = initialization
+		this
+	}
+	
+	def asDefaultSerialVersionUID() {
+		this
+			.withModifierVisibility("private")
+			.withStaticModifier()
+			.withFinalModifier()
+			.withType("long")
+			.withName("serialVersionUID")
+			.withInitialization("1L")
+	}
 }
