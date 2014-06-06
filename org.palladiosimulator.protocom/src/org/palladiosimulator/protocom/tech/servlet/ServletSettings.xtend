@@ -1,9 +1,8 @@
 package org.palladiosimulator.protocom.tech.servlet
 
 import de.uka.ipd.sdq.pcm.system.System
-import org.palladiosimulator.protocom.tech.ConceptMapping
 import org.palladiosimulator.protocom.lang.xml.IJeeSettings
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.tech.ConceptMapping
 
 /**
  * @author Christian Klaussner
@@ -47,12 +46,13 @@ class ServletSettings extends ConceptMapping<System> implements IJeeSettings {
 		
 		case "org.eclipse.wst.common.component":
 			return '''
+			<?xml version="1.0" encoding="UTF-8"?>
 			<project-modules id="moduleCoreId" project-version="1.5.0">
-				<wb-module deploy-name="«JavaNames::basePackageName(pcmEntity)»">
+				<wb-module deploy-name="de.uka.ipd.sdq.temporary">
 					<wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
 					<wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
-					<property name="context-root" value="«JavaNames::basePackageName(pcmEntity)»"/>
-					<property name="java-output-path" value="/«JavaNames::basePackageName(pcmEntity)»/build/classes"/>
+					<property name="context-root" value="de.uka.ipd.sdq.temporary"/>
+					<property name="java-output-path" value="/de.uka.ipd.sdq.temporary/build/classes"/>
 				</wb-module>
 			</project-modules>
 			'''

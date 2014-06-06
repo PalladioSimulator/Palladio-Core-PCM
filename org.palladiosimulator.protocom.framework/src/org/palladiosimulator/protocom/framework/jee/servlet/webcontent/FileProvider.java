@@ -1,5 +1,9 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.webcontent;
 
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStream;
+import java.io.InputStreamReader;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +42,7 @@ public class FileProvider {
 		"jackson-core-2.2.3.jar", 
 		"jackson-databind-2.2.3.jar", 
 		"jstl-1.2.jar", 
-		"org.palladiosimulator.protocom.framework.jar"
+		"org.palladiosimulator.protocom.framework.jar" 
 	};
 	
 	private final String[][] files = {
@@ -57,12 +61,40 @@ public class FileProvider {
 		"lib"
 	};
 	
+	/**
+	 * Adds additional library dependencies from Java SE ProtoCom to a list of URLs.
+	 * @param list the list of URLs to add the library dependencies to
+	 */
+	private void addLibraryDependencies(List<URL> list) {
+		InputStream stream = getClass().getResourceAsStream("files/lib/dependencies/index.txt");
+		BufferedReader index = new BufferedReader(new InputStreamReader(stream));
+		
+		String lib;
+		
+		try {
+			while ((lib = index.readLine()) != null) {
+				list.add(getClass().getResource("files/lib/dependencies/" + lib));
+			}
+			
+			index.close();
+		} catch (IOException e1) {
+			e1.printStackTrace();
+		}
+	}
+	
+	/**
+	 * Gets a list of web content file URLs for the specified file type.
+	 * @param type the type of the files to be returned
+	 * @return a list of URLs for all files of the specified type
+	 */
 	public List<URL> getFilesOfType(int type) {
 		ArrayList<URL> urls = new ArrayList<URL>();
 		
 		for (String file : files[type]) {
 			urls.add(getClass().getResource("files/" + filePaths[type] + "/" + file));
 		}
+		
+		if (type == LIB) addLibraryDependencies(urls);
 		
 		return urls;
 	}

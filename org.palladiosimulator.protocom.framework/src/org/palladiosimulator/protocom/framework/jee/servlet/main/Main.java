@@ -4,7 +4,6 @@ import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
-import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -21,7 +20,7 @@ import org.palladiosimulator.protocom.framework.jee.servlet.registry.Registry;
  * The Main Servlet class is the entry point for the application and handles requests.
  * @author Christian Klaussner
  */
-@WebServlet(urlPatterns = "", loadOnStartup = 0)
+//@WebServlet(urlPatterns = "", loadOnStartup = 0)
 public abstract class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
