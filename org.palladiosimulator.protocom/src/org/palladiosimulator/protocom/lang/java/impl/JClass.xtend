@@ -70,10 +70,7 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 		'''
 		«method.visibilityModifier»«IF method.isStatic» «method.staticModifier»«ENDIF» «method.returnType» «method.name»(«method.parameters»)«IF method.throwsType != null» throws «method.throwsType»«ENDIF»«IF method.body != null» {
 			«method.body»
-		}
-		«ELSE»
-		;
-		«ENDIF»
+		}«ELSE»;«ENDIF»
 		'''
 	}
 
