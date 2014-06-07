@@ -63,6 +63,7 @@ public class FileProvider {
 	
 	/**
 	 * Adds additional library dependencies from Java SE ProtoCom to a list of URLs.
+	 * Currently unused due to dependency issues with SAP HANA cloud.
 	 * @param list the list of URLs to add the library dependencies to
 	 */
 	private void addLibraryDependencies(List<URL> list) {
@@ -94,7 +95,7 @@ public class FileProvider {
 			urls.add(getClass().getResource("files/" + filePaths[type] + "/" + file));
 		}
 		
-		if (type == LIB) addLibraryDependencies(urls);
+		// if (type == LIB) addLibraryDependencies(urls);
 		
 		return urls;
 	}
