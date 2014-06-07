@@ -12,4 +12,5 @@ public interface IUsageScenario {
 	 * Starts the usage scenario. 
 	 */
 	void start() throws ModuleStartException;
+	void run();
 }

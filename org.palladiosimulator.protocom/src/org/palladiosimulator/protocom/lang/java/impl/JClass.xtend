@@ -45,7 +45,7 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 			«ENDFOR»
 			
 		«ENDIF»
-		«FOR method : methods»
+		«FOR method : methods SEPARATOR '\n'»
 			«method(method)»
 		«ENDFOR»
 		'''

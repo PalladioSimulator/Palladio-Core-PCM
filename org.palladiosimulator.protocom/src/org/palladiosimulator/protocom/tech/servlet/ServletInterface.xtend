@@ -6,6 +6,8 @@ import org.palladiosimulator.protocom.lang.java.IJInterface
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 
 class ServletInterface<E extends Entity> extends ConceptMapping<E> implements IJInterface {
+	protected val frameworkBase = "org.palladiosimulator.protocom.framework.jee.servlet"
+	
 	new(E pcmEntity) {
 		super(pcmEntity)
 	}

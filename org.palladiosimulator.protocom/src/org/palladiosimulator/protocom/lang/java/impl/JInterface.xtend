@@ -17,20 +17,25 @@ class JInterface extends JCompilationUnit<IJInterface> implements IJInterface {
 		'''
 		package «packageName»;
 		
-		public interface «compilationUnitName» «implementedClasses»
-		'''
+		public interface «compilationUnitName»«IF implementedClasses != null» «implementedClasses»«ENDIF»'''
 	}
 	
 	
 	override implementedClasses() {
-		'''
-		«IF interfaces != null»
-			«FOR implInterface : interfaces BEFORE ' extends ' SEPARATOR ', '»«implInterface»«ENDFOR»
-		«ENDIF»
-		'''
+		if (!interfaces.empty) {
+			'''«FOR implInterface : interfaces BEFORE ' extends ' SEPARATOR ', '»«implInterface»«ENDFOR»'''
+		} else {
+			null
+		}
+		
+//		'''
+//		«IF interfaces != null»
+//			«FOR implInterface : interfaces BEFORE ' extends ' SEPARATOR ', '»«implInterface»«ENDFOR»
+//		«ENDIF»
+//		'''
 	}
 	
 	def signature (IJMethod method) {
-		'''«method.visibilityModifier» «method.returnType» «method.name»(«method.parameters») «IF method.throwsType != null»throws «method.throwsType»«ENDIF»;'''
+		'''«method.visibilityModifier» «method.returnType» «method.name»(«method.parameters»)«IF method.throwsType != null» throws «method.throwsType»«ENDIF»;'''
 	}
 }
