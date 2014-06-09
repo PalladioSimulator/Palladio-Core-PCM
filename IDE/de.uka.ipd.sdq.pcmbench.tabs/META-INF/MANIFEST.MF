@@ -8,14 +8,14 @@ Require-Bundle: org.eclipse.ui.views.properties.tabbed,
  org.eclipse.emf,
  org.eclipse.emf.edit.ui,
  org.eclipse.emf.transaction,
- de.uka.ipd.sdq.pcm,
- de.uka.ipd.sdq.pcm.edit,
- de.uka.ipd.sdq.pcmbench.ui,
- org.eclipse.gmf.runtime.diagram.ui,
- de.uka.ipd.sdq.dialogs,
- de.uka.ipd.sdq.pcm.dialogs,
- de.uka.ipd.sdq.stoex.analyser,
- de.uka.ipd.sdq.pcm.stochasticexpressions
+ de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
+ de.uka.ipd.sdq.pcm.edit;bundle-version="3.6.0",
+ de.uka.ipd.sdq.pcmbench.ui;bundle-version="2.0.0",
+ org.eclipse.gmf.runtime.diagram.ui;bundle-version="1.7.0",
+ de.uka.ipd.sdq.dialogs;bundle-version="2.0.1",
+ de.uka.ipd.sdq.pcm.dialogs;bundle-version="1.0.0",
+ de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
+ de.uka.ipd.sdq.pcm.stochasticexpressions;bundle-version="2.0.0"
 Bundle-ActivationPolicy: lazy
 Bundle-Activator: de.uka.ipd.sdq.pcmbench.tabs.PCMBenchTabsActivator
 Export-Package: de.uka.ipd.sdq.pcmbench.tabs,
