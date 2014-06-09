@@ -14,7 +14,7 @@ class ServletOperationInterface extends ServletInterface<OperationInterface> {
 		pcmEntity.signatures__OperationInterface.map[
 			new JMethod()
 				.withName(JavaNames::javaSignature(it))
-				.withReturnType('''«frameworkBase».stubs.SimulatedStackFrame<Object>''')
+				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
 				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
 		]
 	}

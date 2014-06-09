@@ -67,7 +67,7 @@ class PcmCalls {
 //				'''(«JavaNames::fqn(role.requiredInterface__OperationRequiredRole)») my«JavaNames::javaName(connector.providingAssemblyContext_AssemblyConnector)»'''
 //			} else {
 //				'''my«JavaNames::javaName(connector.providingAssemblyContext_AssemblyConnector)».«JavaNames::portGetter(connector.providedRole_AssemblyConnector)»()'''
-				'''(«JavaNames::fqn(role.requiredInterface__OperationRequiredRole)») my«JavaNames::javaName(connector.providingAssemblyContext_AssemblyConnector)»'''
+				'''(«JavaNames::fqn(role.requiredInterface__OperationRequiredRole)») «JavaNames::javaName(connector.providingAssemblyContext_AssemblyConnector)»'''
 //			}
 		}
 	}

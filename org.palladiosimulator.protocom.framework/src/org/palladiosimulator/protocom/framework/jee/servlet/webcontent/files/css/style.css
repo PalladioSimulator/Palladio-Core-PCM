@@ -157,10 +157,11 @@ button.disabled {
 	padding: 5px;
 	border: 1px solid #dcdcdc;
 	margin: auto;
-	overflow-x: hidden;
-	overflow-y: scroll;
 	resize: none;
 	color: inherit;
 	font-family: monospace;
 	font-size: inherit;
+	overflow-x: scroll;
+	white-space: pre;
+	word-wrap: normal;
 }

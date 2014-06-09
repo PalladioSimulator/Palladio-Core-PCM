@@ -12,6 +12,9 @@ import org.palladiosimulator.protocom.tech.servlet.ServletSettings
 import org.palladiosimulator.protocom.tech.servlet.system.ServletSystemClass
 import org.palladiosimulator.protocom.tech.servlet.system.ServletSystemMain
 import org.palladiosimulator.protocom.traverse.framework.system.XSystem
+import org.palladiosimulator.protocom.tech.servlet.repository.ServletComposedStructurePortClass
+import org.palladiosimulator.protocom.tech.servlet.repository.ServletComposedStructureInterface
+import org.palladiosimulator.protocom.lang.java.impl.JInterface
 
 class JeeServletSystem extends XSystem {
 	val fileProvider = new FileProvider
@@ -34,9 +37,16 @@ class JeeServletSystem extends XSystem {
 	}
 	
 	override protected generate() {
+		// Generate system interface.
+		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletComposedStructureInterface(entity)))
+		
+		// Generate system class.
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemClass(entity)))
-		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new ServletClasspath(entity)))
-		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemMain(entity)))
+		
+		// Generate ports.
+		entity.providedRoles_InterfaceProvidingEntity.forEach[
+			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletComposedStructurePortClass(it)))
+		]
 		
 		// Generate settings files (.settings folder).
 		generateSettingsFile(".jsdtscope");
@@ -45,6 +55,9 @@ class JeeServletSystem extends XSystem {
 		generateSettingsFile("org.eclipse.wst.common.project.facet.core.xml");
 		generateSettingsFile("org.eclipse.wst.jsdt.ui.superType.container");
 		generateSettingsFile("org.eclipse.wst.jsdt.ui.superType.name");
+		
+		// Generate class path file.
+		generatedFiles.add(injector.getInstance(typeof(Classpath)).createFor(new ServletClasspath(entity)))
 		
 		// Generate deployment descriptor (web.xml).
 		generatedFiles.add(injector.getInstance(typeof(ServletDeploymentDescriptor)))
@@ -55,5 +68,8 @@ class JeeServletSystem extends XSystem {
 		copyFiles("js", FileProvider.JS);
 		copyFiles("", FileProvider.JSP);
 		copyFiles("WEB-INF/lib", FileProvider.LIB);
+		
+		// Generate main class for entry point.
+		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletSystemMain(entity)))
 	}
 }

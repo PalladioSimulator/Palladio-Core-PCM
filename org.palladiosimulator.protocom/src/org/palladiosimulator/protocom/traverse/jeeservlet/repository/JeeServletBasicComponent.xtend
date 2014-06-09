@@ -14,14 +14,17 @@ import org.palladiosimulator.protocom.tech.servlet.repository.ServletBasicCompon
  */
 class JeeServletBasicComponent extends XBasicComponent {
 	override protected generate() {
+		
+		// Class and interface for the component.
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentClass(entity)))
 		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletComponentClassInterface(entity)))
 		
+		// Class and interface for the context.
 		generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentContextClass(entity)))
 		generatedFiles.add(injector.getInstance(typeof(JInterface)).createFor(new ServletBasicComponentContextInterface(entity)))
 		
-//		entity.providedRoles_InterfaceProvidingEntity.forEach[
-//			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentPortClass(it)))
-//		]
+		entity.providedRoles_InterfaceProvidingEntity.forEach[
+			generatedFiles.add(injector.getInstance(typeof(JClass)).createFor(new ServletBasicComponentPortClass(it)))
+		]
 	}	
 }

@@ -5,6 +5,7 @@ import de.uka.ipd.sdq.pcm.system.System;
 import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
 import org.palladiosimulator.protocom.lang.java.impl.JField
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
 
 class ServletSystemMain extends ServletClass<System> {
 	new(System pcmEntity) {
@@ -39,7 +40,19 @@ class ServletSystemMain extends ServletClass<System> {
 				.withVisibilityModifier("protected")
 				.withName("initModules")
 				.withImplementation('''
-				// TODO: Stuff
+					// TODO: Stuff
+				'''), 
+				
+			new JMethod()
+				.withName("initAllocationStorage")
+				.withImplementation('''AllocationStorage.initSingleton(new AllocationStorage());'''), 
+				
+			new JMethod()
+				.withVisibilityModifier("protected")
+				.withReturnType("String[]")
+				.withName("getSystem")
+				.withImplementation('''
+					return new String[] {"«JavaNames::fqn(pcmEntity)»", "«JavaNames::javaName(pcmEntity)»"};
 				''')
 		]
 	}

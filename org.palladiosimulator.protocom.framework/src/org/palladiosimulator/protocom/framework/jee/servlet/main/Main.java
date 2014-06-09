@@ -8,12 +8,15 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import org.palladiosimulator.protocom.framework.AbstractAllocationStorage;
 import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
 import org.palladiosimulator.protocom.framework.jee.servlet.http.JsonResponse;
 import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
 import org.palladiosimulator.protocom.framework.jee.servlet.http.StringResponse;
+import org.palladiosimulator.protocom.framework.jee.servlet.modules.ContainerModule;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.Module;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.ModuleList;
+import org.palladiosimulator.protocom.framework.jee.servlet.modules.SystemModule;
 import org.palladiosimulator.protocom.framework.jee.servlet.registry.Registry;
 
 /**
@@ -35,10 +38,32 @@ public abstract class Main extends HttpServlet {
 	}
 	
 	protected abstract void initModules();
+	protected abstract String[] getSystem();
+	protected abstract void initAllocationStorage();
 	
 	protected void addModule(Module module) {
 		moduleList.add(module);
 	}
+	
+	@Override
+	public void init() throws ServletException {
+		// Initialize allocation storage.
+		initAllocationStorage();
+		
+		// Add modules to the list.
+		moduleList = new ModuleList();
+		
+		String[] system = getSystem();
+		moduleList.add(new SystemModule("1", system[1]));
+		
+		AbstractAllocationStorage.initContainer();
+		
+		for (String container : AbstractAllocationStorage.getContainerNames()) {
+			String id = AbstractAllocationStorage.getContainerID(container);
+			moduleList.add(new ContainerModule(id, container));
+		}
+	}
+	
 	
 	/**
 	 * Returns the integer representation of the specified request parameter.
@@ -95,8 +120,8 @@ public abstract class Main extends HttpServlet {
 	 * @param id the ID of the module to start
 	 * @return the response of the operation
 	 */
-	private Response startModule(int id) {
-		Module module = moduleList.get(Integer.toString(id));
+	private Response startModule(String id) {
+		Module module = moduleList.get(id);
 		return module.startModule(location);
 	}
 	
@@ -155,7 +180,7 @@ public abstract class Main extends HttpServlet {
 			}
 				
 			if (action.equals("startModule")) {
-				result = startModule(getIntParameter(request, "id"));
+				result = startModule(request.getParameter("id"));
 			}
 				
 			if (action.equals("getModules")) {
