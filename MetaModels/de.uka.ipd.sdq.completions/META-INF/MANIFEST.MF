@@ -11,9 +11,9 @@ Export-Package: de.uka.ipd.sdq.completions,
  de.uka.ipd.sdq.completions.util
 Require-Bundle: org.eclipse.core.runtime,
  org.eclipse.emf.ecore;visibility:=reexport,
- de.uka.ipd.sdq.identifier;visibility:=reexport,
- de.uka.ipd.sdq.pcm;visibility:=reexport,
- de.uka.ipd.sdq.probfunction;visibility:=reexport,
- de.uka.ipd.sdq.stoex;visibility:=reexport
+ de.uka.ipd.sdq.identifier;bundle-version="2.1.0";visibility:=reexport,
+ de.uka.ipd.sdq.pcm;bundle-version="3.6.0";visibility:=reexport,
+ de.uka.ipd.sdq.probfunction;bundle-version="2.0.0";visibility:=reexport,
+ de.uka.ipd.sdq.stoex;bundle-version="2.1.0";visibility:=reexport
 Bundle-ActivationPolicy: lazy
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
