@@ -1,5 +1,5 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.stubs;
 
-public class SimulatedStackframe<E> {
+public class SimulatedStackframe<T> {
 
 }
