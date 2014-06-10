@@ -18,7 +18,7 @@ import edu.kit.ipd.sdq.mdsd.profiles.metamodelextension.EStereotypableObject;
  * <!-- begin-user-doc --> A representation of the model object '
  * <em><b>Parametric Resource Demand</b></em>'. <!-- end-user-doc -->
  * 
- * <!-- begin-model-doc --> TODO&nbsp;(Überarbeitung&nbsp;durch&nbsp;MH)<br />
+ * <!-- begin-model-doc --> TODO&nbsp;(Ãœberarbeitung&nbsp;durch&nbsp;MH)<br />
  * Parametric&nbsp;Resource&nbsp;Demand&nbsp;Specifies&nbsp;the&nbsp;amount&nbsp;of&nbsp;processing&
  * nbsp;requested&nbsp;from&nbsp;a&nbsp;certain&nbsp;type&nbsp;of&nbsp;resource&nbsp;in&nbsp;a&nbsp;
  * parametrised

@@ -74,7 +74,7 @@ import de.uka.ipd.sdq.pcm.core.PCMRandomVariable;
  * characterisation
  * &nbsp;always&nbsp;needs&nbsp;to&nbsp;be&nbsp;evaluated&nbsp;under&nbsp;the&nbsp;condition
  * &nbsp;that
- * &nbsp;all&nbsp;guards&nbsp;in&nbsp;the&nbsp;usage&nbsp;scenario’s&nbsp;path&nbsp;to&nbsp
+ * &nbsp;all&nbsp;guards&nbsp;in&nbsp;the&nbsp;usage&nbsp;scenarioâ€™s&nbsp;path&nbsp;to&nbsp
  * ;it&nbsp;have&nbsp;evaluated&nbsp;to&nbsp;true. <!-- end-model-doc -->
  * 
  * <p>

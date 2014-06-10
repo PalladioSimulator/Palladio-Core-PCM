@@ -145,8 +145,8 @@ import de.uka.ipd.sdq.pcm.core.entity.EntityPackage;
  * [34]&nbsp;James&nbsp;A.&nbsp;Whittaker&nbsp;and&nbsp;Michael&nbsp;G.&nbsp;Thomason,&nbsp;
  * "A&nbsp;Markov&nbsp;chain&nbsp;model&nbsp;for&nbsp;statistical&nbsp;software<br />
  * testing,
- * "&nbsp;IEEE&nbsp;Transactions&nbsp;on&nbsp;Software&nbsp;Engineering,&nbsp;vol.&nbsp;20,&nbsp;no.&nbsp;10,&nbsp;pp.&nbsp;812-824,&nbsp;Oct.&nbsp;19
- * 9 4 .<br />
+ * "&nbsp;IEEE&nbsp;Transactions&nbsp;on&nbsp;Software&nbsp;Engineering,&nbsp;vol.&nbsp;20,&nbsp;no.&nbsp;10,&nbsp;pp.&nbsp;812-824,&nbsp;Oct.&nbsp;
+ * 1 9 9 4 .<br />
  * <br />
  * [78]&nbsp;V.&nbsp;Grassi,&nbsp;R.&nbsp;Mirandola,&nbsp;and&nbsp;A.&nbsp;Sabetta,&nbsp;
  * "From&nbsp;design&nbsp;to&nbsp;analysis&nbsp;models:&nbsp;a&nbsp;kernel&nbsp;language<br />

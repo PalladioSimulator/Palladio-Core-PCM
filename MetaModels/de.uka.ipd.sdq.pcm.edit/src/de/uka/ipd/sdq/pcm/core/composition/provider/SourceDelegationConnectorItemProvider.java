@@ -28,8 +28,7 @@ import de.uka.ipd.sdq.pcm.core.composition.SourceDelegationConnector;
  * 
  * @generated
  */
-public class SourceDelegationConnectorItemProvider extends
-        de.uka.ipd.sdq.pcm.core.composition.provider.DelegationConnectorItemProvider implements
+public class SourceDelegationConnectorItemProvider extends DelegationConnectorItemProvider implements
         IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
         IItemPropertySource {
     /**

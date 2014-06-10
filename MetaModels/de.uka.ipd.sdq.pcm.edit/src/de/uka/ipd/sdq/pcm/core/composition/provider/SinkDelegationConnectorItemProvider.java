@@ -28,8 +28,7 @@ import de.uka.ipd.sdq.pcm.core.composition.SinkDelegationConnector;
  * 
  * @generated
  */
-public class SinkDelegationConnectorItemProvider extends
-        de.uka.ipd.sdq.pcm.core.composition.provider.DelegationConnectorItemProvider implements
+public class SinkDelegationConnectorItemProvider extends DelegationConnectorItemProvider implements
         IEditingDomainItemProvider, IStructuredItemContentProvider, ITreeItemContentProvider, IItemLabelProvider,
         IItemPropertySource {
     /**
