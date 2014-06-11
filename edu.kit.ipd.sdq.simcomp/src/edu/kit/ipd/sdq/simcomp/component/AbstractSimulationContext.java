@@ -46,4 +46,29 @@ public abstract class AbstractSimulationContext {
 		contextFields.put(fieldKey, value);
 	}
 
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((contextFields == null) ? 0 : contextFields.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		AbstractSimulationContext other = (AbstractSimulationContext) obj;
+		if (contextFields == null) {
+			if (other.contextFields != null)
+				return false;
+		} else if (!contextFields.equals(other.contextFields))
+			return false;
+		return true;
+	}
+
 }

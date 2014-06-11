@@ -5,8 +5,7 @@ Bundle-SymbolicName: edu.kit.ipd.sdq.simcomp.resource.active;singleton:=true
 Bundle-Version: 1.0.0.qualifier
 Bundle-Activator: edu.kit.ipd.sdq.simcomp.resource.active.Activator
 Require-Bundle: org.eclipse.core.runtime,
- edu.kit.ipd.sdq.simcomp;bundle-version="1.0.0";visibility:=reexport,
- edu.kit.ipd.sdq.simcomp.middleware;bundle-version="1.0.0"
+ edu.kit.ipd.sdq.simcomp;bundle-version="1.0.0";visibility:=reexport
 Bundle-RequiredExecutionEnvironment: JavaSE-1.7
 Bundle-ActivationPolicy: lazy
 Export-Package: edu.kit.ipd.sdq.simcomp.resource.active.component,

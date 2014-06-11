@@ -7,6 +7,7 @@ import javax.measure.unit.SI;
 import de.uka.ipd.sdq.probespec.framework.ProbeSample;
 import de.uka.ipd.sdq.probespec.framework.ProbeType;
 import de.uka.ipd.sdq.probespec.framework.probes.IProbeStrategy;
+import edu.kit.ipd.sdq.eventsim.resources.entities.SimActiveResource;
 
 /**
  * ProbeStrategy which is able to measure the demanded time of a {@link SimActiveResource}. The unit
