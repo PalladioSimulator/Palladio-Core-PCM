@@ -225,13 +225,12 @@ litigation.
 
    <requires>
       <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.probfunction"/>
-      <import plugin="de.uka.ipd.sdq.stoex"/>
-      <import plugin="de.uka.ipd.sdq.pcm" version="3.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm" version="3.6.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.completions" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.featureconfig" version="2.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.featuremodel" version="2.1.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcm.resources"/>
       <import plugin="de.uka.ipd.sdq.pcm.stochasticexpressions"/>
       <import plugin="org.eclipse.ocl"/>
       <import plugin="org.eclipse.ocl.ecore" version="1.2.1" match="greaterOrEqual"/>
@@ -258,7 +257,8 @@ litigation.
       <import plugin="org.palladiosimulator.recorderframework" version="2.0.1" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.metricspec" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.measurementframework" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.stoex.analyser"/>
+      <import plugin="org.palladiosimulator.pcm.edp2.measuringpoint" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.edp2.util"/>
       <import plugin="org.eclipse.debug.ui"/>
       <import plugin="org.eclipse.jdt.core"/>
       <import plugin="org.eclipse.jdt.launching"/>
@@ -277,52 +277,49 @@ litigation.
       <import plugin="org.eclipse.xtend" version="0.7.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.dialogs" version="2.0.1" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui.ide" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.pcm.edit"/>
+      <import plugin="de.uka.ipd.sdq.pcm.edit" version="3.6.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.emf.edit.ui" version="2.5.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.pcmbench.ui" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.apache.commons.lang" version="2.3.0" match="greaterOrEqual"/>
       <import plugin="org.junit" version="4.11.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.featureinstance.editor" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.palladiosimulator.commons" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.uka.ipd.sdq.sensorframework.storage"/>
       <import plugin="org.eclipse.core.runtime" version="3.5.0" match="greaterOrEqual"/>
-      <import plugin="org.eclipse.core.runtime" version="3.9.0" match="compatible"/>
       <import plugin="org.eclipse.emf.ecore"/>
       <import plugin="org.eclipse.equinox.event" version="1.1.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.osgi"/>
       <import plugin="org.eclipse.emf.ecore.xmi"/>
       <import plugin="org.eclipse.emf.query"/>
       <import plugin="org.apache.commons.collections15"/>
-      <import plugin="org.eclipse.emf.ecore" version="2.9.0" match="compatible"/>
-      <import plugin="org.eclipse.ocl.ecore" version="3.3.0" match="compatible"/>
-      <import plugin="org.eclipse.ocl" version="3.3.0" match="compatible"/>
-      <import plugin="org.eclipse.emf.ecore.xmi" version="2.9.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.identifier" version="2.0.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.pcm" version="3.2.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.probfunction" version="2.0.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.stoex" version="2.0.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.units" version="1.0.0" match="compatible"/>
+      <import plugin="de.uka.ipd.sdq.identifier" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.units" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.uml2.types" version="1.0.0" match="greaterOrEqual"/>
-      <import plugin="de.fzi.se.quality" version="1.0.0" match="compatible"/>
       <import plugin="org.eclipse.emf.edit" version="2.9.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.0.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.pcm.edit" version="1.0.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.probfunction.edit" version="1.0.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.stoex.edit" version="2.0.0" match="compatible"/>
-      <import plugin="de.uka.ipd.sdq.units.edit" version="1.0.0" match="compatible"/>
-      <import plugin="org.eclipse.uml2.common.edit" version="1.6.0" match="compatible"/>
+      <import plugin="de.uka.ipd.sdq.identifier.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex.edit" version="2.1.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.units.edit" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="org.eclipse.uml2.common.edit" version="1.6.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.core.resources" version="3.8.0" match="compatible"/>
-      <import plugin="de.fzi.se.quality.edit" version="1.0.0" match="compatible"/>
-      <import plugin="org.eclipse.emf.edit.ui" version="2.9.0" match="compatible"/>
-      <import plugin="org.eclipse.ui.ide" version="3.9.0" match="compatible"/>
+      <import plugin="de.fzi.se.quality.edit" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="2.0.3" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.mdsd" version="1.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.ui"/>
       <import plugin="de.uka.ipd.sdq.simucomframework.simucomstatus" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm" version="3.1.0" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow" version="2.0.1" match="greaterOrEqual"/>
       <import plugin="de.uka.ipd.sdq.workflow.launchconfig" version="2.0.0" match="greaterOrEqual"/>
       <import plugin="org.eclipse.debug.core"/>
       <import plugin="org.eclipse.debug.ui" version="3.5.1" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.edp2.util" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="org.palladiosimulator.edp2.edit"/>
+      <import plugin="org.palladiosimulator.metricspec.edit"/>
       <import feature="de.uka.ipd.sdq.simulation.abstractsimengine.feature" version="3.3.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.pcm.resources" version="3.6.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.probfunction.math" version="2.0.2" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.stoex.analyser" version="2.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework.storage" version="1.0.0" match="greaterOrEqual"/>
+      <import plugin="de.uka.ipd.sdq.sensorframework" version="1.1.0" match="greaterOrEqual"/>
    </requires>
 
    <plugin

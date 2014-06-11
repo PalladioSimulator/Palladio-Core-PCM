@@ -12,10 +12,10 @@ Export-Package: de.uka.ipd.sdq.simucomframework.variables,
  de.uka.ipd.sdq.simucomframework.variables.stackframe,
  de.uka.ipd.sdq.simucomframework.variables.stoexvisitor,
  de.uka.ipd.sdq.simucomframework.variables.userdata
-Require-Bundle: de.uka.ipd.sdq.pcm,
+Require-Bundle: de.uka.ipd.sdq.pcm;bundle-version="3.6.0",
  de.uka.ipd.sdq.pcm.stochasticexpressions,
- de.uka.ipd.sdq.probfunction.math,
- de.uka.ipd.sdq.stoex.analyser,
+ de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.2",
+ de.uka.ipd.sdq.stoex.analyser;bundle-version="2.0.0",
  org.apache.log4j
 Bundle-Vendor: sdq.ipd.uka.de
 Bundle-ActivationPolicy: lazy
