@@ -31,13 +31,17 @@ public class RemoteStub implements InvocationHandler {
 		call.setFormalTypes(method.getParameterTypes());
 		call.setArgs(args);
 		
-		Class<?>[] actualTypes = new Class<?>[args.length];
-		
-		for (int i = 0; i < actualTypes.length; i++) {
-			actualTypes[i] = args[i].getClass();
+		if (args != null) {
+			Class<?>[] actualTypes = new Class<?>[args.length];
+			
+			for (int i = 0; i < actualTypes.length; i++) {
+				actualTypes[i] = args[i].getClass();
+			}
+			
+			call.setActualTypes(actualTypes);
+		} else {
+			call.setActualTypes(new Class<?>[0]);
 		}
-		
-		call.setActualTypes(actualTypes);
 		
 		Request.post(location, path, call.toJson());
 		

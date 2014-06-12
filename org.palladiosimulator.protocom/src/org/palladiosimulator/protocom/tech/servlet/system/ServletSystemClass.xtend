@@ -12,10 +12,16 @@ import org.palladiosimulator.protocom.tech.servlet.ServletClass
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext
 import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
 import org.palladiosimulator.protocom.lang.java.util.PcmCommons
+import de.uka.ipd.sdq.pcm.core.composition.AssemblyConnector
 
 class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends ServletClass<E> implements IJClass {
 	new(E pcmEntity) {
 		super(pcmEntity)
+	}
+	
+	
+	override interfaces() {
+		#[JavaNames::interfaceName(pcmEntity)]
 	}
 	
 	override fields() {
@@ -93,7 +99,8 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 				.withImplementation('''
 					«JavaNames::fqnContext(it.encapsulatedComponent__AssemblyContext)» context = new «JavaNames::fqnContext(it.encapsulatedComponent__AssemblyContext)»(
 						«FOR requiredRole : it.encapsulatedComponent__AssemblyContext.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[it as OperationRequiredRole] SEPARATOR ", \n"»
-							«JavaNames::javaName(it) + "ID"»«ENDFOR»
+							«JavaNames::javaName((PcmCalls::getConnector(pcmEntity, it, requiredRole) as AssemblyConnector).providingAssemblyContext_AssemblyConnector)»ID
+						«ENDFOR»
 					);
 					
 					// «frameworkBase».stubs.SimulatedStackframe<Object> componentStackFrame = new «frameworkBase».stubs.SimulatedStackframe<Object>();
@@ -101,6 +108,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 					«JavaNames::javaName(it)».setContext(context);
 				''')
 				
+				// «JavaNames::javaName(it) + "ID"»
 				// «PcmCalls::portQuery(requiredRole, pcmEntity, it)»
 		]
 		

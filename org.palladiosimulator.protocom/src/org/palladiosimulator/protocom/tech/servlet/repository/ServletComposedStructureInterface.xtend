@@ -27,11 +27,11 @@ class ServletComposedStructureInterface extends ConceptMapping<InterfaceProvidin
 		var result = newLinkedList
 		
 		// Provided port getters for OperationProvidedRoles.
-		result += pcmEntity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].map[
-			new JMethod()
-				.withName(JavaNames::portGetter(it))
-				.withReturnType(JavaNames::fqn((it as OperationProvidedRole).providedInterface__OperationProvidedRole))
-		]
+//		result += pcmEntity.providedRoles_InterfaceProvidingEntity.filter[OperationProvidedRole.isInstance(it)].map[
+//			new JMethod()
+//				.withName(JavaNames::portGetter(it))
+//				.withReturnType(JavaNames::fqn((it as OperationProvidedRole).providedInterface__OperationProvidedRole))
+//		]
 		
 		result
 	}
