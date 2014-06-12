@@ -16,7 +16,12 @@ public class ContainerModule extends Module {
 	}
 
 	@Override
-	public Response startModule(String location) {
+	public void startModule(String location) throws ModuleStartException {
+		if (isStarted()) {
+			Log.error("Container '" + getName() + "' already started");
+			throw new ModuleStartException();
+		}
+		
 		Log.info("Start container '" + getName() + "'");
 		
 		Collection<ComponentAllocation> components = AbstractAllocationStorage.getComponents(getId());
@@ -40,6 +45,6 @@ public class ContainerModule extends Module {
 			}
 		}
 		
-		return new Response(Response.FAILED);
+		setStarted(true);
 	}
 }

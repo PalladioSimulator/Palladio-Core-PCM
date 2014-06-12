@@ -74,7 +74,7 @@ public abstract class Module {
 	 * @param location the location of the module
 	 * @return the response of the operation
 	 */
-	public abstract Response startModule(String location);
+	public abstract void startModule(String location) throws ModuleStartException;
 	
 	/**
 	 * Converts the module-specific data to JSON.

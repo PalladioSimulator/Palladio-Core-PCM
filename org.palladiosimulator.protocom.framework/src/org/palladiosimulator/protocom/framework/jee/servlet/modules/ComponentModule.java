@@ -29,7 +29,7 @@ public class ComponentModule extends Module {
 	}
 	
 	@Override
-	public Response startModule(String location) {
+	public void startModule(String location) {
 		ArrayList<Parameter> params = new ArrayList<Parameter>(2);
 		
 		params.add(new Parameter("action", "start"));
@@ -42,7 +42,7 @@ public class ComponentModule extends Module {
 			setStarted(true);
 		}
 		
-		return response;
+		// return response;
 	}
 	
 	@Override

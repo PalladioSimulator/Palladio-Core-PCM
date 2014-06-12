@@ -55,6 +55,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		#[
 			new JMethod()
 				.withParameters("String location, String id")
+				.withThrows('''«frameworkBase».registry.RegistryException''')
 				.withImplementation(
 					'''
 					«frameworkBase».common.LocalComponentRegistry.getInstance().addComponent(id, this);
@@ -114,6 +115,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 			new JMethod()
 				.withName("initInnerComponents")
 				.withVisibilityModifier("private")
+				.withThrows('''«frameworkBase».registry.RegistryException''')
 				.withAnnotations(#[
 					new JAnnotation()
 						.withName("SuppressWarnings")
@@ -131,7 +133,7 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 							init«JavaNames::javaName(assemblyContext)»();
 						«ENDFOR»
 					} catch («frameworkBase».registry.RegistryException e) {
-						e.printStackTrace();
+						throw e;
 					}
 				''')
 				

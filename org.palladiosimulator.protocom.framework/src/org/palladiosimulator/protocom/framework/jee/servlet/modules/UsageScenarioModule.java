@@ -22,7 +22,7 @@ public class UsageScenarioModule extends Module {
 	}
 	
 	@Override
-	public Response startModule(String location) {
+	public void startModule(String location) {
 		Response response = new Response();
 		
 		try {
@@ -32,7 +32,7 @@ public class UsageScenarioModule extends Module {
 			response.setError(Response.FAILED);
 		}
 		
-		return response;
+		// return response;
 	}
 	
 	/**

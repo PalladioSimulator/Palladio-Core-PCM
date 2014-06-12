@@ -1,9 +1,10 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.modules;
 
 import java.lang.reflect.Constructor;
+import java.lang.reflect.InvocationTargetException;
 
 import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
-import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
+import org.palladiosimulator.protocom.framework.jee.servlet.registry.RegistryException;
 
 public class SystemModule extends Module {
 	private String className;
@@ -15,7 +16,12 @@ public class SystemModule extends Module {
 	}
 
 	@Override
-	public Response startModule(String location) {
+	public void startModule(String location) throws ModuleStartException {
+		if (isStarted()) {
+			Log.error("System '" + getName() + "' already started");
+			throw new ModuleStartException();
+		}
+		
 		Log.info("Start system '" + getName() + "'");
 		
 		try {
@@ -27,12 +33,17 @@ public class SystemModule extends Module {
 			Constructor<?> constructor = systemClass.getConstructor(types);
 			constructor.newInstance(arguments);
 			
+		} catch (InvocationTargetException e) {
+			if (e.getCause() instanceof RegistryException) {
+				Log.error("Failed to look up components in registry");
+				throw new ModuleStartException();
+			}
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 		
-		return new Response(Response.FAILED);
+		setStarted(true);
 	}
 }

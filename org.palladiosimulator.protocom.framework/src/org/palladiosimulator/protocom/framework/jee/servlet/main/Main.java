@@ -16,6 +16,7 @@ import org.palladiosimulator.protocom.framework.jee.servlet.http.StringResponse;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.ContainerModule;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.Module;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.ModuleList;
+import org.palladiosimulator.protocom.framework.jee.servlet.modules.ModuleStartException;
 import org.palladiosimulator.protocom.framework.jee.servlet.modules.SystemModule;
 import org.palladiosimulator.protocom.framework.jee.servlet.registry.Registry;
 
@@ -122,7 +123,18 @@ public abstract class Main extends HttpServlet {
 	 */
 	private Response startModule(String id) {
 		Module module = moduleList.get(id);
-		return module.startModule(location);
+		//return module.startModule(location);
+		
+		Response response;
+		
+		try {
+			module.startModule(location);
+			response = new Response(Response.OK);
+		} catch (ModuleStartException e) {
+			response = new Response(Response.FAILED);
+		}
+		
+		return response;
 	}
 	
 	/**
