@@ -119,17 +119,12 @@ public class Registry {
 			throw new RegistryException("Failed to look up '" + name + "' in registry");
 		}
 		
-		System.out.println("Converting payload to RegistryEntry");
 		RegistryEntry entry = RegistryEntry.fromJson(response.getPayload());
-		
-		System.out.println("Creating proxy instance");
 		
 		Object stub = Proxy.newProxyInstance(
 				entry.getInterfaces()[0].getClassLoader(), 
 				entry.getInterfaces(), 
 				new RemoteStub(entry.getLocation(), entry.getPath()));
-		
-		System.out.println("Proxy instance created");
 		
 		return stub;
 	}

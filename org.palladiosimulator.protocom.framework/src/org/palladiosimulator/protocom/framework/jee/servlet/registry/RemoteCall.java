@@ -132,7 +132,7 @@ public class RemoteCall {
 		try {
 			RemoteCall call = mapper.readValue(serialized, RemoteCall.class);
 			
-			System.out.println(serialized);
+			// System.out.println(serialized);
 			
 			for (int i = 0; i < call.args.length; i++) {
 				// System.out.println("Before: " + call.args[i].getClass().getName());

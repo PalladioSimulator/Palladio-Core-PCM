@@ -90,7 +90,6 @@ class ServletComposedStructurePortClass extends ServletClass<ProvidedRole> {
 				.withName("start")
 				.withThrows('''«frameworkBase».modules.ModuleStartException''')
 				.withImplementation('''
-					System.out.println("Starting system port");
 					this.component = («JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)») «frameworkBase».common.LocalComponentRegistry.getInstance().getComponent(assemblyContext);
 					
 					try {

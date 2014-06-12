@@ -57,9 +57,6 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 				.withParameters("String location, String id")
 				.withImplementation(
 					'''
-					System.out.println("System constructor! " + location);
-					//this.assemblyContextID = assemblyContextID;
-					
 					«frameworkBase».common.LocalComponentRegistry.getInstance().addComponent(id, this);
 					
 					initInnerComponents();

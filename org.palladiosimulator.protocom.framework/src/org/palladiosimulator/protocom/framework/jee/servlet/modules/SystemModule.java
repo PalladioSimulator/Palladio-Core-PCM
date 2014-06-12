@@ -2,6 +2,7 @@ package org.palladiosimulator.protocom.framework.jee.servlet.modules;
 
 import java.lang.reflect.Constructor;
 
+import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
 import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
 
 public class SystemModule extends Module {
@@ -15,6 +16,7 @@ public class SystemModule extends Module {
 
 	@Override
 	public Response startModule(String location) {
+		Log.info("Start system '" + getName() + "'");
 		
 		try {
 			Class<?> systemClass = Class.forName(className);

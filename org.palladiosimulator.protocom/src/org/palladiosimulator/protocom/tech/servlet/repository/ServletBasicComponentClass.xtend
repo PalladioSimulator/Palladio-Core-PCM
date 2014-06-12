@@ -28,7 +28,6 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 				.withParameters("String location, String assemblyContext")
 				.withImplementation('''
 					«frameworkBase».common.LocalComponentRegistry.getInstance().addComponent(assemblyContext, this);
-					System.out.println("Component constructor");
 					
 					java.util.ArrayList<«frameworkBase».http.Parameter> params = new java.util.ArrayList<«frameworkBase».http.Parameter>(3);
 					params.add(new «frameworkBase».http.Parameter("action", "start"));
@@ -70,7 +69,7 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
 				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
 				.withImplementation('''
-					«frameworkBase».common.Log.info("Invoke «JavaNames::serviceName(it.describedService__SEFF)»");
+					«frameworkBase».common.Log.info("Invoke '«JavaNames::serviceName(it.describedService__SEFF)»'");
 					«new PcmServletProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 					return null;
 				''')
