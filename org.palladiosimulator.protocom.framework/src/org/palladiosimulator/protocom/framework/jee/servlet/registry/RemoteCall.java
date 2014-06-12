@@ -3,8 +3,6 @@ package org.palladiosimulator.protocom.framework.jee.servlet.registry;
 import java.io.IOException;
 import java.util.LinkedHashMap;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
-import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -18,8 +16,6 @@ public class RemoteCall {
 	
 	static {
 		mapper = new ObjectMapper();
-		//mapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
-		//mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
 		mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
 	}
 	

@@ -7,7 +7,6 @@ import java.util.Collection;
 import org.palladiosimulator.protocom.framework.AbstractAllocationStorage;
 import org.palladiosimulator.protocom.framework.ComponentAllocation;
 import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
-import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
 
 public class ContainerModule extends Module {
 

@@ -1,7 +1,5 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.modules;
 
-import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
-
 import java.io.IOException;
 
 import com.fasterxml.jackson.core.JsonGenerator;
