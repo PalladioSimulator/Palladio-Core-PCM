@@ -1,8 +1,12 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.registry;
 
 import java.io.IOException;
+import java.util.LinkedHashMap;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.PropertyAccessor;
 import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 /**
@@ -10,10 +14,17 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Christian Klaussner
  */
 public class RemoteCall {
-	private static ObjectMapper mapper = new ObjectMapper();
+	private static ObjectMapper mapper;
+	
+	static {
+		mapper = new ObjectMapper();
+		//mapper.setVisibility(PropertyAccessor.FIELD, Visibility.ANY);
+		//mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
+		mapper.disable(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES);
+	}
 	
 	private String name;
-	private Class<?>[] parameters;
+	private Class<?>[] formalTypes, actualTypes;
 	private Object[] args;
 	
 	/**
@@ -47,19 +58,27 @@ public class RemoteCall {
 	}
 	
 	/**
-	 * Gets the formal parameters of the method.
+	 * Gets the formal parameter types of the method.
 	 * @return an array containing the formal parameters of the method
 	 */
-	public Class<?>[] getParameters() {
-		return parameters;
+	public Class<?>[] getFormalTypes() {
+		return formalTypes;
 	}
 	
 	/**
-	 * Sets the formal parameters of the method.
+	 * Sets the formal parameter types of the method.
 	 * @param parameters an array containing the formal parameters of the method
 	 */
-	public void setParameters(Class<?>[] parameters) {
-		this.parameters = parameters;
+	public void setFormalTypes(Class<?>[] formalTypes) {
+		this.formalTypes = formalTypes;
+	}
+	
+	public Class<?>[] getActualTypes() {
+		return actualTypes;
+	}
+	
+	public void setActualTypes(Class<?>[] actualTypes) {
+		this.actualTypes = actualTypes;
 	}
 	
 	/**
@@ -84,7 +103,7 @@ public class RemoteCall {
 	 */
 	public void dispatch(Object target) {
 		try {
-			target.getClass().getMethod(name, parameters).invoke(target, args);
+			target.getClass().getMethod(name, formalTypes).invoke(target, args);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -111,7 +130,19 @@ public class RemoteCall {
 	 */
 	public static RemoteCall fromJson(String serialized) {
 		try {
-			return mapper.readValue(serialized, RemoteCall.class);
+			RemoteCall call = mapper.readValue(serialized, RemoteCall.class);
+			
+			System.out.println(serialized);
+			
+			for (int i = 0; i < call.args.length; i++) {
+				// System.out.println("Before: " + call.args[i].getClass().getName());
+				if (call.args[i] instanceof LinkedHashMap<?, ?>) {
+					call.args[i] = mapper.convertValue(call.args[i], call.actualTypes[i]);
+				}
+				// System.out.println("After: " + call.args[i].getClass().getName());
+			}
+			
+			return call;
 		} catch (IOException e) {
 			e.printStackTrace();
 		}

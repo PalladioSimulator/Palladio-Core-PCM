@@ -40,7 +40,7 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 		«ENDFOR»
 		
 		«IF !constructors.empty»	
-			«FOR constructor : constructors»
+			«FOR constructor : constructors SEPARATOR '\n'»
 				«constructor(constructor)»
 			«ENDFOR»
 			
@@ -68,10 +68,10 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 	
 	def method(IJMethod method) {
 		'''
+		«FOR a : method.annotations SEPARATOR '\n'»«a.generate»«ENDFOR»
 		«method.visibilityModifier»«IF method.isStatic» «method.staticModifier»«ENDIF» «method.returnType» «method.name»(«method.parameters»)«IF method.throwsType != null» throws «method.throwsType»«ENDIF»«IF method.body != null» {
 			«method.body»
 		}«ELSE»;«ENDIF»
 		'''
 	}
-
 }

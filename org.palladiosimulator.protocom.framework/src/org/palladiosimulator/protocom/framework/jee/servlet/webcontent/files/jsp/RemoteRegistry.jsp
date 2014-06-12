@@ -16,21 +16,21 @@
 		<h2>Registered Objects</h2>
 		<ul>
 			<%
-			HashMap<String, RegistryEntry> objects;
-			objects = (HashMap<String, RegistryEntry>)request.getAttribute("registeredObjects");
-			
-			for (RegistryEntry entry : objects.values()) {
-				out.print("<li>");
+				HashMap<String, RegistryEntry> objects;
+				objects = (HashMap<String, RegistryEntry>)request.getAttribute("registeredObjects");
 				
-				out.print(entry.getName());
-				out.print(" at ");
-				out.print(entry.getLocation());
-				out.print(" (");
-				out.print(entry.getInterface().toString());
-				out.print(")");
-				
-				out.println("</li>");
-			}
+				for (RegistryEntry entry : objects.values()) {
+					out.print("<li>");
+					
+					out.print(entry.getName());
+					out.print(" at ");
+					out.print(entry.getLocation());
+					out.print(" (");
+					out.print(entry.getInterfaces()[0].toString());
+					out.print(")");
+					
+					out.println("</li>");
+				}
 			%>
 		</ul>
 	</body>

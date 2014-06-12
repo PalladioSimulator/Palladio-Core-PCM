@@ -1,6 +1,8 @@
 package org.palladiosimulator.protocom.lang.java.impl
 
 import org.palladiosimulator.protocom.lang.java.IJMethod
+import org.palladiosimulator.protocom.lang.java.util.IJAnnotation
+import java.util.Collection
 
 /**
  * Class representing a Java method.
@@ -22,7 +24,8 @@ class JMethod implements IJMethod {
 	private String implementation
 	private String throwsType
 	private String visibility
-	private String methodAnnotation
+	private String methodAnnotation // TODO: Obsolete, still here for compatibility!
+	private Collection<? extends IJAnnotation> annotations
 	private boolean isStatic
 	
 	new() {
@@ -56,10 +59,15 @@ class JMethod implements IJMethod {
 		isStatic
 	}
 	
+	override annotations() {
+		if (annotations != null) annotations else #[]
+	}
+	
 	override body() {
 		'''«IF implementation != null»«implementation»«ELSE»«ENDIF»'''
 	}
 	
+	// TODO: Obsolete, still here for compatibility!
 	override methodAnnotation() {
 		methodAnnotation
 	}
@@ -99,9 +107,14 @@ class JMethod implements IJMethod {
 		this
 	}
 	
-	def withMethodAnnotation(String methodAnnotation){
-		this.methodAnnotation = methodAnnotation
+	// TODO: Obsolete, still here for compatibility!
+	def withMethodAnnotation(String annotation) {
+		this.methodAnnotation = annotation
 		this
 	}
-
+	
+	def withAnnotations(Collection<? extends IJAnnotation> annotations) {
+		this.annotations = annotations
+		this
+	}
 }

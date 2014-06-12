@@ -1,5 +1,8 @@
 package org.palladiosimulator.protocom.lang.java
 
+import java.util.Collection
+import org.palladiosimulator.protocom.lang.java.util.IJAnnotation
+
 /**
  * TODO: Common IJMember for Method and Field.
  * 
@@ -51,6 +54,8 @@ interface IJMethod {
 	def String staticModifier()
 	
 	def boolean isStatic()
+	
+	def Collection<? extends IJAnnotation> annotations()
 	
 	def String methodAnnotation()
 }

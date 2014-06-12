@@ -1,5 +1,9 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.stubs;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
+import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+
+@JsonAutoDetect(fieldVisibility = Visibility.ANY)
 public class StackContext {
 	private SimulatedStack stack;
 	
@@ -11,13 +15,9 @@ public class StackContext {
 		return stack;
 	}
 	
-//	public double evaluate(String string, Class<Double> expectedType) {
-//		return 0.5;
-//	}
-//	
-//	public int evaluate(String string, Class<Integer> expectedType) {
-//		return 1;
-//	}
+	public void setStack(SimulatedStack stack) {
+		this.stack = stack;
+	}
 	
 	@SuppressWarnings("unchecked")
 	public <T> T evaluate(String string, Class<T> expectedType) {

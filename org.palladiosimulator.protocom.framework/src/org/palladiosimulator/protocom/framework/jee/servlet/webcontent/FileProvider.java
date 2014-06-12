@@ -42,7 +42,8 @@ public class FileProvider {
 		"jackson-core-2.2.3.jar", 
 		"jackson-databind-2.2.3.jar", 
 		"jstl-1.2.jar", 
-		"org.palladiosimulator.protocom.framework.jar" 
+		"org.palladiosimulator.protocom.framework.jar", 
+		"org.palladiosimulator.protocom.resourcestrategies.jar"
 	};
 	
 	private final String[][] files = {
@@ -63,9 +64,10 @@ public class FileProvider {
 	
 	/**
 	 * Adds additional library dependencies from Java SE ProtoCom to a list of URLs.
-	 * Currently unused due to dependency issues with SAP HANA cloud.
+	 * Currently unused due to dependency issues with SAP HANA Cloud.
 	 * @param list the list of URLs to add the library dependencies to
 	 */
+	@SuppressWarnings("unused")
 	private void addLibraryDependencies(List<URL> list) {
 		InputStream stream = getClass().getResourceAsStream("files/lib/dependencies/index.txt");
 		BufferedReader index = new BufferedReader(new InputStreamReader(stream));

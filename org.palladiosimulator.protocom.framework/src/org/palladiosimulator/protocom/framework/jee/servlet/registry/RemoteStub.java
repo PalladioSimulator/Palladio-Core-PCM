@@ -28,8 +28,16 @@ public class RemoteStub implements InvocationHandler {
 		RemoteCall call = new RemoteCall();
 		
 		call.setName(method.getName());
-		call.setParameters(method.getParameterTypes());
+		call.setFormalTypes(method.getParameterTypes());
 		call.setArgs(args);
+		
+		Class<?>[] actualTypes = new Class<?>[args.length];
+		
+		for (int i = 0; i < actualTypes.length; i++) {
+			actualTypes[i] = args[i].getClass();
+		}
+		
+		call.setActualTypes(actualTypes);
 		
 		Request.post(location, path, call.toJson());
 		

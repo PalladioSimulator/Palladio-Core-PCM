@@ -1,12 +1,12 @@
 package org.palladiosimulator.protocom.framework.jee.servlet.registry;
 
+import java.lang.reflect.Proxy;
+import java.util.ArrayList;
+
 import org.palladiosimulator.protocom.framework.jee.servlet.http.Parameter;
 import org.palladiosimulator.protocom.framework.jee.servlet.http.Request;
 import org.palladiosimulator.protocom.framework.jee.servlet.http.Response;
 import org.palladiosimulator.protocom.framework.jee.servlet.http.StringResponse;
-
-import java.lang.reflect.Proxy;
-import java.util.ArrayList;
 
 /**
  * The Registry singleton provides methods for registering and accessing remote objects.
@@ -42,6 +42,21 @@ public class Registry {
 	}
 	
 	/**
+	 * 
+	 * @param name
+	 * @param iface
+	 * @param location
+	 * @param path
+	 * @throws RegistryException
+	 */
+	public static void register(String name, Class<?> iface, String location, String path)
+			throws RegistryException {
+		
+		Class<?>[] interfaces = new Class<?>[] {iface};
+		register(name, interfaces, location, path);
+	}
+	
+	/**
 	 * Registers the specified object in the registry.
 	 * @param name the name under which the object is registered
 	 * @param iface the interface of the object
@@ -49,10 +64,10 @@ public class Registry {
 	 * @param path the path part of the object's URL
 	 * @throws RegistryException
 	 */
-	public static void register(String name, Class<?> iface, String location, String path)
+	public static void register(String name, Class<?>[] interfaces, String location, String path)
 			throws RegistryException {
 		
-		RegistryEntry entry = new RegistryEntry(name, iface, location, path);
+		RegistryEntry entry = new RegistryEntry(name, interfaces, location, path);
 		ArrayList<Parameter> params = new ArrayList<Parameter>(2);
 		
 		params.add(new Parameter("action", "register"));
@@ -104,12 +119,17 @@ public class Registry {
 			throw new RegistryException("Failed to look up '" + name + "' in registry");
 		}
 		
+		System.out.println("Converting payload to RegistryEntry");
 		RegistryEntry entry = RegistryEntry.fromJson(response.getPayload());
-			
+		
+		System.out.println("Creating proxy instance");
+		
 		Object stub = Proxy.newProxyInstance(
-				entry.getInterface().getClassLoader(), 
-				new Class<?>[] {entry.getInterface()}, 
+				entry.getInterfaces()[0].getClassLoader(), 
+				entry.getInterfaces(), 
 				new RemoteStub(entry.getLocation(), entry.getPath()));
+		
+		System.out.println("Proxy instance created");
 		
 		return stub;
 	}

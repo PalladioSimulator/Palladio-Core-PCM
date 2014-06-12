@@ -1,13 +1,13 @@
 package org.palladiosimulator.protocom.tech.servlet.repository
 
-import org.palladiosimulator.protocom.tech.servlet.ServletClass
 import de.uka.ipd.sdq.pcm.repository.BasicComponent
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
 import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
-import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.tech.servlet.ServletClass
 import org.palladiosimulator.protocom.tech.servlet.util.PcmServletProtoAction
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
 
 /**
  * 
@@ -27,7 +27,7 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 			new JMethod()
 				.withParameters("String location, String assemblyContext")
 				.withImplementation('''
-					«frameworkBase».common.ComponentCollection.getInstance().addComponent(assemblyContext, this);
+					«frameworkBase».common.LocalComponentRegistry.getInstance().addComponent(assemblyContext, this);
 					System.out.println("Component constructor");
 					
 					java.util.ArrayList<«frameworkBase».http.Parameter> params = new java.util.ArrayList<«frameworkBase».http.Parameter>(3);
@@ -70,6 +70,8 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 				.withReturnType('''«frameworkBase».stubs.SimulatedStackframe<Object>''')
 				.withParameters('''«frameworkBase».stubs.StackContext ctx''')
 				.withImplementation('''
+					«new PcmServletProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
+					
 					return null;
 				''')
 				

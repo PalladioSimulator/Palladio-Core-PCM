@@ -32,7 +32,7 @@ class PcmServletProtoAction extends PcmProtoAction {
 				ctx.getStack().createAndPushNewStackFrame();
 				
 				«PcmCommons::call(action.calledService_ExternalService, action.calledService_ExternalService, 
-					"context.getRole" + JavaNames::javaName(action.role_ExternalService)+"().",
+					"context.getPortFor" + JavaNames::javaName(action.role_ExternalService)+"().",
 					action.inputVariableUsages__CallAction, action.returnVariableUsage__CallReturnAction)»
 			} catch (java.lang.Exception e) {
 				// TODO: add logging

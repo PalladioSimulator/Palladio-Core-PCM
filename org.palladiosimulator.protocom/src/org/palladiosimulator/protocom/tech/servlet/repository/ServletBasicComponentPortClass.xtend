@@ -7,6 +7,7 @@ import org.palladiosimulator.protocom.lang.java.impl.JField
 import org.palladiosimulator.protocom.lang.java.impl.JMethod
 import org.palladiosimulator.protocom.lang.java.util.JavaNames
 import org.palladiosimulator.protocom.tech.servlet.ServletClass
+import java.util.List
 
 class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 	new(ProvidedRole pcmEntity) {
@@ -47,7 +48,14 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 	}
 	
 	override methods() {
-		var iface = JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)
+		//var iface = JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)
+		
+		var String iface
+		
+		if (pcmEntity instanceof OperationProvidedRole) {
+			iface = JavaNames::fqn(pcmEntity.providedInterface__OperationProvidedRole)
+		}
+		
 		var result = newLinkedList
 		
 		result += 
@@ -57,10 +65,11 @@ class ServletBasicComponentPortClass extends ServletClass<ProvidedRole> {
 				.withName("start")
 				.withThrows('''«frameworkBase».modules.ModuleStartException''')
 				.withImplementation('''
-					this.component = («iface») «frameworkBase».common.ComponentCollection.getInstance().getComponent(assemblyContext);
+					this.component = («JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole)») «frameworkBase».common.LocalComponentRegistry.getInstance().getComponent(assemblyContext);
 					
 					try {
-						«frameworkBase».registry.Registry.register("«iface»", «iface».class, location, "/«JavaNames::portClassName(pcmEntity)»_" + assemblyContext);
+						Class<?>[] interfaces = new Class<?>[] {«iface».class, «frameworkBase».common.IPort.class};
+						«frameworkBase».registry.Registry.register("«JavaNames::portClassName(pcmEntity)»" + "_" + assemblyContext, interfaces, location, "/«JavaNames::portClassName(pcmEntity)»");
 					} catch («frameworkBase».registry.RegistryException e) {
 						throw new «frameworkBase».modules.ModuleStartException();
 					}

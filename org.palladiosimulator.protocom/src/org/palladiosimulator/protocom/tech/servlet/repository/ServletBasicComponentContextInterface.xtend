@@ -29,15 +29,22 @@ class ServletBasicComponentContextInterface extends ServletInterface<BasicCompon
 		// Role getters.
 		results += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[	
 			new JMethod()
-				.withName("getRole" + JavaNames::javaName(it))  
-				.withReturnType(JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole))
+				.withName("get" + JavaNames::javaName(it))  
+				.withReturnType("String")
 		]
 		
 		// Role setters.
 		results += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[
 			new JMethod()
-				.withName("setRole" + JavaNames::javaName(it))  
-				.withParameters(JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole) + " newValue")		
+				.withName("set" + JavaNames::javaName(it))  
+				.withParameters("String port")		
+		]
+		
+		// Port getters.
+		results += pcmEntity.requiredRoles_InterfaceRequiringEntity.filter[OperationRequiredRole.isInstance(it)].map[	
+			new JMethod()
+				.withName("getPortFor" + JavaNames::javaName(it))  
+				.withReturnType(JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole))
 		]
 		
 		results

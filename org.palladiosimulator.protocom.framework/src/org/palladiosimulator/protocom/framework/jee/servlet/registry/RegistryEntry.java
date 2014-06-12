@@ -13,7 +13,7 @@ public class RegistryEntry {
 	private static ObjectMapper mapper = new ObjectMapper();
 	
 	private String name;
-	private Class<?> iface;
+	private Class<?>[] interfaces;
 	private String location;
 	private String path;
 	
@@ -30,9 +30,9 @@ public class RegistryEntry {
 	 * @param location the location part of the registered object's URL
 	 * @param path the path part of the registered object's URL
 	 */
-	public RegistryEntry(String name, Class<?> iface, String location, String path) {
+	public RegistryEntry(String name, Class<?>[] interfaces, String location, String path) {
 		this.name = name;
-		this.iface = iface;
+		this.interfaces = interfaces;
 		this.location = location;
 		this.path = path;
 	}
@@ -57,16 +57,16 @@ public class RegistryEntry {
 	 * Sets the interface of the registered object.
 	 * @param iface the interface of the registered object
 	 */
-	public void setInterface(Class<?> iface) {
-		this.iface = iface;
+	public void setInterfaces(Class<?>[] interfaces) {
+		this.interfaces = interfaces;
 	}
 	
 	/**
 	 * Gets the interface of the registered object.
 	 * @return the interface of the registered object
 	 */
-	public Class<?> getInterface() {
-		return iface;
+	public Class<?>[] getInterfaces() {
+		return interfaces;
 	}
 	
 	/**

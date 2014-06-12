@@ -54,7 +54,7 @@ public abstract class Main extends HttpServlet {
 		moduleList = new ModuleList();
 		
 		String[] system = getSystem();
-		moduleList.add(new SystemModule("1", system[1]));
+		moduleList.add(new SystemModule("1", system[1], system[0]));
 		
 		AbstractAllocationStorage.initContainer();
 		
