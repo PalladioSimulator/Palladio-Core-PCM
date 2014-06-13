@@ -6,8 +6,13 @@
       <simulation_component
             component_class="edu.kit.ipd.sdq.eventsim.workload.EventSimWorkload"
             id="edu.kit.ipd.sdq.eventsim.workload"
-            name="Workload Simulation Component (EventSim)"
-            type="edu.kit.ipd.sdq.simcomp.workload">
+            name="Workload Simulation Component (EventSim)">
+         <provided_type
+               type="edu.kit.ipd.sdq.simcomp.workload">
+         </provided_type>
+         <required_type
+               type="edu.kit.ipd.sdq.simcomp.system">
+         </required_type>
       </simulation_component>
    </extension>
 

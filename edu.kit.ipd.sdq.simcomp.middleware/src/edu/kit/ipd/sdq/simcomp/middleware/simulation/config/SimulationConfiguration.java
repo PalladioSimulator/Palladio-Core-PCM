@@ -6,9 +6,9 @@ import java.util.Map;
 
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
+import edu.kit.ipd.sdq.simcomp.config.ISimulationComponentConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
 
@@ -25,17 +25,16 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 
 	public static String SIMULATION_COMPONENT_SIMULATOR_ID = "de.uka.ipd.sdq.codegen.simucontroller.simcomp";
 
-	public static String CONFIG_KEY_DEFAULT_COMPONENTS = "simCompdefaultComponens";
-	public static String CONFIG_KEY_COMPOSITION_RULES = "simCompConpositionRules";
+	public static String CONFIG_KEY_SIMULATION_COMPONENTS_CONFIG = "simCompConfig";
 
 	private static final long serialVersionUID = 7117529282079662258L;
 
 	private Map<String, Object> configMap;
+	Map<SimulationComponentImpl, ISimulationComponentConfiguration> componentsConfig;
+	Map<SimulationComponentRequiredType, SimulationComponentImpl> requiredTypeToSimCompMap;
 
 	private final String usageModelFile;
 	private final String allocationModelFile;
-	Map<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig;
-	Map<SimulationComponentType, List<ISimulatorCompositonRule>> compositionRulesConfig;
 
 	public SimulationConfiguration(Map<String, Object> configuration, boolean debug) {
 		super(configuration, debug);
@@ -47,29 +46,22 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 			throw new RuntimeException("Setting up properties failed, please check launch config (check all tabs).", e);
 		}
 
-		defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
-		compositionRulesConfig = new HashMap<SimulationComponentType, List<ISimulatorCompositonRule>>();
+		componentsConfig = new HashMap<SimulationComponentImpl, ISimulationComponentConfiguration>();
+		requiredTypeToSimCompMap = new HashMap<SimulationComponentRequiredType, SimulationComponentImpl>();
 
-		this.buildSimulatorCompositionRulesFromConfig(configuration);
+		buildRequiredTypeBaseConfiguration();
 	}
 
-	@SuppressWarnings("unchecked")
-	private void buildSimulatorCompositionRulesFromConfig(Map<String, Object> configuration) {
-		// read default component config
-		String serializedMap = (String) configuration.get(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS);
-		if (!serializedMap.isEmpty()) {
-			Map<SimulationComponentType, SimulationComponentMeta> defaultcompCfg = (Map<SimulationComponentType, SimulationComponentMeta>) ConfigHelper.deserializeObject(serializedMap);
-			if (defaultcompCfg != null) {
-				this.defaultComponentsConfig = defaultcompCfg;
-			}
+	private void buildRequiredTypeBaseConfiguration() {
+		String serializedConfig = (String) configMap.get(SimulationConfiguration.CONFIG_KEY_SIMULATION_COMPONENTS_CONFIG);
+		if (!serializedConfig.isEmpty()) {
+			componentsConfig = (HashMap<SimulationComponentImpl, ISimulationComponentConfiguration>) ConfigHelper.deserializeObject(serializedConfig);
 		}
 
-		// read composition rules
-		serializedMap = (String) configuration.get(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES);
-		if (!serializedMap.isEmpty()) {
-			Map<SimulationComponentType, List<ISimulatorCompositonRule>> rulesCfg = (Map<SimulationComponentType, List<ISimulatorCompositonRule>>) ConfigHelper.deserializeObject(serializedMap);
-			if (rulesCfg != null) {
-				this.compositionRulesConfig = rulesCfg;
+		// create map (requiredType -> component) for fast access during simulation run
+		for (SimulationComponentImpl component : componentsConfig.keySet()) {
+			for (SimulationComponentRequiredType requiredType : component.getRequiredTypes()) {
+				requiredTypeToSimCompMap.put(requiredType, component);
 			}
 		}
 	}
@@ -90,24 +82,18 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 	}
 
 	@Override
-	public SimulationComponentMeta getDefaultComponentForComponentType(Class<? extends ISimulationComponent> type) {
-		for (SimulationComponentType typeKey : defaultComponentsConfig.keySet()) {
-			if (typeKey.getTypeInterface().equals(type.getName())) {
-				return defaultComponentsConfig.get(typeKey);
-			}
-		}
+	public SimulationComponentImpl getDefaultComponentForRequiredType(SimulationComponentRequiredType requiredType) {
+		SimulationComponentImpl component = requiredTypeToSimCompMap.get(requiredType);
+		ISimulationComponentConfiguration componentConfig = componentsConfig.get(component);
 
-		return null;
+		return componentConfig.getDefaultComponentForRequiredType(requiredType);
 	}
 
 	@Override
-	public List<ISimulatorCompositonRule> getCompositionRulesForComponentType(Class<? extends ISimulationComponent> type) {
-		for (SimulationComponentType typeKey : compositionRulesConfig.keySet()) {
-			if (typeKey.getTypeInterface().equals(type.getName())) {
-				return compositionRulesConfig.get(typeKey);
-			}
-		}
+	public List<ISimulatorCompositonRule> getCompositionRulesForRequiredType(SimulationComponentRequiredType requiredType) {
+		SimulationComponentImpl component = requiredTypeToSimCompMap.get(requiredType);
+		ISimulationComponentConfiguration componentConfig = componentsConfig.get(component);
 
-		return null;
+		return componentConfig.getCompositionRulesForRequiredType(requiredType);
 	}
 }

@@ -5,18 +5,8 @@
          point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType">
       <simulation_component_type
             id="edu.kit.ipd.sdq.simcomp.resource.active"
-            name="Active Resource Simulation Component"
+            name="Active Resource Simulation Component Type"
             type_interface="edu.kit.ipd.sdq.simcomp.resource.active.component.IActiveResource">
-         <simulation_context_field
-               id="resource.active.ctx.container"
-               name="Container"
-               value_provider="edu.kit.ipd.sdq.simcomp.resource.active.context.ContainerContextValueProvider">
-         </simulation_context_field>
-         <simulation_context_field
-               id="resource.active.ctx.resource_type"
-               name="Resource Type"
-               value_provider="edu.kit.ipd.sdq.simcomp.resource.active.context.ResourceTypeContextValueProvider">
-         </simulation_context_field>
       </simulation_component_type>
    </extension>
 

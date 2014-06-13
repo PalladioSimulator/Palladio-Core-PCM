@@ -54,6 +54,12 @@
          </documentation>
       </annotation>
       <complexType>
+         <sequence minOccurs="1" maxOccurs="unbounded">
+            <element ref="provided_type"/>
+            <sequence minOccurs="0" maxOccurs="unbounded">
+               <element ref="required_type"/>
+            </sequence>
+         </sequence>
          <attribute name="id" type="string" use="required">
             <annotation>
                <documentation>
@@ -73,15 +79,85 @@
                <documentation>
                   The fully qualified name of the class implementing the registered simulation component.
                </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":edu.kit.ipd.sdq.simcomp.component.ISimulationComponent"/>
+               </appinfo>
             </annotation>
          </attribute>
+      </complexType>
+   </element>
+
+   <element name="provided_type">
+      <annotation>
+         <documentation>
+            Describes a provided interface of a simulation component
+         </documentation>
+      </annotation>
+      <complexType>
          <attribute name="type" type="string" use="required">
             <annotation>
                <documentation>
-                  The simulation component type. Must be an identifier of the types registered at the extension point edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType
+                  The uniue identifier of a registered simulation type who specifies the provided interface.
                </documentation>
                <appinfo>
                   <meta.attribute kind="identifier" basedOn="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType/simulation_component_type/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="required_type">
+      <annotation>
+         <documentation>
+            Describes a required interface of a simulation component
+         </documentation>
+      </annotation>
+      <complexType>
+         <sequence minOccurs="0" maxOccurs="unbounded">
+            <element ref="context_field"/>
+         </sequence>
+         <attribute name="type" type="string">
+            <annotation>
+               <documentation>
+                  The uniue identifier of a registered simulation type who specifies the required interface.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="identifier" basedOn="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType/simulation_component_type/@id"/>
+               </appinfo>
+            </annotation>
+         </attribute>
+      </complexType>
+   </element>
+
+   <element name="context_field">
+      <annotation>
+         <documentation>
+            Describes simulation composition context field supported by a required interface on a simulation component.
+         </documentation>
+      </annotation>
+      <complexType>
+         <attribute name="id" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A unique identifier for the simulation composition context field.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="name" type="string" use="required">
+            <annotation>
+               <documentation>
+                  A human readable name of the simulation composition context field. This name is used in the GUI for simulator configuration.
+               </documentation>
+            </annotation>
+         </attribute>
+         <attribute name="value_provider" type="string">
+            <annotation>
+               <documentation>
+                  A value provider used to determine the possible values for a simulation context field. A value provider has to implement the edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider interface.
+               </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider"/>
                </appinfo>
             </annotation>
          </attribute>

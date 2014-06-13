@@ -6,8 +6,10 @@
       <simulation_component
             component_class="edu.kit.ipd.sdq.simcomp.dummy.resource.component.DummyActiveResourceSimulator"
             id="edu.kit.ipd.sdq.simcomp.dummy.resource"
-            name="Active Resource Simulation Component (Dummy)"
-            type="edu.kit.ipd.sdq.simcomp.resource.active">
+            name="Active Resource Simulation Component (Dummy)">
+         <provided_type
+               type="edu.kit.ipd.sdq.simcomp.resource.active">
+         </provided_type>
       </simulation_component>
    </extension>
 

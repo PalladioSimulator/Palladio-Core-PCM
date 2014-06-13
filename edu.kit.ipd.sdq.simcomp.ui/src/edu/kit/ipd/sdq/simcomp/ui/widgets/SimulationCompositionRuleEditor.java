@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.simcomp.ui;
+package edu.kit.ipd.sdq.simcomp.ui.widgets;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -7,6 +7,7 @@ import java.util.Map;
 
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.custom.TableEditor;
+import org.eclipse.swt.events.ModifyEvent;
 import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.events.SelectionAdapter;
 import org.eclipse.swt.events.SelectionEvent;
@@ -28,11 +29,13 @@ import org.eclipse.swt.widgets.TableItem;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulatorCompositonRule;
+import edu.kit.ipd.sdq.simcomp.ui.listener.IModificationListener;
 
 /**
  * The simulation component rule editor is an SWT based editor to create a set
@@ -43,12 +46,13 @@ import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulatorCompositonR
  * @author Christoph Föhrdes
  * 
  */
-public class SimulationComponentRuleEditor {
+public class SimulationCompositionRuleEditor {
 
 	private IPCMModel model;
-	private SimulationComponentType simCompType;
-	private ModifyListener modificationListener;
 	private ISimulationMiddleware middleware;
+	private SimulationComponentRequiredType simCompRequiredType;
+	private List<SimulationComponentImpl> availableComponents;
+	private IModificationListener modificationListener;
 
 	private Table tblCompositionRules;
 	private Combo cmbDefaultComponent;
@@ -57,15 +61,30 @@ public class SimulationComponentRuleEditor {
 	private Button btnMoveUp;
 	private Button btnMoveDown;
 
-	public SimulationComponentRuleEditor(Composite parent, SimulationComponentType simCompType, ModifyListener modificationListener, ISimulationMiddleware middleware) {
-		this.modificationListener = modificationListener;
+	public SimulationCompositionRuleEditor(Composite parent, SimulationComponentRequiredType simCompRequiredType, ISimulationMiddleware middleware, IModificationListener modificationListener) {
+
+		this.simCompRequiredType = simCompRequiredType;
 		this.middleware = middleware;
+		this.modificationListener = modificationListener;
 
-		this.simCompType = simCompType;
+		// prepare component list
+		availableComponents = new ArrayList<SimulationComponentImpl>();
+		List<SimulationComponentImpl> metadata = middleware.getSimulationComponentMetadata();
 
+		for (SimulationComponentImpl component : metadata) {
+			List<SimulationComponentType> providedTypes = component.getProvidedTypes();
+
+			for (SimulationComponentType providedType : providedTypes) {
+				if (providedType.equals(simCompRequiredType.getType())) {
+					availableComponents.add(component);
+				}
+			}
+		}
+
+		// build widget
 		final Group simCompTypeGroup = new Group(parent, SWT.NONE);
 		simCompTypeGroup.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
-		simCompTypeGroup.setText(simCompType.getName());
+		simCompTypeGroup.setText("Required Interface: " + simCompRequiredType.getType().getName());
 		simCompTypeGroup.setLayout(new GridLayout(2, false));
 
 		final Composite tableContainer = new Composite(simCompTypeGroup, SWT.NONE);
@@ -98,7 +117,13 @@ public class SimulationComponentRuleEditor {
 		cmbDefaultComponent = new Combo(defaulSelection, SWT.READ_ONLY);
 		cmbDefaultComponent.setLayoutData(new GridData(SWT.FILL, SWT.BEGINNING, true, false));
 		cmbDefaultComponent.setEnabled(false);
-		cmbDefaultComponent.addModifyListener(modificationListener);
+		cmbDefaultComponent.addModifyListener(new ModifyListener() {
+
+			@Override
+			public void modifyText(ModifyEvent e) {
+				modificationListener.modified();
+			}
+		});
 	}
 
 	/**
@@ -117,7 +142,7 @@ public class SimulationComponentRuleEditor {
 		tblCompositionRules.setHeaderVisible(true);
 
 		// create the context field columns
-		for (SimulationContextField contextField : this.simCompType.getContextFields()) {
+		for (SimulationContextField contextField : this.simCompRequiredType.getContextFields()) {
 			TableColumn column = new TableColumn(tblCompositionRules, SWT.NONE);
 			column.setText(contextField.getName());
 			column.setWidth(200);
@@ -158,7 +183,7 @@ public class SimulationComponentRuleEditor {
 									case SWT.FocusOut:
 										item.setText(column, combo.getText());
 										combo.dispose();
-										modificationListener.modifyText(null);
+										modificationListener.modified();
 										break;
 									case SWT.Traverse:
 										switch (e.detail) {
@@ -218,9 +243,9 @@ public class SimulationComponentRuleEditor {
 	private String[] getPossibleValuesForColumn(int column) {
 		String[] possibleValues = new String[0];
 
-		if (column < simCompType.getContextFields().size()) {
+		if (column < simCompRequiredType.getContextFields().size()) {
 			// context field column selected
-			SimulationContextField field = simCompType.getContextFields().get(column);
+			SimulationContextField field = simCompRequiredType.getContextFields().get(column);
 			IContextFieldValueProvider valueProvider = middleware.getValueProviderForContextField(field);
 			List<String> possibleValueList = valueProvider.getPossibleValues(model);
 			possibleValues = possibleValueList.toArray(new String[possibleValueList.size() + 1]);
@@ -230,10 +255,9 @@ public class SimulationComponentRuleEditor {
 			return possibleValues;
 		} else {
 			// simulation component field selected
-			List<SimulationComponentMeta> components = simCompType.getComponents();
-			possibleValues = new String[components.size()];
-			for (int j = 0; j < components.size(); j++) {
-				possibleValues[j] = components.get(j).toString();
+			possibleValues = new String[availableComponents.size()];
+			for (int j = 0; j < availableComponents.size(); j++) {
+				possibleValues[j] = availableComponents.get(j).toString();
 			}
 
 			return possibleValues;
@@ -257,7 +281,7 @@ public class SimulationComponentRuleEditor {
 				tblCompositionRules.deselectAll();
 				tblCompositionRules.setSelection(tblCompositionRules.getItems().length - 1);
 				tblCompositionRules.setFocus();
-				modificationListener.modifyText(null);
+				modificationListener.modified();
 			}
 		});
 
@@ -269,7 +293,7 @@ public class SimulationComponentRuleEditor {
 			@Override
 			public void widgetSelected(SelectionEvent e) {
 				tblCompositionRules.remove(tblCompositionRules.getSelectionIndices());
-				modificationListener.modifyText(null);
+				modificationListener.modified();
 			}
 		});
 
@@ -282,7 +306,7 @@ public class SimulationComponentRuleEditor {
 			public void widgetSelected(SelectionEvent e) {
 				int selectedIndex = tblCompositionRules.getSelectionIndices()[0];
 				moveTableItem(tblCompositionRules, selectedIndex, selectedIndex - 1);
-				modificationListener.modifyText(null);
+				modificationListener.modified();
 			}
 		});
 
@@ -295,7 +319,7 @@ public class SimulationComponentRuleEditor {
 			public void widgetSelected(SelectionEvent e) {
 				int selectedIndex = tblCompositionRules.getSelectionIndices()[0];
 				moveTableItem(tblCompositionRules, selectedIndex, selectedIndex + 1);
-				modificationListener.modifyText(null);
+				modificationListener.modified();
 			}
 		});
 	}
@@ -313,7 +337,7 @@ public class SimulationComponentRuleEditor {
 				values[i] = ISimulatorCompositonRule.ANY_VALUE;
 			} else {
 				// component column
-				values[i] = this.simCompType.getComponents().get(0).getName();
+				values[i] = availableComponents.get(0).getName();
 			}
 		}
 
@@ -385,7 +409,7 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @param simulationComponentMetaData
 	 */
-	public void updateDefaultComponent(SimulationComponentMeta component) {
+	public void updateDefaultComponent(SimulationComponentImpl component) {
 		if (component != null) {
 			// TODO switch to something ID based
 			String[] items = cmbDefaultComponent.getItems();
@@ -406,12 +430,12 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @return
 	 */
-	public SimulationComponentMeta getDefaultComponent() {
+	public SimulationComponentImpl getDefaultComponent() {
 		if (this.model == null) {
 			return null;
 		}
 		if (cmbDefaultComponent.getSelectionIndex() >= 0) {
-			for (SimulationComponentMeta component : this.simCompType.getComponents()) {
+			for (SimulationComponentImpl component : availableComponents) {
 				if (component.getName().equals(cmbDefaultComponent.getItems()[cmbDefaultComponent.getSelectionIndex()])) {
 					return component;
 				}
@@ -426,7 +450,7 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @param compositionRules
 	 */
-	public void updateCompositionRules(List<SimulatorCompositonRule> compositionRules) {
+	public void updateCompositionRules(List<ISimulatorCompositonRule> compositionRules) {
 		tblCompositionRules.clearAll();
 		tblCompositionRules.setItemCount(0);
 
@@ -434,15 +458,15 @@ public class SimulationComponentRuleEditor {
 			return;
 		}
 
-		for (SimulatorCompositonRule rule : compositionRules) {
+		for (ISimulatorCompositonRule rule : compositionRules) {
 			TableItem ruleItem = new TableItem(tblCompositionRules, SWT.NONE);
 
-			for (int i = 0; i < this.simCompType.getContextFields().size(); i++) {
-				SimulationContextField contextField = this.simCompType.getContextFields().get(i);
+			for (int i = 0; i < simCompRequiredType.getContextFields().size(); i++) {
+				SimulationContextField contextField = simCompRequiredType.getContextFields().get(i);
 				ruleItem.setText(i, rule.getFieldValues().get(contextField));
 			}
 
-			ruleItem.setText(this.simCompType.getContextFields().size(), rule.getComponent().getName());
+			ruleItem.setText(simCompRequiredType.getContextFields().size(), rule.getComponent().getName());
 
 		}
 	}
@@ -452,34 +476,40 @@ public class SimulationComponentRuleEditor {
 	 * 
 	 * @return
 	 */
-	public List<SimulatorCompositonRule> getCompositionRules() {
-		List<SimulatorCompositonRule> rules = new ArrayList<SimulatorCompositonRule>();
+	public List<ISimulatorCompositonRule> getCompositionRules() {
+		List<ISimulatorCompositonRule> rules = new ArrayList<ISimulatorCompositonRule>();
 
 		TableItem[] ruleTableItems = tblCompositionRules.getItems();
 		// iterate over rule rows
 		for (TableItem tableItem : ruleTableItems) {
 			Map<SimulationContextField, String> fieldValues = new HashMap<SimulationContextField, String>();
 
-			SimulationComponentMeta selectedComponent = null;
+			SimulationComponentImpl selectedComponent = null;
 
 			// iterate context field columns
 			for (int i = 0; i < tblCompositionRules.getColumnCount(); i++) {
 				if (i < (tblCompositionRules.getColumnCount() - 1)) {
 					// field column
-					SimulationContextField field = this.simCompType.getContextFields().get(i);
-					fieldValues.put(field, tableItem.getText(i));
+					SimulationContextField field = simCompRequiredType.getContextFields().get(i);
+					String fieldValue = tableItem.getText(i);
+					fieldValues.put(field, fieldValue);
 				} else {
 					// component column
-					for (SimulationComponentMeta component : this.simCompType.getComponents()) {
-						if (component.getName().equals(tableItem.getText(i))) {
+					String componentName = tableItem.getText(i);
+					for (SimulationComponentImpl component : availableComponents) {
+						if (component.getName().equals(componentName)) {
 							selectedComponent = component;
 							break;
 						}
 					}
+					
+					if (selectedComponent == null) {
+						throw new IllegalStateException("Selected component \"" + componentName + "\" not found in avalable component list");
+					}
 				}
 			}
 
-			rules.add(new SimulatorCompositonRule(this.simCompType, fieldValues, selectedComponent));
+			rules.add(new SimulatorCompositonRule(simCompRequiredType, fieldValues, selectedComponent));
 		}
 
 		return rules;
@@ -506,12 +536,11 @@ public class SimulationComponentRuleEditor {
 			this.btnCreate.setEnabled(true);
 
 			List<String> componentNames = new ArrayList<String>();
-			for (SimulationComponentMeta component : this.simCompType.getComponents()) {
+			for (SimulationComponentImpl component : availableComponents) {
 				componentNames.add(component.getName());
 			}
 			this.cmbDefaultComponent.setItems(componentNames.toArray(new String[0]));
 			this.cmbDefaultComponent.setEnabled(true);
 		}
 	}
-
 }

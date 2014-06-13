@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.simcomp.resource.active.context;
+package edu.kit.ipd.sdq.eventsim.system.context;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +16,7 @@ import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
  * @author Christoph Föhrdes
  * 
  */
-public class ResourceTypeContextValueProvider implements IContextFieldValueProvider {
+public class ActiveResourceResourceTypeContextValueProvider implements IContextFieldValueProvider {
 
 	private static final long serialVersionUID = 8606242044084081421L;
 

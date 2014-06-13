@@ -1,7 +1,6 @@
 package edu.kit.ipd.sdq.simcomp.middleware;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 
 import org.eclipse.core.runtime.IConfigurationElement;
@@ -9,7 +8,8 @@ import org.eclipse.core.runtime.IExtensionPoint;
 import org.eclipse.core.runtime.IExtensionRegistry;
 import org.eclipse.core.runtime.Platform;
 
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 
@@ -17,8 +17,6 @@ import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
  * This class reads the meta information about all simulation components
  * registered over the extension point mechanism in form of a proper data
  * structure.
- * 
- * TODO (SimComp): Add GUI contribution for simulation components
  * 
  * @author Christoph Föhrdes
  * 
@@ -37,84 +35,137 @@ public class SimulationComponentMetaCollector {
 	}
 
 	/**
-	 * Builds a list of meta data of all registered simulation component.
+	 * Builds the metadata of all registered simulation components based on the
+	 * registrations at the simulation middleware extension points.
 	 * 
-	 * @return A List of component type meta data
+	 * @return A list of component metadata
 	 */
-	public static List<SimulationComponentType> buildComponentMetaData() {
+	public static List<SimulationComponentImpl> buildComponentMetaData() {
 		SimulationComponentMetaCollector collector = new SimulationComponentMetaCollector();
-		List<SimulationComponentType> componentTypes = collector.getSimulationComponentTypes();
-		Collections.sort(componentTypes);
 
-		return componentTypes;
+		return collector.getRegisteredSimulationComponents();
 	}
 
 	/**
-	 * Fetches all simulation component types registered at the extension point.
+	 * Reads all simulation component implementations registered at the
+	 * middleware extension point and converts them to the metadata class
+	 * structure.
 	 * 
-	 * @return A List of component type meta data
+	 * @return A list of component implementation metadata objects
 	 */
-	private List<SimulationComponentType> getSimulationComponentTypes() {
-		List<SimulationComponentType> componentTypes = new ArrayList<SimulationComponentType>();
+	private List<SimulationComponentImpl> getRegisteredSimulationComponents() {
+		List<SimulationComponentImpl> components = new ArrayList<SimulationComponentImpl>();
 
-		IExtensionPoint point = registry.getExtensionPoint(SIMCOMP_TYPE_EXTENSION_POINT);
+		IExtensionPoint point = registry.getExtensionPoint(SIMCOMP_EXTENSION_POINT);
 		IConfigurationElement[] elements = point.getConfigurationElements();
 
 		for (IConfigurationElement configurationElement : elements) {
 			String id = configurationElement.getAttribute("id");
 			String name = configurationElement.getAttribute("name");
-			String typeInterface = configurationElement.getAttribute("type_interface");
-			SimulationComponentType componentType = new SimulationComponentType(id, name, typeInterface);
+			String componentClass = configurationElement.getAttribute("component_class");
 
-			// add the context fields
-			this.addContextFields(componentType, configurationElement);
+			SimulationComponentImpl component = new SimulationComponentImpl(id, name, componentClass);
 
-			// add the currently registered implementations
-			this.addAvailableComponents(componentType);
+			this.addProvidedTypes(component, configurationElement);
+			this.addRequiredTypes(component, configurationElement);
 
-			componentTypes.add(componentType);
+			components.add(component);
 		}
 
-		return componentTypes;
+		return components;
 	}
 
 	/**
-	 * Fetches all registered simulation context fields of a given simulation
-	 * component type and adds meta data about them to the type data.
+	 * Converts all registered provided interface types from the configuration,
+	 * converts them to the metadata class structure and adds them to the
+	 * simulation component metadata object.
+	 * 
+	 * @param component
+	 *            The component to add the provided interface types to
+	 * @param configurationElement
+	 *            The simulation component registration configuration element to
+	 *            read the information from.
+	 */
+	private void addProvidedTypes(SimulationComponentImpl component, IConfigurationElement configurationElement) {
+		IConfigurationElement[] providedTypeElements = configurationElement.getChildren("provided_type");
+		for (IConfigurationElement providedTypeElement : providedTypeElements) {
+
+			SimulationComponentType type = this.getSimulationComponentTypeForId(providedTypeElement.getAttribute("type"));
+
+			component.addProvidedType(type);
+		}
+	}
+
+	/**
+	 * Converts all registered required interface types and their context fields
+	 * from the configuration, converts them to the metadata class structure and
+	 * adds them to the simulation component metadata object.
+	 * 
+	 * @param component
+	 *            The component to add the required interface types and context
+	 *            fields to
+	 * @param configurationElement
+	 *            The simulation component registration configuration element to
+	 *            read the information from.
+	 */
+	private void addRequiredTypes(SimulationComponentImpl component, IConfigurationElement configurationElement) {
+		IConfigurationElement[] requiredTypeElements = configurationElement.getChildren("required_type");
+		for (IConfigurationElement requiredTypeElement : requiredTypeElements) {
+
+			SimulationComponentType type = this.getSimulationComponentTypeForId(requiredTypeElement.getAttribute("type"));
+			SimulationComponentRequiredType requiredType = new SimulationComponentRequiredType(component, type);
+
+			this.addContextFields(requiredType, requiredTypeElement);
+
+			component.addRequiredType(requiredType);
+		}
+
+	}
+
+	/**
+	 * Fetches all registered simulation context fields for a given required
+	 * simulation component type, converts them to the metadata class structure
+	 * and adds them to the required type.
 	 * 
 	 * @param componentType
 	 */
-	private void addContextFields(SimulationComponentType componentType, IConfigurationElement configurationElement) {
-		IConfigurationElement[] fieldElements = configurationElement.getChildren("simulation_context_field");
+	private void addContextFields(SimulationComponentRequiredType componentType, IConfigurationElement configurationElement) {
+		IConfigurationElement[] fieldElements = configurationElement.getChildren("context_field");
 		for (IConfigurationElement fieldElement : fieldElements) {
+
 			String id = fieldElement.getAttribute("id");
 			String name = fieldElement.getAttribute("name");
-			SimulationContextField field = new SimulationContextField(id, componentType, name);
-			componentType.addContextField(field);
+
+			componentType.addContextField(new SimulationContextField(id, name));
 		}
 	}
 
 	/**
-	 * Fetches all registered implementations of a given simulation component
-	 * type and adds meta data about them to the type data.
+	 * Creates a simulation component type metadata object based on the given id
+	 * by reading the information about it form the middleware extension point
+	 * where the types are registered.
 	 * 
-	 * @param componentType
+	 * @param typeId
+	 *            An id of a registered simulation component type
+	 * @return A simulation component type metadata object
 	 */
-	private void addAvailableComponents(SimulationComponentType componentType) {
-		IExtensionPoint point = registry.getExtensionPoint(SIMCOMP_EXTENSION_POINT);
+	private SimulationComponentType getSimulationComponentTypeForId(String typeId) {
+		IExtensionPoint point = registry.getExtensionPoint(SIMCOMP_TYPE_EXTENSION_POINT);
 		IConfigurationElement[] elements = point.getConfigurationElements();
 
 		for (IConfigurationElement configurationElement : elements) {
-			String typeId = configurationElement.getAttribute("type");
+			String id = configurationElement.getAttribute("id");
 
-			if (componentType.getId().equalsIgnoreCase(typeId)) {
-				String id = configurationElement.getAttribute("id");
+			if (typeId.equals(id)) {
+
 				String name = configurationElement.getAttribute("name");
-				String componentClass = configurationElement.getAttribute("component_class");
-				SimulationComponentMeta component = new SimulationComponentMeta(id, name, componentClass, componentType);
-				componentType.addComponent(component);
+				String typeInterface = configurationElement.getAttribute("type_interface");
+
+				return new SimulationComponentType(id, name, typeInterface);
 			}
 		}
+
+		throw new IllegalStateException("There was no registered simulation component type found for id " + typeId);
 	}
 
 }

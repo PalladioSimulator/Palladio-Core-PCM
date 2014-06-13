@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationModel;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.events.IEventHandler;
@@ -49,9 +49,9 @@ public interface ISimulationMiddleware {
 	 * about their available implementations and contexts to configure the
 	 * dynamic simulator composition.
 	 * 
-	 * @return A List of simulation component type meta data
+	 * @return A List of simulation component metadata
 	 */
-	public List<SimulationComponentType> getSimulationComponentMetaData();
+	public List<SimulationComponentImpl> getSimulationComponentMetadata();
 
 	/**
 	 * Returns the value provider for a given simulation context field. Used to
@@ -78,19 +78,27 @@ public interface ISimulationMiddleware {
 	public void stopSimulation();
 
 	/**
-	 * 
 	 * Returns a simulation component out of a list of alternatives based on the
 	 * simulation configuration and a simulation context.
 	 * 
-	 * @param componentType
-	 *            The type of the acquired simulation component
+	 * @param requestingType
+	 *            The component type requesting access to a required simulation
+	 *            component. For example ISystem when accessing a
+	 *            IActiveResource from ISystem.
+	 * @param requiredType
+	 *            The component type to be accessed. For example IActiveResource
+	 *            when accessing a IActiveResource from ISystem.
 	 * @param componentList
-	 *            A list of possible simulation components to choose from
+	 *            A list of alternative simulation components to select one
+	 *            from. For example a list of IActiveResource implementations
+	 *            when accessing a IActiveResource from ISystem.
 	 * @param context
-	 *            A simulation context to precise the decision on
-	 * @return The simulation component to be used
+	 *            The simulation context used to determine the simulation
+	 *            component
+	 * 
+	 * @return The simulation component to use
 	 */
-	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context);
+	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> requestingType, Class<? extends ISimulationComponent> requiredType, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context);
 
 	/**
 	 * Gives access to the simulation configuration provided by the user on

@@ -8,12 +8,10 @@ public class SimulationContextField implements Serializable {
 
 	private String id;
 	private String name;
-	private SimulationComponentType componentType;
 
-	public SimulationContextField(String id, SimulationComponentType componentType, String name) {
+	public SimulationContextField(String id, String name) {
 		this.id = id;
 		this.name = name;
-		this.componentType = componentType;
 	}
 
 	public String getId() {
@@ -22,10 +20,6 @@ public class SimulationContextField implements Serializable {
 
 	public String getName() {
 		return name;
-	}
-
-	public SimulationComponentType getComponentType() {
-		return componentType;
 	}
 
 	@Override

@@ -5,8 +5,14 @@
          point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType">
       <simulation_component_type
             id="edu.kit.ipd.sdq.simcomp.workload"
-            name="Workload Simulation Component"
+            name="Workload Simulation Component Type"
             type_interface="edu.kit.ipd.sdq.simcomp.workload.component.IWorkload">
+         <simulation_event
+               event_class="edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserSpawn">
+         </simulation_event>
+         <simulation_event
+               event_class="edu.kit.ipd.sdq.simcomp.workload.events.WorkloadUserFinished">
+         </simulation_event>
       </simulation_component_type>
    </extension>
 

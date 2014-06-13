@@ -4,8 +4,8 @@ import java.util.List;
 import java.util.Map;
 
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationConfig;
-import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
 
 /**
  * Represents a configuration for a simulation component based simulation.
@@ -29,24 +29,24 @@ public interface ISimulationConfiguration extends ISimulationConfig {
 	public String getAllocationModelFile();
 
 	/**
-	 * Returns information about the default simulation component for a given
-	 * simulation component type.
+	 * Returns the default simulation component to use for a given required
+	 * interface.
 	 * 
-	 * @param type
-	 *            The type to fetch the default component for
-	 * @return Meta data about the default simulation component
+	 * @param requiredType
+	 *            The required interface to fetch the default component for
+	 * @return Metadata object of the simulation component to use
 	 */
-	public SimulationComponentMeta getDefaultComponentForComponentType(Class<? extends ISimulationComponent> type);
+	public SimulationComponentImpl getDefaultComponentForRequiredType(SimulationComponentRequiredType requiredType);
 
 	/**
-	 * Returns the simulator composition rules for a given simulation component
-	 * type
+	 * Returns a list of composition rules to determine the simulation component
+	 * to use for a given required interface.
 	 * 
-	 * @param type
+	 * @param requiredType
 	 *            The type to search the rules for
-	 * @return A List of simulator composition rules
+	 * @return A list of composition rules
 	 */
-	public List<ISimulatorCompositonRule> getCompositionRulesForComponentType(Class<? extends ISimulationComponent> type);
+	public List<ISimulatorCompositonRule> getCompositionRulesForRequiredType(SimulationComponentRequiredType requiredType);
 
 	/**
 	 * Gives access to the raw configuration map as created at simulation
@@ -62,7 +62,7 @@ public interface ISimulationConfiguration extends ISimulationConfig {
 	 * @return true if in debug or false if not.
 	 */
 	public boolean isDebug();
-	
+
 	public long[] getRandomSeed();
 
 }

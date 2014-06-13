@@ -3,8 +3,6 @@ package edu.kit.ipd.sdq.simcomp.system.component;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 import edu.kit.ipd.sdq.simcomp.component.IUser;
-import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed;
-import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
 
 /**
  * Represents a system simulation component which handles service calls
@@ -13,15 +11,6 @@ import edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart;
  * @author Christoph Föhrdes
  */
 public interface ISystem extends ISimulationComponent {
-
-	/**
-	 * List of simulation events triggered by this simulation component.
-	 */
-	@SuppressWarnings("rawtypes")
-	public static Class[] componentEvents = new Class[] {
-		SystemRequestStart.class,
-		SystemRequestProcessed.class
-	};
 
 	/**
 	 * Processed a request from a given user to a specific system service.

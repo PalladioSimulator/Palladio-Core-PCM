@@ -55,7 +55,7 @@
       </annotation>
       <complexType>
          <sequence minOccurs="0" maxOccurs="unbounded">
-            <element ref="simulation_context_field"/>
+            <element ref="simulation_event"/>
          </sequence>
          <attribute name="id" type="string" use="required">
             <annotation>
@@ -76,39 +76,28 @@
                <documentation>
                   The full qualified name of the java interface defining the simulation component type. The type interface should extend the edu.kit.ipd.sdq.simcomp.component.ISimulationComponent Interface.
                </documentation>
+               <appinfo>
+                  <meta.attribute kind="java" basedOn=":edu.kit.ipd.sdq.simcomp.component.ISimulationComponent"/>
+               </appinfo>
             </annotation>
          </attribute>
       </complexType>
    </element>
 
-   <element name="simulation_context_field">
+   <element name="simulation_event">
       <annotation>
          <documentation>
-            Describes a simulation context field supported by this simulation component type.
+            Describes a simulation event supported by a simulation component type
          </documentation>
       </annotation>
       <complexType>
-         <attribute name="id" type="string" use="required">
+         <attribute name="event_class" type="string" use="required">
             <annotation>
                <documentation>
-                  A unique identifier for the simulation context field.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="name" type="string" use="required">
-            <annotation>
-               <documentation>
-                  A human readable name of the simulation context field. This name is used in the GUI for simulator configuration.
-               </documentation>
-            </annotation>
-         </attribute>
-         <attribute name="value_provider" type="string" use="required">
-            <annotation>
-               <documentation>
-                  
+                  The full qualified name of the class defining the simulation event. The class has to extend the abstract edu.kit.ipd.sdq.simcomp.events.SimulationEvent class.
                </documentation>
                <appinfo>
-                  <meta.attribute kind="java" basedOn=":edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider"/>
+                  <meta.attribute kind="java" basedOn="edu.kit.ipd.sdq.simcomp.events.SimulationEvent:"/>
                </appinfo>
             </annotation>
          </attribute>

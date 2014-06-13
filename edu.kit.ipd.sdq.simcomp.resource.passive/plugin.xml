@@ -5,7 +5,7 @@
          point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType">
       <simulation_component_type
             id="edu.kit.ipd.sdq.simcomp.resource.passive"
-            name="Passive Resource Simulation Component"
+            name="Passive Resource Simulation Component Type"
             type_interface="edu.kit.ipd.sdq.simcomp.resource.passive.component.IPassiveResource">
       </simulation_component_type>
    </extension>

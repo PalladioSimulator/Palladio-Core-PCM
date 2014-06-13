@@ -5,8 +5,14 @@
          point="edu.kit.ipd.sdq.simcomp.middleware.simulationComponentType">
       <simulation_component_type
             id="edu.kit.ipd.sdq.simcomp.system"
-            name="System Simulation Component"
+            name="System Simulation Component Type"
             type_interface="edu.kit.ipd.sdq.simcomp.system.component.ISystem">
+         <simulation_event
+               event_class="edu.kit.ipd.sdq.simcomp.system.events.SystemRequestStart">
+         </simulation_event>
+         <simulation_event
+               event_class="edu.kit.ipd.sdq.simcomp.system.events.SystemRequestProcessed">
+         </simulation_event>
       </simulation_component_type>
    </extension>
 

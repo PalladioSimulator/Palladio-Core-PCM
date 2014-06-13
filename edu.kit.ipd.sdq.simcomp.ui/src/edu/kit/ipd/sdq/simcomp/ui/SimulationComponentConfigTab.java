@@ -12,8 +12,6 @@ import org.eclipse.debug.ui.AbstractLaunchConfigurationTab;
 import org.eclipse.emf.common.util.URI;
 import org.eclipse.jface.resource.ImageDescriptor;
 import org.eclipse.swt.SWT;
-import org.eclipse.swt.events.ModifyEvent;
-import org.eclipse.swt.events.ModifyListener;
 import org.eclipse.swt.graphics.Image;
 import org.eclipse.swt.layout.GridLayout;
 import org.eclipse.swt.widgets.Composite;
@@ -23,11 +21,12 @@ import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
 import de.uka.ipd.sdq.workflow.pcm.ConstantsContainer;
 import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
+import edu.kit.ipd.sdq.simcomp.config.ISimulationComponentConfiguration;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.PCMModel;
 import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulationConfiguration;
-import edu.kit.ipd.sdq.simcomp.middleware.simulation.config.SimulatorCompositonRule;
+import edu.kit.ipd.sdq.simcomp.ui.listener.IModificationListener;
+import edu.kit.ipd.sdq.simcomp.ui.widgets.SimulationComponentConfigurator;
 
 /**
  * A launch configuration tab which configures the simulator composition rules
@@ -40,41 +39,44 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 	private static final Logger logger = Logger.getLogger(SimulationComponentConfigTab.class);
 
-	private List<SimulationComponentType> simCompTypes;
 	private ISimulationMiddleware middleware;
-	private Map<SimulationComponentType, SimulationComponentRuleEditor> ruleEditors;
+	private List<SimulationComponentImpl> simCompImplementations;
+	private Map<SimulationComponentImpl, SimulationComponentConfigurator> simCompConfigurators;
 
 	private URI loadedUsageUri = null;
 	private URI loadedAllocationUri = null;
 	private IPCMModel pcmModel = null;
 
+
 	public SimulationComponentConfigTab() {
 		middleware = Activator.getDefault().getSimCompUiComponent().getSimulationMiddleware();
-		simCompTypes = middleware.getSimulationComponentMetaData();
+		simCompImplementations = middleware.getSimulationComponentMetadata();
 
-		ruleEditors = new HashMap<SimulationComponentType, SimulationComponentRuleEditor>();
+		simCompConfigurators = new HashMap<SimulationComponentImpl, SimulationComponentConfigurator>();
 	}
 
 	@Override
 	public void createControl(Composite parent) {
-		ModifyListener modificationListener = new ModifyListener() {
+		IModificationListener modificationListener = new IModificationListener() {
 
 			@Override
-			public void modifyText(ModifyEvent e) {
+			public void modified() {
 				updateLaunchConfigurationDialog();
 			}
-
 		};
 
 		Composite simCompConfig = new Composite(parent, SWT.NONE);
 		simCompConfig.setLayout(new GridLayout(1, false));
 
 		Label label = new Label(simCompConfig, SWT.NONE);
-		label.setText("Advanced Simulation Component Configuration:");
+		label.setText("Simulator Composition Configuration\n(Only simulation components with required interfaces are configurable):\n");
 
-		// create rule editor for each type
-		for (SimulationComponentType simCompType : this.simCompTypes) {
-			ruleEditors.put(simCompType, new SimulationComponentRuleEditor(simCompConfig, simCompType, modificationListener, middleware));
+		// create a configuration editor for each simulation component
+		for (SimulationComponentImpl simCompImpl : this.simCompImplementations) {
+			if (!simCompImpl.getRequiredTypes().isEmpty()) {
+				SimulationComponentConfigurator configurator = new SimulationComponentConfigurator(simCompConfig, simCompImpl, middleware, modificationListener);
+				simCompConfigurators.put(simCompImpl, configurator);
+			}
 		}
 
 		setControl(simCompConfig);
@@ -86,42 +88,24 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 		// try to load PCM model from user configuration
 		loadPcmModel(configuration);
 
-		// read current configuration
-		Map<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig = null;
-		Map<SimulationComponentType, List<SimulatorCompositonRule>> compositionRulesConfig = null;
+		// read from persisted configuration
+		HashMap<SimulationComponentImpl, ISimulationComponentConfiguration> componentsConfig = new HashMap<SimulationComponentImpl, ISimulationComponentConfiguration>();
+		String serializedConfig = "";
 		try {
-			// grab the default component configuration (Map Component Type ->
-			// Default Component)
-			String serializedMap = configuration.getAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, "");
-			if (!serializedMap.isEmpty()) {
-				defaultComponentsConfig = (Map<SimulationComponentType, SimulationComponentMeta>) ConfigHelper.deserializeObject(serializedMap);
-			}
-			// grab composition rules configuration (Map Component Type -> List
-			// of composition rules)
-			serializedMap = configuration.getAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, "");
-			if (!serializedMap.isEmpty()) {
-				compositionRulesConfig = (Map<SimulationComponentType, List<SimulatorCompositonRule>>) ConfigHelper.deserializeObject(serializedMap);
-			}
-
+			serializedConfig = configuration.getAttribute(SimulationConfiguration.CONFIG_KEY_SIMULATION_COMPONENTS_CONFIG, "");
 		} catch (CoreException e) {
 			e.printStackTrace();
 		}
-
-		// add default empty map if empty
-		if (defaultComponentsConfig == null) {
-			defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
-		}
-		if (compositionRulesConfig == null) {
-			compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatorCompositonRule>>();
+		if (!serializedConfig.isEmpty()) {
+			componentsConfig = (HashMap<SimulationComponentImpl, ISimulationComponentConfiguration>) ConfigHelper.deserializeObject(serializedConfig);
 		}
 
-		// update the rule editors
-		for (SimulationComponentType componentType : this.ruleEditors.keySet()) {
-			SimulationComponentRuleEditor ruleEditor = this.ruleEditors.get(componentType);
-
-			ruleEditor.updatePCMModel(this.pcmModel);
-			ruleEditor.updateDefaultComponent(defaultComponentsConfig.get(componentType));
-			ruleEditor.updateCompositionRules(compositionRulesConfig.get(componentType));
+		// update component configurators
+		for (SimulationComponentImpl componentImpl : simCompConfigurators.keySet()) {
+			SimulationComponentConfigurator configurator = simCompConfigurators.get(componentImpl);
+			
+			configurator.updatePCMModel(pcmModel);
+			configurator.updateComponentConfiguration(componentsConfig.get(componentImpl));
 		}
 
 		this.validate(configuration);
@@ -129,31 +113,24 @@ public class SimulationComponentConfigTab extends AbstractLaunchConfigurationTab
 
 	@Override
 	public void performApply(ILaunchConfigurationWorkingCopy configuration) {
-		HashMap<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
-		HashMap<SimulationComponentType, List<SimulatorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatorCompositonRule>>();
+		HashMap<SimulationComponentImpl, ISimulationComponentConfiguration> componentsConfig = new HashMap<SimulationComponentImpl, ISimulationComponentConfiguration>();
 
-		for (SimulationComponentType componentType : this.ruleEditors.keySet()) {
-			SimulationComponentRuleEditor ruleEditor = this.ruleEditors.get(componentType);
+		for (SimulationComponentImpl componentImpl : simCompConfigurators.keySet()) {
+			SimulationComponentConfigurator configurator = simCompConfigurators.get(componentImpl);
 
-			SimulationComponentMeta defaultcomponent = ruleEditor.getDefaultComponent();
-			defaultComponentsConfig.put(componentType, defaultcomponent);
-			List<SimulatorCompositonRule> compositionRules = ruleEditor.getCompositionRules();
-			compositionRulesConfig.put(componentType, compositionRules);
+			ISimulationComponentConfiguration config = configurator.getComponentConfiguration();
+			componentsConfig.put(componentImpl, config);
 		}
 
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, ConfigHelper.serializeObject(defaultComponentsConfig));
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, ConfigHelper.serializeObject(compositionRulesConfig));
-
+		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_SIMULATION_COMPONENTS_CONFIG, ConfigHelper.serializeObject(componentsConfig));
 	}
 
 	@Override
 	public void setDefaults(ILaunchConfigurationWorkingCopy configuration) {
-		// specify some empty config maps as default values
-		HashMap<SimulationComponentType, SimulationComponentMeta> defaultComponentsConfig = new HashMap<SimulationComponentType, SimulationComponentMeta>();
-		HashMap<SimulationComponentType, List<SimulatorCompositonRule>> compositionRulesConfig = new HashMap<SimulationComponentType, List<SimulatorCompositonRule>>();
 
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_DEFAULT_COMPONENTS, ConfigHelper.serializeObject(defaultComponentsConfig));
-		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_COMPOSITION_RULES, ConfigHelper.serializeObject(compositionRulesConfig));
+		// story empty map as default value
+		HashMap<SimulationComponentImpl, ISimulationComponentConfiguration> componentsConfig = new HashMap<SimulationComponentImpl, ISimulationComponentConfiguration>();
+		configuration.setAttribute(SimulationConfiguration.CONFIG_KEY_SIMULATION_COMPONENTS_CONFIG, ConfigHelper.serializeObject(componentsConfig));
 	}
 
 	/**

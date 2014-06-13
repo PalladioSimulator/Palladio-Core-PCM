@@ -41,7 +41,7 @@ public class ReleaseActionTraversalStrategy implements ISeffTraversalStrategy<Re
 		List<IPassiveResource> passiveResourceComponents = system.getPassiveResourceComponents();
 		ISimulationMiddleware middleware = request.getEventSimModel().getSimulationMiddleware();
 		// TODO (SimComp): provide passive resource context
-		IPassiveResource passiveResource = (IPassiveResource) middleware.getSimulationComponent(IPassiveResource.class, passiveResourceComponents, null);
+		IPassiveResource passiveResource = (IPassiveResource) middleware.getSimulationComponent(EventSimSystem.class,IPassiveResource.class, passiveResourceComponents, null);
 
         final PassiveResource passiveResouce = action.getPassiveResource_ReleaseAction();
         AssemblyContext ctx = state.getComponent().getAssemblyCtx();

@@ -45,8 +45,8 @@ import edu.kit.ipd.sdq.simcomp.component.IPCMModel;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentMeta;
-import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
@@ -83,6 +83,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	private List<ServiceRegistration<?>> eventHandlerRegistry;
 	private List<ServiceRegistration<?>> eventHandlerToRemove;
 	private IRandomGenerator randomNumberGenerator;
+	private List<SimulationComponentImpl> simCompMetadata = null;
 
 	public SimulationMiddleware() {
 		this.eventHandlerRegistry = new ArrayList<ServiceRegistration<?>>();
@@ -93,8 +94,12 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	@Override
-	public List<SimulationComponentType> getSimulationComponentMetaData() {
-		return SimulationComponentMetaCollector.buildComponentMetaData();
+	public List<SimulationComponentImpl> getSimulationComponentMetadata() {
+		if (simCompMetadata == null) {
+			simCompMetadata = SimulationComponentMetaCollector.buildComponentMetaData();
+		}
+
+		return simCompMetadata;
 	}
 
 	/**
@@ -202,22 +207,44 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> componentType, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context) {
+	public ISimulationComponent getSimulationComponent(Class<? extends ISimulationComponent> requestingType, Class<? extends ISimulationComponent> requiredType, List<? extends ISimulationComponent> componentList, AbstractSimulationContext context) {
 
-		// lookup by context has highest priority
+		// determine which simulation component implementation is the caller
+		SimulationComponentImpl caller = null;
+		List<SimulationComponentImpl> registeredComponents = getSimulationComponentMetadata();
+		for (SimulationComponentImpl component : registeredComponents) {
+			if (component.getComponentClass().equals(requestingType.getName())) {
+				caller = component;
+			}
+		}
+
+		if (caller == null) {
+			throw new IllegalStateException("No simulation component implementation found in metadata for class " + requestingType.getName());
+		}
+
+		// determine the used required interface
+		SimulationComponentRequiredType requiredInterface = null;
+		for (SimulationComponentRequiredType componentRequiredType : caller.getRequiredTypes()) {
+			if (componentRequiredType.getType().getTypeInterface().equals(requiredType.getName())) {
+				requiredInterface = componentRequiredType;
+			}
+		}
+
+		if (requiredInterface == null) {
+			throw new IllegalStateException("No required interface found for from simulation component " + caller + " to type " + requiredType.getName());
+		}
+
+		// determine simulation component based on context
 		if (context != null) {
+			// TODO (SimComp): cache decision in a map
+			List<ISimulatorCompositonRule> compositionRules = simConfig.getCompositionRulesForRequiredType(requiredInterface);
 
-			// TODO (SimComp): cache matches in map context -> component
-
-			List<ISimulatorCompositonRule> compositionRules = this.simConfig.getCompositionRulesForComponentType(componentType);
-			// iterate in reverse order
+			// iterate rules from bottom to top as they overwrite each other
 			for (int i = 0; i < compositionRules.size(); i++) {
 				ISimulatorCompositonRule compositonRule = compositionRules.get(compositionRules.size() - 1 - i);
 				boolean match = true;
+
 				// iterate fields and check for match
 				Map<SimulationContextField, String> fieldValues = compositonRule.getFieldValues();
 				for (SimulationContextField ruleContextField : fieldValues.keySet()) {
@@ -235,10 +262,10 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			}
 		}
 
-		// context-based lookup was not successful return default component
-		SimulationComponentMeta defaultComponentMeta = this.simConfig.getDefaultComponentForComponentType(componentType);
+		// nothing matched, we use the default simulation component
+		SimulationComponentImpl defaultComponent = simConfig.getDefaultComponentForRequiredType(requiredInterface);
 
-		return getComponentForComponentMeta(defaultComponentMeta, componentList);
+		return getComponentForComponentMeta(defaultComponent, componentList);
 	}
 
 	/**
@@ -251,7 +278,7 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	 *            List of components to search in
 	 * @return A simulation component instance or null if could not be found
 	 */
-	private ISimulationComponent getComponentForComponentMeta(SimulationComponentMeta componentMeta, List<? extends ISimulationComponent> componentList) {
+	private ISimulationComponent getComponentForComponentMeta(SimulationComponentImpl componentMeta, List<? extends ISimulationComponent> componentList) {
 		for (ISimulationComponent component : componentList) {
 			if (componentMeta.getComponentClass().equals(component.getClass().getName())) {
 				return component;
@@ -321,8 +348,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 	@Override
 	public void triggerEvent(SimulationEvent event) {
-		if (logger.isInfoEnabled()) {
-			logger.info("Event triggered (" + event.getEventId() + ")");
+		if (logger.isDebugEnabled()) {
+			logger.debug("Event triggered (" + event.getEventId() + ")");
 		}
 
 		// we delegate the event to the OSGi event admin service
@@ -443,26 +470,25 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	@Override
 	public IContextFieldValueProvider getValueProviderForContextField(SimulationContextField field) {
 		IExtensionRegistry registry = Platform.getExtensionRegistry();
-		IExtensionPoint point = registry.getExtensionPoint(SimulationComponentMetaCollector.SIMCOMP_TYPE_EXTENSION_POINT);
-		IConfigurationElement[] elements = point.getConfigurationElements();
+		IExtensionPoint point = registry.getExtensionPoint(SimulationComponentMetaCollector.SIMCOMP_EXTENSION_POINT);
+		IConfigurationElement[] componentElements = point.getConfigurationElements();
 
-		for (IConfigurationElement configurationElement : elements) {
-			String id = configurationElement.getAttribute("id");
-			if (field.getComponentType().getId().equals(id)) {
+		for (IConfigurationElement componentElement : componentElements) {
+			IConfigurationElement[] requiredTypeElements = componentElement.getChildren("required_type");
 
-				IConfigurationElement[] fieldElements = configurationElement.getChildren("simulation_context_field");
-				for (IConfigurationElement fieldElement : fieldElements) {
+			for (IConfigurationElement requiredTypeElement : requiredTypeElements) {
+				IConfigurationElement[] contextFieldElements = requiredTypeElement.getChildren("context_field");
 
-					String fieldId = fieldElement.getAttribute("id");
-					if (field.getId().equals(fieldId)) {
+				for (IConfigurationElement contextFieldElement : contextFieldElements) {
+					if (contextFieldElement.getAttribute("id").equals(field.getId())) {
 						Object valueProvider = null;
 						try {
-							valueProvider = fieldElement.createExecutableExtension("value_provider");
+							valueProvider = contextFieldElement.createExecutableExtension("value_provider");
 						} catch (CoreException e) {
 							e.printStackTrace();
 						}
 						if (!(valueProvider instanceof IContextFieldValueProvider)) {
-							throw new IllegalArgumentException("No valid context field value provider for field " + id);
+							throw new IllegalArgumentException("No valid context field value provider for field " + field.getId());
 						}
 
 						return (IContextFieldValueProvider) valueProvider;
@@ -477,10 +503,10 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	@Override
 	public void reset() {
 		this.randomNumberGenerator = null;
-		
+
 		// reset measurement count
 		this.resetMeasurementCount();
-		
+
 		// remove the event handler marked to be unregistered
 		for (Iterator<ServiceRegistration<?>> it = this.eventHandlerToRemove.iterator(); it.hasNext();) {
 			ServiceRegistration<?> handler = it.next();
@@ -489,18 +515,19 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			this.eventHandlerRegistry.remove(handler);
 		}
 	}
-	
+
 	/**
 	 * TODO (simcomp) relocate?
+	 * 
 	 * @return
 	 */
 	@Override
-    public IRandomGenerator getRandomGenerator() {
-        if (randomNumberGenerator == null) {
-            // TODO get rid of SimuCom dependency
-            randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(simConfig.getRandomSeed());
-        }
-        return randomNumberGenerator;
-    }
+	public IRandomGenerator getRandomGenerator() {
+		if (randomNumberGenerator == null) {
+			// TODO get rid of SimuCom dependency
+			randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(simConfig.getRandomSeed());
+		}
+		return randomNumberGenerator;
+	}
 
 }

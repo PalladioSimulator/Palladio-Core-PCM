@@ -1,8 +1,6 @@
 package edu.kit.ipd.sdq.simcomp.component.meta;
 
 import java.io.Serializable;
-import java.util.ArrayList;
-import java.util.List;
 
 public class SimulationComponentType implements Serializable, Comparable<SimulationComponentType> {
 
@@ -11,16 +9,11 @@ public class SimulationComponentType implements Serializable, Comparable<Simulat
 	private String id;
 	private String name;
 	private String typeInterface;
-	private List<SimulationContextField> contextFields;
-	private List<SimulationComponentMeta> components;
 
 	public SimulationComponentType(String id, String name, String typeInterface) {
 		this.id = id;
 		this.name = name;
 		this.typeInterface = typeInterface;
-
-		contextFields = new ArrayList<SimulationContextField>();
-		components = new ArrayList<SimulationComponentMeta>();
 	}
 
 	public String getTypeInterface() {
@@ -33,27 +26,6 @@ public class SimulationComponentType implements Serializable, Comparable<Simulat
 
 	public String getName() {
 		return name;
-	}
-
-	public List<SimulationContextField> getContextFields() {
-		return contextFields;
-	}
-
-	public void addContextField(SimulationContextField contextType) {
-		this.contextFields.add(contextType);
-	}
-
-	public List<SimulationComponentMeta> getComponents() {
-		return components;
-	}
-
-	public void addComponent(SimulationComponentMeta component) {
-		this.components.add(component);
-	}
-
-	@Override
-	public String toString() {
-		return "SimulationComponentType [id=" + id + ", name=" + name + ", contextFields=" + contextFields.size() + ", components=" + components.size() + "]";
 	}
 
 	@Override

@@ -1,6 +1,8 @@
 package edu.kit.ipd.sdq.simcomp.component.meta;
 
 import java.io.Serializable;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Stores the meta information about a simulation component.
@@ -8,20 +10,23 @@ import java.io.Serializable;
  * @author Christoph Föhrdes
  * 
  */
-public class SimulationComponentMeta implements Serializable {
+public class SimulationComponentImpl implements Serializable {
 
 	private static final long serialVersionUID = -2096157018157833990L;
 
 	private String id;
 	private String name;
 	private String componentClass;
-	private SimulationComponentType type;
+	private List<SimulationComponentType> providedTypes;
+	private List<SimulationComponentRequiredType> requiredTypes;
 
-	public SimulationComponentMeta(String id, String name, String componentClass, SimulationComponentType type) {
+	public SimulationComponentImpl(String id, String name, String componentClass) {
 		this.id = id;
 		this.name = name;
 		this.componentClass = componentClass;
-		this.type = type;
+
+		this.providedTypes = new ArrayList<SimulationComponentType>();
+		this.requiredTypes = new ArrayList<SimulationComponentRequiredType>();
 	}
 
 	public String getId() {
@@ -36,8 +41,20 @@ public class SimulationComponentMeta implements Serializable {
 		return this.componentClass;
 	}
 
-	public SimulationComponentType getSimulationComponentType() {
-		return type;
+	public List<SimulationComponentType> getProvidedTypes() {
+		return providedTypes;
+	}
+
+	public void addProvidedType(SimulationComponentType providedType) {
+		this.providedTypes.add(providedType);
+	}
+
+	public List<SimulationComponentRequiredType> getRequiredTypes() {
+		return requiredTypes;
+	}
+
+	public void addRequiredType(SimulationComponentRequiredType requiredType) {
+		this.requiredTypes.add(requiredType);
 	}
 
 	@Override
@@ -49,9 +66,7 @@ public class SimulationComponentMeta implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((componentClass == null) ? 0 : componentClass.hashCode());
 		result = prime * result + ((id == null) ? 0 : id.hashCode());
-		result = prime * result + ((name == null) ? 0 : name.hashCode());
 		return result;
 	}
 
@@ -63,21 +78,11 @@ public class SimulationComponentMeta implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		SimulationComponentMeta other = (SimulationComponentMeta) obj;
-		if (componentClass == null) {
-			if (other.componentClass != null)
-				return false;
-		} else if (!componentClass.equals(other.componentClass))
-			return false;
+		SimulationComponentImpl other = (SimulationComponentImpl) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
 		} else if (!id.equals(other.id))
-			return false;
-		if (name == null) {
-			if (other.name != null)
-				return false;
-		} else if (!name.equals(other.name))
 			return false;
 		return true;
 	}

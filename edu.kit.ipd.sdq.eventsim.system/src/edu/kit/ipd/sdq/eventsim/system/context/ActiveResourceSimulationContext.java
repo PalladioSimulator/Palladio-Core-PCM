@@ -1,4 +1,4 @@
-package edu.kit.ipd.sdq.simcomp.resource.active.context;
+package edu.kit.ipd.sdq.eventsim.system.context;
 
 import edu.kit.ipd.sdq.simcomp.component.AbstractSimulationContext;
 
@@ -11,8 +11,8 @@ import edu.kit.ipd.sdq.simcomp.component.AbstractSimulationContext;
  */
 public class ActiveResourceSimulationContext extends AbstractSimulationContext {
 
-	public static String FIELD_ID_CONTAINER = "resource.active.ctx.container";
-	public static String FIELD_ID_RESOURCE_TYPE = "resource.active.ctx.resource_type";
+	public static String FIELD_ID_CONTAINER = "system.to.active_resource.ctx.container";
+	public static String FIELD_ID_RESOURCE_TYPE = "system.to.active_resource.ctx.resoruce_type";
 
 	public ActiveResourceSimulationContext(String container, String resourceType) {
 		super();
