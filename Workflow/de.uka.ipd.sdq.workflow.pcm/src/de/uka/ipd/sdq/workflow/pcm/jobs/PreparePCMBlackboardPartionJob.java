@@ -17,7 +17,7 @@ import de.uka.ipd.sdq.workflow.pcm.configurations.AbstractPCMWorkflowRunConfigur
 public class PreparePCMBlackboardPartionJob 
 implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	
-	private static final Logger logger = Logger.getLogger(PreparePCMBlackboardPartionJob.class);
+	private static final Logger LOGGER = Logger.getLogger(PreparePCMBlackboardPartionJob.class);
 	private MDSDBlackboard blackboard;
 
 	static final URI PCM_PALLADIO_RESOURCE_TYPE_URI = URI.createURI("pathmap://PCM_MODELS/Palladio.resourcetype");
@@ -27,8 +27,9 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 	public void execute(IProgressMonitor monitor) throws JobFailedException,
 			UserCanceledException {
 		// Create and add the PCM and middleware model partition
-		if(logger.isDebugEnabled())
-			logger.debug("Creating PCM Model Partition");
+		if(LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Creating PCM Model Partition");
+        }
 		PCMResourceSetPartition myPartion = new PCMResourceSetPartition();
 		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.PCM_MODELS_PARTITION_ID, myPartion);
 		
@@ -38,8 +39,9 @@ implements IJob, IBlackboardInteractingJob<MDSDBlackboard> {
 		ResourceSetPartition eventMiddlewareRepositoryPartition = new ResourceSetPartition();
 		this.blackboard.addPartition(LoadPCMModelsIntoBlackboardJob.EVENT_MIDDLEWARE_PARTITION_ID, eventMiddlewareRepositoryPartition);
 		
-		if(logger.isDebugEnabled())
-			logger.debug("Initialising PCM EPackages");
+		if(LOGGER.isDebugEnabled()) {
+            LOGGER.debug("Initializing PCM EPackages");
+        }
 		myPartion.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		middlewareRepositoryPartition.initialiseResourceSetEPackages(AbstractPCMWorkflowRunConfiguration.PCM_EPACKAGES);
 		

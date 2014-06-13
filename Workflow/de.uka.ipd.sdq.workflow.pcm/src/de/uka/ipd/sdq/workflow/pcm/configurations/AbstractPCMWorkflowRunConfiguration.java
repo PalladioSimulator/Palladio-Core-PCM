@@ -44,7 +44,7 @@ import de.uka.ipd.sdq.workflow.pcm.runconfig.AccuracyInfluenceAnalysisState;
 public abstract class AbstractPCMWorkflowRunConfiguration extends
 		AbstractWorkflowBasedRunConfiguration implements Cloneable {
 	/** Logger for this class. */
-	private static final Logger logger = Logger.getLogger(AbstractPCMWorkflowRunConfiguration.class);
+	private static final Logger LOGGER = Logger.getLogger(AbstractPCMWorkflowRunConfiguration.class);
 
 	/**
 	 * Contains All EPackages within or referenced by PCM. Used, e.g., for OAW
@@ -287,9 +287,10 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 	public void validateAndFreeze() throws InvalidWorkflowJobConfigurationException {
 		super.validateAndFreeze();
 		for (String fileURI : getPCMModelFiles()) {
-			if (fileURI == null)
-				throw new InvalidWorkflowJobConfigurationException(
+			if (fileURI == null) {
+                throw new InvalidWorkflowJobConfigurationException(
 						"Workflow configuration is invalid, not all PCM models are set");
+            }
 			URI fileLocation = URI.createURI(fileURI);
 			// TODO: Check whether file exists
 		}
@@ -319,8 +320,9 @@ public abstract class AbstractPCMWorkflowRunConfiguration extends
 		try {
 			return (AbstractPCMWorkflowRunConfiguration) clone();
 		} catch (CloneNotSupportedException e) {
-			if(logger.isEnabledFor(Level.FATAL))
-				logger.fatal("Could not clone configuration.", e);
+			if(LOGGER.isEnabledFor(Level.FATAL)) {
+                LOGGER.fatal("Could not clone configuration.", e);
+            }
 			return null;
 		}
 	}
