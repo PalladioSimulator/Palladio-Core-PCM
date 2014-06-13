@@ -24,7 +24,8 @@ import de.uka.ipd.sdq.workflow.pcm.jobs.ValidatePCMModelsJob;
  * @author Philipp Merkle
  * 
  */
-public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflowConfiguration> extends AbstractExtendableJob<MDSDBlackboard> {
+public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflowConfiguration> extends
+        AbstractExtendableJob<MDSDBlackboard> {
 
     protected IDebugListener debugListener = null;
 
@@ -34,7 +35,7 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
     }
 
     public AbstractSimulationJob(C configuration) throws CoreException {
-        this(configuration,null);
+        this(configuration, null);
     }
 
     public AbstractSimulationJob(C configuration, IDebugListener listener, boolean loadModels) throws CoreException {
@@ -57,24 +58,24 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
 
         // 2. Validate PCM Models
         this.addJob(new ValidatePCMModelsJob(configuration));
-        
+
         // All Workflow extension jobs with the extension hook id
         // WORKFLOW_ID_AFTER_LOAD_VALIDATE
-        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE,configuration);
+        handleJobExtensions(WorkflowHooks.WORKFLOW_ID_AFTER_LOAD_VALIDATE, configuration);
 
         // -- Stage Model modification
         // 3.1 Modification for AccuracyInfluenceAnalysis
         if (configuration.isAccuracyInfluenceAnalysisEnabled()) {
             this.add(new TransformPCMForAccuracyInfluenceAnalysisJob(configuration));
         }
-        
+
         // 3.2 Modifications for SensitivityAnalysis
-        if(configuration.isSensitivityAnalysisEnabled()){
+        if (configuration.isSensitivityAnalysisEnabled()) {
             this.add(new TransformPCMForSensitivityAnalysisJob(configuration));
         }
 
         // 4. Apply Completions
-        //this.add(new CompletionJob(configuration));
+        // this.add(new CompletionJob(configuration));
 
         // 5. Transform Event Model Elements
         this.add(new EventsTransformationJob(configuration));
@@ -90,7 +91,7 @@ public abstract class AbstractSimulationJob<C extends AbstractSimulationWorkflow
 
         this.addSimulatorSpecificJobs(configuration);
     }
-    
+
     protected abstract void addSimulatorSpecificJobs(C configuration);
-    
+
 }
