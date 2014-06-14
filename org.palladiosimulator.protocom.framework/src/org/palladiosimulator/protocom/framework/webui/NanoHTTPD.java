@@ -1,4 +1,4 @@
-package org.palladiosimulator.protocom.framework;
+package org.palladiosimulator.protocom.framework.webui;
 
 import java.io.*;
 import java.net.InetAddress;

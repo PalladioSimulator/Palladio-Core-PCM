@@ -38,6 +38,7 @@ ul {
 table {
 	width: 100%;
 	border-collapse: collapse;
+	table-layout: fixed;
 }
 
 th {
@@ -50,6 +51,9 @@ th {
 td {
 	padding: 8px;
 	border-bottom: 1px solid #dcdcdc;
+	white-space: nowrap;
+	text-overflow: ellipsis;
+	overflow: hidden;
 }
 
 tbody tr:hover {
@@ -62,31 +66,41 @@ tr button {
 
 /* Forms and Buttons */
 
-input {
+input[type="text"] {
 	padding: 5px;
 	border: 1px solid #dcdcdc;
 	color: inherit;
 	font: inherit;
 }
 
-button {
-	color: inherit;
-	background: none;
-	font: inherit;
-	text-decoration: underline;
-	cursor: pointer;
+input[type="text"].inline {
+	box-sizing: border-box;
+	width: 100%;
+	height: 20px;
+	padding: 1px;
+	margin: -6px 0;
+	font-size: 12px;
 }
 
-button.disabled {
-	color: #cccccc;
-	cursor: default;
+input[type="checkbox"] {
+	display: block;
+	margin-top: 0px;
+}
+
+select {
+	width: 100%;
+	border: 1px solid #dcdcdc;
+	margin: -2px 0;
+	color: inherit;
+	font: inherit;
+	font-size: 12px;
 }
 
 /* Main */
 
 #main {
 	/* Hide at startup. */
-	display: none;
+	/* display: none; */
 	
 	width: 600px;
 	margin: auto;
@@ -122,15 +136,35 @@ button.disabled {
 	background-position: 50% 40%;
 }
 
-/* Registry */
+/* Settings */
 
-#registry .input {
-	width: 558px;
+#settings .value-column {
+	width: 25%;
 }
 
-#registry .note {
-	margin-top: 10px;
-	color: #aaaaaa;
+#settings .description-column {
+	width: 52%;
+}
+
+#settings .required {
+	color: red;
+}
+
+#settings .description {
+	color: #bbb;
+}
+
+#settings button {
+	padding: 8px;
+	border: 0px solid #0a5aa0;
+	margin-top: 25px;
+	background: #4691d2;
+	color: #f8f8f8;
+}
+
+#settings .note {
+	margin-left: 10px;
+	color: #aaa;
 	font-style: italic;
 }
 
@@ -146,6 +180,19 @@ button.disabled {
 
 #modules .started {
 	color: #00b400;
+}
+
+#modules button {
+	color: #4691d2;
+	background: none;
+	font: inherit;
+	text-decoration: underline;
+	cursor: pointer;
+}
+
+#modules button.disabled {
+	color: #cccccc;
+	cursor: default;
 }
 
 /* Log */

@@ -18,6 +18,7 @@ import org.palladiosimulator.protocom.framework.registry.RmiRegistry;
 import org.palladiosimulator.protocom.framework.utils.CommandLineParser;
 import org.palladiosimulator.protocom.framework.utils.RunProperties;
 import org.palladiosimulator.protocom.framework.utils.UserMenu;
+import org.palladiosimulator.protocom.framework.webui.WebServer;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
 
 import de.uka.ipd.sdq.probfunction.math.IProbabilityFunctionFactory;
@@ -88,12 +89,20 @@ public abstract class AbstractMain {
 			try {
 				new WebServer().start();
 			} catch (IOException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			
+			System.out.println("Web UI running at http://localhost:8080");
+			System.out.print("Press enter to stop the performance prototype...");
+			
+			try {
+				System.in.read();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			createUserMenu();
 		}
-		
-		createUserMenu();
 	}
 
 	/**

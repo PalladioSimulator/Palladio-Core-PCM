@@ -66,8 +66,8 @@
 					this.logLines = 0;
 				}
 				
-				$.get('${root}', {'action': 'getLog', 'base': logLines}, function(response) {
-					var data = response.payload;
+				$.get('/', {'action': 'getLog', 'base': logLines}, function(response) {
+					/*var data = response.payload;
 					
 					if (data.messageCount > 0) {
 						var messages = $('#log #messages');
@@ -80,34 +80,70 @@
 						}
 						
 						messages.scrollTop(messages[0].scrollHeight - messages.height());
-					}
+					}*/
 				});
 			}
 			
 			$(document).ready(function() {
-				$.get('${root}', {'action': 'getModules'}, function(response) {
-					var module = _.template($('#template-module').html());
-					var tbody = $('#modules table tbody');
-					
-					_.each(response.payload, function(element, index, list) {
-						tbody.append(module(element));
-						updateModule(element.id, element.started);
+				$.get('/isRunning', function(response) {
+					//if (response.running) $('#settings').hide();
+				});
+				
+				$('#settings form').submit(function() {
+					$.get('/', $(this).serialize(), function(response) {
+						if (response.error == 0) {
+							console.log('success');
+							
+							$('#settings').hide();
+							
+							getModules();
+						}
 					});
 					
-					finishBox();
+					return false;
 				});
 				
-				$.get('${root}', {'action': 'getRegistryLocation'}, function(response) {
-					$('input[name="location"]').val(response.payload);
+				$('#settings .confirm').click(function() {
+					console.log("CONFIRM");
+					$('#settings form').submit();
+				});
+				
+				function getModules() {
+					$.get('/getModules', function(response) {
+						var module = _.template($('#template-module').html());
+						var tbody = $('#modules table tbody');
+						
+						_.each(response, function(element, index, list) {
+							tbody.append(module(element));
+							updateModule(element.id, element.started);
+						});
+					});
+				}
+				
+				
+// 				$.get('/', {'action': 'getModules'}, function(response) {
+// 					/*var module = _.template($('#template-module').html());
+// 					var tbody = $('#modules table tbody');
 					
-					finishBox();
-				});
+// 					_.each(response.payload, function(element, index, list) {
+// 						tbody.append(module(element));
+// 						updateModule(element.id, element.started);
+// 					});*/
+					
+// 					finishBox();
+// 				});
 				
-				updateLog();
+// 				$.get('/', {'action': 'getRegistryLocation'}, function(response) {
+// 					// $('input[name="location"]').val(response.payload);
+					
+// 					finishBox();
+// 				});
 				
-				setInterval(function() {
-					updateLog();
-				}, 1000);
+// 				//updateLog();
+				
+// 				setInterval(function() {
+// 					//updateLog();
+// 				}, 1000);
 				
 				$('#modules').on('click', '.start', {'action': 'startModule'}, actionHandler);
 				
@@ -134,14 +170,6 @@
 						self.disabled = false;
 					});
 				}
-				
-				$('#registry form').submit(function(event) {
-					event.preventDefault();
-				});
-				
-				$('input[name="location"]').blur(function() {
-					$.get('${root}', {'action': 'updateRegistryLocation', 'location': $(this).val()});
-				});
 			});
 		</script>
 	</head>
@@ -153,14 +181,140 @@
 				<h1>ProtoCom<span class="subtitle">Performance Prototype</span></h1>
 			</div>
 
-			<div id="registry" class="box">
-				<h2>Registry Location</h2>
+			<div id="settings" class="box">
+				<h2>Settings</h2>
+				
+				<form>
+				<table>
+					<col class="name-column">
+					<col class="value-column">
+					<col class="description-column">
 
-				<form action="#">
-					<input class="input" type="text" name="location">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Value</th>
+							<th>Description</th>
+						</tr>
+					</thead>
+
+					<tbody>
+						<tr>
+							<td>Data<span class="required">*</span></td>
+							<td><input class="inline" type="text" name="d" spellcheck="false"></td>
+							<td class="description">Storage path for sensor data</td>
+						</tr>
+
+						<tr>
+							<td>Name<span class="required">*</span></td>
+							<td><input class="inline" type="text" name="n" spellcheck="false"></td>
+							<td class="description">Name of the experiment</td>
+						</tr>
+
+						<tr>
+							<td>Thread Count</td>
+							<td><input class="inline" type="text" name="c" spellcheck="false"></td>
+							<td class="description">Override usage scenario population</td>
+						</tr>
+
+						<tr>
+							<td>Measurements<span class="required">*</span></td>
+							<td><input class="inline" type="text" name="m" spellcheck="false"></td>
+							<td class="description">Maximum measurements to take</td>
+						</tr>
+
+						<tr>
+							<td>Cycles</td>
+							<td><input class="inline" type="text" name="u" spellcheck="false"></td>
+							<td class="description">Number of warmup cycles (default: 1000)</td>
+						</tr>
+
+						<tr>
+							<td>Calibration<span class="required">*</span></td>
+							<td><input class="inline" type="text" name="s" spellcheck="false"></td>
+							<td class="description">Storage path for calibration data</td>
+						</tr>
+
+						<tr>
+							<td>RMI Address</td>
+							<td><input class="inline" type="text" name="R" spellcheck="false"></td>
+							<td class="description">Registry address (default: localhost)</td>
+						</tr>
+
+						<tr>
+							<td>RMI Port</td>
+							<td><input class="inline" type="text" name="O" spellcheck="false"></td>
+							<td class="description">Registry port (default: 1099)</td>
+						</tr>
+
+						<tr>
+							<td>Seed</td>
+							<td><input class="inline" type="text" name="E" spellcheck="false"></td>
+							<td class="description">Seed for the StoEx random generator</td>
+						</tr>
+
+						<tr>
+							<td>Debug</td>
+							<td><input type="checkbox" name="D"></td>
+							<td class="description">Print debug information</td>
+						</tr>
+
+						<tr>
+							<td>Passive</td>
+							<td><input type="checkbox" name="P"></td>
+							<td class="description">Do not start load drivers, no warmups</td>
+						</tr>
+
+						<tr>
+							<td>Warmup</td>
+							<td><input type="checkbox" name="W"></td>
+							<td class="description">Execute warmup runs</td>
+						</tr>
+
+						<tr>
+							<td>CPU Strategy</td>
+							<td>
+								<select name="p">
+									<option value="primes">Primes</option>
+									<option value="count_numbers">Count Numbers</option>
+									<option value="fft">FFT</option>
+									<option value="fibonacci" selected="selected">Fibonacci</option>
+									<option value="mandelbrot">Mandelbrot</option>
+									<option value="sortarray">Sort Array</option>
+									<option value="void">Void</option>
+									<option value="wait">Wait</option>
+								</select>
+							</td>
+							<td class="description">CPU calibration strategy</td>
+						</tr>
+
+						<tr>
+							<td>HDD Strategy</td>
+							<td>
+								<select name="H">
+									<option value="largeChunks" selected="selected">Large Chunks</option>
+								</select>
+							</td>
+							<td class="description">HDD calibration strategy</td>
+						</tr>
+
+						<tr>
+							<td>Accuracy</td>
+							<td>
+								<select name="a">
+									<option value="LOW">Low</option>
+									<option value="MEDIUM" selected="selected">Medium</option>
+									<option value="HIGH">High</option>
+								</select>
+							</td>
+							<td class="description">Accuracy of CPU and HDD calibration</td>
+						</tr>
+					</tbody>
+				</table>
 				</form>
 
-				<div class="note">Modules (except the registry) use the registry location at startup.</div>
+				<button class="confirm">Confirm Settings</button>
+				<span class="note">Note: Settings cannot be changed after confirmation.</span>
 			</div>
 
 			<div id="modules" class="box">
