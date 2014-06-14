@@ -69,5 +69,12 @@ public class CommandLineParser {
 				.withDescription("HDD calibration strategy: largeChunks (default: LargeChunks).").create('H'));
 		o.addOption(OptionBuilder.hasArgs().withLongOpt("accuracy").withArgName("Accuracy")
 				.withDescription("Accuracy of CPU and HDD calibration: LOW, MEDIUM, or HIGH (default: MEDIUM). ").create('a'));
+		
+		// Web UI
+		o.addOption(OptionBuilder
+			.withLongOpt("web")
+			.withDescription("Start web server for configuration through a browser")
+			.create()
+		);
 	}
 }

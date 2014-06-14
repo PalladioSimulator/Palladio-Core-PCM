@@ -1,5 +1,6 @@
 package org.palladiosimulator.protocom.framework;
 
+import java.io.IOException;
 import java.lang.reflect.Method;
 import java.rmi.RemoteException;
 import java.rmi.registry.Registry;
@@ -82,7 +83,16 @@ public abstract class AbstractMain {
 		IProbabilityFunctionFactory probFunctionFactory = ProbabilityFunctionFactoryImpl.getInstance();
 		probFunctionFactory.setRandomGenerator(randomGen);
 		StoExCache.initialiseStoExCache(probFunctionFactory);
-
+		
+		if (runProps.hasOption("web")) {
+			try {
+				new WebServer().start();
+			} catch (IOException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
+		
 		createUserMenu();
 	}
 
