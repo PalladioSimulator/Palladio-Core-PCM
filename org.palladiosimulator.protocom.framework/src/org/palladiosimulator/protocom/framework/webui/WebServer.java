@@ -2,13 +2,18 @@ package org.palladiosimulator.protocom.framework.webui;
 
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+import org.palladiosimulator.protocom.framework.AbstractAllocationStorage;
+import org.palladiosimulator.protocom.framework.AbstractMain;
 import org.palladiosimulator.protocom.framework.webui.NanoHTTPD.Response.Status;
 
 public class WebServer extends NanoHTTPD {
 	private final HashMap<String, String> resources;
+	private final AbstractMain main;
 	private boolean running = false;
 	
 	class WebResource {
@@ -29,8 +34,10 @@ public class WebServer extends NanoHTTPD {
 		}
 	}
 	
-	public WebServer() {
+	public WebServer(AbstractMain main) {
 		super(8080);
+		
+		this.main = main;
 		
 		resources = new HashMap<String, String>();
 		
@@ -51,21 +58,64 @@ public class WebServer extends NanoHTTPD {
 			StringBuilder json = new StringBuilder();
 			
 			json.append("[");
-			json.append("{\"id\":0,\"permanent\":true,\"name\":\"Module Name\"}");
+			
+			json.append(getJsonForModule(2, "RMI Registry"));
+			json.append(",");
+			json.append(getJsonForModule(3, "Usage Scenarios"));
+			json.append(",");
+			json.append(getJsonForModule(4, "System " + main.getSystemName()));
+			
+			Collection<String> containers = AbstractAllocationStorage.getContainerNames();
+			int i = 5;
+			
+			for (String container : containers) {
+				json.append(",");
+				json.append(getJsonForModule(i++, "Container " + container));
+			}
+			
 			json.append("]");
 			
+			System.out.println(json.toString());
+			
 			return new Response(Status.OK, "application/json", json.toString());
+		}
+		
+		if (session.getUri().equals("/startModule")) {
+			Map<String, String> parms = session.getParms();
+			int id = 0;
+			
+			try {
+				id = Integer.parseInt(parms.get("id"));
+			} catch (NumberFormatException e) {
+			}
+			
+			main.handleMenuItem(id);
+			
+			System.out.println("Module " + id + " started");
+			
+			return new Response(Status.OK, "application/json", "{\"error\":0}");
 		}
 		
 		if (session.getUri().equals("/")) {
 			Map<String, String> parms = session.getParms();
 			
 			if (!parms.isEmpty()) {
+				ArrayList<String> args = new ArrayList<String>();
+				
 				for (String key : parms.keySet()) {
-					System.out.println(key + " : " + parms.get(key));
+					if (!parms.get(key).isEmpty()) args.add("-" + key);
+					
+					if (!(key.equals("h") || key.equals("D") || key.equals("P") || key.equals("W"))) {
+						args.add(parms.get(key));
+					}					
 				}
 				
 				running = true;
+				
+				String[] argsArray = new String[args.size()];
+				args.toArray(argsArray);
+				
+				main.runWithParameters(argsArray, false);
 				
 				return new Response(Status.OK, "application/json", "{\"error\":0}");
 			}
@@ -108,5 +158,18 @@ public class WebServer extends NanoHTTPD {
 		} else {
 			return null;
 		}
+	}
+	
+	private String getJsonForModule(int id, String name) {
+		StringBuilder json = new StringBuilder();
+		
+		json.append("{\"id\":");
+		json.append(id);
+		json.append(",\"permanent\":true");
+		json.append(",\"name\":\"");
+		json.append(name);
+		json.append("\"}");
+		
+		return json.toString();
 	}
 }

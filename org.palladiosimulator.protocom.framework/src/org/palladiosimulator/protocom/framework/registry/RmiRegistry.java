@@ -270,7 +270,7 @@ public class RmiRegistry extends UnicastRemoteObject implements IRmiRegistry, Se
 					input.nextLine();
 				}
 			}
-		}.run();
+		}.start();
 	}
 
 	@Override

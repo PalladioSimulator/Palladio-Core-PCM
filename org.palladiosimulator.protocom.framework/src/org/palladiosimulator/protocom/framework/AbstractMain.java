@@ -50,7 +50,40 @@ public abstract class AbstractMain {
 	protected List<Thread> threads = new ArrayList<Thread>();
 
 	protected RunProperties runProps;
-
+	protected boolean useWebUI;
+	
+	protected void run(String[] args) {
+		for (String arg : args) {
+			if (arg.equals("--web")) {
+				useWebUI = true;
+				break;
+			}
+		}
+		
+		if (useWebUI) {
+			try {
+				new WebServer(this).start();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+			System.out.println("Web UI running at http://localhost:8080");
+			System.out.print("Press enter to stop the performance prototype...");
+			
+			try {
+				System.in.read();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+		} else {
+			runWithParameters(args, true);
+		}
+	}
+	
+	public String getSystemName() {
+		return getSystems()[0][1];
+	}
+	
 	/**
 	 * Main method to run the generated prototype. It implements the main
 	 * workflow, i.e., parsing cmd line, setting up resources, datastores, RMI
@@ -60,7 +93,7 @@ public abstract class AbstractMain {
 	 *            Command line arguments given for the prototype according to
 	 *            Apache CLI's configuration
 	 */
-	protected void run(String[] args) {
+	public void runWithParameters(String[] args, boolean cliMenu) {
 		runProps = CommandLineParser.parseCommandLine(args);
 		setupLogging();
 		logger.info("Command line read. Logging initialised. Protocom starts its workflow now...");
@@ -85,24 +118,7 @@ public abstract class AbstractMain {
 		probFunctionFactory.setRandomGenerator(randomGen);
 		StoExCache.initialiseStoExCache(probFunctionFactory);
 		
-		if (runProps.hasOption("web")) {
-			try {
-				new WebServer().start();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-			
-			System.out.println("Web UI running at http://localhost:8080");
-			System.out.print("Press enter to stop the performance prototype...");
-			
-			try {
-				System.in.read();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
-		} else {
-			createUserMenu();
-		}
+		if (cliMenu) createUserMenu();
 	}
 
 	/**
@@ -121,7 +137,7 @@ public abstract class AbstractMain {
 	 * @param itemId
 	 *            The id of a menu item to execute
 	 */
-	private void handleMenuItem(int itemId) {
+	public void handleMenuItem(int itemId) {
 		if (itemId == 1) {
 			// Start everything in local mode
 			logger.debug("Start: Start everything in local mode");

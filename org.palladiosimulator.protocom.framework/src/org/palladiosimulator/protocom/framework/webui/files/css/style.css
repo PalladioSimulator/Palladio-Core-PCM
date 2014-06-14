@@ -76,10 +76,9 @@ input[type="text"] {
 input[type="text"].inline {
 	box-sizing: border-box;
 	width: 100%;
-	height: 20px;
 	padding: 1px;
 	margin: -6px 0;
-	font-size: 12px;
+	font-size: 14px;
 }
 
 input[type="checkbox"] {
@@ -94,6 +93,10 @@ select {
 	color: inherit;
 	font: inherit;
 	font-size: 12px;
+}
+
+button {
+	font: inherit;
 }
 
 /* Main */
@@ -158,8 +161,8 @@ select {
 	padding: 8px;
 	border: 0px solid #0a5aa0;
 	margin-top: 25px;
-	background: #4691d2;
 	color: #f8f8f8;
+	background: #4691d2;
 }
 
 #settings .note {
@@ -185,7 +188,6 @@ select {
 #modules button {
 	color: #4691d2;
 	background: none;
-	font: inherit;
 	text-decoration: underline;
 	cursor: pointer;
 }

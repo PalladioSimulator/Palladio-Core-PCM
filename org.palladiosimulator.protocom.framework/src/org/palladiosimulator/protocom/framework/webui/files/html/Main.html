@@ -145,28 +145,16 @@
 // 					//updateLog();
 // 				}, 1000);
 				
-				$('#modules').on('click', '.start', {'action': 'startModule'}, actionHandler);
+				$('#modules').on('click', '.start', actionHandler);
 				
 				function actionHandler(event) {
-					var action = event.data.action;
 					var id = $(this).closest('tr').data('id');
 					var self = this;
 					
 					self.disabled = true;
 					
-					$.get('/', {'action': action, 'id': id}, function(response) {
-						if (response.error == 0) {
-							switch (action) {
-							case 'startModule':
-								updateModule(id, true);
-								break;
-
-							case 'stopModule':
-								updateModule(id, false);
-								break;
-							}
-						}
-						
+					$.get('/startModule', {'id': id}, function(response) {
+						updateModule(id, true);
 						self.disabled = false;
 					});
 				}
