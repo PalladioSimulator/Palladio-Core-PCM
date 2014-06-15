@@ -26,7 +26,7 @@ public class ContainerModule extends Module {
 		Collection<ComponentAllocation> components = AbstractAllocationStorage.getComponents(getId());
 		
 		for (ComponentAllocation component : components) {
-			Log.info("Start component '" + component.getComponentClass().getName() + "'");
+			Log.info("Start component '" + component.getComponentClass().getSimpleName() + "'");
 			
 			try {
 				Class<?>[] types = {String.class, String.class};

@@ -168,7 +168,7 @@
 					<input class="input" type="text" name="location">
 				</form>
 
-				<div class="note">Modules (except the registry) use the registry location at startup.</div>
+				<div class="note">Note: Modules perform registrations and lookups at the specified location during startup.</div>
 			</div>
 
 			<div id="modules" class="box">
