@@ -14,6 +14,7 @@ import org.palladiosimulator.protocom.framework.webui.NanoHTTPD.Response.Status;
 public class WebServer extends NanoHTTPD {
 	private final HashMap<String, String> resources;
 	private final AbstractMain main;
+	private LogAppender logAppender;
 	private boolean running = false;
 	
 	class WebResource {
@@ -48,6 +49,10 @@ public class WebServer extends NanoHTTPD {
 		resources.put("/js/underscore-1.6.0.min.js", "js/underscore-1.6.0.min.js");
 	}
 	
+	public void setAppender(LogAppender logAppender) {
+		this.logAppender = logAppender;
+	}
+	
 	@Override
 	public Response serve(IHTTPSession session) {
 		if (session.getUri().equals("/isRunning")) {
@@ -80,6 +85,14 @@ public class WebServer extends NanoHTTPD {
 			return new Response(Status.OK, "application/json", json.toString());
 		}
 		
+		if (session.getUri().equals("/getLog")) {
+			Map<String, String> parms = session.getParms();
+			int base = Integer.parseInt(parms.get("base"));
+			
+			return new Response(Status.OK, "application/json", logAppender.toJson(base));
+			
+		}
+		
 		if (session.getUri().equals("/startModule")) {
 			Map<String, String> parms = session.getParms();
 			int id = 0;
@@ -90,8 +103,6 @@ public class WebServer extends NanoHTTPD {
 			}
 			
 			main.handleMenuItem(id);
-			
-			System.out.println("Module " + id + " started");
 			
 			return new Response(Status.OK, "application/json", "{\"error\":0}");
 		}

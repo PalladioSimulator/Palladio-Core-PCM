@@ -12,10 +12,8 @@
 		<script id="template-module" type="text/template">
 			<tr data-id="{{- id }}" data-permanent="{{- permanent }}" data-started="false">
 				<td>{{- name }}</td>
-				<td class="state"></td>
 				<td>
 					<button class="action start">Start</button>
-					<button class="action stop disabled">Stop</button>
 				</td>
 			</tr>
 		</script>
@@ -44,18 +42,10 @@
 				
 				if (permanent) {
 					if (started) {
-						row.find('.state').addClass('started').text('Started');	
 						row.find('.start').hide();
-						row.find('.stop').show();
 					} else {
-						row.find('.state').removeClass('started').text('Stopped');
 						row.find('.start').show();
-						row.find('.stop').hide();
 					}
-				} else {
-					row.find('.state').text('');
-					row.find('.start').show();
-					row.find('.stop').hide();
 				}
 				
 				row.data('started', started);
@@ -66,8 +56,8 @@
 					this.logLines = 0;
 				}
 				
-				$.get('/', {'action': 'getLog', 'base': logLines}, function(response) {
-					/*var data = response.payload;
+				$.get('/getLog', {'base': logLines}, function(response) {
+					var data = response;
 					
 					if (data.messageCount > 0) {
 						var messages = $('#log #messages');
@@ -80,23 +70,31 @@
 						}
 						
 						messages.scrollTop(messages[0].scrollHeight - messages.height());
-					}*/
+					}
 				});
 			}
 			
 			$(document).ready(function() {
 				$.get('/isRunning', function(response) {
-					//if (response.running) $('#settings').hide();
+					if (response.running) {
+						getModules();
+						
+						$('#settings').hide();
+						$('#modules').show();
+						$('#log').show();
+					}
+					
+					$('#main').show();
 				});
 				
 				$('#settings form').submit(function() {
 					$.get('/', $(this).serialize(), function(response) {
 						if (response.error == 0) {
-							console.log('success');
+							getModules();
 							
 							$('#settings').hide();
-							
-							getModules();
+							$('#modules').show();
+							$('#log').show();
 						}
 					});
 					
@@ -120,30 +118,11 @@
 					});
 				}
 				
+ 				updateLog();
 				
-// 				$.get('/', {'action': 'getModules'}, function(response) {
-// 					/*var module = _.template($('#template-module').html());
-// 					var tbody = $('#modules table tbody');
-					
-// 					_.each(response.payload, function(element, index, list) {
-// 						tbody.append(module(element));
-// 						updateModule(element.id, element.started);
-// 					});*/
-					
-// 					finishBox();
-// 				});
-				
-// 				$.get('/', {'action': 'getRegistryLocation'}, function(response) {
-// 					// $('input[name="location"]').val(response.payload);
-					
-// 					finishBox();
-// 				});
-				
-// 				//updateLog();
-				
-// 				setInterval(function() {
-// 					//updateLog();
-// 				}, 1000);
+ 				setInterval(function() {
+ 					updateLog();
+ 				}, 1000);
 				
 				$('#modules').on('click', '.start', actionHandler);
 				
@@ -189,13 +168,13 @@
 					<tbody>
 						<tr>
 							<td>Data<span class="required">*</span></td>
-							<td><input class="inline" type="text" name="d" spellcheck="false"></td>
+							<td><input class="inline" type="text" name="d" spellcheck="false" value="./Data"></td>
 							<td class="description">Storage path for sensor data</td>
 						</tr>
 
 						<tr>
 							<td>Name<span class="required">*</span></td>
-							<td><input class="inline" type="text" name="n" spellcheck="false"></td>
+							<td><input class="inline" type="text" name="n" spellcheck="false" value="Experiment"></td>
 							<td class="description">Name of the experiment</td>
 						</tr>
 
@@ -207,7 +186,7 @@
 
 						<tr>
 							<td>Measurements<span class="required">*</span></td>
-							<td><input class="inline" type="text" name="m" spellcheck="false"></td>
+							<td><input class="inline" type="text" name="m" spellcheck="false" value="1"></td>
 							<td class="description">Maximum measurements to take</td>
 						</tr>
 
@@ -219,7 +198,7 @@
 
 						<tr>
 							<td>Calibration<span class="required">*</span></td>
-							<td><input class="inline" type="text" name="s" spellcheck="false"></td>
+							<td><input class="inline" type="text" name="s" spellcheck="false" value="./Calibration"></td>
 							<td class="description">Storage path for calibration data</td>
 						</tr>
 
@@ -310,13 +289,11 @@
 
 				<table>
 					<col class="name-column">
-					<col class="state-column">
 					<col class="actions-column">
 
 					<thead>
 						<tr>
 							<th>Name</th>
-							<th>State</th>
 							<th>Actions</th>
 						</tr>
 					</thead>

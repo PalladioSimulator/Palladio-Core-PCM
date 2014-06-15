@@ -20,3 +20,7 @@ Require-Bundle: org.apache.log4j,
  de.uka.ipd.sdq.probfunction.math;bundle-version="2.0.0"
 Bundle-Vendor: palladiosimulator.org
 Bundle-RequiredExecutionEnvironment: JavaSE-1.6
+Bundle-ClassPath: .,
+ lib/jackson-annotations-2.2.3.jar,
+ lib/jackson-core-2.2.3.jar,
+ lib/jackson-databind-2.2.3.jar

@@ -18,6 +18,7 @@ import org.palladiosimulator.protocom.framework.registry.RmiRegistry;
 import org.palladiosimulator.protocom.framework.utils.CommandLineParser;
 import org.palladiosimulator.protocom.framework.utils.RunProperties;
 import org.palladiosimulator.protocom.framework.utils.UserMenu;
+import org.palladiosimulator.protocom.framework.webui.LogAppender;
 import org.palladiosimulator.protocom.framework.webui.WebServer;
 import org.palladiosimulator.protocom.resourcestrategies.activeresource.DegreeOfAccuracyEnum;
 
@@ -51,6 +52,8 @@ public abstract class AbstractMain {
 
 	protected RunProperties runProps;
 	protected boolean useWebUI;
+	protected WebServer webServer;
+	protected LogAppender logAppender;
 	
 	protected void run(String[] args) {
 		for (String arg : args) {
@@ -62,7 +65,8 @@ public abstract class AbstractMain {
 		
 		if (useWebUI) {
 			try {
-				new WebServer(this).start();
+				webServer = new WebServer(this);
+				webServer.start();
 			} catch (IOException e) {
 				e.printStackTrace();
 			}
@@ -321,6 +325,14 @@ public abstract class AbstractMain {
 		logger.removeAllAppenders();
 		PatternLayout layout = new PatternLayout("%d{HH:mm} %-5p [%t]: %m%n");
 		logger.addAppender(new ConsoleAppender(layout));
+		
+		if (useWebUI) {
+			logAppender = new LogAppender();
+			
+			webServer.setAppender(logAppender);
+			logger.addAppender(logAppender);
+		}
+		
 		if (runProps.hasOption('D')) {
 			logger.setLevel(Level.DEBUG);
 		} else {

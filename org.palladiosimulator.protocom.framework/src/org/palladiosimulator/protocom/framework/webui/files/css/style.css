@@ -103,7 +103,7 @@ button {
 
 #main {
 	/* Hide at startup. */
-	/* display: none; */
+	display: none;
 	
 	width: 600px;
 	margin: auto;
@@ -173,16 +173,12 @@ button {
 
 /* Modules */
 
-#modules .state-column {
-	width: 20%;
+#modules {
+	display: none;
 }
 
 #modules .actions-column {
-	width: 18%;
-}
-
-#modules .started {
-	color: #00b400;
+	width: 15%;
 }
 
 #modules button {
@@ -198,6 +194,10 @@ button {
 }
 
 /* Log */
+
+#log {
+	display: none;
+}
 
 #log #messages {
 	display: block;
