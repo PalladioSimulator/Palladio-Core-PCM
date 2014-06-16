@@ -1,15 +1,14 @@
 package org.palladiosimulator.protocom.tech.servlet.repository
 
-import org.palladiosimulator.protocom.tech.servlet.ServletClass
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole
-import org.palladiosimulator.protocom.lang.java.util.JavaNames
-import org.palladiosimulator.protocom.lang.java.impl.JMethod
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import org.palladiosimulator.protocom.lang.java.impl.JField
-import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
 import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.repository.ProvidedRole
 import java.util.List
-import org.palladiosimulator.protocom.lang.java.IJMethod
+import org.palladiosimulator.protocom.lang.java.impl.JAnnotation
+import org.palladiosimulator.protocom.lang.java.impl.JField
+import org.palladiosimulator.protocom.lang.java.impl.JMethod
+import org.palladiosimulator.protocom.lang.java.util.JavaNames
+import org.palladiosimulator.protocom.tech.servlet.ServletClass
 
 class ServletComposedStructurePortClass extends ServletClass<ProvidedRole> {
 	new(ProvidedRole pcmEntity) {
@@ -57,18 +56,6 @@ class ServletComposedStructurePortClass extends ServletClass<ProvidedRole> {
 	
 	override constructors() {
 		#[
-//			new JMethod()
-//				.withParameters(JavaNames::fqn((pcmEntity as OperationProvidedRole).providedInterface__OperationProvidedRole) + " innerPort, " + JavaNames::fqnInterface(pcmEntity.providingEntity_ProvidedRole) + " compositeComponentOrSystem, String assemblyContext")
-//				.withImplementation('''
-//					this.innerPort = innerPort;
-//					this.compositeComponentOrSystem = compositeComponentOrSystem;
-//					
-//					//«frameworkBase».registry.Registry.register();
-//					
-//					//org.palladiosimulator.protocom.framework.registry.RmiRegistry.registerPort(org.palladiosimulator.protocom.framework.registry.RmiRegistry.getRemoteAddress(),
-//					//org.palladiosimulator.protocom.framework.registry.RmiRegistry.getRegistryPort(), this, "«JavaNames::portClassName(pcmEntity)»_" + assemblyContext);
-//				'''), 
-				
 			new JMethod()
 				.withImplementation('''
 				''')

@@ -9,10 +9,6 @@ import org.palladiosimulator.protocom.tech.servlet.ServletClass
 import org.palladiosimulator.protocom.tech.servlet.util.PcmServletProtoAction
 import de.uka.ipd.sdq.pcm.seff.ResourceDemandingBehaviour
 
-/**
- * 
- * @author Christian Klaussner
- */
 class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 	new(BasicComponent pcmEntity) {
 		super(pcmEntity)
@@ -73,8 +69,6 @@ class ServletBasicComponentClass extends ServletClass<BasicComponent> {
 					«new PcmServletProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 					return null;
 				''')
-				
-				// «new PcmServletProtoAction().actions((it as ResourceDemandingBehaviour).steps_Behaviour.get(0))»
 		]
 		
 		result

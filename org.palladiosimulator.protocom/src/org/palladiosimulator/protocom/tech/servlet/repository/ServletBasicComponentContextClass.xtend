@@ -105,10 +105,6 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 				.withName("getPortFor" + JavaNames::javaName(it))
 				.withReturnType(JavaNames::fqn((it as OperationRequiredRole).requiredInterface__OperationRequiredRole))
 				.withAnnotations(#[
-//					new JAnnotation()
-//						.withName("SuppressWarnings")
-//						.withValues(#['''"unchecked"''']), 
-					
 					new JAnnotation()
 						.withName("com.fasterxml.jackson.annotation.JsonIgnore") 
 				])
@@ -119,9 +115,6 @@ class ServletBasicComponentContextClass extends ServletClass<BasicComponent> {
 						e.printStackTrace();
 					}
 					
-					//if («JavaNames::javaName(it).toFirstLower» == null) {
-					//	throw new RuntimeException("Attempt to retrieve unbound port. Role «it.entityName» <«it.id»> RequiringEntity «it.requiringEntity_RequiredRole.entityName»");
-					//}
 					return portFor_«JavaNames::javaName(it).toFirstLower»;
 				''')
 		]

@@ -19,7 +19,6 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		super(pcmEntity)
 	}
 	
-	
 	override interfaces() {
 		#[JavaNames::interfaceName(pcmEntity)]
 	}
@@ -35,12 +34,6 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 		]
 		
 		// Port IDs.
-		/*result += pcmEntity.assemblyContexts__ComposedStructure.map[
-			new JField()
-				.withName(JavaNames::javaName(it))
-				.withType("String")
-		]*/
-		
 		for (AssemblyContext assemblyContext : pcmEntity.assemblyContexts__ComposedStructure) {
 			result += new JField()
 				.withName(JavaNames::javaName(assemblyContext) + "ID")
@@ -101,13 +94,8 @@ class ServletSystemClass<E extends ComposedProvidingRequiringEntity> extends Ser
 						«ENDFOR»
 					);
 					
-					// «frameworkBase».stubs.SimulatedStackframe<Object> componentStackFrame = new «frameworkBase».stubs.SimulatedStackframe<Object>();
-					// my«JavaNames::javaName(it)».setComponentFrame(componentStackFrame);
 					«JavaNames::javaName(it)».setContext(context);
 				''')
-				
-				// «JavaNames::javaName(it) + "ID"»
-				// «PcmCalls::portQuery(requiredRole, pcmEntity, it)»
 		]
 		
 		// System init method.

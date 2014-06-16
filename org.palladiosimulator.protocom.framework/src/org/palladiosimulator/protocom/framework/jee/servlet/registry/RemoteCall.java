@@ -12,7 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
  * @author Christian Klaussner
  */
 public class RemoteCall {
-	private static ObjectMapper mapper;
+	private static final ObjectMapper mapper;
 	
 	static {
 		mapper = new ObjectMapper();
@@ -128,14 +128,10 @@ public class RemoteCall {
 		try {
 			RemoteCall call = mapper.readValue(serialized, RemoteCall.class);
 			
-			// System.out.println(serialized);
-			
 			for (int i = 0; i < call.args.length; i++) {
-				// System.out.println("Before: " + call.args[i].getClass().getName());
 				if (call.args[i] instanceof LinkedHashMap<?, ?>) {
 					call.args[i] = mapper.convertValue(call.args[i], call.actualTypes[i]);
 				}
-				// System.out.println("After: " + call.args[i].getClass().getName());
 			}
 			
 			return call;

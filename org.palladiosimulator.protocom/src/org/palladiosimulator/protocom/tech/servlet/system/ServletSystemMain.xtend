@@ -17,7 +17,7 @@ class ServletSystemMain extends ServletClass<System> {
 	}
 	
 	override annotations() {
-		#[new JAnnotation().withName("javax.servlet.annotation.WebServlet").withValues(#['''urlPatterns = ""'''])]
+		#[new JAnnotation().withName("javax.servlet.annotation.WebServlet").withValues(#['''urlPatterns = "", loadOnStartup = 0'''])]
 	}
 	
 	override compilationUnitName() {
@@ -35,14 +35,7 @@ class ServletSystemMain extends ServletClass<System> {
 	}
 	
 	override methods() {
-		#[
-			new JMethod()
-				.withVisibilityModifier("protected")
-				.withName("initModules")
-				.withImplementation('''
-					// TODO: Stuff
-				'''), 
-				
+		#[				
 			new JMethod()
 				.withName("initAllocationStorage")
 				.withImplementation('''AllocationStorage.initSingleton(new AllocationStorage());'''), 

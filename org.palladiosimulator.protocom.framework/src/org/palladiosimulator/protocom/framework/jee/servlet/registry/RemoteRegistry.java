@@ -25,12 +25,11 @@ public class RemoteRegistry extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private static HashMap<String, RegistryEntry> registeredObjects;
-	private static ObjectMapper mapper;
+	private static final ObjectMapper mapper = new ObjectMapper();
 	
 	@Override
 	public void init() throws ServletException {
 		registeredObjects = new HashMap<String, RegistryEntry>();
-		mapper = new ObjectMapper();
 	}
 	
 	/**

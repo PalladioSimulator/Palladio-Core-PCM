@@ -13,7 +13,7 @@ public class Response {
 	public static final int INVALID = 2;
 	public static final int FAILED = 3;
 	
-	protected static ObjectMapper mapper = new ObjectMapper();
+	protected static final ObjectMapper mapper = new ObjectMapper();
 	
 	protected int error;
 	

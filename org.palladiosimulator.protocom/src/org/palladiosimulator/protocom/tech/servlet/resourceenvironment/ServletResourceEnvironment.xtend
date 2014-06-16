@@ -4,7 +4,6 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
 import org.palladiosimulator.protocom.lang.java.IJClass
 import org.palladiosimulator.protocom.tech.ConceptMapping
 
-// TODO: Inherit from ServletClass? No => ResourceEnvironment not a subclass of Entity
 class ServletResourceEnvironment extends ConceptMapping<ResourceEnvironment> implements IJClass {
 	protected val frameworkBase = "org.palladiosimulator.protocom.framework.jee.servlet"
 	
@@ -13,7 +12,6 @@ class ServletResourceEnvironment extends ConceptMapping<ResourceEnvironment> imp
 	}
 	
 	override superClass() {
-		// '''«frameworkBase».allocation.AllocationStorage'''
 	}
 	
 	override packageName() {

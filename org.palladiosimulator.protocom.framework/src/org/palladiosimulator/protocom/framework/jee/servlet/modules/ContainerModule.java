@@ -8,8 +8,16 @@ import org.palladiosimulator.protocom.framework.AbstractAllocationStorage;
 import org.palladiosimulator.protocom.framework.ComponentAllocation;
 import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
 
+/**
+ * A ContainerModule represents a PCM resource container and its assigned components.
+ * @author Christian Klaussner
+ */
 public class ContainerModule extends Module {
-
+	/**
+	 * Constructs a new ContainerModule object.
+	 * @param id the ID of the container
+	 * @param name the display name of the container
+	 */
 	public ContainerModule(String id, String name) {
 		super(id, name, true);
 	}

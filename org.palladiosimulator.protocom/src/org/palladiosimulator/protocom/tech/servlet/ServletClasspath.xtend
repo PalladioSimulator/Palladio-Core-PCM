@@ -6,9 +6,6 @@ import org.palladiosimulator.protocom.lang.xml.IClasspath
 import org.eclipse.core.runtime.Path
 import org.eclipse.jdt.launching.JavaRuntime
 
-/**
- * @author Christian Klaussner
- */
 class ServletClasspath<E extends Entity> extends ConceptMapping<E> implements IClasspath {
 	new(E pcmEntity) {
 		super(pcmEntity)

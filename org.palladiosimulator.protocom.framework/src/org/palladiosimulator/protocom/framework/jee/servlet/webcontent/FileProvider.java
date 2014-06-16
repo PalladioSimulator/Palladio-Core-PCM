@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * 
+ * The FileProvider class is used to retrieve WebContent files during transformation.
  * @author Christian Klaussner
  */
 public class FileProvider {
@@ -96,8 +96,6 @@ public class FileProvider {
 		for (String file : files[type]) {
 			urls.add(getClass().getResource("files/" + filePaths[type] + "/" + file));
 		}
-		
-		// if (type == LIB) addLibraryDependencies(urls);
 		
 		return urls;
 	}

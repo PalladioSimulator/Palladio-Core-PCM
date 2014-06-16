@@ -9,9 +9,6 @@ import org.palladiosimulator.protocom.tech.servlet.repository.ServletBasicCompon
 import org.palladiosimulator.protocom.tech.servlet.repository.ServletBasicComponentContextInterface
 import org.palladiosimulator.protocom.tech.servlet.repository.ServletBasicComponentPortClass
 
-/**
- * @author Christian Klaussner
- */
 class JeeServletBasicComponent extends XBasicComponent {
 	override protected generate() {
 		

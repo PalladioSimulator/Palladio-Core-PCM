@@ -65,7 +65,6 @@ public class Request {
 			uri.append(location);
 			uri.append(path);
 			
-			//for (int i = 0; i < parameters.size(); i++) {
 			for (Parameter parameter : parameters) {
 				String name = URLEncoder.encode(parameter.getName(), "UTF-8");
 				String value = URLEncoder.encode(parameter.getValue(), "UTF-8");

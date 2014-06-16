@@ -4,9 +4,6 @@ import de.uka.ipd.sdq.pcm.system.System
 import org.palladiosimulator.protocom.lang.xml.IJeeSettings
 import org.palladiosimulator.protocom.tech.ConceptMapping
 
-/**
- * @author Christian Klaussner
- */
 class ServletSettings extends ConceptMapping<System> implements IJeeSettings {
 	val String contentId
 	

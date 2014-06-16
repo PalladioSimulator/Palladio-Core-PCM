@@ -48,8 +48,6 @@ public class StringResponse extends Response {
 	public static StringResponse fromJson(String serialized) {
 		StringResponse result = null;
 		
-		// System.out.println("Plain response: " + serialized);
-		
 		try {
 			result = mapper.readValue(serialized, StringResponse.class);
 		} catch (IOException e) {

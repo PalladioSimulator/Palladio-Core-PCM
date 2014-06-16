@@ -42,8 +42,6 @@ class ServletAllocationStorage extends ServletClass<Allocation> {
 						saveContainerComponent(containerId, container, component, assemblyContext);
 					«ENDFOR»
 				''')
-				
-				// «frameworkBase».allocation.AllocationStorage.addComponentToContainer(containerId, container, component, assemblyContext);
 		]
 	}
 	

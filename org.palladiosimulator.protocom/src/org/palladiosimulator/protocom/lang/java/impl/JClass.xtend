@@ -35,10 +35,9 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 
 	override body() {
 		'''
-		«FOR field : fields»
+		«FOR field : fields AFTER '\n'»
 			«field(field)»
 		«ENDFOR»
-		
 		«IF !constructors.empty»	
 			«FOR constructor : constructors SEPARATOR '\n'»
 				«constructor(constructor)»
@@ -53,9 +52,7 @@ class JClass extends JCompilationUnit<IJClass> implements IJClass {
 	
 
 	def field(IJField field) {
-		'''
-		«field.visibility»«IF field.staticModifier» static«ENDIF»«IF field.finalModifier» final«ENDIF» «field.type» «field.name»«IF field.initialization != null» = «field.initialization»«ENDIF»;
-		'''
+		'''«field.visibility»«IF field.staticModifier» static«ENDIF»«IF field.finalModifier» final«ENDIF» «field.type» «field.name»«IF field.initialization != null» = «field.initialization»«ENDIF»;'''
 	}
 	
 	def constructor(IJMethod method) {

@@ -24,12 +24,11 @@ import org.palladiosimulator.protocom.framework.jee.servlet.registry.Registry;
  * The Main Servlet class is the entry point for the application and handles requests.
  * @author Christian Klaussner
  */
-//@WebServlet(urlPatterns = "", loadOnStartup = 0)
 public abstract class Main extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private String location, registryLocation;
-	private ModuleList moduleList;
+	private final ModuleList moduleList;
 	
 	/**
 	 * Constructs a new Main Servlet.
@@ -38,7 +37,6 @@ public abstract class Main extends HttpServlet {
 		moduleList = new ModuleList();
 	}
 	
-	protected abstract void initModules();
 	protected abstract String[] getSystem();
 	protected abstract void initAllocationStorage();
 	
@@ -52,8 +50,6 @@ public abstract class Main extends HttpServlet {
 		initAllocationStorage();
 		
 		// Add modules to the list.
-		moduleList = new ModuleList();
-		
 		String[] system = getSystem();
 		moduleList.add(new SystemModule("1", system[1], system[0]));
 		
@@ -64,7 +60,6 @@ public abstract class Main extends HttpServlet {
 			moduleList.add(new ContainerModule(id, container));
 		}
 	}
-	
 	
 	/**
 	 * Returns the integer representation of the specified request parameter.
@@ -123,7 +118,6 @@ public abstract class Main extends HttpServlet {
 	 */
 	private Response startModule(String id) {
 		Module module = moduleList.get(id);
-		//return module.startModule(location);
 		
 		Response response;
 		
@@ -145,15 +139,6 @@ public abstract class Main extends HttpServlet {
 		JsonResponse response = new JsonResponse(moduleList.toJson());
 		return response;
 	}
-	
-	/*@Override
-	public void init() throws ServletException {
-		// moduleList = new ModuleList();
-		
-		// moduleList.add(new ComponentModule("1", "Bob Component", "/IBobPort"));
-		// moduleList.add(new ComponentModule("2", "Alice Component", "/IAlicePort"));
-		// moduleList.add(new UsageScenarioModule("3", "Usage Scenario", new UsageScenario()));
-	}*/
 	
 	@Override
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -183,19 +168,19 @@ public abstract class Main extends HttpServlet {
 				result = getLog(getIntParameter(request, "base"));
 			}
 				
-			if (action.equals("updateRegistryLocation")) {
+			else if (action.equals("updateRegistryLocation")) {
 				result = updateRegistryLocation(request.getParameter("location"));
 			}
 				
-			if (action.equals("getRegistryLocation")) {
+			else if (action.equals("getRegistryLocation")) {
 				result = getRegistryLocation();
 			}
 				
-			if (action.equals("startModule")) {
+			else if (action.equals("startModule")) {
 				result = startModule(request.getParameter("id"));
 			}
 				
-			if (action.equals("getModules")) {
+			else if (action.equals("getModules")) {
 				result = getModules();
 			}
 			

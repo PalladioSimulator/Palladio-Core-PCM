@@ -38,9 +38,7 @@ abstract class JCompilationUnit<E extends IJCompilationUnit> extends GeneratedFi
 	
 
 	def implementedClasses() {
-		'''
-		«FOR implInterface : interfaces BEFORE ' implements ' SEPARATOR ', '»«implInterface»«ENDFOR»
-		'''
+		'''«FOR implInterface : interfaces BEFORE ' implements ' SEPARATOR ', '»«implInterface»«ENDFOR»'''
 	}
 	
 	

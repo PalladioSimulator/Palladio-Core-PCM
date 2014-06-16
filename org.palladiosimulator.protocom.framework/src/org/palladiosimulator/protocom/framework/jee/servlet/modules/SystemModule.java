@@ -6,9 +6,19 @@ import java.lang.reflect.InvocationTargetException;
 import org.palladiosimulator.protocom.framework.jee.servlet.common.Log;
 import org.palladiosimulator.protocom.framework.jee.servlet.registry.RegistryException;
 
+/**
+ * A SystemModule object represents a startable PCM system entity.
+ * @author Christian Klaussner
+ */
 public class SystemModule extends Module {
 	private String className;
 	
+	/**
+	 * Constructs a new SystemModule object.
+	 * @param id the ID of the system
+	 * @param name the display name of the system
+	 * @param className the class name of the system
+	 */
 	public SystemModule(String id, String name, String className) {
 		super(id, name, true);
 		
