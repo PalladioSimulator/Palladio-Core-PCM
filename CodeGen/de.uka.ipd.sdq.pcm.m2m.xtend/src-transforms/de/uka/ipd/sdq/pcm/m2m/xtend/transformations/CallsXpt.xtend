@@ -8,7 +8,7 @@ import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.seff.seff_performance.InfrastructureCall
 import java.util.List
 
-class CallsXpt {
+abstract class CallsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt
 
@@ -41,19 +41,15 @@ class CallsXpt {
 	// Template method for code to be executed before
 	// an external call
 	// ----------------------------------
-	def dispatch preCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) {
-	}
+	def void preCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) 
 	
-	def dispatch preCallTM(InfrastructureSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) {
-	}
+	def void preCallTM(InfrastructureSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages)
 	
 	// ----------------------------------
 	// Template method for code to be executed after
 	// an external call
 	// ----------------------------------
-	def postCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> outParameterUsages) {
-	}
+	def void postCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> outParameterUsages)
 	
-	def postCallTM(InfrastructureSignature signature, Entity call, String prefix) {
-	}
+	def void postCallTM(InfrastructureSignature signature, Entity call, String prefix)
 }

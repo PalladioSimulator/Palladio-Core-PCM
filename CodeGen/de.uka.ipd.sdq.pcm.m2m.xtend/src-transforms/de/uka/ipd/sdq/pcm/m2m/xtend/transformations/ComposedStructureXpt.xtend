@@ -13,7 +13,7 @@ import de.uka.ipd.sdq.completions.Completion
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyInfrastructureConnector
 import com.google.inject.Inject
 
-class ComposedStructureXpt {
+abstract class ComposedStructureXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext
 	@Inject extension DelegatorClassXpt
@@ -60,18 +60,14 @@ class ComposedStructureXpt {
 	   public «entity.className()»() {
 	'''
 	
-	def composedStructureEnd(ComposedStructure entity) '''
-	   }
-	'''
+	def CharSequence composedStructureEnd(ComposedStructure entity)
 	
 	//--------------------------------------
 	// Template method to override the standard parameters
 	// which can be passed to component child instances of
 	// a composed structure
 	//--------------------------------------
-	def componentConstructorParametersTM(AssemblyContext obj) '''
-		/* Add Parameters here */
-	'''
+	def CharSequence componentConstructorParametersTM(AssemblyContext obj) 
 	
 	//--------------------------------------
 	// Generate a member variable storing a component instance for a given
@@ -159,8 +155,7 @@ class ComposedStructureXpt {
 		}
 	'''
 	
-	def childInitTM(AssemblyContext context, ComposedStructure s) '''
-	'''
+	def CharSequence childInitTM(AssemblyContext context, ComposedStructure s)
 	
 	// -----------------------------------
 	// Get the right port to bind

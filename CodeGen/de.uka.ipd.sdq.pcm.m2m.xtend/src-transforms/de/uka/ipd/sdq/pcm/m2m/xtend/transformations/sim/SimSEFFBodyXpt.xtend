@@ -24,6 +24,7 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction
 import de.uka.ipd.sdq.pcm.seff.ForkAction
 import de.uka.ipd.sdq.completions.DelegatingExternalCallAction
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.SEFFBodyXpt
+import de.uka.ipd.sdq.pcm.seff.AbstractAction
 
 class SimSEFFBodyXpt extends SEFFBodyXpt {
 	@Inject extension JavaNamesExt
@@ -35,7 +36,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	// ----------------------------
 	// SimuCom templates for parts of a SEFF
 	// ----------------------------
-	override dispatch action(CollectionIteratorAction cir) '''
+	override action(CollectionIteratorAction cir) '''
 		for (int iterationCount = 0, maxIterationCount = (Integer)ctx.evaluate("«cir.parameter_CollectionIteratorAction.parameterName».NUMBER_OF_ELEMENTS",Integer.class);
 				iterationCount < maxIterationCount; iterationCount++) {
 			de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> loopFrame = ctx.getStack().createAndPushNewStackFrame(ctx.getStack().currentStackFrame());
@@ -47,7 +48,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 	'''
 	
 	// TODO: check if <<id>> translated correctly
-	override dispatch action(LoopAction la) '''
+	override action(LoopAction la) '''
 	   for (int iterationCount«la.id.javaVariableName()» = 0, maxIterationCount«la.id.javaVariableName()» = (Integer)ctx.evaluate("«la.iterationCount_LoopAction.specification.specificationString()»",Integer.class);
 	            iterationCount«la.id.javaVariableName()» < maxIterationCount«la.id.javaVariableName()»; iterationCount«la.id.javaVariableName()»++){
 	       «la.bodyBehaviour_Loop.steps_Behaviour.findStart().actionsAsCalls»
@@ -85,7 +86,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 				"«sift.id»", "«internalActionId»"));
 	'''
 	
-	override dispatch action(BranchAction ba) '''
+	override action(BranchAction ba) '''
 		{
 			«val counterID = ba.id.javaVariableName»
 			«IF ba.branches_Branch.head instanceof ProbabilisticBranchTransition»
@@ -121,7 +122,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		sum«counterNumber» += «pbt.branchProbability»;
 	'''
 	
-	override dispatch action(AcquireAction aa) '''
+	override action(AcquireAction aa) '''
 		// Acquire «aa.passiveresource_AcquireAction»
 		{
 			//TODO Here, a resource demand of 0 is issued to a hard-coded resource "CPU"
@@ -135,7 +136,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		pr_«aa.passiveresource_AcquireAction.id.javaVariableName()».acquire(ctx.getThread(), 1, «aa.timeout», «aa.timeoutValue»);
 	'''
 	
-	override dispatch action(ReleaseAction ra) '''
+	override action(ReleaseAction ra) '''
 		// Release «ra.passiveResource_ReleaseAction»
 		if (pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()» == null) {
 			// Initialise Resource First...
@@ -144,7 +145,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		pr_«ra.passiveResource_ReleaseAction.id.javaVariableName()».release(ctx.getThread(), 1);
 	'''
 	
-	override dispatch action(StartAction sa) '''
+	override action(StartAction sa) '''
 		«IF sa.eContainer instanceof ResourceDemandingSEFF»
 		«val rdseff = (sa.eContainer as ResourceDemandingSEFF)»
 		«val qualityAnnotation = rdseff.getQualityAnnotation()»
@@ -168,10 +169,10 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		«ENDIF»
 	'''
 	
-	override dispatch action(StopAction sa) '''
+	override action(StopAction sa) '''
 	'''
 	
-	override dispatch action(SetVariableAction sva) '''
+	override action(SetVariableAction sva) '''
 		«FOR pu : sva.localVariableUsages_SetVariableAction»
 			«FOR vc : pu.variableCharacterisation_VariableUsage»
 				«IF pu.namedReference__VariableUsage.isInnerReference()»
@@ -185,7 +186,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		«ENDFOR»
 	'''
 	
-	override dispatch action(ForkAction fa) '''
+	override action(ForkAction fa) '''
 		{
 			de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[] forks =
 				new de.uka.ipd.sdq.simucomframework.fork.ForkedBehaviourProcess[]{
@@ -225,7 +226,7 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		}
 	'''
 	
-	override dispatch action(DelegatingExternalCallAction deca) '''
+	override action(DelegatingExternalCallAction deca) '''
 	{
 		de.uka.ipd.sdq.simucomframework.variables.stackframe.SimulatedStackframe<Object> currentFrame = ctx
 				.getStack().currentStackFrame();
@@ -249,4 +250,9 @@ class SimSEFFBodyXpt extends SEFFBodyXpt {
 		ctx.getStack().removeStackFrame();
 	}
 	'''
+	
+	override action(AbstractAction action) '''
+		« /*Error */ »
+	'''
+	
 }

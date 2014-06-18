@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
 import de.uka.ipd.sdq.pcm.system.System
 import com.google.inject.Inject
 
-class UsageXpt {
+abstract class UsageXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension PCMext
 	@Inject extension UserActionsXpt
@@ -34,15 +34,13 @@ class UsageXpt {
 	// in the usage model. Can be used to 
 	// generate runnable test drivers
 	//------------------------------------
-	def mainTM(UsageModel um) '''
-	'''
+	def CharSequence mainTM(UsageModel um)
 	
 	//------------------------------------
 	// Template method to generate a class
 	// implementing the usage scenario driver
 	//------------------------------------
-	def usageScenarioTM(UsageScenario us, Allocation a) '''
-	'''
+	def CharSequence usageScenarioTM(UsageScenario us, Allocation a)
 	
 	//----------------------
 	// Generic helper methods

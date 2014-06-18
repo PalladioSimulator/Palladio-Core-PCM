@@ -4,6 +4,8 @@ import com.google.inject.Inject
 import de.uka.ipd.sdq.completions.NetworkDemandParametricResourceDemand
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ResourcesXpt
+import de.uka.ipd.sdq.pcm.repository.PassiveResource
 import de.uka.ipd.sdq.pcm.resourceenvironment.CommunicationLinkResourceSpecification
 import de.uka.ipd.sdq.pcm.resourceenvironment.LinkingResource
 import de.uka.ipd.sdq.pcm.resourceenvironment.ProcessingResourceSpecification
@@ -11,10 +13,8 @@ import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceContainer
 import de.uka.ipd.sdq.pcm.resourceenvironment.ResourceEnvironment
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ResourcesXpt
-import org.eclipse.emf.ecore.EObject
 
-import static extension de.uka.ipd.sdq.pcm.transformations.Helper.*
+import static de.uka.ipd.sdq.pcm.transformations.Helper.*
 
 class SimResourcesXpt extends ResourcesXpt {
 	@Inject extension JavaNamesExt
@@ -245,8 +245,16 @@ class SimResourcesXpt extends ResourcesXpt {
 
 	// overwritten template methods
 	
-	override resourceDemandTM(EObject rc) {
+	override resourceDemandTM(ParametricResourceDemand rc) {
 		resourceDemand(rc)
 	}
+	
+	override resourceDemandTM(ResourceCall rc) {
+		resourceDemand(rc)
+	}
+	
+	//This method wasn't implemented in the original script
+	override passiveResourceInitTM(PassiveResource pr) '''
+	'''
 	
 }

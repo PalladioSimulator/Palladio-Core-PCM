@@ -294,12 +294,20 @@ class PCMext {
 	
 	def <T> List<T> uniqueIterable(Iterable<T> s) {
 		val result = <T>newArrayList()
-		
-		s.forall [
-			if (!result.contains(it))
-				result.add(it)
-			else { }
-		]
+		for (T t : s) {
+			if (result != null && !result.contains(t)) {
+					result.add(t)
+				} else {
+					//do nothing
+				}
+		}
+//		s.filterNull.forall [
+//			if (result != null && !result.contains(it)) {
+//					result.add(it)
+//				} else {
+//					//do nothing
+//				}
+//		]
 		
 		return result
 	}

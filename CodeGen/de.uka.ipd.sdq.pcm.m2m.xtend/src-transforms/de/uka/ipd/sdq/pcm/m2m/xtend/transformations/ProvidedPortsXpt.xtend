@@ -12,7 +12,7 @@ import de.uka.ipd.sdq.pcm.core.composition.ComposedStructure
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 
-class ProvidedPortsXpt {
+abstract class ProvidedPortsXpt {
 	@Inject M2TFileSystemAccess fsa
 
 	@Inject extension JavaNamesExt
@@ -130,8 +130,8 @@ class ProvidedPortsXpt {
 		}
 	'''
 		
-	def dispatch componentPortHelperMethodsTM(OperationProvidedRole role) ''''''
-	def dispatch componentPortHelperMethodsTM(InfrastructureProvidedRole role) ''''''
+	def CharSequence componentPortHelperMethodsTM(OperationProvidedRole role)
+	def CharSequence componentPortHelperMethodsTM(InfrastructureProvidedRole role)
 	
 	def dispatch composedStructurePortImpl(OperationProvidedRole role, ComposedProvidingRequiringEntity cs) '''
 		// Port class for «role.portClassName»
@@ -173,8 +173,8 @@ class ProvidedPortsXpt {
 		}
 	'''
 	
-	def dispatch composedComponentPortHelperMethodsTM(OperationInterface iface) ''''''
-	def dispatch composedComponentPortHelperMethodsTM(InfrastructureInterface iface) ''''''
+	def CharSequence composedComponentPortHelperMethodsTM(OperationInterface iface)
+	def CharSequence composedComponentPortHelperMethodsTM(InfrastructureInterface iface)
 
 	def dispatch portDelegator(OperationSignature signature) '''
 		public «signature.operationSignature» {
@@ -202,8 +202,8 @@ class ProvidedPortsXpt {
 		}
 	'''
 	
-	def dispatch portDelegationDelegatingCallTM(OperationSignature signature) '''«/* error */»'''
-	def dispatch portDelegationDelegatingCallTM(InfrastructureSignature signature) '''«/* error */»'''
+	def CharSequence portDelegationDelegatingCallTM(OperationSignature signature)
+	def CharSequence portDelegationDelegatingCallTM(InfrastructureSignature signature)
 
 	def dispatch composedStructurePortDelegationDelegatingCallTM(OperationSignature signature,
 		ComposedProvidingRequiringEntity cs) '''«/* error */»'''

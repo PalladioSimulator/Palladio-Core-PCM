@@ -1,15 +1,14 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations
 
-import de.uka.ipd.sdq.pcm.repository.DataType
-import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
-import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
 import de.uka.ipd.sdq.pcm.repository.CollectionDataType
 import de.uka.ipd.sdq.pcm.repository.CompositeDataType
+import de.uka.ipd.sdq.pcm.repository.PrimitiveDataType
+import de.uka.ipd.sdq.pcm.repository.PrimitiveTypeEnum
 
 class DataTypesXpt {
-	def dispatch String dataType(DataType type) {
-		// «ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"»
-	}
+//	def dispatch String dataType(DataType type) {
+//		// «ERROR "OAW GENERATION ERROR [m2t_transforms/datatypes.xpt]: Unknown Datatype found"»
+//	}
 	
 	def dispatch String dataType(PrimitiveDataType type) {
 		switch (type.type) {

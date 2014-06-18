@@ -19,7 +19,7 @@ import de.uka.ipd.sdq.pcm.subsystem.SubSystem
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 
-class JavaCoreXpt {
+abstract class JavaCoreXpt {
 	@Inject M2TFileSystemAccess fsa
 	
 	@Inject extension JavaNamesExt
@@ -52,25 +52,17 @@ class JavaCoreXpt {
 		«ENDIF»
 	'''
 
-	def dispatch returnType(InfrastructureSignature signature) '''
+	def dispatch returnType(InfrastructureSignature signature)'''
 		void
 	'''
+	//Abstract methods for returnType and ParameterList that must be overwritten 
+	def CharSequence returnTypeTM(OperationSignature signature)
 
-	def dispatch returnTypeTM(OperationSignature signature) '''
-		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ »
-	'''
+	def CharSequence returnTypeTM(InfrastructureSignature signature)
 
-	def dispatch returnTypeTM(InfrastructureSignature signature) '''
-		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ReturnTypeTM must be overridden" */ »
-	'''
+	def CharSequence parameterListTM(Signature signature)
 
-	def parameterListTM(Signature signature) '''
-		« /* ERROR: "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ »
-	'''
-
-	def parameterUsageListTM(Signature signature) '''
-		« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: ParameterUsageTemplate method must be overridden" */ »
-	'''
+	def CharSequence parameterUsageListTM(Signature signature)
 	
 	def parameter(Parameter param) '''
 		«IF param.dataType__Parameter != null»
@@ -87,9 +79,7 @@ class JavaCoreXpt {
 
 	//-----
 	// Generate method implementations by traversing the SEFF
-	def componentService(ServiceEffectSpecification seff) '''
-	« /* ERROR "OAW GENERATION ERROR [m2t_transforms/java_core.xpt]: Unknown Service Effect Specification found!" */ »
-	'''
+	def CharSequence componentService(ServiceEffectSpecification seff)
 
 	def dispatch componentServiceSignature(OperationSignature signature) '''
 		«signature.returnTypeTM»
@@ -103,11 +93,9 @@ class JavaCoreXpt {
 				(«signature.parameterListTM»)
 	'''
 
-	def dispatch componentServiceTM(OperationSignature signature, RepositoryComponent component) '''
-	'''
+	def CharSequence componentServiceTM(OperationSignature signature, RepositoryComponent component) 
 
-	def dispatch componentServiceTM(InfrastructureSignature signature, RepositoryComponent component) '''
-	'''
+	def CharSequence componentServiceTM(InfrastructureSignature signature, RepositoryComponent component)
 
 	def String actions(AbstractAction action) '''
 		«action.action»
@@ -200,26 +188,20 @@ class JavaCoreXpt {
 		public interface «entity.interfaceName»
 	'''
 
-	def componentHelperMethodsDeclarationTM(InterfaceProvidingEntity entity) '''
-	'''
+	def CharSequence componentHelperMethodsDeclarationTM(InterfaceProvidingEntity entity)
 
-	def componentImplementationChildClassTM(RepositoryComponent component) '''
-	'''
+	def CharSequence componentImplementationChildClassTM(RepositoryComponent component)
 
-	def specificImplementationPartTM(RepositoryComponent component) '''
-	'''
+	def CharSequence specificImplementationPartTM(RepositoryComponent component) 
 
 	// Add some component methods also to the generated java interface to access it via EJB lookup.
-	def specificImplementationPartForInterfaceTM(RepositoryComponent component) '''
-	'''
+	def CharSequence specificImplementationPartForInterfaceTM(RepositoryComponent component)
 	
-	def superClassesTM(RepositoryComponent component) '''
-	'''
+	def CharSequence superClassesTM(RepositoryComponent component) 
 	
-	def dispatch innerImplementation(RepositoryComponent component) '''
-	'''
+	def CharSequence innerImplementation(RepositoryComponent component)
 	
-	def dispatch innerImplementation(BasicComponent component) '''
+	def innerImplementation(BasicComponent component) '''
 		«FOR iface:component.providedRoles_InterfaceProvidingEntity.filter(typeof(OperationProvidedRole)).
 			map[providedInterface__OperationProvidedRole.signatures__OperationInterface].flatten»
 			«componentServiceTM(iface, component)»
@@ -230,15 +212,11 @@ class JavaCoreXpt {
 		«ENDFOR»
 	'''
 	
-	def dispatch innerImplementation(CompositeComponent component) '''
-	'''
+	def CharSequence innerImplementation(CompositeComponent component)
 
-	def componentConstructorTM(RepositoryComponent component) '''
-	'''
+	def CharSequence componentConstructorTM(RepositoryComponent component)
 
-	def containerAvailabilityCheckTM(OperationSignature signature) '''
-	'''
+	def CharSequence containerAvailabilityCheckTM(OperationSignature signature)
 
-	def contextTypeTM(AbstractAction action) '''
-	'''
+	def CharSequence contextTypeTM(AbstractAction action)
 }

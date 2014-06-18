@@ -1,24 +1,23 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
 import com.google.inject.Inject
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.DummiesXpt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
-import de.uka.ipd.sdq.pcm.system.System
+import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
 import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SystemSpecifiedExecutionTime
 import de.uka.ipd.sdq.pcm.qosannotations.qos_reliability.SpecifiedReliabilityAnnotation
-import de.uka.ipd.sdq.pcm.qosannotations.qos_performance.SpecifiedExecutionTime
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
-import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
 import de.uka.ipd.sdq.pcm.reliability.ExternalFailureOccurrenceDescription
 import de.uka.ipd.sdq.pcm.reliability.FailureType
-import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
 import de.uka.ipd.sdq.pcm.reliability.HardwareInducedFailureType
 import de.uka.ipd.sdq.pcm.reliability.NetworkInducedFailureType
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.DummiesXpt
-import de.uka.ipd.sdq.pcm.repository.Interface
-import de.uka.ipd.sdq.pcm.repository.RequiredRole
-import de.uka.ipd.sdq.pcm.repository.Signature
+import de.uka.ipd.sdq.pcm.reliability.SoftwareInducedFailureType
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
+import de.uka.ipd.sdq.pcm.system.System
 
 class SimDummiesXpt extends DummiesXpt {
 	//-------------------------------
@@ -112,11 +111,19 @@ class SimDummiesXpt extends DummiesXpt {
 	// overwrite template methods
 	@Inject SimProvidedPortsXpt simProvidedPorts
 	
-	override dummyComponentPortHelperMethodTM(Interface oi) {
+	override dummyComponentPortHelperMethodTM(OperationInterface oi) {
 		simProvidedPorts.dummyComponentPortHelperMethod(oi)
 	}
 	
-	override dummyMethodBodyTM(Signature os, System s, RequiredRole r) {
+	override dummyComponentPortHelperMethodTM(InfrastructureInterface oi) {
+		simProvidedPorts.dummyComponentPortHelperMethod(oi)
+	}
+	
+	override dummyMethodBodyTM(OperationSignature os, System s, OperationRequiredRole r) {
+		dummyMethodBody(os, s, r)
+	}
+	
+	override dummyMethodBodyTM(InfrastructureSignature os, System s, InfrastructureRequiredRole r) {
 		dummyMethodBody(os, s, r)
 	}
 	

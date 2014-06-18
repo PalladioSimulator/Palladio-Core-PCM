@@ -10,7 +10,7 @@ import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 
-class DummiesXpt {
+abstract class DummiesXpt {
 	@Inject M2TFileSystemAccess fsa
 	
 	@Inject extension JavaNamesExt
@@ -54,13 +54,9 @@ class DummiesXpt {
 		fsa.generateFile(fileName, fileContent)
 	}
 	
-	def dispatch dummyComponentPortHelperMethodTM(OperationInterface oi) '''
-	«/* can stay empty */»
-	'''
+	def CharSequence dummyComponentPortHelperMethodTM(OperationInterface oi)
 	
-	def dispatch dummyComponentPortHelperMethodTM(InfrastructureInterface oi) '''
-	«/* can stay empty */»
-	'''
+	def CharSequence dummyComponentPortHelperMethodTM(InfrastructureInterface oi)
 	
 	def dispatch dummyMethod(OperationSignature os, System s, OperationRequiredRole r) '''
 		public «os.operationSignature» {
@@ -79,11 +75,7 @@ class DummiesXpt {
 	// of dummy components attached to the unbound
 	// system required roles
 	//---------------------------------------------
-	def dispatch dummyMethodBodyTM(OperationSignature os, System s, OperationRequiredRole r) '''
-		// No implementation provided yet
-	'''
+	def CharSequence dummyMethodBodyTM(OperationSignature os, System s, OperationRequiredRole r)
 	
-	def dispatch dummyMethodBodyTM(InfrastructureSignature os, System s, InfrastructureRequiredRole r) '''
-		// No implementation provided yet
-	'''
+	def CharSequence dummyMethodBodyTM(InfrastructureSignature os, System s, InfrastructureRequiredRole r)
 }

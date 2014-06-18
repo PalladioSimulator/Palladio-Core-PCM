@@ -5,7 +5,7 @@ import de.uka.ipd.sdq.pcm.seff.AbstractInternalControlFlowAction
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ParametricResourceDemand
 import de.uka.ipd.sdq.pcm.seff.seff_performance.ResourceCall
 
-class ResourcesXpt {
+abstract class ResourcesXpt {
 	// For each resource demand load a resource
 	def resourceDemands(AbstractInternalControlFlowAction aicfa) '''
 		«FOR action : aicfa.resourceDemand_Action»«action.resourceDemandTM»«ENDFOR»
@@ -13,15 +13,9 @@ class ResourcesXpt {
 	'''
 	
 	// What to do with the actual demand is target dependant
-	def dispatch resourceDemandTM(ParametricResourceDemand prd) '''
-		«/* ERROR "OAW GENERATION ERROR [m2t_transforms/resources.xpt]: ResourceDemandTM is a template method and must be overridden" */»
-	'''
+	def CharSequence resourceDemandTM(ParametricResourceDemand prd)
 
-	def dispatch resourceDemandTM(ResourceCall rc) '''
-		«/* ERROR "OAW GENERATION ERROR [m2t_transforms/resources.xpt]: ResourceDemandTM is a template method and must be overridden" */»
-	'''
+	def CharSequence resourceDemandTM(ResourceCall rc)
 	
-	def passiveResourceInitTM(PassiveResource pr) '''
-		«/* ERROR "OAW GENERATION ERROR [m2t_transforms/resources.xpt]: PassiveResourceInitTM is a template method and must be overridden" */»
-	'''
+	def CharSequence passiveResourceInitTM(PassiveResource pr)
 }

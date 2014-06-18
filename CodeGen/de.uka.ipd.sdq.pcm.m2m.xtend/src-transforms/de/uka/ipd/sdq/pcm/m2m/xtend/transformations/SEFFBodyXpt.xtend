@@ -23,29 +23,39 @@ import de.uka.ipd.sdq.pcm.seff.SetVariableAction
 import de.uka.ipd.sdq.pcm.seff.ForkAction
 import com.google.inject.Inject
 
-class SEFFBodyXpt {
+abstract class SEFFBodyXpt {
 	@Inject extension CallsXpt
 	@Inject extension PCMext
 	@Inject extension ResourcesXpt
 	@Inject extension JavaNamesExt
 	@Inject extension JavaCoreXpt
 	
-	def dispatch String action(AbstractAction action) '''
-		« /* ERROR */»
-	'''	
+	def String action(AbstractAction action)
+	def String action(StartAction action)
+	def String action(StopAction action)
+	def String action(CollectionIteratorAction action) 	
+	def String action(LoopAction action)
+	def String action(BranchAction action)
+	def String action(AcquireAction action)
+	def String action(ReleaseAction action)
+	def String action(SetVariableAction action)
+	def String action(ForkAction action)
+	def String action(DelegatingExternalCallAction action)
 	
-	def dispatch String action(StartAction action) ''''''
-	def dispatch String action(StopAction action) ''''''
-
-	def dispatch String action(CollectionIteratorAction action) {
-		// error
-	}
+	def String action(InternalAction action) '''
+	/* InternalAction - START */
+		// software failures:
+		«action.failureInternalActionPreTM»
+		// direct resource demands:
+		«action.resourceDemands»
+		// infrastructure calls:
+		«FOR call : action.infrastructureCall__Action»
+			«call.call(action)»
+		«ENDFOR»
+	/* InternalAction - END */
+	'''
 	
-	def dispatch String action(LoopAction action) {
-		// error
-	}
-	
-	def dispatch String action(ExternalCallAction action) '''
+	def String action(ExternalCallAction action) '''
 	/* ExternalCallAction - START */
 		{ //this scope is needed if the same service is called multiple times in one SEFF. Otherwise there is a duplicate local variable definition.
 			«action.calledService_ExternalService.call(action,
@@ -56,7 +66,7 @@ class SEFFBodyXpt {
 	/* ExternalCallAction - END */
 	'''
 	
-	def dispatch String action(RecoveryAction action) '''
+	def String action(RecoveryAction action) '''
 	{ /* RecoveryAction - START */
 		«action.primaryBehaviour__RecoveryAction.recoveryActionAlternative»
 	} /* RecoveryAction - END */
@@ -191,30 +201,5 @@ class SEFFBodyXpt {
 		«ENDIF»
 	'''
 	
-	def dispatch action(DelegatingExternalCallAction action) {
-		// error
-	}
-	
-	def dispatch action(InternalAction action) '''
-		/* InternalAction - START */
-			// software failures:
-			«action.failureInternalActionPreTM»
-			// direct resource demands:
-			«action.resourceDemands»
-			// infrastructure calls:
-			«FOR call : action.infrastructureCall__Action»
-				«call.call(action)»
-			«ENDFOR»
-		/* InternalAction - END */
-	'''
-	
-	def failureInternalActionPreTM(InternalAction action) '''
-		«/* nothing to do in the general case. */»
-	'''
-	
-	def dispatch action(BranchAction action) '''«/* error */»	'''
-	def dispatch action(AcquireAction action) '''«/* error */»	'''
-	def dispatch action(ReleaseAction action) '''«/* error */»	'''
-	def dispatch action(SetVariableAction action) '''«/* error */»	'''
-	def dispatch action(ForkAction action) '''«/* error */»	'''
+	def CharSequence failureInternalActionPreTM(InternalAction action)
 }

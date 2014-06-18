@@ -92,4 +92,8 @@ class SimComposedStructureXpt extends ComposedStructureXpt {
 		childMemberVarInit(context)
 	}
 	
+	override composedStructureEnd(ComposedStructure entity) '''
+	   }
+	'''
+	
 }

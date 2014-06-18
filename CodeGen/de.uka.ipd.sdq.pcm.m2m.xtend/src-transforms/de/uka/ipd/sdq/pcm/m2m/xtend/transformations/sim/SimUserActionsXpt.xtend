@@ -10,19 +10,20 @@ import de.uka.ipd.sdq.pcm.usagemodel.Loop
 import de.uka.ipd.sdq.pcm.usagemodel.Start
 import de.uka.ipd.sdq.pcm.usagemodel.Stop
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.UserActionsXpt
+import de.uka.ipd.sdq.pcm.usagemodel.AbstractUserAction
 
 class SimUserActionsXpt extends UserActionsXpt {
 	@Inject extension JavaNamesExt
 	@Inject extension UsageXpt
 	
-	override dispatch userAction(Loop _this) '''
+	override userAction(Loop _this) '''
 		for (int iterationCount_«_this.id.javaVariableName()» = 0, maxIterationCount_«_this.id.javaVariableName()» = (Integer)ctx.evaluate("«_this.loopIteration_Loop.specification.specificationString()»",Integer.class); 
 			iterationCount_«_this.id.javaVariableName()» < maxIterationCount_«_this.id.javaVariableName()»; iterationCount_«_this.id.javaVariableName()»++){
 		«_this.bodyBehaviour_Loop.actions_ScenarioBehaviour.filter(typeof(Start)).head.userActions»
 		} 
 	'''
 	
-	override dispatch userAction(Branch _this) '''
+	override userAction(Branch _this) '''
 		{
 			«val counterID = _this.id.javaVariableName»
 			double u«counterID» = ctx.getModel().getConfiguration().getRandomGenerator().random();
@@ -39,13 +40,22 @@ class SimUserActionsXpt extends UserActionsXpt {
 		sum«counterNumber» += «_this.branchProbability»;
 	'''
 	
-	override dispatch userAction(Delay _this) '''
+	override userAction(Delay _this) '''
 		{
 		double delay = de.uka.ipd.sdq.simucomframework.variables.converter.NumberConverter.toDouble(ctx.evaluate("«_this.timeSpecification_Delay.specification»"));
 		ctx.getThread().hold(delay);
 		}
 	'''
 	
-	override dispatch userAction(Stop _this) '''
+	override userAction(Stop _this) '''
 	'''
+	
+	override userAction(AbstractUserAction aua) '''
+		// Unknown user action - bad!
+		«/* ERROR "OAW GENERATION ERROR [m2t_transforms/user_actions.xpt]: Unknown user action!" */»
+	'''
+	
+	override userAction(Start start) '''
+	'''
+	
 }

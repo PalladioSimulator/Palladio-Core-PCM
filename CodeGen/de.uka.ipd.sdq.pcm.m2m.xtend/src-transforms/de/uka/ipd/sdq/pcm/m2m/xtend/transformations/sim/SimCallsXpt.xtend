@@ -271,7 +271,10 @@ class SimCallsXpt extends CallsXpt {
 	'''
 	
 	// overwritten template methods
-	override preCallTM(Signature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) {
+	override preCallTM(OperationSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) {
+		preCall(signature, call, prefix, parameterUsages)
+	}
+	override preCallTM(InfrastructureSignature signature, Entity call, String prefix, List<VariableUsage> parameterUsages) {
 		preCall(signature, call, prefix, parameterUsages)
 	}
 	

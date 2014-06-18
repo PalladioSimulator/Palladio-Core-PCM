@@ -11,7 +11,7 @@ import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
 import com.google.inject.Inject
 import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 
-class RepositoryXpt {
+abstract class RepositoryXpt {
 	@Inject M2TFileSystemAccess fsa
 
 	@Inject extension ComposedStructureXpt
@@ -71,13 +71,9 @@ class RepositoryXpt {
 	   public interface «ii.javaName()»
 	'''
 	
-	def dispatch interfaceHelperMethodsDeclarationTM(OperationInterface oi) '''
-	«/* Can stay empty. */»
-	'''
+	def CharSequence interfaceHelperMethodsDeclarationTM(OperationInterface oi)
 	
-	def dispatch interfaceHelperMethodsDeclarationTM(InfrastructureInterface ii) '''
-	«/* Can stay empty. */»
-	'''
+	def CharSequence interfaceHelperMethodsDeclarationTM(InfrastructureInterface ii)
 	
 	def dispatch void componentRoot(RepositoryComponent rc) {
 	  /* FIXME: There seems to be a bug in xPand 0.7.2 that calls this template for SubSystems 

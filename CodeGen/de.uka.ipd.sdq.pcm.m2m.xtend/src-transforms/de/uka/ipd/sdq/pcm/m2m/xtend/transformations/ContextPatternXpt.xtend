@@ -7,7 +7,7 @@ import de.uka.ipd.sdq.pcm.m2m.xtend.helper.M2TFileSystemAccess
 import de.uka.ipd.sdq.pcm.repository.InfrastructureRequiredRole
 import de.uka.ipd.sdq.pcm.repository.OperationRequiredRole
 
-class ContextPatternXpt {
+abstract class ContextPatternXpt {
 	@Inject M2TFileSystemAccess fsa
 	
 	@Inject extension JavaNamesExt
@@ -176,12 +176,10 @@ class ContextPatternXpt {
 	// Template method to add information to the component context
 	// (here: to the interface)
 	// ----------------------------------
-	def contextInterfaceAdditionsTM(InterfaceRequiringEntity entity) {
-	}
+	def void contextInterfaceAdditionsTM(InterfaceRequiringEntity entity)
 	
 	// ----------------------------------
 	// Template method to add information to the component context
 	// ----------------------------------
-	def componentContextImplAdditionsTM(InterfaceRequiringEntity entity) {
-	}
+	def void componentContextImplAdditionsTM(InterfaceRequiringEntity entity)
 }

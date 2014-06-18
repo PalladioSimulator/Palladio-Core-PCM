@@ -1,19 +1,17 @@
 package de.uka.ipd.sdq.pcm.m2m.xtend.transformations.sim
 
 import com.google.inject.Inject
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
-import de.uka.ipd.sdq.pcm.repository.OperationSignature
-import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaCoreXpt
-import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
-import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
 import de.uka.ipd.sdq.completions.Completion
-import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
-import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
-import de.uka.ipd.sdq.pcm.repository.OperationInterface
-import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.core.entity.ComposedProvidingRequiringEntity
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaCoreXpt
+import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.JavaNamesExt
 import de.uka.ipd.sdq.pcm.m2m.xtend.transformations.ProvidedPortsXpt
-import de.uka.ipd.sdq.pcm.repository.ProvidedRole
-import de.uka.ipd.sdq.pcm.repository.Interface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureInterface
+import de.uka.ipd.sdq.pcm.repository.InfrastructureProvidedRole
+import de.uka.ipd.sdq.pcm.repository.InfrastructureSignature
+import de.uka.ipd.sdq.pcm.repository.OperationInterface
+import de.uka.ipd.sdq.pcm.repository.OperationProvidedRole
+import de.uka.ipd.sdq.pcm.repository.OperationSignature
 import de.uka.ipd.sdq.pcm.repository.Signature
 
 class SimProvidedPortsXpt extends ProvidedPortsXpt {
@@ -99,15 +97,27 @@ class SimProvidedPortsXpt extends ProvidedPortsXpt {
 	'''
 	
 	// overwrite template methods
-	override componentPortHelperMethodsTM(ProvidedRole role) {
+	override componentPortHelperMethodsTM(OperationProvidedRole role) {
+		componentPortHelperMethods(role)
+	}
+	
+	override componentPortHelperMethodsTM(InfrastructureProvidedRole role) {
 		componentPortHelperMethods(role)
 	}
 
-	override composedComponentPortHelperMethodsTM(Interface iface) {
+	override composedComponentPortHelperMethodsTM(OperationInterface iface) {
 		composedComponentPortHelperMethods(iface)
 	}
 	
-	override portDelegationDelegatingCallTM(Signature signature) {
+	override composedComponentPortHelperMethodsTM(InfrastructureInterface iface) {
+		composedComponentPortHelperMethods(iface)
+	}
+	
+	override portDelegationDelegatingCallTM(OperationSignature signature) {
+		portDelegationDelegatingCall(signature)
+	}
+	
+	override portDelegationDelegatingCallTM(InfrastructureSignature signature) {
 		portDelegationDelegatingCall(signature)
 	}
 	

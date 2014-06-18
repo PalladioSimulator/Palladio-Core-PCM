@@ -9,18 +9,15 @@ import de.uka.ipd.sdq.pcm.usagemodel.Branch
 import de.uka.ipd.sdq.pcm.usagemodel.Delay
 import com.google.inject.Inject
 
-class UserActionsXpt {
+abstract class UserActionsXpt {
 	@Inject extension CallsXpt
 	@Inject extension JavaNamesExt
 
-	def dispatch userAction(AbstractUserAction aua) '''
-		// Unknown user action - bad!
-		«/* ERROR "OAW GENERATION ERROR [m2t_transforms/user_actions.xpt]: Unknown user action!" */»
-	'''
+	def CharSequence userAction(AbstractUserAction aua) 
 	
-	def dispatch userAction(Start start) ''''''
-	def dispatch userAction(Stop stop) ''''''
-	def dispatch userAction(EntryLevelSystemCall elsc) '''
+	def CharSequence userAction(Start start) 
+	def CharSequence userAction(Stop stop) 
+	def CharSequence userAction(EntryLevelSystemCall elsc) '''
 				// Set the priority for «elsc.entityName»
 				thread.setPriority(«elsc.priority»);
 		«elsc.operationSignature__EntryLevelSystemCall.call(
@@ -30,7 +27,7 @@ class UserActionsXpt {
 			{})»
 	'''
 	
-	def dispatch userAction(Loop loop) ''''''
-	def dispatch userAction(Branch branch) ''''''
-	def dispatch userAction(Delay delay) ''''''
+	def CharSequence userAction(Loop loop)
+	def CharSequence userAction(Branch branch) 
+	def CharSequence userAction(Delay delay)
 }
