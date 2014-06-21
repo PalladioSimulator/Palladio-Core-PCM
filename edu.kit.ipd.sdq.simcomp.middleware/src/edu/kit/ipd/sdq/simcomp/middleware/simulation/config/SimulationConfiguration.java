@@ -1,5 +1,6 @@
 package edu.kit.ipd.sdq.simcomp.middleware.simulation.config;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -54,7 +55,7 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 
 	private void buildRequiredTypeBaseConfiguration() {
 		String serializedConfig = (String) configMap.get(SimulationConfiguration.CONFIG_KEY_SIMULATION_COMPONENTS_CONFIG);
-		if (!serializedConfig.isEmpty()) {
+		if (serializedConfig != null && !serializedConfig.isEmpty()) {
 			componentsConfig = (HashMap<SimulationComponentImpl, ISimulationComponentConfiguration>) ConfigHelper.deserializeObject(serializedConfig);
 		}
 
@@ -86,6 +87,10 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 		SimulationComponentImpl component = requiredTypeToSimCompMap.get(requiredType);
 		ISimulationComponentConfiguration componentConfig = componentsConfig.get(component);
 
+		if (componentConfig == null) {
+			return null;
+		}
+
 		return componentConfig.getDefaultComponentForRequiredType(requiredType);
 	}
 
@@ -93,6 +98,10 @@ public class SimulationConfiguration extends AbstractSimulationConfig implements
 	public List<ISimulatorCompositonRule> getCompositionRulesForRequiredType(SimulationComponentRequiredType requiredType) {
 		SimulationComponentImpl component = requiredTypeToSimCompMap.get(requiredType);
 		ISimulationComponentConfiguration componentConfig = componentsConfig.get(component);
+
+		if (componentConfig == null) {
+			return new ArrayList<ISimulatorCompositonRule>();
+		}
 
 		return componentConfig.getCompositionRulesForRequiredType(requiredType);
 	}

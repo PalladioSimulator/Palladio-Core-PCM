@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import de.uka.ipd.sdq.pcm.core.composition.AssemblyContext;
 import de.uka.ipd.sdq.pcm.repository.OperationSignature;
 import de.uka.ipd.sdq.pcm.usagemodel.EntryLevelSystemCall;
-import de.uka.ipd.sdq.simulation.ISimulationListener;
 import edu.kit.ipd.sdq.eventsim.AbstractEventSimModel;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.IUserState;
 import edu.kit.ipd.sdq.eventsim.core.palladio.state.StateExchange;
@@ -86,9 +85,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 		
 		// install extern call parameter handling
 		this.execute(new InstallExternalCallParameterHandling(this.seffInterpreter.getConfiguration()));
-
-		// notify registered listeners that the simulation is about to start...
-		// this.notifyStartListeners();
 	}
 
 	/**
@@ -150,24 +146,6 @@ public class EventSimSystemModel extends AbstractEventSimModel {
 
 	public SeffBehaviourInterpreter getSeffInterpreter() {
 		return seffInterpreter;
-	}
-
-	/**
-	 * Notfies all simulation observers that the simulation is about to start
-	 */
-	private void notifyStartListeners() {
-		for (final ISimulationListener l : this.getEventSimConfig().getListeners()) {
-			l.simulationStart();
-		}
-	}
-
-	/**
-	 * Notfies all simulation observers that the simulation has stopped
-	 */
-	private void notifyStopListeners() {
-		for (final ISimulationListener l : this.getEventSimConfig().getListeners()) {
-			l.simulationStop();
-		}
 	}
 
 	/**

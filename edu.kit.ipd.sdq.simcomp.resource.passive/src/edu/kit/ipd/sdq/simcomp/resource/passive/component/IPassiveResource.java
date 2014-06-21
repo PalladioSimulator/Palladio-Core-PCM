@@ -9,6 +9,8 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
  * Represents a passive resource simulation component which can be aquired in a
  * specific amount.
  * 
+ * TODO (SimComp) Introduce passive resource simulation events
+ * 
  * @author Christoph Föhrdes
  * 
  */

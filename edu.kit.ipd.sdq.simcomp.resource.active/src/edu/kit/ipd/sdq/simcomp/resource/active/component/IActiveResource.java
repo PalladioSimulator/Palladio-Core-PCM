@@ -8,6 +8,8 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationComponent;
 /**
  * Represents an active resource simulation component which can be consumed.
  * 
+ * TODO (SimComp) Introduce active resource simulation events
+ * 
  * @author Christoph Föhrdes
  * 
  */

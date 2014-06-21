@@ -36,6 +36,7 @@ import de.uka.ipd.sdq.probespec.framework.probes.ProbeStrategyRegistry;
 import de.uka.ipd.sdq.probfunction.math.IRandomGenerator;
 import de.uka.ipd.sdq.simucomframework.SimuComDefaultRandomNumberGenerator;
 import de.uka.ipd.sdq.simulation.AbstractSimulationConfig;
+import de.uka.ipd.sdq.simulation.ISimulationListener;
 import de.uka.ipd.sdq.simulation.IStatusObserver;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimEngineFactory;
 import de.uka.ipd.sdq.simulation.abstractsimengine.ISimulationControl;
@@ -47,6 +48,7 @@ import edu.kit.ipd.sdq.simcomp.component.ISimulationMiddleware;
 import edu.kit.ipd.sdq.simcomp.component.meta.IContextFieldValueProvider;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentImpl;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentRequiredType;
+import edu.kit.ipd.sdq.simcomp.component.meta.SimulationComponentType;
 import edu.kit.ipd.sdq.simcomp.component.meta.SimulationContextField;
 import edu.kit.ipd.sdq.simcomp.config.ISimulationConfiguration;
 import edu.kit.ipd.sdq.simcomp.config.ISimulatorCompositonRule;
@@ -264,6 +266,19 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		// nothing matched, we use the default simulation component
 		SimulationComponentImpl defaultComponent = simConfig.getDefaultComponentForRequiredType(requiredInterface);
+		
+		if (defaultComponent == null) {
+			// we have no default configured, we use the first one
+			componentLoop:
+			for (SimulationComponentImpl simulationComponentImpl : registeredComponents) {
+				for (SimulationComponentType providedType : simulationComponentImpl.getProvidedTypes()) {
+					if (providedType.equals(requiredInterface.getType())) {
+						defaultComponent = simulationComponentImpl;
+						break componentLoop;
+					}
+				}
+			}
+		}
 
 		return getComponentForComponentMeta(defaultComponent, componentList);
 	}
@@ -317,7 +332,8 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 
 		});
 
-		this.simControl.start();
+		notifyStartListeners();
+		simControl.start();
 	}
 
 	/**
@@ -339,7 +355,9 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			logger.debug("Cleaning up...");
 		}
 
-		this.probeSpecContext.finish();
+		probeSpecContext.finish();
+		
+		notifyStopListeners();
 
 		if (logger.isEnabledFor(Level.INFO)) {
 			logger.info("Simulation took " + this.getSimulationControl().getCurrentSimulationTime() + " simulation seconds");
@@ -517,8 +535,6 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 	}
 
 	/**
-	 * TODO (simcomp) relocate?
-	 * 
 	 * @return
 	 */
 	@Override
@@ -528,6 +544,26 @@ public class SimulationMiddleware implements ISimulationMiddleware {
 			randomNumberGenerator = new SimuComDefaultRandomNumberGenerator(simConfig.getRandomSeed());
 		}
 		return randomNumberGenerator;
+	}
+
+	/**
+	 * Notifies all simulation observers that the simulation is about to start
+	 */
+	private void notifyStartListeners() {
+		AbstractSimulationConfig config = (AbstractSimulationConfig) this.getSimulationConfiguration();
+		for (final ISimulationListener l : config.getListeners()) {
+			l.simulationStart();
+		}
+	}
+
+	/**
+	 * Notifies all simulation observers that the simulation has stopped
+	 */
+	private void notifyStopListeners() {
+		AbstractSimulationConfig config = (AbstractSimulationConfig) this.getSimulationConfiguration();
+		for (final ISimulationListener l : config.getListeners()) {
+			l.simulationStop();
+		}
 	}
 
 }
